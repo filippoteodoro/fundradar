@@ -385,7 +385,7 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
                       textDecoration: 'none',
                     }}
                   >
-                    Subscribe — €9/month
+                    Subscribe
                   </a>
                 </div>
               )}

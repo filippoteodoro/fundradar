@@ -65,7 +65,7 @@ export function SubscribeForm() {
           boxSizing: 'border-box',
         }}
       >
-        {loading ? 'Redirecting to checkout...' : 'Subscribe — €9/month'}
+        {loading ? 'Redirecting to checkout...' : 'Subscribe'}
       </button>
     </div>
   );
