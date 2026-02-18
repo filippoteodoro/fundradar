@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { BetaBadge } from '@/components/BetaBadge';
 import { BetaBanner } from '@/components/BetaBanner';
 import { HeaderNav } from '@/components/HeaderNav';
+import { Analytics } from '@vercel/analytics/react';
 import { getBaseUrl } from '@/lib/baseUrl';
 
 const GA_ID = 'G-ZK8Z0S6B49';
@@ -112,6 +113,7 @@ gtag('config', '${GA_ID}');`}
         }}>
           <p>All data verified through public sources. Data is updated daily.</p>
         </footer>
+        <Analytics />
       </body>
     </html>
   );

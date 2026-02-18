@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@fundradar/shared": "workspace:*",
+    "@vercel/analytics": "^1.6.1",
     "leaflet": "^1.9.4",
     "next": "14.2.35",
     "react": "^18.2.0",
