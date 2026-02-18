@@ -919,7 +919,7 @@ function buildDigestText(
     }
   }
 
-  lines.push('- You are receiving this because your Fundradar subscription is active. To unsubscribe click here: link');
+  lines.push('- You are receiving this because your Fundradar subscription is active. To manage or cancel your subscription: https://billing.stripe.com/p/login/3cIeVcalm8hwfmz6ac57W00');
 
   return `${lines.join('\n')}\n`;
 }

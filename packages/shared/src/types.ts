@@ -155,6 +155,8 @@ export interface Signal {
   verified?: boolean;             // false for news/rumor signals
   is_rumor?: boolean;             // true for unconfirmed deals, negotiations, rumors
   enriched_summary_original?: string;  // original Italian text (before translation)
+  title_original?: string;             // original Italian title (before translation)
+  what_changed_original?: string;      // original Italian what_changed (before translation)
 }
 
 /**

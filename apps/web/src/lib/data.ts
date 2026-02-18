@@ -1363,7 +1363,7 @@ export function getSignalNote(fundSlug: string): string | null {
 interface TeamAnalyticsFile {
   generated_at: string;
   fund_count: number;
-  funds: Record<string, TeamAnalytics>;
+  funds: Record<string, unknown>;
 }
 
 interface ManualProfilesFile {
@@ -1394,9 +1394,88 @@ function loadTeamAnalytics(): TeamAnalyticsFile {
   }
 }
 
+/**
+ * Normalize flat format (from PeopleStatsCalculator) to nested TeamAnalytics format.
+ * Old manually-curated entries already have the nested format and pass through unchanged.
+ */
+function normalizeTeamAnalytics(raw: Record<string, unknown>): TeamAnalytics {
+  // Already in nested format (has `backgrounds` dict)
+  if (raw.backgrounds !== undefined) {
+    return raw as unknown as TeamAnalytics;
+  }
+
+  // Flat format — transform to nested
+  const bgMap: Record<string, string> = {
+    background_pe: 'private_equity',
+    background_ib: 'investment_banking',
+    background_vc: 'venture_capital',
+    background_consulting: 'consulting',
+    background_big_four: 'big_four',
+    background_corporate: 'corporate',
+    background_tech: 'tech',
+    background_legal: 'legal',
+    background_other: 'other',
+  };
+  const backgrounds: Record<string, number> = {};
+  for (const [key, label] of Object.entries(bgMap)) {
+    const val = (raw[key] as number) || 0;
+    if (val > 0) backgrounds[label] = val;
+  }
+
+  const seniorityMap: Record<string, string> = {
+    partners: 'partner',
+    managing_directors: 'managing_director',
+    principals: 'principal',
+    directors: 'director',
+    vice_presidents: 'vice_president',
+    associates: 'associate',
+    analysts: 'analyst',
+    other_roles: 'other',
+  };
+  const seniority: Record<string, number> = {};
+  for (const [key, label] of Object.entries(seniorityMap)) {
+    const val = (raw[key] as number) || 0;
+    if (val > 0) seniority[label] = val;
+  }
+
+  const genderMale = (raw.gender_male_pct as number) || 0;
+  const genderFemale = (raw.gender_female_pct as number) || 0;
+  const total = (raw.total_employees as number) || 0;
+
+  return {
+    fund_slug: raw.fund_slug as string,
+    total_profiles: total,
+    education: {
+      top_schools: (raw.education_schools as Record<string, number>) || {},
+      top_degrees: (raw.top_degrees as Record<string, number>) || {},
+      education_tier: {
+        top_mba: (raw.top_mba_count as number) || 0,
+        top_undergrad: (raw.top_undergrad_count as number) || 0,
+        other: total - ((raw.top_mba_count as number) || 0) - ((raw.top_undergrad_count as number) || 0),
+      },
+    },
+    backgrounds,
+    seniority,
+    hiring: {
+      new_hires_last_1y: (raw.new_hires_last_12mo as number) || 0,
+      new_hires_last_2y: 0,
+      avg_tenure_years: (raw.avg_tenure_years as number) || 0,
+    },
+    demographics: {
+      gender_male_pct: genderMale,
+      gender_female_pct: genderFemale,
+      gender_unknown_pct: Math.max(0, Math.round((100 - genderMale - genderFemale) * 10) / 10),
+      avg_years_experience: (raw.avg_years_experience as number) || 0,
+      avg_estimated_age: 0,
+    },
+  };
+}
+
 export function getTeamAnalyticsForFund(fundSlug: string): TeamAnalytics | null {
   const analytics = loadTeamAnalytics();
-  return analytics.funds[fundSlug] || null;
+  const raw = analytics.funds[fundSlug];
+  if (!raw) return null;
+  return normalizeTeamAnalytics(raw as Record<string, unknown>);
 }
 
 /**
@@ -1453,7 +1532,12 @@ export function isManualLinkedinProfileFund(fundSlug: string): boolean {
 }
 
 export function getAllRealAnalytics(): Record<string, TeamAnalytics> {
-  return loadTeamAnalytics().funds;
+  const raw = loadTeamAnalytics().funds;
+  const result: Record<string, TeamAnalytics> = {};
+  for (const [slug, entry] of Object.entries(raw)) {
+    result[slug] = normalizeTeamAnalytics(entry as Record<string, unknown>);
+  }
+  return result;
 }
 
 /**

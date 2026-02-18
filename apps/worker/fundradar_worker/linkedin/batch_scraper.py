@@ -47,6 +47,35 @@ MEGA_FUNDS_TO_SKIP = {
     "pai-partners",  # 500+ global, Paris HQ — already have manual profiles
 }
 
+# Non-Italian European funds whose LinkedIn pages return predominantly non-Italy staff.
+# The priority_ranker gives these Italy HQ bonus because AIFI records their Italian branch
+# address — but their global LinkedIn team is mostly Paris/London/Amsterdam.
+# Scraping 25 profiles yields ~1-3 Italy-based people: not worth the Apify budget.
+# Add manual profiles to manual_profiles.json instead if Italy team coverage is needed.
+FOREIGN_FUNDS_TO_SKIP = {
+    "montefiore",       # Paris HQ, ~100 global employees, Italy team tiny fraction
+    "bc-partners",      # London HQ, ~200 global employees, Italy team tiny fraction
+    "cinven",           # London/Luxembourg HQ, ~300 global, Italy team tiny fraction
+    "argos-wityu",      # Paris/Luxembourg HQ, ~50 global, Italy team tiny fraction
+    "charme-capital",   # London/Jersey HQ, Italy connections but non-Italian team
+    "rivean-capital",   # Amsterdam HQ, ~150 global, Italy team tiny fraction
+    "sagard",           # Paris/Canada HQ, ~200 global, Italy team tiny fraction
+    "andera-partners",  # Paris HQ, VC, Italy team tiny fraction
+    "eiffel",           # Paris HQ, infrastructure, Italy team tiny fraction
+    "sofinnova-partners",  # Paris HQ, biotech VC, Italy team tiny fraction
+    "portobello-capital",  # Madrid HQ, Spain-focused, minimal Italy team
+    "capza",            # Paris HQ, mid-market, Italy team tiny fraction
+    "muzinich-co",      # London HQ, credit, Italy team tiny fraction
+    "eurazeo",          # Paris HQ, ~500 global, Italy team small fraction
+    "astorg",           # Paris/Luxembourg HQ, Italy team tiny fraction
+    "abenex",           # Paris HQ, France-focused, Italy team tiny fraction
+    "apheon",           # Belgium HQ, Benelux-focused, Italy team tiny fraction
+    "perwyn",           # London HQ, Italy team tiny fraction
+    "oakley-capital",   # London HQ, ~100 global, Italy investments but London team
+    "unigrains",        # Paris HQ, France-focused agri fund
+    "ring-capital",     # Paris HQ, French VC, Italy team tiny fraction
+}
+
 
 @dataclass
 class ScrapeProgress:
@@ -86,23 +115,38 @@ def scrape_fund_employees(
     company_url: str,
     api_token: str,
     max_employees: int = 50,
+    use_basic_actor: bool = True,
 ) -> tuple[list[dict], float, str | None]:
     """
     Scrape employees for a single fund.
 
+    Args:
+        use_basic_actor: If True, use apimaestro actor (unlimited, headline-only data).
+                         If False, use harvestapi actor (10 runs/month, full experience+education).
+
     Returns:
         Tuple of (profiles, cost_usd, error_message)
     """
-    actor_id = "harvestapi~linkedin-company-employees"
     base_url = "https://api.apify.com/v2"
+
+    if use_basic_actor:
+        # apimaestro: unlimited runs, free (pure compute), headline-only data
+        actor_id = "cIdqlEvw6afc1do1p"
+        input_data = {
+            "identifier": company_url,
+            "max_employees": max_employees,
+        }
+    else:
+        # harvestapi: 10 runs/month on free Apify plan, rich data (experience+education)
+        actor_id = "harvestapi~linkedin-company-employees"
+        input_data = {
+            "companies": [company_url],
+            "maxItems": max_employees,
+            "outputType": "full",
+        }
 
     # Start the actor
     run_url = f"{base_url}/acts/{actor_id}/runs?token={api_token}"
-    input_data = {
-        "companies": [company_url],
-        "maxItems": max_employees,
-        "outputType": "full",
-    }
 
     try:
         response = requests.post(run_url, json=input_data, timeout=30)
@@ -149,9 +193,16 @@ def scrape_fund_employees(
         return [], PRICE_ACTOR_START, f"Failed to get results: {e}"
 
     # Calculate cost
+    # apimaestro: charges only compute units (negligible, ~$0.001/run) — no per-profile fee
+    # harvestapi: charges PRICE_ACTOR_START + PRICE_FULL_PROFILE per profile
     charged = run_info.get("chargedEventCounts", {})
     full_profiles = charged.get("full-profile", 0)
-    cost = PRICE_ACTOR_START + (full_profiles * PRICE_FULL_PROFILE)
+    if use_basic_actor:
+        # Compute-unit cost only: CU * $0.004 (Apify free plan rate)
+        compute_units = run_info.get("stats", {}).get("computeUnits", 0)
+        cost = round(compute_units * 0.004, 4)
+    else:
+        cost = PRICE_ACTOR_START + (full_profiles * PRICE_FULL_PROFILE)
 
     return profiles, cost, None
 
@@ -165,6 +216,8 @@ def run_batch_scrape(
     max_cost_usd: float = 100.0,
     resume: bool = True,
     use_priority: bool = True,
+    delay_seconds: int = 120,
+    use_basic_actor: bool = True,
 ):
     """
     Run batch scrape of all funds.
@@ -228,8 +281,8 @@ def run_batch_scrape(
         # Skip if already processed
         if slug in progress.completed_funds or slug in progress.failed_funds:
             continue
-        # Skip mega-funds
-        if slug in MEGA_FUNDS_TO_SKIP:
+        # Skip mega-funds and foreign-HQ funds (Italy team too small to scrape usefully)
+        if slug in MEGA_FUNDS_TO_SKIP or slug in FOREIGN_FUNDS_TO_SKIP:
             if slug not in progress.skipped_mega_funds:
                 progress.skipped_mega_funds.append(slug)
             continue
@@ -267,7 +320,7 @@ def run_batch_scrape(
         print(f"  URL: {linkedin_url}")
 
         profiles, cost, error = scrape_fund_employees(
-            linkedin_url, api_token, max_employees
+            linkedin_url, api_token, max_employees, use_basic_actor=use_basic_actor
         )
 
         progress.total_cost_usd += cost
@@ -276,21 +329,32 @@ def run_batch_scrape(
         if error:
             print(f"  ERROR: {error}")
             progress.failed_funds.append(slug)
+        elif len(profiles) == 0:
+            # 0 profiles = LinkedIn rate limited the actor. Do NOT mark as completed —
+            # mark as failed so it can be retried in a future session.
+            print(f"  WARNING: 0 profiles returned — likely LinkedIn rate limit. Marking as failed for retry.")
+            progress.failed_funds.append(slug)
         else:
             print(f"  Got {len(profiles)} profiles (cost: ${cost:.3f})")
             progress.completed_funds.append(slug)
             progress.total_profiles += len(profiles)
 
             # Save raw profiles
-            if profiles:
-                raw_path = raw_dir / f"{slug}_employees.json"
-                with open(raw_path, "w") as f:
-                    json.dump(profiles, f, indent=2)
+            raw_path = raw_dir / f"{slug}_employees.json"
+            with open(raw_path, "w") as f:
+                json.dump(profiles, f, indent=2)
 
         # Save progress every batch_size funds
         if (i + 1) % batch_size == 0:
             save_progress(progress, progress_path)
             print(f"\n  Progress saved. Total cost: ${progress.total_cost_usd:.2f}\n")
+
+        # Delay between funds to avoid LinkedIn rate limiting.
+        # HarvestAPI recommends distributing requests evenly across hours (not bursting).
+        # Default 120s = scraping 8 funds takes ~16 minutes, well within hourly limits.
+        if i < len(remaining) - 1 and delay_seconds > 0:
+            print(f"  Waiting {delay_seconds}s before next fund (rate limit protection)...")
+            time.sleep(delay_seconds)
 
     # Final save
     save_progress(progress, progress_path)
@@ -317,6 +381,8 @@ if __name__ == "__main__":
     parser.add_argument("--batch-size", type=int, default=10, help="Save progress every N funds")
     parser.add_argument("--no-resume", action="store_true", help="Start fresh instead of resuming")
     parser.add_argument("--no-priority", action="store_true", help="Don't use priority ranking (scrape in file order)")
+    parser.add_argument("--delay", type=int, default=30, help="Seconds to wait between funds (default: 30 for apimaestro, use 180 for harvestapi)")
+    parser.add_argument("--rich", action="store_true", help="Use harvestapi actor (rich data: experience+education, but 10 runs/month limit). Default: apimaestro (unlimited, headline-only)")
     args = parser.parse_args()
 
     # Get API token
@@ -345,4 +411,6 @@ if __name__ == "__main__":
         max_cost_usd=args.max_cost,
         resume=not args.no_resume,
         use_priority=not args.no_priority,
+        delay_seconds=args.delay,
+        use_basic_actor=not args.rich,
     )

@@ -168,6 +168,7 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
         gap: '24px',
       }}>
         {/* Professional Backgrounds - Horizontal Bar Chart */}
+        {backgroundsData.length > 0 && (
         <div style={{
           background: '#fafafa',
           borderRadius: '12px',
@@ -195,8 +196,10 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
             </BarChart>
           </ResponsiveContainer>
         </div>
+        )}
 
         {/* Seniority Distribution - Pie Chart with Legend */}
+        {seniorityData.length > 0 && (
         <div style={{
           background: '#fafafa',
           borderRadius: '12px',
@@ -261,8 +264,10 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
             </div>
           )}
         </div>
+        )}
 
         {/* Top Schools - Horizontal Bar Chart */}
+        {schoolsData.length > 0 && (
         <div style={{
           background: '#fafafa',
           borderRadius: '12px',
@@ -271,31 +276,26 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
           <h3 style={{ margin: '0 0 16px 0', fontSize: '15px', color: '#333', fontWeight: 600 }}>
             Top Schools
           </h3>
-          {schoolsData.length > 0 ? (
-            <ResponsiveContainer width="100%" height={schoolsData.length * 40 + 10}>
-              <BarChart data={schoolsData} layout="vertical" margin={{ left: 0, right: 30 }}>
-                <XAxis type="number" hide />
-                <YAxis
-                  type="category"
-                  dataKey="name"
-                  width={140}
-                  tick={{ fontSize: CHART_LABEL_FONT_SIZE, fill: '#666' }}
-                  tickLine={false}
-                  axisLine={false}
-                />
-                <Bar dataKey="value" barSize={HORIZONTAL_BAR_SIZE} radius={[0, 4, 4, 0]} label={{ position: 'right', fill: '#666', fontSize: CHART_LABEL_FONT_SIZE, formatter: (v: unknown) => `${v}%` }}>
-                  {schoolsData.map((_, index) => (
-                    <Cell key={`cell-${index}`} fill={colorAt(index)} />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          ) : (
-            <p style={{ color: '#888', fontSize: '14px', textAlign: 'center', padding: '40px 0' }}>
-              No school data available
-            </p>
-          )}
+          <ResponsiveContainer width="100%" height={schoolsData.length * 40 + 10}>
+            <BarChart data={schoolsData} layout="vertical" margin={{ left: 0, right: 30 }}>
+              <XAxis type="number" hide />
+              <YAxis
+                type="category"
+                dataKey="name"
+                width={140}
+                tick={{ fontSize: CHART_LABEL_FONT_SIZE, fill: '#666' }}
+                tickLine={false}
+                axisLine={false}
+              />
+              <Bar dataKey="value" barSize={HORIZONTAL_BAR_SIZE} radius={[0, 4, 4, 0]} label={{ position: 'right', fill: '#666', fontSize: CHART_LABEL_FONT_SIZE, formatter: (v: unknown) => `${v}%` }}>
+                {schoolsData.map((_, index) => (
+                  <Cell key={`cell-${index}`} fill={colorAt(index)} />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
         </div>
+        )}
       </div>
 
       {/* Hiring Velocity Bar */}

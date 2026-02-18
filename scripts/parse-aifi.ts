@@ -12,6 +12,23 @@ const PROJECT_ROOT = join(process.cwd(), '..');
 const AIFI_DIR = join(PROJECT_ROOT, 'data', 'AIFI');
 const OUTPUT_PATH = join(PROJECT_ROOT, 'data', 'db.json');
 
+// Italian → English city names for well-known cities
+const ITALIAN_TO_ENGLISH_CITY: Record<string, string> = {
+  'Milano': 'Milan',
+  'Roma': 'Rome',
+  'Torino': 'Turin',
+  'Firenze': 'Florence',
+  'Napoli': 'Naples',
+  'Venezia': 'Venice',
+  'Genova': 'Genoa',
+  'Padova': 'Padua',
+};
+
+function normalizeCity(city: string | null): string | null {
+  if (!city) return null;
+  return ITALIAN_TO_ENGLISH_CITY[city] || city;
+}
+
 // Entities to exclude (banks, wealth managers, non-PE entities).
 // Keep raw AIFI files unchanged; enforce exclusion at parse time.
 const EXCLUDED_NAMES = [
@@ -357,7 +374,7 @@ async function main() {
       slug,
       name: f.name,
       category,
-      hq_city: f.city || null,
+      hq_city: normalizeCity(f.city || null),
       hq_region: 'Italy', // AIFI is Italian PE association
       website: f.website || null,
       strategy_tags: strategyTags,

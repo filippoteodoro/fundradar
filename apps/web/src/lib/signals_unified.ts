@@ -88,6 +88,8 @@ interface WebsiteMonitorSignal {
   is_rumor?: boolean;
   // Original Italian text (before DeepL translation)
   enriched_summary_original?: string;
+  title_original?: string;
+  what_changed_original?: string;
 }
 
 interface DetectedSignalsFile {

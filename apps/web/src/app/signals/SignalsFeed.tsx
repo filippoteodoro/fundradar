@@ -376,11 +376,11 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
                     href="/subscribe"
                     style={{
                       display: 'inline-block',
-                      padding: '10px 28px',
+                      padding: '7px 18px',
                       background: '#2563eb',
                       color: 'white',
-                      borderRadius: '8px',
-                      fontSize: '14px',
+                      borderRadius: '6px',
+                      fontSize: '13px',
                       fontWeight: 600,
                       textDecoration: 'none',
                     }}

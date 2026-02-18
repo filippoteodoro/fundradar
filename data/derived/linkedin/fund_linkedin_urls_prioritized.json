@@ -1,8 +1,23 @@
 {
-  "generated_at": "2026-02-09",
+  "generated_at": "2026-02-18",
   "note": "Funds sorted by Italy PE/VC importance. Scrape in this order.",
   "matched_count": 132,
   "companies": [
+    {
+      "slug": "permira",
+      "name": "Permira Associati",
+      "linkedin_url": "https://www.linkedin.com/company/permira/",
+      "priority_score": 126.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Milano)",
+        "Mega AUM (\u20ac50B+)",
+        "PE fund",
+        "Active dealmaker (7 deals)",
+        "7 Italy deals",
+        "AIFI member"
+      ]
+    },
     {
       "slug": "dea-capital-alternative-funds-sgr",
       "name": "DeA Capital Alternative Funds SGR",
@@ -11,7 +26,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €5-10B",
+        "AUM \u20ac5-10B",
         "PE fund",
         "Active dealmaker (7 deals)",
         "7 Italy deals",
@@ -26,10 +41,25 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "Mega AUM (€50B+)",
+        "Mega AUM (\u20ac50B+)",
         "PE fund",
         "Active dealmaker (5 deals)",
         "5 Italy deals",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "clessidra-sgr",
+      "name": "Clessidra Private Equity SGR",
+      "linkedin_url": "https://www.linkedin.com/company/clessidra-group/",
+      "priority_score": 120.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Milano)",
+        "AUM \u20ac1-5B",
+        "PE fund",
+        "Active dealmaker (17 deals)",
+        "17 Italy deals",
         "AIFI member"
       ]
     },
@@ -41,7 +71,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "Large AUM (€10B+)",
+        "Large AUM (\u20ac10B+)",
         "Infra fund",
         "Active dealmaker (7 deals)",
         "7 Italy deals",
@@ -56,7 +86,22 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
+        "PE fund",
+        "Active dealmaker (7 deals)",
+        "7 Italy deals",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "quadrivio-group",
+      "name": "Quadrivio Group",
+      "linkedin_url": "https://www.linkedin.com/company/quadrivio-sgr/",
+      "priority_score": 116.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Milano)",
+        "AUM \u20ac1-5B",
         "PE fund",
         "Active dealmaker (7 deals)",
         "7 Italy deals",
@@ -65,16 +110,16 @@
     },
     {
       "slug": "fondo-italiano-d-investimento-sgr",
-      "name": "Fondo Italiano d’Investimento SGR",
-      "linkedin_url": "https://www.linkedin.com/company/fondo-italiano-per-l-efficienza-energetica/",
+      "name": "Fondo Italiano d'Investimento SGR",
+      "linkedin_url": "https://www.linkedin.com/company/fondo-italiano-d-investimento-sgr/",
       "priority_score": 113.0,
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "Debt fund",
-        "Active dealmaker (17 deals)",
-        "17 Italy deals",
+        "Active dealmaker (19 deals)",
+        "19 Italy deals",
         "AIFI member"
       ]
     },
@@ -82,14 +127,43 @@
       "slug": "alto-partners-sgr",
       "name": "Alto Partners SGR",
       "linkedin_url": "https://www.linkedin.com/company/alto-partners-sgr-s-p-a/",
-      "priority_score": 109.0,
+      "priority_score": 110.0,
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €500M-1B",
+        "AUM \u20ac500M-1B",
         "PE fund",
-        "Active dealmaker (8 deals)",
-        "8 Italy deals",
+        "Active dealmaker (11 deals)",
+        "11 Italy deals",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "wise-equity-sgr",
+      "name": "Wise Equity SGR",
+      "linkedin_url": "https://ca.linkedin.com/company/wiseequity",
+      "priority_score": 110.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Milano)",
+        "AUM \u20ac500M-1B",
+        "PE fund",
+        "Active dealmaker (16 deals)",
+        "16 Italy deals",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "carlyle",
+      "name": "Carlyle",
+      "linkedin_url": "https://www.linkedin.com/company/the-carlyle-group/",
+      "priority_score": 107.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Milano)",
+        "Mega AUM (\u20ac50B+)",
+        "PE fund",
+        "4 Italy deals",
         "AIFI member"
       ]
     },
@@ -101,10 +175,25 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Roma)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "Infra fund",
         "Active dealmaker (6 deals)",
         "6 Italy deals",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "fsi",
+      "name": "FSI",
+      "linkedin_url": "https://www.linkedin.com/company/fondofsi/",
+      "priority_score": 105.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Milano)",
+        "AUM \u20ac1-5B",
+        "Growth fund",
+        "Active dealmaker (5 deals)",
+        "5 Italy deals",
         "AIFI member"
       ]
     },
@@ -116,7 +205,35 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "Large AUM (€10B+)",
+        "Large AUM (\u20ac10B+)",
+        "PE fund",
+        "3 Italy deals",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "bridgepoint",
+      "name": "Bridgepoint",
+      "linkedin_url": "https://www.linkedin.com/company/bridgepoint/",
+      "priority_score": 101.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Milano)",
+        "Mega AUM (\u20ac50B+)",
+        "PE fund",
+        "2 Italy deals",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "montefiore",
+      "name": "Montefiore",
+      "linkedin_url": "https://www.linkedin.com/company/montefiore-investment/",
+      "priority_score": 99.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Milano)",
+        "AUM \u20ac5-10B",
         "PE fund",
         "3 Italy deals",
         "AIFI member"
@@ -130,9 +247,23 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "Mega AUM (€50B+)",
+        "Mega AUM (\u20ac50B+)",
         "PE fund",
         "1 Italy deals",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "21-invest",
+      "name": "21 Invest",
+      "linkedin_url": "https://www.linkedin.com/company/21-invest/",
+      "priority_score": 97.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Treviso)",
+        "AUM \u20ac1-5B",
+        "PE fund",
+        "4 Italy deals",
         "AIFI member"
       ]
     },
@@ -143,7 +274,7 @@
       "priority_score": 96.0,
       "priority_reasons": [
         "In db.json",
-        "Large AUM (€10B+)",
+        "Large AUM (\u20ac10B+)",
         "PE fund",
         "Active dealmaker (6 deals)",
         "6 Italy deals",
@@ -158,7 +289,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "Large AUM (€10B+)",
+        "Large AUM (\u20ac10B+)",
         "PE fund",
         "1 Italy deals",
         "AIFI member"
@@ -172,7 +303,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Padova)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "Active dealmaker (7 deals)",
         "7 Italy deals",
@@ -187,35 +318,37 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "Large AUM (€10B+)",
+        "Large AUM (\u20ac10B+)",
         "Infra fund",
         "3 Italy deals",
         "AIFI member"
       ]
     },
     {
-      "slug": "carlyle",
-      "name": "Carlyle",
-      "linkedin_url": "https://www.linkedin.com/company/the-carlyle-group/",
+      "slug": "apax-partners",
+      "name": "Apax Partners",
+      "linkedin_url": "https://www.linkedin.com/company/apax-partners/",
       "priority_score": 95.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
-        "Mega AUM (€50B+)",
+        "Mega AUM (\u20ac50B+)",
         "PE fund",
+        "Active dealmaker (5 deals)",
+        "5 Italy deals",
         "AIFI member"
       ]
     },
     {
-      "slug": "permira",
-      "name": "Permira Associati",
-      "linkedin_url": "https://www.linkedin.com/company/permira/",
+      "slug": "f2i-sgr",
+      "name": "F2i SGR",
+      "linkedin_url": "https://www.linkedin.com/company/f2i-sgr/",
       "priority_score": 95.0,
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "Mega AUM (€50B+)",
-        "PE fund",
+        "AUM \u20ac5-10B",
+        "Infra fund",
+        "4 Italy deals",
         "AIFI member"
       ]
     },
@@ -226,23 +359,23 @@
       "priority_score": 93.0,
       "priority_reasons": [
         "In db.json",
-        "Large AUM (€10B+)",
+        "Large AUM (\u20ac10B+)",
         "PE fund",
         "Active dealmaker (15 deals)",
         "15 Italy deals"
       ]
     },
     {
-      "slug": "fsi",
-      "name": "FSI",
-      "linkedin_url": "https://www.linkedin.com/company/fondofsi/",
-      "priority_score": 92.0,
+      "slug": "argos-wityu",
+      "name": "Argos Wityu",
+      "linkedin_url": "https://fr.linkedin.com/company/argos-fund",
+      "priority_score": 91.0,
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €1-5B",
-        "Growth fund",
-        "4 Italy deals",
+        "AUM \u20ac1-5B",
+        "PE fund",
+        "2 Italy deals",
         "AIFI member"
       ]
     },
@@ -254,7 +387,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "PE fund",
         "2 Italy deals",
         "AIFI member"
@@ -268,23 +401,10 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "Active dealmaker (5 deals)",
         "5 Italy deals",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "montefiore",
-      "name": "Montefiore",
-      "linkedin_url": "https://www.linkedin.com/company/montefiore-investment/",
-      "priority_score": 90.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Milano)",
-        "AUM €5-10B",
-        "PE fund",
         "AIFI member"
       ]
     },
@@ -296,7 +416,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €5-10B",
+        "AUM \u20ac5-10B",
         "PE fund",
         "AIFI member"
       ]
@@ -309,7 +429,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €5-10B",
+        "AUM \u20ac5-10B",
         "PE fund",
         "AIFI member"
       ]
@@ -317,97 +437,42 @@
     {
       "slug": "sviluppo-imprese-centro-italia-sgr",
       "name": "Sviluppo Imprese Centro Italia SGR",
-      "linkedin_url": "https://www.linkedin.com/company/trentino-sviluppo-spa/",
+      "linkedin_url": "https://www.linkedin.com/company/sviluppo-imprese-centro-italia-sgr-spa/",
       "priority_score": 90.0,
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Firenze)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "Active dealmaker (5 deals)",
         "5 Italy deals",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "f2i-sgr",
-      "name": "F2i SGR",
-      "linkedin_url": "https://www.linkedin.com/company/f2i-sgr/",
-      "priority_score": 89.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Milano)",
-        "AUM €5-10B",
-        "Infra fund",
-        "2 Italy deals",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "21-invest",
-      "name": "21 Invest",
-      "linkedin_url": "https://www.linkedin.com/company/21-invest/",
-      "priority_score": 88.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Treviso)",
-        "AUM €1-5B",
-        "PE fund",
-        "1 Italy deals",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "apax-partners",
-      "name": "Apax Partners",
-      "linkedin_url": "https://www.linkedin.com/company/apax-partners/",
-      "priority_score": 88.0,
-      "priority_reasons": [
-        "In db.json",
-        "Mega AUM (€50B+)",
-        "Debt fund",
-        "Active dealmaker (5 deals)",
-        "5 Italy deals",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "bridgepoint",
-      "name": "Bridgepoint",
-      "linkedin_url": "https://www.linkedin.com/company/bridgepoint/",
-      "priority_score": 88.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Milano)",
-        "Mega AUM (€50B+)",
-        "Infra fund",
         "AIFI member"
       ]
     },
     {
       "slug": "partners-group",
       "name": "Partners Group (Luxembourg) S.A. - Milan Branch",
-      "linkedin_url": "https://www.linkedin.com/company/alternative-capital-partners-1/",
+      "linkedin_url": "https://www.linkedin.com/company/partners-group/",
       "priority_score": 88.0,
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "Mega AUM (€50B+)",
+        "Mega AUM (\u20ac50B+)",
         "Infra fund",
         "AIFI member"
       ]
     },
     {
-      "slug": "quadrivio-group",
-      "name": "Quadrivio Group",
-      "linkedin_url": "https://www.linkedin.com/company/quadrivio-sgr/",
-      "priority_score": 88.0,
+      "slug": "equiter",
+      "name": "Equiter - Investimenti per il Territorio",
+      "linkedin_url": "https://www.linkedin.com/company/equiter-spa/",
+      "priority_score": 87.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
-        "AUM €1-5B",
-        "PE fund",
-        "1 Italy deals",
+        "Italy HQ (Torino)",
+        "AUM \u20ac1-5B",
+        "Infra fund",
+        "3 Italy deals",
         "AIFI member"
       ]
     },
@@ -419,7 +484,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "Debt fund",
         "3 Italy deals",
         "AIFI member"
@@ -433,7 +498,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €500M-1B",
+        "AUM \u20ac500M-1B",
         "PE fund",
         "4 Italy deals",
         "AIFI member"
@@ -447,23 +512,9 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "Infra fund",
         "3 Italy deals",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "wise-equity-sgr",
-      "name": "Wise Equity SGR",
-      "linkedin_url": "https://ca.linkedin.com/company/wiseequity",
-      "priority_score": 87.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Milano)",
-        "AUM €500M-1B",
-        "PE fund",
-        "4 Italy deals",
         "AIFI member"
       ]
     },
@@ -475,8 +526,22 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "Large AUM (€10B+)",
+        "Large AUM (\u20ac10B+)",
         "Debt fund",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "palladio-holding",
+      "name": "Palladio Holding",
+      "linkedin_url": "https://www.linkedin.com/company/pfhpalladioholding/",
+      "priority_score": 86.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Milano)",
+        "PE fund",
+        "Active dealmaker (7 deals)",
+        "7 Italy deals",
         "AIFI member"
       ]
     },
@@ -488,20 +553,20 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
       ]
     },
     {
       "slug": "alpha-associati",
-      "name": "Alpha Associati",
+      "name": "Alpha Private Equity",
       "linkedin_url": "https://www.linkedin.com/company/alpha-private-equity/",
       "priority_score": 85.0,
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
       ]
@@ -514,7 +579,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
       ]
@@ -527,33 +592,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €1-5B",
-        "PE fund",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "argos-wityu",
-      "name": "Argos Wityu",
-      "linkedin_url": "https://fr.linkedin.com/company/argos-fund",
-      "priority_score": 85.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Milano)",
-        "AUM €1-5B",
-        "PE fund",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "clessidra-sgr",
-      "name": "Clessidra Private Equity SGR",
-      "linkedin_url": "https://www.linkedin.com/company/clessidra-group/",
-      "priority_score": 85.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Milano)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
       ]
@@ -566,7 +605,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Roma)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
       ]
@@ -579,7 +618,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
       ]
@@ -592,9 +631,50 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
+      ]
+    },
+    {
+      "slug": "capital-dynamics-sgr",
+      "name": "Capital Dynamics SGR",
+      "linkedin_url": "https://www.linkedin.com/company/capital-dynamics/",
+      "priority_score": 84.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Milano)",
+        "AUM \u20ac1-5B",
+        "Infra fund",
+        "2 Italy deals",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "eurizon-real-asset",
+      "name": "Eurizon Capital Real Asset SGR",
+      "linkedin_url": "https://www.linkedin.com/company/eurizon/",
+      "priority_score": 84.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Milano)",
+        "AUM \u20ac5-10B",
+        "3 Italy deals",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "aksia-sgr",
+      "name": "AKS\u00ccA SGR",
+      "linkedin_url": "https://www.linkedin.com/company/aksiasgr/",
+      "priority_score": 83.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Milano)",
+        "AUM \u20ac100-500M",
+        "PE fund",
+        "Active dealmaker (6 deals)",
+        "6 Italy deals"
       ]
     },
     {
@@ -605,8 +685,23 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €5-10B",
+        "AUM \u20ac5-10B",
         "Debt fund",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "riello-investimenti-sgr",
+      "name": "Riello Investimenti SGR",
+      "linkedin_url": "https://www.linkedin.com/company/riello-investimenti-sgr-spa/",
+      "priority_score": 83.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Milano)",
+        "AUM \u20ac100-500M",
+        "Debt fund",
+        "Active dealmaker (5 deals)",
+        "5 Italy deals",
         "AIFI member"
       ]
     },
@@ -618,7 +713,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €500M-1B",
+        "AUM \u20ac500M-1B",
         "PE fund",
         "2 Italy deals",
         "AIFI member"
@@ -631,7 +726,7 @@
       "priority_score": 79.0,
       "priority_reasons": [
         "In db.json",
-        "Mega AUM (€50B+)",
+        "Mega AUM (\u20ac50B+)",
         "PE fund",
         "3 Italy deals",
         "AIFI member"
@@ -645,7 +740,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "Debt fund",
         "AIFI member"
       ]
@@ -658,35 +753,23 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €500M-1B",
+        "AUM \u20ac500M-1B",
         "VC fund",
         "1 Italy deals",
         "AIFI member"
       ]
     },
     {
-      "slug": "capital-dynamics-sgr",
-      "name": "Capital Dynamics SGR",
-      "linkedin_url": "https://www.linkedin.com/company/capital-dynamics/",
+      "slug": "equinox-aifm",
+      "name": "Equinox AIFM",
+      "linkedin_url": "https://www.linkedin.com/company/equinox-holdings/",
       "priority_score": 78.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
-        "AUM €1-5B",
-        "Infra fund",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "equiter",
-      "name": "Equiter - Investimenti per il Territorio",
-      "linkedin_url": "https://www.linkedin.com/company/equiter-spa/",
-      "priority_score": 78.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Torino)",
-        "AUM €1-5B",
-        "Infra fund",
+        "AUM \u20ac500M-1B",
+        "PE fund",
+        "Active dealmaker (6 deals)",
+        "6 Italy deals",
         "AIFI member"
       ]
     },
@@ -698,7 +781,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "4 Italy deals",
         "AIFI member"
@@ -712,21 +795,9 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €500M-1B",
+        "AUM \u20ac500M-1B",
         "Growth fund",
         "2 Italy deals",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "eurizon-real-asset",
-      "name": "Eurizon Capital Real Asset SGR",
-      "linkedin_url": "https://www.linkedin.com/company/eurizon/",
-      "priority_score": 75.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Milano)",
-        "AUM €5-10B",
         "AIFI member"
       ]
     },
@@ -738,7 +809,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Torino)",
-        "AUM €500M-1B",
+        "AUM \u20ac500M-1B",
         "VC fund",
         "AIFI member"
       ]
@@ -751,8 +822,22 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €500M-1B",
+        "AUM \u20ac500M-1B",
         "PE fund",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "b4-investimenti-sgr",
+      "name": "B4 Investimenti SGR",
+      "linkedin_url": "https://www.linkedin.com/company/b4-investimenti-sgr/",
+      "priority_score": 74.0,
+      "priority_reasons": [
+        "In db.json",
+        "Italy HQ (Roma)",
+        "AUM \u20ac100-500M",
+        "PE fund",
+        "3 Italy deals",
         "AIFI member"
       ]
     },
@@ -764,7 +849,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "2 Italy deals",
         "AIFI member"
@@ -778,7 +863,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €500M-1B",
+        "AUM \u20ac500M-1B",
         "Infra fund",
         "1 Italy deals",
         "AIFI member"
@@ -792,7 +877,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "2 Italy deals",
         "AIFI member"
@@ -806,7 +891,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Roma)",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "AIFI member"
       ]
     },
@@ -818,7 +903,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "1 Italy deals",
         "AIFI member"
@@ -832,22 +917,8 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €500M-1B",
+        "AUM \u20ac500M-1B",
         "Debt fund",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "b4-investimenti-sgr",
-      "name": "B4 Investimenti SGR",
-      "linkedin_url": "https://www.linkedin.com/company/b4-investimenti-sgr/",
-      "priority_score": 68.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Roma)",
-        "AUM €100-500M",
-        "PE fund",
-        "1 Italy deals",
         "AIFI member"
       ]
     },
@@ -859,7 +930,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Trieste)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "1 Italy deals",
         "AIFI member"
@@ -873,23 +944,22 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "1 Italy deals",
         "AIFI member"
       ]
     },
     {
-      "slug": "riello-investimenti-sgr",
-      "name": "Riello Investimenti SGR",
-      "linkedin_url": "https://www.linkedin.com/company/riello-investimenti-sgr-spa/",
-      "priority_score": 67.0,
+      "slug": "macquarie",
+      "name": "Macquarie \u2013 MAM",
+      "linkedin_url": "https://www.linkedin.com/company/macquariegroup/",
+      "priority_score": 66.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
-        "AUM €100-500M",
-        "Debt fund",
-        "3 Italy deals",
+        "Mega AUM (\u20ac50B+)",
+        "Infra fund",
+        "1 Italy deals",
         "AIFI member"
       ]
     },
@@ -901,7 +971,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "AIFI member"
       ]
@@ -909,12 +979,12 @@
     {
       "slug": "arca-space-capital",
       "name": "Arca Space Capital",
-      "linkedin_url": "https://www.linkedin.com/company/arcafondisgr/",
+      "linkedin_url": "https://www.linkedin.com/company/space-capital-advisors/",
       "priority_score": 65.0,
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "AIFI member"
       ]
@@ -927,7 +997,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Bologna)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "AIFI member"
       ]
@@ -940,7 +1010,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "VC fund",
         "AIFI member"
       ]
@@ -953,7 +1023,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "VC fund",
         "AIFI member"
       ]
@@ -966,7 +1036,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Torino)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "VC fund",
         "AIFI member"
       ]
@@ -979,7 +1049,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Torino)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "AIFI member"
       ]
@@ -992,7 +1062,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Roma)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "VC fund",
         "AIFI member"
       ]
@@ -1005,7 +1075,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "AIFI member"
       ]
@@ -1018,7 +1088,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Napoli)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "VC fund",
         "AIFI member"
       ]
@@ -1031,7 +1101,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "VC fund",
         "AIFI member"
       ]
@@ -1043,34 +1113,34 @@
       "priority_score": 64.0,
       "priority_reasons": [
         "In db.json",
-        "Mega AUM (€50B+)",
+        "Mega AUM (\u20ac50B+)",
         "3 Italy deals",
         "AIFI member"
       ]
     },
     {
       "slug": "armonia-sgr",
-      "name": "Armònia SGR",
+      "name": "Arm\u00f2nia SGR",
       "linkedin_url": "https://www.linkedin.com/company/armonia-sgr/",
       "priority_score": 64.0,
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Roma)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "3 Italy deals"
       ]
     },
     {
-      "slug": "macquarie",
-      "name": "Macquarie – MAM",
-      "linkedin_url": "https://www.linkedin.com/company/macquariegroup/",
-      "priority_score": 63.0,
+      "slug": "oakley-capital",
+      "name": "Oakley Capital",
+      "linkedin_url": "https://www.linkedin.com/company/oakley-capital/",
+      "priority_score": 64.0,
       "priority_reasons": [
         "In db.json",
-        "Mega AUM (€50B+)",
-        "Infra fund",
-        "AIFI member"
+        "AUM \u20ac5-10B",
+        "PE fund",
+        "3 Italy deals"
       ]
     },
     {
@@ -1080,21 +1150,9 @@
       "priority_score": 63.0,
       "priority_reasons": [
         "In db.json",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "VC fund",
         "1 Italy deals",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "eurazeo",
-      "name": "Eurazeo",
-      "linkedin_url": "https://www.linkedin.com/company/eurazeo/",
-      "priority_score": 61.0,
-      "priority_reasons": [
-        "In db.json",
-        "Large AUM (€10B+)",
-        "Infra fund",
         "AIFI member"
       ]
     },
@@ -1125,25 +1183,13 @@
       ]
     },
     {
-      "slug": "oakley-capital",
-      "name": "Oakley Capital",
-      "linkedin_url": "https://www.linkedin.com/company/oakley-capital/",
-      "priority_score": 61.0,
-      "priority_reasons": [
-        "In db.json",
-        "AUM €5-10B",
-        "PE fund",
-        "2 Italy deals"
-      ]
-    },
-    {
       "slug": "portobello-capital",
       "name": "Portobello Capital",
       "linkedin_url": "https://www.linkedin.com/company/portobello-capital/",
       "priority_score": 60.0,
       "priority_reasons": [
         "In db.json",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
       ]
@@ -1156,7 +1202,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "Debt fund",
         "AIFI member"
       ]
@@ -1168,20 +1214,20 @@
       "priority_score": 58.0,
       "priority_reasons": [
         "In db.json",
-        "AUM €5-10B",
+        "AUM \u20ac5-10B",
         "Infra fund",
         "AIFI member"
       ]
     },
     {
       "slug": "furstenberg-sgr",
-      "name": "Fürstenberg SGR",
+      "name": "F\u00fcrstenberg SGR",
       "linkedin_url": "https://www.linkedin.com/company/furstenbergsgr/",
       "priority_score": 58.0,
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €500M-1B",
+        "AUM \u20ac500M-1B",
         "Debt fund"
       ]
     },
@@ -1206,7 +1252,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "Debt fund",
         "AIFI member"
       ]
@@ -1219,7 +1265,7 @@
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "Debt fund",
         "AIFI member"
       ]
@@ -1238,25 +1284,13 @@
       ]
     },
     {
-      "slug": "aksia-sgr",
-      "name": "AKSÌA SGR",
-      "linkedin_url": "https://www.linkedin.com/company/aksiasgr/",
-      "priority_score": 55.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Milano)",
-        "AUM €100-500M",
-        "PE fund"
-      ]
-    },
-    {
       "slug": "ares-management",
       "name": "Ares Management",
       "linkedin_url": "https://www.linkedin.com/company/ares-management/",
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "Mega AUM (€50B+)",
+        "Mega AUM (\u20ac50B+)",
         "AIFI member"
       ]
     },
@@ -1267,19 +1301,19 @@
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "AUM €5-10B",
+        "AUM \u20ac5-10B",
         "PE fund"
       ]
     },
     {
       "slug": "avm",
-      "name": "AVM SGR SpA Gestore EuVECA Società Benefit",
+      "name": "AVM SGR SpA Gestore EuVECA Societ\u00e0 Benefit",
       "linkedin_url": "https://www.linkedin.com/company/avm-sgr/",
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
         "Italy HQ (Milano)",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "VC fund"
       ]
     },
@@ -1356,20 +1390,8 @@
       ]
     },
     {
-      "slug": "palladio-holding",
-      "name": "Palladio Holding",
-      "linkedin_url": "https://www.linkedin.com/company/pfhpalladioholding/",
-      "priority_score": 55.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Milano)",
-        "PE fund",
-        "AIFI member"
-      ]
-    },
-    {
       "slug": "polis-sgr",
-      "name": "Polis SGR – Gruppo LBO France",
+      "name": "Polis SGR \u2013 Gruppo LBO France",
       "linkedin_url": "https://www.linkedin.com/company/polis-sgr-spa/",
       "priority_score": 55.0,
       "priority_reasons": [
@@ -1394,7 +1416,7 @@
     {
       "slug": "private-equity-partners",
       "name": "Private Equity Partners",
-      "linkedin_url": "https://www.linkedin.com/company/alpha-private-equity/",
+      "linkedin_url": "https://www.linkedin.com/company/private-equity-partners-srl/",
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
@@ -1428,25 +1450,13 @@
       ]
     },
     {
-      "slug": "star-tech-ventures",
-      "name": "Star Tech Ventures",
-      "linkedin_url": "https://www.linkedin.com/company/star-capital-sgr-spa/",
-      "priority_score": 55.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Milano)",
-        "VC fund",
-        "AIFI member"
-      ]
-    },
-    {
       "slug": "towerbrook",
       "name": "TowerBrook",
       "linkedin_url": "https://www.linkedin.com/company/towerbrook/",
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "AUM €5-10B",
+        "AUM \u20ac5-10B",
         "PE fund"
       ]
     },
@@ -1481,8 +1491,32 @@
       "priority_score": 54.0,
       "priority_reasons": [
         "In db.json",
-        "Mega AUM (€50B+)",
+        "Mega AUM (\u20ac50B+)",
         "3 Italy deals"
+      ]
+    },
+    {
+      "slug": "bluegem",
+      "name": "BlueGem",
+      "linkedin_url": "https://www.linkedin.com/company/bluegem-capital-partners-llp/",
+      "priority_score": 53.0,
+      "priority_reasons": [
+        "In db.json",
+        "AUM \u20ac500M-1B",
+        "PE fund",
+        "1 Italy deals",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "eurazeo",
+      "name": "Eurazeo",
+      "linkedin_url": "https://www.linkedin.com/company/eurazeo/",
+      "priority_score": 53.0,
+      "priority_reasons": [
+        "In db.json",
+        "Large AUM (\u20ac10B+)",
+        "AIFI member"
       ]
     },
     {
@@ -1492,7 +1526,7 @@
       "priority_score": 51.0,
       "priority_reasons": [
         "In db.json",
-        "Large AUM (€10B+)",
+        "Large AUM (\u20ac10B+)",
         "Infra fund"
       ]
     },
@@ -1503,7 +1537,7 @@
       "priority_score": 50.0,
       "priority_reasons": [
         "In db.json",
-        "AUM €500M-1B",
+        "AUM \u20ac500M-1B",
         "PE fund",
         "AIFI member"
       ]
@@ -1515,31 +1549,7 @@
       "priority_score": 50.0,
       "priority_reasons": [
         "In db.json",
-        "AUM €500M-1B",
-        "PE fund",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "bluegem",
-      "name": "BlueGem",
-      "linkedin_url": "https://www.linkedin.com/company/bluegem-capital-partners-llp/",
-      "priority_score": 50.0,
-      "priority_reasons": [
-        "In db.json",
-        "AUM €500M-1B",
-        "PE fund",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "equinox-aifm",
-      "name": "Equinox AIFM",
-      "linkedin_url": "https://www.linkedin.com/company/equinox-holdings/",
-      "priority_score": 50.0,
-      "priority_reasons": [
-        "In db.json",
-        "AUM €500M-1B",
+        "AUM \u20ac500M-1B",
         "PE fund",
         "AIFI member"
       ]
@@ -1551,7 +1561,7 @@
       "priority_score": 50.0,
       "priority_reasons": [
         "In db.json",
-        "AUM €1-5B",
+        "AUM \u20ac1-5B",
         "PE fund"
       ]
     },
@@ -1574,7 +1584,7 @@
       "priority_score": 49.0,
       "priority_reasons": [
         "In db.json",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "3 Italy deals",
         "AIFI member"
@@ -1587,7 +1597,7 @@
       "priority_score": 48.0,
       "priority_reasons": [
         "In db.json",
-        "Mega AUM (€50B+)",
+        "Mega AUM (\u20ac50B+)",
         "1 Italy deals"
       ]
     },
@@ -1634,7 +1644,7 @@
       "priority_score": 46.0,
       "priority_reasons": [
         "In db.json",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "2 Italy deals",
         "AIFI member"
@@ -1647,7 +1657,7 @@
       "priority_score": 40.0,
       "priority_reasons": [
         "In db.json",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "VC fund",
         "AIFI member"
       ]
@@ -1659,7 +1669,7 @@
       "priority_score": 40.0,
       "priority_reasons": [
         "In db.json",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "VC fund",
         "AIFI member"
       ]
@@ -1671,7 +1681,7 @@
       "priority_score": 40.0,
       "priority_reasons": [
         "In db.json",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "PE fund",
         "AIFI member"
       ]
@@ -1683,7 +1693,7 @@
       "priority_score": 33.0,
       "priority_reasons": [
         "In db.json",
-        "AUM €100-500M",
+        "AUM \u20ac100-500M",
         "Infra fund",
         "AIFI member"
       ]
@@ -1708,6 +1718,16 @@
         "In db.json",
         "VC fund",
         "AIFI member"
+      ]
+    },
+    {
+      "slug": "sella-venture-partners",
+      "name": "Sella Venture Partners",
+      "linkedin_url": "https://www.linkedin.com/company/sella-ventures-sgr/",
+      "priority_score": 20.0,
+      "priority_reasons": [
+        "In db.json",
+        "VC fund"
       ]
     }
   ]

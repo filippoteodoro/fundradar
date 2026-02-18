@@ -318,6 +318,24 @@ class ProfileClassifier:
             if bg:
                 background_counts[bg] = background_counts.get(bg, 0) + 1
 
+        # If no experience data (e.g. basic/headline-only scrape), infer from headline
+        if not background_counts and profile.headline:
+            h = profile.headline.lower()
+            if any(kw in h for kw in ["private equity", "buyout", "lbo", "pe ", " pe,"]):
+                background_counts[BackgroundType.PRIVATE_EQUITY] = 1
+            elif any(kw in h for kw in ["venture capital", "vc ", "seed", "early stage", "startup investor"]):
+                background_counts[BackgroundType.VENTURE_CAPITAL] = 1
+            elif any(kw in h for kw in ["investment bank", "m&a", "corporate finance", "ecm", "dcm", "capital markets"]):
+                background_counts[BackgroundType.INVESTMENT_BANKING] = 1
+            elif any(kw in h for kw in ["consultant", "consulting", "advisory", "strategy&", "mckinsey", "bain", "bcg"]):
+                background_counts[BackgroundType.CONSULTING] = 1
+            elif any(kw in h for kw in ["deloitte", "kpmg", "pwc", "ernst", "ey ", "grant thornton"]):
+                background_counts[BackgroundType.BIG_FOUR] = 1
+            elif any(kw in h for kw in ["engineer", "developer", "software", "cto", "tech", "data science"]):
+                background_counts[BackgroundType.TECH] = 1
+            elif any(kw in h for kw in ["lawyer", "attorney", "legal", "counsel", "avvocato"]):
+                background_counts[BackgroundType.LEGAL] = 1
+
         # Determine primary and secondary backgrounds
         sorted_backgrounds = sorted(
             background_counts.items(),

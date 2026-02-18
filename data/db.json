@@ -114,7 +114,7 @@
       "slug": "abenex",
       "name": "Abenex",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.abenex.com/it",
       "strategy_tags": [
@@ -161,7 +161,7 @@
       "slug": "advent-international",
       "name": "Advent International",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.adventinternational.com",
       "strategy_tags": [
@@ -239,7 +239,7 @@
       "slug": "aksia-sgr",
       "name": "AKSÌA SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.aksiasgr.com",
       "strategy_tags": [
@@ -336,7 +336,7 @@
       "slug": "algebris",
       "name": "Algebris",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.algebris.com/it",
       "strategy_tags": [
@@ -387,7 +387,7 @@
       "slug": "alkemia-sgr",
       "name": "Alkemia SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.alkemiacapital.com",
       "strategy_tags": [
@@ -434,7 +434,7 @@
       "slug": "alpha-associati",
       "name": "Alpha Private Equity",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.alphape.com",
       "strategy_tags": [
@@ -482,7 +482,7 @@
       "slug": "alternative-capital-partners-sgr",
       "name": "Alternative Capital Partners SGR",
       "category": "infra",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://alternativecapital.partners/",
       "strategy_tags": [
@@ -528,7 +528,7 @@
       "slug": "alto-partners-sgr",
       "name": "Alto Partners SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.altopartners.it",
       "strategy_tags": [
@@ -577,7 +577,7 @@
       "slug": "amber-capital",
       "name": "Amber Capital",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.ambercapital.com",
       "strategy_tags": [
@@ -628,7 +628,7 @@
       "slug": "ambienta-sgr",
       "name": "Ambienta SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.ambientasgr.com",
       "strategy_tags": [
@@ -679,7 +679,7 @@
       "slug": "andera-partners",
       "name": "Andera Partners",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.anderapartners.com",
       "strategy_tags": [
@@ -730,7 +730,7 @@
       "slug": "anima-alternative-sgr",
       "name": "Anima Alternative SGR",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.animaalternative.it",
       "strategy_tags": [
@@ -785,7 +785,7 @@
       "slug": "anthilia-sgr",
       "name": "Anthilia SGR",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.anthilia.it",
       "strategy_tags": [
@@ -899,7 +899,7 @@
           "source_name": "Fund Website"
         },
         {
-          "city": "Milano",
+          "city": "Milan",
           "country": "Italy",
           "address": "Piazza del Liberty, 2",
           "postal_code": null,
@@ -922,7 +922,7 @@
       "slug": "apeiron-management",
       "name": "Apeiron Management",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.apeironmgmt.com",
       "strategy_tags": [
@@ -969,7 +969,7 @@
       "slug": "apheon",
       "name": "Apheon",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.apheon.com",
       "strategy_tags": [
@@ -1117,7 +1117,7 @@
       "slug": "arca-space-capital",
       "name": "Arca Space Capital",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.spacecapital.it",
       "strategy_tags": [
@@ -1169,7 +1169,7 @@
       "slug": "ardian",
       "name": "Ardian",
       "category": "infra",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.ardian.com",
       "strategy_tags": [
@@ -1317,7 +1317,7 @@
       "num_sfdr_article_8": 3,
       "offices": [
         {
-          "city": "Milano",
+          "city": "Milan",
           "country": "Italy",
           "address": "Via Vincenzo Monti, 8",
           "postal_code": null,
@@ -1336,7 +1336,7 @@
       "slug": "argos-wityu",
       "name": "Argos Wityu",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://argos.wityu.fund",
       "strategy_tags": [
@@ -1387,7 +1387,7 @@
       "slug": "armonia-sgr",
       "name": "Armònia SGR",
       "category": "pe",
-      "hq_city": "Roma",
+      "hq_city": "Rome",
       "hq_region": "Italy",
       "website": "http://www.armoniasgr.it",
       "strategy_tags": [
@@ -1490,7 +1490,7 @@
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "offices": [
         {
-          "city": "Milano",
+          "city": "Milan",
           "country": "Italy",
           "address": "Via Manzoni, 30",
           "postal_code": null,
@@ -1509,7 +1509,7 @@
       "slug": "avanzi-etica-sicaf-euveca",
       "name": "Avanzi Etica Sicaf EuVECA",
       "category": "vc",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.aimpact.org",
       "strategy_tags": [
@@ -1559,7 +1559,7 @@
       "slug": "avm",
       "name": "AVM",
       "category": "vc",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.avmgestioni.com",
       "strategy_tags": [
@@ -1614,7 +1614,7 @@
       "slug": "axon-partners-group",
       "name": "Axon Partners Group",
       "category": "vc",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.axonpartnersgroup.com",
       "strategy_tags": [
@@ -1671,7 +1671,7 @@
       "slug": "azimut-libera-impresa-sgr",
       "name": "Azimut Libera Impresa SGR",
       "category": "infra",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.azimutliberaimpresa.it",
       "strategy_tags": [
@@ -1733,7 +1733,7 @@
       "slug": "b4-investimenti-sgr",
       "name": "B4 Investimenti SGR",
       "category": "pe",
-      "hq_city": "Roma",
+      "hq_city": "Rome",
       "hq_region": "Italy",
       "website": "http://www.b4investimenti.it",
       "strategy_tags": [
@@ -1836,7 +1836,7 @@
           "source_name": "Fund Website"
         },
         {
-          "city": "Milano",
+          "city": "Milan",
           "country": "Italy",
           "address": "Via Santa Maria Segreta, 2",
           "postal_code": null,
@@ -2025,7 +2025,7 @@
       "slug": "bridgepoint",
       "name": "Bridgepoint",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.bridgepointgroup.com",
       "strategy_tags": [
@@ -2087,7 +2087,7 @@
       "slug": "bu",
       "name": "BU",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.bu-partners.com",
       "strategy_tags": [
@@ -2186,7 +2186,7 @@
       "slug": "capital-dynamics-sgr",
       "name": "Capital Dynamics SGR",
       "category": "infra",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.capdyn.com",
       "strategy_tags": [
@@ -2243,7 +2243,7 @@
       "slug": "capza",
       "name": "CAPZA",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.capza.co",
       "strategy_tags": [
@@ -2297,7 +2297,7 @@
       "slug": "carlyle",
       "name": "Carlyle",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.carlyle.com",
       "strategy_tags": [
@@ -2377,7 +2377,7 @@
       "slug": "cdp-equity",
       "name": "CDP Equity & Real Asset",
       "category": "sovereign",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.cdp.it/sitointernet/it/cdp_equity.page",
       "strategy_tags": [
@@ -2432,7 +2432,7 @@
       "slug": "cdp-venture-capital",
       "name": "Cdp Venture Capital",
       "category": "sovereign",
-      "hq_city": "Roma",
+      "hq_city": "Rome",
       "hq_region": "Italy",
       "website": "http://www.cdpventurecapital.it",
       "strategy_tags": [
@@ -2492,7 +2492,7 @@
       "slug": "charme-capital",
       "name": "Charme Capital",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.charmecapitalpartners.com",
       "strategy_tags": [
@@ -2542,7 +2542,7 @@
       "slug": "cinven",
       "name": "Cinven",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.cinven.com",
       "strategy_tags": [
@@ -2627,7 +2627,7 @@
       "slug": "claris-ventures-sgr",
       "name": "Claris Ventures Sgr",
       "category": "vc",
-      "hq_city": "Torino",
+      "hq_city": "Turin",
       "hq_region": "Italy",
       "website": "http://www.clarisventures.com",
       "strategy_tags": [
@@ -2671,7 +2671,7 @@
       "slug": "clessidra-sgr",
       "name": "Clessidra SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.clessidragroup.it",
       "strategy_tags": [
@@ -2774,7 +2774,7 @@
       "slug": "consilium-sgr",
       "name": "Consilium SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.consiliumsgr.com",
       "strategy_tags": [
@@ -2872,7 +2872,7 @@
       "slug": "cvc-capital-partners",
       "name": "CVC",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.cvc.com",
       "strategy_tags": [
@@ -2957,7 +2957,7 @@
       "slug": "dbag-italia",
       "name": "DBAG Italia",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.dbagitalia.com",
       "strategy_tags": [
@@ -3006,7 +3006,7 @@
       "slug": "dea-capital-alternative-funds-sgr",
       "name": "DeA Capital Alternative Funds SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.deacapitalaf.com",
       "strategy_tags": [
@@ -3055,7 +3055,7 @@
       "slug": "deep-ocean-capital-sgr",
       "name": "Deep Ocean Capital SGR",
       "category": "vc",
-      "hq_city": "Roma",
+      "hq_city": "Rome",
       "hq_region": "Italy",
       "website": "https://www.deepoceancapital.it/",
       "strategy_tags": [
@@ -3156,7 +3156,7 @@
       "hq_address": "22 rue de Marignan",
       "offices": [
         {
-          "city": "Milano",
+          "city": "Milan",
           "country": "Italy",
           "address": "Via San Marco, 21",
           "postal_code": null,
@@ -3175,7 +3175,7 @@
       "slug": "entangled-capital-sgr",
       "name": "Entangled Capital SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.entangledcapital.com",
       "strategy_tags": [
@@ -3223,7 +3223,7 @@
       "slug": "entrust-global",
       "name": "EnTrust Global",
       "category": "infra",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.entrustglobal.com/",
       "strategy_tags": [
@@ -3319,7 +3319,7 @@
       "hq_address": "67, Grosvenor Street",
       "offices": [
         {
-          "city": "Milano",
+          "city": "Milan",
           "country": "Italy",
           "address": "Via Giacomo Puccini, 3",
           "postal_code": null,
@@ -3338,7 +3338,7 @@
       "slug": "eqt",
       "name": "EQT",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.eqtgroup.com",
       "strategy_tags": [
@@ -3462,7 +3462,7 @@
       "hq_address": "5, Boulevard Royal",
       "offices": [
         {
-          "city": "Milano",
+          "city": "Milan",
           "country": "Italy",
           "address": "Piazza Generale Armando Diaz, 1",
           "postal_code": null,
@@ -3481,7 +3481,7 @@
       "slug": "equita-capital-sgr",
       "name": "Equita Capital SGR",
       "category": "infra",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://sgr.equita.eu",
       "strategy_tags": [
@@ -3535,7 +3535,7 @@
       "slug": "equiter",
       "name": "Equiter",
       "category": "infra",
-      "hq_city": "Torino",
+      "hq_city": "Turin",
       "hq_region": "Italy",
       "website": "https://www.equiterspa.com",
       "strategy_tags": [
@@ -3650,7 +3650,7 @@
       "hq_address": "66 Rue Pierre Charron",
       "offices": [
         {
-          "city": "Milano",
+          "city": "Milan",
           "country": "Italy",
           "address": "Corso Matteotti, 3",
           "postal_code": null,
@@ -3669,7 +3669,7 @@
       "slug": "eureka-venture-sgr",
       "name": "EUREKA! Venture Sgr",
       "category": "vc",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.eurekaventure.it",
       "strategy_tags": [
@@ -3715,7 +3715,7 @@
       "slug": "eurizon-real-asset",
       "name": "Eurizon Real Asset",
       "category": "multi_strategy",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.eurizoncapital.com/it-IT/chi-siamo/eurizon-capital-real-asset-sgr",
       "strategy_tags": [
@@ -3772,7 +3772,7 @@
       "slug": "excellis-holding",
       "name": "Excellis Holding",
       "category": "vc",
-      "hq_city": "Torino",
+      "hq_city": "Turin",
       "hq_region": "Italy",
       "website": "https://www.excellis.it",
       "strategy_tags": [
@@ -3818,7 +3818,7 @@
       "slug": "f-p-equity-partners",
       "name": "F&P Equity Partners",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.fp-equity-partners.com",
       "strategy_tags": [
@@ -3870,7 +3870,7 @@
       "slug": "f2i-sgr",
       "name": "F2i SGR",
       "category": "infra",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.f2isgr.it/en/index.html",
       "strategy_tags": [
@@ -3922,7 +3922,7 @@
       "slug": "faro-value",
       "name": "FARO Value",
       "category": "vc",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.faroalternativeinvestments.com",
       "strategy_tags": [
@@ -3973,7 +3973,7 @@
       "slug": "fiee-sgr",
       "name": "FIEE SGR",
       "category": "infra",
-      "hq_city": "Roma",
+      "hq_city": "Rome",
       "hq_region": "Italy",
       "website": "https://www.fieesgr.com/",
       "strategy_tags": [
@@ -4072,7 +4072,7 @@
       "slug": "fondo-italiano-d-investimento-sgr",
       "name": "Fondo Italiano d’Investimento SGR",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.fondoitaliano.it",
       "strategy_tags": [
@@ -4173,7 +4173,7 @@
       "slug": "fsi",
       "name": "FSI",
       "category": "growth",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.fondofsi.it",
       "strategy_tags": [
@@ -4222,7 +4222,7 @@
       "slug": "furstenberg-sgr",
       "name": "Fürstenberg SGR",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.furstenbergsgr.eu",
       "strategy_tags": [
@@ -4265,7 +4265,7 @@
       "slug": "fvs-sgr",
       "name": "FVS SGR",
       "category": "pe",
-      "hq_city": "Venezia",
+      "hq_city": "Venice",
       "hq_region": "Italy",
       "website": "http://www.fvssgr.it",
       "strategy_tags": [
@@ -4314,7 +4314,7 @@
       "slug": "gradiente-sgr",
       "name": "Gradiente SGR",
       "category": "pe",
-      "hq_city": "Padova",
+      "hq_city": "Padua",
       "hq_region": "Italy",
       "website": "http://www.gradientesgr.it",
       "strategy_tags": [
@@ -4361,7 +4361,7 @@
       "slug": "green-arrow-capital-sgr",
       "name": "Green Arrow Capital SGR",
       "category": "infra",
-      "hq_city": "Roma",
+      "hq_city": "Rome",
       "hq_region": "Italy",
       "website": "https://www.greenarrow-capital.com",
       "strategy_tags": [
@@ -4417,7 +4417,7 @@
       "slug": "h-i-g-capital",
       "name": "H.I.G. Capital",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.higeurope.com",
       "strategy_tags": [
@@ -4464,7 +4464,7 @@
       "slug": "hat-sgr",
       "name": "HAT SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.hat.it",
       "strategy_tags": [
@@ -4514,7 +4514,7 @@
       "slug": "hat-sicaf",
       "name": "HAT Sicaf",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.hatsicaf.it",
       "strategy_tags": [
@@ -4559,7 +4559,7 @@
       "slug": "hld",
       "name": "HLD",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://groupehld.com",
       "strategy_tags": [
@@ -4614,7 +4614,7 @@
       "slug": "ibla-capital",
       "name": "Ibla Capital",
       "category": "pe",
-      "hq_city": "Roma",
+      "hq_city": "Rome",
       "hq_region": "Italy",
       "website": "http://www.iblacapital.com",
       "strategy_tags": [
@@ -4663,7 +4663,7 @@
       "slug": "igi-private-equity",
       "name": "IGI Private Equity",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.igisgr.it",
       "strategy_tags": [
@@ -4713,7 +4713,7 @@
       "slug": "innovative-rfk",
       "name": "Innovative-RFK",
       "category": "growth",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.innovative-rfk.it",
       "strategy_tags": [
@@ -4759,7 +4759,7 @@
       "slug": "invitalia",
       "name": "Invitalia",
       "category": "pe",
-      "hq_city": "Roma",
+      "hq_city": "Rome",
       "hq_region": "Italy",
       "website": "http://www.invitalia.it",
       "strategy_tags": [
@@ -4812,7 +4812,7 @@
       "slug": "itago",
       "name": "Itago",
       "category": "pe",
-      "hq_city": "Venezia",
+      "hq_city": "Venice",
       "hq_region": "Italy",
       "website": "https://www.itagopartners.it/",
       "strategy_tags": [
@@ -4862,7 +4862,7 @@
       "slug": "kairos-partners-sgr",
       "name": "Kairos Partners SGR",
       "category": "vc",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.kairospartners.com/ventures-esg-one",
       "strategy_tags": [
@@ -4909,7 +4909,7 @@
       "slug": "key-capital",
       "name": "Key Capital",
       "category": "vc",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.keycapital.it",
       "strategy_tags": [
@@ -4952,7 +4952,7 @@
       "slug": "kyip-capital-sgr",
       "name": "Kyip Capital Sgr",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://kyipcapital.com",
       "strategy_tags": [
@@ -5003,7 +5003,7 @@
       "slug": "l-catterton",
       "name": "L Catterton",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.lcatterton.com",
       "strategy_tags": [
@@ -5055,7 +5055,7 @@
       "slug": "l-b-capital-sgr",
       "name": "L&B Capital SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.lbcapitalsgr.it/",
       "strategy_tags": [
@@ -5105,7 +5105,7 @@
       "slug": "liftt",
       "name": "LIFTT",
       "category": "vc",
-      "hq_city": "Torino",
+      "hq_city": "Turin",
       "hq_region": "Italy",
       "website": "https://www.liftt.com",
       "strategy_tags": [
@@ -5211,7 +5211,7 @@
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "offices": [
         {
-          "city": "Milano",
+          "city": "Milan",
           "country": "Italy",
           "address": "Via Benigno Crespi, 19",
           "postal_code": null,
@@ -5230,7 +5230,7 @@
       "slug": "merito-sgr",
       "name": "Merito SGR",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.meritosgr.it",
       "strategy_tags": [
@@ -5282,7 +5282,7 @@
       "slug": "mindful-capital",
       "name": "Mindful Capital Partners",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.mcpinvest.com",
       "strategy_tags": [
@@ -5331,7 +5331,7 @@
       "slug": "mito-technology",
       "name": "MITO Technology",
       "category": "vc",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://mitotech.eu/",
       "strategy_tags": [
@@ -5383,7 +5383,7 @@
       "slug": "mittel",
       "name": "Mittel",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.mittel.it",
       "strategy_tags": [
@@ -5431,7 +5431,7 @@
       "slug": "montefiore",
       "name": "Montefiore Investment",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://montefiore.eu/en",
       "strategy_tags": [
@@ -5486,7 +5486,7 @@
       "slug": "muzinich-co",
       "name": "Muzinich & Co.",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.muzinich.com",
       "strategy_tags": [
@@ -5537,7 +5537,7 @@
       "slug": "narval-investimenti",
       "name": "Narval Investimenti",
       "category": "pe",
-      "hq_city": "Torino",
+      "hq_city": "Turin",
       "hq_region": "Italy",
       "website": "http://www.narvalinvestimenti.it",
       "strategy_tags": [
@@ -5584,7 +5584,7 @@
       "slug": "neva-sgr",
       "name": "Neva SGR",
       "category": "vc",
-      "hq_city": "Torino",
+      "hq_city": "Turin",
       "hq_region": "Italy",
       "website": "https://www.nevasgr.com",
       "strategy_tags": [
@@ -5639,7 +5639,7 @@
       "slug": "nextalia-sgr",
       "name": "Nextalia SGR",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.nextaliasgr.com",
       "strategy_tags": [
@@ -5694,7 +5694,7 @@
       "slug": "oltre-impact-sgr",
       "name": "Oltre Impact SGR",
       "category": "vc",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.oltreimpact.com",
       "strategy_tags": [
@@ -5749,7 +5749,7 @@
       "slug": "origine-sgr",
       "name": "Origine SGR",
       "category": "vc",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.originesgr.com",
       "strategy_tags": [
@@ -5800,7 +5800,7 @@
       "slug": "oxy-capital",
       "name": "Oxy Capital",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.oxycapital.com",
       "strategy_tags": [
@@ -5928,7 +5928,7 @@
       "slug": "palladio-holding",
       "name": "Palladio Holding",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.pfh.eu",
       "strategy_tags": [
@@ -5980,7 +5980,7 @@
       "slug": "partners-group",
       "name": "Partners Group",
       "category": "infra",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.partnersgroup.com",
       "strategy_tags": [
@@ -6040,7 +6040,7 @@
       "slug": "permira",
       "name": "Permira",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.permira.com",
       "strategy_tags": [
@@ -6124,7 +6124,7 @@
       "slug": "pillarstone",
       "name": "Pillarstone",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.pillarstone.com",
       "strategy_tags": [
@@ -6174,7 +6174,7 @@
       "slug": "pm-partners-sgr",
       "name": "PM&PARTNERS SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.pm-partners.it",
       "strategy_tags": [
@@ -6222,7 +6222,7 @@
       "slug": "polis-sgr",
       "name": "Polis SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.polis-sgr.com",
       "strategy_tags": [
@@ -6321,7 +6321,7 @@
       "slug": "prana-ventures",
       "name": "Prana Ventures",
       "category": "vc",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.pranaventures.it",
       "strategy_tags": [
@@ -6375,7 +6375,7 @@
       "slug": "private-equity-partners",
       "name": "Private Equity Partners",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.privateequitypartners.com",
       "strategy_tags": [
@@ -6414,7 +6414,7 @@
       "slug": "progressio-sgr",
       "name": "Progressio SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.progressiosgr.it",
       "strategy_tags": [
@@ -6463,7 +6463,7 @@
       "slug": "quadrivio-group",
       "name": "Quadrivio Group",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.quadriviogroup.com",
       "strategy_tags": [
@@ -6512,7 +6512,7 @@
       "slug": "quattror",
       "name": "QuattroR",
       "category": "growth",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.quattrorsgr.it",
       "strategy_tags": [
@@ -6562,7 +6562,7 @@
       "slug": "rancilio-cube-sicaf",
       "name": "Rancilio Cube Sicaf",
       "category": "vc",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://ranciliocube.com",
       "strategy_tags": [
@@ -6615,7 +6615,7 @@
       "slug": "ream-sgr",
       "name": "REAM SGR",
       "category": "infra",
-      "hq_city": "Torino",
+      "hq_city": "Turin",
       "hq_region": "Italy",
       "website": "http://www.reamsgr.it",
       "strategy_tags": [
@@ -6662,7 +6662,7 @@
       "slug": "renaissance-partners",
       "name": "Renaissance Partners",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.renaissancealternatives.com",
       "strategy_tags": [
@@ -6713,7 +6713,7 @@
       "slug": "riello-investimenti-sgr",
       "name": "Riello Investimenti SGR",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.rielloinvestimenti.it",
       "strategy_tags": [
@@ -6823,7 +6823,7 @@
       "slug": "rivean-capital",
       "name": "Rivean Capital",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://riveancapital.com",
       "strategy_tags": [
@@ -6872,7 +6872,7 @@
       "slug": "sagard",
       "name": "Sagard",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.sagard.com/midcap",
       "strategy_tags": [
@@ -6920,7 +6920,7 @@
       "slug": "sagitta-sgr",
       "name": "Sagitta SGR",
       "category": "infra",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.sagittasgr.it",
       "strategy_tags": [
@@ -6965,7 +6965,7 @@
       "slug": "scientifica-vc",
       "name": "Scientifica VC",
       "category": "vc",
-      "hq_city": "Roma",
+      "hq_city": "Rome",
       "hq_region": "Italy",
       "website": "https://scientifica.vc",
       "strategy_tags": [
@@ -7016,7 +7016,7 @@
       "slug": "sefea-impact-sgr",
       "name": "Sefea Impact SGR",
       "category": "growth",
-      "hq_city": "Padova",
+      "hq_city": "Padua",
       "hq_region": "Italy",
       "website": "http://www.sefeaimpact.it",
       "strategy_tags": [
@@ -7068,7 +7068,7 @@
       "slug": "sienna-pe",
       "name": "Sienna Private Equity",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.sienna-pe.com",
       "strategy_tags": [
@@ -7122,7 +7122,7 @@
       "slug": "sinloc-investimenti-sgr",
       "name": "Sinloc Investimenti SGR",
       "category": "infra",
-      "hq_city": "Padova",
+      "hq_city": "Padua",
       "hq_region": "Italy",
       "website": "https://sinlocinvestimentisgr.com/",
       "strategy_tags": [
@@ -7319,7 +7319,7 @@
       "hq_lng": 2.320041,
       "offices": [
         {
-          "city": "Milano",
+          "city": "Milan",
           "country": "Italy",
           "address": "Via Borgogna, 5",
           "postal_code": null,
@@ -7338,7 +7338,7 @@
       "slug": "star-capital-sgr",
       "name": "Star Capital SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.starcapital.it",
       "strategy_tags": [
@@ -7386,7 +7386,7 @@
       "slug": "star-tech-ventures",
       "name": "Star Tech Ventures",
       "category": "vc",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://startechventures.eu",
       "strategy_tags": [
@@ -7430,7 +7430,7 @@
       "slug": "style-capital-sgr",
       "name": "Style Capital SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.stylecapital.it",
       "strategy_tags": [
@@ -7479,7 +7479,7 @@
       "slug": "sviluppo-imprese-centro-italia-sgr",
       "name": "Sviluppo Imprese Centro Italia SGR",
       "category": "pe",
-      "hq_city": "Firenze",
+      "hq_city": "Florence",
       "hq_region": "Italy",
       "website": "http://www.fondisici.it",
       "strategy_tags": [
@@ -7527,7 +7527,7 @@
       "slug": "tages-capital-sgr",
       "name": "Tages Capital SGR",
       "category": "infra",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.tagescapitalsgr.com",
       "strategy_tags": [
@@ -7576,7 +7576,7 @@
       "slug": "teamsystem-capital-at-work-sgr",
       "name": "TeamSystem Capital at Work SGR",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.tscawsgr.com/it",
       "strategy_tags": [
@@ -7624,7 +7624,7 @@
       "slug": "the-equity-club",
       "name": "The Equity Club",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.equityclub.eu",
       "strategy_tags": [
@@ -7676,7 +7676,7 @@
       "slug": "three-hills",
       "name": "Three Hills",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.threehills.com",
       "strategy_tags": [
@@ -7730,7 +7730,7 @@
       "slug": "tikehau-capital",
       "name": "Tikehau Capital",
       "category": "debt",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.tikehaucapital.com",
       "strategy_tags": [
@@ -7839,7 +7839,7 @@
       "slug": "trilantic-europe",
       "name": "Trilantic Europe",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.trilanticeurope.com",
       "strategy_tags": [
@@ -7891,7 +7891,7 @@
       "slug": "triton",
       "name": "Triton",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.triton-partners.com",
       "strategy_tags": [
@@ -7941,7 +7941,7 @@
       "slug": "unigrains",
       "name": "Unigrains",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://www.unigrains.fr/en",
       "strategy_tags": [
@@ -7993,7 +7993,7 @@
       "slug": "vertis-sgr",
       "name": "Vertis SGR",
       "category": "vc",
-      "hq_city": "Napoli",
+      "hq_city": "Naples",
       "hq_region": "Italy",
       "website": "http://www.vertis.it",
       "strategy_tags": [
@@ -8041,7 +8041,7 @@
       "slug": "wise-equity-sgr",
       "name": "Wise Equity SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.wisesgr.com",
       "strategy_tags": [
@@ -8091,7 +8091,7 @@
       "slug": "wrm-group",
       "name": "WRM Group",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.wrmgroup.net",
       "strategy_tags": [
@@ -8134,7 +8134,7 @@
       "slug": "xgen-venture-sgr",
       "name": "XGen Venture SGR",
       "category": "vc",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "https://xgenventure.com",
       "strategy_tags": [
@@ -8184,7 +8184,7 @@
       "slug": "yarpa-investimenti-sgr",
       "name": "Yarpa Investimenti SGR",
       "category": "pe",
-      "hq_city": "Milano",
+      "hq_city": "Milan",
       "hq_region": "Italy",
       "website": "http://www.yarpa.it",
       "strategy_tags": [
@@ -8237,7 +8237,7 @@
       "slug": "zest-group",
       "name": "ZEST GROUP",
       "category": "vc",
-      "hq_city": "Roma",
+      "hq_city": "Rome",
       "hq_region": "Italy",
       "website": "http://zestgroup.vc",
       "strategy_tags": [
@@ -8419,7 +8419,7 @@
           "source_name": "Fund Website"
         },
         {
-          "city": "Milano",
+          "city": "Milan",
           "country": "Italy",
           "address": "Via della Spiga, 26",
           "postal_code": null,
@@ -8662,7 +8662,7 @@
       "contact_phone": "+33 1 53 05 40 00",
       "offices": [
         {
-          "city": "Milano",
+          "city": "Milan",
           "country": "Italy",
           "address": "Foro Buonaparte, 59",
           "postal_code": null,
@@ -8803,7 +8803,7 @@
           "source_name": "Fund Website"
         },
         {
-          "city": "Milano",
+          "city": "Milan",
           "country": "Italy",
           "address": "Via Sant'Andrea, 19",
           "postal_code": null,
@@ -8878,7 +8878,7 @@
       "contact_phone": "+31 20 717 3151",
       "offices": [
         {
-          "city": "Milano",
+          "city": "Milan",
           "country": "Italy",
           "address": "Via Privata Fratelli Gabba, 4",
           "postal_code": null,

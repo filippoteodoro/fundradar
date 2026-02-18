@@ -2013,15 +2013,22 @@ def _language_token_scores(text: str) -> tuple[int, int, int]:
 
 
 def _is_italian_text(text: str) -> bool:
-    """Detect if text is predominantly Italian (robust for short finance snippets)."""
+    """Detect if text is predominantly Italian (robust for short finance snippets).
+
+    Tuned to be aggressive — better to translate an already-English text (DeepL
+    returns it unchanged) than to leave Italian on the English website.
+    """
     if not text:
         return False
     it_score, en_score, token_count = _language_token_scores(text)
     if token_count < 4:
-        return it_score >= 2 and it_score > en_score
-    if it_score >= 4 and it_score >= en_score + 2:
+        return it_score >= 1 and it_score > en_score
+    if it_score >= 2 and it_score > en_score:
         return True
     if it_score >= 3 and en_score == 0:
+        return True
+    # Check for accented characters (strong Italian signal)
+    if re.search(r"[àèéìòù]", text) and it_score >= 1:
         return True
     return False
 
@@ -2051,11 +2058,12 @@ def _translate_text_with_openai(client: OpenAI, text: str) -> str:
 
 
 def _translate_italian_signals(signals: list[dict]) -> int:
-    """Translate Italian signal text to English using DeepL API.
+    """Translate ALL Italian signal text fields to English using DeepL API.
 
-    Translates enriched_summary (display text) and stores original in
-    enriched_summary_original. Skips signals already translated.
-    Returns count of newly translated signals.
+    Translates title, what_changed, and enriched_summary — all three fields
+    that can appear in the UI. Stores originals in *_original fields.
+    Skips signals where all fields are already translated or already English.
+    Returns count of signals with at least one field translated.
     """
     deepl_api_key = os.environ.get("DEEPL_API_KEY")
     openai_api_key = os.environ.get("OPENAI_API_KEY")
@@ -2068,72 +2076,138 @@ def _translate_italian_signals(signals: list[dict]) -> int:
             print("\nDeepL unavailable: deepl package not installed (pip install deepl)")
             deepl_module = None
 
-    # Collect signals needing translation
-    to_translate: list[dict] = []
-    for s in signals:
-        if s.get("enriched_summary_original"):
-            continue  # already translated
-        display_text = s.get("enriched_summary") or s.get("what_changed") or ""
-        if _is_italian_text(display_text):
-            to_translate.append(s)
+    # User-facing text fields and their original-storage counterparts
+    TEXT_FIELDS = [
+        ("enriched_summary", "enriched_summary_original"),
+        ("what_changed", "what_changed_original"),
+        ("title", "title_original"),
+    ]
+
+    # Collect (signal, field, text) tuples needing translation
+    to_translate: list[tuple[dict, str, str, str]] = []  # (signal, field, original_field, text)
+    signals_needing_work: set[int] = set()
+    for idx, s in enumerate(signals):
+        for field, orig_field in TEXT_FIELDS:
+            if s.get(orig_field):
+                continue  # already translated
+            text = s.get(field) or ""
+            if text and _is_italian_text(text):
+                to_translate.append((s, field, orig_field, text))
+                signals_needing_work.add(idx)
 
     if not to_translate:
-        print("\nNo Italian signals to translate")
+        print("\nNo Italian text fields to translate")
         return 0
 
     if not deepl_module and not openai_api_key:
-        print("\nSkipping translation: no DeepL/OpenAI key available")
+        print(f"\nSkipping translation: no DeepL/OpenAI key available ({len(to_translate)} fields pending)")
         return 0
 
-    print(f"\nTranslating {len(to_translate)} Italian signals (IT→EN)...")
+    print(f"\nTranslating {len(to_translate)} Italian text fields across {len(signals_needing_work)} signals (IT→EN)...")
     translator = deepl_module.Translator(deepl_api_key) if deepl_module and deepl_api_key else None
     openai_client = OpenAI(api_key=openai_api_key, timeout=90.0) if openai_api_key else None
-    translated = 0
-    unresolved: list[dict] = []
+    translated_fields = 0
+    unresolved: list[tuple[dict, str, str, str]] = []
 
     if translator is not None:
-        # Batch translate for efficiency.
+        # Batch translate for efficiency — send just the text strings
         BATCH_SIZE = 20
         for i in range(0, len(to_translate), BATCH_SIZE):
             batch = to_translate[i : i + BATCH_SIZE]
-            texts = [(s.get("enriched_summary") or s.get("what_changed") or "") for s in batch]
+            texts = [item[3] for item in batch]
             try:
                 results = translator.translate_text(texts, source_lang="IT", target_lang="EN-US")
-                for s, result in zip(batch, results):
-                    original = s.get("enriched_summary") or s.get("what_changed") or ""
+                for (s, field, orig_field, original), result in zip(batch, results):
                     translated_text = _clean_summary_text(result.text)
                     if not translated_text:
-                        unresolved.append(s)
+                        unresolved.append((s, field, orig_field, original))
                         continue
-                    s["enriched_summary_original"] = original
-                    s["enriched_summary"] = translated_text
-                    translated += 1
-                    print(f"  {s.get('fund_slug', '?')}: {translated_text[:80]}...")
+                    s[orig_field] = original
+                    s[field] = translated_text
+                    translated_fields += 1
             except Exception as e:
                 print(f"  Translation batch error (DeepL): {e}")
                 unresolved.extend(batch)
     else:
         unresolved.extend(to_translate)
 
-    # OpenAI fallback for any unresolved rows.
+    # OpenAI fallback for any unresolved fields
     if unresolved and openai_client is not None:
-        print(f"  Falling back to OpenAI translation for {len(unresolved)} signals...")
-        for s in unresolved:
-            original = s.get("enriched_summary") or s.get("what_changed") or ""
+        print(f"  Falling back to OpenAI translation for {len(unresolved)} fields...")
+        for s, field, orig_field, original in unresolved:
             try:
                 translated_text = _translate_text_with_openai(openai_client, original)
             except Exception as e:
-                print(f"  OpenAI translation error ({s.get('id')}): {e}")
+                print(f"  OpenAI translation error ({s.get('id')}/{field}): {e}")
                 continue
             if not translated_text:
                 continue
-            s["enriched_summary_original"] = original
-            s["enriched_summary"] = translated_text
-            translated += 1
-            print(f"  {s.get('fund_slug', '?')}: {translated_text[:80]}...")
+            s[orig_field] = original
+            s[field] = translated_text
+            translated_fields += 1
 
-    print(f"Translated {translated}/{len(to_translate)} signals")
-    return translated
+    # Count signals that had at least one field translated
+    translated_signals = sum(
+        1 for s in signals
+        if any(s.get(orig) for _, orig in TEXT_FIELDS)
+    )
+    print(f"Translated {translated_fields} fields across {len(signals_needing_work)} signals")
+    return translated_signals
+
+
+def _propagate_translations_to_filtered(enriched_signals: list[dict]) -> None:
+    """Write translated title/what_changed back to the filtered signals file.
+
+    Fund detail pages (/funds/[slug]) read ONLY from detected_signals_filtered.json.
+    Without this step, they never see translations and always display Italian text.
+
+    NOTE: Cannot use _signal_key() for matching because it includes `title`,
+    which has already been translated in the enriched signals but remains
+    Italian in the filtered file.  Uses source_url + fund_slug + date instead.
+    """
+    if not SIGNALS_FILE_FILTERED.exists():
+        return
+
+    def _stable_key(s: dict) -> str:
+        """Key that doesn't change when title is translated."""
+        url = (s.get("source_url") or "").strip()
+        slug = (s.get("fund_slug") or "").strip()
+        date = s.get("published_at") or s.get("observed_at") or s.get("created_at") or ""
+        return f"{url}::{slug}::{date}"
+
+    # Build lookup: stable key → translated fields from enriched
+    TRANSLATE_FIELDS = ["title", "what_changed", "title_original", "what_changed_original"]
+    translations: dict[str, dict] = {}
+    for s in enriched_signals:
+        key = _stable_key(s)
+        if not key:
+            continue
+        updates = {}
+        for field in TRANSLATE_FIELDS:
+            if s.get(field):
+                updates[field] = s[field]
+        if updates:
+            translations[key] = updates
+
+    if not translations:
+        return
+
+    # Load filtered file and apply translations
+    filtered_data = load_json(SIGNALS_FILE_FILTERED)
+    filtered_signals = filtered_data.get("signals", [])
+    updated = 0
+    for s in filtered_signals:
+        key = _stable_key(s)
+        if key and key in translations:
+            for field, value in translations[key].items():
+                if s.get(field) != value:
+                    s[field] = value
+                    updated += 1
+
+    if updated > 0:
+        filtered_data["translations_synced_at"] = datetime.now(timezone.utc).isoformat()
+        save_json(SIGNALS_FILE_FILTERED, filtered_data)
+        print(f"Propagated translations to filtered file: {updated} field updates")
 
 
 def main():
@@ -2620,6 +2694,12 @@ def main():
         }
     data["enriched_at"] = datetime.now(timezone.utc).isoformat()
     save_json(OUTPUT_FILE, data)
+
+    # ── Propagate translations back to filtered file ──────────────────────────
+    # Fund detail pages (/funds/[slug]) read from the filtered file ONLY and
+    # never see enriched data.  Write translated title/what_changed back so
+    # those pages also display English text.
+    _propagate_translations_to_filtered(signals)
 
     print(f"\n{'=' * 50}")
     print(f"Enrichment complete!")

@@ -234,10 +234,16 @@ def normalize_employee(
     Returns:
         Normalized LinkedInEmployee object
     """
+    # Support both HarvestAPI (camelCase) and apimaestro (snake_case) formats
+    name = item.get("name", item.get("fullName", item.get("fullname")))
+    if not name:
+        first = item.get("firstName", item.get("first_name", ""))
+        last = item.get("lastName", item.get("last_name", ""))
+        name = f"{first} {last}".strip() or "Unknown"
     return LinkedInEmployee(
-        name=item.get("name", item.get("fullName", "Unknown")),
+        name=name,
         title=item.get("title", item.get("headline", item.get("position"))),
-        profile_url=item.get("url", item.get("profileUrl", item.get("linkedInUrl"))),
+        profile_url=item.get("url", item.get("profileUrl", item.get("linkedInUrl", item.get("profile_url")))),
         company_slug=company_slug,
         scraped_at=datetime.now(timezone.utc).isoformat(),
     )
@@ -277,17 +283,19 @@ def normalize_profile(
             elif isinstance(lang, dict):
                 languages.append(lang.get("name", lang.get("language", "")))
 
-    # Build name from first/last if not available as full name
-    name = item.get("name", item.get("fullName"))
+    # Build name — support both HarvestAPI (camelCase) and apimaestro (snake_case)
+    name = item.get("name", item.get("fullName", item.get("fullname")))
     if not name:
-        first = item.get("firstName", "")
-        last = item.get("lastName", "")
+        first = item.get("firstName", item.get("first_name", ""))
+        last = item.get("lastName", item.get("last_name", ""))
         name = f"{first} {last}".strip() or "Unknown"
 
-    # Get location - handle nested structure
+    # Get location — handle HarvestAPI nested dict, apimaestro dict, or plain string
     location = item.get("location")
     if isinstance(location, dict):
-        location = location.get("linkedinText", location.get("parsed", {}).get("text", ""))
+        # HarvestAPI: {"linkedinText": "Milan", "parsed": {...}}
+        # apimaestro: {"country": "IT", "city": "Milan", "full": "Milan, Italy", "country_code": "IT"}
+        location = location.get("linkedinText", location.get("full", location.get("parsed", {}).get("text", "")))
 
     # Get connections count
     connections = item.get("connectionsCount", item.get("connections"))
@@ -302,7 +310,7 @@ def normalize_profile(
 
     return LinkedInProfile(
         profile_id=_extract_profile_id(item),
-        profile_url=item.get("linkedinUrl", item.get("url", item.get("profileUrl", ""))),
+        profile_url=item.get("linkedinUrl", item.get("url", item.get("profileUrl", item.get("profile_url", "")))),
         name=name,
         headline=item.get("headline", item.get("title")),
         location=location,

@@ -23,7 +23,13 @@ logger = logging.getLogger(__name__)
 ACTORS = {
     "company_scraper": "curious_coder/linkedin-company-scraper",
     "company_posts": "apimaestro/linkedin-post-search-scraper",
+    # Primary employee scraper: harvestapi gives rich data (experience+education)
+    # but free Apify plan users are limited to 10 runs/month (added Feb 14 2026).
     "company_employees": "harvestapi/linkedin-company-employees",
+    # Fallback employee scraper: apimaestro gives headline-only data (no experience/education)
+    # but has NO run limit and is essentially free (pure compute cost ~$0.001/run).
+    # Use this for broad coverage; use harvestapi for the top 10 monthly priority funds.
+    "company_employees_basic": "apimaestro/company-employees-scraper-linkedin",
     "profile_scraper": "supreme_coder/linkedin-profile-scraper",
 }
 

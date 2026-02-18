@@ -75,6 +75,10 @@ function englishCityName(city: string): string {
   return ITALIAN_TO_ENGLISH_CITY[city] || city;
 }
 
+function toTitleCase(str: string): string {
+  return str.replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
 function getHqOffice(fund: FundSlim) {
   return fund.offices?.find((office) => office.is_hq);
 }
@@ -178,7 +182,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
   ].filter(Boolean).length;
   const hasActiveFilters = activeFilterCount > 0;
 
-  const { primaryFunds, secondaryFunds } = useMemo(() => {
+  const { primaryFunds, secondaryFunds, matchReasons, matchSummary } = useMemo(() => {
     const matchesFilters = (fund: FundSlim) => {
       if (categoryFilter !== 'all' && fund.category !== categoryFilter) return false;
       if (!matchesSectorGroupFilter(fund, sectorGroupFilter)) return false;
@@ -196,8 +200,8 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
       return true;
     };
 
-    const matchesSearch = (fund: FundSlim, query: string) => {
-      if (!query.trim()) return true;
+    const matchesSearch = (fund: FundSlim, query: string): { matched: boolean; reason: string; detail?: string } => {
+      if (!query.trim()) return { matched: true, reason: 'name' };
       const q = query.toLowerCase();
       const categoryLabel = FUND_CATEGORY_LABELS[fund.category] || '';
       const hqOffice = getHqOffice(fund);
@@ -206,19 +210,27 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
       const derivedHqCountry = deriveFundHqCountry(fund)?.toLowerCase() ?? '';
       const localCity = fund.hq_city?.toLowerCase() ?? '';
       const localRegion = fund.hq_region?.toLowerCase() ?? '';
-      return (
-        fund.name.toLowerCase().includes(q) ||
-        fund.slug.includes(q) ||
-        localCity.includes(q) ||
-        localRegion.includes(q) ||
-        hqCity.includes(q) ||
-        hqCountry.includes(q) ||
-        derivedHqCountry.includes(q) ||
-        fund.strategy_tags.some((t) => t.toLowerCase().includes(q)) ||
-        fund.sector_tags.some((t) => t.toLowerCase().includes(q)) ||
-        categoryLabel.toLowerCase().includes(q) ||
-        portfolioCompanyNames[fund.slug]?.some((name) => name.includes(q))
-      );
+      if (fund.name.toLowerCase().includes(q) || fund.slug.includes(q)) {
+        return { matched: true, reason: 'name' };
+      }
+      if (localCity.includes(q) || localRegion.includes(q) || hqCity.includes(q) || hqCountry.includes(q) || derivedHqCountry.includes(q)) {
+        return { matched: true, reason: 'location' };
+      }
+      for (const t of fund.strategy_tags) {
+        if (t.toLowerCase().includes(q)) return { matched: true, reason: 'sector', detail: t };
+      }
+      for (const t of fund.sector_tags) {
+        if (t.toLowerCase().includes(q)) return { matched: true, reason: 'sector', detail: t };
+      }
+      if (categoryLabel.toLowerCase().includes(q)) {
+        return { matched: true, reason: 'category', detail: categoryLabel };
+      }
+      const portfolioNames = portfolioCompanyNames[fund.slug];
+      if (portfolioNames) {
+        const match = portfolioNames.find((name) => name.includes(q));
+        if (match) return { matched: true, reason: 'portfolio', detail: match };
+      }
+      return { matched: false, reason: 'none' };
     };
 
     const searchActive = search.trim().length > 0;
@@ -227,15 +239,21 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
       return {
         primaryFunds: funds.filter(matchesFilters),
         secondaryFunds: [] as FundSlim[],
+        matchReasons: new Map<string, { reason: string; detail?: string }>(),
+        matchSummary: null as null | { total: number; counts: Record<string, number> },
       };
     }
 
     const primary: FundSlim[] = [];
     const secondary: FundSlim[] = [];
+    const reasons = new Map<string, { reason: string; detail?: string }>();
+    const counts: Record<string, number> = {};
 
     for (const fund of funds) {
-      if (!matchesSearch(fund, search)) continue;
-
+      const result = matchesSearch(fund, search);
+      if (!result.matched) continue;
+      reasons.set(fund.slug, { reason: result.reason, detail: result.detail });
+      counts[result.reason] = (counts[result.reason] || 0) + 1;
       if (matchesFilters(fund)) {
         primary.push(fund);
       } else if (hasActiveFilters) {
@@ -243,7 +261,13 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
       }
     }
 
-    return { primaryFunds: primary, secondaryFunds: secondary };
+    const total = primary.length + secondary.length;
+    return {
+      primaryFunds: primary,
+      secondaryFunds: secondary,
+      matchReasons: reasons,
+      matchSummary: total > 0 ? { total, counts } : null,
+    };
   }, [funds, categoryFilter, sectorGroupFilter, hqCountryFilter, hasActiveInvestment, invMinFilter, invMaxFilter, aumMinFilter, aumMaxFilter, aumRangeMax, search, hasActiveFilters]);
 
   // Sort function
@@ -427,6 +451,17 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
         />
       </FilterBar>
 
+      {matchSummary && (
+        <div style={{ fontSize: '13px', color: '#999', margin: '8px 0 -4px', paddingLeft: '2px' }}>
+          {matchSummary.total} {matchSummary.total === 1 ? 'fund' : 'funds'} matched
+          {matchSummary.counts.name ? ` · ${matchSummary.counts.name} by name` : ''}
+          {matchSummary.counts.portfolio ? ` · ${matchSummary.counts.portfolio} by portfolio company` : ''}
+          {matchSummary.counts.sector ? ` · ${matchSummary.counts.sector} by sector` : ''}
+          {matchSummary.counts.location ? ` · ${matchSummary.counts.location} by location` : ''}
+          {matchSummary.counts.category ? ` · ${matchSummary.counts.category} by category` : ''}
+        </div>
+      )}
+
       <div style={{ ...CARD_STYLE, padding: CARD_PADDING }}>
         <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
         <table
@@ -530,6 +565,17 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
                     <span className="mobile-hide">{fund.name}</span>
                     <span className="mobile-show">{getShortName(fund)}</span>
                   </a>
+                  {(() => {
+                    const r = matchReasons.get(fund.slug);
+                    if (!r || r.reason === 'name') return null;
+                    let label = '';
+                    if (r.reason === 'portfolio' && r.detail) label = `via portfolio: ${toTitleCase(r.detail)}`;
+                    else if (r.reason === 'sector' && r.detail) label = `via sector: ${r.detail}`;
+                    else if (r.reason === 'category' && r.detail) label = `via category: ${r.detail}`;
+                    else if (r.reason === 'location') label = 'via location';
+                    else label = `via ${r.reason}`;
+                    return <div style={{ fontSize: '11px', color: '#aaa', marginTop: '2px' }}>{label}</div>;
+                  })()}
                 </td>
                 <td style={{ padding: '12px 12px', borderBottom: '1px solid #eee' }}>
                   <span

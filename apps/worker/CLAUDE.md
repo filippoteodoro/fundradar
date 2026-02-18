@@ -231,6 +231,34 @@ Normalizes company names for deduplication across sources:
 - `data/derived/linkedin/manual_profiles.json` is the source of truth for funds covered via manually curated LinkedIn profile links.
 - Do not infer manual profile coverage from mega-fund skip sets.
 
+### LinkedIn Scraping Cadence
+
+People data does not need frequent refreshing — professionals change jobs infrequently, so **once a year per fund is sufficient**. Target Italian domestic/mid-size funds first — their small teams mean 25 profiles ≈ full coverage with 100% Italy relevance. Mega-funds in `MEGA_FUNDS_TO_SKIP` and `FOREIGN_FUNDS_TO_SKIP` are handled via `manual_profiles.json` (free, title-based classification) and do not use Apify budget.
+
+### ⚠️ HarvestAPI Actor Limits (as of Feb 2026)
+
+The `harvestapi/linkedin-company-employees` actor (updated Feb 14 2026) has **two separate limit systems**:
+
+1. **Apify platform**: $5/month free credit. At $0.008/full profile, $5 = 625 profiles (~25 funds at 25 profiles each).
+2. **Actor-level**: HarvestAPI limits **free Apify plan users to 10 runs/month**. Runs beyond 10 return 0 profiles with log message "Free users are limited to 10 runs."
+
+**This means: max 10 funds per month, not 25.** The actual Apify cost for 10 funds at 25 profiles = $2.00 (well within $5 budget — the run limit is the real constraint, not money).
+
+**Monthly run command (do not test — every run counts):**
+```bash
+cd apps/worker
+APIFY_API_TOKEN=... python3 -m fundradar_worker.linkedin.batch_scraper \
+  --max-employees 25 \
+  --max-cost 2.50 \
+  --delay 180
+```
+
+This runs ~10 funds (at $0.20 each), with 3-minute delays between funds to avoid LinkedIn rate limiting. The `--delay 180` is critical — rapid-fire runs also get blocked by LinkedIn's hourly rate limiter even within the 10-run allowance.
+
+**If 0 profiles are returned:** Either the 10-run monthly limit is hit, or LinkedIn rate limiting (hourly reset). Check the Apify run logs — if you see "free user run limit exceeded" wait until the 1st of next month. If no such message, wait 1-2 hours and retry.
+
+**Reset on the 1st of each month.** Don't test with small budgets — every run costs 1 of your 10 monthly runs regardless of whether it succeeds.
+
 ## Adding a New Fund
 
 1. **Create a custom extractor** in `strategies/extractors/{fund_name}.py`:
