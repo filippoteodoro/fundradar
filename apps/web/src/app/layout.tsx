@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import Link from 'next/link';
 import { BetaBadge } from '@/components/BetaBadge';
 import { BetaBanner } from '@/components/BetaBanner';
 import { HeaderNav } from '@/components/HeaderNav';
 import { getBaseUrl } from '@/lib/baseUrl';
+
+const GA_ID = 'G-ZK8Z0S6B49';
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseUrl()),
@@ -33,6 +36,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
+        </Script>
+      </head>
       <body style={{ margin: 0, fontFamily: 'system-ui, sans-serif', background: '#fafafa' }}>
         <style dangerouslySetInnerHTML={{ __html: `
           .mobile-show { display: none; }
