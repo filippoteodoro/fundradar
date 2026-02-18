@@ -1,6 +1,7 @@
-export function BetaBadge() {
+export function BetaBadge({ className }: { className?: string }) {
   return (
     <span
+      className={['beta-badge', className].filter(Boolean).join(' ')}
       style={{
         display: 'inline-flex',
         alignItems: 'center',
@@ -11,7 +12,6 @@ export function BetaBadge() {
         fontSize: '12px',
         fontWeight: 600,
         color: '#ffd700',
-        whiteSpace: 'nowrap',
       }}
     >
       <span style={{

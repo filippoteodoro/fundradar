@@ -3330,5 +3330,115 @@
     "_slug": "ares-management",
     "_company": "Kaseya",
     "_verified_at": "2026-02-18T13:35:03.374317+00:00"
+  },
+  "ares-management::Nordic Consulting": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Nordic Consulting (officially Nordic Consulting Partners, Inc.), headquartered in Madison, WI, is a real healthcare IT consulting firm. However, it is not a portfolio company of Ares Management. It was acquired in June 2022 by Accrete Health Partners, a strategic holding company of the non-profit health system Bon Secours Mercy Health. Prior to that, it was backed by private equity firms Silversmith Capital Partners and SV Health Investors, but Ares Management was never its primary owner.",
+    "grounded": false,
+    "_slug": "ares-management",
+    "_company": "Nordic Consulting",
+    "_verified_at": "2026-02-18T13:35:26.955227+00:00"
+  },
+  "ares-management::Ob Hospitalist Group": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Ob Hospitalist Group (OBHG) was acquired by Ares Management in 2013. However, Ares sold its majority stake to Gryphon Investors in 2017, and the company was later acquired by Kohlberg & Company in 2021. Therefore, it is no longer a current portfolio company of Ares Management.",
+    "grounded": true,
+    "_slug": "ares-management",
+    "_company": "Ob Hospitalist Group",
+    "_verified_at": "2026-02-18T13:35:45.671224+00:00"
+  },
+  "ares-management::Acentra Health": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Acentra Health is a real company headquartered in McLean, VA, but it is a portfolio company of The Carlyle Group, not Ares Management. It was formed in 2023 through the merger of CNSI and Kepro, both of which were Carlyle-backed.",
+    "grounded": true,
+    "_slug": "ares-management",
+    "_company": "Acentra Health",
+    "_verified_at": "2026-02-18T13:36:05.458030+00:00"
+  },
+  "ares-management::PointClickCare": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "PointClickCare is a real healthcare technology company headquartered in Mississauga, Canada. However, it is primarily a portfolio company of Hellman & Friedman (H&F) and JMI Equity, who have held major stakes since 2021 and 2011 respectively. Ares Management is involved as a lender (holding first-lien senior secured debt) and recently acquired secondary limited partnership interests in funds holding the company from CPP Investments in 2025, but it is not the primary private equity owner/sponsor.",
+    "grounded": true,
+    "_slug": "ares-management",
+    "_company": "PointClickCare",
+    "_verified_at": "2026-02-18T13:36:26.039841+00:00"
+  },
+  "ares-management::The Lockwood Group": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "The Lockwood Group is a healthcare/medical communications firm headquartered in Stamford, CT. Ares Management's Private Equity Group completed a strategic investment in the company in October 2021. As of late 2025, Lockwood remains an active portfolio company, recently completing add-on acquisitions such as Research To Practice (November 2025) with Ares' backing.",
+    "grounded": true,
+    "_slug": "ares-management",
+    "_company": "The Lockwood Group",
+    "_verified_at": "2026-02-18T13:36:38.329196+00:00"
+  },
+  "ares-management::Legendary Entertainment": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Legendary Entertainment is a real company, but it is a portfolio company of Apollo Global Management, not Ares Management. Apollo acquired a minority stake in 2022, and as of October 2024, Legendary is co-owned by Apollo and its own management after buying out the Wanda Group's remaining interest.",
+    "grounded": false,
+    "_slug": "ares-management",
+    "_company": "Legendary Entertainment",
+    "_verified_at": "2026-02-18T13:36:57.887253+00:00"
+  },
+  "ares-management::Boardriders": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Boardriders (formerly Quiksilver Inc.) was a portfolio company of Oaktree Capital Management, not Ares Management. It was acquired by Oaktree in 2016 and subsequently sold to Authentic Brands Group (ABG) in September 2023.",
+    "grounded": false,
+    "_slug": "ares-management",
+    "_company": "Boardriders",
+    "_verified_at": "2026-02-18T13:37:56.461630+00:00"
+  },
+  "ares-management::At Home": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "At Home Group Inc. is a real home decor retailer headquartered in Plano, Texas. However, it is not a portfolio company of Ares Management. It was acquired by Hellman & Friedman in 2021 and, following a Chapter 11 bankruptcy filing in June 2025, ownership was transferred to a group of lenders including Redwood Capital Management, Farallon Capital Management, and Anchorage Capital Advisors in October 2025. Ares Management owns a similarly named healthcare company called 'Help at Home,' which may be the source of the confusion.",
+    "grounded": false,
+    "_slug": "ares-management",
+    "_company": "At Home",
+    "_verified_at": "2026-02-18T13:38:27.797517+00:00"
+  },
+  "ares-management::99 Cents Only Stores": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "99 Cents Only Stores was acquired by Ares Management and the Canada Pension Plan Investment Board (CPPIB) in a 2012 take-private transaction. The company remained under their control (holding a 73% stake as of a 2019 recapitalization) until it filed for Chapter 11 bankruptcy in April 2024. The company subsequently liquidated all 371 stores and ceased operations in early 2025, marking its exit from the portfolio.",
+    "grounded": false,
+    "_slug": "ares-management",
+    "_company": "99 Cents Only Stores",
+    "_verified_at": "2026-02-18T13:38:46.923247+00:00"
+  },
+  "ares-management::Serta Simmons Bedding": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Serta Simmons Bedding is a real company headquartered in Doraville, GA. Ares Management (along with the Ontario Teachers' Pension Plan) acquired Serta in 2005 and Simmons in 2010 to form the current entity. Ares sold its majority stake to Advent International in 2012 but retained a minority interest. Following the company's Chapter 11 bankruptcy filing and subsequent emergence in 2023, which involved a debt-for-equity swap and a new board of directors, Ares no longer holds a significant equity position, confirming its 'exited' status.",
+    "grounded": true,
+    "_slug": "ares-management",
+    "_company": "Serta Simmons Bedding",
+    "_verified_at": "2026-02-18T13:39:07.560953+00:00"
   }
 }

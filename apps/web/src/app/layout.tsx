@@ -72,7 +72,7 @@ export default function RootLayout({
           <Link href="/" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold', fontSize: '18px' }}>
             Fundradar
           </Link>
-          <BetaBadge />
+          <BetaBadge className="mobile-hide" />
           <HeaderNav />
         </div>
         </header>

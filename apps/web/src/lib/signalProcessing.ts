@@ -142,6 +142,16 @@ export function isGarbageSignal(signal: Signal, knownFundNames?: Set<string>): b
   ];
   if (NAV_SIGNAL_TITLES.includes(titleLower.trim())) return true;
 
+  // Pipe-separated navigation text: "Entity | Press releases", "Fund | News", etc.
+  // These are website breadcrumbs/section headers scraped as signals, not real events.
+  const wcPipeLower = whatChanged.toLowerCase().trim();
+  if (
+    / \| (?:press releases?|news|insights?|publications?|media|resources?|announcements?|articles?|updates?|events?|about|team|contact|portfolio|careers?)\s*$/i.test(whatChanged) ||
+    (wcPipeLower.includes(' | ') && wcPipeLower.length < 60 && !/\b(?:acqui|invest|rilev|exit|sell|rais|launch|clos|deal|fund)\w*/i.test(wcPipeLower))
+  ) {
+    return true;
+  }
+
   // what_changed is just a newspaper/source name (not a description of what happened)
   const wcLower = whatChanged.toLowerCase().trim();
   if (wcLower && wcLower.length < 60) {
@@ -475,6 +485,8 @@ export function cleanSignalText(text: string): string {
   cleaned = cleaned.replace(/(\d[\d.,]*)\s*mln\s+(?:di\s+)?euros?/gi, (_, n) => `€${n.replace(',', '.')}M`);
   cleaned = cleaned.replace(/(\d[\d.,]*)\s*mld\s+(?:di\s+)?euros?/gi, (_, n) => `€${n.replace(',', '.')}B`);
   cleaned = cleaned.replace(/€\s+(\d)/g, '€$1');
+  // Strip space + normalize suffix: "€2.9 M" → "€2.9M", "€5 Mn" → "€5M", "€1 Bn" → "€1B", etc.
+  cleaned = cleaned.replace(/([€$£]\d[\d.,]*)\s+([MKBT])[a-z]{0,2}\b/g, '$1$2');
   cleaned = cleaned.replace(/\s{2,}/g, ' ').trim();
   // Strip trailing periods — signal text is a headline, not a sentence
   cleaned = cleaned.replace(/\.+\s*$/, '');
@@ -980,6 +992,10 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
     if (/\b(?:project\s+financing|private\s+debt\s+(?:transaction|deal)|senior\s+(?:secured\s+)?(?:loan|notes?)|mezzanine|unitranche|green\s+bond|securitiz\w+|debt\s+(?:operation|deployment|facility))\b/i.test(text) &&
         !/\b(?:acqui\w+|rileva|investiment[oi]|exit|sells?|cessione|launch|lancia|nasce)\b/i.test(text)) {
       return 'debt_financing';
+    }
+    // M&A talks / negotiations — even when a deal falls through it is deal news
+    if (/\btrattative\s+(?:di\s+(?:acqui\w+|vendita|cessione)|per\s+l[a'\u2019]\s*acqui\w+)\b|\b(?:halt|stop|end|cessazione)\s+(?:to\s+|of\s+|alle?\s+)?(?:acquisition|deal|merger|trattative)\s*(?:talks?|discussions?|negoti\w*)?\b|\bacquisition\s+talks?\b|\bM&A\s+talks?\b|\bnegotiations?\s+(?:for|to)\s+(?:acqui\w+|merger\w*)\b/i.test(text)) {
+      return 'deal_announced';
     }
     // Deal patterns (partnership already handled above)
     if (/\b(?:acqui\w+|investiment[oi]\s+da\s|investe\b|entra nel capitale|enters?\b.*\bcapital|rileva|stake|majority|minority|buyout|partecipazione|operazione|finalizzat\w+|concessi\w+|sostiene|secures?\s+(?:€|\$|£)?\s*\d+|secur(?:es?|ing)\b.{0,40}\b(?:investment|funding|financing)\b|series\s+[a-g]\b|(?:seed|pre-seed)\s+(?:round|funding)|funding\s+round|(?:€|\$|£)\s*\d+\s*(?:m(?:illion|ln)?|b(?:illion|n)?)\s+(?:round|investment|funding)|investitore\s+unic\w*\s+al\s+fianco\s+di|sole\s+investor\s+(?:backing|alongside))\b/i.test(text)) {

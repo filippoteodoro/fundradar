@@ -13,6 +13,7 @@ const ctaStyle = {
   padding: '6px 14px',
   borderRadius: '8px',
   textDecoration: 'none',
+  whiteSpace: 'nowrap',
 } as const;
 
 export function HeaderNav() {

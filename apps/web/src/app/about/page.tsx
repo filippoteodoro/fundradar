@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div style={{ maxWidth: '100%', margin: '0 auto' }}>
+    <div style={{ maxWidth: '600px', margin: '48px auto' }}>
       <h1 style={{ margin: '0 0 24px 0', fontSize: '24px' }}>About Fundradar</h1>
 
       <section style={{ ...CARD_STYLE, padding: CARD_PADDING, marginBottom: '24px' }}>
