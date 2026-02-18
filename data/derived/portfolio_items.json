@@ -43502,18 +43502,6 @@
         "investment_date": null
       },
       {
-        "name": "Evri",
-        "sector": "Transportation & Logistics",
-        "headquarters": "Leeds, UK",
-        "status": "current",
-        "description": "Leading dedicated parcel delivery company in the United Kingdom.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Olaplex",
         "sector": "Consumer Goods",
         "headquarters": "Santa Barbara, USA",
@@ -43586,18 +43574,6 @@
         "investment_date": null
       },
       {
-        "name": "Douglas",
-        "sector": "Retail",
-        "headquarters": "Dusseldorf, Germany",
-        "status": "current",
-        "description": "Leading premium beauty retailer in Europe with an extensive omnichannel presence.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Parfums de Marly",
         "sector": "Fashion & Luxury",
         "headquarters": "Paris, France",
@@ -43646,18 +43622,6 @@
         "investment_date": null
       },
       {
-        "name": "Bojangles",
-        "sector": "Food & Beverage",
-        "headquarters": "Charlotte, USA",
-        "status": "current",
-        "description": "Southern-inspired fast-food chain specializing in chicken and biscuits.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Encora",
         "sector": "Technology",
         "headquarters": "Scottsdale, USA",
@@ -43699,30 +43663,6 @@
         "headquarters": "Luxembourg City, Luxembourg",
         "status": "current",
         "description": "Platform-specific payment infrastructure provider for marketplaces and crowdfunding.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Ebury",
-        "sector": "Financial Services",
-        "headquarters": "London, UK",
-        "status": "current",
-        "description": "Fintech company specializing in cross-border payments and foreign exchange services.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Medline",
-        "sector": "Healthcare",
-        "headquarters": "Northfield, USA",
-        "status": "current",
-        "description": "Largest privately held manufacturer and distributor of medical supplies in the US.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -43802,35 +43742,11 @@
         "investment_date": null
       },
       {
-        "name": "Canopius",
-        "sector": "Insurance",
-        "headquarters": "London, UK",
-        "status": "current",
-        "description": "Global specialty lines reinsurer and insurer operating in the Lloyd's market.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Imperial Dade",
         "sector": "Professional Services",
         "headquarters": "Jersey City, USA",
         "status": "current",
         "description": "Leading distributor of foodservice packaging and janitorial supplies.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "GEMS Education",
-        "sector": "Education",
-        "headquarters": "Dubai, UAE",
-        "status": "current",
-        "description": "One of the world's largest private education providers with a global network of schools.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -50231,18 +50147,6 @@
         "investment_date": null
       },
       {
-        "name": "Logoplaste",
-        "sector": "Industrial Manufacturing",
-        "headquarters": "Cascais, Portugal",
-        "status": "current",
-        "description": "Manufacturer of rigid plastic packaging for consumer goods.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Veritas",
         "sector": "Technology",
         "headquarters": "Santa Clara, USA",
@@ -50375,18 +50279,6 @@
         "investment_date": null
       },
       {
-        "name": "Mehiläinen",
-        "sector": "Healthcare",
-        "headquarters": "Helsinki, Finland",
-        "status": "current",
-        "description": "Private provider of healthcare and social services in Finland.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Rede D'Or",
         "sector": "Healthcare",
         "headquarters": "Sao Paulo, Brazil",
@@ -50423,18 +50315,6 @@
         "investment_date": null
       },
       {
-        "name": "GBG",
-        "sector": "Technology",
-        "headquarters": "Chester, UK",
-        "status": "current",
-        "description": "Global specialist in identity data intelligence and fraud prevention.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Varo Energy",
         "sector": "Energy",
         "headquarters": "Cham, Switzerland",
@@ -50464,30 +50344,6 @@
         "headquarters": "Hilversum, Netherlands",
         "status": "exited",
         "description": "Leading European lingerie retailer.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Ceva Santé Animale",
-        "sector": "Pharma & Biotech",
-        "headquarters": "Libourne, France",
-        "status": "current",
-        "description": "Global veterinary pharmaceutical company.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "VXI Global Solutions",
-        "sector": "Professional Services",
-        "headquarters": "Los Angeles, USA",
-        "status": "current",
-        "description": "Provider of customer experience and business process outsourcing services.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -50639,18 +50495,6 @@
         "investment_date": null
       },
       {
-        "name": "Wella",
-        "sector": "Consumer Goods",
-        "headquarters": "Geneva, Switzerland",
-        "status": "current",
-        "description": "A global leader in the professional and retail hair color, care, and styling industry.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "McDonald's China",
         "sector": "Food & Beverage",
         "headquarters": "Shanghai, China",
@@ -50668,18 +50512,6 @@
         "headquarters": "New York, USA",
         "status": "exited",
         "description": "A global streetwear brand known for its clothing, accessories, and skateboards.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Kindred at Home",
-        "sector": "Healthcare",
-        "headquarters": "Louisville, USA",
-        "status": "exited",
-        "description": "A leading provider of home health, hospice, and community care services.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -50723,35 +50555,11 @@
         "investment_date": null
       },
       {
-        "name": "NielsenIQ",
-        "sector": "Professional Services",
-        "headquarters": "Chicago, USA",
-        "status": "current",
-        "description": "A global provider of consumer intelligence and retail measurement data.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Resonetics",
         "sector": "Healthcare",
         "headquarters": "Nashua, USA",
         "status": "current",
         "description": "Provides laser micro-manufacturing services for the medical device and life sciences industries.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "EisnerAmper",
-        "sector": "Professional Services",
-        "headquarters": "New York, USA",
-        "status": "current",
-        "description": "A leading global accounting and advisory firm.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -50776,18 +50584,6 @@
         "headquarters": "Dulles, USA",
         "status": "current",
         "description": "Provides procurement and contract management software for federal agencies and government contractors.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Garrett Motion",
-        "sector": "Automotive",
-        "headquarters": "Rolle, Switzerland",
-        "status": "current",
-        "description": "A technology leader in the automotive industry specializing in turbocharging and electric boosting.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -50824,18 +50620,6 @@
         "headquarters": "Mumbai, India",
         "status": "current",
         "description": "A global pharmaceutical company providing end-to-end development and manufacturing solutions across the drug lifecycle.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "iCIMS",
-        "sector": "Technology",
-        "headquarters": "Holmdel, USA",
-        "status": "current",
-        "description": "A cloud-based talent acquisition platform that helps organizations attract, engage, hire, and advance talent.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -50891,18 +50675,6 @@
         "investment_date": null
       },
       {
-        "name": "EUSA Pharma",
-        "sector": "Pharma & Biotech",
-        "headquarters": "Hemel Hempstead, UK",
-        "status": "exited",
-        "description": "A biopharmaceutical company focused on developing and commercializing innovative medicines for oncology and rare diseases.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "SeQuent Scientific",
         "sector": "Pharma & Biotech",
         "headquarters": "Mumbai, India",
@@ -50932,18 +50704,6 @@
         "headquarters": "Plano, USA",
         "status": "current",
         "description": "A provider of clinically led revenue cycle management and healthcare technology solutions.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Adare Pharma Solutions",
-        "sector": "Pharma & Biotech",
-        "headquarters": "Lawrenceville, USA",
-        "status": "current",
-        "description": "A global technology-driven CDMO focused on oral dosage forms and specialized drug delivery.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
