@@ -3348,5 +3348,180 @@
     "_slug": "eurizon-real-asset",
     "_company": "Telepass",
     "_verified_at": "2026-02-18T19:38:54.756160+00:00"
+  },
+  "eurizon-real-asset::Engineering Ingegneria Informatica": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "Engineering Ingegneria Informatica",
+    "_verified_at": "2026-02-18T19:40:34.623932+00:00"
+  },
+  "eurizon-real-asset::Cedacri": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "Cedacri",
+    "_verified_at": "2026-02-18T19:42:14.332089+00:00"
+  },
+  "eurizon-real-asset::Forno d'Asolo": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Forno d'Asolo is a real company based in Maser, Italy, in the Food & Beverage sector. However, it was not a portfolio company of Eurizon Real Asset. It was owned by 21 Invest (2014–2018) and then by BC Partners (2018–2024). In 2024, BC Partners exited the investment, selling the company to a consortium of Investindustrial and the Bagnoli family (Sammontana).",
+    "grounded": false,
+    "_slug": "eurizon-real-asset",
+    "_company": "Forno d'Asolo",
+    "_verified_at": "2026-02-18T19:43:52.139313+00:00"
+  },
+  "eurizon-real-asset::Fedrigoni": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "Fedrigoni",
+    "_verified_at": "2026-02-18T19:45:31.293447+00:00"
+  },
+  "eurizon-real-asset::Mooney": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Mooney is a real Italian fintech company (formerly SisalPay | 5) headquartered in Milan. However, it is not a portfolio company of Eurizon Real Asset (Eurizon Capital Real Asset SGR). Mooney is a joint venture owned 50/50 by the Italian utility Enel (via Enel X) and the banking group Intesa Sanpaolo (via Banca 5 and Isybank). While Eurizon is the asset management arm of Intesa Sanpaolo, Mooney is held as a strategic group asset of the parent bank rather than as an investment in a Eurizon private equity fund. Mooney was previously a portfolio company of CVC Capital Partners until its sale to Enel and Intesa Sanpaolo was finalized in 2022.",
+    "grounded": true,
+    "_slug": "eurizon-real-asset",
+    "_company": "Mooney",
+    "_verified_at": "2026-02-18T19:46:04.740845+00:00"
+  },
+  "eurizon-real-asset::CloudCare": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "CloudCare S.p.A. is a real technology company headquartered in Rome, Italy. However, it is a portfolio company of Investcorp, which acquired a majority stake in the company in June 2021 from its founder, Andrea Conte. There is no evidence that Eurizon Real Asset (Eurizon Capital Real Asset SGR) currently holds or has previously held CloudCare in its portfolio; the confusion may arise from both firms being active in the Italian private equity market during the same period.",
+    "grounded": true,
+    "_slug": "eurizon-real-asset",
+    "_company": "CloudCare",
+    "_verified_at": "2026-02-18T19:46:34.748624+00:00"
+  },
+  "eurizon-real-asset::Lutech": {
+    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": false,\n  \"confidence\": \"high\",\n  \"correct_status\": \"current\",\n  \"notes\": \"Lutech is a real IT services company headquartered in Milan. It is current",
+    "_slug": "eurizon-real-asset",
+    "_company": "Lutech",
+    "_verified_at": "2026-02-18T19:47:08.952318+00:00"
+  },
+  "eurizon-real-asset::Irideos": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Irideos is a real Italian ICT company, but it was a portfolio company of F2i SGR (Fondi Italiani per le Infrastrutture), not Eurizon Real Asset. F2i sold its 78.4% stake to Asterion Industrial Partners in 2022. Irideos was subsequently merged into Retelit (another Asterion portfolio company) in 2024.",
+    "grounded": true,
+    "_slug": "eurizon-real-asset",
+    "_company": "Irideos",
+    "_verified_at": "2026-02-18T19:48:16.262680+00:00"
+  },
+  "eurizon-real-asset::Bending Spoons": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Bending Spoons is a real technology company based in Milan, Italy. It is a portfolio company of Eurizon Capital Real Asset SGR (the alternative asset management arm of Intesa Sanpaolo), which provided private debt financing for Bending Spoons' acquisition of WeTransfer in 2024. While its primary equity backers include firms like NB Renaissance and T. Rowe Price, it is held in Eurizon's private debt portfolio.",
+    "grounded": true,
+    "_slug": "eurizon-real-asset",
+    "_company": "Bending Spoons",
+    "_verified_at": "2026-02-18T19:49:22.561490+00:00"
+  },
+  "eurizon-real-asset::Hippocrates Holding": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Hippocrates Holding is a real Milan-based healthcare company (pharmacy network), but it is a portfolio company of Antin Infrastructure Partners, which acquired an 80% stake in 2020. Eurizon Capital Real Asset SGR (part of Intesa Sanpaolo) has invested in a different pharmacy group, Pharma Green Holding, and its parent company Intesa Sanpaolo has acted as a lender to Hippocrates, but Hippocrates is not in Eurizon's equity portfolio.",
+    "grounded": false,
+    "_slug": "eurizon-real-asset",
+    "_company": "Hippocrates Holding",
+    "_verified_at": "2026-02-18T19:49:53.795555+00:00"
+  },
+  "eurizon-real-asset::Satispay": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "Satispay",
+    "_verified_at": "2026-02-18T19:51:33.177920+00:00"
+  },
+  "eurizon-real-asset::Kedrion Biopharma": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "Kedrion Biopharma",
+    "_verified_at": "2026-02-18T19:53:12.909896+00:00"
+  },
+  "eurizon-real-asset::D-Orbit": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "D-Orbit is a space technology company based in Fino Mornasco, Italy. It is a portfolio company of Eurizon Capital Real Asset SGR (the alternative asset management division of Eurizon/Intesa Sanpaolo), which has invested in D-Orbit's funding rounds (notably the Series C in 2023/2024). Financial reports from partners like Fondazione Carisbo confirm D-Orbit as a current holding within Eurizon-managed private market portfolios.",
+    "grounded": false,
+    "_slug": "eurizon-real-asset",
+    "_company": "D-Orbit",
+    "_verified_at": "2026-02-18T19:54:06.827911+00:00"
+  },
+  "eurizon-real-asset::Lio Pharma": {
+    "error": "Empty response text",
+    "_slug": "eurizon-real-asset",
+    "_company": "Lio Pharma",
+    "_verified_at": "2026-02-18T19:55:11.648203+00:00"
+  },
+  "eurizon-real-asset::Prima Assicurazioni": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Prima Assicurazioni is a prominent Italian insurtech company based in Milan. However, it is not a portfolio company of Eurizon Real Asset. Its major institutional investors are Goldman Sachs, Blackstone, and Carlyle. In August 2025, AXA Group announced an agreement to acquire a 51% majority stake in the company, with the existing private equity investors (Blackstone, Goldman Sachs, and Carlyle) exiting their positions. Eurizon Capital Real Asset SGR is an asset manager within the Intesa Sanpaolo Group, but there is no record of it holding a direct stake in Prima Assicurazioni.",
+    "grounded": false,
+    "_slug": "eurizon-real-asset",
+    "_company": "Prima Assicurazioni",
+    "_verified_at": "2026-02-18T19:56:50.874462+00:00"
+  },
+  "eurizon-real-asset::Musixmatch": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Musixmatch is a real technology company based in Bologna, Italy. However, it is not a portfolio company of Eurizon Real Asset. In July 2022, TPG Growth acquired a controlling stake in Musixmatch, and previous venture capital investors like United Ventures and P101 exited at that time. The connection between Eurizon and Musixmatch in some records likely stems from Paolo Gesess, a co-founder of United Ventures who also serves as an independent director at Eurizon Capital SGR.",
+    "grounded": true,
+    "_slug": "eurizon-real-asset",
+    "_company": "Musixmatch",
+    "_verified_at": "2026-02-18T19:57:52.212996+00:00"
+  },
+  "eurizon-real-asset::La Piadineria": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "La Piadineria is a real Italian food and beverage company headquartered in Montirone. However, it is not a portfolio company of Eurizon Real Asset. It was acquired by CVC Capital Partners from Permira and DeA Capital in January 2024, and CVC remains the majority shareholder as of early 2026. Eurizon Real Asset is an active private equity player in Italy but holds other companies such as TecnoFer and Germani.",
+    "grounded": false,
+    "_slug": "eurizon-real-asset",
+    "_company": "La Piadineria",
+    "_verified_at": "2026-02-18T19:59:31.136154+00:00"
+  },
+  "eurizon-real-asset::Design Holding": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Design Holding (recently rebranded as Flos B&B Italia Group) is a real company headquartered in Milan, Italy, in the high-end design (Consumer Goods) sector. However, it is jointly owned and controlled by the private equity firms Investindustrial and The Carlyle Group, not Eurizon Real Asset. Eurizon Capital Real Asset SGR is an asset manager that holds other companies like GSA (Gruppo Servizi Associati) and Trasporti Romagna, but no evidence links it to Design Holding.",
+    "grounded": true,
+    "_slug": "eurizon-real-asset",
+    "_company": "Design Holding",
+    "_verified_at": "2026-02-18T20:00:02.672895+00:00"
+  },
+  "eurizon-real-asset::Golden Goose": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "Golden Goose",
+    "_verified_at": "2026-02-18T20:01:42.765918+00:00"
+  },
+  "eurizon-real-asset::Eataly": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "Eataly",
+    "_verified_at": "2026-02-18T20:03:22.796084+00:00"
   }
 }

@@ -76,14 +76,16 @@ interface Props {
 }
 
 export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
-  // Exclude "other" — it means unclassified, not a real background/seniority category.
-  // Percentages are computed against classified-only totals so bars sum to 100%.
+  // With full HarvestAPI data (has school records), "other" is a real category (media, real estate, etc.)
+  // With apimaestro headline-only data (no schools), "other" just means unclassified — hide it.
+  const hasRichData = Object.keys(analytics.education.top_schools).length > 0;
+
   const classifiedBackgrounds = Object.entries(analytics.backgrounds)
-    .filter(([name, value]) => name !== 'other' && value > 0);
+    .filter(([name, value]) => (hasRichData || name !== 'other') && value > 0);
   const totalBackgrounds = classifiedBackgrounds.reduce((a, [, v]) => a + v, 0);
 
   const classifiedSeniority = Object.entries(analytics.seniority)
-    .filter(([name, value]) => name !== 'other' && value > 0);
+    .filter(([name, value]) => (hasRichData || name !== 'other') && value > 0);
   const totalSeniority = classifiedSeniority.reduce((a, [, v]) => a + v, 0);
 
   // Transform backgrounds data
