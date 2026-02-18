@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic';
 import type { TeamAnalytics } from '@fundradar/shared';
 import type { FundSlim } from '@/lib/data';
 import { FundsTable } from './FundsTable';
-import { generateDummyAnalytics } from '@/lib/dummyAnalytics';
 import { CARD_STYLE, CARD_PADDING } from '@/lib/ui';
 
 const TeamAnalyticsCharts = dynamic(
@@ -24,8 +23,6 @@ interface HomeContentProps {
   funds: FundSlim[];
   portfolioCompanyNames: Record<string, string[]>;
   realAnalytics: Record<string, TeamAnalytics>;
-  // Used only to avoid dummy analytics for global mega-funds.
-  megaFundSlugsForDummyExclusion: string[];
   // Source of truth for Italy-only profile coverage note.
   manualLinkedinProfileFundSlugs: string[];
 }
@@ -33,7 +30,6 @@ interface HomeContentProps {
 function aggregateAnalytics(
   slugs: string[],
   realAnalytics: Record<string, TeamAnalytics>,
-  megaFundSlugsForDummyExclusionSet: Set<string>,
 ): { aggregate: TeamAnalytics; fundCount: number } {
   const backgrounds: Record<string, number> = {};
   const seniority: Record<string, number> = {};
@@ -54,10 +50,9 @@ function aggregateAnalytics(
   let fundCount = 0;
 
   for (const slug of slugs) {
-    // Skip mega-funds only if they have no real data (dummy data would be misleading for global firms)
-    if (megaFundSlugsForDummyExclusionSet.has(slug) && !realAnalytics[slug]) continue;
+    if (!realAnalytics[slug]) continue;
 
-    const analytics: TeamAnalytics = realAnalytics[slug] || generateDummyAnalytics(slug);
+    const analytics: TeamAnalytics = realAnalytics[slug];
 
     totalProfiles += analytics.total_profiles;
     totalNewHires1y += analytics.hiring.new_hires_last_1y;
@@ -129,13 +124,8 @@ export function HomeContent({
   funds,
   portfolioCompanyNames,
   realAnalytics,
-  megaFundSlugsForDummyExclusion,
   manualLinkedinProfileFundSlugs,
 }: HomeContentProps) {
-  const megaFundSlugsForDummyExclusionSet = useMemo(
-    () => new Set(megaFundSlugsForDummyExclusion),
-    [megaFundSlugsForDummyExclusion],
-  );
   const manualLinkedinProfileFundSlugsSet = useMemo(
     () => new Set(manualLinkedinProfileFundSlugs),
     [manualLinkedinProfileFundSlugs],
@@ -153,15 +143,8 @@ export function HomeContent({
   }, []);
 
   const { aggregate, fundCount } = useMemo(
-    () => aggregateAnalytics(filteredSlugs, realAnalytics, megaFundSlugsForDummyExclusionSet),
-    [filteredSlugs, realAnalytics, megaFundSlugsForDummyExclusionSet],
-  );
-
-  const excludedMegaFunds = useMemo(() =>
-    filteredSlugs
-      .filter(s => megaFundSlugsForDummyExclusionSet.has(s) && !realAnalytics[s])
-      .map(s => fundNamesBySlug[s] || s),
-    [filteredSlugs, megaFundSlugsForDummyExclusionSet, fundNamesBySlug, realAnalytics],
+    () => aggregateAnalytics(filteredSlugs, realAnalytics),
+    [filteredSlugs, realAnalytics],
   );
 
   const includedManualLinkedinProfileFunds = useMemo(() =>
@@ -186,29 +169,28 @@ export function HomeContent({
         onFilteredFundsChange={handleFilteredFundsChange}
       />
 
-      <div style={{ marginTop: '48px' }}>
-        <h2 style={{ margin: '0 0 8px 0', fontSize: '20px' }}>
-          People Analytics
-          <span style={{ fontSize: '14px', fontWeight: 400, color: '#999', marginLeft: '10px' }}>
-            n={aggregate.total_profiles}
-          </span>
-        </h2>
-        <p style={{ margin: '0 0 16px 0', color: '#666', fontSize: '14px' }}>
-          Aggregate view across {fundCount} fund{fundCount !== 1 ? 's' : ''}
-          {isFiltered ? ` (filtered from ${allSlugs.length})` : ''}
-          {excludedMegaFunds.length > 0 && (
-            <> — excluding {excludedMegaFunds.join(', ')} to extract meaningful insights about local investment teams</>
-          )}
-        </p>
-        <div style={{ ...CARD_STYLE, padding: CARD_PADDING }}>
-          <TeamAnalyticsCharts analytics={aggregate} isDummy />
-          {includedManualLinkedinProfileFunds.length > 0 && (
-            <p style={{ margin: '10px 0 0 0', color: '#666', fontSize: '13px' }}>
-              For the following large global funds, we only included Italian profiles to ensure data is relevant for Italy: {includedManualLinkedinProfileFundsLabel}.
-            </p>
-          )}
+      {fundCount > 0 && (
+        <div style={{ marginTop: '48px' }}>
+          <h2 style={{ margin: '0 0 8px 0', fontSize: '20px' }}>
+            People Analytics
+            <span style={{ fontSize: '14px', fontWeight: 400, color: '#999', marginLeft: '10px' }}>
+              n={aggregate.total_profiles}
+            </span>
+          </h2>
+          <p style={{ margin: '0 0 16px 0', color: '#666', fontSize: '14px' }}>
+            Aggregate view across {fundCount} fund{fundCount !== 1 ? 's' : ''}
+            {isFiltered ? ` (filtered from ${allSlugs.length})` : ''}
+          </p>
+          <div style={{ ...CARD_STYLE, padding: CARD_PADDING }}>
+            <TeamAnalyticsCharts analytics={aggregate} />
+            {includedManualLinkedinProfileFunds.length > 0 && (
+              <p style={{ margin: '10px 0 0 0', color: '#666', fontSize: '13px' }}>
+                For the following large global funds, we only included Italian profiles to ensure data is relevant for Italy: {includedManualLinkedinProfileFundsLabel}.
+              </p>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

@@ -3,7 +3,6 @@ import {
   getAllFundsSlim,
   getAllPortfolioCompanyNames,
   getAllRealAnalytics,
-  getMegaFundSlugs,
   getManualLinkedinProfileFundSlugs,
 } from '@/lib/data';
 import { HomeContent } from './components/HomeContent';
@@ -19,7 +18,6 @@ export default function HomePage() {
   const funds = getAllFundsSlim();
   const portfolioCompanyNames = getAllPortfolioCompanyNames();
   const realAnalytics = getAllRealAnalytics();
-  const megaFundSlugsForDummyExclusion = getMegaFundSlugs();
   const manualLinkedinProfileFundSlugs = getManualLinkedinProfileFundSlugs();
 
   const jsonLd = {
@@ -47,7 +45,6 @@ export default function HomePage() {
         funds={funds}
         portfolioCompanyNames={portfolioCompanyNames}
         realAnalytics={realAnalytics}
-        megaFundSlugsForDummyExclusion={megaFundSlugsForDummyExclusion}
         manualLinkedinProfileFundSlugs={manualLinkedinProfileFundSlugs}
       />
     </div>

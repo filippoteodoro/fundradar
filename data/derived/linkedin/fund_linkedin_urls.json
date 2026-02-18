@@ -106,7 +106,7 @@
     {
       "slug": "arca-space-capital",
       "name": "Arca Space Capital",
-      "linkedin_url": "https://www.linkedin.com/company/arcafondisgr/"
+      "linkedin_url": "https://www.linkedin.com/company/space-capital-advisors/"
     },
     {
       "slug": "ardian",
@@ -161,7 +161,7 @@
     {
       "slug": "sella-venture-partners",
       "name": "Sella Venture Partners",
-      "linkedin_url": "https://www.linkedin.com/company/banca-generali/"
+      "linkedin_url": "https://www.linkedin.com/company/sella-ventures-sgr/"
     },
     {
       "slug": "bc-partners",
@@ -325,8 +325,8 @@
     },
     {
       "slug": "fondo-italiano-d-investimento-sgr",
-      "name": "Fondo Italiano d’Investimento SGR",
-      "linkedin_url": "https://www.linkedin.com/company/fondo-italiano-per-l-efficienza-energetica/"
+      "name": "Fondo Italiano d'Investimento SGR",
+      "linkedin_url": "https://www.linkedin.com/company/fondo-italiano-d-investimento-sgr/"
     },
     {
       "slug": "friulia",
@@ -476,7 +476,7 @@
     {
       "slug": "partners-group",
       "name": "Partners Group (Luxembourg) S.A. - Milan Branch",
-      "linkedin_url": "https://www.linkedin.com/company/alternative-capital-partners-1/"
+      "linkedin_url": "https://www.linkedin.com/company/partners-group/"
     },
     {
       "slug": "permira",
@@ -511,7 +511,7 @@
     {
       "slug": "private-equity-partners",
       "name": "Private Equity Partners",
-      "linkedin_url": "https://www.linkedin.com/company/alpha-private-equity/"
+      "linkedin_url": "https://www.linkedin.com/company/private-equity-partners-srl/"
     },
     {
       "slug": "progressio-sgr",
@@ -606,7 +606,8 @@
     {
       "slug": "star-tech-ventures",
       "name": "Star Tech Ventures",
-      "linkedin_url": "https://www.linkedin.com/company/star-capital-sgr-spa/"
+      "linkedin_url": "https://www.linkedin.com/company/star-capital-sgr-spa/",
+      "note": "No LinkedIn page - do not scrape"
     },
     {
       "slug": "style-capital-sgr",
@@ -616,7 +617,7 @@
     {
       "slug": "sviluppo-imprese-centro-italia-sgr",
       "name": "Sviluppo Imprese Centro Italia SGR",
-      "linkedin_url": "https://www.linkedin.com/company/trentino-sviluppo-spa/"
+      "linkedin_url": "https://www.linkedin.com/company/sviluppo-imprese-centro-italia-sgr-spa/"
     },
     {
       "slug": "tages-capital-sgr",

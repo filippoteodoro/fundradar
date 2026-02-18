@@ -8,7 +8,6 @@ import {
   getPortfolioNote,
   getSignalNote,
   getTeamAnalyticsForFund,
-  isMegaFund,
   isManualLinkedinProfileFund,
   getSortedOffices,
 } from '@/lib/data';
@@ -19,7 +18,6 @@ const TeamAnalyticsCharts = dynamic(
   () => import('@/components/TeamAnalyticsCharts').then(mod => ({ default: mod.TeamAnalyticsCharts })),
   { ssr: false }
 );
-import { generateDummyAnalytics } from '@/lib/dummyAnalytics';
 import { PortfolioSection } from '@/components/PortfolioSection';
 import { SignalsCompact } from '@/components/SignalsCompact';
 import { CARD_STYLE, CARD_PADDING } from '@/lib/ui';
@@ -58,10 +56,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
   };
 }
-
-// Set to true to preview charts with dummy data
-const PREVIEW_WITH_DUMMY_DATA = true;
-
 
 type ExtendedFund = Fund & {
   geographies?: string[];
@@ -174,7 +168,6 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
   const portfolioCompanies = getPortfolioForFund(slug);
   const portfolioNote = getPortfolioNote(slug);
   const teamAnalytics = getTeamAnalyticsForFund(slug);
-  const isGlobalMegaFund = isMegaFund(slug);
   // Italy-only note is driven by manual_profiles.json, not by mega-fund membership.
   const hasManualLinkedinProfiles = !!teamAnalytics && isManualLinkedinProfileFund(slug);
   const contactName = normalizeContactName(fund.contact_name);
@@ -464,68 +457,23 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
       {/* Assets Section */}
       <PortfolioSection companies={portfolioCompanies} emptyNote={portfolioNote} compact />
 
-      {/* Team Analytics Section */}
-      {(() => {
-        // Determine what analytics to show
-        const hasRealData = !!teamAnalytics;
-        const showDummyPreview = PREVIEW_WITH_DUMMY_DATA && !hasRealData && !isGlobalMegaFund;
-        const analyticsToShow = hasRealData ? teamAnalytics : (showDummyPreview ? generateDummyAnalytics(slug) : null);
-
-        if (isGlobalMegaFund && !hasRealData) {
-          return (
-            <>
-              <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>People Analytics</h2>
-              <div
-                style={{
-                  background: '#f8f9fa',
-                  padding: '24px',
-                  borderRadius: '12px',
-                  border: '1px solid #e9ecef',
-                }}
-              >
-                <p style={{ margin: 0, color: '#6c757d', fontSize: '14px' }}>
-                  {fund.name} is a global mega-fund with thousands of employees worldwide.
-                  People analytics focuses on Italy-based PE/VC funds where we can provide meaningful insights
-                  about local investment teams.
-                </p>
-              </div>
-            </>
-          );
-        }
-
-        if (analyticsToShow) {
-          return (
-            <>
-              <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>
-                People Analytics
-                {!showDummyPreview && analyticsToShow && (
-                  <span style={{ fontSize: '14px', fontWeight: 400, color: '#999', marginLeft: '10px' }}>
-                    n={analyticsToShow.total_profiles}
-                    {(hasManualLinkedinProfiles || isGlobalMegaFund) && (
-                      <span style={{ marginLeft: '8px' }}>
-                        · Italy team
-                      </span>
-                    )}
-                  </span>
-                )}
-              </h2>
-              <div
-                style={{
-                  ...CARD_STYLE,
-                  padding: CARD_PADDING,
-                }}
-              >
-                <TeamAnalyticsCharts
-                  analytics={analyticsToShow}
-                  isDummy={showDummyPreview}
-                />
-              </div>
-            </>
-          );
-        }
-
-        return null;
-      })()}
+      {/* Team Analytics Section — only shown when real data exists */}
+      {teamAnalytics && (
+        <>
+          <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>
+            People Analytics
+            <span style={{ fontSize: '14px', fontWeight: 400, color: '#999', marginLeft: '10px' }}>
+              n={teamAnalytics.total_profiles}
+              {hasManualLinkedinProfiles && (
+                <span style={{ marginLeft: '8px' }}>· Italy team</span>
+              )}
+            </span>
+          </h2>
+          <div style={{ ...CARD_STYLE, padding: CARD_PADDING }}>
+            <TeamAnalyticsCharts analytics={teamAnalytics} />
+          </div>
+        </>
+      )}
 
       {/* Signals Section */}
       <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>Signals ({signals.length})</h2>
