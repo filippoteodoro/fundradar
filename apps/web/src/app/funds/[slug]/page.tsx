@@ -87,10 +87,15 @@ type ExtendedFund = Fund & {
 function formatInvestmentRange(min: number | null | undefined, max: number | null | undefined): string | null {
   if (!min && !max) return null;
   const formatAmount = (n: number) => {
-    const roundTo5 = (v: number) => Math.round(v / 5) * 5;
-    if (n >= 1e9) return `€${roundTo5(n / 1e9)}B`;
-    if (n >= 1e6) return `€${roundTo5(n / 1e6)}M`;
-    if (n >= 1e3) return `€${roundTo5(n / 1e3)}K`;
+    if (n >= 1e9) {
+      const v = n / 1e9;
+      return v >= 5 ? `€${Math.round(v / 5) * 5}B` : `€${+v.toFixed(1)}B`;
+    }
+    if (n >= 1e6) {
+      const v = n / 1e6;
+      return v >= 5 ? `€${Math.round(v / 5) * 5}M` : `€${+v.toFixed(1)}M`;
+    }
+    if (n >= 1e3) return `€${Math.round(n / 1e3)}K`;
     return `€${n}`;
   };
   if (min && max) return `${formatAmount(min)} - ${formatAmount(max)}`;

@@ -15,10 +15,14 @@ export default function AboutPage() {
 
       <section style={{ ...CARD_STYLE, padding: CARD_PADDING, marginBottom: '24px' }}>
         <h2 style={{ fontSize: '18px', margin: '0 0 12px 0' }}>What is Fundradar?</h2>
-        <p style={{ lineHeight: 1.6, color: '#444' }}>
-          Fundradar is a public directory of PE/VC funds active in Italy, combined with a signals
+        <p style={{ lineHeight: 1.6, color: '#444', marginBottom: '12px' }}>
+          Fundradar is a free, public directory of PE/VC funds active in Italy, combined with a signals
           engine that tracks publicly observable events. Unlike traditional databases, every piece
           of information is source-cited with links to original sources.
+        </p>
+        <p style={{ lineHeight: 1.6, color: '#444' }}>
+          All fund data, portfolios, and signals are freely accessible — no account required.
+          Subscribe to receive weekly email digests of new signals directly in your inbox.
         </p>
       </section>
 
