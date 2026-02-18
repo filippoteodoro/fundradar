@@ -1,0 +1,9 @@
+{
+  "fixture_name": "custom_spa",
+  "extraction_method": null,
+  "company_count": 0,
+  "company_names": [],
+  "failed_reason": "js_required_no_embedded_data",
+  "created_at": "2026-01-25T19:15:14.491313+00:00",
+  "version": "1.0"
+}

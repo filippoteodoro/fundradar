@@ -1,0 +1,17 @@
+{
+  "fixture_name": "nextjs_team",
+  "extraction_method": "logo_grid",
+  "company_count": 7,
+  "company_names": [
+    "Alessandro Ferrari",
+    "Giulia Bianchi",
+    "Luca Greco",
+    "Lucia Verde",
+    "Marco Rossi",
+    "Paolo Conti",
+    "Sara Marino"
+  ],
+  "failed_reason": null,
+  "created_at": "2026-01-25T19:15:15.716566+00:00",
+  "version": "1.0"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "wordpress_news",
+  "url": "https://capitalpartners-italia.it/news",
+  "type": "wordpress",
+  "date_captured": "2024-01-15",
+  "description": "WordPress news page with article posts in Italian",
+  "expected_extractions": {
+    "news_items": [
+      {
+        "title": "Capital Partners Italia acquisisce TechSolution S.p.A.",
+        "date": "15 Gennaio 2024",
+        "url": "/news/capital-partners-acquisisce-techsolution"
+      },
+      {
+        "title": "Mario Verdi nominato nuovo Partner",
+        "date": "10 Gennaio 2024",
+        "url": "/news/nuovo-partner-mario-verdi"
+      },
+      {
+        "title": "Exit: vendita di Manifattura Lombarda S.r.l.",
+        "date": "20 Dicembre 2023",
+        "url": "/news/exit-manifattura-lombarda"
+      },
+      {
+        "title": "Nuovo investimento: GreenFood Italia",
+        "date": "5 Dicembre 2023",
+        "url": "/news/investimento-greenfood"
+      },
+      {
+        "title": "Partnership strategica con Banca Innovazione",
+        "date": "15 Novembre 2023",
+        "url": "/news/partnership-banca-innovazione"
+      }
+    ],
+    "total_items": 5
+  },
+  "requires_headless": false,
+  "extraction_strategies": ["wordpress_posts", "article_tags"],
+  "notes": "Italian language WordPress site with standard post structure"
+}

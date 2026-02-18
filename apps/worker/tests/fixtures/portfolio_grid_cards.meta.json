@@ -1,0 +1,25 @@
+{
+  "name": "portfolio_grid_cards",
+  "type": "portfolio_list",
+  "url": "https://growthequity.com/portfolio",
+  "captured_at": "2024-01-20T10:00:00Z",
+  "site_type": "static",
+  "expected": {
+    "total_companies": 8,
+    "current_companies": [
+      {"name": "AlphaTech S.p.A.", "sector": "Enterprise Software", "website": "alphatech.it"},
+      {"name": "BetaHealth S.r.l.", "sector": "Healthcare Technology", "website": "betahealth.com"},
+      {"name": "DeltaFinance", "sector": "Financial Services", "website": "deltafinance.eu"},
+      {"name": "Epsilon Logistics S.p.A.", "sector": "Logistics & Supply Chain", "website": "epsilonlogistics.it"},
+      {"name": "EtaFood Tech", "sector": "Food Technology", "website": "etafood.com"},
+      {"name": "ThetaAI", "sector": "Artificial Intelligence", "website": "theta-ai.io"}
+    ],
+    "exited_companies": [
+      {"name": "GammaRetail Group", "sector": "Consumer & Retail", "exit_year": "2023"},
+      {"name": "Zeta Energy Solutions", "sector": "CleanTech", "exit_year": "2022"}
+    ],
+    "has_pagination": true,
+    "pagination_type": "click_to_load"
+  },
+  "notes": "Grid layout with card-based portfolio display, filter buttons, and click-to-load pagination"
+}

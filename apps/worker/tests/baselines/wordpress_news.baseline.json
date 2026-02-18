@@ -1,0 +1,15 @@
+{
+  "fixture_name": "wordpress_news",
+  "extraction_method": "html_cards",
+  "company_count": 5,
+  "company_names": [
+    "Capital Partners Italia acquisisce TechSolution S.p.A.",
+    "Exit: vendita di Manifattura Lombarda S.r.l.",
+    "Mario Verdi nominato nuovo Partner",
+    "Nuovo investimento: GreenFood Italia",
+    "Partnership strategica con Banca Innovazione"
+  ],
+  "failed_reason": null,
+  "created_at": "2026-01-25T19:15:16.695321+00:00",
+  "version": "1.0"
+}

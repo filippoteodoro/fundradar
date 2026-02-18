@@ -1,0 +1,73 @@
+# Fundradar Worker Docker Compose
+# For local development and testing
+
+version: '3.8'
+
+services:
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fundradar-worker
+    environment:
+      # Playwright settings
+      - PLAYWRIGHT_HEADLESS=true
+      - PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+      # Scraping settings
+      - FUNDRADAR_LOG_LEVEL=INFO
+      - FUNDRADAR_DATA_DIR=/app/data
+      - FUNDRADAR_MAX_CONCURRENT=3
+      - FUNDRADAR_RATE_LIMIT_DEFAULT=2.0
+      # Alerting (optional)
+      - FUNDRADAR_ALERT_WEBHOOK=${FUNDRADAR_ALERT_WEBHOOK:-}
+      - FUNDRADAR_DAILY_SUMMARY=true
+    volumes:
+      # Mount data directory for persistence
+      - ./../../data:/app/data:rw
+    restart: unless-stopped
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '2'
+        reservations:
+          memory: 512M
+          cpus: '0.5'
+
+  # One-off scraping job
+  scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    profiles:
+      - manual
+    environment:
+      - PLAYWRIGHT_HEADLESS=true
+      - PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+      - FUNDRADAR_LOG_LEVEL=DEBUG
+    volumes:
+      - ./../../data:/app/data:rw
+    command: ["python", "-m", "fundradar_worker.cli", "scrape-fund", "${FUND_SLUG:-investindustrial}"]
+
+  # Health report generator
+  health-report:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    profiles:
+      - manual
+    volumes:
+      - ./../../data:/app/data:ro
+    command: ["python", "-m", "fundradar_worker.cli", "health-report", "--json"]
+
+  # Regression tests
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    profiles:
+      - test
+    volumes:
+      - ./tests:/app/tests:ro
+    command: ["python", "-m", "pytest", "tests/", "--ignore=tests/test_ingest_pem.py", "-v"]

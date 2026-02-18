@@ -1,0 +1,35 @@
+{
+  "name": "mixed_team_about",
+  "type": "mixed",
+  "url": "https://fondopmiitalia.it/chi-siamo",
+  "captured_at": "2024-01-20T10:00:00Z",
+  "site_type": "static",
+  "language": "it",
+  "expected": {
+    "team_members": [
+      {"name": "Giuseppe Verdi", "title": "Presidente"},
+      {"name": "Carla Bianchi", "title": "Amministratore Delegato"},
+      {"name": "Andrea Neri", "title": "Managing Director"},
+      {"name": "Federica Rossi", "title": "Investment Director"},
+      {"name": "Matteo Lombardi", "title": "Senior Associate"},
+      {"name": "Sara Costa", "title": "Associate"},
+      {"name": "Francesco Martini", "title": "CFO"},
+      {"name": "Lucia Galli", "title": "Investor Relations"}
+    ],
+    "portfolio_companies": [
+      {"name": "ItalSteel S.p.A.", "sector": "Siderurgia"},
+      {"name": "Moda Italia Group", "sector": "Fashion"},
+      {"name": "TechService S.r.l.", "sector": "IT Services"},
+      {"name": "AgroVeneto", "sector": "Agroalimentare"}
+    ],
+    "fund_info": {
+      "total_aum": "€350M",
+      "funds": [
+        {"name": "Fondo PMI Italia I", "size": "€80M", "vintage": 2010, "status": "fully_invested"},
+        {"name": "Fondo PMI Italia II", "size": "€120M", "vintage": 2015, "status": "fully_invested"},
+        {"name": "Fondo PMI Italia III", "size": "€150M", "vintage": 2020, "status": "investing"}
+      ]
+    }
+  },
+  "notes": "About page combining team information, portfolio highlights, and fund details"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "mixed_portfolio_news",
+  "type": "mixed",
+  "url": "https://impactcapital.com/",
+  "captured_at": "2024-01-20T10:00:00Z",
+  "site_type": "static",
+  "expected": {
+    "portfolio_companies": [
+      {"name": "GreenTech Solutions S.p.A.", "sector": "Clean Energy", "website": "greentech-solutions.it"},
+      {"name": "CircularPack", "sector": "Sustainable Packaging", "website": "circularpack.eu"},
+      {"name": "HealthWise Digital", "sector": "Digital Health", "website": "healthwise.io"}
+    ],
+    "news_items": 3,
+    "deals_mentioned": ["WaterPure Technologies"],
+    "exits_mentioned": ["OrganicFarms"],
+    "team_changes": ["Elena Martinez"],
+    "fund_stats": {
+      "aum": "€450M",
+      "portfolio_count": 28,
+      "exits": 12
+    }
+  },
+  "notes": "Homepage with portfolio preview, news section, and fund statistics"
+}

@@ -1,0 +1,312 @@
+{
+  "description": "Maps variant/legacy fund slugs to their canonical slug in db.json. Every alias must be the SAME entity under a different name.",
+  "generated_at": "2026-02-13T15:20:32.000Z",
+  "aliases": {
+    "21-investimenti": "21-invest",
+    "21investimenti": "21-invest",
+    "aksia-group": "aksia-sgr",
+    "aksia-group-sgr": "aksia-sgr",
+    "alcedo": "alcedo-sgr",
+    "alto-partners": "alto-partners-sgr",
+    "amber-capital-italia-sgr": "amber-capital",
+    "apollo-global-management": "apollo",
+    "argos-wityu-italia": "argos-wityu",
+    "avm-sgr-spa-gestore-euveca-societa-benefit": "avm",
+    "b4-investimenti": "b4-investimenti-sgr",
+    "bain": "bain-capital",
+    "bluegem-capital-partners": "bluegem",
+    "bridgepoint-capital": "bridgepoint",
+    "capital-dynamics": "capital-dynamics-sgr",
+    "cdp-venture-capital-sgr": "cdp-venture-capital",
+    "charme-capital-partners-sgr": "charme-capital",
+    "clessidra": "clessidra-sgr",
+    "clessidra-capital-partners": "clessidra-sgr",
+    "clessidra-private-equity-sgr": "clessidra-sgr",
+    "clessidragroup-it": "clessidra-sgr",
+    "cvc-advisers-italia": "cvc-capital-partners",
+    "eiffel-investment-group": "eiffel",
+    "entrust-global-italia": "entrust-global",
+    "eos-investment-management-group": "eos-im",
+    "equinox": "equinox-aifm",
+    "equiter-investimenti-per-il-territorio": "equiter",
+    "eurizon-capital-real-asset-sgr": "eurizon-real-asset",
+    "eurizon-capital-sgr": "eurizon-real-asset",
+    "eurizon-sgr": "eurizon-real-asset",
+    "f2i": "f2i-sgr",
+    "fondo-agroalimentare-italiano": "fondo-italiano-d-investimento-sgr",
+    "fondofsi": "fsi",
+    "fondoitaliano": "fondo-italiano-d-investimento-sgr",
+    "fsi-sgr": "fsi",
+    "greenarrow-capital": "green-arrow-capital-sgr",
+    "h-i-g-european-capital-partners-italy": "h-i-g-capital",
+    "hat": "hat-sgr",
+    "igi-sgr": "igi-private-equity",
+    "l-capital-management": "l-catterton",
+    "macquarie-asset-management": "macquarie",
+    "macquarie-mam": "macquarie",
+    "manual-185": "blackstone",
+    "manual-186": "kkr",
+    "manual-187": "oakley-capital",
+    "manual-188": "towerbrook",
+    "manual-189": "astorg",
+    "manual-190": "perwyn",
+    "manual-191": "investindustrial",
+    "manual-192": "cvc-dif",
+    "mindful-capital-partners": "mindful-capital",
+    "montefiore-investment": "montefiore",
+    "montefiore-investments": "montefiore",
+    "nevasgr-it": "neva-sgr",
+    "oakley": "oakley-capital",
+    "oxy-capital-italia": "oxy-capital",
+    "palladio-finanziaria": "palladio-holding",
+    "permira-associati": "permira",
+    "pm-partners": "pm-partners-sgr",
+    "polis-sgr-gruppo-lbo-france": "polis-sgr",
+    "progressio": "progressio-sgr",
+    "quadrivio-sgr": "quadrivio-group",
+    "real-estate-asset-management-sgr-ream-sgr": "ream-sgr",
+    "riello-investimenti": "riello-investimenti-sgr",
+    "scientifica-venture-capital": "scientifica-vc",
+    "sienna-private-equity": "sienna-pe",
+    "sosteneo-infrastructure-partners": "sosteneo",
+    "sosteneo-sgr": "sosteneo",
+    "tages": "tages-capital-sgr",
+    "the-carlyle-group": "carlyle",
+    "three-hills-capital-partners": "three-hills",
+    "towerbrook-capital-partners": "towerbrook",
+    "unigrains-italia": "unigrains",
+    "wise-sgr": "wise-equity-sgr",
+    "wise-venture-sgr": "wise-equity-sgr",
+    "banca-sella-holding": "sella-venture-partners"
+  },
+  "reverse_lookup": {
+    "21-invest": [
+      "21-investimenti",
+      "21investimenti"
+    ],
+    "aksia-sgr": [
+      "aksia-group",
+      "aksia-group-sgr"
+    ],
+    "alcedo-sgr": [
+      "alcedo"
+    ],
+    "alto-partners-sgr": [
+      "alto-partners"
+    ],
+    "amber-capital": [
+      "amber-capital-italia-sgr"
+    ],
+    "apollo": [
+      "apollo-global-management"
+    ],
+    "argos-wityu": [
+      "argos-wityu-italia"
+    ],
+    "astorg": [
+      "manual-189"
+    ],
+    "avm": [
+      "avm-sgr-spa-gestore-euveca-societa-benefit"
+    ],
+    "b4-investimenti-sgr": [
+      "b4-investimenti"
+    ],
+    "bain-capital": [
+      "bain"
+    ],
+    "blackstone": [
+      "manual-185"
+    ],
+    "bluegem": [
+      "bluegem-capital-partners"
+    ],
+    "bridgepoint": [
+      "bridgepoint-capital"
+    ],
+    "capital-dynamics-sgr": [
+      "capital-dynamics"
+    ],
+    "carlyle": [
+      "the-carlyle-group"
+    ],
+    "cdp-venture-capital": [
+      "cdp-venture-capital-sgr"
+    ],
+    "charme-capital": [
+      "charme-capital-partners-sgr"
+    ],
+    "clessidra-sgr": [
+      "clessidra",
+      "clessidra-capital-partners",
+      "clessidra-private-equity-sgr",
+      "clessidragroup-it"
+    ],
+    "cvc-capital-partners": [
+      "cvc-advisers-italia"
+    ],
+    "cvc-dif": [
+      "manual-192"
+    ],
+    "eiffel": [
+      "eiffel-investment-group"
+    ],
+    "entrust-global": [
+      "entrust-global-italia"
+    ],
+    "eos-im": [
+      "eos-investment-management-group"
+    ],
+    "equinox-aifm": [
+      "equinox"
+    ],
+    "equiter": [
+      "equiter-investimenti-per-il-territorio"
+    ],
+    "eurizon-real-asset": [
+      "eurizon-capital-real-asset-sgr",
+      "eurizon-capital-sgr",
+      "eurizon-sgr"
+    ],
+    "f2i-sgr": [
+      "f2i"
+    ],
+    "fondo-italiano-d-investimento-sgr": [
+      "fondo-agroalimentare-italiano",
+      "fondoitaliano"
+    ],
+    "fsi": [
+      "fondofsi",
+      "fsi-sgr"
+    ],
+    "green-arrow-capital-sgr": [
+      "greenarrow-capital"
+    ],
+    "h-i-g-capital": [
+      "h-i-g-european-capital-partners-italy"
+    ],
+    "hat-sgr": [
+      "hat"
+    ],
+    "igi-private-equity": [
+      "igi-sgr"
+    ],
+    "investindustrial": [
+      "manual-191"
+    ],
+    "kkr": [
+      "manual-186"
+    ],
+    "l-catterton": [
+      "l-capital-management"
+    ],
+    "macquarie": [
+      "macquarie-asset-management",
+      "macquarie-mam"
+    ],
+    "mindful-capital": [
+      "mindful-capital-partners"
+    ],
+    "montefiore": [
+      "montefiore-investment",
+      "montefiore-investments"
+    ],
+    "neva-sgr": [
+      "nevasgr-it"
+    ],
+    "oakley-capital": [
+      "manual-187",
+      "oakley"
+    ],
+    "oxy-capital": [
+      "oxy-capital-italia"
+    ],
+    "palladio-holding": [
+      "palladio-finanziaria"
+    ],
+    "permira": [
+      "permira-associati"
+    ],
+    "perwyn": [
+      "manual-190"
+    ],
+    "pm-partners-sgr": [
+      "pm-partners"
+    ],
+    "polis-sgr": [
+      "polis-sgr-gruppo-lbo-france"
+    ],
+    "progressio-sgr": [
+      "progressio"
+    ],
+    "quadrivio-group": [
+      "quadrivio-sgr"
+    ],
+    "ream-sgr": [
+      "real-estate-asset-management-sgr-ream-sgr"
+    ],
+    "riello-investimenti-sgr": [
+      "riello-investimenti"
+    ],
+    "scientifica-vc": [
+      "scientifica-venture-capital"
+    ],
+    "sella-venture-partners": [
+      "banca-sella-holding"
+    ],
+    "sienna-pe": [
+      "sienna-private-equity"
+    ],
+    "sosteneo": [
+      "sosteneo-infrastructure-partners",
+      "sosteneo-sgr"
+    ],
+    "tages-capital-sgr": [
+      "tages"
+    ],
+    "three-hills": [
+      "three-hills-capital-partners"
+    ],
+    "towerbrook": [
+      "manual-188",
+      "towerbrook-capital-partners"
+    ],
+    "unigrains": [
+      "unigrains-italia"
+    ],
+    "wise-equity-sgr": [
+      "wise-sgr",
+      "wise-venture-sgr"
+    ]
+  },
+  "invalid_slugs": [
+    "banca-generali",
+    "banca-ifis",
+    "clessidra-capital-credit-sgr",
+    "company-that-holds-the-management-and-infrastructure-perimeter-of-tim-s-fixed-telecommunications-network",
+    "development-and-management-platform-for-ongoing-training-of-individuals-and-organizations-regarding-cybersecurity",
+    "ersel-it",
+    "generali-investments",
+    "mediocredito-centrale",
+    "simest",
+    "sienna-im",
+    "sienna-investment-managers-italia-sgr",
+    "xenon-private-equity",
+    "zenitsgr-it"
+  ],
+  "domain_aliases": {
+    "www.clessidrasgr.it": "www.clessidragroup.it",
+    "www.metrikasgr.it": "www.metrikasgr.com",
+    "www.nextasgr.com": "nextalia.com",
+    "www.consiliumsgr.it": "www.consiliumsgr.com",
+    "www.tagescapital.com": "www.tagescapitalsgr.com",
+    "argos.fund": "argos.wityu.fund",
+    "www.bridgepoint.eu": "www.bridgepointgroup.com",
+    "www.bu-partners.it": "www.bu-partners.com",
+    "www.farovalue.com": "www.faroalternativeinvestments.com",
+    "www.arcafondi.it": "www.spacecapital.it",
+    "www.auroragrowthcapital.com": "www.auroragrowthcapital.it",
+    "quattror.com": "www.quattrorsgr.it",
+    "www.sellagroup.eu": "sella.vc"
+  }
+}

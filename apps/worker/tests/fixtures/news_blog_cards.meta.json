@@ -1,0 +1,17 @@
+{
+  "name": "news_blog_cards",
+  "type": "news_list",
+  "url": "https://fondo-venture.it/blog",
+  "captured_at": "2024-01-20T10:00:00Z",
+  "site_type": "wordpress",
+  "language": "it",
+  "expected": {
+    "news_items": 6,
+    "deals_mentioned": ["PayFlow", "MedTech Solutions", "AgriSmart S.r.l."],
+    "exits_mentioned": ["CyberShield S.r.l."],
+    "team_changes": ["Giulia Bianchi"],
+    "has_pagination": true,
+    "pagination_type": "click_to_load"
+  },
+  "notes": "Italian language blog with card layout and click-to-load pagination"
+}

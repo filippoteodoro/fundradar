@@ -1,0 +1,23 @@
+{
+  "name": "portfolio_infinite_scroll",
+  "type": "portfolio_list",
+  "url": "https://techventures.com/companies",
+  "captured_at": "2024-01-20T10:00:00Z",
+  "site_type": "spa",
+  "expected": {
+    "total_companies": 6,
+    "current_companies": [
+      {"name": "CloudNative Inc.", "sector": "Cloud Infrastructure", "stage": "Series C", "website": "cloudnative.io"},
+      {"name": "DataStream Analytics", "sector": "Big Data", "stage": "Series B", "website": "datastream.tech"},
+      {"name": "AIBot Technologies", "sector": "Artificial Intelligence", "stage": "Series A", "website": "aibot.ai"},
+      {"name": "QuantumSoft S.r.l.", "sector": "Quantum Computing", "stage": "Seed", "website": "quantumsoft.eu"}
+    ],
+    "exited_companies": [
+      {"name": "SecurityFirst", "sector": "Cybersecurity", "exit_type": "acquired", "exit_year": 2023},
+      {"name": "Robotics360", "sector": "Robotics", "exit_type": "ipo", "exit_year": 2022}
+    ],
+    "has_pagination": true,
+    "pagination_type": "infinite_scroll"
+  },
+  "notes": "Modern SPA with infinite scroll pagination, investment stages, and exit details"
+}

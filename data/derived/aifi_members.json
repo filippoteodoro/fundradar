@@ -1,0 +1,6234 @@
+{
+  "scraped_at": "2026-02-02T20:21:00.151063+00:00",
+  "source_url": "https://www.aifi.it/en/full-members",
+  "member_count": 182,
+  "members": [
+    {
+      "name": "21 Invest",
+      "slug": "21-invest",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Treviso",
+      "address": "Borgo Camillo Benso Conte di Cavour, 38",
+      "country": "Italy",
+      "phone": "+39 0422 316611",
+      "email": "info@21invest.com",
+      "website": "http://www.21invest.com",
+      "contact_name": "Alessandro Benetton",
+      "aum_eur": 1500000000,
+      "num_funds": 8,
+      "num_portfolio_companies": 22,
+      "num_executives": 63,
+      "num_sfdr_article_8": 3,
+      "investment_min_eur": 20000000,
+      "investment_max_eur": 55000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Food and Beverages",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Medtech",
+        "Other manufacturing",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Europe",
+        "France",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:49:45.402526+00:00"
+    },
+    {
+      "name": "8a+ Investimenti SGR",
+      "slug": "8a-investimenti-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Varese",
+      "address": "4, P.za Monte Grappa",
+      "country": "Italy",
+      "phone": "0332 251411",
+      "email": "info@ottoapiu.it",
+      "website": "http://www.ottoapiu.it",
+      "contact_name": "Andrea Pastorelli",
+      "aum_eur": 500000000,
+      "num_funds": 9,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": 3,
+      "investment_min_eur": 500000,
+      "investment_max_eur": null,
+      "strategies": [
+        "All Stages"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy",
+        "Worldwide"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:49:56.407332+00:00"
+    },
+    {
+      "name": "Abenex",
+      "slug": "abenex",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Via Dante 16",
+      "country": "Italy",
+      "phone": null,
+      "email": "antonio.catalli@abenex.com",
+      "website": "https://www.abenex.com/it/",
+      "contact_name": "Antonio Catalli",
+      "aum_eur": 2000000000,
+      "num_funds": 11,
+      "num_portfolio_companies": 25,
+      "num_executives": 52,
+      "num_sfdr_article_8": 4,
+      "investment_min_eur": 30000000,
+      "investment_max_eur": 100000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:50:07.089156+00:00"
+    },
+    {
+      "name": "Advent International",
+      "slug": "advent-international",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "7, Via Santa Margherita",
+      "country": "Italy",
+      "phone": "+39 02 8294 6460",
+      "email": "fcasiraghi@adventinternational.it",
+      "website": "http://www.adventinternational.com",
+      "contact_name": "Francesco Casiraghi",
+      "aum_eur": 90000000000,
+      "num_funds": 4,
+      "num_portfolio_companies": 103,
+      "num_executives": 315,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 50000000,
+      "investment_max_eur": 2000000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "Chemicals and materials",
+        "Fashion",
+        "Financial and insurance activities",
+        "Food and Beverages",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Mechanics",
+        "Other manufacturing",
+        "Retail"
+      ],
+      "geographies": [
+        "Worldwide"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:50:17.718505+00:00"
+    },
+    {
+      "name": "AKSÌA SGR",
+      "slug": "aks-a-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "3, Via Brera",
+      "country": "Italy",
+      "phone": "+39 / 02 8904631",
+      "email": "info@aksiasgr.com",
+      "website": "http://www.aksiasgr.com",
+      "contact_name": "Nicola Emanuele, Marco Rayneri",
+      "aum_eur": 400000000,
+      "num_funds": 3,
+      "num_portfolio_companies": 11,
+      "num_executives": 4,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 5000000,
+      "investment_max_eur": 40000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:50:28.069740+00:00"
+    },
+    {
+      "name": "Alcedo SGR",
+      "slug": "alcedo-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Treviso",
+      "address": "11, Vicolo XX Settembre",
+      "country": "Italy",
+      "phone": "+39 / 0422 559111",
+      "email": "maurizio.tiveron@alcedo.it  amministrazione@alcedo.it",
+      "website": "http://www.alcedo.it",
+      "contact_name": "Maurizio Tiveron, Maria Giovanna Morando",
+      "aum_eur": 433000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 12,
+      "num_executives": 5,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 5000000,
+      "investment_max_eur": 35000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Food and Beverages",
+        "ICT",
+        "Industrial products and services",
+        "Medtech"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:50:38.119284+00:00"
+    },
+    {
+      "name": "Algebris Investments (Ireland) Limited - Milan Branch",
+      "slug": "algebris",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Corso Vittorio Emanuele II, 1",
+      "country": "Italy",
+      "phone": null,
+      "email": null,
+      "website": "https://www.algebris.com/it/",
+      "contact_name": null,
+      "aum_eur": null,
+      "num_funds": 1,
+      "num_portfolio_companies": 3,
+      "num_executives": 3,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Energy and environment"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:50:48.303402+00:00"
+    },
+    {
+      "name": "Aliante Lux",
+      "slug": "aliante-lux",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Lussemburgo",
+      "address": "26, Boulevard Royal",
+      "country": "Luxembourg",
+      "phone": "+41791557766",
+      "email": "info@aliantelux.eu",
+      "website": "https://aliantegroup.eu",
+      "contact_name": "Paolo Righetto",
+      "aum_eur": 100000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 35,
+      "num_executives": 24,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 500000,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out",
+        "Turnaround"
+      ],
+      "sectors": [
+        "Consumer",
+        "Food and Beverages",
+        "Furniture",
+        "ICT",
+        "Mechanics"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy",
+        "USA"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:50:58.510906+00:00"
+    },
+    {
+      "name": "Alkemia SGR",
+      "slug": "alkemia-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "7, Piazzetta Pattari",
+      "country": "Italy",
+      "phone": "+ 39 02 35941052",
+      "email": "info@alkemiacapital.com",
+      "website": "http://www.alkemiacapital.com",
+      "contact_name": "Luca Maurizio Duranti",
+      "aum_eur": 200000000,
+      "num_funds": 4,
+      "num_portfolio_companies": 15,
+      "num_executives": 9,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 3000000,
+      "investment_max_eur": 50000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:51:08.768953+00:00"
+    },
+    {
+      "name": "Alpha Associati",
+      "slug": "alpha-associati",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "6, Via G. Verdi",
+      "country": "Italy",
+      "phone": "+39 / 02 0064001",
+      "email": "alphagroup@gruppoalpha.it",
+      "website": "http://www.alphape.com",
+      "contact_name": "Paolo Magni, Pasquale Cavaliere",
+      "aum_eur": 2000000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 10,
+      "num_executives": 20,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 100000000,
+      "investment_max_eur": 500000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:51:18.730589+00:00"
+    },
+    {
+      "name": "Alternative Capital Partners SGR",
+      "slug": "alternative-capital-partners-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Corso Venezia, 16",
+      "country": "Italy",
+      "phone": "02 49652960",
+      "email": "ottina@alternativecapital.partners",
+      "website": "http://www.alternativecapital.partners",
+      "contact_name": "Emanuele Ottina",
+      "aum_eur": null,
+      "num_funds": 2,
+      "num_portfolio_companies": 11,
+      "num_executives": 4,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Infrastructure",
+        "Private Debt"
+      ],
+      "sectors": [
+        "Energy and environment"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:51:28.936527+00:00"
+    },
+    {
+      "name": "Alto Partners SGR",
+      "slug": "alto-partners-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "1/A, Via Monte di Pietà",
+      "country": "Italy",
+      "phone": "+39 / 02 72095041",
+      "email": "segreteria@altopartners.it",
+      "website": "http://www.altopartners.it",
+      "contact_name": "Stefano Scarpis, Raffaele de Courten, Gianmarco Gandolfi",
+      "aum_eur": 500000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 7,
+      "num_executives": 10,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 20000000,
+      "investment_max_eur": 40000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Northern Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:51:39.117313+00:00"
+    },
+    {
+      "name": "Amber Capital",
+      "slug": "amber-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "4, Piazza del Carmine",
+      "country": "Italy",
+      "phone": "+39 / 02 00688060",
+      "email": "maria.scozzafava@ambercapital.com",
+      "website": "http://www.ambercapital.com",
+      "contact_name": "Maria Scozzafava",
+      "aum_eur": null,
+      "num_funds": 4,
+      "num_portfolio_companies": 2,
+      "num_executives": 2,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "All Stages"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:51:49.225282+00:00"
+    },
+    {
+      "name": "Ambienta SGR",
+      "slug": "ambienta-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "6, Piazza Fontana",
+      "country": "Italy",
+      "phone": "+39 02 7217 461",
+      "email": "info@ambientasgr.com",
+      "website": "http://www.ambientasgr.com",
+      "contact_name": "Adele Bertolino",
+      "aum_eur": null,
+      "num_funds": 4,
+      "num_portfolio_companies": 15,
+      "num_executives": 9,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 50000000,
+      "investment_max_eur": 300000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Sustainability"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:51:59.337053+00:00"
+    },
+    {
+      "name": "Amundi",
+      "slug": "amundi",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "8/10, Via Cernaia",
+      "country": "Italy",
+      "phone": "02 00651",
+      "email": "para_italy@amundi.com",
+      "website": "https://www.amundi.it/",
+      "contact_name": "Dr. Carles",
+      "aum_eur": null,
+      "num_funds": 4,
+      "num_portfolio_companies": 30,
+      "num_executives": 9,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 3000000,
+      "investment_max_eur": 15000000,
+      "strategies": [
+        "Private Debt"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Food and Beverages",
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:52:09.760484+00:00"
+    },
+    {
+      "name": "Andera Partners",
+      "slug": "andera-partners",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "via Broletto 46",
+      "country": "Italy",
+      "phone": "+33763948816",
+      "email": "f.gonzaga@anderapartners.com",
+      "website": "http://www.anderapartners.com",
+      "contact_name": "Francesco Gonzaga",
+      "aum_eur": 4500000000,
+      "num_funds": 15,
+      "num_portfolio_companies": 125,
+      "num_executives": 120,
+      "num_sfdr_article_8": 5,
+      "investment_min_eur": 30000000,
+      "investment_max_eur": 100000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Replacement"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Biotech",
+        "Chemicals and materials",
+        "Financial and insurance activities",
+        "Food and Beverages",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Mechanics",
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:52:19.891359+00:00"
+    },
+    {
+      "name": "Anima Alternative SGR",
+      "slug": "anima-alternative-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "99, Corso Giuseppe Garibaldi",
+      "country": "Italy",
+      "phone": "+39 / 02 806381",
+      "email": "info@animaalternative.it",
+      "website": "http://www.animaalternative.it",
+      "contact_name": "Philippe Minard, Andrea Cappuccio",
+      "aum_eur": 353000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 22,
+      "num_executives": 9,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 2000000,
+      "investment_max_eur": 20000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Private Debt",
+        "Replacement"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:52:29.963689+00:00"
+    },
+    {
+      "name": "Antares Advisory Srl",
+      "slug": "antares-advisory-srl",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "10, Via San Pietro all’Orto",
+      "country": "Italy",
+      "phone": "+39 / 02 36579500",
+      "email": "info@antaresinvestimenti.it",
+      "website": "mailto:info@aifi.it",
+      "contact_name": "Stefano Romiti, Guido Vesin, Alessandro Di Michele",
+      "aum_eur": null,
+      "num_funds": 1,
+      "num_portfolio_companies": null,
+      "num_executives": 3,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 5000000,
+      "investment_max_eur": 15000000,
+      "strategies": [
+        "Turnaround"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:52:40.317156+00:00"
+    },
+    {
+      "name": "Anthilia SGR",
+      "slug": "anthilia-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "68, Corso di Porta Romana",
+      "country": "Italy",
+      "phone": "+39 / 02 97386101",
+      "email": "info@anthilia.it",
+      "website": "http://www.anthilia.it",
+      "contact_name": "Daniele Colantonio",
+      "aum_eur": 2700000000,
+      "num_funds": 10,
+      "num_portfolio_companies": 95,
+      "num_executives": 9,
+      "num_sfdr_article_8": 3,
+      "investment_min_eur": 1000000,
+      "investment_max_eur": null,
+      "strategies": [
+        "Expansion",
+        "Private Debt"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:52:51.587021+00:00"
+    },
+    {
+      "name": "Apax Partners",
+      "slug": "apax-partners",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "London",
+      "address": "1 Knightsbridge",
+      "country": "England",
+      "phone": "+44 020 7872 6300",
+      "email": "gabriele.cipparrone@apax.com",
+      "website": "http://www.apax.com",
+      "contact_name": "Gabriele Cipparrone",
+      "aum_eur": 77000000000,
+      "num_funds": null,
+      "num_portfolio_companies": 80,
+      "num_executives": 180,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 40000000,
+      "investment_max_eur": 600000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Impact Investing",
+        "Private Debt"
+      ],
+      "sectors": [
+        "Financial and insurance activities",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services"
+      ],
+      "geographies": [
+        "Asia",
+        "Europe",
+        "USA"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:53:02.848814+00:00"
+    },
+    {
+      "name": "Apeiron Management",
+      "slug": "apeiron-management",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "4/D, Piazza S. Babila",
+      "country": "Italy",
+      "phone": "+39 / 02 82878800",
+      "email": "info@apeironmgmt.com",
+      "website": "http://www.apeironmgmt.com",
+      "contact_name": "Roberto Maiello",
+      "aum_eur": 550000000,
+      "num_funds": 5,
+      "num_portfolio_companies": 9,
+      "num_executives": 2,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 30000000,
+      "investment_max_eur": 150000000,
+      "strategies": [
+        "Expansion",
+        "Private Debt",
+        "Replacement"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:53:14.050240+00:00"
+    },
+    {
+      "name": "Apheon",
+      "slug": "apheon",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "1, Piazza San Sepolcro",
+      "country": "Italy",
+      "phone": "+39 02 453 911 30",
+      "email": null,
+      "website": "https://www.apheon.com/",
+      "contact_name": null,
+      "aum_eur": null,
+      "num_funds": 6,
+      "num_portfolio_companies": 22,
+      "num_executives": 30,
+      "num_sfdr_article_8": 2,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:53:24.210664+00:00"
+    },
+    {
+      "name": "Apollo",
+      "slug": "apollo",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "New York",
+      "address": "9 West 57th Street, 42nd Floor",
+      "country": "United States",
+      "phone": "+1 (212) 515-3200",
+      "email": "araspa@apollo.com",
+      "website": "http://www.apollo.com",
+      "contact_name": "Alessandro Raspa",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:53:34.407341+00:00"
+    },
+    {
+      "name": "Arca Space Capital",
+      "slug": "arca-space-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Via Disciplini 3",
+      "country": "Italy",
+      "phone": "+39 3357529925",
+      "email": "lorenzo.giavenni@arcafondi.it",
+      "website": "http://www.arcafondi.it",
+      "contact_name": "Lorenzo Giavenni",
+      "aum_eur": null,
+      "num_funds": 1,
+      "num_portfolio_companies": 4,
+      "num_executives": 6,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 500000,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "Consumer",
+        "Energy and environment",
+        "Food and Beverages",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Mechanics",
+        "Medtech",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:53:44.785397+00:00"
+    },
+    {
+      "name": "ARDIAN Italy",
+      "slug": "ardian",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "1, Galleria De Cristoforis",
+      "country": "Italy",
+      "phone": "+39 / 02 58442401",
+      "email": "milano.pe@ardian.com",
+      "website": "http://www.ardian.com",
+      "contact_name": "Nicolò Saidelli",
+      "aum_eur": null,
+      "num_funds": 5,
+      "num_portfolio_companies": 20,
+      "num_executives": 33,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": 500000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Chemicals and materials",
+        "Construction",
+        "Energy and environment",
+        "Financial and insurance activities",
+        "Food and Beverages",
+        "Furniture",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Other",
+        "Retail",
+        "Transportation"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:53:55.332392+00:00"
+    },
+    {
+      "name": "Ares Management",
+      "slug": "ares-management",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": null,
+      "address": null,
+      "country": "Italy",
+      "phone": null,
+      "email": null,
+      "website": "mailto:info@aifi.it",
+      "contact_name": null,
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:54:05.727290+00:00"
+    },
+    {
+      "name": "Argos Wityu",
+      "slug": "argos-wityu",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "5, Piazza Diaz",
+      "country": "Italy",
+      "phone": "+39 / 02 00660700",
+      "email": "jpdb@argos.fund, am@argos.fund",
+      "website": "http://www.argos.wityu.fund",
+      "contact_name": "Jean-Pierre Di Benedetto, Alessio Manigrasso",
+      "aum_eur": 2000000000,
+      "num_funds": 9,
+      "num_portfolio_companies": 24,
+      "num_executives": 45,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 15000000,
+      "investment_max_eur": 100000000,
+      "strategies": [
+        "Buy Out",
+        "Impact Investing"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:54:16.008252+00:00"
+    },
+    {
+      "name": "Armònia SGR",
+      "slug": "arm-nia-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Roma",
+      "address": "45, Via XXIV Maggio",
+      "country": "Italy",
+      "phone": "+39 / 06 62286800",
+      "email": "info@armoniasgr.it; armoniasgr@legalmail.it",
+      "website": "http://www.armoniasgr.it",
+      "contact_name": "Alessandro Grimaldi, Lucia Segni",
+      "aum_eur": 486000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 7,
+      "num_executives": 14,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": null,
+      "investment_max_eur": 40000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:54:26.215060+00:00"
+    },
+    {
+      "name": "Aurora Growth Capital",
+      "slug": "aurora-growth-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Luxembourg",
+      "address": "10, rue Antoine Jans",
+      "country": "Luxembourg",
+      "phone": "+39 / 02 814 80 801",
+      "email": "IR_Auroragrowthcapital@rpalt.com",
+      "website": "http://www.auroragrowthcapital.it",
+      "contact_name": "Patrizia Micucci, Piero Migliorini",
+      "aum_eur": 500000000,
+      "num_funds": 3,
+      "num_portfolio_companies": 12,
+      "num_executives": 10,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 20000000,
+      "investment_max_eur": 60000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "Energy and environment",
+        "Fashion",
+        "Food and Beverages",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Retail",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:54:36.602490+00:00"
+    },
+    {
+      "name": "Avanzi Etica Sicaf EuVECA",
+      "slug": "avanzi-etica-sicaf-euveca",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "61/a, Via Andrea Maria Ampère",
+      "country": "Italy",
+      "phone": "+39 02 305160",
+      "email": "info@aimpact.org",
+      "website": "http://www.aimpact.org",
+      "contact_name": "Sara Pero",
+      "aum_eur": 19590000,
+      "num_funds": 1,
+      "num_portfolio_companies": 15,
+      "num_executives": 5,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 250000,
+      "investment_max_eur": null,
+      "strategies": [
+        "Early Stage",
+        "Impact Investing"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:54:46.766125+00:00"
+    },
+    {
+      "name": "AVM SGR SpA Gestore EuVECA Società Benefit",
+      "slug": "avm-sgr-spa-gestore-euveca-societ-benefit",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "14, Via Borgonuovo",
+      "country": "Italy",
+      "phone": "+39 / 02 83451581",
+      "email": "direzione@avmgestioni.com",
+      "website": "http://www.avmgestioni.com",
+      "contact_name": "Giovanna Dossena",
+      "aum_eur": 180000000,
+      "num_funds": 4,
+      "num_portfolio_companies": 18,
+      "num_executives": 5,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 500000,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out",
+        "Early Stage",
+        "Expansion"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Fashion",
+        "Food and Beverages",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Other",
+        "Transportation"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:54:57.074912+00:00"
+    },
+    {
+      "name": "Axon Partners Group",
+      "slug": "axon-partners-group",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "4a, Via Manfredo Camperio",
+      "country": "Italy",
+      "phone": "+39 3315475074",
+      "email": "francesco.terraneo@axonpartnersgroup.com",
+      "website": "https://www.axonpartnersgroup.com/",
+      "contact_name": "Francesco Terraneo",
+      "aum_eur": 900000000,
+      "num_funds": 9,
+      "num_portfolio_companies": null,
+      "num_executives": 21,
+      "num_sfdr_article_8": 4,
+      "investment_min_eur": 250000,
+      "investment_max_eur": 20000000,
+      "strategies": [
+        "Early Stage",
+        "Expansion",
+        "Impact Investing"
+      ],
+      "sectors": [
+        "ICT"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:55:07.116211+00:00"
+    },
+    {
+      "name": "Azimut Libera Impresa SGR",
+      "slug": "azimut-libera-impresa-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "4, Via Cusani",
+      "country": "Italy",
+      "phone": "+39 / 02 88981",
+      "email": "azimutliberaimpresasgr@azimut.it",
+      "website": "http://www.azimutliberaimpresa.it",
+      "contact_name": "Pietro Muzio",
+      "aum_eur": null,
+      "num_funds": 27,
+      "num_portfolio_companies": 192,
+      "num_executives": 33,
+      "num_sfdr_article_8": 3,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out",
+        "Early Stage",
+        "Expansion",
+        "Infrastructure",
+        "Private Debt",
+        "Replacement"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:55:17.398885+00:00"
+    },
+    {
+      "name": "B4 Investimenti SGR",
+      "slug": "b4-investimenti-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Roma",
+      "address": "300, Via del Corso",
+      "country": "Italy",
+      "phone": "+39 06 69760200",
+      "email": "info@b4investimenti.it",
+      "website": "http://www.b4investimenti.it",
+      "contact_name": "Fabrizio Baroni",
+      "aum_eur": 130000000,
+      "num_funds": 3,
+      "num_portfolio_companies": 4,
+      "num_executives": 6,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 2000000,
+      "investment_max_eur": 10000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Food and Beverages",
+        "Furniture",
+        "Industrial products and services",
+        "Mechanics",
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:55:27.733536+00:00"
+    },
+    {
+      "name": "Bain Capital",
+      "slug": "bain-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "London",
+      "address": "Devonshire House, Mayfair Place",
+      "country": "England",
+      "phone": "+44 / 207 5145252",
+      "email": null,
+      "website": "http://www.baincapital.com",
+      "contact_name": "Luca Bassi, Ivano Sessa",
+      "aum_eur": 168000000000,
+      "num_funds": 22,
+      "num_portfolio_companies": 103,
+      "num_executives": 317,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Consumer",
+        "Financial and insurance activities",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Other",
+        "Other manufacturing",
+        "Retail"
+      ],
+      "geographies": [
+        "Worldwide"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:55:37.922190+00:00"
+    },
+    {
+      "name": "Banca Generali",
+      "slug": "banca-generali",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Trieste",
+      "address": "4, Via Macchiavelli",
+      "country": "Italy",
+      "phone": "+39 / 040 7777111",
+      "email": null,
+      "website": "http://www.bancagenerali.com",
+      "contact_name": "Irene Vaccaro, Maria Ameli, Carmelo Reale",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:55:48.176017+00:00"
+    },
+    {
+      "name": "Banca Sella Holding",
+      "slug": "banca-sella-holding",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Biella",
+      "address": "1, Piazza Gaudenzio Sella",
+      "country": "Italy",
+      "phone": "+39 / 015 35011",
+      "email": "bsh_segreteria@pec.sella.it; giacomo.sella@sella.it",
+      "website": "https://sellagroup.eu/",
+      "contact_name": "Giacomo Sella",
+      "aum_eur": 80000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 42,
+      "num_executives": 5,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 250000,
+      "investment_max_eur": 5000000,
+      "strategies": [
+        "Early Stage",
+        "Impact Investing"
+      ],
+      "sectors": [
+        "Biotech",
+        "Financial and insurance activities",
+        "Healthcare",
+        "ICT",
+        "Other",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy",
+        "USA"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:55:58.960384+00:00"
+    },
+    {
+      "name": "Banco BPM Invest SGR",
+      "slug": "banco-bpm-invest-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "15, Via Rovello",
+      "country": "Italy",
+      "phone": "+39028580352; +39028580353",
+      "email": "andrea.zanaboni@bbpminvest.com; dario.razza@bbpminvest.com",
+      "website": "https://www.bbpminvest.com",
+      "contact_name": "Andrea Zanaboni, Dario Razza",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:56:09.262338+00:00"
+    },
+    {
+      "name": "BC Partners",
+      "slug": "bc-partners",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "London",
+      "address": "40, Portman Square",
+      "country": "England",
+      "phone": "+44 / 20 70094800",
+      "email": "london@bcpartners.com",
+      "website": "http://www.bcpartners.com",
+      "contact_name": "Stefano Ferraresi, Marco Castelli",
+      "aum_eur": 40000000000,
+      "num_funds": 3,
+      "num_portfolio_companies": 33,
+      "num_executives": 60,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 250000000,
+      "investment_max_eur": 1000000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Consumer",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:56:19.601193+00:00"
+    },
+    {
+      "name": "BlackRock",
+      "slug": "blackrock",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "2, Piazza S. Fedele",
+      "country": "Italy",
+      "phone": null,
+      "email": "Elena.simonova@blackrock.com",
+      "website": "http://www.blackrock.com",
+      "contact_name": "Elena Simonova",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "All Stages",
+        "Buy Out",
+        "Impact Investing",
+        "Infrastructure",
+        "Private Debt"
+      ],
+      "sectors": [
+        "Chemicals and materials",
+        "Energy and environment",
+        "Food and Beverages",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services"
+      ],
+      "geographies": [
+        "Asia",
+        "Europe",
+        "France",
+        "Italy",
+        "Spain",
+        "United Kingdom",
+        "USA",
+        "Worldwide"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:56:29.946793+00:00"
+    },
+    {
+      "name": "BlueGem",
+      "slug": "bluegem",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "London",
+      "address": "5th floor Eagle House 108-110, Jermyn Street London",
+      "country": "England",
+      "phone": "+44 / 20 76479710",
+      "email": "e.dispiezio@bluegemcp.com",
+      "website": "http://www.bluegemcp.com",
+      "contact_name": "Emilio Di Spiezio Sardo",
+      "aum_eur": 900000000,
+      "num_funds": 3,
+      "num_portfolio_companies": 12,
+      "num_executives": 10,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 30000000,
+      "investment_max_eur": 75000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:56:40.079007+00:00"
+    },
+    {
+      "name": "BNP Paribas Asset Management Europe",
+      "slug": "bnp-paribas-asset-management-europe",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Parigi",
+      "address": "1 Boulevard Haussmann",
+      "country": "France",
+      "phone": null,
+      "email": "giovanni.girbino@bnpparibas.com",
+      "website": "http://www.bnpparibas-am.com",
+      "contact_name": "Giovanni Girbino",
+      "aum_eur": 2000000000,
+      "num_funds": 5,
+      "num_portfolio_companies": null,
+      "num_executives": 3,
+      "num_sfdr_article_8": 3,
+      "investment_min_eur": 5000000,
+      "investment_max_eur": 100000000,
+      "strategies": [
+        "Private Debt"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:56:50.074948+00:00"
+    },
+    {
+      "name": "BNP Paribas BNL Equity Investments",
+      "slug": "bnp-paribas-bnl-equity-investments",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "3, Piazza Lina Bo Bardi",
+      "country": "Italy",
+      "phone": null,
+      "email": "dl.equityinvestments@bnpparibas.com",
+      "website": "mailto:info@aifi.it",
+      "contact_name": null,
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": 24,
+      "num_executives": 7,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 1000000,
+      "investment_max_eur": 15000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Impact Investing",
+        "Replacement"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:57:01.405187+00:00"
+    },
+    {
+      "name": "Bridgepoint",
+      "slug": "bridgepoint",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "1, Via Rovello",
+      "country": "Italy",
+      "phone": "+39 / 02 806951",
+      "email": "milan@bridgepoint.eu",
+      "website": "http://www.bridgepoint.eu",
+      "contact_name": "Frederic Pescatori, Yuri Pizzasegola",
+      "aum_eur": 73000000000,
+      "num_funds": 16,
+      "num_portfolio_companies": null,
+      "num_executives": 1,
+      "num_sfdr_article_8": 4,
+      "investment_min_eur": 200000000,
+      "investment_max_eur": 1000000000,
+      "strategies": [
+        "Buy Out",
+        "Early Stage",
+        "Expansion",
+        "Infrastructure",
+        "Private Debt"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Europe",
+        "USA"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:57:11.529019+00:00"
+    },
+    {
+      "name": "BU Italy",
+      "slug": "bu",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "1, Via del Lauro",
+      "country": "Italy",
+      "phone": null,
+      "email": "ludovica.giovannini@bu-partners.it",
+      "website": "http://www.bu-partners.it",
+      "contact_name": "Ludovica Giovannini",
+      "aum_eur": 6900000000,
+      "num_funds": 4,
+      "num_portfolio_companies": 39,
+      "num_executives": 50,
+      "num_sfdr_article_8": 3,
+      "investment_min_eur": 75000000,
+      "investment_max_eur": 500000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Replacement"
+      ],
+      "sectors": [
+        "Financial and insurance activities",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:57:21.688791+00:00"
+    },
+    {
+      "name": "Canova SGR",
+      "slug": "canova-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Villorba",
+      "address": "76, Via Roma",
+      "country": "Italy",
+      "phone": "+39 0422 278301",
+      "email": "hello@canovasgr.it",
+      "website": "http://www.canovasgr.it",
+      "contact_name": "Alessandro Bruscagin",
+      "aum_eur": null,
+      "num_funds": 1,
+      "num_portfolio_companies": null,
+      "num_executives": 3,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 100000,
+      "investment_max_eur": 50000000,
+      "strategies": [
+        "Early Stage",
+        "Expansion"
+      ],
+      "sectors": [
+        "Other"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:57:32.681651+00:00"
+    },
+    {
+      "name": "Capital Dynamics SGR",
+      "slug": "capital-dynamics-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Via degli Omenoni 2",
+      "country": "Italy",
+      "phone": "+39 / 02 3031771",
+      "email": "info@capdyn.com",
+      "website": "http://www.capdyn.com",
+      "contact_name": "Robert H. Berlé, Federico Braguglia",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:57:43.827204+00:00"
+    },
+    {
+      "name": "CAPZA",
+      "slug": "capza",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Via San Tomaso, 5A",
+      "country": "Italy",
+      "phone": "+390283966710",
+      "email": "szavattaro@capza.co",
+      "website": "http://www.capza.co",
+      "contact_name": "Stefano Zavattaro",
+      "aum_eur": 10000000000,
+      "num_funds": 6,
+      "num_portfolio_companies": 3,
+      "num_executives": 5,
+      "num_sfdr_article_8": 6,
+      "investment_min_eur": 20000000,
+      "investment_max_eur": 150000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Private Debt",
+        "Replacement"
+      ],
+      "sectors": [
+        "Aerospace",
+        "Biotech",
+        "Energy and environment",
+        "Financial and insurance activities",
+        "Healthcare",
+        "ICT",
+        "Medtech",
+        "Other",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:57:54.275667+00:00"
+    },
+    {
+      "name": "Carlyle",
+      "slug": "carlyle",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "2, Piazza Cavour",
+      "country": "Italy",
+      "phone": "+39 / 02 6200461",
+      "email": "franca.ferrario@carlyle.com",
+      "website": "http://www.carlyle.com",
+      "contact_name": "Marco De Benedetti",
+      "aum_eur": 441000000000,
+      "num_funds": 4,
+      "num_portfolio_companies": 278,
+      "num_executives": 8,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 200000000,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Worldwide"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:58:04.353344+00:00"
+    },
+    {
+      "name": "CDP Equity",
+      "slug": "cdp-equity",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "21A, Via San Marco",
+      "country": "Italy",
+      "phone": "+39 02 4674 4333",
+      "email": "info@cdpequity.it",
+      "website": "https://www.cdp.it/sitointernet/it/cdp_equity.page",
+      "contact_name": "Enzo Colombo",
+      "aum_eur": 9700000000,
+      "num_funds": 19,
+      "num_portfolio_companies": 18,
+      "num_executives": 16,
+      "num_sfdr_article_8": 8,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "All Stages"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:58:14.369748+00:00"
+    },
+    {
+      "name": "Cdp Real Asset SGR",
+      "slug": "cdp-real-asset-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Roma",
+      "address": "220, Via Alessandria",
+      "country": "Italy",
+      "phone": null,
+      "email": null,
+      "website": "https://www.cdp.it/sitointernet/it/cdp_realasset.page",
+      "contact_name": null,
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:58:24.759622+00:00"
+    },
+    {
+      "name": "Cdp Venture Capital SGR",
+      "slug": "cdp-venture-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Roma",
+      "address": "220, Via Alessandria",
+      "country": "Italy",
+      "phone": "+39 / 06 421161",
+      "email": "info@cdpventurecapital.it",
+      "website": "http://www.cdpventurecapital.it",
+      "contact_name": "Alessandra Acutis",
+      "aum_eur": 4700000000,
+      "num_funds": 15,
+      "num_portfolio_companies": 300,
+      "num_executives": 15,
+      "num_sfdr_article_8": 2,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Early Stage",
+        "Expansion"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:58:35.228572+00:00"
+    },
+    {
+      "name": "Charme Capital",
+      "slug": "charme-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "4, Via Santa Margherita",
+      "country": "Italy",
+      "phone": "+39 / 02 8904041",
+      "email": "segreteria@charmecapitalpartners.com",
+      "website": "http://www.charmecapitalpartners.com",
+      "contact_name": "Matteo Cordero di Montezemolo",
+      "aum_eur": 1000000000,
+      "num_funds": 5,
+      "num_portfolio_companies": 9,
+      "num_executives": 18,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 30000000,
+      "investment_max_eur": 100000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy",
+        "Spain",
+        "United Kingdom"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:58:45.391739+00:00"
+    },
+    {
+      "name": "Cinven",
+      "slug": "cinven",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "30, Via Manzoni",
+      "country": "Italy",
+      "phone": "+39 02 32111700",
+      "email": "info@cinven.com",
+      "website": "http://www.cinven.com",
+      "contact_name": "Matteo Corà",
+      "aum_eur": null,
+      "num_funds": 8,
+      "num_portfolio_companies": 43,
+      "num_executives": 130,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 200000000,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Europe",
+        "USA"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:58:55.506636+00:00"
+    },
+    {
+      "name": "Claris Ventures Sgr",
+      "slug": "claris-ventures-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Torino",
+      "address": "1, Via Santa Giulia",
+      "country": "Italy",
+      "phone": "+39 / 011 3325889",
+      "email": "info@clarisventures.com",
+      "website": "http://www.clarisventures.com",
+      "contact_name": "Ciro Spedaliere, Pietro Puglisi",
+      "aum_eur": null,
+      "num_funds": 1,
+      "num_portfolio_companies": 8,
+      "num_executives": 3,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 1000000,
+      "investment_max_eur": 5000000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "Biotech"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:59:05.846039+00:00"
+    },
+    {
+      "name": "Clessidra Capital Credit SGR",
+      "slug": "clessidra-capital-credit-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "1/3, Piazza San Babila",
+      "country": "Italy",
+      "phone": "+39 02 8695221",
+      "email": "investor.relations@clessidragroup.it",
+      "website": "http://www.clessidracapitalcredit.it",
+      "contact_name": "Michele Romualdi",
+      "aum_eur": 725000000,
+      "num_funds": 5,
+      "num_portfolio_companies": 20,
+      "num_executives": 9,
+      "num_sfdr_article_8": 2,
+      "investment_min_eur": 7000000,
+      "investment_max_eur": 30000000,
+      "strategies": [
+        "Non Performing Assets",
+        "Private Debt",
+        "Turnaround"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:59:16.024253+00:00"
+    },
+    {
+      "name": "Clessidra Private Equity SGR",
+      "slug": "clessidra-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "1/3, Piazza San Babila",
+      "country": "Italy",
+      "phone": "+39 / 02 8695221",
+      "email": "investor.relations@clessidragroup.it",
+      "website": "http://www.clessidraprivateequity.it",
+      "contact_name": "Michele Romualdi",
+      "aum_eur": 3000000000,
+      "num_funds": 5,
+      "num_portfolio_companies": 27,
+      "num_executives": 11,
+      "num_sfdr_article_8": 2,
+      "investment_min_eur": 15000000,
+      "investment_max_eur": 100000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Replacement"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Financial and insurance activities",
+        "Healthcare",
+        "Industrial products and services",
+        "Retail"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:59:25.975236+00:00"
+    },
+    {
+      "name": "Como Venture",
+      "slug": "como-venture",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Como",
+      "address": "11, Via per Cernobbio",
+      "country": "Italy",
+      "phone": "+39 / 031 2287624",
+      "email": "segreteria@comoventure.it",
+      "website": "http://www.comoventure.it",
+      "contact_name": "Lino Moscatelli, Filippo Arcioni",
+      "aum_eur": 1500000,
+      "num_funds": null,
+      "num_portfolio_companies": 6,
+      "num_executives": 3,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 100000,
+      "investment_max_eur": 500000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "Chemicals and materials",
+        "Industrial products and services",
+        "Other"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:59:36.086280+00:00"
+    },
+    {
+      "name": "Consilium SGR",
+      "slug": "consilium-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "4, Via Quintino Sella",
+      "country": "Italy",
+      "phone": "+39 / 02 7260191",
+      "email": "info@consiliumsgr.it",
+      "website": "http://www.consiliumsgr.com",
+      "contact_name": "Antonio Glorioso, Stefano Iamoni",
+      "aum_eur": 377000000,
+      "num_funds": 3,
+      "num_portfolio_companies": 7,
+      "num_executives": 12,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 15000000,
+      "investment_max_eur": 25000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "Fashion",
+        "Food and Beverages",
+        "Industrial products and services",
+        "Other"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:59:46.360470+00:00"
+    },
+    {
+      "name": "Cooperare",
+      "slug": "cooperare",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Bologna",
+      "address": "11, Viale Pietramellara",
+      "country": "Italy",
+      "phone": "+39 / 051 6492395",
+      "email": "r.cattabriga@cooperarespa.it",
+      "website": "http://www.cooperarespa.it",
+      "contact_name": "Roberto Cattabriga, Marco Bulgarelli",
+      "aum_eur": 363000000,
+      "num_funds": 1,
+      "num_portfolio_companies": 4,
+      "num_executives": 3,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 3000000,
+      "investment_max_eur": 20000000,
+      "strategies": [
+        "All Stages"
+      ],
+      "sectors": [
+        "Energy and environment",
+        "Financial and insurance activities",
+        "Food and Beverages",
+        "Retail"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T19:59:56.579938+00:00"
+    },
+    {
+      "name": "CVC Capital Partners",
+      "slug": "cvc-capital-partners",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "4, Via privata Fratelli Gabba",
+      "country": "Italy",
+      "phone": "+39 / 02 7607571",
+      "email": "gdepalma@cvc.com",
+      "website": "http://www.cvc.com",
+      "contact_name": "Giorgio De Palma",
+      "aum_eur": null,
+      "num_funds": 9,
+      "num_portfolio_companies": 140,
+      "num_executives": 9,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 250000000,
+      "investment_max_eur": 1500000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Europe",
+        "USA",
+        "Worldwide"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:00:06.708553+00:00"
+    },
+    {
+      "name": "DBAG Italia",
+      "slug": "dbag-italia",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "via Gaetano Negri 4 - 6° piano",
+      "country": "Italy",
+      "phone": "+39 02 0070 2462",
+      "email": "Michela.Biolcati@dbagitalia.com",
+      "website": "http://www.dbagitalia.com",
+      "contact_name": "Giovanni Revoltella",
+      "aum_eur": null,
+      "num_funds": 1,
+      "num_portfolio_companies": 3,
+      "num_executives": 5,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 40000000,
+      "investment_max_eur": 250000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Industrial products and services"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:00:16.962029+00:00"
+    },
+    {
+      "name": "DeA Capital Alternative Funds SGR",
+      "slug": "dea-capital-alternative-funds-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "21, Via Brera",
+      "country": "Italy",
+      "phone": "+39 02 2906631",
+      "email": "ir-af@deacapital.com",
+      "website": "http://www.deacapitalaf.com",
+      "contact_name": "Alessandra Patera",
+      "aum_eur": 6000000000,
+      "num_funds": 21,
+      "num_portfolio_companies": 35,
+      "num_executives": 14,
+      "num_sfdr_article_8": 3,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": 50000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Consumer",
+        "Energy and environment",
+        "Food and Beverages"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:00:27.151979+00:00"
+    },
+    {
+      "name": "Deep Ocean Capital SGR",
+      "slug": "deep-ocean-capital-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Roma",
+      "address": "1, Via Emanuele Gianturco",
+      "country": "Italy",
+      "phone": "+39 06 97841733",
+      "email": null,
+      "website": "https://www.deepoceancapital.it/",
+      "contact_name": null,
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:00:37.633744+00:00"
+    },
+    {
+      "name": "Doorway",
+      "slug": "doorway",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Bologna",
+      "address": "1A, Via Guerrazzi",
+      "country": "Italy",
+      "phone": null,
+      "email": "team@doorwayplatform.com",
+      "website": "https://www.doorwayplatform.com/it",
+      "contact_name": null,
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": 40,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 5000,
+      "investment_max_eur": null,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Biotech",
+        "Financial and insurance activities",
+        "Food and Beverages",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Medtech",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:00:47.776592+00:00"
+    },
+    {
+      "name": "Eiffel",
+      "slug": "eiffel",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Paris",
+      "address": "22 rue de Marignan",
+      "country": "France",
+      "phone": "+33 (0)1 39 54 35 67",
+      "email": "contact@eiffel-ig.com",
+      "website": "https://www.eiffel-ig.com/",
+      "contact_name": "Lorenzo Marzo Magno",
+      "aum_eur": null,
+      "num_funds": 48,
+      "num_portfolio_companies": 550,
+      "num_executives": 105,
+      "num_sfdr_article_8": 11,
+      "investment_min_eur": 500000,
+      "investment_max_eur": 200000000,
+      "strategies": [
+        "Buy Out",
+        "Early Stage",
+        "Expansion",
+        "Impact Investing",
+        "Infrastructure",
+        "Private Debt"
+      ],
+      "sectors": [
+        "Energy and environment",
+        "Healthcare",
+        "Other",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:00:57.826991+00:00"
+    },
+    {
+      "name": "Entangled Capital SGR",
+      "slug": "entangled-capital-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Via Larga 2",
+      "country": "Italy",
+      "phone": "+39 02 85451750",
+      "email": "info@ecsgr.com.com",
+      "website": "http://www.entangledcapital.com",
+      "contact_name": "Anna Guglielmi",
+      "aum_eur": 102000000,
+      "num_funds": 1,
+      "num_portfolio_companies": 5,
+      "num_executives": 2,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 5000000,
+      "investment_max_eur": 15000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Chemicals and materials",
+        "Food and Beverages",
+        "Healthcare",
+        "Industrial products and services",
+        "Mechanics",
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:01:07.911862+00:00"
+    },
+    {
+      "name": "EnTrust Global",
+      "slug": "entrust-global",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "1, Via San Raffaele",
+      "country": "Italy",
+      "phone": "+39 342 0402378",
+      "email": "gfacincani@entrustglobal.com",
+      "website": "http://www.entrustglobal.com",
+      "contact_name": "Ginevra Facincani",
+      "aum_eur": 15600000000,
+      "num_funds": 3,
+      "num_portfolio_companies": 110,
+      "num_executives": 40,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 5000000,
+      "investment_max_eur": null,
+      "strategies": [
+        "Impact Investing",
+        "Infrastructure",
+        "Private Debt"
+      ],
+      "sectors": [
+        "Energy and environment",
+        "Transportation"
+      ],
+      "geographies": [
+        "Worldwide"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:01:18.232324+00:00"
+    },
+    {
+      "name": "EOS IM",
+      "slug": "eos-im",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "London",
+      "address": "67, Grosvenor Street",
+      "country": "England",
+      "phone": "+44 (0) 20 3709 7759",
+      "email": "c.mongillo@eosimgroup.com",
+      "website": "https://eosimgroup.com/",
+      "contact_name": "Ciro Mongillo",
+      "aum_eur": 430000000,
+      "num_funds": 5,
+      "num_portfolio_companies": 17,
+      "num_executives": 5,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 7500000,
+      "investment_max_eur": 45000000,
+      "strategies": [
+        "All Stages"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Energy and environment",
+        "Industrial products and services",
+        "Other manufacturing",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:01:28.454072+00:00"
+    },
+    {
+      "name": "EQT",
+      "slug": "eqt",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "2, Passaggio Centrale",
+      "country": "Italy",
+      "phone": "+39 02 82952847",
+      "email": "reception.milan@eqtpartners.com",
+      "website": "http://www.eqtgroup.com",
+      "contact_name": "Massimiliano Manniello",
+      "aum_eur": 270000000000,
+      "num_funds": 17,
+      "num_portfolio_companies": 185,
+      "num_executives": 2500,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 100000000,
+      "investment_max_eur": 3000000000,
+      "strategies": [
+        "All Stages"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Biotech",
+        "Financial and insurance activities",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services"
+      ],
+      "geographies": [
+        "Asia",
+        "Europe",
+        "USA"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:01:38.600652+00:00"
+    },
+    {
+      "name": "Equinox AIFM",
+      "slug": "equinox-aifm",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Luxembourg",
+      "address": "5, Boulevard Royal",
+      "country": "Luxembourg",
+      "phone": "+352 / 208001221",
+      "email": "aifm@equinox-aifm.lu",
+      "website": "http://www.equinox-investments.com",
+      "contact_name": "Giorgio Mercogliano",
+      "aum_eur": 647000000,
+      "num_funds": 5,
+      "num_portfolio_companies": 5,
+      "num_executives": 10,
+      "num_sfdr_article_8": 2,
+      "investment_min_eur": 20000000,
+      "investment_max_eur": 50000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "Healthcare",
+        "ICT",
+        "Industrial products and services"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:01:48.745895+00:00"
+    },
+    {
+      "name": "Equita Capital SGR",
+      "slug": "equita-capital-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "9, Via Filippo Turati",
+      "country": "Italy",
+      "phone": "+39 / 02 62041",
+      "email": "p.pendenza@equita.eu",
+      "website": "https://sgr.equita.eu",
+      "contact_name": "Paolo Pendenza",
+      "aum_eur": 750000000,
+      "num_funds": 5,
+      "num_portfolio_companies": 24,
+      "num_executives": 17,
+      "num_sfdr_article_8": 3,
+      "investment_min_eur": 7000000,
+      "investment_max_eur": 25000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Infrastructure",
+        "Private Debt"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:01:58.866797+00:00"
+    },
+    {
+      "name": "Equiter - Investimenti per il Territorio",
+      "slug": "equiter",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Torino",
+      "address": "156, Piazza San Carlo",
+      "country": "Italy",
+      "phone": "+39 011 5557903",
+      "email": "segreteria@equiterspa.com",
+      "website": "http://www.equiterspa.com",
+      "contact_name": "Igor Calcio Gaudino",
+      "aum_eur": 2000000000,
+      "num_funds": 11,
+      "num_portfolio_companies": 26,
+      "num_executives": 26,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 500000,
+      "investment_max_eur": 50000000,
+      "strategies": [
+        "Buy Out",
+        "Early Stage",
+        "Expansion",
+        "Impact Investing",
+        "Infrastructure",
+        "Real Estate"
+      ],
+      "sectors": [
+        "Aerospace",
+        "Chemicals and materials",
+        "Construction",
+        "Energy and environment",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Mechanics",
+        "Medtech",
+        "Other manufacturing",
+        "Sustainability",
+        "Transportation"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:02:09.040906+00:00"
+    },
+    {
+      "name": "Equiter SGR",
+      "slug": "equiter-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Torino",
+      "address": "156, Piazza San Carlo",
+      "country": "Italy",
+      "phone": "+39 02 30322459",
+      "email": "info@equitersgr.it",
+      "website": "mailto:info@aifi.it",
+      "contact_name": "Enrico Loewenthal",
+      "aum_eur": 300000000,
+      "num_funds": 1,
+      "num_portfolio_companies": 7,
+      "num_executives": 10,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Infrastructure"
+      ],
+      "sectors": [
+        "Energy and environment",
+        "Healthcare",
+        "Medtech",
+        "Sustainability",
+        "Transportation"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:02:19.300885+00:00"
+    },
+    {
+      "name": "Eurazeo",
+      "slug": "eurazeo",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Parigi",
+      "address": "66 Rue Pierre Charron",
+      "country": "France",
+      "phone": "+33 7 69 37 87 89",
+      "email": "jtrezza@eurazeo.com",
+      "website": "http://www.eurazeo.com",
+      "contact_name": "Julien Trezza",
+      "aum_eur": null,
+      "num_funds": 15,
+      "num_portfolio_companies": 600,
+      "num_executives": 400,
+      "num_sfdr_article_8": 12,
+      "investment_min_eur": 500000,
+      "investment_max_eur": 1500000000,
+      "strategies": [
+        "All Stages",
+        "Buy Out",
+        "Early Stage",
+        "Expansion",
+        "Impact Investing",
+        "Infrastructure",
+        "Private Debt",
+        "Real Estate"
+      ],
+      "sectors": [
+        "Biotech",
+        "Consumer",
+        "Energy and environment",
+        "Financial and insurance activities",
+        "Healthcare",
+        "ICT",
+        "Medtech"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:02:29.312194+00:00"
+    },
+    {
+      "name": "EUREKA! Venture Sgr",
+      "slug": "eureka-venture-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "4A, Via Manfredo Camperio",
+      "country": "Italy",
+      "phone": null,
+      "email": "info@eurekaventure.it",
+      "website": "http://www.eurekaventure.it",
+      "contact_name": "Stefano Peroncini",
+      "aum_eur": 110000000,
+      "num_funds": 4,
+      "num_portfolio_companies": 28,
+      "num_executives": 8,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 250000,
+      "investment_max_eur": 7500000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "Chemicals and materials",
+        "Energy and environment",
+        "ICT",
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:02:39.304462+00:00"
+    },
+    {
+      "name": "Eurizon Capital Real Asset SGR",
+      "slug": "eurizon-real-asset",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Via Melchiorre Gioia 22",
+      "country": "Italy",
+      "phone": null,
+      "email": "davide.cuccio@eurizonrealasset.com",
+      "website": "https://www.eurizoncapital.com/it-IT/chi-siamo/eurizon-capital-real-asset-sgr",
+      "contact_name": "Davide Cuccio",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "All Stages"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Worldwide"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:02:49.231581+00:00"
+    },
+    {
+      "name": "Excellis Holding",
+      "slug": "excellis-holding",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Torino",
+      "address": "6, LungoPo Armando Diaz",
+      "country": "Italy",
+      "phone": "+39 011 1978 5343",
+      "email": "info@excellis.it",
+      "website": "https://www.excellis.it/",
+      "contact_name": "Loris Lanzellotti, Alberto Emprin",
+      "aum_eur": null,
+      "num_funds": 1,
+      "num_portfolio_companies": 15,
+      "num_executives": 2,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 50000,
+      "investment_max_eur": 500000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "Chemicals and materials",
+        "Energy and environment",
+        "Healthcare",
+        "Industrial products and services",
+        "Mechanics",
+        "Medtech",
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Europe",
+        "USA"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:02:59.272741+00:00"
+    },
+    {
+      "name": "F&P Equity Partners",
+      "slug": "f-p-equity-partners",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "15, Via A. da Giussano",
+      "country": "Italy",
+      "phone": null,
+      "email": null,
+      "website": "http://www.fp-equity-partners.com",
+      "contact_name": "Maurizio Perroni, Guglielmo Fiocchi",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": 6,
+      "num_executives": 7,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": 30000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:03:09.476502+00:00"
+    },
+    {
+      "name": "F2i SGR",
+      "slug": "f2i-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "5, Via San Protaso",
+      "country": "Italy",
+      "phone": "+39 / 02 721791",
+      "email": "segreteria@f2isgr.it",
+      "website": "http://www.f2isgr.it",
+      "contact_name": "Rita Ciccone, Mauro Miglio, Corrado Santini",
+      "aum_eur": 8199999999.999999,
+      "num_funds": 6,
+      "num_portfolio_companies": 22,
+      "num_executives": 21,
+      "num_sfdr_article_8": 4,
+      "investment_min_eur": null,
+      "investment_max_eur": 1070000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Energy and environment"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:03:19.802249+00:00"
+    },
+    {
+      "name": "FARO Value",
+      "slug": "faro-value",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Via Senato 6",
+      "country": "Italy",
+      "phone": "/",
+      "email": "roberto.delgiudice@farovalue.it",
+      "website": "www.faroalternativeinvestments.com",
+      "contact_name": "Roberto Del Giudice",
+      "aum_eur": null,
+      "num_funds": 4,
+      "num_portfolio_companies": 3,
+      "num_executives": 6,
+      "num_sfdr_article_8": 3,
+      "investment_min_eur": 1000000,
+      "investment_max_eur": 60000000,
+      "strategies": [
+        "Buy Out",
+        "Early Stage",
+        "Expansion"
+      ],
+      "sectors": [
+        "Aerospace",
+        "Fashion",
+        "Food and Beverages",
+        "Furniture",
+        "Mechanics",
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:03:30.149349+00:00"
+    },
+    {
+      "name": "FIEE SGR",
+      "slug": "fiee-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Roma",
+      "address": "9, Via Saverio Mercadante",
+      "country": "Italy",
+      "phone": "+39 / 06 91658100",
+      "email": "segreteria@fieesgr.com",
+      "website": "http://www.fieesgr.com",
+      "contact_name": "Andrea Marano, Raffaele Mellone, Andrea Longatti, Mario Vitiello",
+      "aum_eur": 592000000,
+      "num_funds": 3,
+      "num_portfolio_companies": 7,
+      "num_executives": 6,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": 40000000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "Energy and environment"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:03:40.251584+00:00"
+    },
+    {
+      "name": "Fineurop",
+      "slug": "fineurop",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "24, Corso Vittorio Emanuele II",
+      "country": "Italy",
+      "phone": "+39 / 02 77491",
+      "email": "info@fineurop.it",
+      "website": "http://www.fineurop.it",
+      "contact_name": "Raymond Totah",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": 3,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:03:50.559845+00:00"
+    },
+    {
+      "name": "Finint Investments SGR",
+      "slug": "finint-investments-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Conegliano",
+      "address": "1, Via Vittorio Alfieri",
+      "country": "Italy",
+      "phone": "+39 / 0438 360407",
+      "email": "sales@finint.com; team_private_debt@finint.com; team.FE4G@finint.com",
+      "website": "http://www.finintinvestments.com",
+      "contact_name": "Mauro Sbroggiò, Vania Serena",
+      "aum_eur": 400000000,
+      "num_funds": 6,
+      "num_portfolio_companies": 78,
+      "num_executives": 13,
+      "num_sfdr_article_8": 3,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out",
+        "Infrastructure",
+        "Private Debt",
+        "Real Estate"
+      ],
+      "sectors": [
+        "Chemicals and materials",
+        "Energy and environment",
+        "Food and Beverages",
+        "Furniture",
+        "ICT",
+        "Industrial products and services",
+        "Other",
+        "Other manufacturing",
+        "Retail",
+        "Transportation"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:04:00.804121+00:00"
+    },
+    {
+      "name": "Finlombarda S.p.A.",
+      "slug": "finlombarda-s-p-a",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "1 - Torre B, Piazza Gae Aulenti",
+      "country": "Italy",
+      "phone": "+39 / 02 607441",
+      "email": "informazioni@finlombarda.it",
+      "website": "http://www.finlombarda.it",
+      "contact_name": "Giovanni Rallo",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Expansion"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Lombardia"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:04:10.917492+00:00"
+    },
+    {
+      "name": "Fondo Italiano d’Investimento SGR",
+      "slug": "fondo-italiano-d-investimento-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "21/A, Via San Marco",
+      "country": "Italy",
+      "phone": "+39 / 02 635321",
+      "email": "info@fondoitaliano.it",
+      "website": "http://www.fondoitaliano.it",
+      "contact_name": "Roberto Travaglino",
+      "aum_eur": 4300000000,
+      "num_funds": 21,
+      "num_portfolio_companies": 26,
+      "num_executives": 46,
+      "num_sfdr_article_8": 7,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Impact Investing",
+        "Private Debt"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Consumer",
+        "Fashion",
+        "Food and Beverages",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Other"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:04:31.296926+00:00"
+    },
+    {
+      "name": "Friulia",
+      "slug": "friulia",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Trieste",
+      "address": "19, Via Locchi",
+      "country": "Italy",
+      "phone": "+39 / 040 31971",
+      "email": "mail@friulia.it",
+      "website": "http://www.friulia.it",
+      "contact_name": "Sara Spogliarich",
+      "aum_eur": 202000000,
+      "num_funds": 1,
+      "num_portfolio_companies": 66,
+      "num_executives": 10,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 250000,
+      "investment_max_eur": 15000000,
+      "strategies": [
+        "All Stages"
+      ],
+      "sectors": [
+        "Chemicals and materials",
+        "Construction",
+        "Energy and environment",
+        "Fashion",
+        "Food and Beverages",
+        "Furniture",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Other",
+        "Other manufacturing",
+        "Retail",
+        "Transportation"
+      ],
+      "geographies": [
+        "Friuli-Venezia Giulia"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:04:41.606958+00:00"
+    },
+    {
+      "name": "FSI",
+      "slug": "fsi",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Passaggio Centrale, 7",
+      "country": "Italy",
+      "phone": "+39 / 02 6200141",
+      "email": "info@fondofsi.it",
+      "website": "http://www.fondofsi.it",
+      "contact_name": "Maurizio Tamagnini, Barnaba Ravanne, Marco Tugnolo, Carlo Moser, Marco Valcamonica",
+      "aum_eur": 3000000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 8,
+      "num_executives": 5,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 60000000,
+      "investment_max_eur": 250000000,
+      "strategies": [
+        "Expansion"
+      ],
+      "sectors": [
+        "Healthcare",
+        "ICT",
+        "Other"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:04:51.864648+00:00"
+    },
+    {
+      "name": "Fürstenberg SGR",
+      "slug": "f-rstenberg-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "9, Via Soperga",
+      "country": "Italy",
+      "phone": "+39 / 02 82849000",
+      "email": null,
+      "website": "www.furstenbergsgr.eu",
+      "contact_name": "Vincenza Caporale",
+      "aum_eur": 720000000,
+      "num_funds": 4,
+      "num_portfolio_companies": null,
+      "num_executives": 9,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Non Performing Assets",
+        "Private Debt",
+        "Turnaround"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:05:01.908126+00:00"
+    },
+    {
+      "name": "FVG Plus",
+      "slug": "fvg-plus",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Udine",
+      "address": "6, Via Poscolle",
+      "country": "Italy",
+      "phone": "3317332647",
+      "email": "mail@fvgplus.it",
+      "website": "https://fvgplus.it/",
+      "contact_name": "Tommaso Turco, Lucia Fullin, Christian Raimondo",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:05:12.013511+00:00"
+    },
+    {
+      "name": "FVS SGR",
+      "slug": "fvs-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Venezia",
+      "address": "19/D, Via delle Industrie",
+      "country": "Italy",
+      "phone": "+39 / 041 5094071",
+      "email": "mail@fvssgr.it",
+      "website": "http://www.fvssgr.it",
+      "contact_name": "Diego Tognetti, Luca Briotto",
+      "aum_eur": 120000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 8,
+      "num_executives": 8,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 3000000,
+      "investment_max_eur": 10000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Replacement"
+      ],
+      "sectors": [
+        "Consumer",
+        "Energy and environment",
+        "Fashion",
+        "Food and Beverages",
+        "Furniture",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Mechanics",
+        "Other",
+        "Other manufacturing",
+        "Retail",
+        "Transportation"
+      ],
+      "geographies": [
+        "Friuli-Venezia Giulia",
+        "Trentino Alto Adige",
+        "Veneto"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:05:22.201863+00:00"
+    },
+    {
+      "name": "Generali Investments",
+      "slug": "generali-investments",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "1, Piazza Tre Torri",
+      "country": "Italy",
+      "phone": "+39 02 43534831",
+      "email": "info@generali-invest.com",
+      "website": "http://www.generali-investments.com/",
+      "contact_name": "Roberto Marsella",
+      "aum_eur": 93300000000,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": 500,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Private Debt",
+        "Real Estate"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Asia",
+        "Europe",
+        "United Kingdom",
+        "USA",
+        "Worldwide"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:05:32.376759+00:00"
+    },
+    {
+      "name": "Gepafin",
+      "slug": "gepafin",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Perugia",
+      "address": "9, Via Campo di Marte",
+      "country": "Italy",
+      "phone": "+39 / 075 5059811",
+      "email": "info@gepafin.it",
+      "website": "http://www.gepafin.it",
+      "contact_name": "Marco Tili",
+      "aum_eur": 20000000,
+      "num_funds": 3,
+      "num_portfolio_companies": 12,
+      "num_executives": 5,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 100000,
+      "investment_max_eur": 1500000,
+      "strategies": [
+        "All Stages"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Umbria"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:05:42.408307+00:00"
+    },
+    {
+      "name": "Gradiente SGR",
+      "slug": "gradiente-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Padova",
+      "address": "3, Via Emanuele Filiberto di Savoia",
+      "country": "Italy",
+      "phone": "+39 / 049 651481",
+      "email": "info@gradientesgr.it",
+      "website": "http://www.gradientesgr.it",
+      "contact_name": "Pietro Busnardo, Lara Farina",
+      "aum_eur": 282100000,
+      "num_funds": 2,
+      "num_portfolio_companies": 10,
+      "num_executives": 4,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 3000000,
+      "investment_max_eur": 20000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:05:52.648861+00:00"
+    },
+    {
+      "name": "Green Arrow Capital SGR",
+      "slug": "green-arrow-capital-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Roma",
+      "address": "Via Parigi 11",
+      "country": "Italy",
+      "phone": "(+39) 06 94354415 - (+39) 342 624 08 55",
+      "email": "investorrelation.sgr@greenarrow-capital.com",
+      "website": "https://www.greenarrow-capital.com/",
+      "contact_name": "Claudio Ansuinelli - Managing Director - Head of Sales",
+      "aum_eur": 1600000000,
+      "num_funds": 16,
+      "num_portfolio_companies": 85,
+      "num_executives": 22,
+      "num_sfdr_article_8": 5,
+      "investment_min_eur": 500000,
+      "investment_max_eur": 100000000,
+      "strategies": [
+        "Buy Out",
+        "Infrastructure",
+        "Private Debt",
+        "Real Estate"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Chemicals and materials",
+        "Construction",
+        "Energy and environment",
+        "Fashion",
+        "Food and Beverages",
+        "Healthcare",
+        "Industrial products and services",
+        "Retail",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:06:02.776258+00:00"
+    },
+    {
+      "name": "H.I.G. European Capital Partners Italy",
+      "slug": "h-i-g-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "12, Via Dei Mercanti",
+      "country": "Italy",
+      "phone": "+39 / 02 45375200",
+      "email": "rlegnani@hig.com",
+      "website": "http://www.higeurope.com",
+      "contact_name": "Raffaele Legnani",
+      "aum_eur": 67000000000,
+      "num_funds": 6,
+      "num_portfolio_companies": 150,
+      "num_executives": 18,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 15000000,
+      "investment_max_eur": 250000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:06:13.286550+00:00"
+    },
+    {
+      "name": "HAT SGR",
+      "slug": "hat-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "22, Corso Europa",
+      "country": "Italy",
+      "phone": "+39 / 02 89286200",
+      "email": "info@hat.it",
+      "website": "http://www.hat.it",
+      "contact_name": "Ignazio Castiglioni, Nino Attanasio, Lorenzo Dall'Oca",
+      "aum_eur": 490000000,
+      "num_funds": 4,
+      "num_portfolio_companies": 7,
+      "num_executives": 14,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": 30000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "Healthcare",
+        "ICT",
+        "Medtech",
+        "Other"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:06:23.480874+00:00"
+    },
+    {
+      "name": "HAT Sicaf",
+      "slug": "hat-sicaf",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "22, Corso Europa",
+      "country": "Italy",
+      "phone": "+39 / 02 89286200",
+      "email": "info@hat.it",
+      "website": "http://www.hatsicaf.it",
+      "contact_name": "Ignazio Castiglioni, Nino Attanasio",
+      "aum_eur": 42000000,
+      "num_funds": 1,
+      "num_portfolio_companies": 2,
+      "num_executives": 4,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 2500000,
+      "investment_max_eur": 6500000,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "ICT",
+        "Other"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:06:33.690056+00:00"
+    },
+    {
+      "name": "HLD Conseils Italy",
+      "slug": "hld",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Corso Venezia 12",
+      "country": "Italy",
+      "phone": "022555641",
+      "email": "mbe@groupehld.com",
+      "website": "www.groupehld.com",
+      "contact_name": "Marco Bernardi",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": 22,
+      "num_executives": 5,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 50000000,
+      "investment_max_eur": 300000000,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:06:43.825286+00:00"
+    },
+    {
+      "name": "Ibla Capital",
+      "slug": "ibla-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Roma",
+      "address": "2, Piazza B. Cairoli",
+      "country": "Italy",
+      "phone": "+39 / 06 8635 6235",
+      "email": "info@iblacapital.com",
+      "website": "http://www.iblacapital.com",
+      "contact_name": "Alessandro Lo Savio",
+      "aum_eur": 30000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 7,
+      "num_executives": 4,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 1000000,
+      "investment_max_eur": 5000000,
+      "strategies": [
+        "Buy Out",
+        "Turnaround"
+      ],
+      "sectors": [
+        "Chemicals and materials",
+        "Food and Beverages",
+        "Industrial products and services",
+        "Mechanics",
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:06:53.906854+00:00"
+    },
+    {
+      "name": "IGI Private Equity",
+      "slug": "igi-private-equity",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "17, Via San Martino",
+      "country": "Italy",
+      "phone": "+39 / 02 83425770",
+      "email": "matteo.cirla@igisgr.it; angelo.mastrandrea@igisgr.it",
+      "website": "http://www.igisgr.it",
+      "contact_name": "Matteo Cirla, Angelo Mastrandrea",
+      "aum_eur": 350000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 6,
+      "num_executives": 15,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 20000000,
+      "investment_max_eur": 50000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:07:04.166877+00:00"
+    },
+    {
+      "name": "Innovative-RFK",
+      "slug": "innovative-rfk",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "14, Via Francesco Sforza",
+      "country": "Italy",
+      "phone": "+39/ 02 76003846",
+      "email": "paolo.pescetto@innovative-rfk.it; antonello.carlucci@innovative-rfk.it",
+      "website": "http://www.innovative-rfk.it",
+      "contact_name": "Antonello Carlucci",
+      "aum_eur": 12000000,
+      "num_funds": 1,
+      "num_portfolio_companies": 9,
+      "num_executives": 8,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 250000,
+      "investment_max_eur": 5000000,
+      "strategies": [
+        "Expansion"
+      ],
+      "sectors": [
+        "Biotech",
+        "Chemicals and materials",
+        "Energy and environment",
+        "Fashion",
+        "Food and Beverages",
+        "Furniture",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Other",
+        "Other manufacturing",
+        "Transportation"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:07:14.335579+00:00"
+    },
+    {
+      "name": "Intesa Sanpaolo – Direzione Group Shareholdings",
+      "slug": "intesa-sanpaolo-direzione-group-shareholdings",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "10, Piazza Paolo Ferrari",
+      "country": "Italy",
+      "phone": null,
+      "email": "massimo.vuillermin@intesasanpaolo.com; natalia.cappone@intesasanpaolo.com",
+      "website": "http://www.intesasanpaolo.com",
+      "contact_name": "Massimo Vuillermin",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:07:24.684635+00:00"
+    },
+    {
+      "name": "Invitalia",
+      "slug": "invitalia",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Roma",
+      "address": "46, Via Calabria",
+      "country": "Italy",
+      "phone": "+39 800 77 53 97",
+      "email": "segreteriaGFP@invitalia.it",
+      "website": "http://www.invitalia.it",
+      "contact_name": "Antonio Riccio (ariccio@invitalia.it); Daniele Straventa (dstraventa@invitalia.it)",
+      "aum_eur": null,
+      "num_funds": 2,
+      "num_portfolio_companies": 41,
+      "num_executives": 2,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": null,
+      "investment_max_eur": 37500000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Impact Investing",
+        "Replacement",
+        "Turnaround"
+      ],
+      "sectors": [
+        "Biotech",
+        "Chemicals and materials",
+        "Construction",
+        "Energy and environment",
+        "Fashion",
+        "Food and Beverages",
+        "Furniture",
+        "Healthcare",
+        "Mechanics",
+        "Retail",
+        "Transportation"
+      ],
+      "geographies": [
+        "Italy",
+        "Southern Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:07:34.912318+00:00"
+    },
+    {
+      "name": "Itago SGR",
+      "slug": "itago",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Venezia",
+      "address": "24, Viale Ancona",
+      "country": "Italy",
+      "phone": "+39 041 0996660",
+      "email": "info@itagopartners.it",
+      "website": "http://www.itagopartners.it",
+      "contact_name": "Piergiorgio Fantin, Domenico Tonussi",
+      "aum_eur": 128000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 8,
+      "num_executives": 4,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 7000000,
+      "investment_max_eur": 20000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Energy and environment",
+        "Fashion",
+        "Food and Beverages",
+        "Healthcare",
+        "Industrial products and services",
+        "Mechanics",
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:07:44.952729+00:00"
+    },
+    {
+      "name": "Kairos Partners SGR",
+      "slug": "kairos-partners-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "2, Via San Prospero",
+      "country": "Italy",
+      "phone": "+39 02 777 18 1",
+      "email": "e.schembari@kairospartners.com; r.zanco@kairospartners.com; m.bonfanti@kairospartners.com",
+      "website": "https://www.kairospartners.com/ventures-esg-one/",
+      "contact_name": "Elisa Schembari; Roberto Zanco; Matteo Bonfanti",
+      "aum_eur": 10200000,
+      "num_funds": 1,
+      "num_portfolio_companies": 7,
+      "num_executives": 3,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 500000,
+      "investment_max_eur": 3000000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "Aerospace",
+        "Energy and environment",
+        "Healthcare",
+        "ICT"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy",
+        "United Kingdom",
+        "USA"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:07:55.084800+00:00"
+    },
+    {
+      "name": "Key Capital",
+      "slug": "key-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "9, P.zza Bande Nere",
+      "country": "Italy",
+      "phone": "+39 / 328 4327060",
+      "email": "info@keycapital.it",
+      "website": "http://www.keycapital.it",
+      "contact_name": "Giorgio Di Stefano",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": 17,
+      "num_executives": 5,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "ICT"
+      ],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:08:05.374962+00:00"
+    },
+    {
+      "name": "Kyip Capital Sgr",
+      "slug": "kyip-capital-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "via Giacomo Leopardi 21",
+      "country": "Italy",
+      "phone": "0283972899",
+      "email": "info@kyipcapital.com",
+      "website": "https://kyipcapital.com/",
+      "contact_name": null,
+      "aum_eur": null,
+      "num_funds": 2,
+      "num_portfolio_companies": 5,
+      "num_executives": 4,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 2500000,
+      "investment_max_eur": 25000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Impact Investing"
+      ],
+      "sectors": [
+        "Consumer",
+        "Food and Beverages",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Mechanics",
+        "Medtech",
+        "Other"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:08:17.043348+00:00"
+    },
+    {
+      "name": "L Catterton Italy Advisors",
+      "slug": "l-catterton-italy-advisors",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "30, Via della Spiga",
+      "country": "Italy",
+      "phone": "+39 / 02 7626191",
+      "email": "lcatterton.europe@lcatterton.com",
+      "website": "http://www.lcatterton.com",
+      "contact_name": "L Catterton",
+      "aum_eur": null,
+      "num_funds": 4,
+      "num_portfolio_companies": 6,
+      "num_executives": 5,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 40000000,
+      "investment_max_eur": 100000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "Fashion",
+        "Food and Beverages"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:08:27.231103+00:00"
+    },
+    {
+      "name": "L&B Capital SGR",
+      "slug": "l-b-capital-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "27, Via Durini",
+      "country": "Italy",
+      "phone": "+39 055 26 333 1",
+      "email": "investor@lbcapitalsgr.it",
+      "website": "http://www.lbcapitalsgr.it",
+      "contact_name": "Aurea Pagnani",
+      "aum_eur": 244000000,
+      "num_funds": 1,
+      "num_portfolio_companies": 2,
+      "num_executives": 3,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 100000,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Non Performing Assets"
+      ],
+      "sectors": [
+        "Energy and environment"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:08:37.362228+00:00"
+    },
+    {
+      "name": "Lazio Innova",
+      "slug": "lazio-innova",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Roma",
+      "address": "26/A, Via Marco Aurelio",
+      "country": "Italy",
+      "phone": "+39 / 06 605160",
+      "email": "l.defabio@lazioinnova.it",
+      "website": "www.lazioinnova.it/innovaventure",
+      "contact_name": "Andrea Ciampalini, Lorenzo De Fabio",
+      "aum_eur": 15000000,
+      "num_funds": 7,
+      "num_portfolio_companies": 34,
+      "num_executives": 5,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 150000,
+      "investment_max_eur": 500000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Lazio"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:08:47.542272+00:00"
+    },
+    {
+      "name": "LIFTT",
+      "slug": "liftt",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Torino",
+      "address": "22, Corso Castelfidardo OGR Tech",
+      "country": "Italy",
+      "phone": "+39 3497796983",
+      "email": "alice.mariotti@liftt.com",
+      "website": "https://www.liftt.com/",
+      "contact_name": "Alice Mariotti",
+      "aum_eur": null,
+      "num_funds": 1,
+      "num_portfolio_companies": 56,
+      "num_executives": 6,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 50000,
+      "investment_max_eur": 10000000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "Aerospace",
+        "Biotech",
+        "Chemicals and materials",
+        "Energy and environment",
+        "Healthcare",
+        "Mechanics",
+        "Medtech",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Worldwide"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:08:57.770963+00:00"
+    },
+    {
+      "name": "LigurCapital",
+      "slug": "ligurcapital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Genova",
+      "address": "8/9, Piazza Dante",
+      "country": "Italy",
+      "phone": "01 0884911",
+      "email": "ligurcapital@ligurcapital.it",
+      "website": "https://www.ligurcapital.it/",
+      "contact_name": "Monica Nolo",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": 190,
+      "num_executives": 1,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 50000,
+      "investment_max_eur": 750000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Liguria"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:09:07.918837+00:00"
+    },
+    {
+      "name": "Lion River I NV",
+      "slug": "lion-river-i-nv",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "1, Piazza Tre Torri",
+      "country": "Italy",
+      "phone": "+39 02 43535063",
+      "email": "lionriver1@generali.com",
+      "website": "mailto:info@aifi.it",
+      "contact_name": "Ileana Bolcato",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:09:17.953626+00:00"
+    },
+    {
+      "name": "Macquarie – MAM",
+      "slug": "macquarie",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "London",
+      "address": "28, Ropemaker Street – Ropemaker Place",
+      "country": "England",
+      "phone": "+ 39 / 351 7363060 ; +44 / 7917 635779",
+      "email": "mamprivatemarketsemea@macquarie.com",
+      "website": "http://www.macquarie.com/eu",
+      "contact_name": "Raffaella Copper",
+      "aum_eur": 560000000000,
+      "num_funds": 300,
+      "num_portfolio_companies": 170,
+      "num_executives": 2000,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": null,
+      "strategies": [
+        "Infrastructure",
+        "Private Debt",
+        "Real Estate"
+      ],
+      "sectors": [
+        "Energy and environment",
+        "ICT",
+        "Other",
+        "Transportation"
+      ],
+      "geographies": [
+        "Worldwide"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:09:28.016024+00:00"
+    },
+    {
+      "name": "Mediocredito Centrale",
+      "slug": "mediocredito-centrale",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Roma",
+      "address": "351, Viale America",
+      "country": "Italy",
+      "phone": "+39 3351043263; +39 3346261560",
+      "email": "alessandra.festini@mcc.it; maria.monna@mcc.it",
+      "website": "https://mcc.it",
+      "contact_name": "Alessandra Festini; Maria Monna",
+      "aum_eur": 203000000,
+      "num_funds": 16,
+      "num_portfolio_companies": 13,
+      "num_executives": 2,
+      "num_sfdr_article_8": 13,
+      "investment_min_eur": 2000000,
+      "investment_max_eur": 30000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Impact Investing",
+        "Infrastructure",
+        "Private Debt",
+        "Turnaround"
+      ],
+      "sectors": [
+        "Aerospace",
+        "Agriculture",
+        "Energy and environment",
+        "Fashion",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Sustainability",
+        "Transportation"
+      ],
+      "geographies": [
+        "Italy",
+        "Southern Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:09:38.166139+00:00"
+    },
+    {
+      "name": "Merito SGR",
+      "slug": "merito-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "4, Via Mascheroni",
+      "country": "Italy",
+      "phone": null,
+      "email": "info@meritosgr.it",
+      "website": "http://www.meritosgr.it/",
+      "contact_name": "Ludovica Marzocchi; Niccolò Tanini",
+      "aum_eur": null,
+      "num_funds": 2,
+      "num_portfolio_companies": 22,
+      "num_executives": 6,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 3000000,
+      "investment_max_eur": 12000000,
+      "strategies": [
+        "Private Debt"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:09:48.656982+00:00"
+    },
+    {
+      "name": "Mindful Capital",
+      "slug": "mindful-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "3, C.so di Porta Nuova",
+      "country": "Italy",
+      "phone": "+39 / 02 809401",
+      "email": "corporate@mcpinvest.com",
+      "website": "http://www.mcpinvest.com",
+      "contact_name": "Alberto Camaggi, Andrea Tuccio, Lorenzo Stanca",
+      "aum_eur": 411000000,
+      "num_funds": 3,
+      "num_portfolio_companies": 11,
+      "num_executives": 3,
+      "num_sfdr_article_8": 2,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": 35000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:09:58.925787+00:00"
+    },
+    {
+      "name": "MITO Technology",
+      "slug": "mito-technology",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Largo Donegani 2",
+      "country": "Italy",
+      "phone": null,
+      "email": "info@mitotech.eu",
+      "website": "http://www.mitotech.eu",
+      "contact_name": "Francesco De Michelis",
+      "aum_eur": null,
+      "num_funds": 2,
+      "num_portfolio_companies": 24,
+      "num_executives": 5,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 200000,
+      "investment_max_eur": 4000000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "Energy and environment",
+        "Industrial products and services",
+        "Sustainability",
+        "Transportation"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:10:09.202831+00:00"
+    },
+    {
+      "name": "Mittel",
+      "slug": "mittel",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "5, Via Borromei",
+      "country": "Italy",
+      "phone": "+39 / 02 721411",
+      "email": "pe@mittel.it",
+      "website": "http://www.mittel.it",
+      "contact_name": "Pietro Santicoli",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": 12,
+      "num_executives": 6,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": 50000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Replacement"
+      ],
+      "sectors": [
+        "Food and Beverages",
+        "Furniture",
+        "Healthcare",
+        "Industrial products and services",
+        "Other manufacturing",
+        "Retail"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:10:19.361887+00:00"
+    },
+    {
+      "name": "Montefiore",
+      "slug": "montefiore",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Via Brera 5",
+      "country": "Italy",
+      "phone": "+39 02 86 88 63 08",
+      "email": "ml@montefiore.eu; ac@montefiore.eu",
+      "website": "https://montefiore.eu/en/",
+      "contact_name": "Marie Londero, Alessandro Candido",
+      "aum_eur": 5000000000,
+      "num_funds": 12,
+      "num_portfolio_companies": null,
+      "num_executives": 58,
+      "num_sfdr_article_8": 12,
+      "investment_min_eur": 20000000,
+      "investment_max_eur": 200000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "Construction",
+        "Consumer",
+        "Energy and environment",
+        "Fashion",
+        "Financial and insurance activities",
+        "Food and Beverages",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Retail"
+      ],
+      "geographies": [
+        "France",
+        "Italy",
+        "Spain"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:10:29.620103+00:00"
+    },
+    {
+      "name": "Muzinich & Co.",
+      "slug": "muzinich-co",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "12, Via Senato",
+      "country": "Italy",
+      "phone": "+39 / 02 00685100",
+      "email": "gpellegrini@muzinich.com; cbosco@muzinich.com",
+      "website": "https://www.muzinich.com/",
+      "contact_name": "Carlo Bosco, Gianpaolo Pellegrini",
+      "aum_eur": 5400000000,
+      "num_funds": 10,
+      "num_portfolio_companies": 100,
+      "num_executives": 34,
+      "num_sfdr_article_8": 5,
+      "investment_min_eur": 5000000,
+      "investment_max_eur": 85000000,
+      "strategies": [
+        "Private Debt"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Asia",
+        "Europe",
+        "USA"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:10:40.001374+00:00"
+    },
+    {
+      "name": "Narval Investimenti",
+      "slug": "narval-investimenti",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Torino",
+      "address": "11, Piazza Solferino",
+      "country": "Italy",
+      "phone": "+39 / 011 5520442",
+      "email": "info@narvalinvestimenti.it",
+      "website": "http://www.narvalinvestimenti.it",
+      "contact_name": "Mauro Castellano, Pietro Poli",
+      "aum_eur": 300000000,
+      "num_funds": null,
+      "num_portfolio_companies": 15,
+      "num_executives": 6,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": 30000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:10:51.497253+00:00"
+    },
+    {
+      "name": "Neva SGR",
+      "slug": "neva-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Torino",
+      "address": "Corso Castelfidardo, 22",
+      "country": "Italy",
+      "phone": null,
+      "email": "-",
+      "website": "https://www.nevasgr.com/",
+      "contact_name": null,
+      "aum_eur": 500000000,
+      "num_funds": 5,
+      "num_portfolio_companies": 48,
+      "num_executives": 11,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": null,
+      "investment_max_eur": 15000000,
+      "strategies": [
+        "Early Stage",
+        "Expansion"
+      ],
+      "sectors": [
+        "Aerospace",
+        "Agriculture",
+        "Biotech",
+        "Energy and environment",
+        "Financial and insurance activities",
+        "Food and Beverages",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Medtech",
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy",
+        "United Kingdom",
+        "USA"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:11:02.450538+00:00"
+    },
+    {
+      "name": "Nextalia SGR",
+      "slug": "nextalia-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Via Santa Maria Segreta 5",
+      "country": "Italy",
+      "phone": "+39 0238 2841",
+      "email": "ir@nextaliasgr.com",
+      "website": "http://www.nextaliasgr.com",
+      "contact_name": "Niccolò Bussolati",
+      "aum_eur": null,
+      "num_funds": 5,
+      "num_portfolio_companies": 10,
+      "num_executives": 14,
+      "num_sfdr_article_8": 5,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out",
+        "Early Stage",
+        "Expansion",
+        "Non Performing Assets",
+        "Private Debt",
+        "Turnaround"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:11:13.548479+00:00"
+    },
+    {
+      "name": "Oltre Impact SGR",
+      "slug": "oltre-impact-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "29, Via Aurelio Saffi",
+      "country": "Italy",
+      "phone": "+39 02.45496412",
+      "email": "info@oltreimpact.com; maddalena.deliso@oltreimpact.com",
+      "website": "http://www.oltreimpact.com",
+      "contact_name": "Maddalena De Liso",
+      "aum_eur": null,
+      "num_funds": 2,
+      "num_portfolio_companies": 8,
+      "num_executives": 2,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 2500000,
+      "investment_max_eur": 7000000,
+      "strategies": [
+        "Impact Investing"
+      ],
+      "sectors": [
+        "Sustainability"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:11:23.764809+00:00"
+    },
+    {
+      "name": "Origine SGR",
+      "slug": "origine-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "8, Via Fieno",
+      "country": "Italy",
+      "phone": null,
+      "email": null,
+      "website": "www.originesgr.com",
+      "contact_name": null,
+      "aum_eur": 200000000,
+      "num_funds": 4,
+      "num_portfolio_companies": 25,
+      "num_executives": 8,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 1000000,
+      "investment_max_eur": 10000000,
+      "strategies": [
+        "Early Stage",
+        "Expansion"
+      ],
+      "sectors": [
+        "Healthcare",
+        "Industrial products and services"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:11:33.979029+00:00"
+    },
+    {
+      "name": "Overseas Industries",
+      "slug": "overseas-industries",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "42, Via Manzoni",
+      "country": "Italy",
+      "phone": "+39 / 02 76012692",
+      "email": "overseas@overseasindustries.com",
+      "website": "mailto:info@aifi.it",
+      "contact_name": "Gonzalo Bazzino, Federico Nordio",
+      "aum_eur": null,
+      "num_funds": 1,
+      "num_portfolio_companies": 6,
+      "num_executives": 3,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 5000000,
+      "investment_max_eur": 25000000,
+      "strategies": [
+        "All Stages"
+      ],
+      "sectors": [
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:11:44.104688+00:00"
+    },
+    {
+      "name": "Oxy Capital",
+      "slug": "oxy-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Largo Donegani 2",
+      "country": "Italy",
+      "phone": "+39 / 02 36723450",
+      "email": "amministrazione@oxycapital.com  stefano.visalli@oxycapital.com",
+      "website": "http://www.oxycapital.com",
+      "contact_name": "Stefano Visalli",
+      "aum_eur": 250000000,
+      "num_funds": 1,
+      "num_portfolio_companies": 4,
+      "num_executives": 4,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": 200000000,
+      "strategies": [
+        "Private Debt",
+        "Turnaround"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:11:54.680266+00:00"
+    },
+    {
+      "name": "PAI SAS - Italian Branch",
+      "slug": "pai-partners",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "4, Via Negri",
+      "country": "Italy",
+      "phone": "+39 / 02 85451520",
+      "email": "segreteria.milano@paipartners.com",
+      "website": "http://www.paipartners.com",
+      "contact_name": "Raffaele Vitale",
+      "aum_eur": 26400000000,
+      "num_funds": 8,
+      "num_portfolio_companies": 34,
+      "num_executives": 120,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 250000000,
+      "investment_max_eur": 1500000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Food and Beverages",
+        "Healthcare",
+        "Industrial products and services",
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Europe",
+        "USA"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:12:04.962126+00:00"
+    },
+    {
+      "name": "Palladio Holding",
+      "slug": "palladio-holding",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "11, Via Fiori Oscuri",
+      "country": "Italy",
+      "phone": "+39 / 02 72730700",
+      "email": "n.buttignol@pfh.eu; n.iorio@pfh.eu",
+      "website": "http://www.pfh.eu",
+      "contact_name": "Nadia Buttignol, Nicola Iorio",
+      "aum_eur": null,
+      "num_funds": 1,
+      "num_portfolio_companies": 12,
+      "num_executives": 9,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 15000000,
+      "investment_max_eur": 50000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:12:15.972019+00:00"
+    },
+    {
+      "name": "Partners Group (Luxembourg) S.A. - Milan Branch",
+      "slug": "partners-group",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "3, Via della Moscova",
+      "country": "Italy",
+      "phone": "+39 / 02 8883691",
+      "email": null,
+      "website": "http://www.partnersgroup.com",
+      "contact_name": "Enrico Pinelli, Raniero Proietti",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "All Stages"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Worldwide"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:12:26.224873+00:00"
+    },
+    {
+      "name": "Permira Associati",
+      "slug": "permira",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "10, Via San Paolo",
+      "country": "Italy",
+      "phone": "+39 / 02 76004740",
+      "email": "giorgio.dinaro@permira.com",
+      "website": "http://www.permira.com",
+      "contact_name": "Giorgio Dinaro",
+      "aum_eur": null,
+      "num_funds": 9,
+      "num_portfolio_companies": 79,
+      "num_executives": 8,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Consumer",
+        "Energy and environment",
+        "Fashion",
+        "Financial and insurance activities",
+        "Food and Beverages",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Retail",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Asia",
+        "Europe",
+        "USA"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:12:37.181452+00:00"
+    },
+    {
+      "name": "Pillarstone",
+      "slug": "pillarstone",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Piazza degli Affari, 2",
+      "country": "Italy",
+      "phone": "+390282823900",
+      "email": "info@pillarstone.com",
+      "website": "http://www.pillarstone.com",
+      "contact_name": "Gaudenzio Bonaldo Gregori",
+      "aum_eur": null,
+      "num_funds": 5,
+      "num_portfolio_companies": 7,
+      "num_executives": 12,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Private Debt",
+        "Turnaround"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:12:47.294995+00:00"
+    },
+    {
+      "name": "PM&PARTNERS SGR",
+      "slug": "pm-partners-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Piazza Sant'Ambrogio, 8",
+      "country": "Italy",
+      "phone": "+39 02 7249041",
+      "email": "andrea.mugnai@pm-partners.it",
+      "website": "http://www.pm-partners.it",
+      "contact_name": "Andrea Mugnai",
+      "aum_eur": 330000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 6,
+      "num_executives": 10,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": 30000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Consumer"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:12:57.771459+00:00"
+    },
+    {
+      "name": "Polis SGR – Gruppo LBO France",
+      "slug": "polis-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "7, Via Solferino",
+      "country": "Italy",
+      "phone": "+39 02 3206001",
+      "email": "sgr@polis-sgr.com",
+      "website": "mailto:info@aifi.it",
+      "contact_name": null,
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": 3,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 7000000,
+      "investment_max_eur": 25000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:13:08.049063+00:00"
+    },
+    {
+      "name": "Portobello Capital",
+      "slug": "portobello-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Madrid",
+      "address": "36, Calle Almagro",
+      "country": "Spain",
+      "phone": "+34 914 318 071",
+      "email": "info@portobellocapital.es",
+      "website": "http://www.portobellocapital.es/en/",
+      "contact_name": "Antonio Todisco",
+      "aum_eur": 3700000000,
+      "num_funds": 12,
+      "num_portfolio_companies": 26,
+      "num_executives": 20,
+      "num_sfdr_article_8": 9,
+      "investment_min_eur": 30000000,
+      "investment_max_eur": 250000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Food and Beverages",
+        "Healthcare",
+        "Industrial products and services",
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:13:17.985266+00:00"
+    },
+    {
+      "name": "Prana Ventures",
+      "slug": "prana-ventures",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "9, Via Lentasio",
+      "country": "Italy",
+      "phone": null,
+      "email": "info@pranaventures.it",
+      "website": "http://www.pranaventures.it",
+      "contact_name": null,
+      "aum_eur": 37600000,
+      "num_funds": 1,
+      "num_portfolio_companies": 17,
+      "num_executives": 3,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 200000,
+      "investment_max_eur": 3500000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "ICT"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:13:28.232355+00:00"
+    },
+    {
+      "name": "Private Equity Partners",
+      "slug": "private-equity-partners",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "2, Via degli Omenoni",
+      "country": "Italy",
+      "phone": "+39 / 02 8052171",
+      "email": "info@privateequitypartners.com",
+      "website": "http://www.privateequitypartners.com",
+      "contact_name": "Fabio L. Sattin",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": 6,
+      "num_executives": 2,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:13:38.580794+00:00"
+    },
+    {
+      "name": "Progressio SGR",
+      "slug": "progressio-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "37, Corso Venezia",
+      "country": "Italy",
+      "phone": "+39 / 02 870611",
+      "email": "segreteria@progressiosgr.it",
+      "website": "http://www.progressiosgr.it",
+      "contact_name": "Filippo Gaggini",
+      "aum_eur": 725000000,
+      "num_funds": 3,
+      "num_portfolio_companies": 7,
+      "num_executives": 16,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 15000000,
+      "investment_max_eur": 45000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:13:48.675198+00:00"
+    },
+    {
+      "name": "Quadrivio Group",
+      "slug": "quadrivio-group",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "9, Via Camperio",
+      "country": "Italy",
+      "phone": "+39 / 02 89093758",
+      "email": "info@quadriviogroup.com",
+      "website": "http://www.quadriviogroup.com",
+      "contact_name": "Walter Ricciotti, CEO Quadrivio Group",
+      "aum_eur": 1000000000,
+      "num_funds": 5,
+      "num_portfolio_companies": 21,
+      "num_executives": 60,
+      "num_sfdr_article_8": 5,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": 50000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Fashion",
+        "Food and Beverages",
+        "Furniture",
+        "Healthcare",
+        "Industrial products and services"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:13:58.775778+00:00"
+    },
+    {
+      "name": "Quant>ICO Investment Club Opportunities",
+      "slug": "quant-ico-investment-club-opportunities",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "16, Corso Europa",
+      "country": "Italy",
+      "phone": null,
+      "email": null,
+      "website": "mailto:info@aifi.it",
+      "contact_name": null,
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:14:10.234339+00:00"
+    },
+    {
+      "name": "QuattroR",
+      "slug": "quattror",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "14, Via Borgonuovo",
+      "country": "Italy",
+      "phone": "+39 02 3679 9670",
+      "email": "matilde.cucuzza@quattror.com",
+      "website": "http://quattror.com",
+      "contact_name": "Matilde Cucuzza, Investor relations & ESG",
+      "aum_eur": 851000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 7,
+      "num_executives": 15,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 20000000,
+      "investment_max_eur": 105000000,
+      "strategies": [
+        "Expansion",
+        "Replacement"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:14:20.370216+00:00"
+    },
+    {
+      "name": "Rancilio Cube Sicaf",
+      "slug": "rancilio-cube-sicaf",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "22, Via Monte Napoleone",
+      "country": "Italy",
+      "phone": null,
+      "email": null,
+      "website": "http://www.ranciliocubesicaf.com",
+      "contact_name": "Luca Rancilio",
+      "aum_eur": 64000000,
+      "num_funds": 1,
+      "num_portfolio_companies": 120,
+      "num_executives": 4,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 1000000,
+      "investment_max_eur": 5000000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "None"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:14:30.684890+00:00"
+    },
+    {
+      "name": "Real Estate Asset Management SGR - REAM SGR",
+      "slug": "ream-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Torino",
+      "address": "11, Via Vittorio Alfieri",
+      "country": "Italy",
+      "phone": "+39 / 011 5623089",
+      "email": "reamsgr@reamsgr.it",
+      "website": "http://www.reamsgr.it",
+      "contact_name": "Anna Artigiani, Stefano Magini",
+      "aum_eur": 1500000000,
+      "num_funds": 16,
+      "num_portfolio_companies": null,
+      "num_executives": 3,
+      "num_sfdr_article_8": 6,
+      "investment_min_eur": 100000,
+      "investment_max_eur": 300000000,
+      "strategies": [
+        "Real Estate"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:14:41.179328+00:00"
+    },
+    {
+      "name": "Renaissance Partners",
+      "slug": "renaissance-partners",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "7, Via San Damiano",
+      "country": "Italy",
+      "phone": "+39 / 02 76415811",
+      "email": "info@rpalt.com",
+      "website": "https://www.renaissancealternatives.com",
+      "contact_name": null,
+      "aum_eur": 2800000000,
+      "num_funds": 3,
+      "num_portfolio_companies": 12,
+      "num_executives": 14,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 40000000,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:14:51.273007+00:00"
+    },
+    {
+      "name": "Riello Investimenti SGR",
+      "slug": "riello-investimenti-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "2, Via Melone",
+      "country": "Italy",
+      "phone": "+39 / 02 80504178",
+      "email": "info@rielloinvestimenti.it",
+      "website": "http://www.rielloinvestimenti.it",
+      "contact_name": "Andrea Tomaschù, Federica Loconsolo",
+      "aum_eur": 450000000,
+      "num_funds": 5,
+      "num_portfolio_companies": 51,
+      "num_executives": 18,
+      "num_sfdr_article_8": 2,
+      "investment_min_eur": 1000000,
+      "investment_max_eur": 20000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Impact Investing",
+        "Private Debt",
+        "Replacement"
+      ],
+      "sectors": [
+        "Fashion",
+        "Food and Beverages",
+        "Furniture",
+        "Industrial products and services",
+        "Mechanics",
+        "Other"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:15:01.675205+00:00"
+    },
+    {
+      "name": "Ring Capital",
+      "slug": "ring-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Paris",
+      "address": "2, Rue Favart",
+      "country": "France",
+      "phone": null,
+      "email": "sara.debenedetti@ringcp.com",
+      "website": "https://www.ringcp.com/",
+      "contact_name": "Sara De Benedetti",
+      "aum_eur": null,
+      "num_funds": 3,
+      "num_portfolio_companies": 50,
+      "num_executives": 15,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 8000000,
+      "investment_max_eur": 20000000,
+      "strategies": [
+        "Buy Out",
+        "Early Stage",
+        "Expansion",
+        "Impact Investing"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Construction",
+        "Consumer",
+        "Energy and environment",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Sustainability",
+        "Transportation"
+      ],
+      "geographies": [
+        "Europe",
+        "France",
+        "Italy",
+        "Spain"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:15:11.833262+00:00"
+    },
+    {
+      "name": "Rivean Capital",
+      "slug": "rivean-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Via Brera 3",
+      "country": "Italy",
+      "phone": null,
+      "email": "g.franze@riveancapital.com",
+      "website": "https://riveancapital.com/",
+      "contact_name": "Giuseppe Franze",
+      "aum_eur": 5000000000,
+      "num_funds": 9,
+      "num_portfolio_companies": 30,
+      "num_executives": 7,
+      "num_sfdr_article_8": 6,
+      "investment_min_eur": 50000000,
+      "investment_max_eur": 300000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Financial and insurance activities",
+        "ICT",
+        "Industrial products and services"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:15:22.007681+00:00"
+    },
+    {
+      "name": "Sagard",
+      "slug": "sagard",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Corso Matteotti, 1A",
+      "country": "Italy",
+      "phone": null,
+      "email": "alessia.frigerio@sagard.eu",
+      "website": "https://www.sagard.com/midcap/",
+      "contact_name": "Andrea Bertoncello",
+      "aum_eur": null,
+      "num_funds": 3,
+      "num_portfolio_companies": 16,
+      "num_executives": 5,
+      "num_sfdr_article_8": 3,
+      "investment_min_eur": 50000000,
+      "investment_max_eur": 150000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Biotech",
+        "Chemicals and materials",
+        "Construction",
+        "Consumer",
+        "Energy and environment",
+        "Fashion",
+        "Food and Beverages",
+        "Furniture",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Mechanics",
+        "Medtech",
+        "Other",
+        "Other manufacturing",
+        "Retail",
+        "Sustainability",
+        "Transportation"
+      ],
+      "geographies": [
+        "France",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:15:32.261379+00:00"
+    },
+    {
+      "name": "Sagitta SGR",
+      "slug": "sagitta-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "24/28, Corso Vittorio Emanuele II",
+      "country": "Italy",
+      "phone": "+39 / 02 30468301",
+      "email": "info@sagittasgr.it",
+      "website": "http://www.sagittasgr.it",
+      "contact_name": "Paola Borracchini/Giuseppe Semeraro",
+      "aum_eur": 2521000,
+      "num_funds": 22,
+      "num_portfolio_companies": null,
+      "num_executives": 11,
+      "num_sfdr_article_8": 3,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Infrastructure",
+        "Non Performing Assets",
+        "Private Debt",
+        "Real Estate",
+        "Turnaround"
+      ],
+      "sectors": [
+        "Other"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:15:42.627416+00:00"
+    },
+    {
+      "name": "Scientifica VC",
+      "slug": "scientifica-vc",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Roma",
+      "address": "71, Viale dell'Esperanto",
+      "country": "Italy",
+      "phone": "+39 06 58364 202",
+      "email": "info@scientifica.vc",
+      "website": "https://scientifica.vc/",
+      "contact_name": "Simone Valorani",
+      "aum_eur": 210000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 18,
+      "num_executives": 2,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 200000,
+      "investment_max_eur": 5000000,
+      "strategies": [
+        "Early Stage",
+        "Expansion",
+        "Impact Investing"
+      ],
+      "sectors": [
+        "Aerospace",
+        "Biotech",
+        "Chemicals and materials",
+        "Energy and environment",
+        "Healthcare",
+        "ICT",
+        "Mechanics",
+        "Medtech",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:15:52.709775+00:00"
+    },
+    {
+      "name": "Sefea Impact SGR",
+      "slug": "sefea-impact-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Padova",
+      "address": "42, Piazza De Gasperi",
+      "country": "Italy",
+      "phone": "+39 / 349 7549881",
+      "email": "info@sefeaimpact.it",
+      "website": "http://www.sefeaimpact.it",
+      "contact_name": "Sara D’Aulerio",
+      "aum_eur": 64099999.99999999,
+      "num_funds": 2,
+      "num_portfolio_companies": 36,
+      "num_executives": 7,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 300000,
+      "investment_max_eur": 2000000,
+      "strategies": [
+        "Expansion",
+        "Impact Investing"
+      ],
+      "sectors": [
+        "Sustainability"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:16:02.774141+00:00"
+    },
+    {
+      "name": "Sienna Investment Managers Italia SGR",
+      "slug": "sienna-investment-managers-italia-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": null,
+      "address": null,
+      "country": "Italy",
+      "phone": null,
+      "email": null,
+      "website": "mailto:info@aifi.it",
+      "contact_name": null,
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:16:12.851240+00:00"
+    },
+    {
+      "name": "Sienna PE",
+      "slug": "sienna-pe",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Corso Giacomo Matteotti 3",
+      "country": "Italy",
+      "phone": null,
+      "email": "siennapei.srl@legalmail.it",
+      "website": "https://www.sienna-im.com/services/private-equity/",
+      "contact_name": "Alessandro Fogo",
+      "aum_eur": null,
+      "num_funds": 1,
+      "num_portfolio_companies": 3,
+      "num_executives": 10,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 25000000,
+      "investment_max_eur": 100000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "France",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:16:22.872794+00:00"
+    },
+    {
+      "name": "Simest",
+      "slug": "simest",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "21, Via San Marco",
+      "country": "Italy",
+      "phone": "+39 0232329612",
+      "email": "v.veri@simest.it",
+      "website": "http://www.simest.it",
+      "contact_name": "Vera Veri",
+      "aum_eur": 847000000,
+      "num_funds": null,
+      "num_portfolio_companies": 222,
+      "num_executives": 49,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 1000000,
+      "investment_max_eur": 15000000,
+      "strategies": [
+        "Expansion"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "None"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:16:32.849743+00:00"
+    },
+    {
+      "name": "Sinloc Investimenti SGR",
+      "slug": "sinloc-investimenti-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Padova",
+      "address": "2/G, Via Gozzi",
+      "country": "Italy",
+      "phone": "+39/ 0498456911",
+      "email": "info@sinlocinvestimentisgr.com",
+      "website": "http://www.sinlocinvestimentisgr.com",
+      "contact_name": "Enzo Pietropaoli",
+      "aum_eur": null,
+      "num_funds": 2,
+      "num_portfolio_companies": 9,
+      "num_executives": 3,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 3000000,
+      "investment_max_eur": 12000000,
+      "strategies": [
+        "Impact Investing",
+        "Infrastructure",
+        "Real Estate"
+      ],
+      "sectors": [
+        "Energy and environment",
+        "Other",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:16:42.917124+00:00"
+    },
+    {
+      "name": "Siryo",
+      "slug": "siryo",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Bari",
+      "address": "19, Piazza Giuseppe Massari",
+      "country": "Italy",
+      "phone": "0803848614",
+      "email": "info@siryo.it",
+      "website": "http://www.siryo.it/it/",
+      "contact_name": "Ercole Festa",
+      "aum_eur": null,
+      "num_funds": 1,
+      "num_portfolio_companies": 8,
+      "num_executives": 3,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 500000,
+      "investment_max_eur": 10000000,
+      "strategies": [
+        "Early Stage",
+        "Expansion"
+      ],
+      "sectors": [
+        "Biotech",
+        "Chemicals and materials",
+        "Energy and environment",
+        "Healthcare",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:16:52.879368+00:00"
+    },
+    {
+      "name": "Smart Capital",
+      "slug": "smart-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Monza",
+      "address": "11, Via Carlo Alberto",
+      "country": "Italy",
+      "phone": "+39 3392778721",
+      "email": "amministrazione@smart-capital.it",
+      "website": "https://www.smart-capital.it/",
+      "contact_name": "Andrea Costantini; Andrea Faraggiana",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": 17,
+      "num_executives": 4,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 1000000,
+      "investment_max_eur": 15000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Replacement"
+      ],
+      "sectors": [
+        "ICT",
+        "Industrial products and services",
+        "Mechanics",
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:17:03.123838+00:00"
+    },
+    {
+      "name": "Star Capital SGR",
+      "slug": "star-capital-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "6, Via Pietro Paleocapa",
+      "country": "Italy",
+      "phone": "+39 / 02 88585411",
+      "email": "info@starcapital.it",
+      "website": "http://www.starcapital.it",
+      "contact_name": "Marco Gazzaniga",
+      "aum_eur": 297700000,
+      "num_funds": 3,
+      "num_portfolio_companies": 10,
+      "num_executives": 6,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": 28000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Fashion",
+        "Furniture",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Mechanics",
+        "Retail"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:17:13.274697+00:00"
+    },
+    {
+      "name": "Star Tech Ventures",
+      "slug": "star-tech-ventures",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Viale Tunisia 22",
+      "country": "Italy",
+      "phone": "+39 3497571858",
+      "email": "novica.mrdovic@add-value.it",
+      "website": "https://startechventures.eu/",
+      "contact_name": "Novica Mrdovic Vianello",
+      "aum_eur": null,
+      "num_funds": 1,
+      "num_portfolio_companies": 12,
+      "num_executives": 3,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 100000,
+      "investment_max_eur": 10000000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "ICT"
+      ],
+      "geographies": [
+        "Europe",
+        "USA"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:17:23.345496+00:00"
+    },
+    {
+      "name": "Style Capital SGR",
+      "slug": "style-capital-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "17, Via San Martino",
+      "country": "Italy",
+      "phone": "+39 / 02 45499848",
+      "email": "roberta.benaglia@stylecapital.it , info@stylecapital.it",
+      "website": "http://www.stylecapital.it",
+      "contact_name": "Roberta Benaglia",
+      "aum_eur": 600000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 8,
+      "num_executives": 12,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 20000000,
+      "investment_max_eur": 70000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Replacement"
+      ],
+      "sectors": [
+        "Fashion",
+        "Food and Beverages",
+        "Furniture",
+        "Retail"
+      ],
+      "geographies": [
+        "Italy",
+        "Worldwide"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:17:33.418493+00:00"
+    },
+    {
+      "name": "Sviluppo Imprese Centro Italia SGR",
+      "slug": "sviluppo-imprese-centro-italia-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Firenze",
+      "address": "46, Viale Giuseppe Mazzini",
+      "country": "Italy",
+      "phone": "+39 / 055 200751",
+      "email": "info@fondisici.it",
+      "website": "http://www.fondisici.it",
+      "contact_name": "Guido Tommei",
+      "aum_eur": 152100000,
+      "num_funds": 5,
+      "num_portfolio_companies": 32,
+      "num_executives": 3,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 200000,
+      "investment_max_eur": 2500000,
+      "strategies": [
+        "All Stages"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Central Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:17:43.807120+00:00"
+    },
+    {
+      "name": "Swiss Life Asset Managers Luxembourg Succursale Italia",
+      "slug": "swiss-life-asset-managers-luxembourg-succursale-italia",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Via San Prospero 1",
+      "country": "Italy",
+      "phone": "+39 02 38 585 779",
+      "email": "Antonio.Iaquinta@swisslife-am.com",
+      "website": "http://www.swisslife-am.com",
+      "contact_name": "Antonio Iaquinta",
+      "aum_eur": null,
+      "num_funds": 15,
+      "num_portfolio_companies": 78,
+      "num_executives": null,
+      "num_sfdr_article_8": 7,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Infrastructure"
+      ],
+      "sectors": [
+        "Energy and environment",
+        "Other",
+        "Sustainability",
+        "Transportation"
+      ],
+      "geographies": [
+        "Europe",
+        "USA"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:17:53.925220+00:00"
+    },
+    {
+      "name": "Tages Capital SGR",
+      "slug": "tages-capital-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "18, Corso Venezia",
+      "country": "Italy",
+      "phone": "+39 / 02 87337458",
+      "email": "angela.racca@tagescapital.com",
+      "website": "http://www.tagescapitalsgr.com/",
+      "contact_name": "Angela Racca",
+      "aum_eur": 2500000000,
+      "num_funds": 4,
+      "num_portfolio_companies": 7,
+      "num_executives": 3,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 3000000,
+      "investment_max_eur": 250000000,
+      "strategies": [
+        "Infrastructure",
+        "Private Debt"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Biotech",
+        "Chemicals and materials",
+        "Consumer",
+        "Energy and environment",
+        "Fashion",
+        "Food and Beverages",
+        "Furniture",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Mechanics",
+        "Medtech",
+        "Other",
+        "Other manufacturing",
+        "Retail",
+        "Sustainability",
+        "Transportation"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:18:03.926155+00:00"
+    },
+    {
+      "name": "TeamSystem Capital at Work SGR",
+      "slug": "teamsystem-capital-at-work-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "2, Via Pietro Cossa",
+      "country": "Italy",
+      "phone": "02 36569566",
+      "email": "info@tscawsgr.com; investor@tscawsgr.com",
+      "website": "http://www.tscawsgr.com/it",
+      "contact_name": "Dario Fracchiolla, Managing Director",
+      "aum_eur": 134000000,
+      "num_funds": 4,
+      "num_portfolio_companies": 900,
+      "num_executives": 1,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 500000,
+      "investment_max_eur": 200000000,
+      "strategies": [
+        "Private Debt"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Biotech",
+        "Chemicals and materials",
+        "Energy and environment",
+        "Fashion",
+        "Food and Beverages",
+        "Furniture",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Mechanics",
+        "Other manufacturing",
+        "Retail",
+        "Transportation"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:18:13.964036+00:00"
+    },
+    {
+      "name": "The Equity Club",
+      "slug": "the-equity-club",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Via Privata Maria Teresa 4",
+      "country": "Italy",
+      "phone": "0297807112",
+      "email": "direzione@equityclub.eu",
+      "website": "https://www.equityclub.eu/",
+      "contact_name": "Filippo Penatti",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": 6,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:18:24.004530+00:00"
+    },
+    {
+      "name": "Three Hills",
+      "slug": "three-hills",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "2, Via Joe Colombo, Villa Molera",
+      "country": "Italy",
+      "phone": "+39 / 02 82959110",
+      "email": "info@threehills.com, m.anatriello@atypicalpartner.com, b.tamburi@threehills.com, investorservices@threehills.com",
+      "website": "http://www.threehills.com",
+      "contact_name": "Marco Anatriello, Beatrice Tamburi, Anna Vivaldi",
+      "aum_eur": 3000000000,
+      "num_funds": 5,
+      "num_portfolio_companies": 20,
+      "num_executives": 8,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": 100000000,
+      "strategies": [
+        "Expansion",
+        "Impact Investing",
+        "Private Debt"
+      ],
+      "sectors": [
+        "Biotech",
+        "Chemicals and materials",
+        "Energy and environment",
+        "Fashion",
+        "Financial and insurance activities",
+        "Food and Beverages",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Mechanics",
+        "Other manufacturing",
+        "Retail",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Europe",
+        "France",
+        "Italy",
+        "Spain",
+        "United Kingdom"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:18:34.239310+00:00"
+    },
+    {
+      "name": "Tikehau Capital",
+      "slug": "tikehau-capital",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "20, Via Agnello",
+      "country": "Italy",
+      "phone": "+39 / 02 00631500",
+      "email": "Info-Milan@tikehaucapital.com",
+      "website": "http://www.tikehaucapital.com",
+      "contact_name": "Roberto Quagliuolo",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 20000000,
+      "investment_max_eur": 300000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Impact Investing",
+        "Private Debt",
+        "Real Estate"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:18:44.404846+00:00"
+    },
+    {
+      "name": "ToSeed",
+      "slug": "toseed",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Siena",
+      "address": "VIA DE ROSSI, 2",
+      "country": "Italy",
+      "phone": "0577-257322",
+      "email": "giovanni.ferri@toseed.it",
+      "website": "https://toseed.it/",
+      "contact_name": "Giovanni Ferri",
+      "aum_eur": null,
+      "num_funds": 1,
+      "num_portfolio_companies": 19,
+      "num_executives": 6,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 250000,
+      "investment_max_eur": 1000000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Biotech",
+        "Chemicals and materials",
+        "Energy and environment",
+        "Food and Beverages",
+        "Industrial products and services",
+        "Sustainability"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:18:54.458564+00:00"
+    },
+    {
+      "name": "Trentino Sviluppo",
+      "slug": "trentino-sviluppo",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Rovereto",
+      "address": "8, Via F. Zeni",
+      "country": "Italy",
+      "phone": "+39 / 0464 443111",
+      "email": "info@trentinosviluppo.it rita.scottini@trentinosviluppo.it",
+      "website": "http://www.trentinosviluppo.it",
+      "contact_name": "Rita Scottini",
+      "aum_eur": 1128800000,
+      "num_funds": null,
+      "num_portfolio_companies": 40,
+      "num_executives": 3,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "All Stages"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Biotech",
+        "Chemicals and materials",
+        "Energy and environment",
+        "Financial and insurance activities",
+        "Healthcare",
+        "ICT",
+        "Industrial products and services",
+        "Other",
+        "Other manufacturing"
+      ],
+      "geographies": [
+        "Northern Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:19:04.602581+00:00"
+    },
+    {
+      "name": "Trilantic Europe",
+      "slug": "trilantic-europe",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "3, Via Turati",
+      "country": "Italy",
+      "phone": null,
+      "email": "lfelisati@trilanticeurope.com",
+      "website": "http://www.trilanticeurope.com",
+      "contact_name": "Luca Felisati",
+      "aum_eur": null,
+      "num_funds": 4,
+      "num_portfolio_companies": 15,
+      "num_executives": 28,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 60000000,
+      "investment_max_eur": 150000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:19:14.554049+00:00"
+    },
+    {
+      "name": "Triton",
+      "slug": "triton",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "5, Via Maurizio Gonzaga",
+      "country": "Italy",
+      "phone": "+39 / 02 82952820",
+      "email": "Viola@triton-partners.com",
+      "website": "http://www.triton-partners.com",
+      "contact_name": "Lodovico Viola",
+      "aum_eur": 15300000000,
+      "num_funds": 11,
+      "num_portfolio_companies": 48,
+      "num_executives": 180,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 20000000,
+      "investment_max_eur": 400000000,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Chemicals and materials",
+        "Construction",
+        "Healthcare",
+        "Industrial products and services",
+        "Mechanics"
+      ],
+      "geographies": [
+        "Europe",
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:19:24.628873+00:00"
+    },
+    {
+      "name": "Unigrains",
+      "slug": "unigrains",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "5/A, Via San Tomaso",
+      "country": "Italy",
+      "phone": null,
+      "email": "smasini@unigrainsdev.com",
+      "website": "https://www.unigrains.fr/en/",
+      "contact_name": "Franceso Orazi, Alfredo Cicognani, Stefano Masini",
+      "aum_eur": 80000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 7,
+      "num_executives": 4,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 8000000,
+      "investment_max_eur": 25000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion",
+        "Replacement"
+      ],
+      "sectors": [
+        "Agriculture",
+        "Food and Beverages"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:19:34.875865+00:00"
+    },
+    {
+      "name": "Vertis SGR",
+      "slug": "vertis-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Napoli",
+      "address": "17, Via Francesco Caracciolo",
+      "country": "Italy",
+      "phone": "+39 / 081 2404096",
+      "email": "vertis@vertis.it",
+      "website": "http://www.vertis.it",
+      "contact_name": "Amedeo Giurazza",
+      "aum_eur": 265000000,
+      "num_funds": 9,
+      "num_portfolio_companies": 23,
+      "num_executives": 8,
+      "num_sfdr_article_8": 3,
+      "investment_min_eur": 300000,
+      "investment_max_eur": 5000000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "Aerospace",
+        "Agriculture",
+        "Financial and insurance activities",
+        "ICT",
+        "Industrial products and services",
+        "Mechanics",
+        "Medtech"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:19:44.982499+00:00"
+    },
+    {
+      "name": "Weltix",
+      "slug": "weltix",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "13, Piazzale Cadorna",
+      "country": "Italy",
+      "phone": null,
+      "email": "info@weltix.tech",
+      "website": "https://www.weltix.tech/",
+      "contact_name": "Antonio Chiarello",
+      "aum_eur": null,
+      "num_funds": null,
+      "num_portfolio_companies": null,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:19:55.062763+00:00"
+    },
+    {
+      "name": "Wise Equity SGR",
+      "slug": "wise-equity-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "76, Foro Buonaparte",
+      "country": "Italy",
+      "phone": "+39 / 02 8545691",
+      "email": "segreteria@wisesgr.com",
+      "website": "http://www.wisesgr.com",
+      "contact_name": "Paolo Gambarini",
+      "aum_eur": 600000000,
+      "num_funds": 3,
+      "num_portfolio_companies": 12,
+      "num_executives": 18,
+      "num_sfdr_article_8": 1,
+      "investment_min_eur": 10000000,
+      "investment_max_eur": 50000000,
+      "strategies": [
+        "Buy Out",
+        "Expansion"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:20:05.985276+00:00"
+    },
+    {
+      "name": "WRM Group",
+      "slug": "wrm-group",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "16-18, Corso Venezia",
+      "country": "Italy",
+      "phone": "+39 / 02 47923020",
+      "email": "info@wrmgroup.net",
+      "website": "http://www.wrmgroup.net",
+      "contact_name": "Fabrizio Boaron/David Calò",
+      "aum_eur": 600000000,
+      "num_funds": 2,
+      "num_portfolio_companies": null,
+      "num_executives": 22,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "All Stages"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:20:16.096553+00:00"
+    },
+    {
+      "name": "XGen Venture SGR",
+      "slug": "xgen-venture-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "Via Giovannino De Grassi, 11",
+      "country": "Italy",
+      "phone": "+39 02 36515110",
+      "email": "laura.pizzi@xgenventure.com",
+      "website": "https://xgenventure.com/",
+      "contact_name": "Laura Pizzi",
+      "aum_eur": 177000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 6,
+      "num_executives": 3,
+      "num_sfdr_article_8": 2,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "Biotech"
+      ],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:20:26.220338+00:00"
+    },
+    {
+      "name": "Yarpa Investimenti SGR",
+      "slug": "yarpa-investimenti-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "15, Corso Monforte",
+      "country": "Italy",
+      "phone": "+39 / 02 36632901",
+      "email": "alenotti@yarpa.it",
+      "website": "http://www.yarpa.it",
+      "contact_name": "Alessandro Lenotti",
+      "aum_eur": 800000000,
+      "num_funds": 9,
+      "num_portfolio_companies": null,
+      "num_executives": 12,
+      "num_sfdr_article_8": 2,
+      "investment_min_eur": null,
+      "investment_max_eur": null,
+      "strategies": [
+        "Buy Out"
+      ],
+      "sectors": [],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:20:36.371311+00:00"
+    },
+    {
+      "name": "Zenit SGR",
+      "slug": "zenit-sgr",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Milano",
+      "address": "8, Via Manfredo Camperio",
+      "country": "Italy",
+      "phone": "+39 / 02806071",
+      "email": "g.scrofani@zenitonline.it",
+      "website": "http://www.zenitonline.it",
+      "contact_name": "Giovanni Scrofani",
+      "aum_eur": 100000000,
+      "num_funds": 2,
+      "num_portfolio_companies": 35,
+      "num_executives": null,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 1000000,
+      "investment_max_eur": 8000000,
+      "strategies": [],
+      "sectors": [],
+      "geographies": [
+        "Italy"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:20:46.654886+00:00"
+    },
+    {
+      "name": "ZEST GROUP",
+      "slug": "zest-group",
+      "aifi_url": "https://www.aifi.it/en/full-members",
+      "city": "Roma",
+      "address": "29H, Via Marsala",
+      "country": "Italy",
+      "phone": "+39 / 06 45473124",
+      "email": "luca.zanon@zestgroup.vc; segreteria.direzionale@zestgroup.vc",
+      "website": "http://zestgroup.vc",
+      "contact_name": null,
+      "aum_eur": 54000000,
+      "num_funds": 7,
+      "num_portfolio_companies": 230,
+      "num_executives": 3,
+      "num_sfdr_article_8": null,
+      "investment_min_eur": 48500,
+      "investment_max_eur": 500000,
+      "strategies": [
+        "Early Stage"
+      ],
+      "sectors": [
+        "None"
+      ],
+      "geographies": [
+        "Europe"
+      ],
+      "asset_classes": [],
+      "description": null,
+      "scraped_at": "2026-02-02T20:20:56.771862+00:00"
+    }
+  ]
+}

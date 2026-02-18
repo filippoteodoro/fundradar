@@ -1,0 +1,30 @@
+{
+  "name": "team_cards_detailed",
+  "type": "team_list",
+  "url": "https://pegroup.com/team",
+  "captured_at": "2024-01-20T10:00:00Z",
+  "site_type": "static",
+  "expected": {
+    "total_members": 16,
+    "team_members": [
+      {"name": "John Smith", "title": "Managing Partner & CEO", "email": "jsmith@pegroup.com"},
+      {"name": "Maria Rossi", "title": "Managing Partner", "email": "mrossi@pegroup.com"},
+      {"name": "David Chen", "title": "Partner", "email": "dchen@pegroup.com"},
+      {"name": "Emma Wilson", "title": "Partner", "email": "ewilson@pegroup.com"},
+      {"name": "Luca Bianchi", "title": "Partner", "email": "lbianchi@pegroup.com"},
+      {"name": "Anna Mueller", "title": "Principal"},
+      {"name": "Tom Brown", "title": "Principal"},
+      {"name": "Sofia Garcia", "title": "Vice President"},
+      {"name": "James Lee", "title": "Vice President"},
+      {"name": "Laura Martin", "title": "Associate"},
+      {"name": "Mark Johnson", "title": "Associate"},
+      {"name": "Sarah Chen", "title": "CFO"},
+      {"name": "Michael Davis", "title": "General Counsel"},
+      {"name": "Elena Kovac", "title": "Head of IR"}
+    ],
+    "has_seniority_sections": true,
+    "has_bios": true,
+    "has_contact_info": true
+  },
+  "notes": "Detailed team page with hierarchical sections, bios, and contact information"
+}

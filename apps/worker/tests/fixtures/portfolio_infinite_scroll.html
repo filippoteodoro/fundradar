@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Companies | Tech Ventures</title>
+    <script>window.__INITIAL_STATE__ = {"companies":[]};</script>
+</head>
+<body>
+    <div id="root">
+        <nav class="navbar">
+            <a href="/" class="brand">Tech Ventures</a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/companies" class="active">Companies</a>
+                <a href="/team">Team</a>
+                <a href="/careers">Careers</a>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="page-header">
+                <h1>Our Companies</h1>
+                <p>Backing the next generation of technology leaders</p>
+            </div>
+
+            <div class="company-list" data-infinite-scroll="true" data-api="/api/companies">
+                <div class="company-row">
+                    <div class="company-logo">
+                        <img src="/companies/cloudnative/logo.png" alt="CloudNative">
+                    </div>
+                    <div class="company-info">
+                        <h3><a href="/companies/cloudnative">CloudNative Inc.</a></h3>
+                        <div class="company-meta">
+                            <span class="tag sector">Cloud Infrastructure</span>
+                            <span class="tag stage">Series C</span>
+                            <span class="tag status current">Active</span>
+                        </div>
+                        <p>Building the future of cloud-native application development and deployment.</p>
+                    </div>
+                    <a href="https://cloudnative.io" class="company-link">Visit website</a>
+                </div>
+
+                <div class="company-row">
+                    <div class="company-logo">
+                        <img src="/companies/datastream/logo.png" alt="DataStream">
+                    </div>
+                    <div class="company-info">
+                        <h3><a href="/companies/datastream">DataStream Analytics</a></h3>
+                        <div class="company-meta">
+                            <span class="tag sector">Big Data</span>
+                            <span class="tag stage">Series B</span>
+                            <span class="tag status current">Active</span>
+                        </div>
+                        <p>Real-time data analytics platform for enterprise applications.</p>
+                    </div>
+                    <a href="https://datastream.tech" class="company-link">Visit website</a>
+                </div>
+
+                <div class="company-row">
+                    <div class="company-logo">
+                        <img src="/companies/securityfirst/logo.png" alt="SecurityFirst">
+                    </div>
+                    <div class="company-info">
+                        <h3><a href="/companies/securityfirst">SecurityFirst</a></h3>
+                        <div class="company-meta">
+                            <span class="tag sector">Cybersecurity</span>
+                            <span class="tag stage">Growth</span>
+                            <span class="tag status exited">Acquired 2023</span>
+                        </div>
+                        <p>Enterprise security platform protecting critical infrastructure.</p>
+                    </div>
+                </div>
+
+                <div class="company-row">
+                    <div class="company-logo">
+                        <img src="/companies/aibot/logo.png" alt="AIBot">
+                    </div>
+                    <div class="company-info">
+                        <h3><a href="/companies/aibot">AIBot Technologies</a></h3>
+                        <div class="company-meta">
+                            <span class="tag sector">Artificial Intelligence</span>
+                            <span class="tag stage">Series A</span>
+                            <span class="tag status current">Active</span>
+                        </div>
+                        <p>Conversational AI platform for customer service automation.</p>
+                    </div>
+                    <a href="https://aibot.ai" class="company-link">Visit website</a>
+                </div>
+
+                <div class="company-row">
+                    <div class="company-logo">
+                        <img src="/companies/quantumsoft/logo.png" alt="QuantumSoft">
+                    </div>
+                    <div class="company-info">
+                        <h3><a href="/companies/quantumsoft">QuantumSoft S.r.l.</a></h3>
+                        <div class="company-meta">
+                            <span class="tag sector">Quantum Computing</span>
+                            <span class="tag stage">Seed</span>
+                            <span class="tag status current">Active</span>
+                        </div>
+                        <p>Quantum computing software development kit and simulator.</p>
+                    </div>
+                    <a href="https://quantumsoft.eu" class="company-link">Visit website</a>
+                </div>
+
+                <div class="company-row">
+                    <div class="company-logo">
+                        <img src="/companies/robotics360/logo.png" alt="Robotics360">
+                    </div>
+                    <div class="company-info">
+                        <h3><a href="/companies/robotics360">Robotics360</a></h3>
+                        <div class="company-meta">
+                            <span class="tag sector">Robotics</span>
+                            <span class="tag stage">Series B</span>
+                            <span class="tag status exited">IPO 2022</span>
+                        </div>
+                        <p>Industrial robotics and automation solutions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loading-indicator" style="display:none;">
+                <span>Loading more companies...</span>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Tech Ventures. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

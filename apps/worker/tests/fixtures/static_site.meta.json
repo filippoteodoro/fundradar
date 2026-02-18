@@ -1,0 +1,22 @@
+{
+  "name": "static_site",
+  "url": "https://example-fund.it/portfolio",
+  "type": "static",
+  "date_captured": "2024-01-15",
+  "description": "Traditional static HTML portfolio page with semantic markup",
+  "expected_extractions": {
+    "portfolio_companies": [
+      {"name": "TechItalia S.p.A.", "sector": "Technology", "status": "current"},
+      {"name": "FoodCo S.r.l.", "sector": "Consumer / Food & Beverage", "status": "current"},
+      {"name": "MedDevice Italia S.p.A.", "sector": "Healthcare", "status": "current"},
+      {"name": "LogiTrans S.r.l.", "sector": "Industrial / Logistics", "status": "current"},
+      {"name": "GreenEnergy S.p.A.", "sector": "Energy / Renewables", "status": "current"},
+      {"name": "RetailBrand S.p.A.", "sector": "Consumer / Retail", "status": "exited"},
+      {"name": "AutoParts S.r.l.", "sector": "Industrial / Automotive", "status": "exited"}
+    ],
+    "total_current": 5,
+    "total_exited": 2
+  },
+  "requires_headless": false,
+  "extraction_strategies": ["html_cards", "headings_in_context"]
+}

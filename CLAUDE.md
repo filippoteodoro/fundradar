@@ -1,0 +1,203 @@
+# Fundradar - Claude Code Instructions
+
+## What is this project?
+A public directory of Italian PE/VC funds with monitored "signals" (news, hires, deals). The value is clean, searchable data with source citations.
+
+## CRITICAL: Entity Scope — PE/VC ONLY
+
+**The tracked fund universe in `db.json` is the ONLY source of truth.** PEM deals reference many historical fund names — IGNORE those counts (defunct, renamed, not tracked).
+
+Only Private Equity, Venture Capital, and Growth Equity funds belong in db.json. **NEVER add:**
+- **Asset managers** (Generali Investments, Amundi, BlackRock) — diversified portfolios, not PE/VC
+- **Banks** (Banca Generali, BancoBPM Invest) — deposit-taking institutions
+- **Regional agencies** (Trentino Sviluppo, Lazio Innova, Finlombarda) — public agencies
+- **Credit vehicles** (Clessidra Capital Credit SGR) — private debt, not equity
+
+Blocked via `invalid_slugs` in `fund_aliases.json` and `EXCLUDED_SLUGS` in `merge-aifi-metrics.ts`. When in doubt: check the entity's website — "asset management" / "wealth management" / "banking" / "credit" = not PE/VC.
+
+## Tech Stack
+
+| Component | Technology |
+|-----------|------------|
+| Web | Next.js 14 (App Router), TypeScript, React 18, Recharts |
+| Data | File-based JSON (`data/` and `data/derived/`) — NO database |
+| Worker | Python 3.10+, Playwright, pydantic |
+| Types | `@fundradar/shared` (TypeScript, consumed by web) |
+| Monorepo | pnpm workspaces |
+| Testing | Vitest (web), pytest (worker) |
+
+**NO database, NO Supabase, NO Tailwind (inline styles), NO Turbo.**
+
+## Project Structure
+
+```
+apps/web/                     Next.js frontend (see apps/web/CLAUDE.md)
+  src/lib/data.ts               ALL data loading, multiple caches
+  src/lib/signals_unified.ts    Signal aggregation for /signals page
+  src/lib/signalProcessing.ts   Shared signal processing (both paths)
+apps/worker/                  Python workers (see apps/worker/CLAUDE.md)
+  fundradar_worker/
+    strategies/extractors/      Fund-specific extractors (with URLS dicts)
+data/                         Data files
+  derived/                      Worker output (JSON consumed by web)
+  AIFI/                         AIFI scraped data
+  pem/                          PEM PDF source files (DO NOT Read())
+packages/shared/              Shared TypeScript types
+  src/types.ts                  Fund, Signal, Deal, etc.
+scripts/                      TS seed/parse utilities
+```
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Start web dev server |
+| `pnpm build` | Build shared types then web app |
+| `pnpm lint` / `pnpm typecheck` / `pnpm test` | Lint, type-check, test |
+| `pnpm seed` | Run seed scripts (has safety guard — use `--force` to override) |
+| `pnpm worker:monitor` | Fetch websites, extract data, detect changes |
+| `pnpm worker:ingest` | Process PEM PDFs → `pem_deals.json` |
+| `pnpm worker:aifi` | Scrape AIFI member data |
+| `pnpm worker:geocode` | Geocode addresses → `fund_coordinates.json` |
+| `pnpm merge-aifi` | Merge AIFI data into `db.json` |
+| `pnpm aifi:full` | AIFI scrape + merge |
+| `pnpm pipeline` | Full: monitor → rss → normalize_sectors → normalize_portfolio → enrich_portfolio → filter → enrich |
+| `pnpm pipeline --force-extract` | Re-extract even if content unchanged |
+| `pnpm pipeline --slugs s1,s2` | Run for specific fund slugs |
+| `pnpm pipeline:signals` | Filter + enrich only (skip fetching) |
+| `pnpm audit:quality` | Fund data quality audit |
+
+## Critical Rules
+
+### 1. Caching — THE #1 BUG SOURCE
+`data.ts` has module-level caches with **NO TTL, NO invalidation**. Worker writes JSON → **restart `pnpm dev` to see changes**. See `apps/web/CLAUDE.md` for full cache list.
+
+### 2. Type Contract — NOT ENFORCED AT RUNTIME
+Python writes dicts to JSON with no schema validation. TypeScript types are compile-time only. Known drift exists between Python output and TS declarations. **When changing a type**: update `types.ts`, update Python dicts, update `data.ts` loaders, and verify JSON output matches.
+
+### 3. Signal Dual-Loading
+- `/signals` → `signals_unified.ts` → enriched → filtered → raw
+- `/funds/[slug]` → `data.ts` → filtered ONLY
+- Both share processing via `signalProcessing.ts`
+- Dedup logic in 2 places: Python `filter_signals.py` and `signals_unified.ts` — update both
+- Classification must match in Python (`filter_signals.py`) AND TypeScript (`signalProcessing.ts`)
+
+### 4. Data Reliability Contract
+Every signal MUST have: `source_url`, `source_name`, `published_at` (if known), `observed_at`. All enrichment must have a verifiable `{field}_source_url`. AI is a data collection aid, not a data source — never store "ai_inferred" as a source.
+
+### 5. Model Policy
+- **OpenAI**: Use `gpt-5-mini` or better. NEVER use ChatGPT 4o (hallucinates too much).
+- **Gemini**: ALWAYS use `gemini-3-flash-preview`. NEVER use any `gemini-2.x` model.
+
+### 6. File-Based Architecture
+- All data in JSON files — worker writes to `data/derived/` via `safe_json_write()` (atomic)
+- Web reads via `data.ts` — NEVER bypass it to read JSON directly in components
+- Path resolution via `getRepoRoot()` — NEVER hardcode absolute paths
+- NEVER `Read()` PEM PDFs — use `pnpm worker:ingest`
+
+### 7. Scope
+Italy-only funds. Solo project — keep solutions minimal. Avoid over-engineering.
+
+## Data Pipeline
+
+### Source → Output → Loader
+
+| Data | Output File | Web Loader |
+|------|-------------|------------|
+| Fund list | `db.json` | `getAllFunds()` |
+| Deals | `pem_deals.json` | `getDealsForFund()` |
+| Portfolios | `portfolio_items.json` | `getPortfolioForFund()` |
+| Signals (filtered) | `detected_signals_filtered.json` | `getSignalsForFund()` |
+| Signals (enriched) | `detected_signals_enriched.json` | `loadUnifiedSignals()` |
+| Team stats | `fund_people_stats.json` | `getTeamAnalyticsForFund()` |
+| LinkedIn URLs | `linkedin/fund_linkedin_urls.json` | merged at load time |
+| Fund coordinates | `fund_coordinates.json` | merged into `db.json` via `merge-aifi` |
+
+Pipeline: `monitor → rss → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini) → filter (quality scoring) → enrich (AI summaries)`
+
+Content hashing skips unchanged pages — use `--force-extract` after updating extractors.
+
+### Address Data
+`db.json` is the **only** source of address/coordinate data for the web app. `fund_coordinates.json` is a geocoding cache consumed only by `merge-aifi-metrics.ts`. To update: `pnpm worker:geocode && pnpm merge-aifi`. See `apps/web/CLAUDE.md` for map resolution chain.
+
+## Architecture Patterns
+- **Extraction**: fund-specific extractors take priority; generic strategies only run when no custom extractor returns results
+- **Extractor URLS**: each extractor's `URLS` dict is the single source of truth for which URLs to fetch
+- **Entity resolution**: normalizes company names, fuzzy matching at 90% Jaccard
+- **Atomic writes**: `safe_json_write()` — NEVER use bare `open()/json.dump()`
+- **Signal quality**: defense-in-depth — Python `filter_signals.py` is primary gate, TS `signalProcessing.ts` is safety net
+
+## Key Files
+
+| File | Role |
+|------|------|
+| `apps/web/src/lib/data.ts` | ALL data loading, multiple module-level caches |
+| `apps/web/src/lib/signals_unified.ts` | Signal loading for `/signals` page |
+| `apps/web/src/lib/signalProcessing.ts` | Shared signal processing (both paths) |
+| `packages/shared/src/types.ts` | Type definitions (Fund, Signal, Deal, DataSource) |
+| `apps/worker/fundradar_worker/pipeline.py` | 7-step orchestration |
+| `apps/worker/fundradar_worker/monitor.py` | Main fetch/extract/diff engine |
+| `apps/worker/fundradar_worker/strategies/extractors/` | Fund-specific extractors |
+
+## Common Pitfalls
+
+Items covered in detail by sub-project CLAUDE.md files are marked with → reference. Unique root-level pitfalls:
+
+1. **Worker runs but UI shows old data** → restart `pnpm dev` (→ `apps/web/CLAUDE.md`)
+2. **Adding subpage URLs to `monitor-urls.md`** → NEVER. This file has base domain URLs only. Subpage routing is in extractors' `URLS` dicts.
+3. **Assuming fund website domains without checking AIFI** → verify URLs against `data/AIFI/all.csv`. AIFI is authoritative for member website URLs.
+4. **AIFI scraper sets wrong HQ for global funds** → Italian branch gets written as HQ. After ANY AIFI merge, cross-check `offices[]` is_hq entries against top-level `hq_*` fields. Preserve Italian office in `offices[]` when fixing global HQ.
+5. **Mentioning LinkedIn on the website** → NEVER mention "LinkedIn" in user-facing text. Use "public profiles" instead. Icon links are fine.
+6. **Deleting global portfolio entries** → DON'T. Frontend filters by Italy via `isItalianCompany()`. Global data provides context.
+7. **LinkedIn scraping is ON-DEMAND ONLY** → Uses paid Apify. NEVER add to `pnpm pipeline`. Audit `fund_linkedin_urls.json` against `db.json` periodically.
+8. **Career signals are valuable** → Do NOT add career keywords to noise filters. `job_posting` type is supported end-to-end.
+9. **Using wrong fund slugs** → ALWAYS look up from `db.json`, never guess. See slug reference below.
+10. **After AIFI scrape** → verify names are brand names (not legal entity names). No `(Italia)`, no `Associati` suffix. `name` must match fund's own website.
+11. **AI is never disclosed in UI** — never say a field is "AI-generated." Reference sources, not AI.
+12. **No "as of" labels** — claim data is current. If stale, update the data instead.
+
+For portfolio-specific pitfalls (PEM merge, garbage entries, manual entries, status detection): see `apps/web/CLAUDE.md`.
+For extractor/worker pitfalls (force-extract, PortfolioStore guard, site configs): see `apps/worker/CLAUDE.md`.
+
+## Known Technical Debt
+
+Intentional tradeoffs — don't "fix" without explicit request:
+
+- **data.ts is a large single file** — explicit and grep-friendly
+- **Portfolio merge mutates in-place** — safe because cache repopulates on restart
+- **No runtime type validation** — JSON files are trusted
+- **Dedup logic in 2 places** — Python filter and signals_unified.ts independently
+- **Team analytics is dummy data** — waiting for real LinkedIn data; team scoring disabled in `fundQuality.ts`
+- **PEM deal status needs verification** — reliable for deal existence, not current status
+
+## Fund Slug Reference — Top 25 by AUM
+
+**CRITICAL: ALWAYS look up slugs from `db.json` — NEVER guess.** Old slugs resolve via `fund_aliases.json`.
+
+| Fund Name | Slug | Tricky? |
+|-----------|------|---------|
+| Blackstone | `blackstone` | |
+| Apollo | `apollo` | |
+| KKR | `kkr` | |
+| Macquarie | `macquarie` | |
+| Ares Management | `ares-management` | NOT `ares` |
+| Carlyle | `carlyle` | |
+| EQT | `eqt` | |
+| Bain Capital | `bain-capital` | |
+| Ardian | `ardian` | |
+| Partners Group | `partners-group` | |
+| Advent International | `advent-international` | NOT `advent` |
+| Permira | `permira` | |
+| Apax Partners | `apax-partners` | |
+| H.I.G. Capital | `h-i-g-capital` | |
+| Clessidra SGR | `clessidra-sgr` | |
+| CDP Venture Capital | `cdp-venture-capital` | |
+
+Lookup: `python3 -c "import json; [print(f['slug'], f['name']) for f in json.load(open('data/db.json'))['funds'] if 'SEARCH' in f.get('name','').lower()]"`
+
+## Where to Start
+
+1. Read `apps/web/CLAUDE.md` for web-specific instructions (caching, portfolio merge, signal loading)
+2. Read `apps/worker/CLAUDE.md` for worker-specific instructions (extractors, pipeline, status detection)
+3. Read `/docs/spec.md` for features and sprint status
+4. Run `pnpm dev` to verify setup works

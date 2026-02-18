@@ -1,0 +1,15 @@
+{
+  "fixture_name": "portfolio_table_detailed",
+  "extraction_method": "link_list",
+  "company_count": 5,
+  "company_names": [
+    "Alimentare Italia Group",
+    "Energia Verde S.p.A.",
+    "Meccanica Nord S.p.A.",
+    "PharmaTech Solutions",
+    "Tessile Premium S.r.l."
+  ],
+  "failed_reason": null,
+  "created_at": "2026-01-25T19:15:16.118742+00:00",
+  "version": "1.0"
+}

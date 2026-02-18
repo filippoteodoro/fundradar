@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Portfolio | Growth Equity Partners</title>
+</head>
+<body>
+    <header>
+        <div class="logo">Growth Equity Partners</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/portfolio" class="active">Portfolio</a>
+            <a href="/team">Team</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="portfolio-page">
+        <h1>Our Portfolio</h1>
+        <p class="intro">We partner with exceptional entrepreneurs building market-leading companies.</p>
+
+        <div class="filter-bar">
+            <button class="filter active" data-filter="all">All (18)</button>
+            <button class="filter" data-filter="current">Current (12)</button>
+            <button class="filter" data-filter="realized">Realized (6)</button>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-card" data-status="current">
+                <img src="/logos/alphatech.png" alt="AlphaTech">
+                <h3>AlphaTech S.p.A.</h3>
+                <p class="sector">Enterprise Software</p>
+                <p class="description">AI-powered enterprise resource planning platform</p>
+                <a href="https://alphatech.it" target="_blank" class="website">alphatech.it</a>
+            </div>
+
+            <div class="portfolio-card" data-status="current">
+                <img src="/logos/betahealth.png" alt="BetaHealth">
+                <h3>BetaHealth S.r.l.</h3>
+                <p class="sector">Healthcare Technology</p>
+                <p class="description">Digital health platform for chronic disease management</p>
+                <a href="https://betahealth.com" target="_blank" class="website">betahealth.com</a>
+            </div>
+
+            <div class="portfolio-card" data-status="realized">
+                <img src="/logos/gammaretail.png" alt="GammaRetail">
+                <h3>GammaRetail Group</h3>
+                <p class="sector">Consumer &amp; Retail</p>
+                <p class="description">Omnichannel retail platform for fashion brands</p>
+                <span class="status exited">Exited 2023</span>
+            </div>
+
+            <div class="portfolio-card" data-status="current">
+                <img src="/logos/deltafinance.png" alt="DeltaFinance">
+                <h3>DeltaFinance</h3>
+                <p class="sector">Financial Services</p>
+                <p class="description">B2B payments infrastructure for European SMEs</p>
+                <a href="https://deltafinance.eu" target="_blank" class="website">deltafinance.eu</a>
+            </div>
+
+            <div class="portfolio-card" data-status="current">
+                <img src="/logos/epsilonlogistics.png" alt="EpsilonLogistics">
+                <h3>Epsilon Logistics S.p.A.</h3>
+                <p class="sector">Logistics &amp; Supply Chain</p>
+                <p class="description">Last-mile delivery optimization platform</p>
+                <a href="https://epsilonlogistics.it" target="_blank" class="website">epsilonlogistics.it</a>
+            </div>
+
+            <div class="portfolio-card" data-status="realized">
+                <img src="/logos/zetaenergy.png" alt="ZetaEnergy">
+                <h3>Zeta Energy Solutions</h3>
+                <p class="sector">CleanTech</p>
+                <p class="description">Smart grid management and renewable energy storage</p>
+                <span class="status exited">Exited 2022</span>
+            </div>
+
+            <div class="portfolio-card" data-status="current">
+                <img src="/logos/etafood.png" alt="EtaFood">
+                <h3>EtaFood Tech</h3>
+                <p class="sector">Food Technology</p>
+                <p class="description">Plant-based protein innovation company</p>
+                <a href="https://etafood.com" target="_blank" class="website">etafood.com</a>
+            </div>
+
+            <div class="portfolio-card" data-status="current">
+                <img src="/logos/thetaai.png" alt="ThetaAI">
+                <h3>ThetaAI</h3>
+                <p class="sector">Artificial Intelligence</p>
+                <p class="description">Computer vision solutions for manufacturing</p>
+                <a href="https://theta-ai.io" target="_blank" class="website">theta-ai.io</a>
+            </div>
+        </div>
+
+        <div class="load-more">
+            <button id="loadMoreBtn" data-page="2">Load More Companies</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Growth Equity Partners. All rights reserved.</p>
+    </footer>
+</body>
+</html>

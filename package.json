@@ -1,0 +1,34 @@
+{
+  "name": "fundradar",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -F web dev",
+    "build": "pnpm -F @fundradar/shared build && pnpm -F web build",
+    "lint": "pnpm -F @fundradar/shared lint && pnpm -F web lint",
+    "typecheck": "pnpm -F @fundradar/shared build && pnpm -F web typecheck",
+    "test": "pnpm -F @fundradar/shared test && pnpm -F web test",
+    "seed": "pnpm -F scripts seed",
+    "worker:ingest": "cd apps/worker && . .venv/bin/activate && python -m fundradar_worker.ingest_pem",
+    "worker:monitor": "cd apps/worker && . .venv/bin/activate && python -m fundradar_worker.monitor",
+    "worker:parse-urls": "cd apps/worker && . .venv/bin/activate && python -m fundradar_worker.parse_monitor_urls",
+    "worker:aifi": "cd apps/worker && . .venv/bin/activate && python -m fundradar_worker.aifi_scraper",
+    "merge-aifi": "pnpm -F scripts merge-aifi",
+    "aifi:full": "pnpm worker:aifi && pnpm merge-aifi",
+    "pipeline": "cd apps/worker && . .venv/bin/activate && python -m fundradar_worker.pipeline",
+    "pipeline:signals": "cd apps/worker && . .venv/bin/activate && python -m fundradar_worker.pipeline --step filter && python -m fundradar_worker.pipeline --step enrich",
+    "worker:geocode": "cd apps/worker && . .venv/bin/activate && python -m fundradar_worker.geocode_funds",
+    "worker:linkedin": "cd apps/worker && . .venv/bin/activate && python -m fundradar_worker.linkedin.batch_scraper",
+    "gemini:validate": "python3 scripts/validate-gemini-audit-state.py",
+    "gemini:rebuild": "python3 scripts/rebuild-gemini-audit-from-canonical.py",
+    "gemini:apply:dry": "python3 scripts/apply-gemini-missing-assets.py",
+    "gemini:apply": "python3 scripts/apply-gemini-missing-assets.py --apply",
+    "slug:validate": "python3 scripts/validate-slug-consistency.py",
+    "slug:cleanup:dry": "python3 scripts/cleanup-derived-slug-artifacts.py",
+    "slug:cleanup:derived": "python3 scripts/cleanup-derived-slug-artifacts.py --apply",
+    "audit:quality": "pnpm -F scripts audit-quality",
+    "digest:build": "pnpm -F scripts digest:build"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

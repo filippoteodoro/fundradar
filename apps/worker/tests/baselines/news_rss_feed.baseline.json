@@ -1,0 +1,15 @@
+{
+  "fixture_name": "news_rss_feed",
+  "extraction_method": "html_cards",
+  "company_count": 5,
+  "company_names": [
+    "Example Fund acquires majority stake in TechStart S.r.l.",
+    "Example Fund leads Series B in GreenTech Italia",
+    "Marco Rossi joins as Managing Partner",
+    "Portfolio company DataVision completes successful IPO",
+    "Successful exit from FoodTech Solutions"
+  ],
+  "failed_reason": null,
+  "created_at": "2026-01-25T19:15:15.541557+00:00",
+  "version": "1.0"
+}

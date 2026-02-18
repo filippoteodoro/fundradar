@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pnpm -F @fundradar/shared build && pnpm -F web build",
+  "outputDirectory": "apps/web/.next",
+  "installCommand": "pnpm install",
+  "framework": "nextjs"
+}

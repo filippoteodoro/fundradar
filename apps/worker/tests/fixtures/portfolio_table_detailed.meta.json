@@ -1,0 +1,26 @@
+{
+  "name": "portfolio_table_detailed",
+  "type": "portfolio_list",
+  "url": "https://fondoindustria.it/partecipazioni",
+  "captured_at": "2024-01-20T10:00:00Z",
+  "site_type": "static",
+  "language": "it",
+  "expected": {
+    "total_companies": 8,
+    "current_companies": [
+      {"name": "Meccanica Nord S.p.A.", "sector": "Macchinari Industriali", "region": "Lombardia", "year": 2023, "stake": "majority"},
+      {"name": "Tessile Premium S.r.l.", "sector": "Tessile & Moda", "region": "Veneto", "year": 2022, "stake": "significant_minority"},
+      {"name": "Alimentare Italia Group", "sector": "Food & Beverage", "region": "Emilia-Romagna", "year": 2022, "stake": "majority"},
+      {"name": "PharmaTech Solutions", "sector": "Farmaceutico", "region": "Lazio", "year": 2021, "stake": "minority"},
+      {"name": "Energia Verde S.p.A.", "sector": "Energie Rinnovabili", "region": "Puglia", "year": 2021, "stake": "majority"}
+    ],
+    "exited_companies": [
+      {"name": "AutoParts Italia S.p.A.", "sector": "Automotive", "exit_year": 2023, "exit_type": "trade_sale"},
+      {"name": "Chimica Avanzata S.r.l.", "sector": "Chimico", "exit_year": 2022, "exit_type": "secondary"},
+      {"name": "Edilizia Moderna Group", "sector": "Costruzioni", "exit_year": 2021, "exit_type": "mbo"}
+    ],
+    "has_pagination": true,
+    "pagination_type": "url_based"
+  },
+  "notes": "Detailed Italian table layout with current and exited sections, investment years, stake types"
+}

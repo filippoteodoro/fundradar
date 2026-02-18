@@ -1,0 +1,428 @@
+"""
+Profile classifier for analyzing employee backgrounds.
+
+Classifies LinkedIn profiles by professional background (IB, PE, consulting, etc.)
+and extracts structured data for people analytics.
+"""
+
+import logging
+import re
+from dataclasses import dataclass, field
+from datetime import datetime
+from enum import Enum
+from typing import Any
+
+from .people_scraper import LinkedInProfile, Experience, Education
+
+logger = logging.getLogger(__name__)
+
+
+class BackgroundType(str, Enum):
+    """Professional background categories."""
+
+    INVESTMENT_BANKING = "investment_banking"
+    PRIVATE_EQUITY = "private_equity"
+    VENTURE_CAPITAL = "venture_capital"
+    CONSULTING = "consulting"
+    BIG_FOUR = "big_four"
+    CORPORATE = "corporate"
+    TECH = "tech"
+    STARTUP = "startup"
+    LEGAL = "legal"
+    OTHER = "other"
+
+
+class SeniorityLevel(str, Enum):
+    """Seniority levels in PE/VC."""
+
+    PARTNER = "partner"
+    MANAGING_DIRECTOR = "managing_director"
+    PRINCIPAL = "principal"
+    DIRECTOR = "director"
+    VICE_PRESIDENT = "vice_president"
+    ASSOCIATE = "associate"
+    ANALYST = "analyst"
+    OTHER = "other"
+
+
+@dataclass
+class ClassifiedProfile:
+    """A profile with background classification."""
+
+    profile: LinkedInProfile
+    primary_background: BackgroundType
+    secondary_backgrounds: list[BackgroundType] = field(default_factory=list)
+    current_seniority: SeniorityLevel = SeniorityLevel.OTHER
+    years_experience: float | None = None
+    tenure_at_current: float | None = None
+    education_tier: str | None = None  # "top_mba", "top_undergrad", "other"
+    estimated_gender: str | None = None  # "male", "female", None
+    classification_details: dict[str, Any] = field(default_factory=dict)
+
+
+# Company classification for background detection
+IB_COMPANIES = [
+    "goldman sachs", "morgan stanley", "jp morgan", "jpmorgan",
+    "bank of america", "merrill lynch", "credit suisse", "ubs",
+    "deutsche bank", "barclays", "citigroup", "lazard", "evercore",
+    "moelis", "centerview", "perella weinberg", "rothschild",
+    "mediobanca", "banca imi", "intesa sanpaolo", "unicredit",
+    "banca akros", "equita", "jefferies", "piper sandler",
+]
+
+PE_COMPANIES = [
+    "kkr", "blackstone", "carlyle", "apollo", "tpg", "warburg pincus",
+    "advent international", "bain capital", "cvc", "permira",
+    "cinven", "bc partners", "pai partners", "ardian", "investindustrial",
+    "clessidra", "peninsula", "nb renaissance", "wise", "alcedo",
+    "xenon", "fondo italiano", "progressio", "mindful capital",
+]
+
+VC_COMPANIES = [
+    "sequoia", "andreessen horowitz", "a16z", "kleiner perkins",
+    "accel", "index ventures", "general catalyst", "founders fund",
+    "p101", "united ventures", "vertis", "indaco", "primo ventures",
+    "cdp venture", "360 capital", "italian angels", "digital magics",
+]
+
+CONSULTING_COMPANIES = [
+    "mckinsey", "mck ", "bain", "boston consulting", "bcg",
+    "roland berger", "oliver wyman", "strategy&", "at kearney",
+    "kearney", "lep", "arthur d. little", "simon-kucher",
+]
+
+BIG_FOUR = [
+    "deloitte", "pwc", "pricewaterhousecoopers", "ey", "ernst & young",
+    "kpmg", "accenture",
+]
+
+# Top MBA programs
+TOP_MBA_SCHOOLS = [
+    "harvard business school", "hbs", "stanford gsb", "stanford graduate school",
+    "wharton", "booth", "kellogg", "columbia business school", "mit sloan",
+    "insead", "london business school", "lbs", "iese", "sda bocconi",
+    "bocconi", "ie business school", "esade", "hec paris",
+]
+
+# Top undergrad programs (finance focus)
+TOP_UNDERGRAD = [
+    "bocconi", "luiss", "politecnico di milano", "politecnico milano",
+    "cambridge", "oxford", "lse", "london school of economics",
+    "harvard", "yale", "princeton", "mit", "stanford",
+]
+
+# Seniority title patterns
+SENIORITY_PATTERNS = {
+    SeniorityLevel.PARTNER: [
+        r"\bpartner\b", r"\bmanaging partner\b", r"\bgeneral partner\b",
+        r"\bsenior partner\b", r"\bfounding partner\b",
+    ],
+    SeniorityLevel.MANAGING_DIRECTOR: [
+        r"\bmanaging director\b", r"\bmd\b", r"\bsenior managing director\b",
+    ],
+    SeniorityLevel.PRINCIPAL: [
+        r"\bprincipal\b", r"\bsenior principal\b",
+    ],
+    SeniorityLevel.DIRECTOR: [
+        r"\bdirector\b", r"\bsenior director\b", r"\binvestment director\b",
+    ],
+    SeniorityLevel.VICE_PRESIDENT: [
+        r"\bvice president\b", r"\bvp\b", r"\bavp\b", r"\bsenior vp\b",
+    ],
+    SeniorityLevel.ASSOCIATE: [
+        r"\bassociate\b", r"\bsenior associate\b", r"\binvestment associate\b",
+    ],
+    SeniorityLevel.ANALYST: [
+        r"\banalyst\b", r"\bsenior analyst\b", r"\binvestment analyst\b",
+    ],
+}
+
+# Common Italian first names for gender estimation
+MALE_NAMES = [
+    "alessandro", "andrea", "antonio", "carlo", "claudio", "davide",
+    "emanuele", "fabio", "federico", "filippo", "francesco", "giacomo",
+    "gianluca", "giorgio", "giovanni", "giuseppe", "luca", "luigi",
+    "marco", "mario", "massimo", "matteo", "maurizio", "michele",
+    "nicola", "paolo", "pietro", "riccardo", "roberto", "salvatore",
+    "sergio", "simone", "stefano", "tommaso", "vincenzo",
+    "john", "michael", "david", "james", "william", "robert", "thomas",
+]
+
+FEMALE_NAMES = [
+    "alessandra", "alice", "anna", "arianna", "beatrice", "camilla",
+    "chiara", "claudia", "cristina", "elena", "eleonora", "elisa",
+    "elisabetta", "emanuela", "federica", "francesca", "gabriella",
+    "giulia", "ilaria", "irene", "laura", "lucia", "marta", "martina",
+    "maria", "marina", "monica", "paola", "roberta", "sara", "serena",
+    "silvia", "simona", "sofia", "stefania", "valentina", "veronica",
+    "emma", "sarah", "jennifer", "jessica", "emily", "elizabeth",
+]
+
+
+def _check_company_list(company: str, company_list: list[str]) -> bool:
+    """Check if company name matches any in list."""
+    company_lower = company.lower()
+    for target in company_list:
+        if target in company_lower:
+            return True
+    return False
+
+
+def _classify_experience(exp: Experience) -> BackgroundType | None:
+    """Classify a single experience entry."""
+    company = exp.company or ""
+    title = exp.title or ""
+    combined = f"{company} {title}".lower()
+
+    if _check_company_list(company, IB_COMPANIES):
+        return BackgroundType.INVESTMENT_BANKING
+    if _check_company_list(company, PE_COMPANIES):
+        return BackgroundType.PRIVATE_EQUITY
+    if _check_company_list(company, VC_COMPANIES):
+        return BackgroundType.VENTURE_CAPITAL
+    if _check_company_list(company, CONSULTING_COMPANIES):
+        return BackgroundType.CONSULTING
+    if _check_company_list(company, BIG_FOUR):
+        return BackgroundType.BIG_FOUR
+
+    # Title-based classification
+    if any(kw in combined for kw in ["investment bank", "m&a", "corporate finance", "ecm", "dcm"]):
+        return BackgroundType.INVESTMENT_BANKING
+    if any(kw in combined for kw in ["private equity", "buyout", "lbo"]):
+        return BackgroundType.PRIVATE_EQUITY
+    if any(kw in combined for kw in ["venture capital", "vc ", "seed", "series a"]):
+        return BackgroundType.VENTURE_CAPITAL
+    if any(kw in combined for kw in ["consultant", "strategy", "advisory"]):
+        return BackgroundType.CONSULTING
+    if any(kw in combined for kw in ["lawyer", "attorney", "legal counsel"]):
+        return BackgroundType.LEGAL
+    if any(kw in combined for kw in ["engineer", "developer", "cto", "tech lead"]):
+        return BackgroundType.TECH
+    if any(kw in combined for kw in ["founder", "co-founder", "startup"]):
+        return BackgroundType.STARTUP
+
+    return BackgroundType.CORPORATE
+
+
+def _get_seniority(title: str) -> SeniorityLevel:
+    """Determine seniority level from title."""
+    title_lower = title.lower()
+
+    for level, patterns in SENIORITY_PATTERNS.items():
+        for pattern in patterns:
+            if re.search(pattern, title_lower):
+                return level
+
+    return SeniorityLevel.OTHER
+
+
+def _classify_education(education: list[Education]) -> str | None:
+    """Classify education tier."""
+    for edu in education:
+        school_lower = edu.school.lower() if edu.school else ""
+        degree_lower = (edu.degree or "").lower()
+
+        # Check for MBA
+        if "mba" in degree_lower or "master in business" in degree_lower:
+            if any(top in school_lower for top in TOP_MBA_SCHOOLS):
+                return "top_mba"
+
+        # Check for top undergrad
+        if any(top in school_lower for top in TOP_UNDERGRAD):
+            return "top_undergrad"
+
+    return "other"
+
+
+def _calculate_years_experience(experience: list[Experience]) -> float | None:
+    """Calculate total years of experience."""
+    if not experience:
+        return None
+
+    # Find earliest start date
+    earliest_year = None
+    for exp in experience:
+        if exp.start_date:
+            try:
+                year = int(exp.start_date.split("-")[0])
+                if earliest_year is None or year < earliest_year:
+                    earliest_year = year
+            except (ValueError, IndexError):
+                continue
+
+    if earliest_year:
+        current_year = datetime.now().year
+        return float(current_year - earliest_year)
+
+    return None
+
+
+def _calculate_tenure(experience: list[Experience]) -> float | None:
+    """Calculate tenure at current position."""
+    for exp in experience:
+        if exp.is_current and exp.start_date:
+            try:
+                start_year = int(exp.start_date.split("-")[0])
+                start_month = int(exp.start_date.split("-")[1]) if "-" in exp.start_date else 1
+                now = datetime.now()
+                years = now.year - start_year
+                months = now.month - start_month
+                return round(years + months / 12, 1)
+            except (ValueError, IndexError):
+                continue
+    return None
+
+
+def _estimate_gender(name: str) -> str | None:
+    """Estimate gender from first name."""
+    if not name:
+        return None
+
+    first_name = name.split()[0].lower() if name else ""
+
+    if first_name in MALE_NAMES:
+        return "male"
+    if first_name in FEMALE_NAMES:
+        return "female"
+
+    # Heuristic for Italian names
+    if first_name.endswith("a") and not first_name.endswith("ia"):
+        return "female"
+    if first_name.endswith("o") or first_name.endswith("i"):
+        return "male"
+
+    return None
+
+
+class ProfileClassifier:
+    """
+    Classifier for LinkedIn profiles.
+
+    Analyzes professional background, seniority, and other attributes.
+    """
+
+    def classify(self, profile: LinkedInProfile) -> ClassifiedProfile:
+        """
+        Classify a single profile.
+
+        Args:
+            profile: LinkedInProfile to classify
+
+        Returns:
+            ClassifiedProfile with background classification
+        """
+        # Classify each experience
+        background_counts: dict[BackgroundType, int] = {}
+        for exp in profile.experience:
+            bg = _classify_experience(exp)
+            if bg:
+                background_counts[bg] = background_counts.get(bg, 0) + 1
+
+        # Determine primary and secondary backgrounds
+        sorted_backgrounds = sorted(
+            background_counts.items(),
+            key=lambda x: x[1],
+            reverse=True
+        )
+
+        primary = sorted_backgrounds[0][0] if sorted_backgrounds else BackgroundType.OTHER
+        secondary = [bg for bg, _ in sorted_backgrounds[1:3]]
+
+        # Get current seniority
+        current_title = profile.headline or ""
+        for exp in profile.experience:
+            if exp.is_current:
+                current_title = exp.title or current_title
+                break
+
+        seniority = _get_seniority(current_title)
+
+        return ClassifiedProfile(
+            profile=profile,
+            primary_background=primary,
+            secondary_backgrounds=secondary,
+            current_seniority=seniority,
+            years_experience=_calculate_years_experience(profile.experience),
+            tenure_at_current=_calculate_tenure(profile.experience),
+            education_tier=_classify_education(profile.education),
+            estimated_gender=_estimate_gender(profile.name),
+            classification_details={
+                "background_counts": {k.value: v for k, v in background_counts.items()},
+                "current_title": current_title,
+            },
+        )
+
+    def classify_batch(self, profiles: list[LinkedInProfile]) -> list[ClassifiedProfile]:
+        """Classify multiple profiles."""
+        return [self.classify(p) for p in profiles]
+
+    def get_background_summary(
+        self,
+        classified_profiles: list[ClassifiedProfile],
+    ) -> dict[str, Any]:
+        """
+        Generate summary statistics for a group of profiles.
+
+        Args:
+            classified_profiles: List of classified profiles
+
+        Returns:
+            Dict with background statistics
+        """
+        if not classified_profiles:
+            return {}
+
+        # Count backgrounds
+        background_counts = {bt: 0 for bt in BackgroundType}
+        seniority_counts = {sl: 0 for sl in SeniorityLevel}
+        education_counts = {"top_mba": 0, "top_undergrad": 0, "other": 0}
+        gender_counts = {"male": 0, "female": 0, "unknown": 0}
+
+        total_experience = []
+        total_tenure = []
+
+        for cp in classified_profiles:
+            background_counts[cp.primary_background] += 1
+
+            for sec in cp.secondary_backgrounds:
+                background_counts[sec] += 0.5  # Weight secondary less
+
+            seniority_counts[cp.current_seniority] += 1
+
+            if cp.education_tier:
+                education_counts[cp.education_tier] = education_counts.get(cp.education_tier, 0) + 1
+
+            if cp.estimated_gender:
+                gender_counts[cp.estimated_gender] += 1
+            else:
+                gender_counts["unknown"] += 1
+
+            if cp.years_experience:
+                total_experience.append(cp.years_experience)
+            if cp.tenure_at_current:
+                total_tenure.append(cp.tenure_at_current)
+
+        total = len(classified_profiles)
+        return {
+            "total_profiles": total,
+            "backgrounds": {
+                k.value: round(v, 1) for k, v in background_counts.items() if v > 0
+            },
+            "seniority": {
+                k.value: v for k, v in seniority_counts.items() if v > 0
+            },
+            "education": education_counts,
+            "gender_breakdown": {
+                "male_pct": round(gender_counts["male"] / total * 100, 1) if total else 0,
+                "female_pct": round(gender_counts["female"] / total * 100, 1) if total else 0,
+                "unknown_pct": round(gender_counts["unknown"] / total * 100, 1) if total else 0,
+            },
+            "experience": {
+                "avg_years": round(sum(total_experience) / len(total_experience), 1) if total_experience else None,
+                "min_years": min(total_experience) if total_experience else None,
+                "max_years": max(total_experience) if total_experience else None,
+            },
+            "tenure": {
+                "avg_years": round(sum(total_tenure) / len(total_tenure), 1) if total_tenure else None,
+            },
+        }

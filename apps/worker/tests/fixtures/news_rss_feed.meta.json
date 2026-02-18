@@ -1,0 +1,15 @@
+{
+  "name": "news_rss_feed",
+  "type": "news_list",
+  "url": "https://example-pe.com/news",
+  "captured_at": "2024-01-20T10:00:00Z",
+  "site_type": "static",
+  "expected": {
+    "news_items": 5,
+    "deals_mentioned": ["TechStart S.r.l.", "GreenTech Italia"],
+    "exits_mentioned": ["DataVision S.p.A.", "FoodTech Solutions"],
+    "team_changes": ["Marco Rossi"],
+    "has_pagination": true
+  },
+  "notes": "Standard news feed with RSS-style layout, pagination, and mixed signal types"
+}

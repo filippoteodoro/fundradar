@@ -1,0 +1,15 @@
+{
+  "fixture_name": "news_blog_cards",
+  "extraction_method": "logo_grid",
+  "company_count": 5,
+  "company_names": [
+    "AgriTech",
+    "Conference",
+    "Cybersecurity",
+    "FinTech startup",
+    "HealthTech"
+  ],
+  "failed_reason": null,
+  "created_at": "2026-01-25T19:15:15.178907+00:00",
+  "version": "1.0"
+}

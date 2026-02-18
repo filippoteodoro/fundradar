@@ -1,0 +1,116 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+.next/
+out/
+*.egg-info/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+*.secret
+stripe_backup_code.txt
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+*.icloud
+Thumbs.db
+
+# Temp & backup files
+*.tmp
+*.bak
+*.bak.*
+*.backup
+/backups/
+
+# Data (keep schemas, ignore large files)
+/data/pem/*.pdf
+/data/models/
+/data/backups/
+/data/users.json
+/data/watchlists.json
+/data/subscribers.json
+/data/snapshots.json
+/data/url_status.json
+/data/audits/
+/data/AIFI/*.htm
+/data/AIFI/*_files/
+
+# Derived data — worker-internal state (ignored)
+/data/derived/blobs/
+/data/derived/backups/
+/data/derived/backups_rename/
+/data/derived/snapshots.json
+/data/derived/snapshots_html/
+/data/derived/chatgpt_batches/
+/data/derived/gemini_apply_runs/
+/data/derived/gemini_fund_asset_logs/
+/data/derived/digest/
+/data/derived/linkedin/raw/
+/data/derived/*_progress*.json
+/data/derived/*_queue*.json
+/data/derived/circuit_state.json
+/data/derived/monitor_checkpoint.json
+/data/derived/rss_state.json
+/data/derived/domain_policies.json
+/data/derived/blocked_sites.json
+/data/derived/poison_urls.json
+/data/derived/verified_urls.json
+/data/derived/*_report*.json
+/data/derived/*_audit*.json
+/data/derived/signal_ml_*.json*
+/data/derived/digest_log.json
+/data/derived/manual_funds_status.json
+/data/derived/pem_manifest.json
+/data/derived/pem_investors.json
+/data/derived/site_extractors.json
+/data/derived/entity_links.json
+/data/derived/team_items.json
+/data/derived/quality_baselines.json
+/data/derived/fund_slug_name_list.csv
+/data/derived/gemini_fund_asset_audit*.json
+/data/derived/top_fund_portfolio_enrichment_progress.json
+/data/derived/*.lock
+/data/derived/maintenance_status.json
+/data/derived/manual_funds_monitor_urls.json
+/data/derived/monitor_urls.json
+/data/derived/gemini_fund_asset_manual_review.json
+/data/derived/gemini_fund_asset_remaining_slugs.txt
+/data/derived/gemini_fund_asset_triage.json
+/data/derived/gemini_fund_asset_zero_italy_verified.json
+/data/derived/asset_status_evidence.json
+/data/derived/fund_coordinates.json
+/data/derived/linkedin/scrape_progress.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Turbo
+.turbo/
+
+# Vercel
+.vercel/

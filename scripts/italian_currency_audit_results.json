@@ -1,0 +1,92 @@
+{
+  "total_signals_checked": 390,
+  "signals_with_italian_currency": 8,
+  "total_pattern_matches": 13,
+  "results": [
+    {
+      "id": "rss-signal-00102",
+      "fund_slug": "deep-ocean-capital-sgr",
+      "type": null,
+      "title": "Round da 1,65 milioni di euro per K 3 RX",
+      "enriched_summary": "Round da 1,65 milioni di euro per K 3 RX. K 3 RX, an Italian deeptech company developing ultra-refractory materials for aerospace and defence, raised a 1,65 milioni di euro round. Deep Blue Ventures (DBV), the deeptech VC managed by Deep Ocean, participated.",
+      "patterns_found": [
+        "1,65 milioni di euro",
+        "milioni di euro"
+      ]
+    },
+    {
+      "id": "rss-signal-00103",
+      "fund_slug": "cdp-venture-capital",
+      "type": null,
+      "title": "Kampaay chiude un’estensione del round A da oltre 2 milioni di euro",
+      "enriched_summary": "Kampaay closed an extension of its Series A raising oltre 2 milioni di euro, with Cdp Venture Capital via the Digital Transition Fund, Kairos Partners sgr and Doorway as lead investors.",
+      "patterns_found": [
+        "2 milioni di euro",
+        "milioni di euro",
+        "oltre 2 mil"
+      ]
+    },
+    {
+      "id": "rss-signal-00104",
+      "fund_slug": "kairos-partners-sgr",
+      "type": null,
+      "title": "Kampaay chiude un’estensione del round A da oltre 2 milioni di euro",
+      "enriched_summary": "Kampaay closed an extension of its Series A raising oltre 2 milioni di euro, with Cdp Venture Capital via the Digital Transition Fund, Kairos Partners sgr and Doorway as lead investors.",
+      "patterns_found": [
+        "2 milioni di euro",
+        "milioni di euro",
+        "oltre 2 mil"
+      ]
+    },
+    {
+      "id": "web-signal-01285",
+      "fund_slug": "the-equity-club",
+      "type": null,
+      "title": "62 mln euro of capital increase for Philogen, led by the Mediobanca club deal along with other investors",
+      "enriched_summary": "62 mln euro of capital increase for Philogen, led by the Mediobanca club deal along with other investors.",
+      "patterns_found": [
+        "62 mln euro"
+      ]
+    },
+    {
+      "id": "rss-signal-00004",
+      "fund_slug": "eureka-venture-sgr",
+      "type": null,
+      "title": "BeDimensional, la scaleup del grafene, incassa 3 mln euro da Boldrocchi Group e dagli investitori esistenti",
+      "enriched_summary": "BeDimensional, the graphene scaleup, collects 3 mln euros from Boldrocchi Group and existing investors.",
+      "patterns_found": [
+        "3 mln euro"
+      ]
+    },
+    {
+      "id": "rss-signal-00061",
+      "fund_slug": "algebris",
+      "type": null,
+      "title": "La piattaforma AI Massima Energia raccoglie 10 mln euro, tra equity e debito",
+      "enriched_summary": "Maximum Energy raises over 10 mln euros between equity and debt; the equity portion is led by Algebris Investments.",
+      "patterns_found": [
+        "10 mln euro"
+      ]
+    },
+    {
+      "id": "rss-signal-00067",
+      "fund_slug": "como-venture",
+      "type": null,
+      "title": "D-Orbit raccoglie 110 mln euro da un club deal organizzato da Azimut. Exit per il fondo TT Venture di Indaco Venture Partners sgr, presente dalle fasi iniziali",
+      "enriched_summary": "D-Orbit raises 110 mln euros from a club deal organized by Azimut. Exit for Indaco Venture Partners sgr's TT Venture fund, present from early stages.",
+      "patterns_found": [
+        "110 mln euro"
+      ]
+    },
+    {
+      "id": "rss-signal-00060",
+      "fund_slug": "friulia",
+      "type": null,
+      "title": "Friulia punta 1,2 mln euro su Pintaudi, controllata da Polo del Gusto (Gruppo Illy)",
+      "enriched_summary": "Friulia enters Pintaudi's capital with an investment of 1.2 mln euros; Pintaudi is controlled by Polo del Gusto (Illy Group).",
+      "patterns_found": [
+        "1.2 mln euro"
+      ]
+    }
+  ]
+}

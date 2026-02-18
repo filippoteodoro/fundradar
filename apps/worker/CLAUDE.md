@@ -1,0 +1,298 @@
+# Worker — Claude Code Instructions
+
+## Architecture
+Python 3.10+ worker. Fetches fund websites, extracts structured data, detects changes, and enriches signals. All output is JSON files in `data/derived/` consumed by the web app.
+
+Key modules: core pipeline, fund-specific extractors (with URLS dicts), domain policies.
+
+## Pipeline (7 steps)
+
+```
+monitor → rss → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini, optional) → filter → enrich (AI summaries)
+```
+
+1. **monitor** — Fetch pages via Playwright/requests, extract data using strategies, detect changes via diffing
+2. **rss** — Fetch Italian news RSS feeds (BeBeez, FinanceCommunity, Il Sole 24 Ore, etc.), match articles to funds, append signals. Optional: skipped if no feeds configured.
+3. **normalize_sectors** — Normalize fund + company sectors to canonical 30-sector taxonomy
+4. **normalize_portfolio** — Normalize company data across fund portfolios (names, dedup)
+5. **enrich_portfolio** (`enrich_portfolio_gemini_full.py`) — Fill missing sector/HQ/description via Gemini 3 Flash with Google Search grounding. **Optional**: auto-skips if `GEMINI_API_KEY` not set. Capped at 50 API calls in pipeline mode.
+6. **filter** (`filter_signals.py`) — Multi-gate quality pipeline, threshold at score >= 80 (configurable via `SIGNAL_MIN_QUALITY` env var):
+   - Garbage detection (regex patterns), dedup (composite key + semantic 50% word overlap)
+   - Misattribution detection (signals naming a different fund than tagged)
+   - Italy-relevance gate: 3-tier fund classification (`italy_focused` / `europe_wide` / `mixed_or_global`)
+   - ML classifier (optional, confidence-gated), event/conference reclassification
+   - Signal types: deal, exit, fundraise, fund_launch, people_move, partnership, report, job_posting
+   - Title/text cleaning: ALL CAPS→title case, newspaper suffixes, date prefixes
+7. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). **DO NOT use ChatGPT 4o** — it hallucinates too frequently. Use `gpt-5-mini` or better.
+
+Run all: `pnpm pipeline`
+Run filter+enrich only: `pnpm pipeline:signals`
+Force re-extraction: `pnpm pipeline --force-extract`
+Specific funds only: `pnpm pipeline --slugs f2i-sgr,triton --force-extract`
+
+Each step: backs up output files → runs → validates output (exists, non-empty, valid JSON). Validation checks structure but **not schema** — an output of `{}` passes validation even if it should contain a `"signals"` key.
+
+### Content Hash Optimization
+
+The monitor tracks content hashes for each URL. If a website's HTML hasn't changed since the last fetch, extraction is **skipped** for efficiency — the previously extracted data in `portfolio_items.json` remains unchanged.
+
+**When to use `--force-extract`:**
+- After fixing or updating extractor code
+- After fixing status detection logic in an extractor
+- When you need to refresh all portfolio data regardless of content changes
+
+Without `--force-extract`, updated extractor code won't take effect until the website's HTML actually changes.
+
+## Output Files — What Goes Where
+
+| Output File | Producer Module | Web Consumer |
+|-------------|----------------|--------------|
+| `db.json` | `merge-aifi-metrics.ts` (via `pnpm merge-aifi`) | `loadDatabase()` |
+| `portfolio_items.json` | `monitor.py` | `getPortfolioForFund()` |
+| `detected_signals.json` | `monitor.py` + `differ.py` + `rss_monitor.py` | (raw, not directly used by web) |
+| `detected_signals_filtered.json` | `filter_signals.py` | `getSignalsForFund()`, `loadUnifiedSignals()` |
+| `detected_signals_enriched.json` | `enrich_signals_openai.py` | `loadUnifiedSignals()` (preferred over filtered) |
+| `pem_deals.json` | `ingest_pem.py` | `getDealsForFund()` |
+| `aifi_members_enriched.json` | `aifi_scraper.py` | (merged into `db.json` via scripts) |
+| `fund_people_stats.json` | `linkedin/*.py` | `getTeamAnalyticsForFund()` |
+| `fund_aliases.json` | manual/generated | `slug_normalizer.py` (canonicalizes/blocks slugs) |
+
+## Critical Rules
+
+### Atomic Writes — ALWAYS
+Use `safe_json_write()` from `io_utils.py` (writes to temp file, then `os.replace`).
+NEVER write JSON with bare `open()`/`json.dump()` — data corruption on crash.
+
+### Backup Before Destructive Writes
+Use `backup_before_write()` before overwriting critical files. Keeps 7 rotated backups.
+
+### Career Postings Are Valuable Signals
+Career postings are valuable signals — they indicate fund growth, new investment strategies, geographic expansion, and team scaling. Do NOT filter career/hiring signals as noise. Ensure career page content is extracted with full titles and descriptions.
+
+### Sanitization — Use It But Don't Duplicate It
+- `sanitize_text()`: strip HTML, remove control chars, normalize whitespace
+- `sanitize_url()`: validate scheme, reject `javascript:`/`data:` URLs
+- These live in `io_utils.py`. They are also called in `monitor.py` directly — be aware this sanitization happens in both places if modifying the pipeline
+
+### Web App Cache — Your Writes Won't Show Up
+The web app caches ALL data files in memory with no TTL. After any worker run, the user must restart `pnpm dev`. The worker does NOT notify the web server.
+
+### Type Contract — Not Enforced
+Python writes plain dicts to JSON. There is no schema validation — no jsonschema, no pydantic for output, no contract tests. TypeScript types in `packages/shared/src/types.ts` are the "intended" schema, but:
+- Python writes fields TS doesn't declare: `snapshot_id`, `diff_summary`, `relevance_score`, `relevance_reasons`, `italy_relevant`, `extracted_entities`, `page_type`
+- TS declares fields Python never writes: `data_source`, `verified`, `extraction_source`
+- `fund_id` is written as empty string `""` — TS expects a real ID
+
+**When adding/changing signal fields**: update the Python dict structure, update `types.ts`, and manually verify the JSON matches. There is no automated check.
+
+## monitor.py — The God Module
+
+This is the largest file. It combines:
+- Orchestration (main monitoring loop)
+- State management (SignalStore, NewsItemsStore, PortfolioStore classes)
+- Signal classification and generation
+- Graceful shutdown handling (GracefulShutdown class)
+
+When working in this file, be aware of:
+- Bare `except:` clauses that catch everything including SystemExit
+- Exception handling inconsistency: some places log + continue, others swallow silently
+- Heavy import section with optional try/except guards
+
+## Site Configurations — DELETED
+
+The YAML files that were in `data/site_configs/` have been archived to `archive/deprecated/site_configs/`. They are no longer used by any code. All URL configuration now lives in each extractor's `URLS` dict. The monitor writes portfolio source URLs directly to `portfolio_items.json`.
+
+## Extraction Strategies
+
+### How Strategy Selection Works
+`strategy_orchestrator.py` tries extraction in priority order:
+1. Fund-specific extractor (`strategies/extractors/{fund}.py`) — highest confidence (0.95)
+2. **If site-specific extractor returned results, generic strategies are SKIPPED** (prevents contamination)
+3. Only if no site-specific extractor exists or it returned nothing: default strategy chain runs: NEXT_DATA → JSON_LD → HTML_CARDS → LOGO_GRID
+
+Generic strategies are skipped when a custom extractor succeeds because they often add garbage entries (navigation text, non-relevant companies from global portfolios, etc.). This was the primary source of portfolio data quality issues.
+
+Confidence scoring filters low-quality results (minimum 0.3).
+
+### Portfolio Strategies
+`next_data`, `nuxt_data`, `json_ld`, `html_cards`, `logo_grid`, `link_list`, `headings_in_context`, `table_rows`, `attributes`, `svg_titles`, `noscript`, `anchor_wrappers`
+
+### Team Strategies
+`team_cards`, `h3_with_title`, `json_ld_person`
+
+### Fund-Specific Extractors
+~155 custom extractors in `strategies/extractors/`. Each is a Python module that must export:
+- `DOMAIN`: str — the domain this extractor handles (e.g., "www.permira.com")
+- `URLS`: dict — paths to fetch for each page type: `{"portfolio": "/investments", "team": "/team", "news": None}`
+- `EXTRACTORS`: dict — mapping of data_type to extractor function
+
+The `URLS` dict is the **single source of truth** for which URLs to fetch. The monitor loads URLs from extractors by default via `url_generator.py`.
+
+No interface enforcement — a malformed extractor fails silently (caught in monitor.py).
+
+### Extractor URLS — MUST BE VERIFIED AGAINST LIVE SITE
+
+Many extractors were auto-generated with template paths like `/investments`, `/management`, `/en/news`. These generic paths **do not exist** on most fund websites. Before committing an extractor:
+
+1. **Always verify** each URL path returns 200 (use WebFetch or browser)
+2. **Never use** template paths — check the actual website structure
+3. **Common real paths**: `/portfolio/`, `/portafoglio/`, `/investimenti/`, `/our-companies/`, `/chi-siamo/`, `/team/`
+4. **Single-page sites**: use `"/"` — do NOT invent subpage paths
+5. **Check `url_status.json`** for known working paths for a domain (search by domain name)
+
+The `# auto-generated from fund_urls.json` comment in URLS blocks indicates paths that may not have been verified. Replace with `# verified against live site` after checking.
+
+### Portfolio Status Detection — CRITICAL
+
+Portfolio entries must have a `status` field: `"current"`, `"exited"`, or `None` (unknown).
+
+**Correct status logic by page type:**
+
+| Page Type | Status Logic |
+|-----------|--------------|
+| Single-section portfolio page (e.g., `/portfolio`, `/investments`) | Default to `"current"` — page only shows active holdings |
+| Dedicated exit page (e.g., `/realized`, `/prior-investments`) | Default to `"exited"` |
+| Multi-section page (tabs, filters, labeled sections) | Use structural detection (see below) |
+| Mixed page (no clear indicators) | Set to `None` — don't guess |
+
+**Safe detection patterns (in priority order):**
+
+1. **Data attributes** (best): `data-status="exited"`, `data-state="archived"`
+2. **URL path**: `/current-portfolio/` vs `/prior-investments/`
+3. **Parent element class/ID**: `#invest-cedute`, `.realised-portfolio`
+4. **Section headers**: Track h2 headings like "Current" vs "Realised" in document order
+5. **Labeled field values**: Check `Status:` label exists FIRST, then match value
+
+**NEVER use these patterns:**
+```python
+# BAD - matches "exit" anywhere in text, causes false positives
+if "exit" in description.lower():
+    status = "exited"
+
+# BAD - keyword matching on arbitrary text
+if any(word in text for word in ["divested", "sold", "realized"]):
+    status = "exited"
+```
+
+**Correct pattern for labeled fields:**
+```python
+# GOOD - only check keywords on explicitly labeled status field
+status_label = item.select_one(".status-label")
+if status_label and "status" in status_label.get_text().lower():
+    value = item.select_one(".status-value").get_text().lower()
+    if value in ("exited", "realized", "ceduto"):
+        status = "exited"
+    elif value in ("current", "active", "attivo"):
+        status = "current"
+```
+
+**When in doubt, use `None`** — incorrect status is worse than unknown status.
+
+## Entity Resolution (entity_resolver.py)
+
+Normalizes company names for deduplication across sources:
+- Strips legal suffixes (S.p.A., S.r.l., Ltd., Inc., etc.)
+- Lowercases, trims whitespace
+- Match chain: exact → alias → website domain → fuzzy (90% Jaccard threshold) → create new entity
+
+**Note**: the web app has its own `normalizeCompanyName()` in `data.ts` for the portfolio merge — these two normalization functions are independent implementations. A name that matches in one may not match in the other.
+
+## Reliability Patterns
+
+| Module | Purpose |
+|--------|---------|
+| `circuit_breaker.py` | Per-domain failure tracking, prevents cascade failures |
+| `rate_limiter.py` | Per-domain rate limits |
+| `domain_policies.py` | Per-domain config (rate, headless requirement, etc.) |
+| `normalizer.py` | Content normalization for clean diffs (strips noise) |
+| `quality_monitor.py` | Extraction quality metrics |
+| `health_report.py` | Overall system health reporting |
+
+## Module Organization
+
+| Category | Modules |
+|----------|---------|
+| **Core** | `monitor.py`, `cli.py`, `pipeline.py`, `data_writer.py` |
+| **Fetch** | `fetcher.py`, `playwright_fetcher.py`, `playwright_pool.py`, `detail_page_fetcher.py` |
+| **Extract** | `site_extractor.py`, `site_config_schema.py`, `strategy_orchestrator.py`, `strategies/`, `extractors/` |
+| **Diff** | `differ.py`, `portfolio_diff.py`, `baseline.py` |
+| **Enrich** | `enrichment.py`, `relevance.py`, `noise_filter.py` |
+| **Validate** | `portfolio_validation.py` (validates/cleans portfolio entries before writing) |
+| **External** | `aifi_scraper.py`, `ingest_pem.py`, `linkedin/` |
+| **Reliability** | `circuit_breaker.py`, `rate_limiter.py`, `health_report.py`, `quality_monitor.py` |
+| **I/O** | `io_utils.py`, `normalizer.py`, `url_utils.py`, `url_generator.py`, `entity_resolver.py` |
+
+### LinkedIn Modules (`linkedin/`)
+`apify_client.py`, `batch_scraper.py`, `people_scraper.py`, `people_stats.py`, `post_classifier.py`, `posts_scraper.py`, `priority_ranker.py`, `profile_classifier.py`
+
+### LinkedIn Source-of-Truth Clarification
+
+- `batch_scraper.py` `MEGA_FUNDS_TO_SKIP` only controls which global funds are skipped for automated LinkedIn employee scraping.
+- `data/derived/linkedin/manual_profiles.json` is the source of truth for funds covered via manually curated LinkedIn profile links.
+- Do not infer manual profile coverage from mega-fund skip sets.
+
+## Adding a New Fund
+
+1. **Create a custom extractor** in `strategies/extractors/{fund_name}.py`:
+   ```python
+   DOMAIN = "www.example-fund.com"  # Must match fund's website domain
+
+   URLS = {
+       "portfolio": "/investments",  # Path to portfolio page
+       "team": "/team",              # Path to team page (or None)
+       "news": "/news",              # Path to news page (or None)
+   }
+
+   def extract_portfolio(html: str, base_url: str) -> list[dict]:
+       # Your extraction logic here
+       ...
+
+   EXTRACTORS = {
+       "portfolio": extract_portfolio,
+   }
+   ```
+2. Verify the fund exists in `db.json` with a matching `website` field (check against `data/AIFI/all.csv`)
+3. Run `pnpm worker:monitor --limit 1` to test
+4. Restart web dev server (`pnpm dev`) to see results
+
+### Key Architecture Notes for Fund Setup
+
+- **Custom extractors** (`strategies/extractors/{fund}.py`): Each has `DOMAIN`, `URLS`, and `EXTRACTORS`. The `URLS` dict is the **single source of truth** for which pages to fetch. The monitor reads URLs from extractors by default.
+- **`url_generator.py`**: Reads `URLS` from all extractors and generates full URLs. Called by `monitor.py`.
+- **Portfolio source URLs**: Written directly to `portfolio_items.json` alongside portfolio data when the monitor runs.
+- **db.json website field**: Must match the AIFI source data in `data/AIFI/all.csv`. Verify against AIFI before changing.
+
+### AIFI Name Cleaning (`aifi_scraper.py`)
+
+AIFI registers members by legal entity name, not brand name. `clean_fund_name()` automatically cleans these for display and slug generation:
+
+1. Strips branch suffixes: "- Italian Branch", "- Milan Branch", "- Succursale Italiana"
+2. Strips parenthesized legal info: "(Luxembourg) S.A.", "(Ireland) Limited"
+3. Strips foreign legal suffixes: SAS, SA, GmbH, LLP, LP
+4. Strips trailing "Italy"/"Italia" (branch indicators)
+5. Applies `AIFI_NAME_OVERRIDES` for known brand mismatches
+
+The original AIFI name is preserved in `legal_name` field on the fund object.
+
+**When to add an override**: If a fund's display name doesn't match what the fund calls itself on its website (check their homepage title and domain). Add to `AIFI_NAME_OVERRIDES` dict in `aifi_scraper.py`. Key = name after regex cleaning, value = correct brand name.
+
+**Extractor filenames**: Named after the brand (e.g. `pai_partners.py`), loaded by `DOMAIN` attribute at runtime. The filename doesn't affect matching — only the `DOMAIN` constant matters.
+
+## Adding a New Signal Field
+
+This is error-prone because there's no schema enforcement:
+
+1. Add the field to the signal dict in `monitor.py` (or wherever the signal is generated)
+2. Add the field to `Signal` interface in `packages/shared/src/types.ts`
+3. If the field should survive filtering: verify `noise_filter.py` passes it through
+4. If the field should survive enrichment: verify `enrichment.py` preserves it
+5. Update the web loader if needed (`data.ts` or `signals_unified.ts`)
+6. Run the pipeline and manually inspect the output JSON to verify the field appears correctly
+7. Restart `pnpm dev` and verify the web app uses it
+
+## Testing
+
+- Framework: pytest
+- Location: `apps/worker/tests/`
+- Fixtures: `tests/fixtures/`
+- Run: `cd apps/worker && pytest`

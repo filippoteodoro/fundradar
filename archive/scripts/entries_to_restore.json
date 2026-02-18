@@ -1,0 +1,267 @@
+{
+  "abenex": [
+    {
+      "name": "84 Charles Lafitte",
+      "sector": "Real Estate",
+      "status": "current",
+      "confidence": 0.7,
+      "website": "https://www.abenex.com/actifs/84-charles-lafitte/",
+      "description": null,
+      "detail_page_url": null,
+      "headquarters": "Neuilly-sur-Seine, France",
+      "investment_date": null,
+      "data_source": "fund_website",
+      "sector_source_url": "https://www.abenex.com/portfolio"
+    },
+    {
+      "name": "Ivry",
+      "sector": "Real Estate",
+      "status": "current",
+      "confidence": 0.7,
+      "website": "https://www.abenex.com/actifs/ivry/",
+      "description": null,
+      "detail_page_url": null,
+      "headquarters": "Ivry-sur-Seine, France",
+      "investment_date": null,
+      "data_source": "fund_website",
+      "sector_source_url": "https://www.abenex.com/actifs/ivry/"
+    },
+    {
+      "name": "Marbeuf",
+      "sector": "Real Estate",
+      "status": "current",
+      "confidence": 0.7,
+      "website": "https://www.abenex.com/actifs/marbeuf/",
+      "description": null,
+      "detail_page_url": null,
+      "headquarters": "Paris, France",
+      "investment_date": null,
+      "data_source": "fund_website",
+      "sector_source_url": "https://www.abenex.com/actifs/marbeuf/"
+    }
+  ],
+  "alto-partners-sgr": [
+    {
+      "name": "CEI II",
+      "sector": "Industrial Manufacturing",
+      "status": "current",
+      "confidence": 0.7,
+      "website": null,
+      "description": null,
+      "detail_page_url": null,
+      "headquarters": "Anzola dell'Emilia, Italy",
+      "investment_date": null,
+      "data_source": "fund_website"
+    }
+  ],
+  "ambienta-sgr": [
+    {
+      "name": "Aico/Ravelli",
+      "sector": "Energy",
+      "status": "exited",
+      "confidence": 0.95,
+      "website": "https://ambientasgr.com/portfolio/aico-ravelli/",
+      "description": null,
+      "detail_page_url": null,
+      "headquarters": "Chiari, Italy",
+      "investment_date": null,
+      "source_url": "https://www.ambientasgr.com/our-businesses/private-equity/portfolio/",
+      "data_source": "fund_website"
+    },
+    {
+      "name": "SF-Filter",
+      "sector": "Industrial Manufacturing",
+      "status": "exited",
+      "confidence": 0.9249999999999999,
+      "website": "https://ambientasgr.com/portfolio/sf-filter/",
+      "description": null,
+      "detail_page_url": null,
+      "headquarters": "Bachenbülach, Switzerland",
+      "investment_date": null,
+      "source_url": "https://www.ambientasgr.com/our-businesses/private-equity/portfolio/",
+      "data_source": "fund_website"
+    },
+    {
+      "name": "Lassig",
+      "sector": "Consumer Goods",
+      "status": "exited",
+      "confidence": 0.7999999999999999,
+      "website": "https://ambientasgr.com/portfolio/lassig/",
+      "description": null,
+      "detail_page_url": null,
+      "headquarters": "Babenhausen, Germany",
+      "investment_date": null,
+      "source_url": "https://www.ambientasgr.com/our-businesses/private-equity/portfolio/",
+      "data_source": "fund_website"
+    }
+  ],
+  "bluegem": [
+    {
+      "name": "Building Leading Pan-European Businesses In The Real Economy",
+      "sector": null,
+      "status": "current",
+      "confidence": 0.7,
+      "website": "https://www.bluegemcp.com/beaba",
+      "description": null,
+      "detail_page_url": null,
+      "headquarters": null,
+      "investment_date": null,
+      "source_url": "https://www.bluegemcp.com/portfolio",
+      "data_source": "fund_website"
+    }
+  ],
+  "cdp-equity": [
+    {
+      "name": "F2i – Fondo per le infrastrutture sostenibili",
+      "sector": null,
+      "status": "current",
+      "confidence": 0.95,
+      "website": null,
+      "description": null,
+      "detail_page_url": null,
+      "headquarters": null,
+      "investment_date": null,
+      "data_source": "fund_website"
+    }
+  ],
+  "cdp-venture-capital": [
+    {
+      "name": "Volumeet S.r.l. - Musify",
+      "sector": null,
+      "status": "current",
+      "confidence": 0.95,
+      "website": "https://www.linkedin.com/company/musifyquiz/about/",
+      "description": null,
+      "detail_page_url": null,
+      "headquarters": null,
+      "investment_date": null,
+      "source_url": "https://www.cdpventurecapital.it/it/portfolio.page",
+      "data_source": "fund_website"
+    }
+  ],
+  "charme-capital": [
+    {
+      "name": "Ima",
+      "sector": null,
+      "status": "current",
+      "confidence": 0.95,
+      "website": "https://www.ima.it/",
+      "description": null,
+      "detail_page_url": null,
+      "headquarters": null,
+      "investment_date": null,
+      "source_url": "https://www.charmecapitalpartners.com/funds",
+      "data_source": "fund_website"
+    }
+  ],
+  "clessidra-sgr": [
+    {
+      "name": "SGI",
+      "sector": null,
+      "status": "current",
+      "confidence": 0.95,
+      "website": null,
+      "description": null,
+      "detail_page_url": null,
+      "headquarters": null,
+      "investment_date": null,
+      "source_url": "https://www.clessidragroup.it/soluzioni/private-equity/fondi-investimenti/",
+      "data_source": "fund_website"
+    }
+  ],
+  "sefea-impact-sgr": [
+    {
+      "name": "MOBILITÀ SOSTENIBILE",
+      "sector": null,
+      "status": "current",
+      "confidence": 0.9249999999999999,
+      "website": null,
+      "description": null,
+      "detail_page_url": null,
+      "headquarters": null,
+      "investment_date": null,
+      "source_url": "https://www.sefeaimpact.it/fondo-si-social-impact/",
+      "data_source": "fund_website"
+    },
+    {
+      "name": "TUTELA DELLA BIODIVERSITÀ",
+      "sector": null,
+      "status": "current",
+      "confidence": 0.9249999999999999,
+      "website": null,
+      "description": null,
+      "detail_page_url": null,
+      "headquarters": null,
+      "investment_date": null,
+      "source_url": "https://www.sefeaimpact.it/fondo-si-social-impact/",
+      "data_source": "fund_website"
+    },
+    {
+      "name": "Sara D’Aulerio",
+      "sector": null,
+      "status": "current",
+      "confidence": 0.9249999999999999,
+      "website": null,
+      "description": "Direzione operativa e Responsabile ufficio ESG e impatto",
+      "detail_page_url": null,
+      "headquarters": null,
+      "investment_date": null,
+      "source_url": "https://www.sefeaimpact.it/fondo-si-social-impact/",
+      "data_source": "fund_website"
+    }
+  ],
+  "sofinnova-partners": [
+    {
+      "name": "Cure 51",
+      "sector": null,
+      "status": "current",
+      "confidence": 0.7,
+      "website": null,
+      "description": "Digital Medicine",
+      "detail_page_url": null,
+      "headquarters": null,
+      "investment_date": null,
+      "source_url": "https://sofinnovapartners.com/portfolio",
+      "data_source": "fund_website"
+    },
+    {
+      "name": "Proqr 2",
+      "sector": null,
+      "status": "current",
+      "confidence": 0.7,
+      "website": null,
+      "description": "Capital",
+      "detail_page_url": null,
+      "headquarters": null,
+      "investment_date": null,
+      "source_url": "https://sofinnovapartners.com/portfolio",
+      "data_source": "fund_website"
+    },
+    {
+      "name": "Gecko Biomedical 2",
+      "sector": null,
+      "status": "current",
+      "confidence": 0.7,
+      "website": null,
+      "description": "Capital",
+      "detail_page_url": null,
+      "headquarters": null,
+      "investment_date": null,
+      "source_url": "https://sofinnovapartners.com/portfolio",
+      "data_source": "fund_website"
+    },
+    {
+      "name": "Tm3 Therapeutics",
+      "sector": null,
+      "status": "current",
+      "confidence": 0.7,
+      "website": null,
+      "description": "Capital",
+      "detail_page_url": null,
+      "headquarters": null,
+      "investment_date": null,
+      "source_url": "https://sofinnovapartners.com/portfolio",
+      "data_source": "fund_website"
+    }
+  ]
+}

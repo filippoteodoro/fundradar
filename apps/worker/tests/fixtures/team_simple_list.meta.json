@@ -1,0 +1,27 @@
+{
+  "name": "team_simple_list",
+  "type": "team_list",
+  "url": "https://investimentiitalia.it/team",
+  "captured_at": "2024-01-20T10:00:00Z",
+  "site_type": "static",
+  "language": "it",
+  "expected": {
+    "total_members": 10,
+    "team_members": [
+      {"name": "Alessandro Ferrari", "title": "Amministratore Delegato"},
+      {"name": "Francesca Romano", "title": "Direttore Investimenti"},
+      {"name": "Marco Colombo", "title": "Partner"},
+      {"name": "Giulia Esposito", "title": "Partner"},
+      {"name": "Roberto Conti", "title": "Investment Manager"},
+      {"name": "Chiara Rizzo", "title": "Investment Manager"},
+      {"name": "Paolo Moretti", "title": "Analista Senior"},
+      {"name": "Valentina Greco", "title": "Analista"},
+      {"name": "Simone Barbieri", "title": "CFO"},
+      {"name": "Anna Fontana", "title": "Responsabile Compliance"}
+    ],
+    "has_seniority_sections": false,
+    "has_bios": false,
+    "has_contact_info": false
+  },
+  "notes": "Simple Italian team list without detailed bios or contact info"
+}

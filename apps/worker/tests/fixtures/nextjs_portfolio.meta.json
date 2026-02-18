@@ -1,0 +1,21 @@
+{
+  "name": "nextjs_portfolio",
+  "url": "https://nextgen-partners.it/portfolio",
+  "type": "nextjs",
+  "date_captured": "2024-01-15",
+  "description": "Next.js portfolio page with __NEXT_DATA__ and rendered HTML",
+  "expected_extractions": {
+    "portfolio_companies": [
+      {"name": "CloudTech Italia", "sector": "Cloud Infrastructure"},
+      {"name": "FinPay S.p.A.", "sector": "Fintech"},
+      {"name": "DataWise", "sector": "AI / Analytics"},
+      {"name": "CyberSec Italia S.r.l.", "sector": "Cybersecurity"},
+      {"name": "EduTech S.r.l.", "sector": "EdTech"},
+      {"name": "HealthAI", "sector": "HealthTech"}
+    ],
+    "total_current": 6
+  },
+  "requires_headless": false,
+  "extraction_strategies": ["next_data", "html_cards"],
+  "notes": "This is a pre-rendered Next.js page - content is in both HTML and __NEXT_DATA__"
+}

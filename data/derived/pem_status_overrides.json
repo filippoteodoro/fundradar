@@ -1,0 +1,211 @@
+{
+  "generated_at": "2026-02-05T14:04:51.905697+00:00",
+  "overrides": {
+    "apollo": {
+      "pem-2014-0010": {
+        "status": "exited",
+        "source_url": "https://www.athora.com/news/athora-completes-acquisition-italian-life-insurer-amissima-vita-spa",
+        "source_label": "Athora",
+        "verified_at": "2026-02-05T11:58:43.525955+00:00"
+      },
+      "pem-2014-0009": {
+        "status": "exited",
+        "source_url": "https://www.talanx.com/en/newsroom/press_articles/talanx_group_expands_its_presence_in_italy",
+        "source_label": "Talanx",
+        "verified_at": "2026-02-05T11:58:43.526327+00:00"
+      },
+      "pem-2019-0036": {
+        "status": "current",
+        "source_url": "https://www.ivass.it/normativa/nazionale/secondaria-ivass/amministrativi-provv/2019/provv-0034123/index.html",
+        "source_label": "IVASS",
+        "verified_at": "2026-02-05T11:58:43.526403+00:00"
+      }
+    },
+    "kkr": {
+      "pem-2007-0032": {
+        "status": "exited",
+        "source_url": "https://www.thestar.com.my/business/business-news/2007/12/04/petronas-completes-fl-selenia-buy",
+        "source_label": "The Star",
+        "verified_at": "2026-02-05T11:58:43.526418+00:00"
+      }
+    },
+    "carlyle": {
+      "pem-2024-0039": {
+        "status": "exited",
+        "source_url": "https://www.ft.com/content/67fb8272-0962-4ad1-9601-2b0670fa0b12",
+        "source_label": "Financial Times",
+        "verified_at": "2026-02-05T11:58:43.526433+00:00"
+      },
+      "pem-2003-0018": {
+        "status": "exited",
+        "source_url": "https://www.carlyle.com/media-room/news-release-archive/carlyle-group-and-finmeccanica-agree-sell-avio-cinven-%E2%82%AC257-billion",
+        "source_label": "Carlyle",
+        "verified_at": "2026-02-05T11:58:43.526425+00:00"
+      },
+      "pem-2023-0182": {
+        "status": "current",
+        "source_url": "https://www.carlyle.com/zh-hans/node/37021",
+        "source_label": "Carlyle",
+        "verified_at": "2026-02-05T11:58:43.526430+00:00"
+      }
+    },
+    "bain-capital": {
+      "pem-2008-0035": {
+        "status": "exited",
+        "source_url": "https://www.cvc.com/media/news/2013/2013-01-02-cvc-agrees-acquisition-of-cerved-from-bain-capital-and-clessidra/",
+        "source_label": "CVC",
+        "verified_at": "2026-02-05T11:58:43.526437+00:00"
+      },
+      "pem-2023-0143": {
+        "status": "current",
+        "source_url": "https://www.baincapital.com/news/bain-capital-private-equity-acquire-fis",
+        "source_label": "Bain Capital",
+        "verified_at": "2026-02-05T11:58:43.526440+00:00"
+      },
+      "pem-2023-0144": {
+        "status": "current",
+        "source_url": "https://www.baincapital.com/news/bain-capital-private-equity-acquire-fis",
+        "source_label": "Bain Capital",
+        "verified_at": "2026-02-05T11:58:43.526443+00:00"
+      },
+      "pem-2016-0010": {
+        "status": "current",
+        "source_url": "https://www.nexigroup.com/content/dam/corp/downloads/group/governance/shareholders-meetings/2021-03-03/09-Nexi-Bilancio-2017-en.pdf",
+        "source_label": "Nexi",
+        "verified_at": "2026-02-05T11:59:53.548736+00:00"
+      }
+    },
+    "eqt": {
+      "pem-2021-0011": {
+        "status": "current",
+        "source_url": "https://www.srigroupglobal.com/sri-group-financial-advisor-to-abich-in-the-sale-of-the-company-to-lifeanalytics-cerba-healthcare-group/",
+        "source_label": "SRI Group",
+        "verified_at": "2026-02-05T11:58:43.526446+00:00"
+      }
+    },
+    "apax-partners": {
+      "pem-2023-0141": {
+        "status": "current",
+        "source_url": "https://www.apax.com/news-views/apax-funds-acquire-ocs-and-finwave-creating-a-leading-financial-software-platform/",
+        "source_label": "Apax Partners",
+        "verified_at": "2026-02-05T12:03:20.139469+00:00"
+      },
+      "pem-2023-0255": {
+        "status": "current",
+        "source_url": "https://www.apax.com/news-views/apax-funds-acquire-ocs-and-finwave-creating-a-leading-financial-software-platform/",
+        "source_label": "Apax Partners",
+        "verified_at": "2026-02-05T12:03:20.139606+00:00"
+      },
+      "pem-2021-0014": {
+        "status": "current",
+        "source_url": "https://lutech.group/en/newsroom/lutech-group-announces-the-acquisition-of-advantage",
+        "source_label": "Lutech",
+        "verified_at": "2026-02-05T12:07:38.572922+00:00"
+      }
+    },
+    "tikehau-capital": {
+      "pem-2019-0030": {
+        "status": "current",
+        "source_url": "https://tribune-assurance.optionfinance.fr/depeches/d/201911061052str-kste-449870-tikehau-capital-investit-dans-le-courtier-d-assurance-italien-independant-assiteca.html",
+        "source_label": "La Tribune de l'Assurance",
+        "verified_at": "2026-02-05T12:03:20.139614+00:00"
+      },
+      "pem-2019-0013": {
+        "status": "current",
+        "source_url": "https://www.assiteca.it/Assiteca/www.assiteca.it/wp-content/uploads/2020/03/2020_03_30-CdA-Assiteca-approva-la-semestrale-al-31.12.2019.pdf",
+        "source_label": "Assiteca",
+        "verified_at": "2026-02-05T12:03:20.139618+00:00"
+      },
+      "pem-2020-0001": {
+        "status": "current",
+        "source_url": "https://www.assiteca.it/Assiteca/www.assiteca.it/wp-content/uploads/2021/02/Consolidated-and-Separate-Financial-Statements-at-30.06.2020-DEF-1.pdf",
+        "source_label": "Assiteca",
+        "verified_at": "2026-02-05T12:03:20.139621+00:00"
+      },
+      "pem-2023-0039": {
+        "status": "current",
+        "source_url": "https://uk.investing.com/news/stock-market-news/frances-tikehau-buys-25-of-italian-packaging-firm-brandart-3153696",
+        "source_label": "Reuters",
+        "verified_at": "2026-02-05T12:03:20.139625+00:00"
+      }
+    },
+    "permira": {
+      "pem-2016-0002": {
+        "status": "exited",
+        "source_url": "https://www.permira.com/news-and-insights/announcements/permira-agrees-sale-of-arcaplanet-to-cinven",
+        "source_label": "Permira",
+        "verified_at": "2026-02-05T12:03:20.139628+00:00"
+      },
+      "pem-2004-0052": {
+        "status": "exited",
+        "source_url": "https://ir.mohawkind.com/news-releases/news-release-details/mohawk-industries-inc-completes-purchase-marazzi-group",
+        "source_label": "Mohawk",
+        "verified_at": "2026-02-05T12:03:20.139631+00:00"
+      },
+      "pem-2002-0022": {
+        "status": "exited",
+        "source_url": "https://www.ferrettigroup.com/en-us/News-and-events/Detail/t/Norberto-Ferretti-and-his-management-team/y/2021/n/582",
+        "source_label": "Ferretti Group",
+        "verified_at": "2026-02-05T12:07:38.572929+00:00"
+      },
+      "pem-2004-0039": {
+        "status": "exited",
+        "source_url": "https://www.gnv.it/en/gnv/the-company/gnv-passengers-and-freight",
+        "source_label": "GNV",
+        "verified_at": "2026-02-05T12:07:38.572932+00:00"
+      },
+      "pem-2016-0012": {
+        "status": "current",
+        "source_url": "https://bebeez.it/wp-content/uploads/2016/08/Comunicato-Hige%CC%80a-S.p.A.-Zephyro-29.07.2016.pdf",
+        "source_label": "Higèa",
+        "verified_at": "2026-02-05T12:07:38.572935+00:00"
+      }
+    },
+    "advent-international": {
+      "pem-2006-0012": {
+        "status": "exited",
+        "source_url": "https://www.selecta.com/int/en/selecta-group/newsroom/selecta-group-acquires-gruppo-argenta",
+        "source_label": "Selecta",
+        "verified_at": "2026-02-05T12:07:38.572760+00:00"
+      },
+      "pem-2006-0029": {
+        "status": "exited",
+        "source_url": "https://www.selecta.com/int/en/selecta-group/newsroom/selecta-group-acquires-gruppo-argenta",
+        "source_label": "Selecta",
+        "verified_at": "2026-02-05T12:07:38.572899+00:00"
+      },
+      "pem-2006-0042": {
+        "status": "exited",
+        "source_url": "https://www.selecta.com/int/en/selecta-group/newsroom/selecta-group-acquires-gruppo-argenta",
+        "source_label": "Selecta",
+        "verified_at": "2026-02-05T12:07:38.572915+00:00"
+      },
+      "pem-2020-0039": {
+        "status": "current",
+        "source_url": "https://rubix.com/announcement/rubix-italy-expands-in-food-and-packaging-sectors-with-barlotti/",
+        "source_label": "Rubix",
+        "verified_at": "2026-02-05T12:07:38.572919+00:00"
+      },
+      "pem-2004-0004": {
+        "status": "exited",
+        "source_url": "https://www.amfitalia.com/en/news/algebris-announces-acquisition-of-avip-s-p-a/",
+        "source_label": "Algebris",
+        "verified_at": "2026-02-05T12:10:18.309881+00:00"
+      }
+    },
+    "bridgepoint": {
+      "pem-2008-0011": {
+        "status": "exited",
+        "source_url": "https://en.agcm.it/en/media/press-releases/2018/1/alias-2506",
+        "source_label": "AGCM",
+        "verified_at": "2026-02-05T12:07:38.572925+00:00"
+      },
+      "pem-2002-0010": {
+        "status": "exited",
+        "source_url": "https://www.gualaclosures.com/en/news/guala-closures-to-acquire-caffaro-closings/",
+        "source_label": "Guala Closures",
+        "verified_at": "2026-02-05T12:10:18.310036+00:00"
+      }
+    }
+  }
+}

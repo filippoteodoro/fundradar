@@ -1,0 +1,20 @@
+{
+  "fixture_name": "team_simple_list",
+  "extraction_method": "headings_in_context",
+  "company_count": 10,
+  "company_names": [
+    "Alessandro Ferrari",
+    "Anna Fontana",
+    "Chiara Rizzo",
+    "Francesca Romano",
+    "Giulia Esposito",
+    "Marco Colombo",
+    "Paolo Moretti",
+    "Roberto Conti",
+    "Simone Barbieri",
+    "Valentina Greco"
+  ],
+  "failed_reason": null,
+  "created_at": "2026-01-25T19:15:16.615337+00:00",
+  "version": "1.0"
+}

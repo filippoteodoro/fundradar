@@ -1,0 +1,18 @@
+{
+  "fixture_name": "portfolio_grid_cards",
+  "extraction_method": "html_cards",
+  "company_count": 8,
+  "company_names": [
+    "AlphaTech S.p.A.",
+    "BetaHealth S.r.l.",
+    "DeltaFinance",
+    "Epsilon Logistics S.p.A.",
+    "EtaFood Tech",
+    "GammaRetail Group",
+    "ThetaAI",
+    "Zeta Energy Solutions"
+  ],
+  "failed_reason": null,
+  "created_at": "2026-01-25T19:15:15.879973+00:00",
+  "version": "1.0"
+}

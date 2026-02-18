@@ -1,0 +1,16 @@
+{
+  "fixture_name": "nextjs_portfolio",
+  "extraction_method": "next_data",
+  "company_count": 6,
+  "company_names": [
+    "CloudTech Italia",
+    "CyberSec Italia S.r.l.",
+    "DataWise",
+    "EduTech S.r.l.",
+    "FinPay S.p.A.",
+    "HealthAI"
+  ],
+  "failed_reason": null,
+  "created_at": "2026-01-25T19:15:15.551456+00:00",
+  "version": "1.0"
+}

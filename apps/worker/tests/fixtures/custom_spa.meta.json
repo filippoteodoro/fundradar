@@ -1,0 +1,20 @@
+{
+  "name": "custom_spa",
+  "url": "https://venturepartners.it/portfolio",
+  "type": "spa",
+  "date_captured": "2024-01-15",
+  "description": "Custom SPA with minimal HTML that requires JavaScript to render content",
+  "expected_extractions": {
+    "portfolio_companies": [],
+    "note": "This fixture represents a JS-heavy SPA before rendering - no content extractable without Playwright"
+  },
+  "requires_headless": true,
+  "detection_reasons": [
+    "Minimal text content",
+    "Empty app container",
+    "Loading spinner only",
+    "noscript warning"
+  ],
+  "extraction_strategies": ["requires_playwright"],
+  "notes": "This is the HTTP-fetched version of a SPA - tests headless detection. Actual rendered content would need Playwright."
+}

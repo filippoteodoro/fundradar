@@ -1,0 +1,22 @@
+{
+  "name": "nextjs_team",
+  "url": "https://nextgen-partners.it/team",
+  "type": "nextjs",
+  "date_captured": "2024-01-15",
+  "description": "Next.js team page with team members in cards and __NEXT_DATA__",
+  "expected_extractions": {
+    "team_members": [
+      {"name": "Marco Rossi", "title": "Managing Partner"},
+      {"name": "Giulia Bianchi", "title": "Partner"},
+      {"name": "Alessandro Ferrari", "title": "Partner"},
+      {"name": "Lucia Verde", "title": "Principal"},
+      {"name": "Paolo Conti", "title": "Vice President"},
+      {"name": "Sara Marino", "title": "Associate"},
+      {"name": "Luca Greco", "title": "Analyst"}
+    ],
+    "total_team": 7,
+    "partners_count": 3
+  },
+  "requires_headless": false,
+  "extraction_strategies": ["next_data", "team_cards", "h3_with_title"]
+}

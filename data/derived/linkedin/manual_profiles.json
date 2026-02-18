@@ -1,0 +1,703 @@
+{
+  "generated_at": "2026-02-12",
+  "source": "manual_collection",
+  "note": "Manually curated Italian profiles at mega-funds. Deduplicated by LinkedIn URL.",
+  "funds": [
+    {
+      "firm": "Blackstone",
+      "slug": "blackstone",
+      "people": [
+        {
+          "name": "Francesco Vitulano",
+          "title": "Managing Director, Head of Private Credit Italy at Blackstone",
+          "location": "Greater Milan Metropolitan Area, Italy",
+          "linkedin": "https://www.linkedin.com/in/francescovitulano/"
+        },
+        {
+          "name": "Sergio Buoncristiano",
+          "title": "Senior Advisor, Energy & Infrastructure at Blackstone",
+          "location": "Greater Milan Metropolitan Area, Italy",
+          "linkedin": "https://www.linkedin.com/in/sergio-buoncristiano-9b130711/"
+        },
+        {
+          "name": "Carlo Roncalli",
+          "title": "Managing Director, Blackstone Private Wealth",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/carlo-roncalli-65aa075/"
+        },
+        {
+          "name": "Alessandro Faggiani",
+          "title": "Real Estate Private Equity at Blackstone",
+          "location": "Italy",
+          "linkedin": "https://www.linkedin.com/in/alessandro-faggiani/"
+        },
+        {
+          "name": "Lisa Mossi",
+          "title": "Vice President, Blackstone Private Wealth",
+          "location": "Italy",
+          "linkedin": "https://www.linkedin.com/in/lisa-mossi-956a3883/"
+        },
+        {
+          "name": "Alessandro Maffey",
+          "title": "Senior Associate at Blackstone",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/alessandro-maffey-68583666/"
+        },
+        {
+          "name": "Alberto Cattaruzza",
+          "title": "Associate, Blackstone Credit",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/alberto-cattaruzza-804a1a196/"
+        },
+        {
+          "name": "Niccolo Coresi",
+          "title": "Real Estate at Blackstone",
+          "location": "Italy",
+          "linkedin": "https://www.linkedin.com/in/niccolo-coresi-52288524/"
+        },
+        {
+          "name": "Carlo Mariani",
+          "title": "Investment Analyst at Blackstone",
+          "location": "London, UK",
+          "linkedin": "https://www.linkedin.com/in/carlo-mariani-7b3164256/"
+        },
+        {
+          "name": "Giorgio Montobbio",
+          "title": "Senior Associate, Tactical Opportunities at Blackstone",
+          "location": "London, UK",
+          "linkedin": "https://www.linkedin.com/in/giorgio-montobbio-90a17a12a/"
+        },
+        {
+          "name": "Lorenzo Silvestri",
+          "title": "Principal, CLO Structuring & Origination at Blackstone",
+          "location": "London, UK",
+          "linkedin": "https://www.linkedin.com/in/lorenzo-silvestri-a012126b/"
+        },
+        {
+          "name": "Silvia Cadau",
+          "title": "Senior Associate at Blackstone",
+          "location": "London, UK",
+          "linkedin": "https://www.linkedin.com/in/silvia-cadau-868a9614b/"
+        },
+        {
+          "name": "Luigi Di Novi",
+          "title": "Principal (Director), Blackstone Credit | Special Situations",
+          "location": "London, UK",
+          "linkedin": "https://www.linkedin.com/in/luigi-di-novi-6240066b/"
+        },
+        {
+          "name": "Giulia Grossi",
+          "title": "Analyst at Blackstone",
+          "location": "London, UK",
+          "linkedin": "https://www.linkedin.com/in/giulia-grossi-81385514a/"
+        },
+        {
+          "name": "Sebastiano Ricci",
+          "title": "Business Analyst, The Blackstone Group",
+          "location": "Treviso, Veneto, Italy",
+          "linkedin": "https://www.linkedin.com/in/sebastiano-ricci-5b645b30/"
+        },
+        {
+          "name": "Ettore Cerreti",
+          "title": "Analyst at Blackstone",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/ettorecerreti/"
+        }
+      ]
+    },
+    {
+      "firm": "Apollo Global Management",
+      "slug": "apollo",
+      "people": [
+        {
+          "name": "Alessandro Bozzano Rodriguez-Zuñiga",
+          "title": "Executive Director & Country Head Italy - Lapithus (Apollo Global Management Inc.)",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/alessandrobozzano/"
+        },
+        {
+          "name": "Manuel Carta",
+          "title": "Associate Director at Lapithus Management (Apollo Global Management)",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/manuelcarta/"
+        },
+        {
+          "name": "Hannes Ansorg",
+          "title": "Managing Director at Apollo",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/hannesansorg/"
+        },
+        {
+          "name": "Alessandro Raspa",
+          "title": "Managing Director, Client & Product Solutions - Italy at Apollo",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/alessandro-raspa-cfa-589a5b56/"
+        },
+        {
+          "name": "Stefano Gulotta",
+          "title": "Associate, Client and Product Solutions Team at Apollo",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/stefano-gulotta/"
+        },
+        {
+          "name": "Luigi Panza",
+          "title": "Director, Lapithus Management (Part of Apollo)",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/luigi-panza-8151bba6/"
+        }
+      ]
+    },
+    {
+      "firm": "KKR",
+      "slug": "kkr",
+      "people": [
+        {
+          "name": "Nicolò Della Casa",
+          "title": "Director, Private Equity at KKR & Co. Inc.",
+          "location": "Greater London, England, United Kingdom",
+          "linkedin": "https://www.linkedin.com/in/nicolodellacasa/"
+        },
+        {
+          "name": "Alessandro Muratore",
+          "title": "Principal, BCG (Secondment at KKR Capstone)",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/alessandromuratore/"
+        },
+        {
+          "name": "Johannes Huth",
+          "title": "Managing Director at KKR",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/johannes-huth-61b170b0/"
+        },
+        {
+          "name": "Elena Rossi",
+          "title": "Finanza & Real Estate at KKR",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/elena-rossi-a91051226/"
+        },
+        {
+          "name": "Lorenzo Pimpinella",
+          "title": "Private Equity at KKR",
+          "location": "London, UK",
+          "linkedin": "https://www.linkedin.com/in/lorenzo-pimpinella-488a68b9/"
+        },
+        {
+          "name": "Francesca Meroni",
+          "title": "Co-investments and Partnerships at KKR",
+          "location": "London, UK",
+          "linkedin": "https://www.linkedin.com/in/francesca-meroni-02b36a220/"
+        },
+        {
+          "name": "Claudia Coppola",
+          "title": "Managing Director, Human Capital at KKR",
+          "location": "London, UK",
+          "linkedin": "https://www.linkedin.com/in/claudia-coppola-hrprofessional/"
+        }
+      ]
+    },
+    {
+      "firm": "Macquarie Asset Management",
+      "slug": "macquarie",
+      "people": [
+        {
+          "name": "Giovanni Legnani",
+          "title": "Senior Manager - Client Solutions Group - Macquarie Asset Management",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/giovanni-legnani-4b07935a/"
+        },
+        {
+          "name": "Camillo Roda",
+          "title": "Infrastructure Private Equity Analyst, Macquarie Capital",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/camillo-roda-147307184/"
+        },
+        {
+          "name": "Andrea Pericoli",
+          "title": "Manager, Macquarie Asset Management",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/andrea-pericoli/"
+        },
+        {
+          "name": "Federico Grimaldi",
+          "title": "Principal Investing Analyst, Infrastructure & Energy Group at Macquarie",
+          "location": "Greater Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/federico-grimaldi-31198319a/"
+        },
+        {
+          "name": "Federica Cristina",
+          "title": "Managing Director, Macquarie Group",
+          "location": "Italy",
+          "linkedin": "https://www.linkedin.com/in/federica-cristina-77007a13/"
+        },
+        {
+          "name": "Giovanni Mautone",
+          "title": "Principal Investments at Macquarie",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/giovanni-mautone-7727242/"
+        },
+        {
+          "name": "Cosimo Solito",
+          "title": "M&A Analyst at Macquarie",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/cosimo-solito/"
+        },
+        {
+          "name": "Michele Valente",
+          "title": "Director, Private Credit at Macquarie Capital",
+          "location": "UK",
+          "linkedin": "https://www.linkedin.com/in/michele-valente-8b4754a2/"
+        },
+        {
+          "name": "Marco Auletta",
+          "title": "Investment Manager, Macquarie Asset Management - Real Assets",
+          "location": "London, UK",
+          "linkedin": "https://www.linkedin.com/in/marco-auletta/"
+        },
+        {
+          "name": "Alessandro Bronzin",
+          "title": "Vice President at Macquarie",
+          "location": "London, UK",
+          "linkedin": "https://www.linkedin.com/in/alessandrobronzin/"
+        }
+      ]
+    },
+    {
+      "firm": "Ares Management",
+      "slug": "ares-management",
+      "people": [
+        {
+          "name": "Alessandro Verdirrame",
+          "title": "Principal, Head of Ares Italy Wealth Management Solutions at Ares Management",
+          "location": "Greater Milan Metropolitan Area, Italy",
+          "linkedin": "https://www.linkedin.com/in/alessandroverdirrame/"
+        },
+        {
+          "name": "Giulia Pezzoli",
+          "title": "Head of Investment at Ares Management",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/giulia-pezzoli-587381a/"
+        },
+        {
+          "name": "Alberto Marcellini",
+          "title": "Associate, Special Opportunities Investing at Ares Management",
+          "location": "UK",
+          "linkedin": "https://www.linkedin.com/in/alberto-marcellini/"
+        },
+        {
+          "name": "Luca Limoncelli",
+          "title": "Senior Associate, Private Equity Secondaries at Ares Management",
+          "location": "London, UK",
+          "linkedin": "https://www.linkedin.com/in/lucalimoncelli/"
+        },
+        {
+          "name": "Andrea Cantisani",
+          "title": "Vice President at Ares Management",
+          "location": "London, UK",
+          "linkedin": "https://www.linkedin.com/in/andreacantisani/"
+        },
+        {
+          "name": "Antonio Izzo",
+          "title": "Real Estate Equity Investment at Ares Management",
+          "location": "UK",
+          "linkedin": "https://www.linkedin.com/in/antonio-izzo-b790b5196/"
+        }
+      ]
+    },
+    {
+      "firm": "TowerBrook",
+      "slug": "towerbrook",
+      "people": [
+        {
+          "name": "Paolo Cavatorta",
+          "title": "Principal, Portfolio Group at TowerBrook",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/paolo-cavatorta-5a073154/"
+        },
+        {
+          "name": "Nicole Schoenauer",
+          "title": "Sr. Principal, Investor Relations at TowerBrook",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/nicole-schoenauer-74629b10/"
+        },
+        {
+          "name": "Ulric Jerome",
+          "title": "Management Advisory Board Member at TowerBrook Capital Partners L.P.",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/ulric-jerome-6bb563/"
+        },
+        {
+          "name": "Paolo De Bona",
+          "title": "Senior Principal, co-Head Consumer Products & Services Europe at TowerBrook",
+          "location": "London, England, United Kingdom",
+          "linkedin": "https://www.linkedin.com/in/paolo-de-bona-baa01255/"
+        },
+        {
+          "name": "Sofia Trombetta",
+          "title": "Investment Associate at TowerBrook",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/sofia-trombetta-73019bb0/"
+        },
+        {
+          "name": "Karim Saddi",
+          "title": "Co-CEO, TowerBrook Capital Partners",
+          "location": "Italy",
+          "linkedin": "https://www.linkedin.com/in/karim-saddi-455067173/"
+        },
+        {
+          "name": "Elisabetta Giachetti",
+          "title": "CFO EMEA at TowerBrook",
+          "location": "Milan, Italy",
+          "linkedin": "https://www.linkedin.com/in/elisabetta-giachetti-818a061/"
+        }
+      ]
+    },
+    {
+      "firm": "Carlyle",
+      "slug": "carlyle",
+      "people": [
+        {
+          "name": "Guido Buttari",
+          "title": "Private Equity Principal at The Carlyle Group",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/guido-buttari-8917a77a/"
+        },
+        {
+          "name": "Stefano Parisi",
+          "title": "Operating Partner - Managing Director at The Carlyle Group",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/stefanoparisi/"
+        },
+        {
+          "name": "Paolo Pascarelli",
+          "title": "Senior Consultant to Carlyle - European Private Credit at The Carlyle Group",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/paolo-pascarelli-7598246b/"
+        },
+        {
+          "name": "Andrea Gavinelli",
+          "title": "Private Equity Associate at The Carlyle Group",
+          "location": "London, England, United Kingdom",
+          "linkedin": "https://www.linkedin.com/in/andrea-gavinelli/"
+        },
+        {
+          "name": "Pierfelice Murtas",
+          "title": "Senior Associate Director at Carlyle",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/pierfelice-murtas-71b136/"
+        },
+        {
+          "name": "Aldo Di Bernardo",
+          "title": "Director at The Carlyle Group",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/aldo-di-bernardo-02a241/"
+        },
+        {
+          "name": "Guido Funes Nova",
+          "title": "Managing Director and Partner at The Carlyle Group",
+          "location": "Greater London, England, United Kingdom",
+          "linkedin": "https://www.linkedin.com/in/guido-funes-nova-408b561/"
+        },
+        {
+          "name": "Pascal Casavecchia",
+          "title": "Associate at The Carlyle Group",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/pascal-casavecchia-8277601/"
+        },
+        {
+          "name": "Vladimir Lasocki",
+          "title": "Co-Head at Carlyle Europe Technology Partners, Managing Director & Partner at The Carlyle Group",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/vladimir-lasocki-4304a/"
+        }
+      ]
+    },
+    {
+      "firm": "EQT",
+      "slug": "eqt",
+      "people": [
+        {
+          "name": "Niccolò Consonni",
+          "title": "Private Equity Director at EQT Group",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/niccol%C3%B2-consonni-68a93768/"
+        },
+        {
+          "name": "Lorenzo Prada",
+          "title": "Managing Director at EQT Group",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/lorenzo-prada/"
+        },
+        {
+          "name": "Francesco Malvezzi",
+          "title": "Managing Director at EQT Group",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/francesco-malvezzi-9357821/"
+        },
+        {
+          "name": "Mina Karagyozova",
+          "title": "Managing Director at EQT Group",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/karagyozovam/"
+        },
+        {
+          "name": "Erik Huggers",
+          "title": "Senior Advisor at EQT Group",
+          "location": "Greater Milan Metropolitan Area, Italy",
+          "linkedin": "https://www.linkedin.com/in/erikhuggers/"
+        },
+        {
+          "name": "Giovanni Penati",
+          "title": "Associate Director at EQT Group | Real Estate Due Diligence & Transactions - Europe",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/giovanni-penati-9148b274/"
+        },
+        {
+          "name": "Francesco Starace",
+          "title": "Partner at EQT Group, Chair SEforALL, Chair SBTi",
+          "location": "Rome, Latium, Italy",
+          "linkedin": "https://www.linkedin.com/in/francesco-starace/"
+        }
+      ]
+    },
+    {
+      "firm": "Permira",
+      "slug": "permira",
+      "people": [
+        {
+          "name": "Francesco Pascalizi",
+          "title": "Partner & Head of Permira Italy",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/francesco-pascalizi-250b223/"
+        },
+        {
+          "name": "Angelo Picciuto",
+          "title": "Vice President at Permira",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/angelo-picciuto-b42075b1/"
+        },
+        {
+          "name": "Elisabetta Frontini",
+          "title": "Global Head of Portfolio Team at Permira, Operating Partner",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/elisabetta-frontini-a3413a/"
+        },
+        {
+          "name": "Beatrice Bianchi",
+          "title": "Associate at Permira | Private Equity",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/beatrice-bianchi-3a6313159/"
+        },
+        {
+          "name": "Roberto Biondi",
+          "title": "Partner - Global Head of Capital Markets at Permira",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/roberto-biondi-109a672/"
+        },
+        {
+          "name": "Giacomo Venturino",
+          "title": "Value Creation Team Secondee at Permira",
+          "location": "Greater Milan Metropolitan Area, Italy",
+          "linkedin": "https://www.linkedin.com/in/giacomo-venturino-79380646/"
+        }
+      ]
+    },
+    {
+      "firm": "Advent International",
+      "slug": "advent-international",
+      "people": [
+        {
+          "name": "Christian Alba",
+          "title": "Vice President at Advent International",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/christianalba/"
+        },
+        {
+          "name": "Francesco Casiraghi",
+          "title": "Managing Director at Advent International",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/francesco-casiraghi-03933560/"
+        },
+        {
+          "name": "John Galantic",
+          "title": "CEO / Operating Partner at Advent International",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/john-galantic-12ba527/"
+        },
+        {
+          "name": "Francesca Bertoncelli",
+          "title": "Private Equity Associate at Advent International",
+          "location": "London, England, United Kingdom",
+          "linkedin": "https://www.linkedin.com/in/francesca-bertoncelli-806784129/"
+        }
+      ]
+    },
+    {
+      "firm": "PAI Partners",
+      "slug": "pai-partners",
+      "people": [
+        {
+          "name": "Marco Bellino",
+          "title": "Partner & Head of Flagship Fund Italy at PAI Partners",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/marco-bellino/"
+        },
+        {
+          "name": "Eleonora Leenders",
+          "title": "Portfolio Performance Group - ESG at PAI Partners",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/eleonora-leenders-04b49721b/"
+        },
+        {
+          "name": "Stefano Shuster",
+          "title": "Vice President Mid Market Fund at PAI Partners",
+          "location": "Italy",
+          "linkedin": "https://www.linkedin.com/in/stefanoshuster/"
+        },
+        {
+          "name": "Maximilian Runte",
+          "title": "Senior Advisor at PAI Partners",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/maximilian-runte-ab55009a/"
+        },
+        {
+          "name": "Anna Silvestri",
+          "title": "Investment Officer at PAI Partners",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/annasilvestri/"
+        }
+      ]
+    },
+    {
+      "firm": "Bain Capital",
+      "slug": "bain-capital",
+      "people": [
+        {
+          "name": "Pietro Calzini",
+          "title": "Investment Professional, Private Equity at Bain Capital",
+          "location": "London, England, United Kingdom",
+          "linkedin": "https://www.linkedin.com/in/pietrocalzini/"
+        },
+        {
+          "name": "Giuseppe Mascia",
+          "title": "Executive Vice President, Bain Capital Special Situations",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/giuseppe-mascia-7456417/"
+        },
+        {
+          "name": "Tommaso Debenedetti",
+          "title": "Operating Partner at Bain Capital",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/tommaso-debenedetti-71b47b1/"
+        },
+        {
+          "name": "Fabrizio Lo Torto",
+          "title": "Vice President, Real Estate Private Equity & Special Situations at Bain Capital",
+          "location": "United Kingdom",
+          "linkedin": "https://www.linkedin.com/in/fabrizio-lo-torto-9a8809151/"
+        },
+        {
+          "name": "Sofia Maroudia",
+          "title": "Managing Director, Private Equity, Sustainability at Bain Capital",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/sofia-maroudia-b73b2713/"
+        },
+        {
+          "name": "Roberto Fiormonte",
+          "title": "Portfolio Manager at ACS - Bain Capital Credit",
+          "location": "Greater Milan Metropolitan Area, Italy",
+          "linkedin": "https://www.linkedin.com/in/roberto-fiormonte-76653233/"
+        }
+      ]
+    },
+    {
+      "firm": "Partners Group",
+      "slug": "partners-group",
+      "people": [
+        {
+          "name": "Enrico Pinelli",
+          "title": "Head Client Solutions Italy & Milan Office Head at Partners Group",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/enrico-pinelli-2709a91a/"
+        },
+        {
+          "name": "Cecilia Parisini",
+          "title": "Senior Structuring Lead (Member of Management) at Partners Group",
+          "location": "Italy",
+          "linkedin": "https://www.linkedin.com/in/cecilia-parisini-4b558521/"
+        },
+        {
+          "name": "Raniero Proietti",
+          "title": "Managing Director, Client Solutions Europe at Partners Group",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/raniero-proietti-96a04410/"
+        }
+      ]
+    },
+    {
+      "firm": "H.I.G. Capital",
+      "slug": "h-i-g-capital",
+      "people": [
+        {
+          "name": "Giovanni Cabassi",
+          "title": "Senior Investment Manager, Private Equity at H.I.G. Capital",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/giovanni-cabassi/"
+        },
+        {
+          "name": "Andrea Cervesato",
+          "title": "Principal at H.I.G. Capital",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/andrea-cervesato-30102919/"
+        },
+        {
+          "name": "Luciano Anzanello",
+          "title": "Principal at H.I.G. Capital",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/luciano-anzanello-b15402/"
+        },
+        {
+          "name": "Giovanni Guglielmi",
+          "title": "Managing Director at H.I.G. Capital Private Equity",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/giovanni-guglielmi-7975291/"
+        }
+      ]
+    },
+    {
+      "firm": "Apax Partners",
+      "slug": "apax-partners",
+      "people": [
+        {
+          "name": "Amedeo Carassai",
+          "title": "Partner at Apax Partners",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/amedeo-carassai-7b27501/"
+        },
+        {
+          "name": "Edoardo Toma",
+          "title": "Tech Investor at Apax Digital",
+          "location": "United Kingdom",
+          "linkedin": "https://www.linkedin.com/in/edoardotoma/"
+        }
+      ]
+    },
+    {
+      "firm": "Bridgepoint",
+      "slug": "bridgepoint",
+      "people": [
+        {
+          "name": "Yuri Pizzasegola",
+          "title": "Managing Director at Bridgepoint",
+          "location": "Milan, Lombardy, Italy",
+          "linkedin": "https://www.linkedin.com/in/yuri-pizzasegola-aaa21a/"
+        },
+        {
+          "name": "Riccardo Maldarelli",
+          "title": "Associate at Bridgepoint Credit",
+          "location": "London, England, United Kingdom",
+          "linkedin": "https://www.linkedin.com/in/riccardo-maldarelli/"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "news_press_releases",
+  "type": "news_list",
+  "url": "https://capitalpartners.com/press",
+  "captured_at": "2024-01-20T10:00:00Z",
+  "site_type": "static",
+  "expected": {
+    "news_items": 7,
+    "deals_mentioned": ["LogisticsPro S.p.A.", "CloudServices Italia", "ComponentMax"],
+    "exits_mentioned": ["RetailTech Group"],
+    "team_changes": ["Sarah Chen"],
+    "fund_events": ["Fund IV closing at EUR 800M"],
+    "has_pagination": true,
+    "pagination_type": "url_based"
+  },
+  "notes": "Formal press release table layout with PDF downloads"
+}

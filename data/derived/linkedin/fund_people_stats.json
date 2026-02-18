@@ -1,0 +1,1044 @@
+{
+  "generated_at": "2026-02-12T12:12:54.114216+00:00",
+  "fund_count": 18,
+  "funds": {
+    "investindustrial": {
+      "fund_slug": "investindustrial",
+      "total_profiles": 20,
+      "education": {
+        "top_schools": {
+          "Università Bocconi": 3,
+          "Politecnico di Milano": 3,
+          "Trinity College Dublin": 2,
+          "Universitat Politècnica de València (UPV)": 2,
+          "Erasmus University Rotterdam": 2,
+          "Saïd Business School, University of Oxford": 2,
+          "Politecnico di Torino": 2,
+          "Edinburgh Napier University": 2,
+          "Liceo Scientifico A. Avogadro": 1,
+          "Chicago-Kent College of Law, Illinois Institute of Technology": 1
+        },
+        "top_degrees": {
+          "Bachelor's degree": 5,
+          "Master of Science - MS": 4,
+          "MSc": 2,
+          "Master": 2,
+          "Institutions and Financial Markets Management": 1,
+          "High School Diploma": 1,
+          "Doctor of Law (JD)": 1,
+          "BA": 1,
+          "Bachelor and Master": 1,
+          "Exchange Programme": 1
+        },
+        "education_tier": {
+          "top_mba": 2,
+          "top_undergrad": 6,
+          "other": 12
+        }
+      },
+      "backgrounds": {
+        "corporate": 11,
+        "private_equity": 6,
+        "consulting": 1,
+        "tech": 1,
+        "big_four": 1
+      },
+      "seniority": {
+        "partner": 3,
+        "other": 7,
+        "principal": 2,
+        "vice_president": 8
+      },
+      "hiring": {
+        "new_hires_last_1y": 16,
+        "new_hires_last_2y": 23,
+        "avg_tenure_years": 6.3
+      },
+      "demographics": {
+        "gender_male_pct": 40.0,
+        "gender_female_pct": 10.0,
+        "gender_unknown_pct": 50.0,
+        "avg_years_experience": 19.1,
+        "avg_estimated_age": 41.0
+      }
+    },
+    "aksia-sgr": {
+      "fund_slug": "aksia-sgr",
+      "total_profiles": 25,
+      "education": {
+        "top_schools": {
+          "Università Bocconi": 7,
+          "Università degli Studi di Torino": 4,
+          "Luiss Guido Carli University": 3,
+          "Università Cattolica del Sacro Cuore": 3,
+          "University of Rome Tor Vergata": 2,
+          "Universidad de Granada": 1,
+          "Istituto E. Fermi - Castellanza (VA)": 1,
+          "Universitá degli studi di Torino": 1,
+          "liceo Monti": 1,
+          "Liceo Scientifico Arturo Tosi - Busto A.": 1
+        },
+        "top_degrees": {
+          "Bachelor's degree": 4,
+          "Master of Science - MS": 3,
+          "Master's degree": 3,
+          "Facoltà di Economia e Commercio": 1,
+          "cleli": 1,
+          "Laurea Specialistica": 1,
+          "Economics": 1,
+          "Laurea Triennale": 1,
+          "Master of Science (M.Sc.)": 1,
+          "Bachelor of Science - BS": 1
+        },
+        "education_tier": {
+          "top_mba": 0,
+          "top_undergrad": 9,
+          "other": 16
+        }
+      },
+      "backgrounds": {
+        "corporate": 19,
+        "big_four": 2,
+        "tech": 3,
+        "private_equity": 1
+      },
+      "seniority": {
+        "other": 16,
+        "director": 5,
+        "managing_director": 1,
+        "partner": 1,
+        "associate": 2
+      },
+      "hiring": {
+        "new_hires_last_1y": 10,
+        "new_hires_last_2y": 18,
+        "avg_tenure_years": 7.2
+      },
+      "demographics": {
+        "gender_male_pct": 64.0,
+        "gender_female_pct": 32.0,
+        "gender_unknown_pct": 4.0,
+        "avg_years_experience": 17.7,
+        "avg_estimated_age": 40.0
+      }
+    },
+    "advent-international": {
+      "fund_slug": "advent-international",
+      "total_profiles": 4,
+      "education": {
+        "top_schools": {},
+        "top_degrees": {},
+        "education_tier": {
+          "top_mba": 0,
+          "top_undergrad": 0,
+          "other": 4
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 0,
+        "private_equity": 4,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 0,
+        "tech": 0,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 1,
+        "managing_director": 1,
+        "principal": 0,
+        "director": 0,
+        "vice_president": 1,
+        "associate": 1,
+        "analyst": 0,
+        "other": 0
+      },
+      "hiring": {
+        "new_hires_last_1y": 0,
+        "new_hires_last_2y": 0,
+        "avg_tenure_years": 0
+      },
+      "demographics": {
+        "gender_male_pct": 66.7,
+        "gender_female_pct": 33.3,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 0,
+        "avg_estimated_age": 0
+      }
+    },
+    "blackstone": {
+      "fund_slug": "blackstone",
+      "total_profiles": 16,
+      "education": {
+        "top_schools": {
+          "University Bocconi": 11,
+          "HEC Paris": 3,
+          "University degli Studi di Firenze": 1,
+          "University of Cambridge": 1,
+          "SDA Bocconi": 1,
+          "The London School of Economics and Political Science (LSE)": 1,
+          "King's College London": 1,
+          "Rotterdam School of Management, Erasmus University": 1,
+          "Esade": 1,
+          "University of Geneva": 1
+        },
+        "top_degrees": {
+          "Master of Science (MSc)": 4,
+          "MS": 3,
+          "CLEFIN - Institutions and Financial Market Management": 1,
+          "Sustainable Finance": 1,
+          "EMBA": 1,
+          "CLEFIN": 1,
+          "MSc Finance": 1,
+          "BSc Mathematics": 1,
+          "Master’s Degree": 1,
+          "MSc Economics and Finance": 1
+        },
+        "education_tier": {
+          "top_mba": 1,
+          "top_undergrad": 11,
+          "other": 4
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 2,
+        "private_equity": 9,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 4,
+        "tech": 1,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 0,
+        "managing_director": 3,
+        "principal": 2,
+        "director": 0,
+        "vice_president": 1,
+        "associate": 5,
+        "analyst": 3,
+        "other": 2
+      },
+      "hiring": {
+        "new_hires_last_1y": 7,
+        "new_hires_last_2y": 12,
+        "avg_tenure_years": 1.3
+      },
+      "demographics": {
+        "gender_male_pct": 80.0,
+        "gender_female_pct": 20.0,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 7.7,
+        "avg_estimated_age": 0
+      }
+    },
+    "apollo": {
+      "fund_slug": "apollo",
+      "total_profiles": 6,
+      "education": {
+        "top_schools": {
+          "University Bocconi": 2,
+          "Politecnico di Milano": 1,
+          "HEC Paris": 1,
+          "UCLA": 1,
+          "The London School of Economics and Political Science (LSE)": 1,
+          "University College London, U. of London": 1,
+          "Humboldt-Oberschule Berlin-Tegel": 1,
+          "SDA Bocconi": 1,
+          "University di Siena": 1
+        },
+        "top_degrees": {
+          "Master of Science": 1,
+          "Professional Course": 1,
+          "Master of Science (MSc)": 1,
+          "Double Degree Progam with Bocconi University": 1,
+          "Exchange program": 1,
+          "Summer school program": 1,
+          "BSc Economics": 1,
+          "Abitur": 1,
+          "Executive Program in Finanza Immobiliare & Real Estate": 1,
+          "Laurea Magistrale  LM": 1
+        },
+        "education_tier": {
+          "top_mba": 0,
+          "top_undergrad": 4,
+          "other": 2
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 0,
+        "private_equity": 0,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 6,
+        "tech": 0,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 0,
+        "managing_director": 2,
+        "principal": 0,
+        "director": 3,
+        "vice_president": 0,
+        "associate": 1,
+        "analyst": 0,
+        "other": 0
+      },
+      "hiring": {
+        "new_hires_last_1y": 1,
+        "new_hires_last_2y": 2,
+        "avg_tenure_years": 0.8
+      },
+      "demographics": {
+        "gender_male_pct": 100.0,
+        "gender_female_pct": 0,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 9.8,
+        "avg_estimated_age": 0
+      }
+    },
+    "kkr": {
+      "fund_slug": "kkr",
+      "total_profiles": 7,
+      "education": {
+        "top_schools": {
+          "University Bocconi": 3,
+          "Maastricht University": 1,
+          "Columbia Business School": 1,
+          "ESSEC Business School": 1,
+          "Politecnico di Milano": 1,
+          "University of Chicago": 1,
+          "The London School of Economics and Political Science (LSE)": 1,
+          "Rotterdam School of Management, Erasmus University": 1,
+          "Duke University - The Fuqua School of Business": 1
+        },
+        "top_degrees": {
+          "Master of Science (MSc)": 1,
+          "Exchange program": 1,
+          "Master of Business Administration (M.B.A.)": 1,
+          "exchange program": 1,
+          "Laurea Specialistica in Architettura e dell'Ingegneria edile": 1,
+          "Master of Business Administration (MBA)": 1,
+          "Bachelor of Science (B.Sc.)": 1,
+          "Bachelor in International Economics": 1,
+          "MSc Finance & Investments": 1,
+          "MBA Exchange Program": 1
+        },
+        "education_tier": {
+          "top_mba": 0,
+          "top_undergrad": 5,
+          "other": 2
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 0,
+        "private_equity": 1,
+        "venture_capital": 0,
+        "consulting": 2,
+        "big_four": 0,
+        "corporate": 4,
+        "tech": 0,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 0,
+        "managing_director": 2,
+        "principal": 0,
+        "director": 1,
+        "vice_president": 0,
+        "associate": 0,
+        "analyst": 0,
+        "other": 4
+      },
+      "hiring": {
+        "new_hires_last_1y": 0,
+        "new_hires_last_2y": 0,
+        "avg_tenure_years": 1.7
+      },
+      "demographics": {
+        "gender_male_pct": 40.0,
+        "gender_female_pct": 60.0,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 14.8,
+        "avg_estimated_age": 0
+      }
+    },
+    "ares-management": {
+      "fund_slug": "ares-management",
+      "total_profiles": 6,
+      "education": {
+        "top_schools": {
+          "University Bocconi": 5,
+          "The University of Queensland": 1,
+          "SDA Bocconi": 1,
+          "University Cattolica del Sacro Cuore": 1,
+          "London Business School": 1,
+          "EDHEC Business School": 1,
+          "ESCP Business School": 1,
+          "Foreign Trade University": 1
+        },
+        "top_degrees": {
+          "Master of Science (MSc)": 2,
+          "Master of International Economics & Finance": 1,
+          "Master of Business Administration (M.B.A.) - EMBAS16 Candidate": 1,
+          "Laurea di secondo livello": 1,
+          "MSc in Financial Analysis": 1,
+          "BSc in International Economics and Finance": 1,
+          "Graduate Exchange Semester": 1,
+          "BSc": 1,
+          "MSc": 1,
+          "Master of Science - MS": 1
+        },
+        "education_tier": {
+          "top_mba": 1,
+          "top_undergrad": 5,
+          "other": 0
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 2,
+        "private_equity": 0,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 4,
+        "tech": 0,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 0,
+        "managing_director": 0,
+        "principal": 1,
+        "director": 0,
+        "vice_president": 1,
+        "associate": 3,
+        "analyst": 0,
+        "other": 1
+      },
+      "hiring": {
+        "new_hires_last_1y": 2,
+        "new_hires_last_2y": 4,
+        "avg_tenure_years": 0.1
+      },
+      "demographics": {
+        "gender_male_pct": 83.3,
+        "gender_female_pct": 16.7,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 6.3,
+        "avg_estimated_age": 0
+      }
+    },
+    "towerbrook": {
+      "fund_slug": "towerbrook",
+      "total_profiles": 7,
+      "education": {
+        "top_schools": {
+          "University Bocconi": 2,
+          "The London School of Economics and Political Science (LSE)": 1,
+          "Solvay Brussels School of Economics and Management (SBS-EM)": 1,
+          "Columbia Business School": 1,
+          "EDHEC Business School": 1,
+          "Concordia University": 1,
+          "Paris-Pantheon-Assas University": 1,
+          "University of Amsterdam": 1,
+          "University of Mannheim": 1,
+          "HEC Paris": 1
+        },
+        "top_degrees": {
+          "Master of Science (M.Sc.)": 2,
+          "Master of Science (MSc)": 1,
+          "Bachelor of Science (BSc)": 1,
+          "Executive Education": 1,
+          "Master of Science": 1,
+          "BA": 1,
+          "DEUG": 1,
+          "Double Degree": 1,
+          "Master of Science - MS": 1,
+          "Major in Finance": 1
+        },
+        "education_tier": {
+          "top_mba": 0,
+          "top_undergrad": 3,
+          "other": 4
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 1,
+        "private_equity": 0,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 6,
+        "tech": 0,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 0,
+        "managing_director": 0,
+        "principal": 3,
+        "director": 2,
+        "vice_president": 0,
+        "associate": 1,
+        "analyst": 0,
+        "other": 1
+      },
+      "hiring": {
+        "new_hires_last_1y": 1,
+        "new_hires_last_2y": 1,
+        "avg_tenure_years": 0.7
+      },
+      "demographics": {
+        "gender_male_pct": 50.0,
+        "gender_female_pct": 50.0,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 14.4,
+        "avg_estimated_age": 0
+      }
+    },
+    "carlyle": {
+      "fund_slug": "carlyle",
+      "total_profiles": 9,
+      "education": {
+        "top_schools": {
+          "University Bocconi": 5,
+          "HEC Paris": 1,
+          "University of California, Berkeley": 1,
+          "University of Exeter Business School": 1,
+          "Saïd Business School, University of Oxford": 1,
+          "College of Europe": 1,
+          "emlyon business school": 1
+        },
+        "top_degrees": {
+          "Master's degree": 3,
+          "Exchange Semester": 1,
+          "Master of Science - MS": 1,
+          "Exchange Program": 1,
+          "Economics": 1,
+          "Oxford FinTech Programme": 1,
+          "Economia Aziendale (Business Administration)": 1,
+          "European Economic Studies": 1,
+          "Finance": 1
+        },
+        "education_tier": {
+          "top_mba": 0,
+          "top_undergrad": 4,
+          "other": 5
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 1,
+        "private_equity": 5,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 2,
+        "tech": 1,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 1,
+        "managing_director": 1,
+        "principal": 1,
+        "director": 2,
+        "vice_president": 0,
+        "associate": 2,
+        "analyst": 0,
+        "other": 2
+      },
+      "hiring": {
+        "new_hires_last_1y": 1,
+        "new_hires_last_2y": 2,
+        "avg_tenure_years": 0.8
+      },
+      "demographics": {
+        "gender_male_pct": 100.0,
+        "gender_female_pct": 0,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 10.8,
+        "avg_estimated_age": 0
+      }
+    },
+    "eqt": {
+      "fund_slug": "eqt",
+      "total_profiles": 7,
+      "education": {
+        "top_schools": {
+          "University Bocconi": 4,
+          "HEC Paris": 2,
+          "Politecnico di Milano": 2,
+          "Columbia Business School": 1,
+          "Liceo Classico e di Ricerca San Raffaele": 1,
+          "Luiss Business School": 1
+        },
+        "top_degrees": {
+          "Business Administration": 2,
+          "Master of Business Administration (MBA)": 1,
+          "Master of Science (MSc)": 1,
+          "Bachelor of Science (BSc)": 1,
+          "Diploma di Maturità Classica": 1,
+          "MSc in Management": 1,
+          "Bachelor of International Economics and Management": 1,
+          "Master of Engineering - MEng": 1,
+          "Executive Master in Real Estate Finance - EREF": 1,
+          "Post-graduate Master - Project Management": 1
+        },
+        "education_tier": {
+          "top_mba": 1,
+          "top_undergrad": 5,
+          "other": 1
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 0,
+        "private_equity": 1,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 6,
+        "tech": 0,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 1,
+        "managing_director": 2,
+        "principal": 0,
+        "director": 2,
+        "vice_president": 0,
+        "associate": 0,
+        "analyst": 0,
+        "other": 2
+      },
+      "hiring": {
+        "new_hires_last_1y": 2,
+        "new_hires_last_2y": 4,
+        "avg_tenure_years": 0.7
+      },
+      "demographics": {
+        "gender_male_pct": 80.0,
+        "gender_female_pct": 20.0,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 12.8,
+        "avg_estimated_age": 0
+      }
+    },
+    "pai-partners": {
+      "fund_slug": "pai-partners",
+      "total_profiles": 5,
+      "education": {
+        "top_schools": {},
+        "top_degrees": {},
+        "education_tier": {
+          "top_mba": 0,
+          "top_undergrad": 0,
+          "other": 5
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 0,
+        "private_equity": 5,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 0,
+        "tech": 0,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 1,
+        "managing_director": 0,
+        "principal": 0,
+        "director": 0,
+        "vice_president": 1,
+        "associate": 0,
+        "analyst": 0,
+        "other": 3
+      },
+      "hiring": {
+        "new_hires_last_1y": 0,
+        "new_hires_last_2y": 0,
+        "avg_tenure_years": 0
+      },
+      "demographics": {
+        "gender_male_pct": 50.0,
+        "gender_female_pct": 50.0,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 0,
+        "avg_estimated_age": 0
+      }
+    },
+    "bain-capital": {
+      "fund_slug": "bain-capital",
+      "total_profiles": 6,
+      "education": {
+        "top_schools": {},
+        "top_degrees": {},
+        "education_tier": {
+          "top_mba": 0,
+          "top_undergrad": 0,
+          "other": 6
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 0,
+        "private_equity": 6,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 0,
+        "tech": 0,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 1,
+        "managing_director": 1,
+        "principal": 0,
+        "director": 0,
+        "vice_president": 2,
+        "associate": 0,
+        "analyst": 0,
+        "other": 2
+      },
+      "hiring": {
+        "new_hires_last_1y": 0,
+        "new_hires_last_2y": 0,
+        "avg_tenure_years": 0
+      },
+      "demographics": {
+        "gender_male_pct": 83.3,
+        "gender_female_pct": 16.7,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 0,
+        "avg_estimated_age": 0
+      }
+    },
+    "partners-group": {
+      "fund_slug": "partners-group",
+      "total_profiles": 3,
+      "education": {
+        "top_schools": {},
+        "top_degrees": {},
+        "education_tier": {
+          "top_mba": 0,
+          "top_undergrad": 0,
+          "other": 3
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 0,
+        "private_equity": 0,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 2,
+        "tech": 1,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 0,
+        "managing_director": 1,
+        "principal": 0,
+        "director": 0,
+        "vice_president": 0,
+        "associate": 0,
+        "analyst": 0,
+        "other": 2
+      },
+      "hiring": {
+        "new_hires_last_1y": 0,
+        "new_hires_last_2y": 0,
+        "avg_tenure_years": 0
+      },
+      "demographics": {
+        "gender_male_pct": 100.0,
+        "gender_female_pct": 0,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 0,
+        "avg_estimated_age": 0
+      }
+    },
+    "h-i-g-capital": {
+      "fund_slug": "h-i-g-capital",
+      "total_profiles": 4,
+      "education": {
+        "top_schools": {},
+        "top_degrees": {},
+        "education_tier": {
+          "top_mba": 0,
+          "top_undergrad": 0,
+          "other": 4
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 0,
+        "private_equity": 2,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 2,
+        "tech": 0,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 0,
+        "managing_director": 1,
+        "principal": 2,
+        "director": 0,
+        "vice_president": 0,
+        "associate": 0,
+        "analyst": 0,
+        "other": 1
+      },
+      "hiring": {
+        "new_hires_last_1y": 0,
+        "new_hires_last_2y": 0,
+        "avg_tenure_years": 0
+      },
+      "demographics": {
+        "gender_male_pct": 100.0,
+        "gender_female_pct": 0,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 0,
+        "avg_estimated_age": 0
+      }
+    },
+    "apax-partners": {
+      "fund_slug": "apax-partners",
+      "total_profiles": 2,
+      "education": {
+        "top_schools": {},
+        "top_degrees": {},
+        "education_tier": {
+          "top_mba": 0,
+          "top_undergrad": 0,
+          "other": 2
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 0,
+        "private_equity": 0,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 2,
+        "tech": 0,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 1,
+        "managing_director": 0,
+        "principal": 0,
+        "director": 0,
+        "vice_president": 0,
+        "associate": 0,
+        "analyst": 0,
+        "other": 1
+      },
+      "hiring": {
+        "new_hires_last_1y": 0,
+        "new_hires_last_2y": 0,
+        "avg_tenure_years": 0
+      },
+      "demographics": {
+        "gender_male_pct": 100.0,
+        "gender_female_pct": 0,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 0,
+        "avg_estimated_age": 0
+      }
+    },
+    "bridgepoint": {
+      "fund_slug": "bridgepoint",
+      "total_profiles": 2,
+      "education": {
+        "top_schools": {},
+        "top_degrees": {},
+        "education_tier": {
+          "top_mba": 0,
+          "top_undergrad": 0,
+          "other": 2
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 0,
+        "private_equity": 0,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 1,
+        "tech": 1,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 0,
+        "managing_director": 1,
+        "principal": 0,
+        "director": 0,
+        "vice_president": 0,
+        "associate": 1,
+        "analyst": 0,
+        "other": 0
+      },
+      "hiring": {
+        "new_hires_last_1y": 0,
+        "new_hires_last_2y": 0,
+        "avg_tenure_years": 0
+      },
+      "demographics": {
+        "gender_male_pct": 100.0,
+        "gender_female_pct": 0,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 0,
+        "avg_estimated_age": 0
+      }
+    },
+    "macquarie": {
+      "fund_slug": "macquarie",
+      "total_profiles": 10,
+      "education": {
+        "top_schools": {
+          "University Bocconi": 7,
+          "The London School of Economics and Political Science (LSE)": 2,
+          "University degli Studi di Bergamo": 1,
+          "University degli Studi di Milano": 1,
+          "University Cattolica del Sacro Cuore": 1,
+          "BSC Education": 1,
+          "Mays Business School - Texas A&M University": 1,
+          "Luiss Guido Carli University": 1,
+          "University degli Studi di Torino": 1,
+          "UCL": 1
+        },
+        "top_degrees": {
+          "Bachelor's degree": 2,
+          "Master of Science (MSc)": 2,
+          "MSc": 1,
+          "Master of Science (M.S.)": 1,
+          "English Certificate": 1,
+          "Master of Science - MS": 1,
+          "Exchange Program ": 1,
+          "Laurea": 1,
+          "MSc in Finance ": 1,
+          "BSc in Economics and Finance": 1
+        },
+        "education_tier": {
+          "top_mba": 0,
+          "top_undergrad": 7,
+          "other": 3
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 3,
+        "private_equity": 0,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 6,
+        "tech": 1,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 0,
+        "managing_director": 1,
+        "principal": 2,
+        "director": 1,
+        "vice_president": 1,
+        "associate": 0,
+        "analyst": 2,
+        "other": 3
+      },
+      "hiring": {
+        "new_hires_last_1y": 2,
+        "new_hires_last_2y": 2,
+        "avg_tenure_years": 1.6
+      },
+      "demographics": {
+        "gender_male_pct": 90.0,
+        "gender_female_pct": 10.0,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 6.6,
+        "avg_estimated_age": 0
+      }
+    },
+    "permira": {
+      "fund_slug": "permira",
+      "total_profiles": 6,
+      "education": {
+        "top_schools": {
+          "University Bocconi": 5,
+          "MIT Sloan School of Management": 1,
+          "Stanford University Graduate School of Business": 1,
+          "City University of Hong Kong": 1,
+          "INSEAD": 1,
+          "Politecnico di Milano": 1,
+          "University Commerciale 'Luigi Bocconi' / Bocconi University": 1
+        },
+        "top_degrees": {
+          "Master of Business Administration - MBA": 2,
+          "Master's Degree": 1,
+          "MBA": 1,
+          "Laurea": 1,
+          "Master of Science (MSc)": 1,
+          "Exchange program ": 1,
+          "Master's degree": 1,
+          "Master of Science in Administration": 1,
+          "Bachelor Degree in Management and Business Administration": 1
+        },
+        "education_tier": {
+          "top_mba": 2,
+          "top_undergrad": 4,
+          "other": 0
+        }
+      },
+      "backgrounds": {
+        "investment_banking": 0,
+        "private_equity": 4,
+        "venture_capital": 0,
+        "consulting": 0,
+        "big_four": 0,
+        "corporate": 2,
+        "tech": 0,
+        "legal": 0,
+        "other": 0
+      },
+      "seniority": {
+        "partner": 1,
+        "managing_director": 0,
+        "principal": 0,
+        "director": 1,
+        "vice_president": 1,
+        "associate": 1,
+        "analyst": 0,
+        "other": 2
+      },
+      "hiring": {
+        "new_hires_last_1y": 0,
+        "new_hires_last_2y": 0,
+        "avg_tenure_years": 5.7
+      },
+      "demographics": {
+        "gender_male_pct": 66.7,
+        "gender_female_pct": 33.3,
+        "gender_unknown_pct": 0,
+        "avg_years_experience": 11.3,
+        "avg_estimated_age": 0
+      }
+    }
+  }
+}
