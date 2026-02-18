@@ -4070,5 +4070,110 @@
     "_slug": "macquarie",
     "_company": "Lazer Logistics",
     "_verified_at": "2026-02-18T14:05:22.946269+00:00"
+  },
+  "macquarie::HES International": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "HES International is a major bulk handling and logistics company headquartered in Rotterdam. It is currently a portfolio company of Macquarie Asset Management (specifically through Macquarie European Infrastructure Fund 5) and Goldman Sachs Asset Management, which have each held a 50% stake since acquiring the company from Carlyle and Riverstone in 2019. Recent reports from late 2024 and 2025 confirm this ownership structure remains in place.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "HES International",
+    "_verified_at": "2026-02-18T14:05:38.207102+00:00"
+  },
+  "macquarie::Last Mile Infrastructure": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Last Mile Infrastructure is a UK-based utility network owner headquartered in Hamilton. Macquarie Asset Management (via its European Infrastructure Fund 7) acquired a 50% stake in the company in 2024 and announced a binding agreement in February 2026 to acquire the remaining 50% from Infracapital, moving to 100% ownership.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Last Mile Infrastructure",
+    "_verified_at": "2026-02-18T14:05:54.079965+00:00"
+  },
+  "macquarie::Cero Generation": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Cero Generation was launched in February 2021 by Macquarie's Green Investment Group (GIG) and remains a portfolio company of Macquarie Asset Management (MAM). It is a specialist solar energy developer headquartered in London.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Cero Generation",
+    "_verified_at": "2026-02-18T14:06:08.314531+00:00"
+  },
+  "macquarie::Blueleaf Energy": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Blueleaf Energy is a Singapore-based pan-Asian renewable energy platform. It is a portfolio company owned by a fund managed by Macquarie Asset Management (MAM), having been developed through Macquarie's Green Investment Group (GIG). Recent reports from late 2025 confirm it remains under Macquarie's ownership and is actively expanding its operations.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Blueleaf Energy",
+    "_verified_at": "2026-02-18T14:06:22.534131+00:00"
+  },
+  "macquarie::Guzman y Gomez": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Guzman y Gomez (GYG) is a real Australian-based Mexican fast-food chain, but it is not a portfolio company of Macquarie. It was primarily backed by TDM Growth Partners and Barrenjoey Capital Partners (which bought Magellan Financial Group's stake in 2022) before listing on the ASX in June 2024 (ASX: GYG). Macquarie Group provides analyst coverage and hosts the company at its conferences, but has no record of private equity ownership.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Guzman y Gomez",
+    "_verified_at": "2026-02-18T14:06:50.199573+00:00"
+  },
+  "macquarie::Daesung Industrial Gases": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Daesung Industrial Gases (renamed DIG Airgas under Macquarie's ownership) was acquired by Macquarie from MBK Partners in 2020. In August 2025, Macquarie signed an agreement to sell the company to Air Liquide, completing the exit by late 2025.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Daesung Industrial Gases",
+    "_verified_at": "2026-02-18T14:07:02.997890+00:00"
+  },
+  "macquarie::Brussels Airport": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Macquarie (via its MEIF1 and MEIF3 funds) acquired a stake in Brussels Airport in 2004 and completed its exit in December 2019 by selling its 36% interest to a consortium of APG, QIC, and Swiss Life.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Brussels Airport",
+    "_verified_at": "2026-02-18T14:07:13.812606+00:00"
+  },
+  "macquarie::Vantage Towers": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Vantage Towers is a real company headquartered in Düsseldorf, but it is a portfolio company of Global Infrastructure Partners (GIP) and KKR, not Macquarie. The two PE firms co-control the company alongside Vodafone through a vehicle called Oak Holdings. Macquarie has provided debt financing to a different entity, Vantage Data Centers, which may be the source of the confusion.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Vantage Towers",
+    "_verified_at": "2026-02-18T14:07:33.206075+00:00"
+  },
+  "macquarie::Netcity": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Netcity Telecom is a real company operating Bucharest's underground fiber optic network. It is owned by the Romanian holding E-INFRA (through Direct One) and the French asset manager Meridiam, which acquired a 50% stake in 2021. While Macquarie is a major infrastructure investor in Romania (having acquired CEZ Group's Romanian assets in 2020), it does not own Netcity.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Netcity",
+    "_verified_at": "2026-02-18T14:07:52.254005+00:00"
+  },
+  "macquarie::Zest": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "macquarie",
+    "_company": "Zest",
+    "_verified_at": "2026-02-18T14:09:32.482652+00:00"
   }
 }

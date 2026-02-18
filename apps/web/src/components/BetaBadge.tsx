@@ -28,7 +28,7 @@ export function BetaBadge({ className }: { className?: string }) {
         lineHeight: 1,
         flexShrink: 0,
       }}>!</span>
-      <span className="beta-text">Italy Beta</span>
+      Italy Beta
     </span>
   );
 }
