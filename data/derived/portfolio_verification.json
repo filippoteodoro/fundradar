@@ -3063,5 +3063,110 @@
     "_slug": "capza",
     "_company": "Corcym",
     "_verified_at": "2026-02-18T19:10:45.195439+00:00"
+  },
+  "capza::Oodrive": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Oodrive is a Paris-based technology company specializing in secure cloud solutions. It became a portfolio company of CAPZA (formerly Capzanine) in 2019 when CAPZA acquired Time For Growth, an existing investor in Oodrive. It is currently listed as a portfolio company under CAPZA's 'Growth Tech' expertise.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Oodrive",
+    "_verified_at": "2026-02-18T19:12:17.991336+00:00"
+  },
+  "capza::Talan": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Talan is a Paris-based IT and technology consulting firm. CAPZA (formerly Capzanine) acquired a 20% minority stake in the company in 2016 and fully exited its investment in July 2020 when TowerBrook Capital Partners acquired the stake.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Talan",
+    "_verified_at": "2026-02-18T19:12:32.611773+00:00"
+  },
+  "capza::Visiativ": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Visiativ is a real technology company headquartered in Charbonnières-les-Bains, France. CAPZA was an institutional investor in the company (specifically through its Flex Equity strategy). However, Visiativ underwent a major ownership transition in 2024 when Groupe SNEF acquired a majority stake in Alliativ (Visiativ's controlling shareholder), leading to a squeeze-out and delisting. PitchBook and other financial databases now list CAPZA as a former investor, indicating an exit following the SNEF acquisition.",
+    "grounded": false,
+    "_slug": "capza",
+    "_company": "Visiativ",
+    "_verified_at": "2026-02-18T19:13:51.476162+00:00"
+  },
+  "capza::Alkan": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Alkan is a real aerospace and defense company headquartered in Valenton, France. It was a portfolio company of CAPZA (formerly Capzanine), which supported the company through its Flex Equity (private equity/mezzanine) strategy. CAPZA exited its investment in 2021 when Alkan was sold to Groupe Rafaut (owned by HLD).",
+    "grounded": false,
+    "_slug": "capza",
+    "_company": "Alkan",
+    "_verified_at": "2026-02-18T19:14:08.514108+00:00"
+  },
+  "capza::Waga Energy": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Waga Energy (headquartered in Meylan, France) was a portfolio company of CAPZA, specifically through its CAPZA 5 Flex Equity fund. The company went public on Euronext Paris in 2021 and was subsequently acquired by EQT in 2025, marking an exit for its historical private equity and mezzanine investors.",
+    "grounded": false,
+    "_slug": "capza",
+    "_company": "Waga Energy",
+    "_verified_at": "2026-02-18T19:14:39.951235+00:00"
+  },
+  "capza::Sermeta": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Sermeta is a French industrial manufacturer of stainless steel heat exchangers headquartered in Morlaix. CAPZA (formerly Capzanine) was an investor in the company, having participated in the 2015 consortium acquisition from The Carlyle Group. The company was subsequently acquired/exited in December 2021, confirming its exited status.",
+    "grounded": false,
+    "_slug": "capza",
+    "_company": "Sermeta",
+    "_verified_at": "2026-02-18T19:15:43.246570+00:00"
+  },
+  "capza::Groupe JCD": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "capza",
+    "_company": "Groupe JCD",
+    "_verified_at": "2026-02-18T19:17:23.609109+00:00"
+  },
+  "capza::Eolane": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Eolane (éolane) is a French industrial manufacturing company (EMS). CAPZA held a minority stake in the company starting in 2021. However, the company entered judicial recovery in early 2025, and in April 2025, the Swiss group Cicor acquired its French and Moroccan activities (including the headquarters in Le Fresne-sur-Loire). Legal advisors confirmed that CAPZA exited its stake as part of this transaction.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Eolane",
+    "_verified_at": "2026-02-18T19:17:48.057648+00:00"
+  },
+  "capza::Sateco": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Sateco (headquartered in Mirebeau, France) is an industrial manufacturer of formwork and safety equipment. It was a portfolio company of Capzanine (which rebranded to CAPZA in 2019). Capzanine exited its investment in June 2016 when Sateco was acquired by Naxicap Partners. Naxicap subsequently sold the company to Equistone Partners Europe in 2019.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Sateco",
+    "_verified_at": "2026-02-18T19:18:21.004843+00:00"
+  },
+  "capza::BTP Consultants": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "BTP Consultants is a French company specializing in Testing, Inspection, and Certification (TIC) for the construction sector, headquartered in Montigny-le-Bretonneux (Saint-Quentin-en-Yvelines). It is a portfolio company of CAPZA, which provided unitranche debt financing for the company's 2021 LBO led by Seven2 (formerly Apax Partners Development) and Bpifrance. It remains a current investment in CAPZA's private debt portfolio.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "BTP Consultants",
+    "_verified_at": "2026-02-18T19:18:52.832012+00:00"
   }
 }

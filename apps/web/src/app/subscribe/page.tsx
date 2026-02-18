@@ -107,7 +107,7 @@ export default async function SubscribePage() {
           Get Signals
         </h1>
         <p style={{ fontSize: '15px', color: '#666', margin: '0 0 24px 0' }}>
-          Stay ahead with weekly email digests of Italian private equity and venture capital activity.{' '}
+          Stay ahead with weekly email digests of Italian fund activity.{' '}
           <a href="/signals" style={{ color: '#0066cc', textDecoration: 'none' }}>
             Browse the live signals feed →
           </a>

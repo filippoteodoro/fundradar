@@ -4,7 +4,7 @@ import { MapView } from './MapView';
 
 export const metadata: Metadata = {
   title: 'Fund Map',
-  description: 'Interactive map of private equity and venture capital fund offices across Italy.',
+  description: 'Interactive map of investment fund offices across Italy.',
   alternates: { canonical: '/map' },
 };
 
@@ -19,7 +19,7 @@ export default async function MapPage() {
           Fund Map
         </h1>
         <p style={{ margin: 0, color: '#666' }}>
-          Geographic distribution of PE/VC funds active in Italy.
+          Geographic distribution of funds active in Italy.
         </p>
       </div>
 

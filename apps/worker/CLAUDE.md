@@ -257,7 +257,7 @@ This runs ~10 funds (at $0.20 each), with 3-minute delays between funds to avoid
 
 **If 0 profiles are returned:** Either the 10-run monthly limit is hit, or LinkedIn rate limiting (hourly reset). Check the Apify run logs — if you see "free user run limit exceeded" wait until the 1st of next month. If no such message, wait 1-2 hours and retry.
 
-**Reset on the 1st of each month.** Don't test with small budgets — every run costs 1 of your 10 monthly runs regardless of whether it succeeds.
+**Reset on the 1st of each month.** Don't test — every HarvestAPI run consumes Apify compute credits (actor startup cost) even if it returns 0 profiles. Testing burned the entire $5 free credit in Feb 2026. Wait for the monthly reset and run production directly.
 
 ## Adding a New Fund
 

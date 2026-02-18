@@ -25,7 +25,7 @@ export default function HomePage() {
     '@type': 'WebSite',
     name: 'Fundradar',
     url: getBaseUrl(),
-    description: 'Public directory of private equity and venture capital funds in Italy with source-cited signals, portfolio tracking, and deal history.',
+    description: 'Public directory of investment funds in Italy with source-cited signals, portfolio tracking, and deal history.',
   };
 
   return (

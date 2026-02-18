@@ -116,9 +116,12 @@ SENIORITY_PATTERNS = {
     SeniorityLevel.PARTNER: [
         r"\bpartner\b", r"\bmanaging partner\b", r"\bgeneral partner\b",
         r"\bsenior partner\b", r"\bfounding partner\b",
+        r"\bfounder\b", r"\bco-founder\b", r"\bceo\b", r"\bchief executive\b",
     ],
     SeniorityLevel.MANAGING_DIRECTOR: [
         r"\bmanaging director\b", r"\bmd\b", r"\bsenior managing director\b",
+        r"\bcfo\b", r"\bcoo\b", r"\bcto\b", r"\bchief \w+ officer\b",
+        r"\bhead of\b", r"\bdirettore generale\b",
     ],
     SeniorityLevel.PRINCIPAL: [
         r"\bprincipal\b", r"\bsenior principal\b",
@@ -128,12 +131,15 @@ SENIORITY_PATTERNS = {
     ],
     SeniorityLevel.VICE_PRESIDENT: [
         r"\bvice president\b", r"\bvp\b", r"\bavp\b", r"\bsenior vp\b",
+        r"\bmanager\b", r"\bsenior manager\b",
     ],
     SeniorityLevel.ASSOCIATE: [
         r"\bassociate\b", r"\bsenior associate\b", r"\binvestment associate\b",
     ],
     SeniorityLevel.ANALYST: [
         r"\banalyst\b", r"\bsenior analyst\b", r"\binvestment analyst\b",
+        r"\bintern\b", r"\bstagiaire\b", r"\btirocinio\b",
+        r"\bjunior\b",
     ],
 }
 
@@ -321,19 +327,40 @@ class ProfileClassifier:
         # If no experience data (e.g. basic/headline-only scrape), infer from headline
         if not background_counts and profile.headline:
             h = profile.headline.lower()
-            if any(kw in h for kw in ["private equity", "buyout", "lbo", "pe ", " pe,"]):
+            if any(kw in h for kw in [
+                "private equity", "buyout", "lbo", "pe ", " pe,",
+                "private assets", "investment professional", "investment manager",
+                "deal origination", "deal sourcing", "portfolio company",
+                "infrastructure fund", "growth equity",
+            ]):
                 background_counts[BackgroundType.PRIVATE_EQUITY] = 1
-            elif any(kw in h for kw in ["venture capital", "vc ", "seed", "early stage", "startup investor"]):
+            elif any(kw in h for kw in [
+                "venture capital", "vc ", "seed", "early stage", "startup investor",
+                "early-stage", "deep tech",
+            ]):
                 background_counts[BackgroundType.VENTURE_CAPITAL] = 1
-            elif any(kw in h for kw in ["investment bank", "m&a", "corporate finance", "ecm", "dcm", "capital markets"]):
+            elif any(kw in h for kw in [
+                "investment bank", "m&a", "corporate finance", "ecm", "dcm", "capital markets",
+                "leveraged finance", "debt capital",
+            ]):
                 background_counts[BackgroundType.INVESTMENT_BANKING] = 1
-            elif any(kw in h for kw in ["consultant", "consulting", "advisory", "strategy&", "mckinsey", "bain", "bcg"]):
+            elif any(kw in h for kw in [
+                "consultant", "consulting", "advisory", "strategy&", "mckinsey", "bain", "bcg",
+                "roland berger", "oliver wyman", "kearney",
+            ]):
                 background_counts[BackgroundType.CONSULTING] = 1
-            elif any(kw in h for kw in ["deloitte", "kpmg", "pwc", "ernst", "ey ", "grant thornton"]):
+            elif any(kw in h for kw in [
+                "deloitte", "kpmg", "pwc", "ernst", "ey ", "grant thornton", "accenture",
+            ]):
                 background_counts[BackgroundType.BIG_FOUR] = 1
-            elif any(kw in h for kw in ["engineer", "developer", "software", "cto", "tech", "data science"]):
+            elif any(kw in h for kw in [
+                "engineer", "developer", "software", "data science", "machine learning",
+                "artificial intelligence", "cybersecurity",
+            ]):
                 background_counts[BackgroundType.TECH] = 1
-            elif any(kw in h for kw in ["lawyer", "attorney", "legal", "counsel", "avvocato"]):
+            elif any(kw in h for kw in [
+                "lawyer", "attorney", "legal", "counsel", "avvocato", "notaio",
+            ]):
                 background_counts[BackgroundType.LEGAL] = 1
 
         # Determine primary and secondary backgrounds

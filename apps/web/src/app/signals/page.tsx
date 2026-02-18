@@ -37,7 +37,7 @@ export default async function SignalsPage() {
           Italy Signals Feed
         </h1>
         <p style={{ margin: 0, color: '#666' }}>
-          Latest publicly observed events from PE/VC funds active in Italy.
+          Latest publicly observed events from funds active in Italy.
         </p>
       </div>
 

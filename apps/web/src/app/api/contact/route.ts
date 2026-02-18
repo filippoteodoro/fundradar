@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
       }),
     });
     const recaptchaData = await recaptchaRes.json();
-    if (!recaptchaData?.success) {
+    if (!recaptchaData?.success || (recaptchaData.score ?? 1) < 0.5) {
       console.warn('reCAPTCHA failed:', recaptchaData);
       return NextResponse.json({ error: 'Anti-spam verification failed.' }, { status: 400 });
     }

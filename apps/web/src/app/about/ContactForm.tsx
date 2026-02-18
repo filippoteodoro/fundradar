@@ -1,18 +1,13 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Script from 'next/script';
 
 declare global {
   interface Window {
     grecaptcha?: {
-      render: (container: HTMLElement, params: {
-        sitekey: string;
-        callback: (token: string) => void;
-        'expired-callback'?: () => void;
-        'error-callback'?: () => void;
-      }) => number;
-      reset: (widgetId?: number) => void;
+      ready: (callback: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
     };
   }
 }
@@ -27,42 +22,19 @@ export default function ContactForm() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [mounted, setMounted] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const recaptchaRef = useRef<HTMLDivElement>(null);
-  const recaptchaWidgetId = useRef<number | null>(null);
   const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
   const recaptchaConfigured = Boolean(recaptchaSiteKey);
 
-  // Mount guard to avoid hydration mismatch
   useEffect(() => {
     setMounted(true);
     setFormStartTime(Date.now());
   }, []);
-
-  useEffect(() => {
-    if (!mounted || !recaptchaConfigured || !recaptchaRef.current) return;
-
-    const tryRender = () => {
-      if (!window.grecaptcha || recaptchaWidgetId.current !== null) return;
-      recaptchaWidgetId.current = window.grecaptcha.render(recaptchaRef.current!, {
-        sitekey: recaptchaSiteKey,
-        callback: (token: string) => setRecaptchaToken(token),
-        'expired-callback': () => setRecaptchaToken(null),
-        'error-callback': () => setRecaptchaToken(null),
-      });
-    };
-
-    const interval = setInterval(tryRender, 200);
-    tryRender();
-    return () => clearInterval(interval);
-  }, [mounted, recaptchaConfigured, recaptchaSiteKey]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setErrorMessage('');
 
-    // Client-side validation
     if (!name.trim() || !email.trim() || !message.trim()) {
       setErrorMessage('Please fill in all fields.');
       setIsSubmitting(false);
@@ -75,13 +47,6 @@ export default function ContactForm() {
       return;
     }
 
-    if (!recaptchaToken) {
-      setErrorMessage('Please complete the anti-spam check.');
-      setIsSubmitting(false);
-      return;
-    }
-
-    // Check minimum time (anti-bot: must take at least 3 seconds)
     const timeSpent = Date.now() - formStartTime;
     if (timeSpent < 3000) {
       setErrorMessage('Please take your time filling out the form.');
@@ -90,6 +55,19 @@ export default function ContactForm() {
     }
 
     try {
+      // Obtain v3 token invisibly — no user interaction required
+      const recaptchaToken = await new Promise<string>((resolve, reject) => {
+        if (!window.grecaptcha) {
+          reject(new Error('reCAPTCHA not loaded. Please refresh and try again.'));
+          return;
+        }
+        window.grecaptcha.ready(() => {
+          window.grecaptcha!.execute(recaptchaSiteKey, { action: 'contact' })
+            .then(resolve)
+            .catch(reject);
+        });
+      });
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -97,7 +75,7 @@ export default function ContactForm() {
           name: name.trim(),
           email: email.trim(),
           message: message.trim(),
-          honeypot, // Should be empty
+          honeypot,
           recaptchaToken,
           timeSpent,
         }),
@@ -113,10 +91,6 @@ export default function ContactForm() {
       setName('');
       setEmail('');
       setMessage('');
-      setRecaptchaToken(null);
-      if (window.grecaptcha && recaptchaWidgetId.current !== null) {
-        window.grecaptcha.reset(recaptchaWidgetId.current);
-      }
       setFormStartTime(Date.now());
     } catch (error) {
       setSubmitStatus('error');
@@ -126,7 +100,6 @@ export default function ContactForm() {
     }
   };
 
-  // Don't render anything until mounted to avoid hydration mismatch
   if (!mounted) {
     return (
       <div style={{ maxWidth: '500px', padding: '20px 0', color: '#666' }}>
@@ -169,7 +142,10 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} style={{ maxWidth: '500px' }}>
       {recaptchaConfigured && (
-        <Script src="https://www.google.com/recaptcha/api.js?render=explicit" strategy="afterInteractive" />
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`}
+          strategy="afterInteractive"
+        />
       )}
       {/* Honeypot field - hidden from users, bots will fill it */}
       <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true">
@@ -248,15 +224,6 @@ export default function ContactForm() {
           }}
         />
       </div>
-      {recaptchaConfigured ? (
-        <div style={{ marginBottom: '16px' }}>
-          <div ref={recaptchaRef} />
-        </div>
-      ) : (
-        <div style={{ marginBottom: '16px', color: '#c00', fontSize: '13px' }}>
-          reCAPTCHA is not configured.
-        </div>
-      )}
 
       {errorMessage && (
         <div
@@ -276,9 +243,9 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        disabled={isSubmitting || !recaptchaConfigured || !recaptchaToken}
+        disabled={isSubmitting}
         style={{
-          background: isSubmitting ? '#ccc' : '#0066cc',
+          background: isSubmitting ? '#ccc' : '#1a1a2e',
           color: 'white',
           border: 'none',
           padding: '12px 24px',
