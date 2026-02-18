@@ -4175,5 +4175,110 @@
     "_slug": "macquarie",
     "_company": "Zest",
     "_verified_at": "2026-02-18T14:09:32.482652+00:00"
+  },
+  "macquarie::Infraspeak": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Infraspeak is a real facility management software company based in Porto, Portugal. However, it is not a portfolio company of Macquarie. It is a venture-backed startup that recently raised an €18M Series B in October 2024 led by Endeit Capital, with participation from Indico Capital Partners, Bright Pixel Capital, Caixa Capital, and Innovation Nest. The confusion may stem from Macquarie Capital's ownership of PTSG (Premier Technical Services Group), a company in the same sector whose news articles have featured quotes from Infraspeak's CEO.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Infraspeak",
+    "_verified_at": "2026-02-18T14:09:55.737468+00:00"
+  },
+  "macquarie::Amprion": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Amprion GmbH is a real energy company (transmission system operator) based in Dortmund, Germany. However, it is not a portfolio company of Macquarie. It is owned by the M31 consortium (led by Commerz Real and including investors like MEAG and Swiss Life) and RWE (in partnership with Apollo). Macquarie owns or has owned other German infrastructure assets like Open Grid Europe (OGE), which may be the source of the confusion.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Amprion",
+    "_verified_at": "2026-02-18T14:10:20.223743+00:00"
+  },
+  "macquarie::Ellevio": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Ellevio is a real Swedish electricity distribution company headquartered in Stockholm. However, it is not a portfolio company of Macquarie. It is owned by a consortium consisting of OMERS Infrastructure (50%), the Third Swedish National Pension Fund (AP3) (20%), Folksam (17.5%), and AMF (12.5%). Macquarie may be confused with the company because it acquired Caruna (Finland's grid) from Fortum around the same time Fortum sold Ellevio to the OMERS-led consortium in 2015.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Ellevio",
+    "_verified_at": "2026-02-18T14:10:43.367126+00:00"
+  },
+  "macquarie::South East Water": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "South East Water (headquartered in Snodland) was acquired by Macquarie in 2003 but was sold in 2006 to HDF (UK) Holdings Limited to avoid competition issues during Macquarie's bid for Thames Water. It is currently owned by a consortium including the Utilities Trust of Australia (managed by Morrison), NatWest Pension Trustee Limited, and Desjardins. Macquarie currently holds a majority stake in Southern Water, which is a separate entity.",
+    "grounded": false,
+    "_slug": "macquarie",
+    "_company": "South East Water",
+    "_verified_at": "2026-02-18T14:11:01.636771+00:00"
+  },
+  "macquarie::Thames Water": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Thames Water was a portfolio company of Macquarie-managed infrastructure funds from 2006 until 2017. Macquarie sold its final remaining stake in March 2017 to OMERS and the Kuwait Investment Authority.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Thames Water",
+    "_verified_at": "2026-02-18T14:11:13.268166+00:00"
+  },
+  "macquarie::Anglian Water": {
+    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": false,\n  \"confidence\": \"high\",\n  \"correct_status\": null,\n  \"notes\": \"Anglian Water is a real company, but it is not a portfolio company (equity hold",
+    "_slug": "macquarie",
+    "_company": "Anglian Water",
+    "_verified_at": "2026-02-18T14:12:08.258907+00:00"
+  },
+  "macquarie::Coastal Waste & Recycling": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Coastal Waste & Recycling, headquartered in Boca Raton, was acquired by Macquarie Asset Management (MAM) in June 2023. It remains a majority-owned portfolio company of Macquarie Infrastructure Partners VI (MIP VI) as of late 2024.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Coastal Waste & Recycling",
+    "_verified_at": "2026-02-18T14:12:19.727412+00:00"
+  },
+  "macquarie::Giga Storage": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Giga Storage is a real Dutch battery storage developer headquartered in Ouderkerk aan de Amstel (Amstelveen). However, it is not a portfolio company of Macquarie. It was acquired by the infrastructure investor InfraVia Capital Partners in May 2024 from its founders and Rabo Investments. Macquarie Capital is an investor in a different Dutch battery developer called Dispatch.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Giga Storage",
+    "_verified_at": "2026-02-18T14:12:44.896995+00:00"
+  },
+  "macquarie::Storegga": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Storegga is a London-based energy company specializing in carbon capture and storage (CCS) and hydrogen. Macquarie (specifically its Commodities and Global Markets group) is a cornerstone investor that has participated in multiple funding rounds, including the most recent fourth round in January 2024.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Storegga",
+    "_verified_at": "2026-02-18T14:13:06.729779+00:00"
+  },
+  "macquarie::Logos Property": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Logos Property was a portfolio company of Macquarie (specifically Macquarie Infrastructure and Real Assets, or MIRA) starting in 2014. However, Macquarie sold its entire stake to ARA Asset Management in March 2020. Logos is now a subsidiary of the ESR Group following ESR's acquisition of ARA in 2021.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Logos Property",
+    "_verified_at": "2026-02-18T14:13:24.445682+00:00"
   }
 }

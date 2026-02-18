@@ -8,7 +8,7 @@ const linkStyle = { color: '#ccc', textDecoration: 'none', fontSize: '14px' } as
 const ctaStyle = {
   background: '#2563eb',
   color: 'white',
-  fontSize: '13px',
+  fontSize: '14px',
   fontWeight: 600,
   padding: '6px 14px',
   borderRadius: '8px',

@@ -55,7 +55,9 @@ export default function RootLayout({
             .mobile-hide { display: none !important; }
             .mobile-show { display: inline !important; }
             .header-inner { gap: 8px !important; }
-            .header-cta { font-size: 12px !important; padding: 4px 8px !important; }
+            .beta-badge { font-size: 11px !important; padding: 2px 8px 2px 5px !important; gap: 4px !important; }
+            .beta-badge > span:first-child { width: 13px !important; height: 13px !important; font-size: 9px !important; }
+            .header-cta { font-size: 13px !important; padding: 5px 10px !important; }
             @media (max-width: 380px) {
               .beta-badge { font-size: 10px !important; padding: 2px 7px 2px 4px !important; gap: 3px !important; }
               .beta-badge > span:first-child { width: 12px !important; height: 12px !important; font-size: 8px !important; }
