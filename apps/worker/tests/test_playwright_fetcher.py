@@ -7,9 +7,17 @@ making them suitable for CI environments.
 
 import gzip
 import json
+import os
+import shutil
 import pytest
 from pathlib import Path
 from unittest.mock import AsyncMock, MagicMock, patch
+
+# Skip tests that require actual browser binaries (not available in CI)
+requires_browser = pytest.mark.skipif(
+    os.environ.get("CI") == "true" or not shutil.which("chromium") and not shutil.which("google-chrome") and not Path.home().joinpath(".cache/ms-playwright").exists(),
+    reason="Playwright browsers not installed"
+)
 
 # Path to test fixtures
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
@@ -259,6 +267,7 @@ class TestPlaywrightPool:
         pool = PlaywrightPool()
         assert pool.is_available is True
 
+    @requires_browser
     @pytest.mark.asyncio
     async def test_pool_start_stop(self):
         """Pool should start and stop cleanly."""
@@ -274,6 +283,7 @@ class TestPlaywrightPool:
         await pool.stop()
         assert pool._started is False
 
+    @requires_browser
     @pytest.mark.asyncio
     async def test_pool_context_manager(self):
         """Pool should work as async context manager."""
