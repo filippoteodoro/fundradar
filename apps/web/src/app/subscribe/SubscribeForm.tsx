@@ -3,12 +3,10 @@
 import { useState } from 'react';
 
 export function SubscribeForm() {
-  const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  async function handleClick() {
     setError('');
     setLoading(true);
 
@@ -16,7 +14,7 @@ export function SubscribeForm() {
       const res = await fetch('/api/stripe/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: '{}',
       });
 
       const data = await res.json();
@@ -37,7 +35,7 @@ export function SubscribeForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
       {error && (
         <div style={{
           background: '#fee',
@@ -51,41 +49,24 @@ export function SubscribeForm() {
         </div>
       )}
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@example.com"
-          required
-          style={{
-            width: '100%',
-            padding: '10px 12px',
-            border: '1px solid #ddd',
-            borderRadius: '8px',
-            fontSize: '15px',
-            boxSizing: 'border-box',
-          }}
-        />
-        <button
-          type="submit"
-          disabled={loading}
-          style={{
-            width: '100%',
-            padding: '10px 16px',
-            background: loading ? '#ccc' : '#2563eb',
-            color: 'white',
-            border: 'none',
-            borderRadius: '8px',
-            fontSize: '15px',
-            fontWeight: 600,
-            cursor: loading ? 'not-allowed' : 'pointer',
-            boxSizing: 'border-box',
-          }}
-        >
-          {loading ? 'Redirecting...' : 'Subscribe — €9/month'}
-        </button>
-      </div>
-    </form>
+      <button
+        onClick={handleClick}
+        disabled={loading}
+        style={{
+          width: '100%',
+          padding: '14px 16px',
+          background: loading ? '#ccc' : '#2563eb',
+          color: 'white',
+          border: 'none',
+          borderRadius: '8px',
+          fontSize: '16px',
+          fontWeight: 600,
+          cursor: loading ? 'not-allowed' : 'pointer',
+          boxSizing: 'border-box',
+        }}
+      >
+        {loading ? 'Redirecting to checkout...' : 'Subscribe — €9/month'}
+      </button>
+    </div>
   );
 }

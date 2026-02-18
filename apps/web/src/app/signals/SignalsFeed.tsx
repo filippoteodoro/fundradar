@@ -355,8 +355,41 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
         </p>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          {paginatedSignals.map((signal) => (
-            <SignalCard key={signal.id} signal={signal} showFundLink />
+          {paginatedSignals.map((signal, i) => (
+            <div key={signal.id}>
+              <SignalCard signal={signal} showFundLink />
+              {i === 4 && page === 0 && (
+                <div style={{
+                  marginTop: '16px',
+                  padding: '20px 24px',
+                  background: 'linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%)',
+                  borderRadius: '12px',
+                  textAlign: 'center',
+                }}>
+                  <p style={{ color: 'white', fontSize: '15px', fontWeight: 600, margin: '0 0 4px 0' }}>
+                    Get these signals delivered weekly
+                  </p>
+                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', margin: '0 0 14px 0' }}>
+                    Deals, exits, fundraises, and key hires — straight to your inbox.
+                  </p>
+                  <a
+                    href="/subscribe"
+                    style={{
+                      display: 'inline-block',
+                      padding: '10px 28px',
+                      background: '#2563eb',
+                      color: 'white',
+                      borderRadius: '8px',
+                      fontSize: '14px',
+                      fontWeight: 600,
+                      textDecoration: 'none',
+                    }}
+                  >
+                    Subscribe — €9/month
+                  </a>
+                </div>
+              )}
+            </div>
           ))}
         </div>
       )}
