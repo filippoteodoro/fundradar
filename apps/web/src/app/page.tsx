@@ -10,7 +10,7 @@ import { getBaseUrl } from '@/lib/baseUrl';
 
 export const metadata: Metadata = {
   title: 'Fundradar',
-  description: 'Browse funds active in Italy. Filter by sector, strategy, AUM, and location.',
+  description: 'Browse funds activity in Italy for free.',
   alternates: { canonical: '/' },
 };
 
