@@ -19,9 +19,15 @@
  * - Signals within each fund ranked by signals-feed style importance.
  */
 
+import { config } from 'dotenv';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { basename, dirname, join, resolve } from 'path';
 import { fileURLToPath } from 'url';
+import Stripe from 'stripe';
+
+// Load .env from repo root
+const __dirname_local = dirname(fileURLToPath(import.meta.url));
+config({ path: join(__dirname_local, '..', '.env') });
 
 interface CliOptions {
   fromIso?: string;
@@ -31,15 +37,6 @@ interface CliOptions {
   maxPerFund: number;
   timezone: string;
   dryRun: boolean;
-}
-
-interface Subscriber {
-  email?: unknown;
-  status?: unknown;
-}
-
-interface SubscriberStore {
-  subscribers?: Subscriber[];
 }
 
 interface RawSignal {
@@ -497,19 +494,42 @@ function loadFundProfiles(projectRoot: string): Record<string, FundProfile> {
   return profiles;
 }
 
-function loadActiveRecipients(subscribersPath: string): string[] {
-  const raw = loadJsonFile<SubscriberStore>(subscribersPath);
-  const list = raw?.subscribers ?? [];
-  const unique = new Set<string>();
-
-  for (const item of list) {
-    const email = typeof item.email === 'string' ? item.email.trim().toLowerCase() : '';
-    const status = typeof item.status === 'string' ? item.status.trim().toLowerCase() : '';
-    if (!email.includes('@')) continue;
-    if (status !== 'active') continue;
-    unique.add(email);
+async function loadActiveRecipients(): Promise<string[]> {
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  if (!secretKey) {
+    console.warn('STRIPE_SECRET_KEY not set — no recipients loaded. Set it in .env to pull subscribers from Stripe.');
+    return [];
   }
 
+  const stripe = new Stripe(secretKey);
+  const unique = new Set<string>();
+  let hasMore = true;
+  let startingAfter: string | undefined;
+
+  while (hasMore) {
+    const params: Stripe.SubscriptionListParams = {
+      status: 'active',
+      limit: 100,
+      expand: ['data.customer'],
+    };
+    if (startingAfter) params.starting_after = startingAfter;
+
+    const subscriptions = await stripe.subscriptions.list(params);
+
+    for (const sub of subscriptions.data) {
+      const customer = sub.customer;
+      if (typeof customer === 'string') continue;
+      const email = customer.email;
+      if (email) unique.add(email.trim().toLowerCase());
+    }
+
+    hasMore = subscriptions.has_more;
+    if (subscriptions.data.length > 0) {
+      startingAfter = subscriptions.data[subscriptions.data.length - 1].id;
+    }
+  }
+
+  console.log(`  Loaded ${unique.size} active subscribers from Stripe`);
   return Array.from(unique).sort();
 }
 
@@ -904,7 +924,7 @@ function buildDigestText(
   return `${lines.join('\n')}\n`;
 }
 
-function main(): void {
+async function main(): Promise<void> {
   const options = parseArgs(process.argv.slice(2));
   const now = new Date();
   const windowTo = options.toIso ? parseIsoDateTime(options.toIso, '--to') : now;
@@ -923,8 +943,7 @@ function main(): void {
   mkdirSync(digestDir, { recursive: true });
 
   const fundProfiles = loadFundProfiles(projectRoot);
-  const subscribersPath = join(dataDir, 'subscribers.json');
-  const recipients = loadActiveRecipients(subscribersPath);
+  const recipients = await loadActiveRecipients();
 
   const loaded = loadSignalsFile(derivedDir);
   const candidates = normalizeCandidates(loaded.signals, windowFrom, windowTo, fundProfiles);
@@ -989,9 +1008,7 @@ function main(): void {
   console.log(`  Dry run: ${options.dryRun ? 'yes' : 'no'}`);
 }
 
-try {
-  main();
-} catch (error) {
+main().catch((error) => {
   console.error((error as Error).message);
   process.exit(1);
-}
+});

@@ -8,7 +8,7 @@ Utilities for data seeding, parsing, and audits.
 |--------|---------|
 | `seed.ts` | Seed database with initial fund data |
 | `parse-aifi.ts` | Parse AIFI fund directory data |
-| `build-weekly-digest.ts` | Build plain-text weekly digest + recipients CSV + sent-log dedupe |
+| `build-weekly-digest.ts` | Build plain-text weekly digest + recipients CSV + sent-log dedupe (pulls subscribers from Stripe) |
 | `audit-fund-pages.py` | Fund page credibility audit |
 | `audit-pem-status.py` | PEM status verification queue |
 | `aifi-refresh-queue.py` | AIFI missing-fields queue |

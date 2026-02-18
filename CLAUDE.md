@@ -166,6 +166,26 @@ Content hashing skips unchanged pages — use `--force-extract` after updating e
 ### No user accounts
 There are no login, signup, or watchlist features on production. All data is freely accessible. Users subscribe to email signal digests via `/subscribe` (Stripe payments). The auth/watchlist code exists but is disabled on Vercel.
 
+### Subscriptions & Digest Workflow
+
+**Current state (manual):**
+1. Users subscribe via `/subscribe` → Stripe Checkout (supports Apple Pay / Google Pay)
+2. Stripe is the sole source of truth for subscribers — no local `subscribers.json` on Vercel
+3. To build a digest: `pnpm -F scripts digest:build --dry-run` (pulls active subscribers from Stripe API via `STRIPE_SECRET_KEY`)
+4. Review `data/derived/digest/latest_digest.txt` and `latest_recipients.csv`
+5. Send manually (no automated sending yet)
+
+**Future state:**
+- Resend integration for automated email delivery (requires custom domain for sender address)
+- Vercel Cron Job or GitHub Action to trigger weekly digest build + send
+- Unsubscribe link in digest emails pointing to Stripe customer portal
+
+**Key files:**
+- `scripts/build-weekly-digest.ts` — builds digest content, pulls recipients from Stripe
+- `apps/web/src/app/api/stripe/checkout/route.ts` — creates Stripe Checkout sessions
+- `apps/web/src/app/api/stripe/webhook/route.ts` — handles subscription lifecycle events
+- `apps/web/src/lib/subscribers.ts` — local subscriber store (unused on Vercel, kept for local dev)
+
 ## Common Pitfalls
 
 Items covered in detail by sub-project CLAUDE.md files are marked with → reference. Unique root-level pitfalls:
