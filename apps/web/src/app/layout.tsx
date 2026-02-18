@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     default: 'Fundradar',
     template: '%s | Fundradar',
   },
-  description: 'Browse fund activity in Italy using publicly available data. Deals, exits, fundraises, and key hires — all source-cited.',
+  description: 'Free Italian funds directory built using publicly available data.',
   openGraph: {
     type: 'website',
     siteName: 'Fundradar',

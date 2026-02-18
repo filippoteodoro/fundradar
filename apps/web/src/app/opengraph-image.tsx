@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'Fundradar — Italian PE & VC Fund Directory';
+export const alt = 'Fundradar';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -30,23 +30,13 @@ export default async function Image() {
       >
         <div
           style={{
-            fontSize: 82,
+            fontSize: 96,
             fontWeight: 700,
             color: '#ffffff',
             letterSpacing: '-1px',
           }}
         >
           Fundradar
-        </div>
-        <div
-          style={{
-            fontSize: 28,
-            fontWeight: 400,
-            color: 'rgba(255, 255, 255, 0.6)',
-            marginTop: 16,
-          }}
-        >
-          Browse fund activity in Italy using publicly available data
         </div>
       </div>
     ),
