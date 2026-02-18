@@ -2658,5 +2658,410 @@
     "_slug": "eurazeo",
     "_company": "Charlotte Tilbury",
     "_verified_at": "2026-02-18T18:44:56.967085+00:00"
+  },
+  "eurazeo::Banijay Group": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Banijay Group (now part of FL Entertainment) was a portfolio company of Idinvest Partners, which was acquired by Eurazeo in 2018. The company is headquartered in Paris and operates in the Media & Entertainment sector. It went public on Euronext Amsterdam in 2022 via a merger with the SPAC Pegasus Entrepreneurs, which constitutes an exit for its private equity backers.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "Banijay Group",
+    "_verified_at": "2026-02-18T18:46:01.331241+00:00"
+  },
+  "eurazeo::Picard": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Picard Surgelés is a major French frozen food retailer headquartered in Fontainebleau. Eurazeo was an investor in the company, having committed €50 million (notably through its Eurazeo Private Value fund) to support its growth alongside majority owners like Lion Capital. In January 2025, Invest Group Zouari (IGZ) completed the acquisition of 100% of Picard's capital, resulting in a full exit for previous shareholders, including Lion Capital and Eurazeo.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "Picard",
+    "_verified_at": "2026-02-18T18:46:58.422363+00:00"
+  },
+  "eurazeo::B&B Hotels": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "B&B Hotels (headquartered in Brest, France) was a portfolio company of Eurazeo from 2005 until 2010, when it was sold to The Carlyle Group. It is currently owned by Goldman Sachs.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "B&B Hotels",
+    "_verified_at": "2026-02-18T18:47:12.144093+00:00"
+  },
+  "eurazeo::Qonto": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Qonto is a Paris-based fintech company providing banking services to SMEs. Eurazeo participated in Qonto's €486 million Series D funding round in January 2022 and continues to list the company as a major holding in its growth portfolio as of early 2026.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "Qonto",
+    "_verified_at": "2026-02-18T18:47:25.048288+00:00"
+  },
+  "eurazeo::Alan": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Alan is a Paris-based digital health insurance company founded in 2016. It is a portfolio company of Eurazeo, primarily through Eurazeo's acquisition of Idinvest Partners in 2018, which was an early investor in Alan. Industry databases and Eurazeo's own reporting confirm its status as a current portfolio company, and it recently raised a Series F funding round in September 2024.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "Alan",
+    "_verified_at": "2026-02-18T18:48:14.199987+00:00"
+  },
+  "eurazeo::Younited Credit": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Younited Credit (Younited S.A.) is a French fintech company headquartered in Paris. Eurazeo is a major shareholder and has supported the company through multiple funding rounds. In late 2024, Younited went public via a business combination with Iris Financial S.A. (renamed Younited Financial S.A., ticker: YOUNI), and Eurazeo continues to hold a significant stake in the listed entity as of early 2026.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "Younited Credit",
+    "_verified_at": "2026-02-18T18:48:37.649395+00:00"
+  },
+  "eurazeo::Latécoère": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurazeo",
+    "_company": "Latécoère",
+    "_verified_at": "2026-02-18T18:50:16.977864+00:00"
+  },
+  "eurazeo::AlixPartners": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurazeo",
+    "_company": "AlixPartners",
+    "_verified_at": "2026-02-18T18:51:57.036765+00:00"
+  },
+  "eurazeo::Descartes Underwriting": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Descartes Underwriting is a Paris-based insurtech firm specializing in parametric insurance. Eurazeo co-led its $120 million Series B funding round in January 2022 and currently lists the company as an active portfolio company on its official website.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "Descartes Underwriting",
+    "_verified_at": "2026-02-18T18:52:08.428109+00:00"
+  },
+  "eurazeo::Mooncard": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Mooncard (Moongroup SAS) is a real French fintech company headquartered in Paris. However, it is not a portfolio company of Eurazeo. Its funding rounds (Series A, B, and C) were led or participated in by investors such as RAISE Ventures, Partech, Blackfin Capital Partners, Aglaé Ventures, Orange Ventures, and Portage. Eurazeo has a partnership with a similarly named company, Moonfare, and has invested in competitors like PayFit, which may cause confusion.",
+    "grounded": false,
+    "_slug": "eurazeo",
+    "_company": "Mooncard",
+    "_verified_at": "2026-02-18T18:52:42.905159+00:00"
+  },
+  "eurazeo::Ledger": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Ledger is a real company headquartered in Paris, France, specializing in hardware wallets and crypto security. It is a portfolio company of Eurazeo, having received investment from Idinvest Partners (which was acquired by Eurazeo and rebranded as Eurazeo Growth) during its Series B and Series C funding rounds. As of early 2026, Ledger remains a private company and is still listed as a portfolio asset in Eurazeo's growth strategy.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "Ledger",
+    "_verified_at": "2026-02-18T18:54:21.516260+00:00"
+  },
+  "eurazeo::Dataiku": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Dataiku is a real technology company headquartered in New York. Eurazeo invested in Dataiku during its Series E funding round in 2021 and continues to list the company as an active 'In portfolio' investment on its official website as of early 2026.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "Dataiku",
+    "_verified_at": "2026-02-18T18:54:34.418460+00:00"
+  },
+  "eurazeo::360Learning": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "360Learning is a real EdTech company headquartered in Paris. It became a portfolio company of Eurazeo following Eurazeo's acquisition and merger with Idinvest Partners, which was an early investor in the company (e.g., Series A in 2015). As of early 2026, 360Learning remains a private company with no recorded exit by Eurazeo.",
+    "grounded": false,
+    "_slug": "eurazeo",
+    "_company": "360Learning",
+    "_verified_at": "2026-02-18T18:54:59.556503+00:00"
+  },
+  "eurazeo::OpenClassrooms": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "OpenClassrooms is a Paris-based online education platform. It became a portfolio company of Eurazeo following Eurazeo's acquisition of Idinvest Partners (now part of Eurazeo Growth), which led OpenClassrooms' $60 million Series B round in 2018. It is still listed as a portfolio company in recent investor reports and Eurazeo's own publications.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "OpenClassrooms",
+    "_verified_at": "2026-02-18T18:55:20.185745+00:00"
+  },
+  "eurazeo::Meero": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Meero is a Paris-based technology company specializing in AI-driven photography. Eurazeo (via Eurazeo Growth) acquired a minority stake in Meero in June 2019 during its $230 million Series C round. As of Eurazeo's 2024 Universal Registration Document (filed in March 2025) and recent 2026 database records, Meero remains an active portfolio company.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "Meero",
+    "_verified_at": "2026-02-18T18:55:38.829086+00:00"
+  },
+  "eurazeo::GitGuardian": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "GitGuardian is a Paris-based cybersecurity firm. Eurazeo led its $44M Series B round in December 2021 and participated as an existing investor in its $50M Series C round in February 2026, confirming its status as a current portfolio company.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "GitGuardian",
+    "_verified_at": "2026-02-18T18:55:51.477425+00:00"
+  },
+  "eurazeo::Vade": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurazeo",
+    "_company": "Vade",
+    "_verified_at": "2026-02-18T18:57:31.887072+00:00"
+  },
+  "eurazeo::Mistral AI": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Mistral AI is a Paris-based technology company. Eurazeo is confirmed as an investor, having participated in Mistral AI's $640 million (€600 million) Series B funding round in June 2024.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "Mistral AI",
+    "_verified_at": "2026-02-18T18:57:43.556958+00:00"
+  },
+  "eurazeo::Sorare": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Sorare is a Paris-based fantasy sports and NFT platform. Eurazeo participated in its $680 million Series B funding round in September 2021 and continues to list it as a portfolio company in recent 2025 and 2026 reports.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "Sorare",
+    "_verified_at": "2026-02-18T18:57:58.403191+00:00"
+  },
+  "eurazeo::Grab": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Grab is a Singapore-based super-app. Eurazeo invested in Grab in 2019 (via its Smart City fund) and officially recorded it as an exit following Grab's de-SPAC merger and public listing on the NASDAQ in December 2021.",
+    "grounded": false,
+    "_slug": "eurazeo",
+    "_company": "Grab",
+    "_verified_at": "2026-02-18T18:58:22.877174+00:00"
+  },
+  "eurazeo::Iberchem": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Iberchem is a fragrance and flavor manufacturer headquartered in Murcia, Spain. Eurazeo acquired a majority stake in the company in July 2017 and successfully exited the investment in November 2020 by selling it to the UK-based specialty chemicals group Croda International for €820 million.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "Iberchem",
+    "_verified_at": "2026-02-18T18:58:35.678352+00:00"
+  },
+  "eurazeo::Premium Group": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Eurazeo (via Eurazeo PME) acquired a majority stake in Groupe Premium in 2021. In July 2023, Blackstone invested €400m for a minority stake, but Eurazeo retained controlling interest and remains the lead investor.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "Premium Group",
+    "_verified_at": "2026-02-18T18:58:47.836467+00:00"
+  },
+  "eurazeo::Colisée": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Colisée is a French healthcare group specializing in nursing homes. Eurazeo (via its subsidiary Eurazeo PME) acquired the company in 2014 and successfully exited the investment in 2017 by selling it to IK Investment Partners.",
+    "grounded": true,
+    "_slug": "eurazeo",
+    "_company": "Colisée",
+    "_verified_at": "2026-02-18T18:58:59.563548+00:00"
+  },
+  "capza::Questel": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Questel is a Paris-based IP software and services company. CAPZA (formerly Capzanine) was an equity shareholder from 2014 until 2018, when it sold its stake to IK Partners. While CAPZA has since provided debt financing (unitranche) for Questel, its status as an equity portfolio company is considered 'exited'.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Questel",
+    "_verified_at": "2026-02-18T18:59:12.952132+00:00"
+  },
+  "capza::Ivnosys": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Ivnosys is a Spanish e-identity company headquartered in Valencia. CAPZA (formerly Capzanine) acquired a minority stake in January 2019 and exited in 2021 when it sold its stake to PSG, which merged Ivnosys with Signaturit.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Ivnosys",
+    "_verified_at": "2026-02-18T18:59:26.059083+00:00"
+  },
+  "capza::Horizon Software": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Horizon Software was acquired by CAPZA in 2018 and was a portfolio company until May 2022, when CAPZA sold its majority stake to Sagard NewGen.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Horizon Software",
+    "_verified_at": "2026-02-18T18:59:39.679357+00:00"
+  },
+  "capza::Nutripure": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Nutripure is a real company based near Toulouse, but it is not a portfolio company of CAPZA. It was previously held by Ardian and Bpifrance and was acquired by PAI Partners in July 2024. CAPZA is invested in a similar French food supplement company called Nutravalia.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Nutripure",
+    "_verified_at": "2026-02-18T18:59:55.039157+00:00"
+  },
+  "capza::Recommerce": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Recommerce is a real company based in Gentilly, France, specializing in refurbished electronics. CAPZA (formerly Capzanine) invested in the company's Series C round in 2018 but officially exited in February 2022 when Recommerce was acquired by United.b (Boulanger Group) and other partners.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Recommerce",
+    "_verified_at": "2026-02-18T19:00:09.989535+00:00"
+  },
+  "capza::Winback": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Winback was a portfolio company of CAPZA (Flex Equity) from 2021 until December 2025, when CAPZA sold its stake to Charterhouse Capital Partners. While it was previously headquartered in Villeneuve-Loubet, the official headquarters moved to Biarritz in 2021.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Winback",
+    "_verified_at": "2026-02-18T19:00:30.470039+00:00"
+  },
+  "capza::Epsa": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "EPSA (EPSA Group) is a Paris-based management consulting firm. CAPZA Expansion acquired a minority stake in the company in January 2022 alongside TowerBrook and RAISE Investissement. As of early 2026, it remains a current portfolio company, with CAPZA having provided additional follow-on funding as recently as July 2023.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Epsa",
+    "_verified_at": "2026-02-18T19:00:48.287870+00:00"
+  },
+  "capza::Apside": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Apside is a real IT services company based in Boulogne-Billancourt. While it was previously a portfolio company of CAPZA (formerly Capzanine), CAPZA exited its stake in late 2019 during a secondary LBO led by the company's founder. Apside was subsequently acquired by the Canadian group CGI in 2025 from its then-shareholders, Siparex and Crédit Agricole.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Apside",
+    "_verified_at": "2026-02-18T19:01:12.864414+00:00"
+  },
+  "capza::NeoXam": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "capza",
+    "_company": "NeoXam",
+    "_verified_at": "2026-02-18T19:02:52.617124+00:00"
+  },
+  "capza::Ynov": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Ynov is a French digital education group headquartered in Bordeaux (Mérignac). CAPZA acquired a minority stake (approx. 40%) and mezzanine debt in January 2021 through its CAPZA 5 Flex Equity fund. As of late 2025, it remains in CAPZA's portfolio, with reports of follow-on investment activity.",
+    "grounded": false,
+    "_slug": "capza",
+    "_company": "Ynov",
+    "_verified_at": "2026-02-18T19:03:11.343861+00:00"
+  },
+  "capza::I-Tracing": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "capza",
+    "_company": "I-Tracing",
+    "_verified_at": "2026-02-18T19:04:51.016176+00:00"
+  },
+  "capza::Sogelink": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Sogelink is a construction technology software company headquartered in Lyon (Caluire-et-Cuire), France. CAPZA (formerly Capzanine) was a majority investor in Geodesial, which merged with Sogelink in 2021. CAPZA exited its investment in Geodesial in September 2019 when it was sold to Keensight Capital. Sogelink is now majority-owned by CVC Capital Partners and Keensight Capital.",
+    "grounded": false,
+    "_slug": "capza",
+    "_company": "Sogelink",
+    "_verified_at": "2026-02-18T19:05:23.993595+00:00"
+  },
+  "capza::Datawords": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Datawords is a digital technology company headquartered in Levallois-Perret, France. CAPZA (formerly Capzanine) has a long-standing relationship with the company: it was a majority shareholder from 2011 to 2015 and reinvested in February 2020 by providing unitranche financing to support a capital reorganization led by Keensight Capital. It is currently listed in CAPZA's private debt portfolio.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Datawords",
+    "_verified_at": "2026-02-18T19:05:44.537383+00:00"
+  },
+  "capza::SGH Medical Pharma": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "capza",
+    "_company": "SGH Medical Pharma",
+    "_verified_at": "2026-02-18T19:07:24.668785+00:00"
+  },
+  "capza::Cisbio": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "capza",
+    "_company": "Cisbio",
+    "_verified_at": "2026-02-18T19:09:04.700003+00:00"
+  },
+  "capza::Santé Cie": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Santé Cie is a major French home healthcare provider headquartered in Versailles (legal seat at 6 rue de la Porte de Buc). CAPZA (formerly Capzanine) was an investor in AMS, which merged with IP Santé in 2015 to form Elivie (the core of Santé Cie). CAPZA exited its investment during this 2015 merger/reorganization. The group was later acquired by Ardian in 2020.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Santé Cie",
+    "_verified_at": "2026-02-18T19:09:38.630736+00:00"
+  },
+  "capza::Corcym": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Corcym is a real healthcare company headquartered in Milan, Italy, specializing in heart valves. However, it is a portfolio company of Gyrus Capital (a Swiss private equity firm), which acquired the business as a carve-out from LivaNova in 2021. There is no evidence that CAPZA is an investor; other known investors include Headway Capital Partners and Medeor Associates, with debt financing provided by Hayfin Capital Management.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Corcym",
+    "_verified_at": "2026-02-18T19:10:45.195439+00:00"
   }
 }

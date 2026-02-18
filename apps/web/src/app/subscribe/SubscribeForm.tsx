@@ -53,8 +53,9 @@ export function SubscribeForm() {
         onClick={handleClick}
         disabled={loading}
         style={{
-          width: '100%',
-          padding: '14px 16px',
+          display: 'block',
+          margin: '0 auto',
+          padding: '12px 40px',
           background: loading ? '#ccc' : '#2563eb',
           color: 'white',
           border: 'none',
@@ -62,7 +63,6 @@ export function SubscribeForm() {
           fontSize: '16px',
           fontWeight: 600,
           cursor: loading ? 'not-allowed' : 'pointer',
-          boxSizing: 'border-box',
         }}
       >
         {loading ? 'Redirecting to checkout...' : 'Subscribe'}

@@ -455,7 +455,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
         <div style={{ fontSize: '13px', color: '#999', margin: '8px 0 -4px', paddingLeft: '2px' }}>
           {matchSummary.total} {matchSummary.total === 1 ? 'fund' : 'funds'} matched
           {matchSummary.counts.name ? ` · ${matchSummary.counts.name} by name` : ''}
-          {matchSummary.counts.portfolio ? ` · ${matchSummary.counts.portfolio} by portfolio company` : ''}
+          {matchSummary.counts.portfolio ? ` · ${matchSummary.counts.portfolio} by assets` : ''}
           {matchSummary.counts.sector ? ` · ${matchSummary.counts.sector} by sector` : ''}
           {matchSummary.counts.location ? ` · ${matchSummary.counts.location} by location` : ''}
           {matchSummary.counts.category ? ` · ${matchSummary.counts.category} by category` : ''}
@@ -569,7 +569,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
                     const r = matchReasons.get(fund.slug);
                     if (!r || r.reason === 'name') return null;
                     let label = '';
-                    if (r.reason === 'portfolio' && r.detail) label = `via portfolio: ${toTitleCase(r.detail)}`;
+                    if (r.reason === 'portfolio' && r.detail) label = `via assets: ${toTitleCase(r.detail)}`;
                     else if (r.reason === 'sector' && r.detail) label = `via sector: ${r.detail}`;
                     else if (r.reason === 'category' && r.detail) label = `via category: ${r.detail}`;
                     else if (r.reason === 'location') label = 'via location';
