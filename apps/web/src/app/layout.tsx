@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     default: 'Fundradar',
     template: '%s | Fundradar',
   },
-  description: 'Public directory of private equity and venture capital funds in Italy with source-cited signals, portfolio tracking, and deal history.',
+  description: 'Public directory of funds in Italy with source-cited signals, portfolio tracking, and deal history.',
   openGraph: {
     type: 'website',
     siteName: 'Fundradar',

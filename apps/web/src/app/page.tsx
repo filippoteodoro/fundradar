@@ -11,7 +11,7 @@ import { getBaseUrl } from '@/lib/baseUrl';
 
 export const metadata: Metadata = {
   title: 'Fundradar',
-  description: 'Browse 169+ private equity and venture capital funds active in Italy. Filter by sector, strategy, AUM, and location.',
+  description: 'Browse funds active in Italy. Filter by sector, strategy, AUM, and location.',
   alternates: { canonical: '/' },
 };
 
@@ -39,7 +39,7 @@ export default function HomePage() {
       <div style={{ marginBottom: '24px' }}>
         <h1 style={{ margin: '0 0 8px 0', fontSize: '24px' }}>Funds in Italy</h1>
         <p style={{ margin: 0, color: '#666' }}>
-          Tracking PE & VC activity in Italy using publicly available data. Not a complete database.
+          Tracking funds activity in Italy using publicly available data. Not a complete database.
         </p>
       </div>
 

@@ -4280,5 +4280,210 @@
     "_slug": "macquarie",
     "_company": "Logos Property",
     "_verified_at": "2026-02-18T14:13:24.445682+00:00"
+  },
+  "macquarie::TanQuid": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "TanQuid, headquartered in Duisburg, was a Macquarie portfolio company for 20 years (since 2005). Macquarie announced its sale to Sunoco LP in May 2025, and the transaction was completed in January 2026.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "TanQuid",
+    "_verified_at": "2026-02-18T14:13:38.474186+00:00"
+  },
+  "macquarie::Odfjell Terminals": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Odfjell Terminals is a real company headquartered in Bergen, Norway, but it is not a portfolio company of Macquarie. It is a joint venture between Odfjell SE (51%) and Northleaf Capital Partners (49%), the latter having acquired its stake from Lindsay Goldberg in 2019. While Macquarie Infrastructure and Real Assets (MIRA) did acquire a 50% stake in a specific asset, the Oiltanking Odfjell Terminal Singapore, from Odfjell Terminals in 2017, it does not own the Odfjell Terminals entity itself.",
+    "grounded": false,
+    "_slug": "macquarie",
+    "_company": "Odfjell Terminals",
+    "_verified_at": "2026-02-18T14:14:32.934013+00:00"
+  },
+  "macquarie::Ardent Leisure": {
+    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"exited\",\n  \"notes\": \"Ardent Leisure was originally known as the Macquarie Leisure Trust (founded ",
+    "_slug": "macquarie",
+    "_company": "Ardent Leisure",
+    "_verified_at": "2026-02-18T14:14:54.492782+00:00"
+  },
+  "macquarie::Viesgo": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Viesgo is a Spanish energy company that Macquarie (MIRA) acquired in 2015. In 2020, Macquarie sold a 75.1% majority stake to the Portuguese utility EDP. However, Macquarie retained a 24.9% stake through its Macquarie Super Core Infrastructure Fund, which it continues to hold as of 2024, making its status 'current' rather than fully 'exited'.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Viesgo",
+    "_verified_at": "2026-02-18T14:15:25.996853+00:00"
+  },
+  "macquarie::Pisto": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Pisto SAS (often referred to as the Pisto Group or CIM-CCMP) is a real French oil storage and logistics company headquartered in Paris. Macquarie Infrastructure and Real Assets (MIRA) first invested in the company in 2008. After various stake adjustments with Antin Infrastructure Partners, Macquarie became the sole owner in 2016 before progressively selling its entire stake to Predica (Crédit Agricole), CNP Assurances, and Swiss Life Asset Managers between 2017 and 2018.",
+    "grounded": false,
+    "_slug": "macquarie",
+    "_company": "Pisto",
+    "_verified_at": "2026-02-18T14:15:48.818021+00:00"
+  },
+  "macquarie::Central Rivers Power": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Central Rivers Power is a real hydroelectric power company headquartered in Bethesda, MD. However, it is not a portfolio company of Macquarie. It was established and owned by Hull Street Energy until it was sold to LS Power in a transaction that closed in early 2023. It remains a current operating platform under LS Power's ownership.",
+    "grounded": false,
+    "_slug": "macquarie",
+    "_company": "Central Rivers Power",
+    "_verified_at": "2026-02-18T14:16:22.599343+00:00"
+  },
+  "macquarie::PEXA": {
+    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"exited\",\n  \"notes\": \"PEXA (Property Exchange Australia) is a real company headquartered in Melbou",
+    "_slug": "macquarie",
+    "_company": "PEXA",
+    "_verified_at": "2026-02-18T14:16:45.358761+00:00"
+  },
+  "macquarie::Nuix": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Nuix is a real technology company headquartered in Sydney, Australia. Macquarie Group (via Macquarie Capital) was its primary backer, investing in 2011 and holding a majority stake (~70%) until the company's IPO on the ASX in December 2020. The IPO is considered an 'exit' from Macquarie's private equity portfolio, as they sold a significant portion of their shares (approx. $565 million worth), although they still retain a substantial minority stake of roughly 30% as of 2024.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Nuix",
+    "_verified_at": "2026-02-18T14:17:09.423110+00:00"
+  },
+  "macquarie::Envest": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Envest is a Brisbane-based insurance group. Macquarie Capital Principal Finance first invested in 2020. While Macquarie 'exited' its initial position when Ardonagh Group acquired Envest in February 2023, Macquarie re-invested in November 2023 to acquire a 15% minority stake, making it a current portfolio company.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Envest",
+    "_verified_at": "2026-02-18T14:17:29.155575+00:00"
+  },
+  "macquarie::Honan Insurance Group": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Honan Insurance Group is a real company headquartered in Melbourne, but it was a portfolio company of TA Associates, not Macquarie. TA Associates acquired an 80% stake in 2020 and sold the company to Marsh (Marsh McLennan) in December 2023.",
+    "grounded": false,
+    "_slug": "macquarie",
+    "_company": "Honan Insurance Group",
+    "_verified_at": "2026-02-18T14:17:54.651777+00:00"
+  },
+  "macquarie::Premier Technical Services Group": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Premier Technical Services Group (PTSG) is headquartered in Castleford, UK. It was acquired by Macquarie Capital in a take-private transaction in 2019. In May 2021, Warburg Pincus joined as a majority investor, with Macquarie Capital reinvesting to maintain a significant joint stake. The company remains in their portfolio as of 2025.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Premier Technical Services Group",
+    "_verified_at": "2026-02-18T14:18:09.020610+00:00"
+  },
+  "macquarie::Airwallex": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "macquarie",
+    "_company": "Airwallex",
+    "_verified_at": "2026-02-18T14:19:48.889426+00:00"
+  },
+  "macquarie::Vyaire Medical": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Vyaire Medical was a portfolio company of Apax Partners, not Macquarie. Macquarie Capital Funding LLC served as the administrative agent and lender for the company's debt, and its Australian subsidiary is located in Macquarie Park, NSW, which may cause confusion. Vyaire filed for Chapter 11 bankruptcy in June 2024 and subsequently sold its business units to SunMed (2023), ZOLL (2024), and Trudell Medical (2024).",
+    "grounded": false,
+    "_slug": "macquarie",
+    "_company": "Vyaire Medical",
+    "_verified_at": "2026-02-18T14:20:22.118996+00:00"
+  },
+  "macquarie::One Rail Australia": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "One Rail Australia (formerly Genesee & Wyoming Australia) was owned by Macquarie Asset Management and PGGM. The company was sold to the rail operator Aurizon in July 2022 for A$2.35 billion, confirming its exited status.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "One Rail Australia",
+    "_verified_at": "2026-02-18T14:20:37.577558+00:00"
+  },
+  "macquarie::Macquarie AirFinance": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Macquarie AirFinance is a Dublin-based aircraft lessor. It is 50% owned and managed by Macquarie Asset Management (MAM), with the remaining 50% split between PGGM and Australian Retirement Trust. As of February 2026, Macquarie is reportedly exploring a sale of its stake, but the investment remains a current holding.",
+    "grounded": true,
+    "_slug": "macquarie",
+    "_company": "Macquarie AirFinance",
+    "_verified_at": "2026-02-18T14:21:04.505945+00:00"
+  },
+  "partners-group::Breitling": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Breitling is a Swiss luxury watchmaker headquartered in Grenchen. Partners Group initially acquired a minority stake in 2021 and became the majority shareholder in December 2022, taking over from CVC Capital Partners. As of early 2025, it remains a current portfolio company with a potential IPO planned for 2027.",
+    "grounded": true,
+    "_slug": "partners-group",
+    "_company": "Breitling",
+    "_verified_at": "2026-02-18T14:21:19.151512+00:00"
+  },
+  "partners-group::KinderCare Learning Companies": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "KinderCare Learning Companies (formerly Knowledge Universe Education) is headquartered in Lake Oswego, Oregon, and operates in the education sector. Partners Group acquired the company in 2015. Although KinderCare went public (IPO) on the NYSE (ticker: KLC) in October 2024, Partners Group retained a majority stake of approximately 71% and continues to list it as a portfolio company as of early 2026.",
+    "grounded": true,
+    "_slug": "partners-group",
+    "_company": "KinderCare Learning Companies",
+    "_verified_at": "2026-02-18T14:21:36.558428+00:00"
+  },
+  "partners-group::International Schools Partnership": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "International Schools Partnership (ISP) was founded by Partners Group in 2013. As of early 2026, Partners Group remains the majority shareholder. In late 2025, it announced the sale of a 20% minority stake to CVC Strategic Opportunities, a transaction expected to close in Q1 2026, while retaining its majority position alongside existing minority investor OMERS.",
+    "grounded": true,
+    "_slug": "partners-group",
+    "_company": "International Schools Partnership",
+    "_verified_at": "2026-02-18T14:21:52.122093+00:00"
+  },
+  "partners-group::Techem": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Techem is a real company headquartered in Eschborn, Germany, specializing in energy and water submetering. It was originally acquired by a consortium led by Partners Group's Private Equity business in 2018. In July 2025, a new transaction was announced where Partners Group's Infrastructure business took a controlling stake in the company (valuing it at €6.7 billion), while the original private equity consortium exited its majority position. As of February 2026, Techem remains a portfolio company of Partners Group.",
+    "grounded": true,
+    "_slug": "partners-group",
+    "_company": "Techem",
+    "_verified_at": "2026-02-18T14:22:11.990095+00:00"
+  },
+  "partners-group::Foncia": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Partners Group acquired a majority stake in Foncia in 2016. In October 2021, it sold a 25% stake to TA Associates but retained majority control. The holding company was renamed Emeria in 2022, and it remains a current portfolio company of Partners Group as of late 2024.",
+    "grounded": true,
+    "_slug": "partners-group",
+    "_company": "Foncia",
+    "_verified_at": "2026-02-18T14:22:36.563044+00:00"
   }
 }
