@@ -34,6 +34,17 @@ MEGA_FUNDS_TO_SKIP = {
     "ares-management",  # 3k+ global, multi_strategy, LA HQ
     "macquarie",  # 20k+ global, infra, London HQ
     "towerbrook",  # 500+ global, PE, NY HQ
+    "ardian",  # 4k+ global, Paris HQ — Italy team is tiny fraction, manual profiles preferred
+    "carlyle",  # 2k+ global, Washington HQ — already have manual profiles
+    "eqt",  # 2k+ global, Stockholm HQ — already have manual profiles
+    "permira",  # 500+ global, London HQ — already have manual profiles
+    "advent-international",  # 500+ global, Boston HQ — already have manual profiles
+    "bain-capital",  # 10k+ global, Boston HQ — already have manual profiles
+    "partners-group",  # 1.5k+ global, Zug HQ — already have manual profiles
+    "h-i-g-capital",  # 1k+ global, Miami HQ — already have manual profiles
+    "apax-partners",  # 500+ global, London HQ — already have manual profiles
+    "bridgepoint",  # 500+ global, London HQ — already have manual profiles
+    "pai-partners",  # 500+ global, Paris HQ — already have manual profiles
 }
 
 
