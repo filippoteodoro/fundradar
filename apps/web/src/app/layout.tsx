@@ -54,6 +54,28 @@ export default function RootLayout({
             }
             .mobile-hide { display: none !important; }
             .mobile-show { display: inline !important; }
+            .header-inner { gap: 8px !important; }
+            .beta-badge {
+              font-size: 9px !important;
+              padding: 2px 5px 2px 3px !important;
+              gap: 2px !important;
+              align-items: flex-start !important;
+              line-height: 1.2 !important;
+            }
+            .beta-badge > span:first-child {
+              width: 12px !important;
+              height: 12px !important;
+              font-size: 8px !important;
+              margin-top: 1px !important;
+            }
+            .beta-text {
+              display: inline-block !important;
+              max-width: 28px !important;
+            }
+            .header-cta {
+              font-size: 12px !important;
+              padding: 4px 8px !important;
+            }
           }
         `}} />
         <div style={{ position: 'sticky', top: 0, zIndex: 1000 }}>
@@ -72,7 +94,7 @@ export default function RootLayout({
           <Link href="/" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold', fontSize: '18px' }}>
             Fundradar
           </Link>
-          <BetaBadge className="mobile-hide" />
+          <BetaBadge />
           <HeaderNav />
         </div>
         </header>

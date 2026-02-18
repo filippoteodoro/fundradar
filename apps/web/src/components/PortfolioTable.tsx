@@ -282,7 +282,7 @@ export function PortfolioTable({ companies }: PortfolioTableProps) {
                   fontSize: '13px',
                 }}
               >
-                ← Previous
+                &lt;
               </button>
               <span style={{ padding: '6px 8px', color: '#666', fontSize: '13px' }}>
                 Page {page + 1} of {totalPages}
@@ -299,7 +299,7 @@ export function PortfolioTable({ companies }: PortfolioTableProps) {
                   fontSize: '13px',
                 }}
               >
-                Next →
+                &gt;
               </button>
             </div>
           </div>

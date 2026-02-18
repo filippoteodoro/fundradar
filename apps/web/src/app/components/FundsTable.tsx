@@ -585,8 +585,8 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
           alignItems: 'center',
         }}
       >
-        <p style={{ fontSize: '14px', color: '#888' }}>
-          Showing {allFilteredFunds.length > 0 ? page * pageSize + 1 : 0}-{Math.min((page + 1) * pageSize, allFilteredFunds.length)} of{' '}
+        <p style={{ fontSize: '13px', color: '#888', margin: 0 }}>
+          Showing {allFilteredFunds.length > 0 ? page * pageSize + 1 : 0}–{Math.min((page + 1) * pageSize, allFilteredFunds.length)} of{' '}
           {allFilteredFunds.length} funds
           {secondaryFunds.length > 0 && ` (${primaryFunds.length} match filters)`}
         </p>
@@ -596,30 +596,32 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
               onClick={() => setPage((p) => Math.max(0, p - 1))}
               disabled={page === 0}
               style={{
-                padding: '8px 16px',
+                padding: '6px 12px',
                 border: '1px solid #ddd',
-                borderRadius: '4px',
+                borderRadius: '8px',
                 background: page === 0 ? '#f5f5f5' : 'white',
                 cursor: page === 0 ? 'not-allowed' : 'pointer',
+                fontSize: '13px',
               }}
             >
-              Previous
+              &lt;
             </button>
-            <span style={{ padding: '8px', color: '#666' }}>
+            <span style={{ padding: '6px 8px', color: '#666', fontSize: '13px' }}>
               Page {page + 1} of {totalPages}
             </span>
             <button
               onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
               disabled={page >= totalPages - 1}
               style={{
-                padding: '8px 16px',
+                padding: '6px 12px',
                 border: '1px solid #ddd',
-                borderRadius: '4px',
+                borderRadius: '8px',
                 background: page >= totalPages - 1 ? '#f5f5f5' : 'white',
                 cursor: page >= totalPages - 1 ? 'not-allowed' : 'pointer',
+                fontSize: '13px',
               }}
             >
-              Next
+              &gt;
             </button>
           </div>
         )}

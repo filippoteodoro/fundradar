@@ -51,7 +51,7 @@ export function SubscribeForm() {
         </div>
       )}
 
-      <div style={{ display: 'flex', gap: '10px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <input
           type="email"
           value={email}
@@ -59,11 +59,11 @@ export function SubscribeForm() {
           placeholder="you@example.com"
           required
           style={{
-            flex: 1,
-            padding: '12px',
+            width: '100%',
+            padding: '10px 12px',
             border: '1px solid #ddd',
             borderRadius: '8px',
-            fontSize: '16px',
+            fontSize: '15px',
             boxSizing: 'border-box',
           }}
         />
@@ -71,18 +71,19 @@ export function SubscribeForm() {
           type="submit"
           disabled={loading}
           style={{
-            padding: '12px 24px',
+            width: '100%',
+            padding: '10px 16px',
             background: loading ? '#ccc' : '#2563eb',
             color: 'white',
             border: 'none',
             borderRadius: '8px',
-            fontSize: '16px',
+            fontSize: '15px',
             fontWeight: 600,
             cursor: loading ? 'not-allowed' : 'pointer',
-            whiteSpace: 'nowrap',
+            boxSizing: 'border-box',
           }}
         >
-          {loading ? 'Redirecting...' : 'Subscribe'}
+          {loading ? 'Redirecting...' : 'Subscribe — €9/month'}
         </button>
       </div>
     </form>

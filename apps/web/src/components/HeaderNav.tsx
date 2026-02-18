@@ -35,7 +35,7 @@ export function HeaderNav() {
   return (
     <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '12px' }}>
       {/* Get Signals — always visible */}
-      <Link href="/subscribe" style={ctaStyle}>Get Signals</Link>
+      <Link href="/subscribe" style={ctaStyle} className="header-cta">Get Signals</Link>
 
       {/* Desktop nav links */}
       <nav className="header-nav-desktop" style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
