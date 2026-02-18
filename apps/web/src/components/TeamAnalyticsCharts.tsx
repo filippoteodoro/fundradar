@@ -76,13 +76,18 @@ interface Props {
 }
 
 export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
-  // Calculate totals for percentage calculations
-  const totalBackgrounds = Object.values(analytics.backgrounds).reduce((a, b) => a + b, 0);
-  const totalSeniority = Object.values(analytics.seniority).reduce((a, b) => a + b, 0);
+  // Exclude "other" — it means unclassified, not a real background/seniority category.
+  // Percentages are computed against classified-only totals so bars sum to 100%.
+  const classifiedBackgrounds = Object.entries(analytics.backgrounds)
+    .filter(([name, value]) => name !== 'other' && value > 0);
+  const totalBackgrounds = classifiedBackgrounds.reduce((a, [, v]) => a + v, 0);
 
-  // Transform backgrounds data — filter out 0% entries
-  const backgroundsData = Object.entries(analytics.backgrounds)
-    .filter(([, value]) => value > 0)
+  const classifiedSeniority = Object.entries(analytics.seniority)
+    .filter(([name, value]) => name !== 'other' && value > 0);
+  const totalSeniority = classifiedSeniority.reduce((a, [, v]) => a + v, 0);
+
+  // Transform backgrounds data
+  const backgroundsData = classifiedBackgrounds
     .map(([name, value]) => ({
       name: name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
       value: totalBackgrounds > 0 ? Math.round((value / totalBackgrounds) * 100) : 0,
@@ -92,14 +97,12 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
     .slice(0, 6);
 
   // Transform seniority data for pie chart (as percentages)
-  const seniorityData = Object.entries(analytics.seniority)
-    .filter(([name]) => name !== 'other' || analytics.seniority.other > 0)
+  const seniorityData = classifiedSeniority
     .map(([name, value]) => ({
       name: name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
       value: totalSeniority > 0 ? Math.round((value / totalSeniority) * 100) : 0,
       rawValue: value,
     }))
-    .filter(d => d.rawValue > 0)
     .sort((a, b) => b.value - a.value);
 
   const RADIAN = Math.PI / 180;
@@ -168,7 +171,7 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
         gap: '24px',
       }}>
         {/* Professional Backgrounds - Horizontal Bar Chart */}
-        {backgroundsData.length > 0 && (
+        {backgroundsData.length > 0 && totalBackgrounds >= 3 && (
         <div style={{
           background: '#fafafa',
           borderRadius: '12px',
@@ -199,7 +202,7 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
         )}
 
         {/* Seniority Distribution - Pie Chart with Legend */}
-        {seniorityData.length > 0 && (
+        {seniorityData.length > 0 && totalSeniority >= 3 && (
         <div style={{
           background: '#fafafa',
           borderRadius: '12px',

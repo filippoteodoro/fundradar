@@ -252,7 +252,7 @@ export default function ContactForm() {
           borderRadius: '8px',
           fontSize: '14px',
           cursor: isSubmitting ? 'not-allowed' : 'pointer',
-          fontWeight: 500,
+          fontWeight: 700,
         }}
       >
         {isSubmitting ? 'Sending...' : 'Send Message'}

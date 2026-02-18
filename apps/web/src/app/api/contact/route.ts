@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
 
 // Simple in-memory rate limiting (resets on server restart)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -93,27 +94,22 @@ export async function POST(request: NextRequest) {
     const sanitizedEmail = sanitize(email);
     const sanitizedMessage = sanitize(message);
 
-    // Log the contact message (in production, you'd send an email or store in DB)
-    console.log('=== Contact Form Submission ===');
-    console.log('Time:', new Date().toISOString());
-    console.log('From:', sanitizedName, `<${sanitizedEmail}>`);
-    console.log('Message:', sanitizedMessage);
-    console.log('IP:', ip);
-    console.log('Time spent on form:', Math.round(timeSpent / 1000), 'seconds');
-    console.log('==============================');
-
-    // In a real production app, you would:
-    // 1. Send an email using a service like SendGrid, Resend, or Postmark
-    // 2. Store the message in a database
-    // 3. Maybe send a Slack/Discord notification
-    //
-    // Example with Resend (if configured):
-    // await resend.emails.send({
-    //   from: 'Fundradar <noreply@fundradar.io>',
-    //   to: 'hello@fundradar.io',
-    //   subject: `Contact form: ${sanitizedName}`,
-    //   text: `From: ${sanitizedName} <${sanitizedEmail}>\n\n${sanitizedMessage}`,
-    // });
+    const resendKey = process.env.RESEND_API_KEY;
+    const contactEmail = process.env.CONTACT_EMAIL;
+    if (resendKey && contactEmail) {
+      const resend = new Resend(resendKey);
+      await resend.emails.send({
+        from: 'Fundradar <onboarding@resend.dev>',
+        to: contactEmail,
+        replyTo: sanitizedEmail,
+        subject: `Contact form: ${sanitizedName}`,
+        text: `From: ${sanitizedName} <${sanitizedEmail}>\n\n${sanitizedMessage}\n\n---\nIP: ${ip} | Time on form: ${Math.round(timeSpent / 1000)}s`,
+      });
+    } else {
+      console.log('=== Contact Form Submission (Resend not configured) ===');
+      console.log('From:', sanitizedName, `<${sanitizedEmail}>`);
+      console.log('Message:', sanitizedMessage);
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {

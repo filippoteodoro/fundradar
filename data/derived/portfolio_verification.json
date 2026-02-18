@@ -3168,5 +3168,185 @@
     "_slug": "capza",
     "_company": "BTP Consultants",
     "_verified_at": "2026-02-18T19:18:52.832012+00:00"
+  },
+  "capza::Groupe GMD": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "capza",
+    "_company": "Groupe GMD",
+    "_verified_at": "2026-02-18T19:20:32.645790+00:00"
+  },
+  "capza::Groupe Bertrand": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Groupe Bertrand is a prominent French hospitality and restaurant group headquartered in Paris. While the company underwent a management-led buyout in 2016 (exiting its previous majority PE structure), CAPZA (formerly Capzanine) is documented as maintaining a minority stake in the company as of 2023 and 2025 according to industry reports (SpainCap) and portfolio databases.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Groupe Bertrand",
+    "_verified_at": "2026-02-18T19:20:59.133131+00:00"
+  },
+  "capza::Orientis": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "capza",
+    "_company": "Orientis",
+    "_verified_at": "2026-02-18T19:22:38.738320+00:00"
+  },
+  "capza::Truffaut": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Truffaut (Jardineries Truffaut) is a well-known French garden center chain headquartered in Lisses, France. However, it is not a portfolio company of CAPZA. It was historically part of the Louis Delhaize Group and, as of October 2025, underwent a capital reorganization where a branch of the founding Bouriez family (led by Louis Bouriez) bought out other family members to take full control. While private equity funds reportedly showed interest during the process, the company remains family-owned.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Truffaut",
+    "_verified_at": "2026-02-18T19:23:32.838437+00:00"
+  },
+  "capza::Gault & Millau": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "capza",
+    "_company": "Gault & Millau",
+    "_verified_at": "2026-02-18T19:25:12.102504+00:00"
+  },
+  "capza::B&B Hotels": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "B&B Hotels (headquartered in Brest, France) was a portfolio company of CAPZA (formerly Capzanine), which provided mezzanine debt and/or minority equity financing during its ownership by Eurazeo and Carlyle. The company has undergone several LBOs and is currently majority-owned by Goldman Sachs (since 2019), meaning CAPZA's investment is exited.",
+    "grounded": false,
+    "_slug": "capza",
+    "_company": "B&B Hotels",
+    "_verified_at": "2026-02-18T19:25:44.420924+00:00"
+  },
+  "capza::Courtepaille": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Courtepaille is a well-known French restaurant chain, but it was never a portfolio company of CAPZA. Its ownership history includes Fondations Capital (2011-2015), ICG (2015-2020), Buffalo Grill/TDR Capital (2020-2023), and currently the La Boucherie group (since 2023). While CAPZA is a prominent French private equity and debt fund, there is no evidence of it holding an equity stake or providing debt to Courtepaille.",
+    "grounded": false,
+    "_slug": "capza",
+    "_company": "Courtepaille",
+    "_verified_at": "2026-02-18T19:26:16.772930+00:00"
+  },
+  "capza::Mister Auto": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Mister Auto is a real online auto parts retailer headquartered in the Lyon region (Villeurbanne/Genas). It was a portfolio company of CAPZA (formerly Capzanine), which invested in the company in 2014. The company was acquired by PSA Group (now Stellantis) in early 2015, marking CAPZA's exit.",
+    "grounded": false,
+    "_slug": "capza",
+    "_company": "Mister Auto",
+    "_verified_at": "2026-02-18T19:26:36.434271+00:00"
+  },
+  "capza::ADIT": {
+    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"current\",\n  \"notes\": \"ADIT (Agence pour la Diffusion de l'Information Technologique) is a Paris-b",
+    "_slug": "capza",
+    "_company": "ADIT",
+    "_verified_at": "2026-02-18T19:27:29.579327+00:00"
+  },
+  "capza::Groupe Premium": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "capza",
+    "_company": "Groupe Premium",
+    "_verified_at": "2026-02-18T19:29:09.709782+00:00"
+  },
+  "capza::Crystal": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "capza",
+    "_company": "Crystal",
+    "_verified_at": "2026-02-18T19:30:48.878611+00:00"
+  },
+  "capza::Geosat": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Geosat, a surveying and 3D mapping firm based in Pessac, France, raised €10M in May 2019 from CAPZA (specifically the CAPZA Transition fund), Bpifrance, and Société Générale Capital Partenaires. As of late 2025, the company remains active and continues to make acquisitions (e.g., Life3D Group), with no public record of an exit by CAPZA.",
+    "grounded": false,
+    "_slug": "capza",
+    "_company": "Geosat",
+    "_verified_at": "2026-02-18T19:31:52.176817+00:00"
+  },
+  "capza::Stanwell Consulting": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Stanwell Consulting is a management consulting firm headquartered in Paris, France. CAPZA (specifically through its CAPZA Transition fund) invested in the company in April 2022 to support a management buyout and succession process. It remains a current portfolio company in the professional services sector.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Stanwell Consulting",
+    "_verified_at": "2026-02-18T19:32:05.890229+00:00"
+  },
+  "capza::Advens": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Advens is a cybersecurity company headquartered in Lille, France. CAPZA (specifically the CAPZA Growth Tech fund) acquired a minority stake in the company in June 2021, valuing it at over €100 million. There is no evidence of an exit as of early 2026.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Advens",
+    "_verified_at": "2026-02-18T19:32:21.454643+00:00"
+  },
+  "capza::Evernex": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Evernex (formerly known as Cap Vert Finance) was a portfolio company of CAPZA (formerly Capzanine), which provided mezzanine debt and financing for the company during its ownership by Carlyle Group (2015–2019). CAPZA exited its position when 3i Group acquired Evernex in July 2019. The company was historically headquartered in Levallois-Perret before moving to its current location in Courbevoie (La Défense).",
+    "grounded": false,
+    "_slug": "capza",
+    "_company": "Evernex",
+    "_verified_at": "2026-02-18T19:33:21.604169+00:00"
+  },
+  "capza::Tessi": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Tessi is a French Business Process Outsourcing (BPO) company headquartered in Grenoble. CAPZA (formerly Capzanine) invested in Tessi in 2017, providing financing (likely mezzanine debt or minority equity) alongside HLD and Dentressangle. Tessi was taken private and delisted from the Paris stock exchange in 2021 following a simplified tender offer by HLD and Dentressangle, which resulted in the exit of minority investors and debt providers like CAPZA.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Tessi",
+    "_verified_at": "2026-02-18T19:34:58.536034+00:00"
+  },
+  "capza::Recrea": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "capza",
+    "_company": "Recrea",
+    "_verified_at": "2026-02-18T19:36:39.273064+00:00"
+  },
+  "capza::Opteven": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Opteven is a Lyon-based mobility insurance provider. CAPZA (formerly Capzanine) was a long-term investor; it sold its initial stake to Ardian in 2018 while reinvesting as a minority, and fully exited when Apax Partners (now Seven2) acquired the company in 2022.",
+    "grounded": true,
+    "_slug": "capza",
+    "_company": "Opteven",
+    "_verified_at": "2026-02-18T19:36:51.173730+00:00"
+  },
+  "eurizon-real-asset::Autostrade per l'Italia": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "Autostrade per l'Italia",
+    "_verified_at": "2026-02-18T19:38:31.051274+00:00"
+  },
+  "eurizon-real-asset::Telepass": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Telepass S.p.A. is a real company headquartered in Rome, but it is not a portfolio company of Eurizon Real Asset. It is currently owned by Mundys (51%) and Partners Group (49%). Eurizon's parent company, Intesa Sanpaolo, served as a financial advisor in the 2021 transaction where Partners Group acquired its stake.",
+    "grounded": true,
+    "_slug": "eurizon-real-asset",
+    "_company": "Telepass",
+    "_verified_at": "2026-02-18T19:38:54.756160+00:00"
   }
 }
