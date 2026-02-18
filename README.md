@@ -1,7 +1,10 @@
 # Fundradar
 
-Italy-first PE/VC funds directory with source-cited signals.
-Current curated scope: in-scope PE/VC/Growth funds in `data/db.json`.
+Free, public directory of PE/VC funds active in Italy with source-cited signals, portfolio tracking, and deal history.
+
+**Live**: [fundradar.vercel.app](https://fundradar.vercel.app)
+
+All data is freely accessible — no account required. Subscribe to receive weekly email digests of new signals.
 
 ## Quick Start
 
@@ -25,18 +28,20 @@ pnpm pipeline
 | Worker | Python 3.10+, Playwright, BeautifulSoup |
 | Types | `@fundradar/shared` (TypeScript) |
 | Monorepo | pnpm workspaces |
+| Hosting | Vercel (auto-deploys from `main`) |
 
 ## Project Structure
 
 ```
 fundradar/
 ├── apps/
-│   ├── web/           # Next.js frontend
-│   └── worker/        # Python scraping worker
+│   ├── web/           # Next.js frontend (deployed to Vercel)
+│   └── worker/        # Python scraping worker (runs locally)
 ├── packages/
 │   └── shared/        # Shared TypeScript types
 ├── scripts/           # TS seed/utility scripts
 ├── data/
+│   ├── db.json        # Fund directory (source of truth)
 │   ├── pem/           # PEM PDF source files
 │   ├── derived/       # Worker output (JSON consumed by web)
 │   └── AIFI/          # AIFI scraped data
@@ -60,6 +65,30 @@ fundradar/
 | `pnpm worker:aifi` | Scrape AIFI member data |
 | `pnpm worker:geocode` | Geocode fund addresses |
 | `pnpm audit:quality` | Run fund data quality audit |
+
+## Deployment
+
+The site auto-deploys to Vercel on push to `main`.
+
+- **Repo**: [github.com/filippoteodoro/fundradar](https://github.com/filippoteodoro/fundradar)
+- **Vercel Root Directory**: `apps/web`
+- **Build**: `cd ../.. && pnpm -F @fundradar/shared build && pnpm -F web build`
+- **Install**: `cd ../.. && pnpm install`
+
+All 162 fund pages are statically generated at build time. Data refreshes on each deploy.
+
+### Deployment workflow
+
+1. Run `pnpm pipeline` locally to update data
+2. Commit updated data files in `data/derived/`
+3. Push to `main` — Vercel auto-deploys
+
+### Vercel environment
+
+- Filesystem writes (auth, watchlists) are disabled via `IS_READONLY` guard
+- Auth API routes return 503
+- Login/signup/watchlists redirect to `/subscribe`
+- No environment variables required for basic deployment (Stripe keys only needed for payments)
 
 ## Setup
 

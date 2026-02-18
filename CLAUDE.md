@@ -1,7 +1,9 @@
 # Fundradar - Claude Code Instructions
 
 ## What is this project?
-A public directory of Italian PE/VC funds with monitored "signals" (news, hires, deals). The value is clean, searchable data with source citations.
+A free, public directory of Italian PE/VC funds with monitored "signals" (news, hires, deals). The value is clean, searchable data with source citations. All data is freely accessible — no account required. Users can subscribe to weekly email signal digests via Stripe.
+
+**Live**: [fundradar.vercel.app](https://fundradar.vercel.app) | **Repo**: [github.com/filippoteodoro/fundradar](https://github.com/filippoteodoro/fundradar)
 
 ## CRITICAL: Entity Scope — PE/VC ONLY
 
@@ -25,8 +27,9 @@ Blocked via `invalid_slugs` in `fund_aliases.json` and `EXCLUDED_SLUGS` in `merg
 | Types | `@fundradar/shared` (TypeScript, consumed by web) |
 | Monorepo | pnpm workspaces |
 | Testing | Vitest (web), pytest (worker) |
+| Hosting | Vercel (auto-deploys from `main`, Root Directory: `apps/web`) |
 
-**NO database, NO Supabase, NO Tailwind (inline styles), NO Turbo.**
+**NO database, NO Supabase, NO Tailwind (inline styles), NO Turbo, NO user accounts.**
 
 ## Project Structure
 
@@ -138,6 +141,30 @@ Content hashing skips unchanged pages — use `--force-extract` after updating e
 | `apps/worker/fundradar_worker/pipeline.py` | 7-step orchestration |
 | `apps/worker/fundradar_worker/monitor.py` | Main fetch/extract/diff engine |
 | `apps/worker/fundradar_worker/strategies/extractors/` | Fund-specific extractors |
+
+## Deployment (Vercel)
+
+**Live**: [fundradar.vercel.app](https://fundradar.vercel.app)
+
+- **Repo**: `filippoteodoro/fundradar` on GitHub
+- **Vercel Root Directory**: `apps/web` (set in Vercel dashboard)
+- **Config**: `apps/web/vercel.json` — install and build commands navigate up to repo root
+- **Static generation**: All 162 fund pages pre-rendered at build time via `generateStaticParams()`
+- **Dynamic OG image**: `opengraph-image.tsx` generates a 1200x630 PNG at the edge
+- **Readonly mode**: `IS_READONLY` guard in `auth.ts`, `watchlist.ts`, `subscribers.ts` prevents filesystem writes
+- **Auth API routes**: Return 503 on Vercel (no user accounts)
+- **Login/signup/watchlists**: Redirect to `/subscribe`
+- **Data files**: Committed to git in `data/derived/` — web-essential JSONs only (~9MB)
+- **`outputFileTracingIncludes`**: In `next.config.js`, ensures Vercel serverless bundler includes `data/**/*.json`
+- **Base URL**: `src/lib/baseUrl.ts` uses `NEXT_PUBLIC_BASE_URL` > `VERCEL_URL` > `fundradar.org`
+
+### Deployment workflow
+1. Run `pnpm pipeline` locally to update data
+2. Commit updated data files in `data/derived/`
+3. Push to `main` — Vercel auto-deploys
+
+### No user accounts
+There are no login, signup, or watchlist features on production. All data is freely accessible. Users subscribe to email signal digests via `/subscribe` (Stripe payments). The auth/watchlist code exists but is disabled on Vercel.
 
 ## Common Pitfalls
 

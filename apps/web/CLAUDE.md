@@ -84,8 +84,8 @@ Falls back to `../../` if none match — **this fallback can be wrong** in non-s
 | `/funds/[slug]` | `getTeamAnalyticsForFund()` | `fund_people_stats.json` |
 | `/funds/[slug]` | `getSignalsForFund()` | `detected_signals_filtered.json` ONLY |
 | `/signals` | `loadUnifiedSignals()` | enriched → filtered → raw (via `signals_unified.ts`) |
-| `/watchlists` | API routes | `watchlists.json` |
-| `/login`, `/signup` | API routes | `users.json` |
+| `/subscribe` | Stripe checkout | — |
+| `/login`, `/signup`, `/watchlists` | Redirect to `/subscribe` | — |
 
 ## Signal Dual-Loading — Important
 
@@ -211,20 +211,20 @@ When a fund has no working website extractor (common for large international PE 
 ### `src/app/signals/`
 - `SignalsFeed.tsx` — signal cards with type/source filters
 
-### `src/app/watchlists/`
-- `WatchlistManager.tsx` — user watchlist CRUD
-
 ### `src/lib/`
 - `fundFilters.ts` — single source for fund filter catalogs and HQ-country filter logic shared by `FundsTable.tsx` and `MapView.tsx`
 - `fundRangeFilters.ts` — shared AUM/investment range-stop utilities used by table/map slider filters
 
-## Auth
-JSON-based (no database):
-- `users.json` — user accounts
-- `watchlists.json` — user watchlists
-- API routes in `src/app/api/auth/` (login, signup, logout)
-- API routes in `src/app/api/watchlists/` (CRUD)
-- `src/app/api/contact/route.ts` — contact form
+## Auth & Subscriptions
+
+**No user accounts.** All data is freely accessible. The only user-facing feature requiring payment is email signal digests via `/subscribe` (Stripe).
+
+- `/login`, `/signup`, `/watchlists` — redirect to `/subscribe` (no accounts)
+- Auth API routes (`api/auth/*`) return 503 on Vercel via `process.env.VERCEL` guard
+- Watchlist API routes (`api/watchlists/*`) return 503 on write operations
+- `auth.ts`, `watchlist.ts`, `subscribers.ts` — have `IS_READONLY` guard to skip filesystem writes on Vercel
+- `src/app/api/contact/route.ts` — contact form (works on Vercel)
+- `src/app/api/stripe/*` — Stripe checkout and webhook (requires `STRIPE_SECRET_KEY` env var)
 
 ## Map & Address Data
 
