@@ -45,6 +45,7 @@ Thumbs.db
 /data/models/
 /data/backups/
 /data/users.json
+/data/auth.json
 /data/watchlists.json
 /data/subscribers.json
 /data/snapshots.json

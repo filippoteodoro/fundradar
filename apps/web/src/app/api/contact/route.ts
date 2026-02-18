@@ -24,8 +24,8 @@ function isRateLimited(ip: string): boolean {
 
 export async function POST(request: NextRequest) {
   try {
-    // Get client IP for rate limiting
-    const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || 'unknown';
+    // Get client IP for rate limiting (x-real-ip is set by Vercel and cannot be spoofed)
+    const ip = request.headers.get('x-real-ip') || request.headers.get('x-forwarded-for')?.split(',')[0] || 'unknown';
 
     // Check rate limit
     if (isRateLimited(ip)) {
@@ -85,9 +85,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Please enter a valid email address.' }, { status: 400 });
     }
 
-    // Sanitize inputs (basic XSS prevention)
+    // Sanitize inputs (XSS + email header injection prevention)
     const sanitize = (str: string) =>
-      str.replace(/[<>]/g, '').trim().substring(0, 5000);
+      str.replace(/[<>]/g, '').replace(/[\r\n]/g, ' ').trim().substring(0, 5000);
 
     const sanitizedName = sanitize(name);
     const sanitizedEmail = sanitize(email);
