@@ -10,7 +10,7 @@ export function PurchaseEvent() {
     const sessionId = searchParams.get('session_id');
     if (!sessionId) return;
 
-    const w = window as Window & { dataLayer: object[] };
+    const w = window as unknown as Window & { dataLayer: object[] };
     w.dataLayer = w.dataLayer || [];
     w.dataLayer.push({
       event: 'purchase',
