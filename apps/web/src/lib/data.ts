@@ -346,8 +346,8 @@ export function getDealsForFund(fundSlug: string): Deal[] {
 }
 
 /**
- * Load signals from detected_signals_filtered.json
- * Single source of truth for all signals (same file as the main signals feed).
+ * Load signals from detected_signals_enriched.json (preferred) or detected_signals_filtered.json.
+ * Enriched signals have English translations and AI summaries; filtered has Italian originals.
  */
 interface FilteredSignalsFile {
   signals: Signal[];
@@ -360,22 +360,27 @@ function loadFilteredSignals(): Signal[] {
     return cachedFilteredSignals;
   }
 
-  const filteredPath = join(getRepoRoot(), 'data', 'derived', 'detected_signals_filtered.json');
+  const repoRoot = getRepoRoot();
+  const enrichedPath = join(repoRoot, 'data', 'derived', 'detected_signals_enriched.json');
+  const filteredPath = join(repoRoot, 'data', 'derived', 'detected_signals_filtered.json');
 
-  if (!existsSync(filteredPath)) {
+  // Prefer enriched (has English translations), fall back to filtered
+  const pathToUse = existsSync(enrichedPath) ? enrichedPath : filteredPath;
+
+  if (!existsSync(pathToUse)) {
     cachedFilteredSignals = [];
     return cachedFilteredSignals;
   }
 
   try {
-    const data = readFileSync(filteredPath, 'utf-8');
+    const data = readFileSync(pathToUse, 'utf-8');
     const file: FilteredSignalsFile = JSON.parse(data);
     cachedFilteredSignals = (file.signals || []).filter(
       (s) => s.signal_type !== 'website_change'
     );
     return cachedFilteredSignals;
   } catch (e) {
-    console.error('Failed to load filtered signals:', e);
+    console.error('Failed to load signals:', e);
     cachedFilteredSignals = [];
     return cachedFilteredSignals;
   }

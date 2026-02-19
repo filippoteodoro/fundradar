@@ -2026,6 +2026,13 @@ def _fix_spacing(text: str) -> str:
     )
     # Insert space between long lowercase word and following CamelCase word
     cleaned = re.sub(r"(?<=[a-zà-öø-ÿ]{3})(?=[A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ])", " ", cleaned)
+    # Insert space before common Italian verbs/adverbs concatenated to proper nouns
+    # Safety net for HTML extraction bugs (e.g., "Flangesacquisisce" → "Flanges acquisisce")
+    cleaned = re.sub(
+        r"(?<=[a-zà-öø-ÿA-ZÀ-ÖØ-Þ]{4})(acquis\w+|annunci\w+|insieme|accompagn\w+)\b",
+        r" \1",
+        cleaned,
+    )
     # Space before opening quotes if attached
     cleaned = re.sub(r"(?<=[A-Za-zÀ-ÖØ-öø-ÿ])(?=[\"“])", " ", cleaned)
     # Restore known names/acronyms broken by digit-letter spacing
