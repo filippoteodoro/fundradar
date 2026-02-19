@@ -16,15 +16,16 @@ import re
 # Core signal type sets
 # ─────────────────────────────────────────────────────────────────────────────
 
-# CORE_GEO_TYPES: types that pass geo gate for italy_focused / europe_wide funds (no people_move)
+# CORE_GEO_TYPES: fund-level types that pass geo gate for italy_focused / europe_wide funds
+# (no people_move, no portfolio_update — those are company/person-level, need text evidence)
 CORE_GEO_TYPES = {
     "deal_announced", "exit_announced", "fundraise_announced",
     "fundraise_closed", "fund_launch", "partnership", "report",
-    "debt_financing", "portfolio_update",
+    "debt_financing",
 }
 
-# CORE_QUALITY_TYPES: types that get lower quality threshold (75 vs 80) — includes people_move
-CORE_QUALITY_TYPES = CORE_GEO_TYPES | {"people_move"}
+# CORE_QUALITY_TYPES: types that get lower quality threshold (75 vs 80) — includes people_move + portfolio_update
+CORE_QUALITY_TYPES = CORE_GEO_TYPES | {"people_move", "portfolio_update"}
 
 
 # ─────────────────────────────────────────────────────────────────────────────

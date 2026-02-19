@@ -43,6 +43,7 @@ export function HeaderNav() {
         <Link href="/signals" style={linkStyle}>Signals</Link>
         <Link href="/map" style={linkStyle}>Map</Link>
         <Link href="/about" style={linkStyle}>About</Link>
+        <Link href="/about#contact" style={linkStyle}>Contact</Link>
       </nav>
 
       {/* Hamburger wrapper — position anchor for dropdown */}
@@ -91,6 +92,7 @@ export function HeaderNav() {
             <Link href="/signals" style={{ ...linkStyle, fontSize: '15px', padding: '4px 0' }} onClick={() => setOpen(false)}>Signals</Link>
             <Link href="/map" style={{ ...linkStyle, fontSize: '15px', padding: '4px 0' }} onClick={() => setOpen(false)}>Map</Link>
             <Link href="/about" style={{ ...linkStyle, fontSize: '15px', padding: '4px 0' }} onClick={() => setOpen(false)}>About</Link>
+            <Link href="/about#contact" style={{ ...linkStyle, fontSize: '15px', padding: '4px 0' }} onClick={() => setOpen(false)}>Contact</Link>
           </nav>
         )}
       </div>

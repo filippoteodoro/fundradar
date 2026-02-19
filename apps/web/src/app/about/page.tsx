@@ -66,12 +66,12 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      <section style={{ ...CARD_STYLE, padding: CARD_PADDING, marginBottom: '24px' }}>
+      <section id="contact" style={{ ...CARD_STYLE, padding: CARD_PADDING, marginBottom: '24px' }}>
         <h2 style={{ fontSize: '18px', marginBottom: '12px' }}>Contact</h2>
         <p style={{ lineHeight: 1.6, color: '#444', marginBottom: '16px' }}>
           For questions, data corrections, or partnership inquiries, please use the form below.
           We also very much welcome feedback on how to improve the site — whether it&apos;s a missing fund,
-          a broken page, or a feature idea, we&apos;d love to hear from you.
+          an incorrect fund detail, a broken page, or a feature idea, we&apos;d love to hear from you.
         </p>
         <ContactForm />
       </section>

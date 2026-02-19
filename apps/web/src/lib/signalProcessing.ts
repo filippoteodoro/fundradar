@@ -469,6 +469,13 @@ function fixSignalSpacing(text: string): string {
   cleaned = cleaned.replace(/Ne Xt RE/g, 'NeXt RE');
   // L Catterton scrape artifact: "LC atterton" → "L Catterton"
   cleaned = cleaned.replace(/LC atterton/g, 'L Catterton');
+  // Additional known name corrections (digit-letter split artifacts)
+  cleaned = cleaned.replace(/\bCY\s*4\s*GATE\b/g, 'CY4GATE');
+  cleaned = cleaned.replace(/\bMi\s*CROTEC\b/g, 'MiCROTEC');
+  cleaned = cleaned.replace(/\bK\s+3\s*RX\b/g, 'K3RX');
+  cleaned = cleaned.replace(/\bB\s+2\s+O\b/g, 'B2O');
+  cleaned = cleaned.replace(/\bAI\s+4\s+IV\b/g, 'AI4IV');
+  cleaned = cleaned.replace(/\bBIO\s+4\s+DREAMS\b/gi, 'Bio4Dreams');
   cleaned = cleaned.replace(/\s{2,}/g, ' ');
   return cleaned.trim();
 }

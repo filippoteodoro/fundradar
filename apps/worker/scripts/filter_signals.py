@@ -2536,10 +2536,15 @@ def _is_geo_relevant_signal(signal: dict, fund_geo_scope: str, fund: dict | None
     """
     signal_type = signal.get("signal_type", "")
 
-
-    # Any signal explicitly marked Italy-relevant passes
+    # For italy_focused funds, trust the italy_relevant flag for all types
+    # For other scopes, only trust it for core geo types — non-core types
+    # (people_move, portfolio_update) need text evidence from europe_wide/mixed_or_global
     if signal.get("italy_relevant") is True:
-        return True
+        if fund_geo_scope == "italy_focused":
+            return True
+        if signal_type in CORE_GEO_TYPES:
+            return True
+        # Non-core types from europe_wide/mixed_or_global fall through to text checks
 
     text = " ".join([
         signal.get("title", ""),
