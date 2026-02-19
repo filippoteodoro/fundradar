@@ -5812,7 +5812,7 @@
         "name": "Genius Sports",
         "sector": "Media & Entertainment",
         "headquarters": "London, UK",
-        "status": "current",
+        "status": "exited",
         "description": "A provider of data and technology services to the sports and betting industries.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
@@ -15358,7 +15358,7 @@
         "name": "Odealim",
         "sector": "Insurance",
         "headquarters": "Paris, France",
-        "status": "current",
+        "status": "exited",
         "description": "A specialized insurance brokerage firm focusing on real estate and property management professionals.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
@@ -15487,22 +15487,10 @@
         "investment_date": null
       },
       {
-        "name": "Inovie",
-        "sector": "Healthcare",
-        "headquarters": "Montpellier, France",
-        "status": "current",
-        "description": "An independent group of medical biology laboratories providing diagnostic services.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Olygose",
         "sector": "Pharma & Biotech",
         "headquarters": "Venette, France",
-        "status": "current",
+        "status": "exited",
         "description": "Produces high-quality prebiotic ingredients from plant-based sources for the nutrition and health industries.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
@@ -15523,18 +15511,6 @@
         "investment_date": null
       },
       {
-        "name": "Terratest",
-        "sector": "Construction",
-        "headquarters": "Madrid, Spain",
-        "status": "current",
-        "description": "International provider of special foundations, soil improvement, and environmental services for infrastructure.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Eisper",
         "sector": "Energy",
         "headquarters": "Paris, France",
@@ -15547,47 +15523,11 @@
         "investment_date": null
       },
       {
-        "name": "Albioma",
-        "sector": "Renewable Energy",
-        "headquarters": "Paris, France",
-        "status": "exited",
-        "description": "Independent renewable energy producer specializing in high-efficiency biomass and solar power.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "TSE",
         "sector": "Renewable Energy",
         "headquarters": "Sophia Antipolis, France",
         "status": "current",
         "description": "Independent solar energy producer and a leader in agrivoltaic solutions.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Mazzocchi",
-        "sector": "Consumer Goods",
-        "headquarters": "Milan, Italy",
-        "status": "current",
-        "description": "A leading Italian company specializing in the distribution of consumer electronics and household appliances.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Savinio",
-        "sector": "Hospitality & Tourism",
-        "headquarters": "Paris, France",
-        "status": "current",
-        "description": "A hospitality group focused on the development and management of boutique hotels and premium restaurant concepts.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -15634,7 +15574,7 @@
         "name": "Babilou",
         "sector": "Education",
         "headquarters": "Bois-Colombes, France",
-        "status": "current",
+        "status": "exited",
         "description": "Operates a network of nurseries and early childhood education centers.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
@@ -15703,18 +15643,6 @@
         "investment_date": null
       },
       {
-        "name": "Neoen",
-        "sector": "Renewable Energy",
-        "headquarters": "Paris, France",
-        "status": "exited",
-        "description": "Develops and operates renewable energy power plants including solar and wind.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Inetum",
         "sector": "Technology",
         "headquarters": "Saint-Ouen, France",
@@ -15732,6 +15660,18 @@
         "headquarters": "Paris, France",
         "status": "current",
         "description": "Invests in and manages a portfolio of city-center retail properties.",
+        "confidence": 0.7,
+        "data_source": "gemini_global_enrichment",
+        "detail_page_url": null,
+        "website": null,
+        "investment_date": null
+      },
+      {
+        "name": "Terratest",
+        "sector": "Engineering & Construction",
+        "headquarters": "Madrid, Spain",
+        "status": "current",
+        "description": "Geotechnical engineering group specializing in foundation works and ground improvement.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -22399,18 +22339,6 @@
         "investment_date": null
       },
       {
-        "name": "NeoXam",
-        "sector": "Technology",
-        "headquarters": "Paris, France",
-        "status": "exited",
-        "description": "Provider of data management and transaction software for the financial industry.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Ynov",
         "sector": "Education",
         "headquarters": "Bordeaux, France",
@@ -22464,18 +22392,6 @@
         "headquarters": "Saint-Marcellin, France",
         "status": "current",
         "description": "Manufacturer of medical devices and plastic packaging solutions for the pharmaceutical and healthcare industries.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Cisbio",
-        "sector": "Pharma & Biotech",
-        "headquarters": "Codolet, France",
-        "status": "exited",
-        "description": "Provider of specialized reagents and services for drug discovery and life sciences research.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -22615,18 +22531,6 @@
         "investment_date": null
       },
       {
-        "name": "Groupe GMD",
-        "sector": "Automotive",
-        "headquarters": "Saint-Etienne, France",
-        "status": "current",
-        "description": "Manufacturer of automotive components specializing in stamping, aluminum pressure die casting, and plastic injection.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Groupe Bertrand",
         "sector": "Food & Beverage",
         "headquarters": "Paris, France",
@@ -22704,18 +22608,6 @@
         "headquarters": "Paris, France",
         "status": "exited",
         "description": "An independent player in the French wealth management and insurance brokerage market.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Crystal",
-        "sector": "Financial Services",
-        "headquarters": "Paris, France",
-        "status": "current",
-        "description": "A leading French wealth management firm serving private clients and professionals.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -25696,18 +25588,6 @@
         "investment_date": null
       },
       {
-        "name": "Veepee",
-        "sector": "Retail",
-        "headquarters": "Saint-Denis, France",
-        "status": "current",
-        "description": "E-commerce platform specializing in flash sales for fashion and lifestyle brands.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Farfetch",
         "sector": "Fashion & Luxury",
         "headquarters": "London, UK",
@@ -25792,30 +25672,6 @@
         "investment_date": null
       },
       {
-        "name": "Latécoère",
-        "sector": "Aerospace & Defence",
-        "headquarters": "Toulouse, France",
-        "status": "exited",
-        "description": "Tier 1 partner to major aircraft manufacturers specializing in aerostructures and interconnection systems.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "AlixPartners",
-        "sector": "Professional Services",
-        "headquarters": "New York, USA",
-        "status": "exited",
-        "description": "Global consulting firm specializing in turnaround management, business improvement, and financial advisory.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Descartes Underwriting",
         "sector": "Insurance",
         "headquarters": "Paris, France",
@@ -25893,18 +25749,6 @@
         "headquarters": "Paris, France",
         "status": "current",
         "description": "Cybersecurity platform that detects secrets and sensitive information in source code and developer workflows.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Vade",
-        "sector": "Technology",
-        "headquarters": "Hem, France",
-        "status": "exited",
-        "description": "Cybersecurity company specializing in predictive email defense and threat detection powered by AI.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -45593,7 +45437,7 @@
         "name": "Chewy",
         "sector": "Retail",
         "headquarters": "Dania Beach, USA",
-        "status": "exited",
+        "status": "current",
         "description": "Online retailer of pet food and other pet-related products.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
@@ -45631,18 +45475,6 @@
         "headquarters": "London, UK",
         "status": "current",
         "description": "Global digital agency focused on business transformation and technology services.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Pharmathen",
-        "sector": "Pharma & Biotech",
-        "headquarters": "Athens, Greece",
-        "status": "current",
-        "description": "European pharmaceutical company focused on advanced drug delivery technologies.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -72160,18 +71992,6 @@
         "detail_page_url": null,
         "website": null,
         "investment_date": null
-      },
-      {
-        "name": "I-Care",
-        "sector": "Professional Services",
-        "headquarters": "Milan, Italy",
-        "status": "current",
-        "description": "A leading provider of customer care and business process outsourcing services for major retail and utility brands.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
       }
     ],
     "entangled-capital-sgr": [
@@ -76113,18 +75933,6 @@
         "curation_note": null
       },
       {
-        "name": "Giga Storage",
-        "sector": "Renewable Energy",
-        "headquarters": "Sliedrecht, Netherlands",
-        "status": "current",
-        "description": "A developer and operator of large-scale battery energy storage systems connected to the power grid.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "RailFirst Asset Management",
         "sector": "Transportation & Logistics",
         "headquarters": "Sydney, Australia",
@@ -76161,18 +75969,6 @@
         "investment_date": null
       },
       {
-        "name": "Netcity",
-        "sector": "Telecommunications",
-        "headquarters": "Bucharest, Romania",
-        "status": "current",
-        "description": "The operator of the underground fiber optic infrastructure and telecommunications ducts in Bucharest.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Exolum",
         "sector": "Energy",
         "headquarters": "Madrid, Spain",
@@ -76190,18 +75986,6 @@
         "headquarters": "Hoofddorp, Netherlands",
         "status": "exited",
         "description": "A specialist in the design, development, and operation of Floating Production Storage and Offloading (FPSO) systems.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Teralis",
-        "sector": "Technology",
-        "headquarters": "Paris, France",
-        "status": "current",
-        "description": "A platform company focused on the development and operation of sustainable data centers in Europe.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -76238,30 +76022,6 @@
         "headquarters": "Madrid, Spain",
         "status": "current",
         "description": "A leading independent owner and operator of wireless and broadcast communications infrastructure across Europe.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Green Dot",
-        "sector": "Industrial Manufacturing",
-        "headquarters": "Cologne, Germany",
-        "status": "current",
-        "description": "A provider of take-back systems for sales packaging and a recycler of plastic waste for the circular economy.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Unitas",
-        "sector": "Water & Utilities",
-        "headquarters": "Utrecht, Netherlands",
-        "status": "current",
-        "description": "A regional gas distribution network operator providing essential energy infrastructure in the Netherlands.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -78169,18 +77929,6 @@
         "investment_date": null
       },
       {
-        "name": "Inetum",
-        "sector": "Technology",
-        "headquarters": "Saint-Ouen, France",
-        "status": "exited",
-        "description": "An international IT services company providing digital services and solutions.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Amplitude Surgical",
         "sector": "Healthcare",
         "headquarters": "Valence, France",
@@ -78222,18 +77970,6 @@
         "headquarters": "Chertsey, United Kingdom",
         "status": "exited",
         "description": "A specialist provider of vacant property security, maintenance, and management services across Europe.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Ecorail",
-        "sector": "Transportation & Logistics",
-        "headquarters": "Madrid, Spain",
-        "status": "current",
-        "description": "A leading private rail freight operator in the Iberian Peninsula, providing logistics and transport infrastructure services.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -81894,30 +81630,6 @@
         "curation_note": null
       },
       {
-        "name": "Autostrade per l'Italia",
-        "sector": "Transportation & Logistics",
-        "headquarters": "Rome, Italy",
-        "status": "current",
-        "description": "Operator of Italy's motorway network and provider of mobility infrastructure services.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Engineering Ingegneria Informatica",
-        "sector": "Technology",
-        "headquarters": "Rome, Italy",
-        "status": "current",
-        "description": "Provider of IT services, software development, and digital transformation solutions for public and private sectors.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Cedacri",
         "sector": "Financial Services",
         "headquarters": "Collecchio, Italy",
@@ -82115,18 +81827,6 @@
         "headquarters": "Arezzo, Italy",
         "status": "current",
         "description": "A high-tech company that designs and manufactures embedded systems, edge computing, and IoT solutions.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Net Insurance",
-        "sector": "Insurance",
-        "headquarters": "Rome, Italy",
-        "status": "exited",
-        "description": "An insurance company specializing in credit protection and non-life insurance products.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -85235,18 +84935,6 @@
         "investment_date": null
       },
       {
-        "name": "P&I",
-        "sector": "Technology",
-        "headquarters": "Wiesbaden, Germany",
-        "status": "current",
-        "description": "A provider of cloud-based human resources and payroll management software.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Seismic",
         "sector": "Technology",
         "headquarters": "San Diego, USA",
@@ -86714,5 +86402,13 @@
   },
   "fund_portfolio_notes": {
     "canova-sgr": "Canova SGR is a newly established Italian venture capital firm (authorized by the Bank of Italy in June 2023) currently in the early deployment phase of its first fund, Nova 1, targeting €45M for Italian Seed and Series A investments in AI/ML, Blockchain, Deeptech, IoT, and Cybersecurity. Known strategic positions include participation in Eterna Capital Fund III (blockchain) and a partnership with VeniSIA (Venice Sustainability Innovation Accelerator) for deeptech and sustainability startups. Direct portfolio company names are not yet publicly disclosed."
-  }
+  },
+  "eurizon-real-asset": [],
+  "algebris": [],
+  "capza": [],
+  "tikehau-capital": [],
+  "cvc-dif": [],
+  "eurazeo": [],
+  "pai-partners": [],
+  "permira": []
 }

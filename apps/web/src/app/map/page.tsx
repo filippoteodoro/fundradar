@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { getAllFunds, getAllPortfolioCompanyNames } from '@/lib/data';
+import { getAllFunds } from '@/lib/data';
 import { MapView } from './MapView';
 
 export const metadata: Metadata = {
@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 
 export default async function MapPage() {
   const funds = await getAllFunds();
-  const portfolioCompanyNames = await getAllPortfolioCompanyNames();
 
   return (
     <div>
@@ -23,7 +22,7 @@ export default async function MapPage() {
         </p>
       </div>
 
-      <MapView funds={funds} portfolioCompanyNames={portfolioCompanyNames} />
+      <MapView funds={funds} />
     </div>
   );
 }

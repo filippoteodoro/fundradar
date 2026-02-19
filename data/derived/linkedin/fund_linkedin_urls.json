@@ -24,7 +24,7 @@
     },
     {
       "slug": "aksia-sgr",
-      "name": "AKSÌA SGR",
+      "name": "AKS\u00ccA SGR",
       "linkedin_url": "https://www.linkedin.com/company/aksiasgr/"
     },
     {
@@ -61,7 +61,7 @@
     {
       "slug": "amber-capital",
       "name": "Amber Capital",
-      "linkedin_url": "https://www.linkedin.com/company/amber-capital/"
+      "linkedin_url": "https://www.linkedin.com/company/ambercapital"
     },
     {
       "slug": "ambienta-sgr",
@@ -76,7 +76,7 @@
     {
       "slug": "anima-alternative-sgr",
       "name": "Anima Alternative SGR",
-      "linkedin_url": "https://www.linkedin.com/company/anima-sgr/"
+      "linkedin_url": "https://www.linkedin.com/company/anima-alternative"
     },
     {
       "slug": "anthilia-sgr",
@@ -125,7 +125,7 @@
     },
     {
       "slug": "armonia-sgr",
-      "name": "Armònia SGR",
+      "name": "Arm\u00f2nia SGR",
       "linkedin_url": "https://www.linkedin.com/company/armonia-sgr/"
     },
     {
@@ -136,11 +136,11 @@
     {
       "slug": "aurora-growth-capital",
       "name": "Aurora Growth Capital",
-      "linkedin_url": "https://www.linkedin.com/company/aurora-growth/"
+      "linkedin_url": "https://www.linkedin.com/company/nbaurora"
     },
     {
       "slug": "avm",
-      "name": "AVM SGR SpA Gestore EuVECA Società Benefit",
+      "name": "AVM SGR SpA Gestore EuVECA Societ\u00e0 Benefit",
       "linkedin_url": "https://www.linkedin.com/company/avm-sgr/"
     },
     {
@@ -191,7 +191,8 @@
     {
       "slug": "capital-dynamics-sgr",
       "name": "Capital Dynamics SGR",
-      "linkedin_url": "https://www.linkedin.com/company/capital-dynamics/"
+      "linkedin_url": "https://www.linkedin.com/company/capital-dynamics/",
+      "note": "No dedicated LinkedIn page for sub-entity \u2014 parent company page returns wrong employees"
     },
     {
       "slug": "capza",
@@ -276,12 +277,13 @@
     {
       "slug": "equinox-aifm",
       "name": "Equinox AIFM",
-      "linkedin_url": "https://www.linkedin.com/company/equinox-holdings/"
+      "linkedin_url": "https://www.linkedin.com/company/equinox-investments"
     },
     {
       "slug": "equita-capital-sgr",
       "name": "Equita Capital SGR",
-      "linkedin_url": "https://www.linkedin.com/company/equita/"
+      "linkedin_url": "https://www.linkedin.com/company/equita/",
+      "note": "No dedicated LinkedIn page for sub-entity \u2014 parent company page returns wrong employees"
     },
     {
       "slug": "equiter",
@@ -301,7 +303,8 @@
     {
       "slug": "eurizon-real-asset",
       "name": "Eurizon Capital Real Asset SGR",
-      "linkedin_url": "https://www.linkedin.com/company/eurizon/"
+      "linkedin_url": "https://www.linkedin.com/company/eurizon/",
+      "note": "No dedicated LinkedIn page for sub-entity \u2014 parent company page returns wrong employees"
     },
     {
       "slug": "excellis-holding",
@@ -340,7 +343,7 @@
     },
     {
       "slug": "furstenberg-sgr",
-      "name": "Fürstenberg SGR",
+      "name": "F\u00fcrstenberg SGR",
       "linkedin_url": "https://www.linkedin.com/company/furstenbergsgr/"
     },
     {
@@ -386,12 +389,12 @@
     {
       "slug": "kairos-partners-sgr",
       "name": "Kairos Partners SGR",
-      "linkedin_url": "https://www.linkedin.com/company/kairospartners/"
+      "linkedin_url": "https://www.linkedin.com/company/kairos"
     },
     {
       "slug": "key-capital",
       "name": "Key Capital",
-      "linkedin_url": "https://www.linkedin.com/company/key-capital/"
+      "linkedin_url": "https://www.linkedin.com/company/key-capital-venture-incubator"
     },
     {
       "slug": "kkr",
@@ -410,7 +413,7 @@
     },
     {
       "slug": "macquarie",
-      "name": "Macquarie – MAM",
+      "name": "Macquarie \u2013 MAM",
       "linkedin_url": "https://www.linkedin.com/company/macquariegroup/"
     },
     {
@@ -491,11 +494,11 @@
     {
       "slug": "pillarstone",
       "name": "Pillarstone",
-      "linkedin_url": "https://www.linkedin.com/company/pillarstone./"
+      "linkedin_url": "https://www.linkedin.com/company/pillarstone-italy-s.p.a."
     },
     {
       "slug": "polis-sgr",
-      "name": "Polis SGR – Gruppo LBO France",
+      "name": "Polis SGR \u2013 Gruppo LBO France",
       "linkedin_url": "https://www.linkedin.com/company/polis-sgr-spa/"
     },
     {
@@ -536,7 +539,7 @@
     {
       "slug": "renaissance-partners",
       "name": "Renaissance Partners",
-      "linkedin_url": "https://www.linkedin.com/company/renaissance-partners/"
+      "linkedin_url": "https://www.linkedin.com/company/renaissancepartners"
     },
     {
       "slug": "riello-investimenti-sgr",
@@ -657,7 +660,7 @@
     {
       "slug": "wise-equity-sgr",
       "name": "Wise Equity SGR",
-      "linkedin_url": "https://ca.linkedin.com/company/wiseequity"
+      "linkedin_url": "https://www.linkedin.com/company/wise-sgr-s.p.a."
     },
     {
       "slug": "wrm-group",

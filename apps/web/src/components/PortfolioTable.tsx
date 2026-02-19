@@ -111,18 +111,18 @@ export function PortfolioTable({ companies }: PortfolioTableProps) {
         >
           <thead>
             <tr style={{ background: '#f5f5f5', textAlign: 'left' }}>
-              <th onClick={() => toggleSort('company')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap' }}>Company{sortIndicator('company')}</th>
+              <th onClick={() => toggleSort('company')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', touchAction: 'manipulation' }}>Company{sortIndicator('company')}</th>
               {hasEnrichedData && (
-                <th onClick={() => toggleSort('sector')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap' }}>Sector{sortIndicator('sector')}</th>
+                <th onClick={() => toggleSort('sector')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', touchAction: 'manipulation' }}>Sector{sortIndicator('sector')}</th>
               )}
               {hasHqData && (
-                <th onClick={() => toggleSort('hq')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap' }}>HQ{sortIndicator('hq')}</th>
+                <th onClick={() => toggleSort('hq')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', touchAction: 'manipulation' }}>HQ{sortIndicator('hq')}</th>
               )}
-              <th onClick={() => toggleSort('status')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap' }}>Status{sortIndicator('status')}</th>
+              <th onClick={() => toggleSort('status')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', touchAction: 'manipulation' }}>Status{sortIndicator('status')}</th>
               {showSourceColumn && (
                 <th style={{ padding: '10px 12px', borderBottom: '1px solid #eee' }}>Source</th>
               )}
-              <th onClick={() => toggleSort('date')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap' }}>Entry Date{sortIndicator('date')}</th>
+              <th onClick={() => toggleSort('date')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', touchAction: 'manipulation' }}>Entry Date{sortIndicator('date')}</th>
               {hasEnrichedData && (
                 <th style={{ padding: '10px 12px', borderBottom: '1px solid #eee', width: '100px' }}>Details</th>
               )}
@@ -212,6 +212,7 @@ export function PortfolioTable({ companies }: PortfolioTableProps) {
                               cursor: 'pointer',
                               fontSize: '12px',
                               color: '#666',
+                              touchAction: 'manipulation',
                             }}
                           >
                             {isExpanded ? 'Hide' : 'Show'}
@@ -280,6 +281,7 @@ export function PortfolioTable({ companies }: PortfolioTableProps) {
                   background: page === 0 ? '#f5f5f5' : 'white',
                   cursor: page === 0 ? 'not-allowed' : 'pointer',
                   fontSize: '13px',
+                  touchAction: 'manipulation',
                 }}
               >
                 &lt;
@@ -297,6 +299,7 @@ export function PortfolioTable({ companies }: PortfolioTableProps) {
                   background: page >= totalPages - 1 ? '#f5f5f5' : 'white',
                   cursor: page >= totalPages - 1 ? 'not-allowed' : 'pointer',
                   fontSize: '13px',
+                  touchAction: 'manipulation',
                 }}
               >
                 &gt;

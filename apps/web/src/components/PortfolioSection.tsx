@@ -75,11 +75,10 @@ function isItalianCompany(company: { headquarters?: string | null; data_source?:
   const country = extractCountry(company.headquarters);
   if (country === 'Italy') return true;
   if (country) return false;
-  // No HQ: PEM data is exclusively Italian PE deals
-  if (company.data_source === 'pem') return true;
-  // PEM region field (e.g. "Lombardia") = Italian region
-  if (company.region) return true;
-  return false;
+  // No country detected from headquarters (bare city name not in ITALIAN_CITIES, or null HQ):
+  // non-Italian companies consistently include their country in the HQ string,
+  // so if no foreign country is detected, assume Italian.
+  return true;
 }
 
 function getDefaultRegionFilter(companies: PortfolioCompany[]): 'all' | 'italy' {

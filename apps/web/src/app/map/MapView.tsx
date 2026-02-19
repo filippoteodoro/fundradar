@@ -3,10 +3,9 @@
 import { useState, useMemo, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import type { Fund, FundCategory } from '@fundradar/shared';
-import { FUND_CATEGORY_LABELS } from '@fundradar/shared';
 import { getCityCoordinates } from './cityCoordinates';
 import { CARD_STYLE, CARD_PADDING } from '@/lib/ui';
-import { deriveFundHqCountry, matchesHqCountryFilter, matchesSectorGroupFilter } from '@/lib/fundFilters';
+import { matchesHqCountryFilter, matchesSectorGroupFilter } from '@/lib/fundFilters';
 import { formatAum, findNearestStopIndex } from '@/lib/fundRangeFilters';
 import { buildDynamicFundFilterSource } from '@/lib/filterConfig';
 import { DualRangeSlider } from '@/components/filters/DualRangeSlider';
@@ -69,10 +68,9 @@ export interface CityCluster {
 
 interface MapViewProps {
   funds: Fund[];
-  portfolioCompanyNames?: Record<string, string[]>;
 }
 
-export function MapView({ funds, portfolioCompanyNames = {} }: MapViewProps) {
+export function MapView({ funds }: MapViewProps) {
   const [categoryFilter, setCategoryFilter] = useState<FundCategory | 'all'>('all');
   const [search, setSearch] = useState('');
   const [sectorGroupFilter, setSectorGroupFilter] = useState<string | 'all'>('all');
@@ -147,18 +145,7 @@ export function MapView({ funds, portfolioCompanyNames = {} }: MapViewProps) {
       if (aumMaxFilter < aumRangeMax && aum > aumMaxFilter) continue;
       if (search.trim()) {
         const q = search.toLowerCase();
-        const derivedHqCountry = deriveFundHqCountry(fund)?.toLowerCase() || '';
-        const match =
-          fund.name.toLowerCase().includes(q) ||
-          fund.slug.includes(q) ||
-          fund.hq_city?.toLowerCase().includes(q) ||
-          fund.hq_region?.toLowerCase().includes(q) ||
-          derivedHqCountry.includes(q) ||
-          fund.strategy_tags?.some(t => t.toLowerCase().includes(q)) ||
-          fund.sector_tags?.some(t => t.toLowerCase().includes(q)) ||
-          (FUND_CATEGORY_LABELS[fund.category] || '').toLowerCase().includes(q) ||
-          portfolioCompanyNames[fund.slug]?.some(name => name.toLowerCase().includes(q));
-        if (!match) continue;
+        if (!fund.name.toLowerCase().includes(q)) continue;
       }
 
       // Check offices array for coordinates (prefer Italian office, then HQ)
@@ -236,7 +223,7 @@ export function MapView({ funds, portfolioCompanyNames = {} }: MapViewProps) {
       cityClusters: Array.from(cityGroups.values()),
       stats: { withCoords, withCityFallback, noLocation, total: funds.length },
     };
-  }, [funds, categoryFilter, sectorGroupFilter, hqCountryFilter, hasActiveInvestment, invMinFilter, invMaxFilter, aumMinFilter, aumMaxFilter, aumRangeMax, search, portfolioCompanyNames]);
+  }, [funds, categoryFilter, sectorGroupFilter, hqCountryFilter, hasActiveInvestment, invMinFilter, invMaxFilter, aumMinFilter, aumMaxFilter, aumRangeMax, search]);
 
   const showLocationSummary = stats.withCityFallback > 0 || stats.noLocation > 0;
 
@@ -253,7 +240,7 @@ export function MapView({ funds, portfolioCompanyNames = {} }: MapViewProps) {
       <FilterBar
         search={search}
         onSearchChange={setSearch}
-        searchPlaceholder="Search by fund name, city, sector, or asset..."
+        searchPlaceholder="Search by fund name..."
         activeFilterCount={activeFilterCount}
         onClearAll={clearFilters}
         showFilters={showFilters}

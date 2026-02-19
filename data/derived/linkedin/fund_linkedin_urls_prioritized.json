@@ -141,7 +141,7 @@
     {
       "slug": "wise-equity-sgr",
       "name": "Wise Equity SGR",
-      "linkedin_url": "https://ca.linkedin.com/company/wiseequity",
+      "linkedin_url": "https://www.linkedin.com/company/wise-sgr-s.p.a.",
       "priority_score": 110.0,
       "priority_reasons": [
         "In db.json",
@@ -598,7 +598,7 @@
     {
       "slug": "renaissance-partners",
       "name": "Renaissance Partners",
-      "linkedin_url": "https://www.linkedin.com/company/renaissance-partners/",
+      "linkedin_url": "https://www.linkedin.com/company/renaissancepartners",
       "priority_score": 85.0,
       "priority_reasons": [
         "In db.json",
@@ -633,7 +633,8 @@
         "Infra fund",
         "2 Italy deals",
         "AIFI member"
-      ]
+      ],
+      "note": "No dedicated LinkedIn page for sub-entity \u2014 parent company page returns wrong employees"
     },
     {
       "slug": "eurizon-real-asset",
@@ -646,7 +647,8 @@
         "AUM \u20ac5-10B",
         "3 Italy deals",
         "AIFI member"
-      ]
+      ],
+      "note": "No dedicated LinkedIn page for sub-entity \u2014 parent company page returns wrong employees"
     },
     {
       "slug": "aksia-sgr",
@@ -747,7 +749,7 @@
     {
       "slug": "equinox-aifm",
       "name": "Equinox AIFM",
-      "linkedin_url": "https://www.linkedin.com/company/equinox-holdings/",
+      "linkedin_url": "https://www.linkedin.com/company/equinox-investments",
       "priority_score": 78.0,
       "priority_reasons": [
         "In db.json",
@@ -852,7 +854,8 @@
         "Infra fund",
         "1 Italy deals",
         "AIFI member"
-      ]
+      ],
+      "note": "No dedicated LinkedIn page for sub-entity \u2014 parent company page returns wrong employees"
     },
     {
       "slug": "gradiente-sgr",
@@ -965,7 +968,7 @@
     {
       "slug": "amber-capital",
       "name": "Amber Capital",
-      "linkedin_url": "https://www.linkedin.com/company/amber-capital/",
+      "linkedin_url": "https://www.linkedin.com/company/ambercapital",
       "priority_score": 65.0,
       "priority_reasons": [
         "In db.json",
@@ -1183,7 +1186,7 @@
     {
       "slug": "anima-alternative-sgr",
       "name": "Anima Alternative SGR",
-      "linkedin_url": "https://www.linkedin.com/company/anima-sgr/",
+      "linkedin_url": "https://www.linkedin.com/company/anima-alternative",
       "priority_score": 58.0,
       "priority_reasons": [
         "In db.json",
@@ -1220,7 +1223,7 @@
     {
       "slug": "kairos-partners-sgr",
       "name": "Kairos Partners SGR",
-      "linkedin_url": "https://www.linkedin.com/company/kairospartners/",
+      "linkedin_url": "https://www.linkedin.com/company/kairos",
       "priority_score": 58.0,
       "priority_reasons": [
         "In db.json",
@@ -1342,7 +1345,7 @@
     {
       "slug": "key-capital",
       "name": "Key Capital",
-      "linkedin_url": "https://www.linkedin.com/company/key-capital/",
+      "linkedin_url": "https://www.linkedin.com/company/key-capital-venture-incubator",
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
@@ -1531,7 +1534,7 @@
     {
       "slug": "aurora-growth-capital",
       "name": "Aurora Growth Capital",
-      "linkedin_url": "https://www.linkedin.com/company/aurora-growth/",
+      "linkedin_url": "https://www.linkedin.com/company/nbaurora",
       "priority_score": 50.0,
       "priority_reasons": [
         "In db.json",
@@ -1578,7 +1581,7 @@
     {
       "slug": "pillarstone",
       "name": "Pillarstone",
-      "linkedin_url": "https://www.linkedin.com/company/pillarstone./",
+      "linkedin_url": "https://www.linkedin.com/company/pillarstone-italy-s.p.a.",
       "priority_score": 48.0,
       "priority_reasons": [
         "In db.json",

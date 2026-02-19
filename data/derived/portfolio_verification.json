@@ -506,10 +506,16 @@
     "_verified_at": "2026-02-18T16:50:43.944228+00:00"
   },
   "permira::P&I": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": false,\n  \"confidence\": \"high\",\n  \"correct_status\": \"exited\",\n  \"notes\": \"P&I (Personal & Informatik AG) is a real HR software company based in Wiesb",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "permira",
     "_company": "P&I",
-    "_verified_at": "2026-02-19T08:05:59.035852+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "permira::Seismic": {
     "real_company": true,
@@ -710,10 +716,16 @@
     "_verified_at": "2026-02-18T16:56:07.682630+00:00"
   },
   "pai-partners::Infra Group": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "pai-partners",
     "_company": "Infra Group",
-    "_verified_at": "2026-02-19T08:07:38.458076+00:00"
+    "_verified_at": "2026-02-19T10:23:47.546299+00:00",
+    "_source": "gemini_web_manual"
   },
   "pai-partners::Savory Solutions Group": {
     "real_company": true,
@@ -859,10 +871,16 @@
     "_verified_at": "2026-02-18T17:02:26.786875+00:00"
   },
   "pai-partners::VPS": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "pai-partners",
     "_company": "VPS",
-    "_verified_at": "2026-02-19T08:09:48.730748+00:00"
+    "_verified_at": "2026-02-19T10:23:47.546299+00:00",
+    "_source": "gemini_web_manual"
   },
   "pai-partners::GSE": {
     "real_company": true,
@@ -876,10 +894,16 @@
     "_verified_at": "2026-02-18T17:05:38.690365+00:00"
   },
   "pai-partners::Ecorail": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "pai-partners",
     "_company": "Ecorail",
-    "_verified_at": "2026-02-19T08:11:28.511306+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "cvc-dif::Calisen": {
     "real_company": true,
@@ -981,10 +1005,16 @@
     "_verified_at": "2026-02-18T17:11:00.028705+00:00"
   },
   "cvc-dif::Bluewater": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "cvc-dif",
     "_company": "Bluewater",
-    "_verified_at": "2026-02-19T08:15:40.869870+00:00"
+    "_verified_at": "2026-02-19T10:23:47.546299+00:00",
+    "_source": "gemini_web_manual"
   },
   "cvc-dif::G.Network": {
     "real_company": true,
@@ -998,10 +1028,16 @@
     "_verified_at": "2026-02-18T17:13:14.366020+00:00"
   },
   "cvc-dif::Teralis": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "cvc-dif",
     "_company": "Teralis",
-    "_verified_at": "2026-02-19T08:17:20.272121+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "cvc-dif::Leeds Oncology": {
     "real_company": true,
@@ -1037,28 +1073,52 @@
     "_verified_at": "2026-02-18T17:18:11.727967+00:00"
   },
   "cvc-dif::ATC Europe": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "cvc-dif",
     "_company": "ATC Europe",
-    "_verified_at": "2026-02-19T08:19:00.480514+00:00"
+    "_verified_at": "2026-02-19T10:23:47.546299+00:00",
+    "_source": "gemini_web_manual"
   },
   "cvc-dif::Green Dot": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "cvc-dif",
     "_company": "Green Dot",
-    "_verified_at": "2026-02-19T08:20:39.972907+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "cvc-dif::Unitas": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a CVC DIF infrastructure asset",
+    "grounded": true,
     "_slug": "cvc-dif",
     "_company": "Unitas",
-    "_verified_at": "2026-02-19T08:22:19.417227+00:00"
+    "_verified_at": "2026-02-19T10:26:53.905233+00:00",
+    "_source": "gemini_web_manual"
   },
   "cvc-dif::I-66 Express Mobility Partners": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "cvc-dif",
     "_company": "I-66 Express Mobility Partners",
-    "_verified_at": "2026-02-19T08:23:59.458435+00:00"
+    "_verified_at": "2026-02-19T10:23:47.546299+00:00",
+    "_source": "gemini_web_manual"
   },
   "bc-partners::Keter": {
     "real_company": true,
@@ -1776,10 +1836,16 @@
     "_verified_at": "2026-02-18T17:47:02.259486+00:00"
   },
   "tikehau-capital::Probionov": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "tikehau-capital",
     "_company": "Probionov",
-    "_verified_at": "2026-02-19T08:29:15.111879+00:00"
+    "_verified_at": "2026-02-19T10:23:47.546299+00:00",
+    "_source": "gemini_web_manual"
   },
   "tikehau-capital::IREIT Global": {
     "real_company": true,
@@ -1936,10 +2002,16 @@
     "_verified_at": "2026-02-18T18:00:50.475493+00:00"
   },
   "tikehau-capital::Terratest": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": false,\n  \"confidence\": \"high\",\n  \"correct_status\": \"exited\",\n  \"notes\": \"Terratest is a real Madrid-based construction company. While it is often as",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed in Tikehau PE portfolio",
+    "grounded": true,
     "_slug": "tikehau-capital",
     "_company": "Terratest",
-    "_verified_at": "2026-02-19T08:32:14.697594+00:00"
+    "_verified_at": "2026-02-19T10:26:53.905233+00:00",
+    "_source": "gemini_web_manual"
   },
   "tikehau-capital::Coolworld International": {
     "real_company": true,
@@ -1964,10 +2036,16 @@
     "_verified_at": "2026-02-18T18:02:01.338224+00:00"
   },
   "tikehau-capital::Eisper": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "tikehau-capital",
     "_company": "Eisper",
-    "_verified_at": "2026-02-19T08:33:54.145803+00:00"
+    "_verified_at": "2026-02-19T10:23:47.546299+00:00",
+    "_source": "gemini_web_manual"
   },
   "tikehau-capital::Scandinavian Enviro Systems": {
     "real_company": true,
@@ -1981,16 +2059,28 @@
     "_verified_at": "2026-02-18T18:04:08.828034+00:00"
   },
   "tikehau-capital::Albioma": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "tikehau-capital",
     "_company": "Albioma",
-    "_verified_at": "2026-02-19T08:35:33.948757+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "tikehau-capital::TSE": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "tikehau-capital",
     "_company": "TSE",
-    "_verified_at": "2026-02-19T08:37:14.411593+00:00"
+    "_verified_at": "2026-02-19T10:23:47.546299+00:00",
+    "_source": "gemini_web_manual"
   },
   "tikehau-capital::Eataly": {
     "real_company": true,
@@ -2004,16 +2094,28 @@
     "_verified_at": "2026-02-18T18:08:25.873120+00:00"
   },
   "tikehau-capital::Mazzocchi": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "tikehau-capital",
     "_company": "Mazzocchi",
-    "_verified_at": "2026-02-19T08:38:54.277311+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "tikehau-capital::Savinio": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "tikehau-capital",
     "_company": "Savinio",
-    "_verified_at": "2026-02-19T08:40:34.609622+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "tikehau-capital::Mecachrome": {
     "real_company": true,
@@ -2137,10 +2239,16 @@
     "_verified_at": "2026-02-19T08:42:04.430476+00:00"
   },
   "tikehau-capital::Efinor": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "tikehau-capital",
     "_company": "Efinor",
-    "_verified_at": "2026-02-19T08:43:43.793329+00:00"
+    "_verified_at": "2026-02-19T10:23:47.546299+00:00",
+    "_source": "gemini_web_manual"
   },
   "tikehau-capital::Neoen": {
     "real_company": true,
@@ -2484,10 +2592,16 @@
     "_verified_at": "2026-02-18T18:31:07.926663+00:00"
   },
   "eurazeo::CorWave": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurazeo",
     "_company": "CorWave",
-    "_verified_at": "2026-02-19T08:46:51.705019+00:00"
+    "_verified_at": "2026-02-19T10:23:47.546299+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurazeo::Thought Machine": {
     "real_company": true,
@@ -2589,10 +2703,16 @@
     "_verified_at": "2026-02-18T18:34:59.799063+00:00"
   },
   "eurazeo::Daze": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurazeo",
     "_company": "Daze",
-    "_verified_at": "2026-02-19T08:48:31.763011+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurazeo::Eovolt": {
     "real_company": true,
@@ -2727,10 +2847,16 @@
     "_verified_at": "2026-02-18T18:42:48.565517+00:00"
   },
   "eurazeo::Veepee": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "eurazeo",
     "_company": "Veepee",
-    "_verified_at": "2026-02-19T08:50:11.047895+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurazeo::Farfetch": {
     "real_company": true,
@@ -2821,10 +2947,16 @@
     "_verified_at": "2026-02-18T18:48:37.649395+00:00"
   },
   "eurazeo::Latécoère": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "eurazeo",
     "_company": "Latécoère",
-    "_verified_at": "2026-02-19T08:51:51.178640+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurazeo::AlixPartners": {
     "real_company": true,
@@ -2926,10 +3058,16 @@
     "_verified_at": "2026-02-18T18:55:51.477425+00:00"
   },
   "eurazeo::Vade": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "eurazeo",
     "_company": "Vade",
-    "_verified_at": "2026-02-19T08:54:01.012836+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurazeo::Mistral AI": {
     "real_company": true,
@@ -3086,10 +3224,16 @@
     "_verified_at": "2026-02-18T19:01:12.864414+00:00"
   },
   "capza::NeoXam": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "capza",
     "_company": "NeoXam",
-    "_verified_at": "2026-02-19T08:55:40.714612+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "capza::Ynov": {
     "real_company": true,
@@ -3103,10 +3247,16 @@
     "_verified_at": "2026-02-18T19:03:11.343861+00:00"
   },
   "capza::I-Tracing": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "capza",
     "_company": "I-Tracing",
-    "_verified_at": "2026-02-19T08:57:20.107418+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "capza::Sogelink": {
     "real_company": true,
@@ -3131,16 +3281,28 @@
     "_verified_at": "2026-02-18T19:05:44.537383+00:00"
   },
   "capza::SGH Medical Pharma": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "capza",
     "_company": "SGH Medical Pharma",
-    "_verified_at": "2026-02-19T08:59:00.457853+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "capza::Cisbio": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "capza",
     "_company": "Cisbio",
-    "_verified_at": "2026-02-19T09:00:40.326297+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "capza::Santé Cie": {
     "real_company": true,
@@ -3231,10 +3393,16 @@
     "_verified_at": "2026-02-18T19:15:43.246570+00:00"
   },
   "capza::Groupe JCD": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "capza",
     "_company": "Groupe JCD",
-    "_verified_at": "2026-02-19T09:02:20.569043+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "capza::Eolane": {
     "real_company": true,
@@ -3270,10 +3438,16 @@
     "_verified_at": "2026-02-18T19:18:52.832012+00:00"
   },
   "capza::Groupe GMD": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "capza",
     "_company": "Groupe GMD",
-    "_verified_at": "2026-02-19T09:04:00.096747+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "capza::Groupe Bertrand": {
     "real_company": true,
@@ -3287,10 +3461,16 @@
     "_verified_at": "2026-02-18T19:20:59.133131+00:00"
   },
   "capza::Orientis": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "capza",
     "_company": "Orientis",
-    "_verified_at": "2026-02-19T09:05:40.909072+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "capza::Truffaut": {
     "real_company": true,
@@ -3304,10 +3484,16 @@
     "_verified_at": "2026-02-18T19:23:32.838437+00:00"
   },
   "capza::Gault & Millau": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "capza",
     "_company": "Gault & Millau",
-    "_verified_at": "2026-02-19T09:07:20.924346+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "capza::B&B Hotels": {
     "real_company": true,
@@ -3365,10 +3551,16 @@
     "_verified_at": "2026-02-19T09:09:49.210852+00:00"
   },
   "capza::Crystal": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "capza",
     "_company": "Crystal",
-    "_verified_at": "2026-02-19T09:11:28.637817+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "capza::Geosat": {
     "real_company": true,
@@ -3426,10 +3618,16 @@
     "_verified_at": "2026-02-18T19:34:58.536034+00:00"
   },
   "capza::Recrea": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "capza",
     "_company": "Recrea",
-    "_verified_at": "2026-02-19T09:13:07.834492+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "capza::Opteven": {
     "real_company": true,
@@ -3476,10 +3674,16 @@
     "_verified_at": "2026-02-19T09:14:39.523962+00:00"
   },
   "eurizon-real-asset::Cedacri": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "Cedacri",
-    "_verified_at": "2026-02-19T09:16:18.385684+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurizon-real-asset::Forno d'Asolo": {
     "real_company": true,
@@ -3493,10 +3697,16 @@
     "_verified_at": "2026-02-18T19:43:52.139313+00:00"
   },
   "eurizon-real-asset::Fedrigoni": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "Fedrigoni",
-    "_verified_at": "2026-02-19T09:17:58.869336+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurizon-real-asset::Mooney": {
     "real_company": true,
@@ -3565,16 +3775,28 @@
     "_verified_at": "2026-02-18T19:49:53.795555+00:00"
   },
   "eurizon-real-asset::Satispay": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "Satispay",
-    "_verified_at": "2026-02-18T19:51:33.177920+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurizon-real-asset::Kedrion Biopharma": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "Kedrion Biopharma",
-    "_verified_at": "2026-02-18T19:53:12.909896+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurizon-real-asset::D-Orbit": {
     "real_company": true,
@@ -3588,10 +3810,16 @@
     "_verified_at": "2026-02-18T19:54:06.827911+00:00"
   },
   "eurizon-real-asset::Lio Pharma": {
-    "error": "Empty response text",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "Lio Pharma",
-    "_verified_at": "2026-02-18T19:55:11.648203+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurizon-real-asset::Prima Assicurazioni": {
     "real_company": true,
@@ -3638,22 +3866,40 @@
     "_verified_at": "2026-02-18T20:00:02.672895+00:00"
   },
   "eurizon-real-asset::Golden Goose": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "Golden Goose",
-    "_verified_at": "2026-02-18T20:01:42.765918+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurizon-real-asset::Eataly": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "Eataly",
-    "_verified_at": "2026-02-18T20:03:22.796084+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurizon-real-asset::L'Osteria": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "L'Osteria",
-    "_verified_at": "2026-02-18T20:05:03.179665+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurizon-real-asset::Banijay": {
     "real_company": true,
@@ -3678,10 +3924,16 @@
     "_verified_at": "2026-02-18T20:06:06.505556+00:00"
   },
   "eurizon-real-asset::Tinexta": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "Tinexta",
-    "_verified_at": "2026-02-18T20:07:46.916144+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurizon-real-asset::Avio": {
     "real_company": true,
@@ -3695,16 +3947,28 @@
     "_verified_at": "2026-02-18T20:08:21.776551+00:00"
   },
   "eurizon-real-asset::Open Fiber": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "Open Fiber",
-    "_verified_at": "2026-02-18T20:10:01.161766+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurizon-real-asset::Viasat Group": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "Viasat Group",
-    "_verified_at": "2026-02-18T20:11:41.027239+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurizon-real-asset::Philogen": {
     "real_company": true,
@@ -3718,16 +3982,28 @@
     "_verified_at": "2026-02-18T20:12:12.652686+00:00"
   },
   "eurizon-real-asset::Stevanato Group": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "Stevanato Group",
-    "_verified_at": "2026-02-18T20:13:52.252491+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurizon-real-asset::Seco": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "Seco",
-    "_verified_at": "2026-02-18T20:15:32.126840+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "eurizon-real-asset::Ariston Group": {
     "real_company": true,
@@ -3752,10 +4028,16 @@
     "_verified_at": "2026-02-18T20:16:39.959626+00:00"
   },
   "eurizon-real-asset::Net Insurance": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "Net Insurance",
-    "_verified_at": "2026-02-18T20:18:20.209737+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "algebris::Bending Spoons": {
     "real_company": true,
@@ -3802,16 +4084,27 @@
     "_verified_at": "2026-02-18T20:20:38.804703+00:00"
   },
   "algebris::Newcleo": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Newcleo is a nuclear technology company founded in 2021. It is a portfolio company of Algebris Investments, specifically through its Algebris Climatech and Green Transition funds, which participated in and led funding rounds for the company in 2024 and 2025. While originally headquartered in London, Newcleo relocated its holding company to Paris in October 2024 to access European Union funding.",
+    "grounded": true,
     "_slug": "algebris",
     "_company": "Newcleo",
-    "_verified_at": "2026-02-18T20:22:18.790398+00:00"
+    "_verified_at": "2026-02-19T09:39:19.003106+00:00"
   },
   "algebris::E-Novia": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"current\",\n  \"notes\": \"E-Novia S.p.A. is a Milan-based industrial group and venture builder focuse",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "algebris",
     "_company": "E-Novia",
-    "_verified_at": "2026-02-18T20:22:38.774253+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "algebris::Musixmatch": {
     "real_company": true,
@@ -3825,16 +4118,28 @@
     "_verified_at": "2026-02-18T20:23:03.044017+00:00"
   },
   "algebris::Gemma Group": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "algebris",
     "_company": "Gemma Group",
-    "_verified_at": "2026-02-18T20:24:43.324081+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "algebris::V-GER": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - confirmed portfolio company",
+    "grounded": true,
     "_slug": "algebris",
     "_company": "V-GER",
-    "_verified_at": "2026-02-18T20:26:23.827184+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   },
   "algebris::Zhero": {
     "real_company": true,
@@ -3892,9 +4197,15 @@
     "_verified_at": "2026-02-18T20:28:48.955070+00:00"
   },
   "algebris::I-Care": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Manual verification via Gemini web - not a portfolio company",
+    "grounded": true,
     "_slug": "algebris",
     "_company": "I-Care",
-    "_verified_at": "2026-02-18T20:30:29.245926+00:00"
+    "_verified_at": "2026-02-19T10:21:42.058527+00:00",
+    "_source": "gemini_web_manual"
   }
 }
