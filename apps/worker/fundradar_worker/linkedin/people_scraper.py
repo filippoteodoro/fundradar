@@ -326,6 +326,68 @@ def normalize_profile(
     )
 
 
+def normalize_enriched_profile(
+    item: dict[str, Any],
+    company_slug: str | None = None,
+) -> LinkedInProfile:
+    """
+    Convert an enriched profile (nested positions format) to LinkedInProfile.
+
+    The enriched scraper groups positions by company with nested roles:
+      positions: [{company: {name: ...}, positions: [{title, timePeriod}, ...]}, ...]
+
+    This function flattens that into the standard flat experience format that
+    _parse_experience already handles.
+    """
+    flat_positions: list[dict[str, Any]] = []
+    for group in item.get("positions", []):
+        company_name = group.get("company", {}).get("name", "")
+        for role in group.get("positions", []):
+            flat_positions.append({
+                "companyName": company_name,
+                "title": role.get("title", ""),
+                "locationName": role.get("locationName"),
+                "timePeriod": role.get("timePeriod", {}),
+                "description": role.get("description", ""),
+            })
+
+    # Build a flat copy of the item so normalize_profile can handle everything else
+    flat_item = {**item, "experience": flat_positions}
+    return normalize_profile(flat_item, company_slug=company_slug)
+
+
+def normalize_manual_profile(
+    item: dict[str, Any],
+    company_slug: str | None = None,
+) -> LinkedInProfile:
+    """
+    Convert a minimal manual profile entry (name, title, location, linkedin url)
+    to a LinkedInProfile.
+
+    These profiles have no experience history — only the current title.
+    Background classification defaults to PE (they're all at PE mega-funds).
+    Seniority is inferred from the current title via headline.
+    """
+    linkedin_url = item.get("linkedin", "")
+    profile_id = linkedin_url.rstrip("/").split("/")[-1] if "/in/" in linkedin_url else linkedin_url
+
+    return LinkedInProfile(
+        profile_id=profile_id,
+        profile_url=linkedin_url,
+        name=item.get("name", "Unknown"),
+        headline=item.get("title"),
+        location=item.get("location"),
+        connections=None,
+        about=None,
+        education=[],
+        experience=[],
+        skills=[],
+        languages=[],
+        company_slug=company_slug,
+        scraped_at=None,
+    )
+
+
 class LinkedInPeopleScraper:
     """
     Scraper for LinkedIn people data.
