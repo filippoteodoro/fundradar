@@ -1,4 +1,6 @@
+import { Suspense } from 'react';
 import { CARD_STYLE, CARD_PADDING } from '@/lib/ui';
+import { PurchaseEvent } from './PurchaseEvent';
 
 export const metadata = {
   title: 'Subscribed — Fundradar',
@@ -7,6 +9,9 @@ export const metadata = {
 export default function SubscribeSuccessPage() {
   return (
     <div style={{ maxWidth: '500px', margin: '80px auto', textAlign: 'center' }}>
+      <Suspense fallback={null}>
+        <PurchaseEvent />
+      </Suspense>
       <div style={{ ...CARD_STYLE, padding: CARD_PADDING }}>
         <div style={{ fontSize: '48px', marginBottom: '16px' }}>&#10003;</div>
         <h1 style={{ fontSize: '22px', fontWeight: 700, margin: '0 0 12px 0', color: '#1a1a2e' }}>
