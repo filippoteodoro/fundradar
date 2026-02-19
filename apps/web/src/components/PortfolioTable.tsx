@@ -156,11 +156,9 @@ export function PortfolioTable({ companies }: PortfolioTableProps) {
                           const displaySector = normalizePortfolioSector(company.sector) || company.sector;
                           const sc = getSectorColor(displaySector);
                           return (
-                            <div style={{ width: '180px' }}>
-                              <span style={{ ...badgeStyle({ bg: sc.bg, color: sc.text }), whiteSpace: 'normal', display: 'inline-block', lineHeight: '1.3' }}>
-                                {displaySector}
-                              </span>
-                            </div>
+                            <span style={badgeStyle({ bg: sc.bg, color: sc.text })}>
+                              {displaySector}
+                            </span>
                           );
                         })() : <span style={{ color: '#999' }}>-</span>}
                       </td>
