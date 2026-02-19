@@ -64,14 +64,16 @@ PROGRESS_FILE = DATA_DIR / "signal_to_portfolio_progress.json"
 DB_PATH = PROJECT_ROOT / "data" / "db.json"
 
 MODEL = "gemini-3-flash-preview"
-BATCH_SIZE = 10  # Rich prompts (signal text + portfolio context) need smaller batches than enrichment
+# Gemini Flash free tier: ~30s per signal for structured extraction. Batches of 5
+# take ~150s, batches of 10 take ~300s. Keep batches small to stay within timeout.
+BATCH_SIZE = 5
 MAX_RETRIES = 2
-CALL_TIMEOUT = 180  # SIGALRM hard timeout — 2x enrichment's 90s due to richer prompts
-SDK_TIMEOUT_MS = 240_000  # SDK-level timeout — must exceed CALL_TIMEOUT
+CALL_TIMEOUT = 300  # 5min — Gemini Flash free tier is slow on complex structured output
+SDK_TIMEOUT_MS = 360_000  # SDK-level timeout — must exceed CALL_TIMEOUT
 DELAY_BETWEEN_CALLS = 4.0  # 4s between calls — Gemini free tier ~15 RPM
 
 # Auto-split: when a batch fails at size N, retry at next smaller size
-BATCH_SPLIT_SIZES = [10, 5, 2, 1]
+BATCH_SPLIT_SIZES = [5, 2, 1]
 
 # Signal types to process
 DEAL_TYPES = {"deal_announced", "exit_announced"}
@@ -344,7 +346,7 @@ EXISTING PORTFOLIO of "{fund_name}" (already invested): {', '.join(sample)}{"...
     return f"""You are analyzing investment news signals for the PE/VC fund "{fund_name}".
 {portfolio_context}
 For each signal, extract:
-1. target_company: The company being invested in or exited from. Use the company's proper name (not the fund name, not the advisor name). null if no specific target company is mentioned or if the signal is about fund-level activity (fundraising, fund launch, etc.).
+1. target_company: The company being invested in or exited from. Use the company's proper name (not the fund name, not the advisor name). null if no specific target company is mentioned or if the signal is about fund-level activity (fundraising, fund launch, etc.). IMPORTANT: If a signal mentions MULTIPLE target companies (e.g. "acquires CompanyA and CompanyB"), return a SEPARATE object for EACH company, all sharing the same signal_id.
 2. is_direct_investment: true ONLY if "{fund_name}" is directly investing in or exiting the target company. Set false if:
    - A company from the EXISTING PORTFOLIO list above is making an acquisition (add-on/bolt-on)
    - The signal is about a different fund's deal, not "{fund_name}"'s
@@ -509,10 +511,11 @@ def call_gemini_batch(
         total_in, total_out = 0, 0
         sub_failed = False
 
-        for sub_start in range(0, len(signals), split_size):
+        for sub_idx, sub_start in enumerate(range(0, len(signals), split_size)):
             sub_batch = signals[sub_start:sub_start + split_size]
             sub_prompt = build_prompt(fund_name, sub_batch, existing_company_names)
-            time.sleep(DELAY_BETWEEN_CALLS)
+            if sub_idx > 0:
+                time.sleep(DELAY_BETWEEN_CALLS)
             sub_results, sub_in, sub_out = _call_gemini_single(client, sub_prompt)
             total_in += sub_in
             total_out += sub_out
@@ -670,103 +673,104 @@ def process_fund_signals(
         # Mark this batch as successfully processed
         processed_ids.extend(s["id"] for s in batch)
 
-        # Index by signal_id
-        results_by_id: dict[str, dict] = {}
+        # Index by signal_id (list: one signal can yield multiple companies)
+        results_by_id: dict[str, list[dict]] = {}
         for r in results:
             sid = r.get("signal_id")
             if sid:
-                results_by_id[sid] = r
+                results_by_id.setdefault(sid, []).append(r)
 
         # Phase 2: process each extraction
         for s in batch:
             sid = s["id"]
-            r = results_by_id.get(sid)
-            if not r:
+            extractions = results_by_id.get(sid)
+            if not extractions:
                 stats["skipped_no_company"] += 1
                 continue
 
-            company_name = (r.get("target_company") or "").strip()
-            if not company_name:
-                stats["skipped_no_company"] += 1
-                continue
+            for r in extractions:
+                company_name = (r.get("target_company") or "").strip()
+                if not company_name:
+                    stats["skipped_no_company"] += 1
+                    continue
 
-            is_direct = r.get("is_direct_investment", False)
-            action = r.get("action", "other")
+                is_direct = r.get("is_direct_investment", False)
+                action = r.get("action", "other")
 
-            # Skip add-on acquisitions by portfolio companies
-            if not is_direct:
-                stats["skipped_addon"] += 1
-                continue
+                # Skip add-on acquisitions by portfolio companies
+                if not is_direct:
+                    stats["skipped_addon"] += 1
+                    continue
 
-            # Skip non-investment/exit actions (fundraise, partnership, report, etc.)
-            if action == "other":
-                stats["skipped_other"] += 1
-                continue
+                # Skip non-investment/exit actions (fundraise, partnership, report, etc.)
+                if action == "other":
+                    stats["skipped_other"] += 1
+                    continue
 
-            # Check if already in portfolio
-            matched, matched_norm = _matches_existing(company_name, existing_names, existing_compact)
-            if matched:
-                if action == "exit" and matched_norm:
-                    existing_entry = existing_by_norm.get(matched_norm)
-                    if existing_entry and existing_entry.get("status") == "current":
-                        # Guard: never mutate curation_locked entries
-                        if existing_entry.get("curation_locked"):
-                            stats["skipped_existing"] += 1
+                # Check if already in portfolio
+                matched, matched_norm = _matches_existing(company_name, existing_names, existing_compact)
+                if matched:
+                    if action == "exit" and matched_norm:
+                        existing_entry = existing_by_norm.get(matched_norm)
+                        if existing_entry and existing_entry.get("status") == "current":
+                            # Guard: never mutate curation_locked entries
+                            if existing_entry.get("curation_locked"):
+                                stats["skipped_existing"] += 1
+                            else:
+                                existing_entry["status"] = "exited"
+                                stats["exits_updated"] += 1
+                                print(f"    EXIT: {existing_entry.get('name')} → status=exited (signal: {sid})")
                         else:
-                            existing_entry["status"] = "exited"
-                            stats["exits_updated"] += 1
-                            print(f"    EXIT: {existing_entry.get('name')} → status=exited (signal: {sid})")
+                            stats["skipped_existing"] += 1
                     else:
                         stats["skipped_existing"] += 1
-                else:
-                    stats["skipped_existing"] += 1
-                continue
+                    continue
 
-            if action == "exit":
-                # Exit for company not in portfolio — nothing to update
-                stats["skipped_exit_no_match"] += 1
-                continue
+                if action == "exit":
+                    # Exit for company not in portfolio — nothing to update
+                    stats["skipped_exit_no_match"] += 1
+                    continue
 
-            # ── New investment: create portfolio entry ──
-            data_source, confidence = classify_source(s, fund_domain)
+                # ── New investment: create portfolio entry ──
+                data_source, confidence = classify_source(s, fund_domain)
 
-            # Investment date: prefer Gemini extraction, fallback to signal date
-            investment_date = r.get("investment_date")
-            if not investment_date and s.get("published_at"):
-                try:
-                    investment_date = s["published_at"][:10]
-                except Exception:
-                    pass
+                # Investment date: prefer Gemini extraction, fallback to signal date
+                investment_date = r.get("investment_date")
+                if not investment_date and s.get("published_at"):
+                    try:
+                        investment_date = s["published_at"][:10]
+                    except Exception:
+                        pass
 
-            # Sector: validate against taxonomy
-            sector = r.get("sector")
-            if sector and sector not in SECTOR_SET:
-                sector = None
+                # Sector: validate against taxonomy
+                sector = r.get("sector")
+                if sector and sector not in SECTOR_SET:
+                    sector = None
 
-            new_entry = {
-                "name": company_name,
-                "sector": sector,
-                "status": "current",
-                "confidence": confidence,
-                "website": None,
-                "description": r.get("description"),
-                "detail_page_url": None,
-                "headquarters": r.get("headquarters"),
-                "investment_date": investment_date,
-                "source_url": s.get("source_url"),
-                "data_source": data_source,
-                "signal_id": sid,
-            }
+                new_entry = {
+                    "name": company_name,
+                    "sector": sector,
+                    "status": "current",
+                    "confidence": confidence,
+                    "website": None,
+                    "description": r.get("description"),
+                    "detail_page_url": None,
+                    "headquarters": r.get("headquarters"),
+                    "investment_date": investment_date,
+                    "source_url": s.get("source_url"),
+                    "data_source": data_source,
+                    "signal_id": sid,
+                }
 
-            new_entries.append(new_entry)
-            # Update dedup sets so subsequent signals in the same run don't add duplicates
-            norm = normalize_company_name(company_name)
-            existing_names.add(norm)
-            existing_compact.add(norm.replace(" ", ""))
-            existing_by_norm[norm] = new_entry
-            stats["added"] += 1
-            print(f"    ADD: {company_name} (sector={sector}, hq={r.get('headquarters')}, "
-                  f"conf={confidence}, source={data_source}, signal={sid})")
+                new_entries.append(new_entry)
+                # Update dedup sets so subsequent signals in the same run don't add duplicates
+                norm = normalize_company_name(company_name)
+                existing_names.add(norm)
+                existing_compact.add(norm.replace(" ", ""))
+                existing_by_norm[norm] = new_entry
+                stats["added"] += 1
+                print(f"    ADD: {company_name} (sector={sector}, hq={r.get('headquarters')}, "
+                      f"conf={confidence}, source={data_source}, signal={sid})")
 
         # Rate limit between batches
         if batch_start + BATCH_SIZE < len(signals):

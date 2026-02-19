@@ -11303,6 +11303,42 @@
       "last_checked_at": "2026-02-19T20:57:57.346414+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
+    },
+    "https://www.eiffel-ig.com/en/group/team/": {
+      "url": "https://www.eiffel-ig.com/en/group/team/",
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.eiffel-ig.com', port=443): Max retries exceeded with url: /en/group/team/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.eiffel-ig.com', port=443): Failed to resolve 'www.eiffel-ig.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T22:43:12.504447+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-19T22:48:12.504447+00:00"
+    },
+    "https://www.eiffel-ig.com/groupe/equipe/": {
+      "url": "https://www.eiffel-ig.com/groupe/equipe/",
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.eiffel-ig.com', port=443): Max retries exceeded with url: /groupe/equipe/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.eiffel-ig.com', port=443): Failed to resolve 'www.eiffel-ig.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T22:43:12.507506+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-19T22:48:12.507506+00:00"
+    },
+    "https://www.eiffel-ig.com/en/news/": {
+      "url": "https://www.eiffel-ig.com/en/news/",
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.eiffel-ig.com', port=443): Max retries exceeded with url: /en/news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.eiffel-ig.com', port=443): Failed to resolve 'www.eiffel-ig.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T22:43:12.509338+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-19T22:48:12.509338+00:00"
+    },
+    "https://www.eiffel-ig.com/actualites/": {
+      "url": "https://www.eiffel-ig.com/actualites/",
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.eiffel-ig.com', port=443): Max retries exceeded with url: /actualites/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.eiffel-ig.com', port=443): Failed to resolve 'www.eiffel-ig.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T22:43:12.511950+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-19T22:48:12.511950+00:00"
     }
   }
 }

@@ -1,13 +1,10 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import Link from 'next/link';
 import { BetaBadge } from '@/components/BetaBadge';
 import { BetaBanner } from '@/components/BetaBanner';
 import { HeaderNav } from '@/components/HeaderNav';
-import { Analytics } from '@vercel/analytics/react';
+import { ConsentManager } from '@/components/ConsentManager';
 import { getBaseUrl } from '@/lib/baseUrl';
-
-const GTM_ID = 'GTM-P6LBQD4B';
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseUrl()),
@@ -37,19 +34,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <Script id="gtm" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${GTM_ID}');`}
-        </Script>
-      </head>
+      <head />
       <body style={{ margin: 0, fontFamily: 'system-ui, sans-serif', background: '#fafafa' }}>
-        <noscript>
-          <iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} height="0" width="0" style={{ display: 'none', visibility: 'hidden' }} />
-        </noscript>
         <style dangerouslySetInnerHTML={{ __html: `
           .mobile-show { display: none; }
           @media (max-width: 768px) {
@@ -114,9 +100,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           borderTop: '1px solid #eee',
           marginTop: '48px'
         }}>
-          <p>All data verified through public sources. Data is updated daily.</p>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '10px',
+            flexWrap: 'wrap',
+          }}>
+            <span>All data verified through public sources. Data is updated daily.</span>
+            <Link href="/terms-and-conditions" style={{ color: '#666', textDecoration: 'underline' }}>
+              Terms
+            </Link>
+            <Link href="/privacy-policy" style={{ color: '#666', textDecoration: 'underline' }}>
+              Privacy
+            </Link>
+            <Link href="/cookie-policy" style={{ color: '#666', textDecoration: 'underline' }}>
+              Cookies
+            </Link>
+            <Link href="/disclaimer" style={{ color: '#666', textDecoration: 'underline' }}>
+              Disclaimer
+            </Link>
+          </div>
         </footer>
-        <Analytics />
+        <ConsentManager />
       </body>
     </html>
   );

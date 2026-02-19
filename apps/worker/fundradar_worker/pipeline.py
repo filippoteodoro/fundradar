@@ -10,6 +10,7 @@ Runs the full monitoring pipeline in dependency order:
   5. enrich_portfolio      - fill missing sector/HQ/description via Gemini (optional)
   6. filter                - quality-score signals and remove noise
   7. enrich                - add AI summaries via OpenAI
+  8. signal_to_portfolio   - convert deal/exit signals to portfolio entries (Gemini, optional)
 
 Each step validates its output before proceeding to the next.
 
@@ -112,6 +113,17 @@ STEPS = [
             DATA_DIR / "detected_signals_enriched.json",
         ],
         "timeout": 20 * 60,  # 20 min — API calls for 300+ signals
+        "retry_on_partial": True,
+        "max_retries": 2,
+    },
+    {
+        "name": "signal_to_portfolio",
+        "description": "Convert deal/exit signals into portfolio entries (Gemini)",
+        "command": [sys.executable, "scripts/signal_to_portfolio.py", "--pipeline"],
+        "cwd": str(WORKER_DIR),
+        "outputs": [DATA_DIR / "portfolio_items.json"],
+        "optional": True,
+        "timeout": 60 * 60,  # 60 min — Gemini Flash free tier is slow on structured output
         "retry_on_partial": True,
         "max_retries": 2,
     },
@@ -809,6 +821,8 @@ if __name__ == "__main__":
         elif step["name"] == "enrich_portfolio" and slugs_filter:
             step["command"].extend(["--slugs", slugs_filter])
         elif step["name"] == "enrich" and slugs_filter:
+            step["command"].extend(["--slugs", slugs_filter])
+        elif step["name"] == "signal_to_portfolio" and slugs_filter:
             step["command"].extend(["--slugs", slugs_filter])
 
     run_pipeline(only_step=step_name, dry_run=dry_run)

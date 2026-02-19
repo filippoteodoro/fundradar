@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { CARD_STYLE, CARD_PADDING } from '@/lib/ui';
 import { SubscribeForm } from './SubscribeForm';
 import { loadUnifiedSignals } from '@/lib/signals_unified';
@@ -213,6 +214,20 @@ export default async function SubscribePage() {
           margin: '20px 0 0 0',
         }}>
           Payments processed securely by Stripe. You can cancel your subscription at any time.
+          <br />
+          By subscribing, you agree to our{' '}
+          <Link href="/terms-and-conditions" style={{ color: '#888', textDecoration: 'underline' }}>
+            Terms
+          </Link>
+          ,{' '}
+          <Link href="/privacy-policy" style={{ color: '#888', textDecoration: 'underline' }}>
+            Privacy Policy
+          </Link>{' '}
+          and{' '}
+          <Link href="/cookie-policy" style={{ color: '#888', textDecoration: 'underline' }}>
+            Cookie Policy
+          </Link>
+          .
         </p>
       </div>
 

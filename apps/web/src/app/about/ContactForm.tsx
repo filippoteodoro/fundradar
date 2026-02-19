@@ -257,6 +257,30 @@ export default function ContactForm() {
       >
         {isSubmitting ? 'Sending...' : 'Send Message'}
       </button>
+
+      {recaptchaConfigured && (
+        <p style={{ margin: '10px 0 0 0', fontSize: '11px', color: '#888', lineHeight: 1.45 }}>
+          This form is protected by reCAPTCHA and the Google{' '}
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#777', textDecoration: 'underline' }}
+          >
+            Privacy Policy
+          </a>{' '}
+          and{' '}
+          <a
+            href="https://policies.google.com/terms"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#777', textDecoration: 'underline' }}
+          >
+            Terms of Service
+          </a>{' '}
+          apply.
+        </p>
+      )}
     </form>
   );
 }

@@ -13,6 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/signals`, lastModified: now, changeFrequency: 'daily', priority: 0.9 },
     { url: `${BASE_URL}/map`, lastModified: now, changeFrequency: 'weekly', priority: 0.6 },
     { url: `${BASE_URL}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
+    { url: `${BASE_URL}/terms-and-conditions`, lastModified: now, changeFrequency: 'monthly', priority: 0.2 },
+    { url: `${BASE_URL}/privacy-policy`, lastModified: now, changeFrequency: 'monthly', priority: 0.2 },
+    { url: `${BASE_URL}/cookie-policy`, lastModified: now, changeFrequency: 'monthly', priority: 0.2 },
+    { url: `${BASE_URL}/disclaimer`, lastModified: now, changeFrequency: 'monthly', priority: 0.2 },
   ];
 
   const fundPages: MetadataRoute.Sitemap = funds.map((fund) => ({

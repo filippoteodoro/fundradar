@@ -95,6 +95,17 @@ Each fund's scraping logic is in `apps/worker/fundradar_worker/strategies/extrac
 - `URLS` — which page paths to fetch
 - `EXTRACTORS` — extraction functions per data type
 
+Recent fund-specific update:
+- `yarpa-investimenti-sgr` now has custom `team` and `news` extractors with:
+  - `team`: `https://www.yarpa.it/le-persone/`
+  - `news`: `https://www.yarpa.it/press/`
+  - `portfolio`: intentionally `None` (fund-of-funds model, no company-level portfolio page)
+- `eiffel` now has custom Frontity-state `team` and `news` extractors with:
+  - `team`: `https://www.eiffel-ig.com/en/group/team/`, `https://www.eiffel-ig.com/groupe/equipe/`
+  - `news`: `https://www.eiffel-ig.com/en/news/`, `https://www.eiffel-ig.com/actualites/`
+  - extractor reads embedded `__FRONTITY_CONNECT_STATE__` JSON (works even when content is JS-app rendered)
+  - `portfolio`: intentionally `None` (no stable public company-level portfolio grid)
+
 ## Monitoring
 
 ### Health Report
