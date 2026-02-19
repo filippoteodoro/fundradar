@@ -10,8 +10,9 @@ export function PurchaseEvent() {
     const sessionId = searchParams.get('session_id');
     if (!sessionId) return;
 
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
+    const w = window as Window & { dataLayer: object[] };
+    w.dataLayer = w.dataLayer || [];
+    w.dataLayer.push({
       event: 'purchase',
       ecommerce: {
         transaction_id: sessionId,
