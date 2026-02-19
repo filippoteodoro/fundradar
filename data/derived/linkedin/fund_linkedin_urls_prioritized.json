@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-18",
+  "generated_at": "2026-02-19",
   "note": "Funds sorted by Italy PE/VC importance. Scrape in this order.",
   "matched_count": 132,
   "companies": [
@@ -10,7 +10,7 @@
       "priority_score": 126.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "Mega AUM (\u20ac50B+)",
         "PE fund",
         "Active dealmaker (7 deals)",
@@ -25,7 +25,7 @@
       "priority_score": 121.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac5-10B",
         "PE fund",
         "Active dealmaker (7 deals)",
@@ -40,7 +40,7 @@
       "priority_score": 120.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "Mega AUM (\u20ac50B+)",
         "PE fund",
         "Active dealmaker (5 deals)",
@@ -55,7 +55,7 @@
       "priority_score": 120.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "PE fund",
         "Active dealmaker (17 deals)",
@@ -70,7 +70,7 @@
       "priority_score": 117.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "Large AUM (\u20ac10B+)",
         "Infra fund",
         "Active dealmaker (7 deals)",
@@ -85,7 +85,7 @@
       "priority_score": 116.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "PE fund",
         "Active dealmaker (7 deals)",
@@ -100,7 +100,7 @@
       "priority_score": 116.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "PE fund",
         "Active dealmaker (7 deals)",
@@ -115,7 +115,7 @@
       "priority_score": 113.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "Debt fund",
         "Active dealmaker (19 deals)",
@@ -130,7 +130,7 @@
       "priority_score": 110.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac500M-1B",
         "PE fund",
         "Active dealmaker (11 deals)",
@@ -145,7 +145,7 @@
       "priority_score": 110.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac500M-1B",
         "PE fund",
         "Active dealmaker (16 deals)",
@@ -160,7 +160,7 @@
       "priority_score": 107.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "Mega AUM (\u20ac50B+)",
         "PE fund",
         "4 Italy deals",
@@ -174,7 +174,7 @@
       "priority_score": 106.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Roma)",
+        "Italy HQ (Rome)",
         "AUM \u20ac1-5B",
         "Infra fund",
         "Active dealmaker (6 deals)",
@@ -189,7 +189,7 @@
       "priority_score": 105.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "Growth fund",
         "Active dealmaker (5 deals)",
@@ -204,7 +204,7 @@
       "priority_score": 102.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "Large AUM (\u20ac10B+)",
         "PE fund",
         "3 Italy deals",
@@ -218,7 +218,7 @@
       "priority_score": 101.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "Mega AUM (\u20ac50B+)",
         "PE fund",
         "2 Italy deals",
@@ -232,7 +232,7 @@
       "priority_score": 99.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac5-10B",
         "PE fund",
         "3 Italy deals",
@@ -246,7 +246,7 @@
       "priority_score": 98.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "Mega AUM (\u20ac50B+)",
         "PE fund",
         "1 Italy deals",
@@ -288,25 +288,10 @@
       "priority_score": 96.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "Large AUM (\u20ac10B+)",
         "PE fund",
         "1 Italy deals",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "gradiente-sgr",
-      "name": "Gradiente SGR",
-      "linkedin_url": "https://www.linkedin.com/company/gradiente-sgr-s-p-a-/",
-      "priority_score": 96.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Padova)",
-        "AUM \u20ac100-500M",
-        "PE fund",
-        "Active dealmaker (7 deals)",
-        "7 Italy deals",
         "AIFI member"
       ]
     },
@@ -317,7 +302,7 @@
       "priority_score": 95.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "Large AUM (\u20ac10B+)",
         "Infra fund",
         "3 Italy deals",
@@ -345,7 +330,7 @@
       "priority_score": 95.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac5-10B",
         "Infra fund",
         "4 Italy deals",
@@ -372,7 +357,7 @@
       "priority_score": 91.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "PE fund",
         "2 Italy deals",
@@ -386,7 +371,7 @@
       "priority_score": 91.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "PE fund",
         "2 Italy deals",
@@ -400,7 +385,7 @@
       "priority_score": 90.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "PE fund",
         "Active dealmaker (5 deals)",
@@ -415,7 +400,7 @@
       "priority_score": 90.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac5-10B",
         "PE fund",
         "AIFI member"
@@ -428,7 +413,7 @@
       "priority_score": 90.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac5-10B",
         "PE fund",
         "AIFI member"
@@ -441,7 +426,7 @@
       "priority_score": 90.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Firenze)",
+        "Italy HQ (Florence)",
         "AUM \u20ac100-500M",
         "PE fund",
         "Active dealmaker (5 deals)",
@@ -456,7 +441,7 @@
       "priority_score": 88.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "Mega AUM (\u20ac50B+)",
         "Infra fund",
         "AIFI member"
@@ -469,7 +454,7 @@
       "priority_score": 87.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Torino)",
+        "Italy HQ (Turin)",
         "AUM \u20ac1-5B",
         "Infra fund",
         "3 Italy deals",
@@ -483,7 +468,7 @@
       "priority_score": 87.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "Debt fund",
         "3 Italy deals",
@@ -497,7 +482,7 @@
       "priority_score": 87.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac500M-1B",
         "PE fund",
         "4 Italy deals",
@@ -511,7 +496,7 @@
       "priority_score": 87.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "Infra fund",
         "3 Italy deals",
@@ -525,7 +510,7 @@
       "priority_score": 86.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "Large AUM (\u20ac10B+)",
         "Debt fund",
         "AIFI member"
@@ -538,7 +523,7 @@
       "priority_score": 86.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "PE fund",
         "Active dealmaker (7 deals)",
         "7 Italy deals",
@@ -552,7 +537,7 @@
       "priority_score": 85.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
@@ -565,7 +550,7 @@
       "priority_score": 85.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
@@ -578,7 +563,7 @@
       "priority_score": 85.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
@@ -591,7 +576,7 @@
       "priority_score": 85.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
@@ -604,7 +589,7 @@
       "priority_score": 85.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Roma)",
+        "Italy HQ (Rome)",
         "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
@@ -617,7 +602,7 @@
       "priority_score": 85.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
@@ -630,7 +615,7 @@
       "priority_score": 85.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "PE fund",
         "AIFI member"
@@ -643,7 +628,7 @@
       "priority_score": 84.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "Infra fund",
         "2 Italy deals",
@@ -657,7 +642,7 @@
       "priority_score": 84.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac5-10B",
         "3 Italy deals",
         "AIFI member"
@@ -670,7 +655,7 @@
       "priority_score": 83.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "PE fund",
         "Active dealmaker (6 deals)",
@@ -684,7 +669,7 @@
       "priority_score": 83.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac5-10B",
         "Debt fund",
         "AIFI member"
@@ -697,7 +682,7 @@
       "priority_score": 83.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "Debt fund",
         "Active dealmaker (5 deals)",
@@ -712,7 +697,7 @@
       "priority_score": 81.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac500M-1B",
         "PE fund",
         "2 Italy deals",
@@ -739,7 +724,7 @@
       "priority_score": 78.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac1-5B",
         "Debt fund",
         "AIFI member"
@@ -752,7 +737,7 @@
       "priority_score": 78.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac500M-1B",
         "VC fund",
         "1 Italy deals",
@@ -780,7 +765,7 @@
       "priority_score": 77.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "PE fund",
         "4 Italy deals",
@@ -794,7 +779,7 @@
       "priority_score": 76.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac500M-1B",
         "Growth fund",
         "2 Italy deals",
@@ -808,7 +793,7 @@
       "priority_score": 75.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Torino)",
+        "Italy HQ (Turin)",
         "AUM \u20ac500M-1B",
         "VC fund",
         "AIFI member"
@@ -821,7 +806,7 @@
       "priority_score": 75.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac500M-1B",
         "PE fund",
         "AIFI member"
@@ -834,7 +819,7 @@
       "priority_score": 74.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Roma)",
+        "Italy HQ (Rome)",
         "AUM \u20ac100-500M",
         "PE fund",
         "3 Italy deals",
@@ -848,7 +833,7 @@
       "priority_score": 71.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "PE fund",
         "2 Italy deals",
@@ -862,10 +847,24 @@
       "priority_score": 71.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac500M-1B",
         "Infra fund",
         "1 Italy deals",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "gradiente-sgr",
+      "name": "Gradiente SGR",
+      "linkedin_url": "https://www.linkedin.com/company/gradiente-sgr-s-p-a-/",
+      "priority_score": 71.0,
+      "priority_reasons": [
+        "In db.json",
+        "AUM \u20ac100-500M",
+        "PE fund",
+        "Active dealmaker (7 deals)",
+        "7 Italy deals",
         "AIFI member"
       ]
     },
@@ -876,7 +875,7 @@
       "priority_score": 71.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "PE fund",
         "2 Italy deals",
@@ -890,7 +889,7 @@
       "priority_score": 70.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Roma)",
+        "Italy HQ (Rome)",
         "AUM \u20ac1-5B",
         "AIFI member"
       ]
@@ -902,7 +901,7 @@
       "priority_score": 68.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "PE fund",
         "1 Italy deals",
@@ -916,7 +915,7 @@
       "priority_score": 68.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac500M-1B",
         "Debt fund",
         "AIFI member"
@@ -943,7 +942,7 @@
       "priority_score": 68.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "PE fund",
         "1 Italy deals",
@@ -970,7 +969,7 @@
       "priority_score": 65.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "PE fund",
         "AIFI member"
@@ -983,7 +982,7 @@
       "priority_score": 65.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "PE fund",
         "AIFI member"
@@ -1009,7 +1008,7 @@
       "priority_score": 65.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "VC fund",
         "AIFI member"
@@ -1022,7 +1021,7 @@
       "priority_score": 65.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "VC fund",
         "AIFI member"
@@ -1035,7 +1034,7 @@
       "priority_score": 65.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Torino)",
+        "Italy HQ (Turin)",
         "AUM \u20ac100-500M",
         "VC fund",
         "AIFI member"
@@ -1048,7 +1047,7 @@
       "priority_score": 65.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Torino)",
+        "Italy HQ (Turin)",
         "AUM \u20ac100-500M",
         "PE fund",
         "AIFI member"
@@ -1061,7 +1060,7 @@
       "priority_score": 65.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Roma)",
+        "Italy HQ (Rome)",
         "AUM \u20ac100-500M",
         "VC fund",
         "AIFI member"
@@ -1074,22 +1073,9 @@
       "priority_score": 65.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "PE fund",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "vertis-sgr",
-      "name": "Vertis SGR",
-      "linkedin_url": "https://www.linkedin.com/company/vertis-sgr/",
-      "priority_score": 65.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Napoli)",
-        "AUM \u20ac100-500M",
-        "VC fund",
         "AIFI member"
       ]
     },
@@ -1100,7 +1086,7 @@
       "priority_score": 65.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "VC fund",
         "AIFI member"
@@ -1125,7 +1111,7 @@
       "priority_score": 64.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Roma)",
+        "Italy HQ (Rome)",
         "AUM \u20ac100-500M",
         "PE fund",
         "3 Italy deals"
@@ -1163,7 +1149,7 @@
       "priority_score": 61.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Roma)",
+        "Italy HQ (Rome)",
         "PE fund",
         "2 Italy deals",
         "AIFI member"
@@ -1176,7 +1162,7 @@
       "priority_score": 61.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "PE fund",
         "2 Italy deals",
         "AIFI member"
@@ -1201,7 +1187,7 @@
       "priority_score": 58.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "Debt fund",
         "AIFI member"
@@ -1226,7 +1212,7 @@
       "priority_score": 58.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac500M-1B",
         "Debt fund"
       ]
@@ -1238,7 +1224,7 @@
       "priority_score": 58.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "VC fund",
         "1 Italy deals",
         "AIFI member"
@@ -1251,7 +1237,7 @@
       "priority_score": 58.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "Debt fund",
         "AIFI member"
@@ -1264,7 +1250,7 @@
       "priority_score": 58.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "Debt fund",
         "AIFI member"
@@ -1277,7 +1263,7 @@
       "priority_score": 56.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "Growth fund",
         "2 Italy deals",
         "AIFI member"
@@ -1312,7 +1298,7 @@
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "AUM \u20ac100-500M",
         "VC fund"
       ]
@@ -1324,7 +1310,7 @@
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Torino)",
+        "Italy HQ (Turin)",
         "VC fund",
         "AIFI member"
       ]
@@ -1336,7 +1322,7 @@
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Roma)",
+        "Italy HQ (Rome)",
         "VC fund",
         "AIFI member"
       ]
@@ -1348,7 +1334,7 @@
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Torino)",
+        "Italy HQ (Turin)",
         "VC fund",
         "AIFI member"
       ]
@@ -1360,7 +1346,7 @@
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "VC fund",
         "AIFI member"
       ]
@@ -1372,7 +1358,7 @@
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "VC fund",
         "AIFI member"
       ]
@@ -1384,7 +1370,7 @@
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "VC fund",
         "AIFI member"
       ]
@@ -1396,7 +1382,7 @@
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "PE fund",
         "AIFI member"
       ]
@@ -1408,7 +1394,7 @@
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "VC fund",
         "AIFI member"
       ]
@@ -1420,7 +1406,7 @@
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "PE fund",
         "AIFI member"
       ]
@@ -1432,7 +1418,7 @@
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "VC fund",
         "AIFI member"
       ]
@@ -1467,7 +1453,7 @@
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "PE fund",
         "AIFI member"
       ]
@@ -1479,7 +1465,7 @@
       "priority_score": 55.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Roma)",
+        "Italy HQ (Rome)",
         "VC fund",
         "AIFI member"
       ]
@@ -1566,18 +1552,6 @@
       ]
     },
     {
-      "slug": "sefea-impact-sgr",
-      "name": "Sefea Impact SGR",
-      "linkedin_url": "https://www.linkedin.com/company/sefea-impact-sgr/",
-      "priority_score": 50.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Padova)",
-        "Growth fund",
-        "AIFI member"
-      ]
-    },
-    {
       "slug": "fvs-sgr",
       "name": "FVS SGR",
       "linkedin_url": "https://www.linkedin.com/company/fvs-sgr-spa/",
@@ -1608,7 +1582,7 @@
       "priority_score": 48.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
+        "Italy HQ (Milan)",
         "Debt fund",
         "AIFI member"
       ]
@@ -1620,19 +1594,7 @@
       "priority_score": 48.0,
       "priority_reasons": [
         "In db.json",
-        "Italy HQ (Milano)",
-        "Infra fund",
-        "AIFI member"
-      ]
-    },
-    {
-      "slug": "sinloc-investimenti-sgr",
-      "name": "Sinloc Investimenti SGR",
-      "linkedin_url": "https://www.linkedin.com/company/sinloc---sistema-iniziative-locali-spa/",
-      "priority_score": 48.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Padova)",
+        "Italy HQ (Milan)",
         "Infra fund",
         "AIFI member"
       ]
@@ -1687,6 +1649,18 @@
       ]
     },
     {
+      "slug": "vertis-sgr",
+      "name": "Vertis SGR",
+      "linkedin_url": "https://www.linkedin.com/company/vertis-sgr/",
+      "priority_score": 40.0,
+      "priority_reasons": [
+        "In db.json",
+        "AUM \u20ac100-500M",
+        "VC fund",
+        "AIFI member"
+      ]
+    },
+    {
       "slug": "finint-investments-sgr",
       "name": "Finint Investments SGR",
       "linkedin_url": "https://www.linkedin.com/company/finintinvestments/",
@@ -1717,6 +1691,28 @@
       "priority_reasons": [
         "In db.json",
         "VC fund",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "sefea-impact-sgr",
+      "name": "Sefea Impact SGR",
+      "linkedin_url": "https://www.linkedin.com/company/sefea-impact-sgr/",
+      "priority_score": 25.0,
+      "priority_reasons": [
+        "In db.json",
+        "Growth fund",
+        "AIFI member"
+      ]
+    },
+    {
+      "slug": "sinloc-investimenti-sgr",
+      "name": "Sinloc Investimenti SGR",
+      "linkedin_url": "https://www.linkedin.com/company/sinloc---sistema-iniziative-locali-spa/",
+      "priority_score": 23.0,
+      "priority_reasons": [
+        "In db.json",
+        "Infra fund",
         "AIFI member"
       ]
     },

@@ -88,10 +88,15 @@
     "_verified_at": "2026-02-18T16:37:17.231568+00:00"
   },
   "permira::Klarna": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"exited\",\n  \"notes\": \"Klarna is a Swedish fintech company headquartered in Stockholm. Permira acqu",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Klarna is a Swedish fintech company. Permira acquired a strategic equity stake (approx. 10-13%) in 2017. While Permira sold about 55% of its holding in 2021, it retained a significant minority stake. Klarna went public on the NYSE (ticker: KLAR) in September 2025, but Permira remains a shareholder as of early 2026.",
+    "grounded": true,
     "_slug": "permira",
     "_company": "Klarna",
-    "_verified_at": "2026-02-18T16:38:23.383239+00:00"
+    "_verified_at": "2026-02-19T08:05:38.043929+00:00"
   },
   "permira::Reformation": {
     "real_company": true,
@@ -504,7 +509,7 @@
     "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": false,\n  \"confidence\": \"high\",\n  \"correct_status\": \"exited\",\n  \"notes\": \"P&I (Personal & Informatik AG) is a real HR software company based in Wiesb",
     "_slug": "permira",
     "_company": "P&I",
-    "_verified_at": "2026-02-18T16:51:05.960586+00:00"
+    "_verified_at": "2026-02-19T08:05:59.035852+00:00"
   },
   "permira::Seismic": {
     "real_company": true,
@@ -708,7 +713,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "pai-partners",
     "_company": "Infra Group",
-    "_verified_at": "2026-02-18T16:57:47.011809+00:00"
+    "_verified_at": "2026-02-19T08:07:38.458076+00:00"
   },
   "pai-partners::Savory Solutions Group": {
     "real_company": true,
@@ -777,10 +782,15 @@
     "_verified_at": "2026-02-18T16:59:10.585455+00:00"
   },
   "pai-partners::Inetum": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Inetum (formerly GFI Informatique) is a real technology company headquartered in Saint-Ouen, France. However, it is not a portfolio company of PAI Partners. It is currently owned by Bain Capital and NB Renaissance (acquired in 2022). Prior to that, it was owned by Mannai Corporation (2016–2022) and previously backed by Apax Partners. PAI Partners has been mentioned alongside Inetum in market news (e.g., as a competitor in auctions or potential co-bidder for Atos), but has never held Inetum in its portfolio.",
+    "grounded": false,
     "_slug": "pai-partners",
     "_company": "Inetum",
-    "_verified_at": "2026-02-18T17:00:51.257454+00:00"
+    "_verified_at": "2026-02-19T08:08:09.266391+00:00"
   },
   "pai-partners::Althea": {
     "real_company": true,
@@ -852,7 +862,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "pai-partners",
     "_company": "VPS",
-    "_verified_at": "2026-02-18T17:04:06.550202+00:00"
+    "_verified_at": "2026-02-19T08:09:48.730748+00:00"
   },
   "pai-partners::GSE": {
     "real_company": true,
@@ -869,7 +879,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "pai-partners",
     "_company": "Ecorail",
-    "_verified_at": "2026-02-18T17:07:19.301445+00:00"
+    "_verified_at": "2026-02-19T08:11:28.511306+00:00"
   },
   "cvc-dif::Calisen": {
     "real_company": true,
@@ -894,10 +904,15 @@
     "_verified_at": "2026-02-18T17:08:34.333963+00:00"
   },
   "cvc-dif::Giga Storage": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": false,\n  \"confidence\": \"high\",\n  \"correct_status\": null,\n  \"notes\": \"Giga Storage (GIGA Storage BV) is a real company, but it is a portfolio company",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Giga Storage is a real Dutch renewable energy company, but it is a portfolio company of InfraVia Capital Partners, not CVC DIF. InfraVia acquired a majority stake in Giga Storage in May 2024. While CVC DIF (formerly DIF Capital Partners) was reportedly an interested bidder during the sale process, it did not acquire the company. CVC DIF does, however, hold an investment in a similar Dutch battery storage company called Greener Power Solutions.",
+    "grounded": true,
     "_slug": "cvc-dif",
     "_company": "Giga Storage",
-    "_verified_at": "2026-02-18T17:09:05.871564+00:00"
+    "_verified_at": "2026-02-19T08:12:58.689293+00:00"
   },
   "cvc-dif::Pulse Clean Energy": {
     "real_company": true,
@@ -944,10 +959,15 @@
     "_verified_at": "2026-02-18T17:10:09.338549+00:00"
   },
   "cvc-dif::Netcity": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": false,\n  \"confidence\": \"high\",\n  \"correct_status\": null,\n  \"notes\": \"Netcity Telecom is a real telecommunications infrastructure company based in Bu",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Netcity Telecom is a real company headquartered in Bucharest, Romania, that operates the city's underground fiber optic network. However, it is not a portfolio company of CVC DIF (formerly DIF Capital Partners). It is currently a joint venture between the Romanian group E-INFRA and the French infrastructure fund Meridiam, which acquired a co-controlling stake in late 2021. CVC DIF has several other fiber investments (such as TDF Fibre and Valley Fiber) but does not own Netcity.",
+    "grounded": true,
     "_slug": "cvc-dif",
     "_company": "Netcity",
-    "_verified_at": "2026-02-18T17:10:36.072096+00:00"
+    "_verified_at": "2026-02-19T08:14:00.736426+00:00"
   },
   "cvc-dif::Exolum": {
     "real_company": true,
@@ -964,7 +984,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "cvc-dif",
     "_company": "Bluewater",
-    "_verified_at": "2026-02-18T17:12:39.683731+00:00"
+    "_verified_at": "2026-02-19T08:15:40.869870+00:00"
   },
   "cvc-dif::G.Network": {
     "real_company": true,
@@ -981,7 +1001,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "cvc-dif",
     "_company": "Teralis",
-    "_verified_at": "2026-02-18T17:14:54.546083+00:00"
+    "_verified_at": "2026-02-19T08:17:20.272121+00:00"
   },
   "cvc-dif::Leeds Oncology": {
     "real_company": true,
@@ -1020,25 +1040,25 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "cvc-dif",
     "_company": "ATC Europe",
-    "_verified_at": "2026-02-18T17:19:51.464020+00:00"
+    "_verified_at": "2026-02-19T08:19:00.480514+00:00"
   },
   "cvc-dif::Green Dot": {
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "cvc-dif",
     "_company": "Green Dot",
-    "_verified_at": "2026-02-18T17:21:30.892455+00:00"
+    "_verified_at": "2026-02-19T08:20:39.972907+00:00"
   },
   "cvc-dif::Unitas": {
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "cvc-dif",
     "_company": "Unitas",
-    "_verified_at": "2026-02-18T17:23:11.171395+00:00"
+    "_verified_at": "2026-02-19T08:22:19.417227+00:00"
   },
   "cvc-dif::I-66 Express Mobility Partners": {
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "cvc-dif",
     "_company": "I-66 Express Mobility Partners",
-    "_verified_at": "2026-02-18T17:24:51.137374+00:00"
+    "_verified_at": "2026-02-19T08:23:59.458435+00:00"
   },
   "bc-partners::Keter": {
     "real_company": true,
@@ -1085,10 +1105,15 @@
     "_verified_at": "2026-02-18T17:25:59.390993+00:00"
   },
   "bc-partners::Chewy": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"current\",\n  \"notes\": \"Chewy is a real company (pet retailer) headquartered in Dania Beach, FL. BC",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Chewy is a major online pet retailer headquartered in Dania Beach, FL. BC Partners acquired it through its portfolio company PetSmart in 2017. While Chewy went public in 2019 and BC Partners has since sold several large blocks of shares (including a $1 billion sale in mid-2025), as of February 2026, BC Partners remains the largest shareholder with approximately 42.5% ownership and significant voting power. Therefore, the status is 'current' (or partially realized) rather than fully 'exited'.",
+    "grounded": true,
     "_slug": "bc-partners",
     "_company": "Chewy",
-    "_verified_at": "2026-02-18T17:26:26.878473+00:00"
+    "_verified_at": "2026-02-19T08:24:26.004443+00:00"
   },
   "bc-partners::Springer Nature": {
     "real_company": true,
@@ -1124,10 +1149,15 @@
     "_verified_at": "2026-02-18T17:27:14.923655+00:00"
   },
   "bc-partners::Pharmathen": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"exited\",\n  \"notes\": \"Pharmathen is a real company, but it is no longer in BC Partners' portfolio.",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Pharmathen was acquired by BC Partners in 2015, but the firm sold its majority stake to Partners Group in July 2021 for approximately €1.6 billion.",
+    "grounded": true,
     "_slug": "bc-partners",
     "_company": "Pharmathen",
-    "_verified_at": "2026-02-18T17:27:36.978842+00:00"
+    "_verified_at": "2026-02-19T08:24:39.928749+00:00"
   },
   "bc-partners::GFL Environmental": {
     "real_company": true,
@@ -1185,10 +1215,15 @@
     "_verified_at": "2026-02-18T17:29:30.530210+00:00"
   },
   "bc-partners::Synthon": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"current\",\n  \"notes\": \"Synthon is a pharmaceutical company headquartered in Nijmegen, Netherlands.",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Synthon is a real pharmaceutical company headquartered in Nijmegen. BC Partners acquired a majority stake in 2019. In late 2024, BC Partners reached an agreement to sell the majority stake to Goldman Sachs Alternatives (transaction closed in 2025), but BC Partners retained a minority stake in the company, meaning it remains a portfolio company.",
+    "grounded": true,
     "_slug": "bc-partners",
     "_company": "Synthon",
-    "_verified_at": "2026-02-18T17:29:52.148969+00:00"
+    "_verified_at": "2026-02-19T08:24:58.259058+00:00"
   },
   "bc-partners::Women's Care Enterprises": {
     "real_company": true,
@@ -1334,10 +1369,15 @@
     "_verified_at": "2026-02-18T17:34:03.796483+00:00"
   },
   "apax-partners::Vyaire Medical": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"exited\",\n  \"notes\": \"Vyaire Medical was a portfolio company of Apax Partners (acquired 100% in 20",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Vyaire Medical is a real company headquartered in Mettawa, IL. It was formed as a joint venture between Becton Dickinson and Apax Partners in 2016, with Apax taking 100% control in 2018. The company filed for Chapter 11 bankruptcy in June 2024 and has been selling off its business units (e.g., Consumables to SunMed in 2023 and RDx to Trudell Medical in 2024). As of February 2026, the bankruptcy process is ongoing, and it remains a portfolio company of Apax Partners, albeit as a distressed asset in liquidation.",
+    "grounded": false,
     "_slug": "apax-partners",
     "_company": "Vyaire Medical",
-    "_verified_at": "2026-02-18T17:34:25.097261+00:00"
+    "_verified_at": "2026-02-19T08:25:21.711216+00:00"
   },
   "apax-partners::Infogain": {
     "real_company": true,
@@ -1505,10 +1545,15 @@
     "_verified_at": "2026-02-18T17:38:51.854338+00:00"
   },
   "apax-partners::Genius Sports": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"exited\",\n  \"notes\": \"Genius Sports was a portfolio company of Apax Partners (specifically the Apa",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Genius Sports was a portfolio company of Apax Partners starting in 2018. However, Apax fully exited its remaining equity stake in the company in July 2024, following its 2021 public listing on the NYSE.",
+    "grounded": true,
     "_slug": "apax-partners",
     "_company": "Genius Sports",
-    "_verified_at": "2026-02-18T17:39:14.179104+00:00"
+    "_verified_at": "2026-02-19T08:25:40.448546+00:00"
   },
   "apax-partners::Paycor": {
     "real_company": true,
@@ -1665,10 +1710,15 @@
     "_verified_at": "2026-02-18T17:42:54.650018+00:00"
   },
   "tikehau-capital::Odealim": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"current\",\n  \"notes\": \"Odealim (formerly AssurCopro) is a French insurance broker. It is a portfol",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Odealim (formerly AssurCopro) is a French insurance broker that was a portfolio company of Tikehau Capital under its Private Debt (Credit) strategy. The investment was exited in September 2022 when the financing was repaid following a change in the company's ownership structure (Ardian acquired a co-controlling stake alongside TA Associates).",
+    "grounded": false,
     "_slug": "tikehau-capital",
     "_company": "Odealim",
-    "_verified_at": "2026-02-18T17:43:22.690724+00:00"
+    "_verified_at": "2026-02-19T08:26:01.952633+00:00"
   },
   "tikehau-capital::Ecore": {
     "real_company": true,
@@ -1704,10 +1754,15 @@
     "_verified_at": "2026-02-18T17:46:18.020765+00:00"
   },
   "tikehau-capital::NGE": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"current\",\n  \"notes\": \"NGE (Nouvelles Générations d'Entrepreneurs) is a major French construction ",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "NGE (Nouvelles Générations d'Entrepreneurs) is a major French construction group headquartered in Tarascon (Saint-Étienne-du-Grès). It is a portfolio company of Tikehau Capital, though it is held within Tikehau's Private Debt (Credit) portfolio rather than its Private Equity arm. Tikehau has provided debt financing to NGE since 2014 and was recently involved in arranging credit lines for the company as of 2024/2025. The equity is currently held by Montefiore Investment (28%) and the company's founders, managers, and employees (72%).",
+    "grounded": true,
     "_slug": "tikehau-capital",
     "_company": "NGE",
-    "_verified_at": "2026-02-18T17:46:50.892149+00:00"
+    "_verified_at": "2026-02-19T08:27:35.139304+00:00"
   },
   "tikehau-capital::Nexteam": {
     "real_company": true,
@@ -1724,7 +1779,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "tikehau-capital",
     "_company": "Probionov",
-    "_verified_at": "2026-02-18T17:48:42.320167+00:00"
+    "_verified_at": "2026-02-19T08:29:15.111879+00:00"
   },
   "tikehau-capital::IREIT Global": {
     "real_company": true,
@@ -1749,10 +1804,15 @@
     "_verified_at": "2026-02-18T17:49:27.149883+00:00"
   },
   "tikehau-capital::Skeepers": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Skeepers (formerly known as Net Reviews or Avis Vérifiés) is a technology company headquartered in Marseille, France. Tikehau Capital invested in the company in December 2019 (alongside PSG Equity) through its growth equity fund. As of early 2026, Skeepers remains an active portfolio company of Tikehau Capital, with no record of a full exit.",
+    "grounded": true,
     "_slug": "tikehau-capital",
     "_company": "Skeepers",
-    "_verified_at": "2026-02-18T17:51:06.841304+00:00"
+    "_verified_at": "2026-02-19T08:30:08.741782+00:00"
   },
   "tikehau-capital::Believe": {
     "real_company": true,
@@ -1821,16 +1881,26 @@
     "_verified_at": "2026-02-18T17:55:17.260362+00:00"
   },
   "tikehau-capital::Inovie": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Inovie is a real medical diagnostics company based in Montpellier. However, it is not a private equity portfolio company of Tikehau Capital; Tikehau is a lender providing debt financing (Term Loan B) to the group. The actual private equity owners are Ardian, GIC, APG, and Mubadala, who acquired a majority stake in 2020/2021.",
+    "grounded": true,
     "_slug": "tikehau-capital",
     "_company": "Inovie",
-    "_verified_at": "2026-02-18T17:56:56.791475+00:00"
+    "_verified_at": "2026-02-19T08:31:12.347379+00:00"
   },
   "tikehau-capital::Olygose": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Olygose (headquartered in Venette, France) was a portfolio company of Emertec Gestion, which was acquired by Tikehau Capital in 2017. However, Olygose was sold to the US-based company AIDP in September 2020, so its current status is exited rather than current.",
+    "grounded": false,
     "_slug": "tikehau-capital",
     "_company": "Olygose",
-    "_verified_at": "2026-02-18T17:58:36.967768+00:00"
+    "_verified_at": "2026-02-19T08:31:44.385846+00:00"
   },
   "tikehau-capital::Amarenco": {
     "real_company": true,
@@ -1866,10 +1936,10 @@
     "_verified_at": "2026-02-18T18:00:50.475493+00:00"
   },
   "tikehau-capital::Terratest": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"exited\",\n  \"notes\": \"Terratest is a Madrid-based geotechnical engineering company. While it was a",
+    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": false,\n  \"confidence\": \"high\",\n  \"correct_status\": \"exited\",\n  \"notes\": \"Terratest is a real Madrid-based construction company. While it is often as",
     "_slug": "tikehau-capital",
     "_company": "Terratest",
-    "_verified_at": "2026-02-18T18:01:11.564905+00:00"
+    "_verified_at": "2026-02-19T08:32:14.697594+00:00"
   },
   "tikehau-capital::Coolworld International": {
     "real_company": true,
@@ -1897,7 +1967,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "tikehau-capital",
     "_company": "Eisper",
-    "_verified_at": "2026-02-18T18:03:41.674525+00:00"
+    "_verified_at": "2026-02-19T08:33:54.145803+00:00"
   },
   "tikehau-capital::Scandinavian Enviro Systems": {
     "real_company": true,
@@ -1914,13 +1984,13 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "tikehau-capital",
     "_company": "Albioma",
-    "_verified_at": "2026-02-18T18:05:48.905112+00:00"
+    "_verified_at": "2026-02-19T08:35:33.948757+00:00"
   },
   "tikehau-capital::TSE": {
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "tikehau-capital",
     "_company": "TSE",
-    "_verified_at": "2026-02-18T18:07:28.901905+00:00"
+    "_verified_at": "2026-02-19T08:37:14.411593+00:00"
   },
   "tikehau-capital::Eataly": {
     "real_company": true,
@@ -1937,13 +2007,13 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "tikehau-capital",
     "_company": "Mazzocchi",
-    "_verified_at": "2026-02-18T18:10:06.239613+00:00"
+    "_verified_at": "2026-02-19T08:38:54.277311+00:00"
   },
   "tikehau-capital::Savinio": {
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "tikehau-capital",
     "_company": "Savinio",
-    "_verified_at": "2026-02-18T18:11:46.083027+00:00"
+    "_verified_at": "2026-02-19T08:40:34.609622+00:00"
   },
   "tikehau-capital::Mecachrome": {
     "real_company": true,
@@ -1990,10 +2060,15 @@
     "_verified_at": "2026-02-18T18:13:04.406599+00:00"
   },
   "tikehau-capital::Babilou": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": false,\n  \"confidence\": \"high\",\n  \"correct_status\": null,\n  \"notes\": \"Babilou (Babilou Family) is a real company in the education/childcare sector he",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Babilou (Babilou Family) is a real company headquartered in Bois-Colombes, France. Tikehau Capital was a private equity investor (via its Fund IV) but exited its equity stake in November 2020 when Antin Infrastructure Partners became the majority shareholder. However, Tikehau Capital remains a creditor, holding debt instruments (Term Loan B) in the company as of 2025.",
+    "grounded": true,
     "_slug": "tikehau-capital",
     "_company": "Babilou",
-    "_verified_at": "2026-02-18T18:13:33.898905+00:00"
+    "_verified_at": "2026-02-19T08:41:38.318181+00:00"
   },
   "tikehau-capital::Odyssey Education": {
     "real_company": true,
@@ -2051,22 +2126,32 @@
     "_verified_at": "2026-02-18T18:16:28.188814+00:00"
   },
   "tikehau-capital::WeAre Group": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"current\",\n  \"notes\": \"WeAre Group is a French aerospace and defense company headquartered in Mont",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "WeAre Group is a real company headquartered in Montauban, France, operating in the Aerospace & Defence sector. In August 2022, it was acquired by Mecachrome in a merger backed by Tikehau Capital (specifically through its subsidiary Tikehau Ace Capital) and Bpifrance. Tikehau Capital currently holds a 64.3% majority stake in the combined group, and as of early 2026, the investment remains active.",
+    "grounded": true,
     "_slug": "tikehau-capital",
     "_company": "WeAre Group",
-    "_verified_at": "2026-02-18T18:16:51.159102+00:00"
+    "_verified_at": "2026-02-19T08:42:04.430476+00:00"
   },
   "tikehau-capital::Efinor": {
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "tikehau-capital",
     "_company": "Efinor",
-    "_verified_at": "2026-02-18T18:18:30.975056+00:00"
+    "_verified_at": "2026-02-19T08:43:43.793329+00:00"
   },
   "tikehau-capital::Neoen": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": false,\n  \"confidence\": \"high\",\n  \"correct_status\": null,\n  \"notes\": \"Neoen is a real French renewable energy company, but it is not a portfolio comp",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Neoen is a real French renewable energy company, but it was not a portfolio company of Tikehau Capital. It was primarily a portfolio company of Impala (Jacques Veyrat's holding company) and the Fonds Stratégique de Participations (FSP). Tikehau Capital is often confused with Neoen because Tikehau held a stake in a similar competitor, Total Eren, which it exited in 2023. Neoen itself was recently acquired by Brookfield in late 2024/early 2025.",
+    "grounded": true,
     "_slug": "tikehau-capital",
     "_company": "Neoen",
-    "_verified_at": "2026-02-18T18:19:33.739498+00:00"
+    "_verified_at": "2026-02-19T08:44:16.120964+00:00"
   },
   "tikehau-capital::Inetum": {
     "real_company": true,
@@ -2212,10 +2297,15 @@
     "_verified_at": "2026-02-18T18:22:44.434669+00:00"
   },
   "eurazeo::Exotec": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Exotec is a French warehouse robotics company headquartered in Croix. It is a portfolio company of Eurazeo, having received investment through Eurazeo's venture and growth divisions (including Idinvest Partners, which was acquired by Eurazeo). As of early 2026, it remains a current holding in Eurazeo's portfolio.",
+    "grounded": true,
     "_slug": "eurazeo",
     "_company": "Exotec",
-    "_verified_at": "2026-02-18T18:24:24.399233+00:00"
+    "_verified_at": "2026-02-19T08:44:41.720539+00:00"
   },
   "eurazeo::Swile": {
     "real_company": true,
@@ -2295,10 +2385,15 @@
     "_verified_at": "2026-02-18T18:25:54.165243+00:00"
   },
   "eurazeo::Gorgias": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Gorgias is a San Francisco-based technology company providing a customer service platform for e-commerce. It is a portfolio company of Eurazeo, largely through Eurazeo's acquisition of Idinvest Partners, which was a lead or significant investor in Gorgias's funding rounds (including its Series C). As of early 2026, the company remains private and active with no reported exit.",
+    "grounded": true,
     "_slug": "eurazeo",
     "_company": "Gorgias",
-    "_verified_at": "2026-02-18T18:27:34.205866+00:00"
+    "_verified_at": "2026-02-19T08:45:11.519221+00:00"
   },
   "eurazeo::Malt": {
     "real_company": true,
@@ -2392,7 +2487,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "eurazeo",
     "_company": "CorWave",
-    "_verified_at": "2026-02-18T18:32:47.923438+00:00"
+    "_verified_at": "2026-02-19T08:46:51.705019+00:00"
   },
   "eurazeo::Thought Machine": {
     "real_company": true,
@@ -2497,7 +2592,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "eurazeo",
     "_company": "Daze",
-    "_verified_at": "2026-02-18T18:36:39.332161+00:00"
+    "_verified_at": "2026-02-19T08:48:31.763011+00:00"
   },
   "eurazeo::Eovolt": {
     "real_company": true,
@@ -2635,7 +2730,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "eurazeo",
     "_company": "Veepee",
-    "_verified_at": "2026-02-18T18:44:27.464059+00:00"
+    "_verified_at": "2026-02-19T08:50:11.047895+00:00"
   },
   "eurazeo::Farfetch": {
     "real_company": true,
@@ -2729,13 +2824,18 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "eurazeo",
     "_company": "Latécoère",
-    "_verified_at": "2026-02-18T18:50:16.977864+00:00"
+    "_verified_at": "2026-02-19T08:51:51.178640+00:00"
   },
   "eurazeo::AlixPartners": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "AlixPartners is a real global consulting firm headquartered in New York, but it is not a portfolio company of Eurazeo. Its ownership history involves Hellman & Friedman (2006), CVC Capital Partners (2012), and a consortium consisting of Jay Alix, CDPQ, PSP Investments, and Investcorp (2016–present). The user may be confusing it with Efeso Consulting, a professional services firm that Eurazeo recently exited.",
+    "grounded": false,
     "_slug": "eurazeo",
     "_company": "AlixPartners",
-    "_verified_at": "2026-02-18T18:51:57.036765+00:00"
+    "_verified_at": "2026-02-19T08:52:20.996605+00:00"
   },
   "eurazeo::Descartes Underwriting": {
     "real_company": true,
@@ -2829,7 +2929,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "eurazeo",
     "_company": "Vade",
-    "_verified_at": "2026-02-18T18:57:31.887072+00:00"
+    "_verified_at": "2026-02-19T08:54:01.012836+00:00"
   },
   "eurazeo::Mistral AI": {
     "real_company": true,
@@ -2989,7 +3089,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "capza",
     "_company": "NeoXam",
-    "_verified_at": "2026-02-18T19:02:52.617124+00:00"
+    "_verified_at": "2026-02-19T08:55:40.714612+00:00"
   },
   "capza::Ynov": {
     "real_company": true,
@@ -3006,7 +3106,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "capza",
     "_company": "I-Tracing",
-    "_verified_at": "2026-02-18T19:04:51.016176+00:00"
+    "_verified_at": "2026-02-19T08:57:20.107418+00:00"
   },
   "capza::Sogelink": {
     "real_company": true,
@@ -3034,13 +3134,13 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "capza",
     "_company": "SGH Medical Pharma",
-    "_verified_at": "2026-02-18T19:07:24.668785+00:00"
+    "_verified_at": "2026-02-19T08:59:00.457853+00:00"
   },
   "capza::Cisbio": {
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "capza",
     "_company": "Cisbio",
-    "_verified_at": "2026-02-18T19:09:04.700003+00:00"
+    "_verified_at": "2026-02-19T09:00:40.326297+00:00"
   },
   "capza::Santé Cie": {
     "real_company": true,
@@ -3134,7 +3234,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "capza",
     "_company": "Groupe JCD",
-    "_verified_at": "2026-02-18T19:17:23.609109+00:00"
+    "_verified_at": "2026-02-19T09:02:20.569043+00:00"
   },
   "capza::Eolane": {
     "real_company": true,
@@ -3173,7 +3273,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "capza",
     "_company": "Groupe GMD",
-    "_verified_at": "2026-02-18T19:20:32.645790+00:00"
+    "_verified_at": "2026-02-19T09:04:00.096747+00:00"
   },
   "capza::Groupe Bertrand": {
     "real_company": true,
@@ -3190,7 +3290,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "capza",
     "_company": "Orientis",
-    "_verified_at": "2026-02-18T19:22:38.738320+00:00"
+    "_verified_at": "2026-02-19T09:05:40.909072+00:00"
   },
   "capza::Truffaut": {
     "real_company": true,
@@ -3207,7 +3307,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "capza",
     "_company": "Gault & Millau",
-    "_verified_at": "2026-02-18T19:25:12.102504+00:00"
+    "_verified_at": "2026-02-19T09:07:20.924346+00:00"
   },
   "capza::B&B Hotels": {
     "real_company": true,
@@ -3243,22 +3343,32 @@
     "_verified_at": "2026-02-18T19:26:36.434271+00:00"
   },
   "capza::ADIT": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"current\",\n  \"notes\": \"ADIT (Agence pour la Diffusion de l'Information Technologique) is a Paris-b",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "ADIT (Agence pour la Diffusion de l'Information Technologique) is a prominent French strategic intelligence firm headquartered in Paris. CAPZA became a shareholder in ADIT as part of the company's fifth LBO (Leveraged Buyout), which was finalized in early 2026. CAPZA invested alongside a consortium of other firms including UI Investissement, Covea, and MACSF, while historical shareholders like Sagard and Bpifrance also reinvested.",
+    "grounded": false,
     "_slug": "capza",
     "_company": "ADIT",
-    "_verified_at": "2026-02-18T19:27:29.579327+00:00"
+    "_verified_at": "2026-02-19T09:08:11.083334+00:00"
   },
   "capza::Groupe Premium": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Groupe Premium is a Paris-based financial services firm. It was previously a portfolio company of CAPZA (formerly Capzanine) and Amundi Private Equity Funds, who sold their stake to Montefiore Investment in May 2018. The company has since undergone further LBOs with Eurazeo (2021) and Blackstone (2023).",
+    "grounded": false,
     "_slug": "capza",
     "_company": "Groupe Premium",
-    "_verified_at": "2026-02-18T19:29:09.709782+00:00"
+    "_verified_at": "2026-02-19T09:09:49.210852+00:00"
   },
   "capza::Crystal": {
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "capza",
     "_company": "Crystal",
-    "_verified_at": "2026-02-18T19:30:48.878611+00:00"
+    "_verified_at": "2026-02-19T09:11:28.637817+00:00"
   },
   "capza::Geosat": {
     "real_company": true,
@@ -3319,7 +3429,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "capza",
     "_company": "Recrea",
-    "_verified_at": "2026-02-18T19:36:39.273064+00:00"
+    "_verified_at": "2026-02-19T09:13:07.834492+00:00"
   },
   "capza::Opteven": {
     "real_company": true,
@@ -3333,10 +3443,15 @@
     "_verified_at": "2026-02-18T19:36:51.173730+00:00"
   },
   "eurizon-real-asset::Autostrade per l'Italia": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Autostrade per l'Italia (ASPI) is a real company, but it is not a portfolio company of Eurizon Real Asset. ASPI is owned by a consortium led by Cassa Depositi e Prestiti (CDP) Equity (51%), Blackstone Infrastructure Partners (24.5%), and Macquarie Asset Management (24.5%), with additional stakes held by Appia Investments and the Silk Road Fund. Eurizon Real Asset (part of the Intesa Sanpaolo Group) manages funds that hold ASPI bonds, but it does not hold an equity stake in the company. The confusion may stem from the fact that ASPI's Chairman, Antonino Turicchi, also serves as the CEO of CdP Real Asset SGR.",
+    "grounded": false,
     "_slug": "eurizon-real-asset",
     "_company": "Autostrade per l'Italia",
-    "_verified_at": "2026-02-18T19:38:31.051274+00:00"
+    "_verified_at": "2026-02-19T09:13:34.127895+00:00"
   },
   "eurizon-real-asset::Telepass": {
     "real_company": true,
@@ -3350,16 +3465,21 @@
     "_verified_at": "2026-02-18T19:38:54.756160+00:00"
   },
   "eurizon-real-asset::Engineering Ingegneria Informatica": {
-    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Engineering Ingegneria Informatica is a major Italian IT company, but it is a portfolio company of Bain Capital and NB Renaissance (part of Neuberger Berman), not Eurizon Real Asset. Eurizon funds hold the company's debt (bonds), but not an equity stake as a private equity portfolio company.",
+    "grounded": false,
     "_slug": "eurizon-real-asset",
     "_company": "Engineering Ingegneria Informatica",
-    "_verified_at": "2026-02-18T19:40:34.623932+00:00"
+    "_verified_at": "2026-02-19T09:14:39.523962+00:00"
   },
   "eurizon-real-asset::Cedacri": {
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "eurizon-real-asset",
     "_company": "Cedacri",
-    "_verified_at": "2026-02-18T19:42:14.332089+00:00"
+    "_verified_at": "2026-02-19T09:16:18.385684+00:00"
   },
   "eurizon-real-asset::Forno d'Asolo": {
     "real_company": true,
@@ -3376,7 +3496,7 @@
     "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
     "_slug": "eurizon-real-asset",
     "_company": "Fedrigoni",
-    "_verified_at": "2026-02-18T19:45:31.293447+00:00"
+    "_verified_at": "2026-02-19T09:17:58.869336+00:00"
   },
   "eurizon-real-asset::Mooney": {
     "real_company": true,
@@ -3401,10 +3521,15 @@
     "_verified_at": "2026-02-18T19:46:34.748624+00:00"
   },
   "eurizon-real-asset::Lutech": {
-    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": false,\n  \"confidence\": \"high\",\n  \"correct_status\": \"current\",\n  \"notes\": \"Lutech is a real IT services company headquartered in Milan. It is current",
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Lutech is a Milan-based IT services company. It was acquired by Apax Partners in 2021, and Eurizon Capital Real Asset SGR (ECRA) participated as a co-investor/financing partner in the transaction. It is currently held in the portfolio.",
+    "grounded": true,
     "_slug": "eurizon-real-asset",
     "_company": "Lutech",
-    "_verified_at": "2026-02-18T19:47:08.952318+00:00"
+    "_verified_at": "2026-02-19T09:19:02.973686+00:00"
   },
   "eurizon-real-asset::Irideos": {
     "real_company": true,
@@ -3523,5 +3648,253 @@
     "_slug": "eurizon-real-asset",
     "_company": "Eataly",
     "_verified_at": "2026-02-18T20:03:22.796084+00:00"
+  },
+  "eurizon-real-asset::L'Osteria": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "L'Osteria",
+    "_verified_at": "2026-02-18T20:05:03.179665+00:00"
+  },
+  "eurizon-real-asset::Banijay": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Banijay (Banijay Group N.V., formerly FL Entertainment) is a real media company headquartered in Paris. However, it is a public company listed on Euronext Amsterdam, not a private equity portfolio company of Eurizon Real Asset. Its major shareholders are LOV Group (Stéphane Courbit), Vivendi, and De Agostini. There is no evidence of Eurizon Real Asset holding a significant stake or listing it as a portfolio company.",
+    "grounded": true,
+    "_slug": "eurizon-real-asset",
+    "_company": "Banijay",
+    "_verified_at": "2026-02-18T20:05:35.683540+00:00"
+  },
+  "eurizon-real-asset::Nexi": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Nexi S.p.A. is a major Italian payment services company headquartered in Milan and listed on the Borsa Italiana (FTSE MIB). While Eurizon Capital SGR (the parent of Eurizon Real Asset) holds Nexi shares in its various public mutual funds (e.g., Eurizon Azioni Italia) and its parent bank Intesa Sanpaolo has historically held significant stakes, Nexi is not a portfolio company of Eurizon Real Asset. Eurizon Real Asset is a specialized division focused on private market alternative investments (private equity, infrastructure, and real estate) in private companies like Germani or Trasporti Romagna.",
+    "grounded": false,
+    "_slug": "eurizon-real-asset",
+    "_company": "Nexi",
+    "_verified_at": "2026-02-18T20:06:06.505556+00:00"
+  },
+  "eurizon-real-asset::Tinexta": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "Tinexta",
+    "_verified_at": "2026-02-18T20:07:46.916144+00:00"
+  },
+  "eurizon-real-asset::Avio": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Avio S.p.A. is a real aerospace company headquartered in Colleferro, Italy, but it is a publicly traded company listed on the Borsa Italiana (STAR segment). While Eurizon Capital SGR and its subsidiaries (like Eurizon Capital S.A.) hold shares in Avio through various mutual funds and ELTIFs, it is not a private equity portfolio company of Eurizon Real Asset.",
+    "grounded": true,
+    "_slug": "eurizon-real-asset",
+    "_company": "Avio",
+    "_verified_at": "2026-02-18T20:08:21.776551+00:00"
+  },
+  "eurizon-real-asset::Open Fiber": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "Open Fiber",
+    "_verified_at": "2026-02-18T20:10:01.161766+00:00"
+  },
+  "eurizon-real-asset::Viasat Group": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "Viasat Group",
+    "_verified_at": "2026-02-18T20:11:41.027239+00:00"
+  },
+  "eurizon-real-asset::Philogen": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Philogen S.p.A. is a biotechnology company headquartered in Siena, Italy. It was a portfolio company of Eurizon Capital Real Asset SGR (the alternative investment division of Eurizon) through its private market funds (such as the Eurizon ELTIF). The company successfully exited the private equity phase via an initial public offering (IPO) on the Borsa Italiana in March 2021. While various Eurizon-managed funds continue to hold shares in the now-public company, the investment is classified as 'exited' from a private equity perspective.",
+    "grounded": false,
+    "_slug": "eurizon-real-asset",
+    "_company": "Philogen",
+    "_verified_at": "2026-02-18T20:12:12.652686+00:00"
+  },
+  "eurizon-real-asset::Stevanato Group": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "Stevanato Group",
+    "_verified_at": "2026-02-18T20:13:52.252491+00:00"
+  },
+  "eurizon-real-asset::Seco": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "Seco",
+    "_verified_at": "2026-02-18T20:15:32.126840+00:00"
+  },
+  "eurizon-real-asset::Ariston Group": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Ariston Group (formerly Ariston Thermo) is a real company headquartered in Fabriano, Italy, specializing in thermal comfort. However, it is a publicly traded company listed on Euronext Milan (ticker: ARIS) and is primarily controlled by the Merloni family through Merloni Holding. While Eurizon Capital (the parent of Eurizon Real Asset) may hold shares in Ariston through its public equity funds, Ariston is not a private equity portfolio company of Eurizon Real Asset.",
+    "grounded": false,
+    "_slug": "eurizon-real-asset",
+    "_company": "Ariston Group",
+    "_verified_at": "2026-02-18T20:16:06.064811+00:00"
+  },
+  "eurizon-real-asset::Intercos": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Intercos S.p.A. is a real company headquartered in Agrate Brianza, Italy, operating in the cosmetics (Consumer Goods) sector. However, it is not a private equity portfolio company of Eurizon Real Asset. Intercos is a publicly traded company listed on the Euronext Milan (BIT: ICOS) since November 2021. While Eurizon Capital SGR (the parent company) and its various funds (including those managed by Eurizon Capital Real Asset SGR, such as ELTIFs) hold minority institutional stakes in the company, it is not a 'portfolio company' in the private equity sense. The claim likely confuses Eurizon with Eurazeo, a French private equity firm that was a significant shareholder in Intercos prior to its IPO.",
+    "grounded": false,
+    "_slug": "eurizon-real-asset",
+    "_company": "Intercos",
+    "_verified_at": "2026-02-18T20:16:39.959626+00:00"
+  },
+  "eurizon-real-asset::Net Insurance": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "eurizon-real-asset",
+    "_company": "Net Insurance",
+    "_verified_at": "2026-02-18T20:18:20.209737+00:00"
+  },
+  "algebris::Bending Spoons": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Bending Spoons is a prominent technology company based in Milan, Italy. However, it is not a portfolio company of Algebris. Its major institutional and private equity investors include NB Renaissance, Baillie Gifford, T. Rowe Price, Cox Enterprises, and Tamburi Investment Partners (TIP). Algebris's private equity activities are primarily focused on the Algebris Green Transition Fund, which invests in sustainability and the circular economy, a sector that does not align with Bending Spoons' business model.",
+    "grounded": true,
+    "_slug": "algebris",
+    "_company": "Bending Spoons",
+    "_verified_at": "2026-02-18T20:18:44.994966+00:00"
+  },
+  "algebris::Satispay": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "current",
+    "notes": "Satispay is a real Italian fintech company. While Davide Serra, the founder and CEO of Algebris, is a known investor in Satispay (having participated in funding rounds as early as 2018), it is not a portfolio company of an Algebris private equity fund. Algebris only expanded into private equity in 2021 with the launch of its Green Transition Fund, which focuses on environmental sectors, whereas Satispay is a mobile payments platform. Satispay remains a private, active company (current status).",
+    "grounded": false,
+    "_slug": "algebris",
+    "_company": "Satispay",
+    "_verified_at": "2026-02-18T20:19:18.375008+00:00"
+  },
+  "algebris::Prima.it": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Prima.it (Prima Assicurazioni) is a real Italian insurtech company, but it is not a portfolio company of Algebris. Its major private equity backers were Goldman Sachs, Blackstone, and Carlyle. In 2025, AXA acquired a 51% controlling stake in the company.",
+    "grounded": true,
+    "_slug": "algebris",
+    "_company": "Prima.it",
+    "_verified_at": "2026-02-18T20:19:49.718276+00:00"
+  },
+  "algebris::Philogen": {
+    "real_company": true,
+    "is_portfolio_company": true,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Philogen is a biotech company headquartered in Siena, Italy. It was a portfolio company of Algebris (specifically within its private equity/club deal investments) and the investment was exited following Philogen's IPO on the Borsa Italiana in February 2021.",
+    "grounded": true,
+    "_slug": "algebris",
+    "_company": "Philogen",
+    "_verified_at": "2026-02-18T20:20:38.804703+00:00"
+  },
+  "algebris::Newcleo": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "algebris",
+    "_company": "Newcleo",
+    "_verified_at": "2026-02-18T20:22:18.790398+00:00"
+  },
+  "algebris::E-Novia": {
+    "error": "JSON parse failed: {\n  \"real_company\": true,\n  \"is_portfolio_company\": true,\n  \"confidence\": \"high\",\n  \"correct_status\": \"current\",\n  \"notes\": \"E-Novia S.p.A. is a Milan-based industrial group and venture builder focuse",
+    "_slug": "algebris",
+    "_company": "E-Novia",
+    "_verified_at": "2026-02-18T20:22:38.774253+00:00"
+  },
+  "algebris::Musixmatch": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Musixmatch is a real company based in Bologna, Italy. However, it is not a portfolio company of Algebris. In July 2022, TPG Growth acquired a majority stake in Musixmatch. Previous investors included United Ventures and P101, who exited at that time. Algebris's private equity arm (Algebris Green Transition Fund) focuses on sustainability and its first investment was Omnisyst.",
+    "grounded": true,
+    "_slug": "algebris",
+    "_company": "Musixmatch",
+    "_verified_at": "2026-02-18T20:23:03.044017+00:00"
+  },
+  "algebris::Gemma Group": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "algebris",
+    "_company": "Gemma Group",
+    "_verified_at": "2026-02-18T20:24:43.324081+00:00"
+  },
+  "algebris::V-GER": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "algebris",
+    "_company": "V-GER",
+    "_verified_at": "2026-02-18T20:26:23.827184+00:00"
+  },
+  "algebris::Zhero": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Zhero (specifically Zhero Europe) is a real renewable energy company based in Milan, but it is a portfolio company of Azimut (specifically the Azimut ELTIF – Infrastructure & Real Assets ESG fund), which acted as the lead financial investor in its 2023 and 2024 funding rounds. No evidence was found linking Zhero to Algebris's private equity portfolio (the Algebris Green Transition Fund).",
+    "grounded": false,
+    "_slug": "algebris",
+    "_company": "Zhero",
+    "_verified_at": "2026-02-18T20:26:53.753613+00:00"
+  },
+  "algebris::Sunprime": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Sunprime is a real renewable energy company based in Milan, but it is not a portfolio company of Algebris. Its primary shareholders are Noy Fund and Nofar Energy. Algebris manages the Green Transition Fund, which owns other Italian energy companies like Esapro, which may cause confusion.",
+    "grounded": false,
+    "_slug": "algebris",
+    "_company": "Sunprime",
+    "_verified_at": "2026-02-18T20:27:18.842041+00:00"
+  },
+  "algebris::Sisal": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "Sisal is a prominent Italian gambling and betting company headquartered in Milan. While the company has a long history of private equity ownership (including Apax, Permira, Clessidra, and CVC Capital Partners), it was never a portfolio company of Algebris. Algebris is an asset management firm that only entered the private equity market in 2021 with a Green Transition Fund; notably, Algebris explicitly includes Sisal on its ESG exclusion list due to its involvement in gambling. Sisal was most recently 'exited' by CVC Capital Partners when it was sold to Flutter Entertainment in 2022.",
+    "grounded": true,
+    "_slug": "algebris",
+    "_company": "Sisal",
+    "_verified_at": "2026-02-18T20:27:44.866346+00:00"
+  },
+  "algebris::Mooney": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": "exited",
+    "notes": "Mooney (formerly SisalPay) is a real fintech company based in Milan, but it was a portfolio company of CVC Capital Partners, not Algebris. CVC sold its 70% stake in Mooney to Enel and Intesa Sanpaolo in 2022. Algebris actually lists Mooney on its ESG exclusion list due to its historical ties to the gambling sector (Sisal).",
+    "grounded": false,
+    "_slug": "algebris",
+    "_company": "Mooney",
+    "_verified_at": "2026-02-18T20:28:14.549036+00:00"
+  },
+  "algebris::E-GAP": {
+    "real_company": true,
+    "is_portfolio_company": false,
+    "confidence": "high",
+    "correct_status": null,
+    "notes": "E-GAP is a real company based in Milan/Rome, but it is a portfolio company of Green Arrow Capital (specifically the Green Arrow Infrastructure of the Future Fund), not Algebris. It was founded by Eugenio De Blasio, who is also the founder of Green Arrow Capital. Algebris's Green Transition Fund has a distinct portfolio including companies like Omnisyst and Esapro.",
+    "grounded": true,
+    "_slug": "algebris",
+    "_company": "E-GAP",
+    "_verified_at": "2026-02-18T20:28:48.955070+00:00"
+  },
+  "algebris::I-Care": {
+    "error": "Request error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=30)",
+    "_slug": "algebris",
+    "_company": "I-Care",
+    "_verified_at": "2026-02-18T20:30:29.245926+00:00"
   }
 }

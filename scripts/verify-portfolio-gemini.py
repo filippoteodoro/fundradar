@@ -257,6 +257,7 @@ def main() -> int:
     parser.add_argument("--hard-timeout-sec", type=int, default=DEFAULT_HARD_TIMEOUT_SEC)
     parser.add_argument("--retries", type=int, default=DEFAULT_RETRIES)
     parser.add_argument("--reset", action="store_true", help="Re-verify already verified entries")
+    parser.add_argument("--retry-errors", action="store_true", help="Re-verify only entries that had errors")
     args = parser.parse_args()
 
     db = load_json(DB_PATH)
@@ -301,8 +302,13 @@ def main() -> int:
         for entry in gemini_entries:
             company = entry.get("name", "")
             key = f"{slug}::{company}"
-            if not args.reset and key in prev_results:
-                continue  # Already verified
+            if key in prev_results:
+                if args.reset:
+                    pass  # Re-verify everything
+                elif args.retry_errors and "error" in prev_results[key]:
+                    pass  # Retry errors only
+                else:
+                    continue  # Already verified
             queue.append((slug, fund_name, entry))
 
     _print(f"Entries to verify: {len(queue)}")
