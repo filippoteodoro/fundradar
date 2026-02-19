@@ -136,7 +136,7 @@
     {
       "slug": "aurora-growth-capital",
       "name": "Aurora Growth Capital",
-      "linkedin_url": "https://www.linkedin.com/company/nbaurora"
+      "linkedin_url": "https://www.linkedin.com/company/auroragrowthcapital"
     },
     {
       "slug": "avm",
@@ -176,7 +176,7 @@
     {
       "slug": "bluegem",
       "name": "BlueGem",
-      "linkedin_url": "https://www.linkedin.com/company/bluegem-capital-partners-llp/"
+      "linkedin_url": "https://www.linkedin.com/company/bluegem-capital-partners/"
     },
     {
       "slug": "bridgepoint",
@@ -257,7 +257,8 @@
     {
       "slug": "cvc-dif",
       "name": "DIF Capital Partners",
-      "linkedin_url": "https://www.linkedin.com/company/cvc-dif/"
+      "linkedin_url": "https://www.linkedin.com/company/dif-capital-partners/",
+      "note": "Global infra fund (CVC-DIF post-acquisition). dif-capital-partners page has 200+ non-Italy staff. No Italy sub-entity page."
     },
     {
       "slug": "eiffel",
@@ -329,7 +330,7 @@
     {
       "slug": "fondo-italiano-d-investimento-sgr",
       "name": "Fondo Italiano d'Investimento SGR",
-      "linkedin_url": "https://www.linkedin.com/company/fondo-italiano-d-investimento-sgr/"
+      "linkedin_url": "https://www.linkedin.com/company/fondo-italiano-d'investimento-sgr/"
     },
     {
       "slug": "friulia",
@@ -530,7 +531,7 @@
     {
       "slug": "quattror",
       "name": "QuattroR",
-      "linkedin_url": "https://www.linkedin.com/company/quattror/"
+      "linkedin_url": "https://www.linkedin.com/company/quattror-sgr-spa/"
     },
     {
       "slug": "rancilio-cube-sicaf",

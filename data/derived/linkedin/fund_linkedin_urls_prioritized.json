@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-02-19",
   "note": "Funds sorted by Italy PE/VC importance. Scrape in this order.",
-  "matched_count": 132,
+  "matched_count": 127,
   "companies": [
     {
       "slug": "permira",
@@ -111,7 +111,7 @@
     {
       "slug": "fondo-italiano-d-investimento-sgr",
       "name": "Fondo Italiano d'Investimento SGR",
-      "linkedin_url": "https://www.linkedin.com/company/fondo-italiano-d-investimento-sgr/",
+      "linkedin_url": "https://www.linkedin.com/company/fondo-italiano-d'investimento-sgr/",
       "priority_score": 113.0,
       "priority_reasons": [
         "In db.json",
@@ -622,35 +622,6 @@
       ]
     },
     {
-      "slug": "capital-dynamics-sgr",
-      "name": "Capital Dynamics SGR",
-      "linkedin_url": "https://www.linkedin.com/company/capital-dynamics/",
-      "priority_score": 84.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Milan)",
-        "AUM \u20ac1-5B",
-        "Infra fund",
-        "2 Italy deals",
-        "AIFI member"
-      ],
-      "note": "No dedicated LinkedIn page for sub-entity \u2014 parent company page returns wrong employees"
-    },
-    {
-      "slug": "eurizon-real-asset",
-      "name": "Eurizon Capital Real Asset SGR",
-      "linkedin_url": "https://www.linkedin.com/company/eurizon/",
-      "priority_score": 84.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Milan)",
-        "AUM \u20ac5-10B",
-        "3 Italy deals",
-        "AIFI member"
-      ],
-      "note": "No dedicated LinkedIn page for sub-entity \u2014 parent company page returns wrong employees"
-    },
-    {
       "slug": "aksia-sgr",
       "name": "AKS\u00ccA SGR",
       "linkedin_url": "https://www.linkedin.com/company/aksiasgr/",
@@ -777,7 +748,7 @@
     {
       "slug": "quattror",
       "name": "QuattroR",
-      "linkedin_url": "https://www.linkedin.com/company/quattror/",
+      "linkedin_url": "https://www.linkedin.com/company/quattror-sgr-spa/",
       "priority_score": 76.0,
       "priority_reasons": [
         "In db.json",
@@ -841,21 +812,6 @@
         "2 Italy deals",
         "AIFI member"
       ]
-    },
-    {
-      "slug": "equita-capital-sgr",
-      "name": "Equita Capital SGR",
-      "linkedin_url": "https://www.linkedin.com/company/equita/",
-      "priority_score": 71.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Milan)",
-        "AUM \u20ac500M-1B",
-        "Infra fund",
-        "1 Italy deals",
-        "AIFI member"
-      ],
-      "note": "No dedicated LinkedIn page for sub-entity \u2014 parent company page returns wrong employees"
     },
     {
       "slug": "gradiente-sgr",
@@ -1343,19 +1299,6 @@
       ]
     },
     {
-      "slug": "key-capital",
-      "name": "Key Capital",
-      "linkedin_url": "https://www.linkedin.com/company/key-capital-venture-incubator",
-      "priority_score": 55.0,
-      "priority_reasons": [
-        "In db.json",
-        "Italy HQ (Milan)",
-        "VC fund",
-        "AIFI member"
-      ],
-      "note": "Italian Key Capital (keycapital.it) has no confirmed LinkedIn company page \u2014 key-capital-venture-incubator points to UK investment firm"
-    },
-    {
       "slug": "mito-technology",
       "name": "MITO Technology",
       "linkedin_url": "https://www.linkedin.com/company/mito-technology/",
@@ -1488,7 +1431,7 @@
     {
       "slug": "bluegem",
       "name": "BlueGem",
-      "linkedin_url": "https://www.linkedin.com/company/bluegem-capital-partners-llp/",
+      "linkedin_url": "https://www.linkedin.com/company/bluegem-capital-partners/",
       "priority_score": 53.0,
       "priority_reasons": [
         "In db.json",
@@ -1510,17 +1453,6 @@
       ]
     },
     {
-      "slug": "cvc-dif",
-      "name": "DIF Capital Partners",
-      "linkedin_url": "https://www.linkedin.com/company/cvc-dif/",
-      "priority_score": 51.0,
-      "priority_reasons": [
-        "In db.json",
-        "Large AUM (\u20ac10B+)",
-        "Infra fund"
-      ]
-    },
-    {
       "slug": "8a-investimenti-sgr",
       "name": "8a+ Investimenti SGR",
       "linkedin_url": "https://www.linkedin.com/company/8a-investimenti-sgr/",
@@ -1535,7 +1467,7 @@
     {
       "slug": "aurora-growth-capital",
       "name": "Aurora Growth Capital",
-      "linkedin_url": "https://www.linkedin.com/company/nbaurora",
+      "linkedin_url": "https://www.linkedin.com/company/auroragrowthcapital",
       "priority_score": 50.0,
       "priority_reasons": [
         "In db.json",

@@ -68,14 +68,23 @@ IB_COMPANIES = [
     "moelis", "centerview", "perella weinberg", "rothschild",
     "mediobanca", "banca imi", "intesa sanpaolo", "unicredit",
     "banca akros", "equita", "jefferies", "piper sandler",
+    # European banks active in Italian M&A market
+    "societe generale", "bnp paribas", "credit agricole", "natixis",
+    "nomura", "hsbc", "commerzbank", "ing bank",
+    # Italian/European IB boutiques
+    "houlihan lokey", "lincoln international", "dc advisory",
+    "alantra", "oaklins", "banca leonardo", "leonardo & co",
+    "fineurop", "citi", "degroof petercam",
 ]
 
 PE_COMPANIES = [
     "kkr", "blackstone", "carlyle", "apollo", "tpg", "warburg pincus",
     "advent international", "bain capital", "cvc", "permira",
     "cinven", "bc partners", "pai partners", "ardian", "investindustrial",
-    "clessidra", "peninsula", "nb renaissance", "wise", "alcedo",
+    "clessidra", "peninsula", "nb renaissance", "wise equity", "alcedo",
     "xenon", "fondo italiano", "progressio", "mindful capital",
+    "dea capital", "quadrivio", "ambienta", "f2i", "trilantic",
+    "h.i.g.", "h.i.g capital", "hig capital", "eurazeo", "sagard",
 ]
 
 VC_COMPANIES = [
@@ -83,12 +92,14 @@ VC_COMPANIES = [
     "accel", "index ventures", "general catalyst", "founders fund",
     "p101", "united ventures", "vertis", "indaco", "primo ventures",
     "cdp venture", "360 capital", "italian angels", "digital magics",
+    "lventure", "liftt", "scientifica", "eureka!", "eureka venture",
 ]
 
 CONSULTING_COMPANIES = [
     "mckinsey", "mck ", "bain", "boston consulting", "bcg",
     "roland berger", "oliver wyman", "strategy&", "at kearney",
     "kearney", "lep", "arthur d. little", "simon-kucher",
+    "monitor deloitte", "pa consulting", "capgemini", "ibm consulting",
 ]
 
 BIG_FOUR = [
@@ -179,7 +190,9 @@ def _classify_experience(exp: Experience) -> BackgroundType | None:
     company = exp.company or ""
     title = exp.title or ""
     combined = f"{company} {title}".lower()
+    company_lower = company.lower()
 
+    # 1. Known company name matching (highest confidence)
     if _check_company_list(company, IB_COMPANIES):
         return BackgroundType.INVESTMENT_BANKING
     if _check_company_list(company, PE_COMPANIES):
@@ -191,18 +204,50 @@ def _classify_experience(exp: Experience) -> BackgroundType | None:
     if _check_company_list(company, BIG_FOUR):
         return BackgroundType.BIG_FOUR
 
-    # Title-based classification
-    if any(kw in combined for kw in ["investment bank", "m&a", "corporate finance", "ecm", "dcm"]):
-        return BackgroundType.INVESTMENT_BANKING
-    if any(kw in combined for kw in ["private equity", "buyout", "lbo"]):
+    # 2. Structural company name patterns (catches Italian PE/VC not in hardcoded lists)
+    # SGR = Società di Gestione del Risparmio — Italian regulated fund manager, always PE/VC
+    if re.search(r'\bsgr\b', company_lower):
         return BackgroundType.PRIVATE_EQUITY
-    if any(kw in combined for kw in ["venture capital", "vc ", "seed", "series a"]):
+    if any(kw in company_lower for kw in ["private equity", "private capital", "buyout fund"]):
+        return BackgroundType.PRIVATE_EQUITY
+    if any(kw in company_lower for kw in ["venture capital", "venture fund"]):
         return BackgroundType.VENTURE_CAPITAL
-    if any(kw in combined for kw in ["consultant", "strategy", "advisory"]):
+    # "Capital" + "Partners/Group/Advisors" pattern common for PE/IB boutiques
+    if re.search(r'\bcapital\b.*(partner|group|advisor|management|invest)', company_lower):
+        return BackgroundType.PRIVATE_EQUITY
+
+    # 3. Title/combined keywords — English and Italian
+    if any(kw in combined for kw in [
+        "investment bank", "m&a", "corporate finance", "ecm", "dcm",
+        "leveraged finance", "debt capital", "capital markets",
+        "fusioni", "acquisizioni", "mercati dei capitali", "finanza aziendale",
+    ]):
+        return BackgroundType.INVESTMENT_BANKING
+    if any(kw in combined for kw in [
+        "private equity", "buyout", "lbo", "growth equity",
+        "portfolio company", "fund manager", "fund management",
+        "gestore di fondi", "gestore fondi", "gestore del fondo",
+        "investment professional", "deal origination", "deal sourcing",
+        "infrastructure fund", "alternative investment",
+    ]):
+        return BackgroundType.PRIVATE_EQUITY
+    if any(kw in combined for kw in [
+        "venture capital", "vc ", "seed", "series a", "early stage",
+        "tech transfer", "startup investor",
+    ]):
+        return BackgroundType.VENTURE_CAPITAL
+    if any(kw in combined for kw in [
+        "consultant", "consulting", "consulente", "consulenza",
+        "strategy", "advisory", "adviseur",
+    ]):
         return BackgroundType.CONSULTING
-    if any(kw in combined for kw in ["lawyer", "attorney", "legal counsel"]):
+    if any(kw in combined for kw in [
+        "lawyer", "attorney", "legal counsel", "avvocato", "notaio",
+    ]):
         return BackgroundType.LEGAL
-    if any(kw in combined for kw in ["engineer", "developer", "cto", "tech lead"]):
+    if any(kw in combined for kw in [
+        "engineer", "developer", "cto", "tech lead", "ingegnere",
+    ]):
         return BackgroundType.TECH
     if any(kw in combined for kw in ["founder", "co-founder", "startup"]):
         return BackgroundType.STARTUP
@@ -317,12 +362,31 @@ class ProfileClassifier:
         Returns:
             ClassifiedProfile with background classification
         """
-        # Classify each experience
+        # Classify each experience.
+        # Weight: current role = 3, recent past = 2, older = 1.
+        # Board member / non-executive roles at portfolio companies don't signal
+        # professional background — they're an outcome of PE work, so skip them.
         background_counts: dict[BackgroundType, int] = {}
-        for exp in profile.experience:
-            bg = _classify_experience(exp)
+        board_titles = {"board member", "member of the board", "board of directors",
+                        "non-executive", "independent director", "consigliere",
+                        "amministratore", "membro del consiglio"}
+        for i, exp in enumerate(profile.experience):
+            title_lower = (exp.title or "").lower()
+            # Skip pure board/advisory roles — they are portfolio company seats, not background
+            if any(bt in title_lower for bt in board_titles) and i > 0:
+                continue
+            # Current employer gets strong weight to reflect the person's actual career domain.
+            # Past roles: recent past = 2, older = 1.
+            weight = 5 if exp.is_current else (2 if i <= 2 else 1)
+            # If this is the current role AND we know which fund page this profile came from,
+            # treat the current employer as PE/VC regardless of company name.
+            # All fund slugs in db.json are PE/VC funds.
+            if exp.is_current and profile.company_slug:
+                bg = BackgroundType.PRIVATE_EQUITY
+            else:
+                bg = _classify_experience(exp)
             if bg:
-                background_counts[bg] = background_counts.get(bg, 0) + 1
+                background_counts[bg] = background_counts.get(bg, 0) + weight
 
         # If no experience data (e.g. basic/headline-only scrape), infer from headline
         if not background_counts and profile.headline:
