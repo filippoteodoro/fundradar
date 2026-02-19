@@ -196,6 +196,12 @@
         "fingerprint": "220a141ba3a5"
       },
       {
+        "title": "Materiali ultra-refrattari: K3RX raccoglie \u20ac1,65M, guidano Deep Ocean Capital SGR e RoboIT, Polo di Trasferimento Tecnologico di CDP Venture Capital",
+        "date": null,
+        "url": null,
+        "fingerprint": "d4e17af25670"
+      },
+      {
         "title": "NANDO raccoglie \u20ac3,3M per rivoluzionare la gestione di rifiuti con l'AI",
         "date": null,
         "url": null,
@@ -218,12 +224,6 @@
         "date": null,
         "url": null,
         "fingerprint": "89d946ef8faa"
-      },
-      {
-        "title": "RARA Factory, spin-off deep-tech i Ca' Foscari, raccoglie oltre \u20ac3M di investimento e accelera sulla scoperta di materiali alternativi alle terre rare",
-        "date": null,
-        "url": null,
-        "fingerprint": "a6468e73430b"
       },
       {
         "title": "Italy VC Monitor - Report di CDP Venture Capital e Pitchbook",
@@ -254,6 +254,12 @@
         "date": null,
         "url": null,
         "fingerprint": "2bad18e8d64b"
+      },
+      {
+        "title": "RARA Factory, spin-off deep-tech i Ca' Foscari, raccoglie oltre \u20ac3M di investimento e accelera sulla scoperta di materiali alternativi alle terre rare",
+        "date": null,
+        "url": null,
+        "fingerprint": "a6468e73430b"
       },
       {
         "title": "ChemiCare raccoglie \u20ac2,5M in un round Seed per lo sviluppo di un potenziale nuovo farmaco",
@@ -622,16 +628,16 @@
         "fingerprint": "24f9e098d945"
       },
       {
-        "title": "Round da 5 milioni di euro per la startup tech Resilco",
-        "date": null,
-        "url": null,
-        "fingerprint": "c417d3850b6c"
-      },
-      {
         "title": "Round da 5M\u20ac per Resilco, per la trasformazione dei rifiuti",
         "date": null,
         "url": null,
         "fingerprint": "f991802f2151"
+      },
+      {
+        "title": "Round da 5 milioni di euro per la startup tech Resilco",
+        "date": null,
+        "url": null,
+        "fingerprint": "c417d3850b6c"
       },
       {
         "title": "Sofinnova Partners raccoglie 165 milioni di euro per il proprio fondo di accelerazione biotech, il pi\u00f9 grande in Europa, superando il proprio target anche grazie ad un particolare contributo dell\u2019industria farmaceutica",
@@ -838,16 +844,16 @@
         "fingerprint": "c46c8215a076"
       },
       {
-        "title": "Round da 1.350.000 euro per Waxy, la startup che entra in stabilimento con un innovativo sistema per la sicurezza alimentare in grado di limitare l\u2019uso di acqua ed energia",
-        "date": null,
-        "url": null,
-        "fingerprint": "aeef9772b6b3"
-      },
-      {
         "title": "Round da 1.350.000 euro per Waxy, la startup con innovativo sistema per la sicurezza alimentare",
         "date": null,
         "url": null,
         "fingerprint": "09b9d342b66d"
+      },
+      {
+        "title": "Round da 1.350.000 euro per Waxy, la startup che entra in stabilimento con un innovativo sistema per la sicurezza alimentare in grado di limitare l\u2019uso di acqua ed energia",
+        "date": null,
+        "url": null,
+        "fingerprint": "aeef9772b6b3"
       },
       {
         "title": "Rubedo Life Sciences annuncia l\u2019espansione europea in vista della prima sperimentazione clinica",
@@ -940,16 +946,16 @@
         "fingerprint": "4a525922bc05"
       },
       {
-        "title": "Primo Ventures lancia Primo Climate",
-        "date": null,
-        "url": null,
-        "fingerprint": "243b19bc7d89"
-      },
-      {
         "title": "CDP Venture Capital: dimissioni dei Consiglieri Cuzzilla e Milani",
         "date": null,
         "url": null,
         "fingerprint": "c01c3cc37c12"
+      },
+      {
+        "title": "Primo Ventures lancia Primo Climate",
+        "date": null,
+        "url": null,
+        "fingerprint": "243b19bc7d89"
       },
       {
         "title": "CDP Venture Capital fra gli investitori della startup che rivoluziona il trattamento dei fanghi da depurazione",
@@ -1942,6 +1948,12 @@
       }
     ],
     "https://www.groupehld.com/en/news/": [
+      {
+        "title": "Squared: a strategic milestone for 52 Entertainment",
+        "date": "2026-02-01",
+        "url": "https://www.groupehld.com/en/news/squared-a-strategic-milestone-for-52-entertainment",
+        "fingerprint": "891a164a33e3"
+      },
       {
         "title": "Tenexa strengthens its governance",
         "date": "2026-02-01",
@@ -4503,10 +4515,16 @@
     ],
     "https://www.anderapartners.com/en/news": [
       {
-        "title": "Bruno Angles appointed Strategic Advisor to Andera Partners",
+        "title": "Andera Acto invests in the Austrian company exceet Card Group",
+        "date": "19.02.2026",
+        "url": "https://www.anderapartners.com/en/andera-acto-invests-in-the-austrian-company-exceet-card-group/",
+        "fingerprint": "bfd21ed9bb3e"
+      },
+      {
+        "title": "Bruno Angles becomes Strategic Advisor to Andera Partners",
         "date": "18.02.2026",
         "url": "https://www.anderapartners.com/en/bruno-angles-appointed-strategic-advisor-to-andera-partners/",
-        "fingerprint": "73b4714f38ca"
+        "fingerprint": "8039385b9d7c"
       },
       {
         "title": "Andera Partners strengthens its position among the leading players in private equity",
@@ -10090,6 +10108,12 @@
     ],
     "https://www.apollo.com/insights-news/pressreleases": [
       {
+        "title": "Apollo Sent the Following Letter to Clients and Partners",
+        "date": null,
+        "url": "https://www.apollo.com/insights-news/pressreleases/2026/02/apollo-sent-the-following-letter-to-clients-and-partners-3240705",
+        "fingerprint": "5b730a434ceb"
+      },
+      {
         "title": "Apollo Names Diego De Giorgi as Incoming Head of EMEA",
         "date": null,
         "url": "https://www.apollo.com/insights-news/pressreleases/2026/02/apollo-names-diego-de-giorgi-as-incoming-head-of-emea-3234991",
@@ -10142,12 +10166,6 @@
         "date": "2026-02-09",
         "url": "https://www.apollo.com/insights-news/pressreleases/2026/01/apollo-to-announce-fourth-quarter-and-full-year-2025-financial-results-on-february-9-2026-3213542",
         "fingerprint": "cc491a020ca4"
-      },
-      {
-        "title": "Apollo Funds to Acquire Prosol Group, a Leading French Fresh Food Retailer",
-        "date": null,
-        "url": "https://www.apollo.com/insights-news/pressreleases/2025/12/apollo-funds-to-acquire-prosol-group-a-leading-french-fresh-food-retailer-3205948",
-        "fingerprint": "cc933c6cb2c2"
       }
     ],
     "https://www.ardian.com/news-insights": [

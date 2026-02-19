@@ -27,6 +27,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .io_utils import backup_before_write
+from .alerting import AlertConfig, AlertManager, Alert
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
 DATA_DIR = PROJECT_ROOT / "data" / "derived"
@@ -387,6 +388,128 @@ def _suggest_reruns(report: dict | None) -> list[tuple[str, str]]:
     return suggestions
 
 
+def _send_pipeline_alert(
+    results: dict[str, bool],
+    retry_log: dict[str, int],
+    step_details: dict[str, dict],
+    report: dict | None,
+    elapsed: float,
+):
+    """Send a Telegram alert summarizing the pipeline run.
+
+    Only sends if there are issues (failures, retries, remaining work).
+    A fully clean run sends a brief success summary.
+    """
+    config = AlertConfig.from_env()
+    if not config.telegram_enabled:
+        return
+
+    manager = AlertManager(config)
+
+    failed_steps = [n for n, ok in results.items() if not ok]
+    retried_steps = list(retry_log.keys())
+    skipped_steps = [
+        n for n, detail in step_details.items()
+        if detail.get("skipped")
+    ]
+
+    # Determine overall status
+    has_issues = bool(failed_steps or retried_steps or skipped_steps)
+
+    # Check remaining enrichment work
+    remaining_work: list[str] = []
+    portfolio_status = _portfolio_enrichment_status()
+    if portfolio_status and portfolio_status["remaining_entries"] > 0:
+        remaining_work.append(
+            f"Portfolio enrichment: {portfolio_status['remaining_entries']} entries remaining"
+        )
+
+    if report:
+        enriched = report.get("enriched", {})
+        llm_counts = enriched.get("llm_keep_counts") or {}
+        none_count = llm_counts.get("none", 0)
+        if none_count > 0:
+            remaining_work.append(
+                f"Signal enrichment: {none_count} signals without decision"
+            )
+        # Check filtered→enriched gap
+        filtered_count = report.get("filtered", {}).get("count") or 0
+        enriched_count = enriched.get("count") or 0
+        gap = filtered_count - enriched_count
+        llm_filtered = (enriched.get("llm_filter_stats") or {}).get("filtered_out", 0)
+        unexplained = gap - llm_filtered
+        if unexplained > 5:
+            remaining_work.append(
+                f"Filtered→Enriched gap: {gap} signals ({unexplained} unexplained)"
+            )
+
+    has_issues = has_issues or bool(remaining_work)
+
+    # Build message
+    lines: list[str] = []
+    elapsed_min = elapsed / 60
+
+    if not has_issues:
+        # Clean run — brief success summary
+        lines.append(f"Pipeline completed in {elapsed_min:.1f}m")
+        if report:
+            raw_n = report.get("raw", {}).get("count", "?")
+            filt_n = report.get("filtered", {}).get("count", "?")
+            enr_n = report.get("enriched", {}).get("count", "?")
+            lines.append(f"Signals: {raw_n} raw → {filt_n} filtered → {enr_n} enriched")
+        title = "Pipeline OK"
+        level = "info"
+    else:
+        lines.append(f"Pipeline finished in {elapsed_min:.1f}m with issues:\n")
+
+        if failed_steps:
+            lines.append("*Failed steps:*")
+            for name in failed_steps:
+                detail = step_details.get(name, {})
+                reason = detail.get("reason", "unknown error")
+                lines.append(f"  • {name}: {reason}")
+            lines.append("")
+
+        if retried_steps:
+            lines.append("*Retried steps:*")
+            for name in retried_steps:
+                lines.append(f"  • {name}: {retry_log[name]} retries used")
+            lines.append("")
+
+        if skipped_steps:
+            lines.append("*Skipped (optional):*")
+            for name in skipped_steps:
+                detail = step_details.get(name, {})
+                reason = detail.get("reason", "failed")
+                lines.append(f"  • {name}: {reason}")
+            lines.append("")
+
+        if remaining_work:
+            lines.append("*Remaining work:*")
+            for item in remaining_work:
+                lines.append(f"  • {item}")
+            lines.append("")
+
+        if report:
+            raw_n = report.get("raw", {}).get("count", "?")
+            filt_n = report.get("filtered", {}).get("count", "?")
+            enr_n = report.get("enriched", {}).get("count", "?")
+            lines.append(f"Signals: {raw_n} raw → {filt_n} filtered → {enr_n} enriched")
+
+        title = f"Pipeline Issues: {len(failed_steps)} failed, {len(retried_steps)} retried"
+        if not failed_steps and not retried_steps:
+            title = f"Pipeline: {len(remaining_work)} items need attention"
+        level = "error" if failed_steps else "warning"
+
+    manager.add_alert(Alert(
+        title=title,
+        message="\n".join(lines),
+        level=level,
+        source="pipeline",
+    ))
+    manager.send_pending_alerts()
+
+
 def run_step(step: dict, dry_run: bool = False) -> tuple[bool, int]:
     """Run a single pipeline step with backup, timeout, and validation.
 
@@ -479,6 +602,7 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
     total_start = time.monotonic()
     results = {}
     retry_log: dict[str, int] = {}  # step_name → number of retries used
+    step_details: dict[str, dict] = {}  # step_name → {reason, skipped, exit_code}
 
     for step in steps_to_run:
         max_retries = step.get("max_retries", 0) if step.get("retry_on_partial") else 0
@@ -489,6 +613,10 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
 
             if ok:
                 results[step["name"]] = True
+                # Track optional steps that returned non-zero but were counted as ok
+                if exit_code != 0 and step.get("optional"):
+                    reason = f"timeout (exit {exit_code})" if exit_code == -1 else f"exit code {exit_code}"
+                    step_details[step["name"]] = {"skipped": True, "reason": reason, "exit_code": exit_code}
                 break
 
             # Check if we should retry
@@ -517,9 +645,25 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
                 if not step.get("optional"):
                     print(f"  {step['name']}: retries exhausted, continuing pipeline (enrichment is best-effort)")
                     results[step["name"]] = True  # Don't count as pipeline failure
+                    step_details[step["name"]] = {
+                        "skipped": False,
+                        "reason": f"retries exhausted (exit code {exit_code})",
+                        "exit_code": exit_code,
+                    }
+                else:
+                    step_details[step["name"]] = {
+                        "skipped": True,
+                        "reason": f"optional step failed (exit code {exit_code})",
+                        "exit_code": exit_code,
+                    }
                 break
 
             # Hard failure on non-optional step — halt pipeline
+            step_details[step["name"]] = {
+                "skipped": False,
+                "reason": f"timeout" if exit_code == -1 else f"exit code {exit_code}",
+                "exit_code": exit_code,
+            }
             print(f"\n  Pipeline halted: {step['name']} failed.")
             break
 
@@ -539,6 +683,8 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
     failed = [n for n, ok in results.items() if not ok]
     if failed:
         print(f"\n  {len(failed)} step(s) failed.")
+        if not dry_run:
+            _send_pipeline_alert(results, retry_log, step_details, None, total_elapsed)
         sys.exit(1)
     else:
         if not dry_run:
@@ -616,6 +762,9 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
                 print(f"  Pipeline: has remaining work (re-run to continue)")
             else:
                 print(f"  Pipeline: fully self-healed")
+
+            # Send Telegram alert with pipeline summary
+            _send_pipeline_alert(results, retry_log, step_details, report, total_elapsed)
 
         print(f"\n  All steps passed.")
 

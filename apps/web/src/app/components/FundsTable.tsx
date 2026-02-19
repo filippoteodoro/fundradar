@@ -54,7 +54,7 @@ const SHORT_CATEGORY_LABELS: Record<string, string> = {
   'Private Debt': 'Debt',
   'Real Estate': 'Real Est.',
   'Fund of Funds': 'FoF',
-  'Multi-Strategy': 'Multi-Strat',
+  'Multi-Strategy': 'Multi',
   'Asset Manager': 'Asset Mgr',
 };
 

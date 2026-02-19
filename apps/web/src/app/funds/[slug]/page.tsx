@@ -426,11 +426,21 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
               const st = (fund.strategy_tags || []);
               const ac = (fund.asset_class || []);
               const norm = (s: string) => s.toLowerCase().replace(/-/g, ' ').trim();
+              // Tags that duplicate the fund category badge already shown above
+              const CATEGORY_REDUNDANT: Record<string, string[]> = {
+                pe:           ['private equity'],
+                vc:           ['venture capital'],
+                growth:       ['growth equity', 'growth capital'],
+                infra:        ['infrastructure'],
+                debt:         ['private debt', 'credit'],
+                real_estate:  ['real estate'],
+              };
+              const redundant = new Set<string>(CATEGORY_REDUNDANT[fund.category] ?? []);
               const seen = new Set<string>();
               const merged: string[] = [];
               for (const v of [...st, ...ac]) {
                 const key = norm(v);
-                if (!seen.has(key)) {
+                if (!seen.has(key) && !redundant.has(key)) {
                   seen.add(key);
                   merged.push(formatTagLabel(v));
                 }

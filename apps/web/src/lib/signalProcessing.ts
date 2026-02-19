@@ -336,6 +336,12 @@ export function isGarbageSignal(signal: Signal, knownFundNames?: Set<string>): b
 export function cleanSignalTitle(title: string): string {
   // Strip "more details" concatenated to end (Investindustrial extractor artifact)
   let cleaned = title.replace(/more\s*details\s*$/i, '').trimEnd();
+  // Strip "Approfondisci" suffix (Gradiente SGR extractor artifact — "read more" button text)
+  cleaned = cleaned.replace(/\s*Approfondisci\s*$/i, '').trimEnd();
+  // Strip "LEGGI TUTTO" prefix (Invitalia extractor artifact — "read all" button text)
+  cleaned = cleaned.replace(/^LEGGI\s+TUTTO\s*/i, '');
+  // Strip "Read more" suffix (generic extractor artifact)
+  cleaned = cleaned.replace(/\s*Read\s+more\s*$/i, '').trimEnd();
   // Insert space before ALL-CAPS word concatenated to lowercase (e.g. "aNEVERHACK" → "a NEVERHACK")
   cleaned = cleaned.replace(/([a-z])([A-Z]{3,})/g, '$1 $2');
   // Portfolio addition/removal signals: preserve context but clean fund name repetition
@@ -351,6 +357,8 @@ export function cleanSignalTitle(title: string): string {
   cleaned = cleaned.replace(/^\d{1,2}\s+(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{4}\s*(?:[|–—-]\s*)?/i, '');
   // Strip "Feb 4,2026|BU news" style prefix
   cleaned = cleaned.replace(/^(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s*,\s*\d{4}\s*[|–—-]\s*(?:\w+\s+(?:news|update)\s*)?/i, '');
+  // Strip Italian date prefix: "Padova, 22 Dic. 2025" or "Milano, 31 Lug. 2025" (Gradiente SGR artifact)
+  cleaned = cleaned.replace(/^(?:[A-ZÀ-Ö][a-zà-ö]+,?\s+)?\d{1,2}\s+(?:Gen|Feb|Mar|Apr|Mag|Giu|Lug|Ago|Set|Ott|Nov|Dic)\.?\s+\d{4}\s*/i, '');
   // Strip sector+date suffixes (Astorg extractor: "...Healthcare29 October 2025" → after spacing → "...Healthcare 29 October 2025")
   cleaned = cleaned.replace(/(?:Healthcare|Tech(?:nology)?|Business\s+Services|Industrials|Financial\s+Services|Consumer|TMT|Energy)\s*\d{1,2}\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{4}\s*$/i, '').trim();
   // Strip date suffixes concatenated to the end: "...in TinextaDecember 30, 2025"
@@ -424,8 +432,10 @@ function fixSignalSpacing(text: string): string {
   const source = cleaned;
   cleaned = cleaned.replace(prepositionRegex, (match, offset) => {
     const nextChar = source[offset + match.length];
-    const nextNext = source[offset + match.length + 1];
-    const isAcronym = match.length === 1 && nextChar && /[A-ZÀ-ÖØ-Þ]/.test(nextChar) && nextNext && /[A-ZÀ-ÖØ-Þ]/.test(nextNext);
+    // If the matched text is all-uppercase and followed by uppercase, it's part of
+    // an acronym (e.g. "DE" in "DEA", "E" in "EL.MO") — not a preposition to split
+    const matchIsAllCaps = match === match.toUpperCase();
+    const isAcronym = matchIsAllCaps && nextChar && /[A-ZÀ-ÖØ-Þ]/.test(nextChar);
     if (isAcronym) return match;
     return nextChar && /[A-ZÀ-ÖØ-Þ]/.test(nextChar) ? `${match} ` : match;
   });
@@ -436,10 +446,13 @@ function fixSignalSpacing(text: string): string {
   cleaned = cleaned.replace(/\bB\s+4\s+i\b/g, 'B4i');
   cleaned = cleaned.replace(/\bCO\s+2\b/g, 'CO2');
   cleaned = cleaned.replace(/\b3\s+i\b/g, '3i');
-  // Wise Equity extractor: words concatenated without space ("aNEVERHACK", "Aksìaannunciano")
-  cleaned = cleaned.replace(/\baNEVERHACK\b/g, 'a NEVERHACK');
-  cleaned = cleaned.replace(/Aksìaannunciano/g, 'Aksìa annunciano');
-  cleaned = cleaned.replace(/Absoluteinsieme/g, 'Absolute insieme');
+  // Systemic fix: Italian verb forms/words concatenated with preceding words (scraping artifacts)
+  // Splits when a recognizable Italian word appears after 3+ lowercase chars mid-token
+  // e.g. "Flangesacquisisce" → "Flanges acquisisce", "Motoriinsieme" → "Motori insieme"
+  cleaned = cleaned.replace(
+    /(?<=[a-zà-öø-ÿ]{3})(acquis(?:isce|iscono|ta\w*|ito|izion[ei])|annuncia\w*|insieme|rafforza\w*|sostenuta|partecipata|accompagnar\w+|controllat[aoi])/gi,
+    ' $1'
+  );
   // Known name corrections (from CDP VC extractor spacing artifacts)
   cleaned = cleaned.replace(/WS ense/g, 'WSense');
   cleaned = cleaned.replace(/3 DN extech/g, '3DNextech');

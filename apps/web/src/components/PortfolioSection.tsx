@@ -94,26 +94,61 @@ function isUnknownSource(company: Pick<PortfolioCompany, 'source_label' | 'sourc
   return !company.source_url && !normalizedLabel;
 }
 
+type CompactSortKey = 'company' | 'sector' | 'hq' | 'status' | 'date';
+const COMPACT_STATUS_ORDER: Record<string, number> = { current: 0, partial: 1, exited: 3 };
+
 function CompactPortfolioSection({ companies }: PortfolioSectionProps) {
   const [page, setPage] = useState(0);
   const [regionFilter, setRegionFilter] = useState<'all' | 'italy'>(() => getDefaultRegionFilter(companies));
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
+  const [sortKey, setSortKey] = useState<CompactSortKey>('status');
+  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc');
   const pageSize = 12;
 
+  const toggleSort = (key: CompactSortKey) => {
+    if (sortKey === key) {
+      setSortDir(d => d === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortKey(key);
+      setSortDir(key === 'date' ? 'desc' : 'asc');
+    }
+    setPage(0);
+  };
+  const sortIndicator = (key: CompactSortKey) =>
+    sortKey === key ? (sortDir === 'asc' ? ' ↑' : ' ↓') : '';
+
   const sortedCompanies = useMemo(() => {
-    const STATUS_ORDER: Record<string, number> = { current: 0, partial: 1, exited: 3 };
     return [...companies].sort((a, b) => {
-      const aOrder = a.status ? (STATUS_ORDER[a.status] ?? 2) : 2;
-      const bOrder = b.status ? (STATUS_ORDER[b.status] ?? 2) : 2;
-      if (aOrder !== bOrder) return aOrder - bOrder;
-      const aDate = a.entry_date || a.investment_date || '';
-      const bDate = b.entry_date || b.investment_date || '';
-      if (aDate && !bDate) return -1;
-      if (!aDate && bDate) return 1;
-      if (aDate && bDate && aDate !== bDate) return bDate.localeCompare(aDate);
-      return a.company_name.localeCompare(b.company_name);
+      let cmp = 0;
+      switch (sortKey) {
+        case 'company':
+          cmp = a.company_name.localeCompare(b.company_name);
+          break;
+        case 'sector':
+          cmp = (normalizeSector(a.sector) || a.sector || '').localeCompare(normalizeSector(b.sector) || b.sector || '');
+          break;
+        case 'hq':
+          cmp = extractCity(a).localeCompare(extractCity(b));
+          break;
+        case 'status': {
+          const aOrder = a.status ? (COMPACT_STATUS_ORDER[a.status] ?? 2) : 2;
+          const bOrder = b.status ? (COMPACT_STATUS_ORDER[b.status] ?? 2) : 2;
+          cmp = aOrder - bOrder;
+          break;
+        }
+        case 'date': {
+          const aDate = a.investment_date || a.entry_date || '';
+          const bDate = b.investment_date || b.entry_date || '';
+          if (!aDate && !bDate) cmp = 0;
+          else if (!aDate) cmp = 1;
+          else if (!bDate) cmp = -1;
+          else cmp = aDate.localeCompare(bDate);
+          break;
+        }
+      }
+      return sortDir === 'asc' ? cmp : -cmp;
     });
-  }, [companies]);
+  }, [companies, sortKey, sortDir]);
 
   const italyCount = useMemo(() => sortedCompanies.filter(c => isItalianCompany(c)).length, [sortedCompanies]);
   const showGeoFilter = italyCount > 0 && italyCount < sortedCompanies.length;
@@ -218,16 +253,16 @@ function CompactPortfolioSection({ companies }: PortfolioSectionProps) {
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '14px' }}>
           <thead>
             <tr style={{ background: '#f5f5f5', textAlign: 'left' }}>
-              <th style={{ padding: '10px 12px', borderBottom: '1px solid #eee' }}>Company</th>
-              <th style={{ padding: '10px 12px', borderBottom: '1px solid #eee' }}>Status</th>
-              <th style={{ padding: '10px 12px', borderBottom: '1px solid #eee' }}>Sector</th>
+              <th onClick={() => toggleSort('company')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', touchAction: 'manipulation' }}>Asset{sortIndicator('company')}</th>
+              <th onClick={() => toggleSort('status')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', touchAction: 'manipulation' }}>Status{sortIndicator('status')}</th>
+              <th onClick={() => toggleSort('sector')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', touchAction: 'manipulation' }}>Sector{sortIndicator('sector')}</th>
               {hasHqData && (
-                <th style={{ padding: '10px 12px', borderBottom: '1px solid #eee' }}>HQ</th>
+                <th onClick={() => toggleSort('hq')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', touchAction: 'manipulation' }}>HQ{sortIndicator('hq')}</th>
               )}
               {showSourceColumn && (
                 <th style={{ padding: '10px 12px', borderBottom: '1px solid #eee' }}>Source</th>
               )}
-              <th style={{ padding: '10px 12px', borderBottom: '1px solid #eee' }}>Entry Date</th>
+              <th onClick={() => toggleSort('date')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', touchAction: 'manipulation' }}>Entry Date{sortIndicator('date')}</th>
             </tr>
           </thead>
           <tbody>

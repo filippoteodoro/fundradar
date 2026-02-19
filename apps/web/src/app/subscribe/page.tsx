@@ -56,7 +56,7 @@ function pickSampleSignals(signals: UnifiedSignal[]): UnifiedSignal[] {
   const typeCounts = new Map<string, number>();
 
   for (const s of candidates) {
-    if (picked.length >= 5) break;
+    if (picked.length >= 3) break;
     const displayType = toDisplayType(s.signal_type);
     if ((typeCounts.get(displayType) ?? 0) >= 2) continue;
     picked.push(s);

@@ -21,6 +21,7 @@ export const BADGE_STYLE: CSSProperties = {
   padding: '2px 8px',
   borderRadius: '4px',
   fontSize: '12px',
+  whiteSpace: 'nowrap',
 };
 
 /** Apply badge colors to base style */

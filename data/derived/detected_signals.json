@@ -41684,7 +41684,256 @@
         "people": [],
         "locations": []
       }
+    },
+    {
+      "id": "web-signal-01596",
+      "fund_id": "",
+      "fund_slug": "andera-partners",
+      "signal_type": "other",
+      "title": "Andera Acto invests in the Austrian company exceet Card Group",
+      "what_changed": "andera Acto | Press releases",
+      "source_url": "https://www.anderapartners.com/en/andera-acto-invests-in-the-austrian-company-exceet-card-group/",
+      "source_name": "Andera Partners",
+      "published_at": "2026-02-19",
+      "observed_at": "2026-02-19T11:13:36.458171+00:00",
+      "created_at": "2026-02-19T11:13:36.458171+00:00",
+      "snapshot_id": "snap-20260219111332-b2f977d3",
+      "diff_summary": "New news item detected (dated 19.02.2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Andera Acto",
+          "Card Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01597",
+      "fund_id": "",
+      "fund_slug": "andera-partners",
+      "signal_type": "other",
+      "title": "Bruno Angles becomes Strategic Advisor to Andera Partners",
+      "what_changed": "Andera Partners | Press releases",
+      "source_url": "https://www.anderapartners.com/en/bruno-angles-appointed-strategic-advisor-to-andera-partners/",
+      "source_name": "Andera Partners",
+      "published_at": "2026-02-18",
+      "observed_at": "2026-02-19T11:13:36.458171+00:00",
+      "created_at": "2026-02-19T11:13:36.458171+00:00",
+      "snapshot_id": "snap-20260219111332-b2f977d3",
+      "diff_summary": "New news item detected (dated 18.02.2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Strategic Advisor",
+          "Bruno Angles",
+          "Andera Partners Andera"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01598",
+      "fund_id": "",
+      "fund_slug": "apollo",
+      "signal_type": "other",
+      "title": "Apollo Sent the Following Letter to Clients and Partners",
+      "what_changed": "New announcement: Apollo Sent the Following Letter to Clients and Partners",
+      "source_url": "https://www.apollo.com/insights-news/pressreleases/2026/02/apollo-sent-the-following-letter-to-clients-and-partners-3240705",
+      "source_name": "Apollo",
+      "published_at": null,
+      "observed_at": "2026-02-19T11:13:47.123636+00:00",
+      "created_at": "2026-02-19T11:13:47.123636+00:00",
+      "snapshot_id": "snap-20260219111345-76d10fe8",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Apollo Sent",
+          "Following Letter"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01599",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "other",
+      "title": "Materiali ultra-refrattari: K3RX raccoglie \u20ac1,65M, guidano Deep Ocean Capital SGR e RoboIT, Polo di Trasferimento Tecnologico di CDP Venture Capital",
+      "what_changed": "New announcement: Materiali ultra-refrattari: K3RX raccoglie \u20ac1,65M, guidano Deep Ocean Capital SGR e RoboIT, Polo di Trasferimento Tecnologico di CDP Venture Capital",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "Cdp Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-02-19T11:14:41.803194+00:00",
+      "created_at": "2026-02-19T11:14:41.803194+00:00",
+      "snapshot_id": "snap-20260219111435-1bc451c2",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.55,
+      "relevance_reasons": [
+        "Italian entity types: SGR",
+        "Italian business context: CDP"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Venture Capital",
+          "Deep Ocean Capital",
+          "Trasferimento Tecnologico"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01600",
+      "fund_id": "",
+      "fund_slug": "hld",
+      "signal_type": "other",
+      "title": "Squared: a strategic milestone for 52 Entertainment",
+      "what_changed": "New announcement: Squared: a strategic milestone for 52 Entertainment",
+      "source_url": "https://www.groupehld.com/en/news/squared-a-strategic-milestone-for-52-entertainment",
+      "source_name": "HLD",
+      "published_at": "2026-02-01",
+      "observed_at": "2026-02-19T11:15:13.991356+00:00",
+      "created_at": "2026-02-19T11:15:13.991356+00:00",
+      "snapshot_id": "snap-20260219111510-d139a796",
+      "diff_summary": "New news item detected (dated 2026-02-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00123",
+      "fund_id": "",
+      "fund_slug": "the-equity-club",
+      "signal_type": "deal_announced",
+      "title": "Club del Sole (The Equity CLub, Aurora Growth Capital) acquisisce Le Palme Lazise Family Collection, sua 28esima struttura",
+      "what_changed": "Club del Sole, backed by The Equity CLub and Aurora Growth Capital, has acquired Le Palme Lazise Family Collection on Lake Garda \u2014 its 28th add-on for the Italian holiday village chain. The deal strengthens Club del Sole\u2019s domestic footprint in the leisure/tourism sector; no financial terms disclosed.",
+      "source_url": "https://bebeez.it/private-equity/club-del-sole-the-equity-club-aurora-growth-capital-acquisisce-le-palme-lazise-family-collection-sua-28esima-struttura/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-19T06:50:34+00:00",
+      "observed_at": "2026-02-19T11:17:46.802125+00:00",
+      "created_at": "2026-02-19T11:17:46.802125+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Club del Sole",
+          "Le Palme Lazise Family Collection"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00124",
+      "fund_id": "",
+      "fund_slug": "aurora-growth-capital",
+      "signal_type": "deal_announced",
+      "title": "Club del Sole (The Equity CLub, Aurora Growth Capital) acquisisce Le Palme Lazise Family Collection, sua 28esima struttura",
+      "what_changed": "Club del Sole, backed by The Equity CLub and Aurora Growth Capital, has acquired Le Palme Lazise Family Collection on Lake Garda \u2014 its 28th add-on for the Italian holiday village chain. The deal strengthens Club del Sole\u2019s domestic footprint in the leisure/tourism sector; no financial terms disclosed.",
+      "source_url": "https://bebeez.it/private-equity/club-del-sole-the-equity-club-aurora-growth-capital-acquisisce-le-palme-lazise-family-collection-sua-28esima-struttura/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-19T06:50:34+00:00",
+      "observed_at": "2026-02-19T11:17:46.802125+00:00",
+      "created_at": "2026-02-19T11:17:46.802125+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Club del Sole",
+          "Le Palme Lazise Family Collection"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00125",
+      "fund_id": "",
+      "fund_slug": "alcedo-sgr",
+      "signal_type": "deal_announced",
+      "title": "Gli advisor dell\u2019acquisizione di EDG da parte di Alcedo",
+      "what_changed": "Alcedo sgr, through its fund Alcedo V with co-investor Banca Ifis, has acquired 70% of EDG, an Italian home decor company active in design, planning and distribution, buying the stake from Hi-Dec Edizioni. Transaction confirms Alcedo\u2019s control; deal amount not disclosed.",
+      "source_url": "https://financecommunity.it/gli-advisor-della-acquisizione-di-edg-da-parte-di-alcedo/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-02-19T10:21:48+00:00",
+      "observed_at": "2026-02-19T11:18:15.256120+00:00",
+      "created_at": "2026-02-19T11:18:15.256120+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "EDG",
+          "Hi-Dec Edizioni"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00126",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "other",
+      "title": "Flowy, la startup della mobilit\u00e0 urbana che misura i flussi con il Wi-Fi",
+      "what_changed": "Flowy, founded in 2023 in Florence by Marco Musumeci, Gabriele Coletti and Marco Bartolomei, develops WiFi sensors for passenger counting and Be-In Be-Out ticketing. The startup was selected by CrossConnect Accelerator (Rete Nazionale Acceleratori di CDP Venture Capital), highlighting Italian mobility deeptech; no financing amount disclosed.",
+      "source_url": "https://www.economyup.it/mobilita/flowy-la-startup-della-mobilita-urbana-che-misura-i-flussi-con-il-wi-fi/",
+      "source_name": "EconomyUp",
+      "published_at": "2026-02-19T09:54:40+00:00",
+      "observed_at": "2026-02-19T11:18:44.746620+00:00",
+      "created_at": "2026-02-19T11:18:44.746620+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Flowy"
+        ],
+        "people": [],
+        "locations": []
+      }
     }
   ],
-  "signal_count": 1595
+  "signal_count": 1600
 }

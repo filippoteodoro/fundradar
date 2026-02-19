@@ -111,7 +111,7 @@ export function PortfolioTable({ companies }: PortfolioTableProps) {
         >
           <thead>
             <tr style={{ background: '#f5f5f5', textAlign: 'left' }}>
-              <th onClick={() => toggleSort('company')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', touchAction: 'manipulation' }}>Company{sortIndicator('company')}</th>
+              <th onClick={() => toggleSort('company')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', touchAction: 'manipulation' }}>Asset{sortIndicator('company')}</th>
               {hasEnrichedData && (
                 <th onClick={() => toggleSort('sector')} style={{ padding: '10px 12px', borderBottom: '1px solid #eee', cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', touchAction: 'manipulation' }}>Sector{sortIndicator('sector')}</th>
               )}
@@ -156,7 +156,7 @@ export function PortfolioTable({ companies }: PortfolioTableProps) {
                           const displaySector = normalizePortfolioSector(company.sector) || company.sector;
                           const sc = getSectorColor(displaySector);
                           return (
-                            <span style={{ ...badgeStyle({ bg: sc.bg, color: sc.text }), whiteSpace: 'nowrap' }}>
+                            <span style={badgeStyle({ bg: sc.bg, color: sc.text })}>
                               {displaySector}
                             </span>
                           );
@@ -196,7 +196,7 @@ export function PortfolioTable({ companies }: PortfolioTableProps) {
                         })()}
                       </td>
                     )}
-                    <td style={{ padding: '10px 12px', borderBottom: isExpanded ? 'none' : '1px solid #eee', color: '#666' }}>
+                    <td style={{ padding: '10px 12px', borderBottom: isExpanded ? 'none' : '1px solid #eee', color: '#666', whiteSpace: 'nowrap' }}>
                       {company.investment_date || (company.entry_date ? company.entry_date.split('T')[0] : '-')}
                     </td>
                     {hasEnrichedData && (

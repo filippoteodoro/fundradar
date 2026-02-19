@@ -108,21 +108,24 @@ function normalizeCountry(value: string | null | undefined): string | null {
     .join(' ');
 }
 
-function getHqOfficeCountry(offices: Office[] | undefined): string | null {
+function getExplicitHqOfficeCountry(offices: Office[] | undefined): string | null {
   if (!offices || offices.length === 0) return null;
-
   const hq = offices.find((o) => o.is_hq && typeof o.country === 'string' && o.country.trim());
-  if (hq) return normalizeCountry(hq.country);
+  return hq ? normalizeCountry(hq.country) : null;
+}
 
-  const firstWithCountry = offices.find((o) => typeof o.country === 'string' && o.country.trim());
-  if (!firstWithCountry) return null;
-  return normalizeCountry(firstWithCountry.country);
+function getFirstOfficeCountry(offices: Office[] | undefined): string | null {
+  if (!offices || offices.length === 0) return null;
+  const first = offices.find((o) => typeof o.country === 'string' && o.country.trim());
+  return first ? normalizeCountry(first.country) : null;
 }
 
 export function deriveFundHqCountry(fund: FilterableFund): string | null {
-  const officeCountry = getHqOfficeCountry(fund.offices);
-  if (officeCountry) return officeCountry;
+  // 1. Explicit is_hq office
+  const hqOfficeCountry = getExplicitHqOfficeCountry(fund.offices);
+  if (hqOfficeCountry) return hqOfficeCountry;
 
+  // 2. hq_city — checked before non-HQ office fallback so an explicit city field wins
   const cityKey = normalizeToken(fund.hq_city);
   if (cityKey && FOREIGN_CITY_TO_COUNTRY[cityKey]) {
     return FOREIGN_CITY_TO_COUNTRY[cityKey];
@@ -131,6 +134,11 @@ export function deriveFundHqCountry(fund: FilterableFund): string | null {
     return 'Italy';
   }
 
+  // 3. First office with any country (no is_hq set)
+  const firstOfficeCountry = getFirstOfficeCountry(fund.offices);
+  if (firstOfficeCountry) return firstOfficeCountry;
+
+  // 4. hq_region
   const regionCountry = normalizeCountry(fund.hq_region);
   if (regionCountry) return regionCountry;
 
