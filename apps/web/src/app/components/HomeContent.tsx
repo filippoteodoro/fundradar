@@ -35,9 +35,12 @@ function aggregateAnalytics(
   const seniority: Record<string, number> = {};
   const schools: Record<string, number> = {};
   const degrees: Record<string, number> = {};
+  const majors: Record<string, number> = {};
   let totalProfiles = 0;
   let totalNewHires1y = 0;
   let totalNewHires2y = 0;
+  let totalNewHires3y = 0;
+  let totalNewHires4y = 0;
   let sumTenure = 0;
   let sumExperience = 0;
   let sumAge = 0;
@@ -57,6 +60,8 @@ function aggregateAnalytics(
     totalProfiles += analytics.total_profiles;
     totalNewHires1y += analytics.hiring.new_hires_last_1y;
     totalNewHires2y += analytics.hiring.new_hires_last_2y;
+    totalNewHires3y += analytics.hiring.new_hires_last_3y;
+    totalNewHires4y += analytics.hiring.new_hires_last_4y;
     sumTenure += analytics.hiring.avg_tenure_years;
     sumExperience += analytics.demographics.avg_years_experience;
     sumAge += analytics.demographics.avg_estimated_age;
@@ -79,14 +84,20 @@ function aggregateAnalytics(
     for (const [key, val] of Object.entries(analytics.education.top_degrees)) {
       degrees[key] = (degrees[key] || 0) + val;
     }
+    for (const [key, val] of Object.entries(analytics.education.top_majors || {})) {
+      majors[key] = (majors[key] || 0) + val;
+    }
     fundCount++;
   }
 
   const sortedSchools = Object.fromEntries(
-    Object.entries(schools).sort(([, a], [, b]) => b - a).slice(0, 6)
+    Object.entries(schools).sort(([, a], [, b]) => b - a)
   );
   const sortedDegrees = Object.fromEntries(
     Object.entries(degrees).sort(([, a], [, b]) => b - a).slice(0, 6)
+  );
+  const sortedMajors = Object.fromEntries(
+    Object.entries(majors).sort(([, a], [, b]) => b - a)
   );
 
   const aggregate: TeamAnalytics = {
@@ -95,6 +106,7 @@ function aggregateAnalytics(
     education: {
       top_schools: sortedSchools,
       top_degrees: sortedDegrees,
+      top_majors: sortedMajors,
       education_tier: {
         top_mba: sumTopMba,
         top_undergrad: sumTopUndergrad,
@@ -106,6 +118,8 @@ function aggregateAnalytics(
     hiring: {
       new_hires_last_1y: totalNewHires1y,
       new_hires_last_2y: totalNewHires2y,
+      new_hires_last_3y: totalNewHires3y,
+      new_hires_last_4y: totalNewHires4y,
       avg_tenure_years: fundCount > 0 ? parseFloat((sumTenure / fundCount).toFixed(1)) : 0,
     },
     demographics: {

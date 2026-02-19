@@ -291,6 +291,7 @@ def _stats_to_web_format(stats: FundPeopleStats) -> dict[str, Any]:
         "education": {
             "top_schools": stats.education_schools,
             "top_degrees": stats.top_degrees,
+            "top_majors": stats.top_majors,
             "education_tier": {
                 "top_mba": stats.top_mba_count,
                 "top_undergrad": stats.top_undergrad_count,
@@ -320,7 +321,9 @@ def _stats_to_web_format(stats: FundPeopleStats) -> dict[str, Any]:
         },
         "hiring": {
             "new_hires_last_1y": stats.new_hires_last_12mo,
-            "new_hires_last_2y": stats.new_hires_last_6mo + stats.new_hires_last_12mo,
+            "new_hires_last_2y": stats.new_hires_last_24mo,
+            "new_hires_last_3y": stats.new_hires_last_36mo,
+            "new_hires_last_4y": stats.new_hires_last_48mo,
             "avg_tenure_years": stats.avg_tenure_years or 0,
         },
         "demographics": {

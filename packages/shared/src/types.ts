@@ -199,6 +199,7 @@ export interface PemManifest {
 export interface TeamEducation {
   top_schools: Record<string, number>;
   top_degrees: Record<string, number>;
+  top_majors: Record<string, number>;
   education_tier: {
     top_mba: number;
     top_undergrad: number;
@@ -215,6 +216,8 @@ export interface TeamAnalytics {
   hiring: {
     new_hires_last_1y: number;
     new_hires_last_2y: number;
+    new_hires_last_3y: number;
+    new_hires_last_4y: number;
     avg_tenure_years: number;
   };
   demographics: {

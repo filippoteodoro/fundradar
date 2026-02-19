@@ -73,9 +73,9 @@ IB_COMPANIES = [
     "lehman brothers", "bear stearns", "dresdner", "wachovia",
     "banca commerciale italiana", "banca caboto",
     # European banks active in Italian M&A market
-    "societe generale", "bnp paribas", "credit agricole", "natixis",
+    "societe generale", "sgcib", "bnp paribas", "credit agricole", "natixis",
     "nomura", "hsbc", "commerzbank", "ing bank", "abn amro",
-    "rabobank", "ing direct", "raiffeisen", "banca mediolanum",
+    "rabobank", "banca mediolanum",
     "ubi banca", "banco bpm", "mps", "monte dei paschi",
     "banca sella", "sella bank", "sella group", "ersel",
     "banca popolare di milano", "banca popolare di sondrio",
@@ -85,7 +85,9 @@ IB_COMPANIES = [
     "fineurop", "citi", "degroof petercam", "kempen",
     "intermonte", "banca finnat",
     "centrobanca", "credito emiliano", "credem",
-    "ing direct", "raiffeisen",
+    # Asset managers with IB/trading operations
+    "carmignac", "schroders", "fidelity", "vanguard", "pimco",
+    "blackrock", "amundi", "generali investments",
 ]
 
 PE_COMPANIES = [
@@ -118,6 +120,16 @@ PE_COMPANIES = [
     "aurora growth capital", "aurora growth",
     "prelios", "castello sgr",
     "alter domus",  # fund admin — borderline but PE-adjacent
+    # Italian PE/VC funds found via classifier audit (appearing in employee histories)
+    "pillarstone", "amber capital", "nextalia", "quattrор", "quattror",
+    "rancilio cube", "alkemia capital", "apeiron",
+    "ventiseidieci", "faro value", "zest group",
+    "xgen venture", "mito technology",
+    "tikehau", "cerberus", "oaktree", "lone star",
+    "advent", "macquarie", "partners group",
+    "andera partners", "idinvest", "eurizon",
+    "banca generali", "azimut",
+    "fondazione", "cdp equity",
 ]
 
 VC_COMPANIES = [
@@ -126,6 +138,10 @@ VC_COMPANIES = [
     "p101", "united ventures", "vertis", "indaco", "primo ventures",
     "cdp venture", "360 capital", "italian angels", "digital magics",
     "lventure", "liftt", "scientifica", "eureka!", "eureka venture",
+    # Italian VC funds found in employee histories
+    "five seasons ventures", "eit digital", "plug and play",
+    "techstars", "y combinator", "500 startups",
+    "neva sgr", "oltre venture",
 ]
 
 CONSULTING_COMPANIES = [
@@ -139,14 +155,15 @@ CONSULTING_COMPANIES = [
 ]
 
 BIG_FOUR = [
-    "deloitte", "pwc", "pricewaterhousecoopers", "ey", "ernst & young",
+    "deloitte", "pwc", "pricewaterhousecoopers", "price waterhouse",
+    "ey", "ernst & young", "ernst and young",
     "kpmg", "accenture",
-    "arthur andersen",  # defunct Big Four
-    "grant thornton", "bdo", "mazars", "crowe",
+    "arthur andersen", "coopers & lybrand",  # defunct Big Four/Five
+    "grant thornton", "bdo", "mazars", "crowe", "rsm",
 ]
 
 LAW_FIRMS = [
-    "allen & overy", "allen and overy",
+    "allen & overy", "allen and overy", "a&o shearman",
     "clifford chance", "freshfields", "linklaters", "slaughter and may",
     "hogan lovells", "white & case", "cleary gottlieb",
     "latham & watkins", "skadden", "kirkland & ellis",
@@ -154,6 +171,16 @@ LAW_FIRMS = [
     "bonelli erede", "chiomenti", "gattai", "lombardi",
     "pedersoli", "legance", "dla", "nctm",
     "studio legale", "law firm",
+    # Additional global/European law firms
+    "baker mckenzie", "baker & mckenzie", "norton rose", "herbert smith",
+    "ashurst", "simmons & simmons", "dentons", "cms",
+    "weil gotshal", "sullivan & cromwell", "davis polk",
+    "jones day", "sidley austin", "mayer brown",
+    "shearn delamore", "shearman & sterling",
+    # Italian law firms
+    "toffoletto", "de berti jacchia", "orrick", "osborne clarke",
+    "studio tributario", "studio professionale",
+    "grimaldi studio legale", "pirola pennuto",
 ]
 
 # Top MBA programs
@@ -177,14 +204,29 @@ SENIORITY_PATTERNS = {
         r"\bpartner\b", r"\bmanaging partner\b", r"\bgeneral partner\b",
         r"\bsenior partner\b", r"\bfounding partner\b",
         r"\bfounder\b", r"\bco-founder\b", r"\bceo\b", r"\bchief executive\b",
+        # Board / Chairman / President
+        r"\bchairman\b", r"\bchairperson\b", r"\bpresident\b", r"\bpresidente\b",
+        r"\bboard member\b", r"\bmember.*board\b", r"\bboard of directors\b",
+        r"\bconsigliere\b", r"\bmembro del consiglio\b",
+        r"\badvisory board\b", r"\bboard observer\b",
+        # Italian CEO
+        r"\bamministratore delegato\b", r"\bad\b(?=\s|$)",
+        # Senior advisor
+        r"\bsenior advisor\b", r"\bsenior adviser\b",
     ],
     SeniorityLevel.MANAGING_DIRECTOR: [
         r"\bmanaging director\b", r"\bmd\b", r"\bsenior managing director\b",
         r"\bcfo\b", r"\bcoo\b", r"\bcto\b", r"\bchief \w+ officer\b",
         r"\bhead of\b", r"\bdirettore generale\b",
+        # Italian director/head titles
+        r"\bdirettore\b", r"\bresponsabile\b",
+        r"\bgeneral counsel\b", r"\bcounsel\b",
     ],
     SeniorityLevel.PRINCIPAL: [
         r"\bprincipal\b", r"\bsenior principal\b",
+        # Generic investment professional → mid-senior
+        r"\binvestment professional\b", r"\bprivate equity\b(?!.*(?:analyst|associate|intern))",
+        r"\binvestor\b",
     ],
     SeniorityLevel.DIRECTOR: [
         r"\bdirector\b", r"\bsenior director\b", r"\binvestment director\b",
@@ -192,12 +234,16 @@ SENIORITY_PATTERNS = {
     SeniorityLevel.VICE_PRESIDENT: [
         r"\bvice president\b", r"\bvp\b", r"\bavp\b", r"\bsenior vp\b",
         r"\bmanager\b", r"\bsenior manager\b",
+        # Italian finance roles
+        r"\bcontroller\b", r"\bcompliance officer\b",
+        r"\binvestor relations\b",
     ],
     SeniorityLevel.ASSOCIATE: [
         r"\bassociate\b", r"\bsenior associate\b", r"\binvestment associate\b",
     ],
     SeniorityLevel.ANALYST: [
         r"\banalyst\b", r"\bsenior analyst\b", r"\binvestment analyst\b",
+        r"\banalista\b",
         r"\bintern\b", r"\bstagiaire\b", r"\btirocinio\b",
         r"\bjunior\b",
     ],
@@ -270,16 +316,22 @@ def _classify_experience(exp: Experience) -> BackgroundType | None:
     # SGR = Società di Gestione del Risparmio — Italian regulated fund manager
     if re.search(r'\bsgr\b', company_lower):
         return BackgroundType.PRIVATE_EQUITY
+    # SICAF/SICAV = Italian/EU regulated investment vehicles
+    if re.search(r'\b(sicaf|sicav)\b', company_lower):
+        return BackgroundType.PRIVATE_EQUITY
     # "Investments" / "Investimenti" as standalone word = investment firm
     # e.g. "Algebris Investments", "Europa Investimenti", "Athena Investments A/S"
     if re.search(r'\b(investments?|investimenti)\b', company_lower):
         return BackgroundType.PRIVATE_EQUITY
     if any(kw in company_lower for kw in ["private equity", "private capital", "buyout fund"]):
         return BackgroundType.PRIVATE_EQUITY
-    if any(kw in company_lower for kw in ["venture capital", "venture fund"]):
+    if any(kw in company_lower for kw in ["venture capital", "venture fund", "ventures"]):
         return BackgroundType.VENTURE_CAPITAL
     # "Capital" + finance word → PE (e.g. "Charme Capital Partners", "Green Arrow Capital SGR")
     if re.search(r'\bcapital\b.*(partner|group|advisor|management|invest)', company_lower):
+        return BackgroundType.PRIVATE_EQUITY
+    # Standalone "Capital" as company name component (e.g. "Amber Capital", "Tikehau Capital")
+    if re.search(r'\bcapital\b', company_lower) and len(company_lower.split()) <= 4:
         return BackgroundType.PRIVATE_EQUITY
     # "[Finance word] Partners" → PE (e.g. "Antin Infrastructure Partners")
     if re.search(r'\b(equity|infrastructure|growth|buyout|impact|debt|credit)\b.*\bpartners?\b', company_lower):
@@ -287,12 +339,17 @@ def _classify_experience(exp: Experience) -> BackgroundType | None:
     # "Investment Partners" or "Investment Management" as name component
     if re.search(r'\binvestment\s+(partner|manager|management|group|advisor)', company_lower):
         return BackgroundType.PRIVATE_EQUITY
+    # "Asset Management" company names
+    if re.search(r'\basset\s+management\b', company_lower):
+        return BackgroundType.PRIVATE_EQUITY
 
     # 3. Title/combined keywords — English and Italian
     if any(kw in combined for kw in [
         "investment bank", "m&a", "corporate finance", "ecm", "dcm",
         "leveraged finance", "debt capital", "capital markets",
         "fusioni", "acquisizioni", "mercati dei capitali", "finanza aziendale",
+        "trader", "trading", "sales & trading", "structured finance",
+        "equity research", "fixed income", "equity sales",
     ]):
         return BackgroundType.INVESTMENT_BANKING
     if any(kw in combined for kw in [
@@ -301,11 +358,17 @@ def _classify_experience(exp: Experience) -> BackgroundType | None:
         "gestore di fondi", "gestore fondi", "gestore del fondo",
         "investment professional", "deal origination", "deal sourcing",
         "infrastructure fund", "alternative investment",
+        "portfolio manager", "private credit", "private debt",
+        "fund of funds", "asset allocation",
+        "investment associate", "investment analyst",
+        "principal investing",
     ]):
         return BackgroundType.PRIVATE_EQUITY
     if any(kw in combined for kw in [
         "venture capital", "vc ", "seed", "series a", "early stage",
         "tech transfer", "startup investor",
+        "venture partner", "venture analyst",
+        "accelerator", "incubator",
     ]):
         return BackgroundType.VENTURE_CAPITAL
     if any(kw in combined for kw in [
@@ -315,16 +378,59 @@ def _classify_experience(exp: Experience) -> BackgroundType | None:
         return BackgroundType.CONSULTING
     if any(kw in combined for kw in [
         "lawyer", "attorney", "legal counsel", "avvocato", "notaio",
+        "solicitor", "paralegal", "legal associate", "legal advisor",
+        "barrister", "legal department", "ufficio legale",
+        "trainee solicitor", "legal intern",
     ]):
         return BackgroundType.LEGAL
     if any(kw in combined for kw in [
         "engineer", "developer", "cto", "tech lead", "ingegnere",
+        "data scientist", "machine learning", "software",
     ]):
         return BackgroundType.TECH
     if any(kw in combined for kw in ["founder", "co-founder", "startup"]):
         return BackgroundType.STARTUP
 
-    return BackgroundType.CORPORATE
+    # 4. Corporate — positive match on known industrials, roles, and entity patterns.
+    if any(kw in combined for kw in [
+        "corporate", "industry", "industrial", "manufacturing", "operations",
+        "supply chain", "procurement", "logistics", "purchasing", "buyer",
+        "marketing manager", "marketing director", "marketing",
+        "sales manager", "sales director", "head of sales",
+        "product manager", "general manager", "country manager",
+        "brand manager", "commercial", "business development",
+        "financial analyst", "financial controller", "finance manager",
+        "fund account", "credit analyst", "risk analyst",
+        "real estate", "asset manag",
+        "human resources", "hr manager", "hr director",
+        "cfo", "chief financial", "chief operating", "chief marketing",
+        "direttore commerciale", "responsabile commerciale",
+        "direttore generale", "responsabile",
+        "trainer", "department manager",
+        # Broader corporate role patterns
+        "project manager", "program manager",
+        "account manager", "key account",
+        "head of strategy", "head of business",
+        "managing director",  # at non-finance companies
+        "chief executive", "ceo",
+        "innovation manager", "r&d", "research and development",
+        "quality manager", "compliance",
+        "controller", "auditor", "internal audit",
+        "treasury", "treasurer",
+        "insurance", "assicurazion",
+        "retail", "hospitality", "tourism",
+        "telecom", "energy", "pharma", "automotive",
+    ]):
+        return BackgroundType.CORPORATE
+    corporate_patterns = [
+        r"\b(spa|srl|s\.p\.a|s\.r\.l)\b",  # Italian corporate suffixes
+        r"\b(inc|corp|ltd|plc|ag|gmbh|nv|sa)\b",  # Global corporate suffixes
+        r"\b(sas|sarl|bv|pty)\b",  # More international corporate suffixes
+    ]
+    if any(re.search(p, company_lower) for p in corporate_patterns):
+        return BackgroundType.CORPORATE
+
+    return BackgroundType.OTHER
 
 
 def _get_seniority(title: str) -> SeniorityLevel:
@@ -388,6 +494,20 @@ def is_investment_relevant(profile: "LinkedInProfile") -> bool:
         r"impiegat[ao].*amministra",     # impiegata area amministrazione
     ]
     if any(re.search(p, title) for p in admin_patterns):
+        return False
+
+    # --- Exclude: blue collar, retail, back office support ---
+    other_exclude = [
+        r"\boperai[ao]\b",              # factory worker
+        r"\boperario\b",
+        r"\bcommess[ao]\b",             # retail clerk
+        r"\bback office\b",
+        r"\boffice assistant\b",
+        r"\bmiddle office\b",
+        r"\bsindaco effettivo\b",        # statutory auditor (non-investment)
+        r"\bdottore commercialista\b",
+    ]
+    if any(re.search(p, title) for p in other_exclude):
         return False
 
     return True
@@ -587,8 +707,11 @@ class ProfileClassifier:
             reverse=True
         )
 
-        primary = sorted_backgrounds[0][0] if sorted_backgrounds else BackgroundType.OTHER
-        secondary = [bg for bg, _ in sorted_backgrounds[1:3]]
+        # When OTHER wins the vote, prefer the next-highest specific category —
+        # any specific classification is better than "unknown".
+        specific = [(bg, cnt) for bg, cnt in sorted_backgrounds if bg != BackgroundType.OTHER]
+        primary = specific[0][0] if specific else BackgroundType.OTHER
+        secondary = [bg for bg, _ in specific[1:3]]
 
         # Get current seniority
         current_title = profile.headline or ""

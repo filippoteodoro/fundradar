@@ -211,7 +211,15 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
           marginTop: '16px',
         }}
       >
-        <h1 style={{ margin: '0 0 12px 0' }}>{fund.name}</h1>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+          <h1 style={{ margin: 0 }}>{fund.name}</h1>
+          <a
+            href="/about#contact"
+            style={{ color: '#888', textDecoration: 'none', fontSize: '13px', whiteSpace: 'nowrap', marginTop: '6px' }}
+          >
+            Submit feedback
+          </a>
+        </div>
         <div
           className="fund-detail-grid"
           style={{
@@ -467,8 +475,8 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
       {/* Assets Section */}
       <PortfolioSection companies={portfolioCompanies} emptyNote={portfolioNote} compact />
 
-      {/* Team Analytics Section — only shown when real data exists */}
-      {teamAnalytics && (
+      {/* Team Analytics Section — only shown when real data exists and sample is meaningful */}
+      {teamAnalytics && teamAnalytics.total_profiles >= 5 && (
         <>
           <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>
             People Analytics

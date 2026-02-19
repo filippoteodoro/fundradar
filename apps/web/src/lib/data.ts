@@ -1448,6 +1448,7 @@ function normalizeTeamAnalytics(raw: Record<string, unknown>): TeamAnalytics {
     education: {
       top_schools: (raw.education_schools as Record<string, number>) || {},
       top_degrees: (raw.top_degrees as Record<string, number>) || {},
+      top_majors: (raw.top_majors as Record<string, number>) || {},
       education_tier: {
         top_mba: (raw.top_mba_count as number) || 0,
         top_undergrad: (raw.top_undergrad_count as number) || 0,
@@ -1459,6 +1460,8 @@ function normalizeTeamAnalytics(raw: Record<string, unknown>): TeamAnalytics {
     hiring: {
       new_hires_last_1y: (raw.new_hires_last_12mo as number) || 0,
       new_hires_last_2y: (raw.new_hires_last_24mo as number) || 0,
+      new_hires_last_3y: (raw.new_hires_last_36mo as number) || 0,
+      new_hires_last_4y: (raw.new_hires_last_48mo as number) || 0,
       avg_tenure_years: (raw.avg_tenure_years as number) || 0,
     },
     demographics: {

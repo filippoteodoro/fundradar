@@ -259,6 +259,30 @@ This runs ~10 funds (at $0.20 each), with 3-minute delays between funds to avoid
 
 **Reset on the 1st of each month.** Don't test — every HarvestAPI run consumes Apify compute credits (actor startup cost) even if it returns 0 profiles. Testing burned the entire $5 free credit in Feb 2026. Wait for the monthly reset and run production directly.
 
+### ⚠️ CRITICAL: LinkedIn Raw Data Protection
+
+The scraped LinkedIn data in `data/derived/linkedin/raw/` is **irreplaceable** without spending Apify credits. **NEVER** run any script that could delete or overwrite these files:
+
+| File Pattern | Count | Contents | Protection |
+|-------------|-------|----------|------------|
+| `raw/*_employees.json` | 91 | **Full profiles** from HarvestAPI: education, experience, skills | **NEVER overwrite** |
+| `raw/*_enriched_profiles.json` | 9 | Full career history (Apify supreme_coder profile scraper) | **NEVER overwrite** |
+| `manual_profiles.json` | 1 | Manually curated mega-fund profiles | **NEVER overwrite** |
+
+**IMPORTANT — HarvestAPI employee files are RICH data.** They contain full education (schoolName, degree, fieldOfStudy), full experience (position, companyName, startDate, endDate), skills, languages, etc. They are NOT headline-only. Always parse them with `harvestapi_to_profile()` from `people_stats.py` — NEVER create synthetic single-experience profiles from them.
+
+**Enriched profile funds** (Apify supreme_coder format, slightly different structure): apollo, ares-management, blackstone, carlyle, eqt, kkr, macquarie-mam, permira-associati, towerbrook.
+
+**Safe operations:**
+- `process_manual_profiles.py --basic` — re-classifies from local files, merges into `fund_people_stats.json` (safe)
+- Any script that only READS from `raw/` and WRITES to `fund_people_stats.json` (safe)
+- Regenerating `fund_people_stats.json` from raw data (safe — derived, not source)
+
+**NEVER run:**
+- `batch_scraper.py` without explicit user approval (costs money, limited runs)
+- `process_manual_profiles.py --enrich` without explicit user approval (calls Apify)
+- Any script that writes to `raw/` directory or `manual_profiles.json`
+
 ## Adding a New Fund
 
 1. **Create a custom extractor** in `strategies/extractors/{fund_name}.py`:

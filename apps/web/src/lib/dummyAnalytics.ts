@@ -29,6 +29,13 @@ export function generateDummyAnalytics(fundSlug: string): TeamAnalytics {
         'Economics': Math.floor(rand(3, 8)),
         'Engineering': Math.floor(rand(2, 6)),
       },
+      top_majors: {
+        'Finance': Math.floor(rand(5, 15)),
+        'Economics': Math.floor(rand(4, 12)),
+        'Management': Math.floor(rand(3, 10)),
+        'Engineering': Math.floor(rand(2, 8)),
+        'Law': Math.floor(rand(1, 5)),
+      },
       education_tier: {
         top_mba: Math.floor(rand(5, 15)),
         top_undergrad: Math.floor(rand(8, 20)),
@@ -56,6 +63,8 @@ export function generateDummyAnalytics(fundSlug: string): TeamAnalytics {
     hiring: {
       new_hires_last_1y: Math.floor(rand(2, 8)),
       new_hires_last_2y: Math.floor(rand(5, 15)),
+      new_hires_last_3y: Math.floor(rand(8, 22)),
+      new_hires_last_4y: Math.floor(rand(12, 30)),
       avg_tenure_years: parseFloat(rand(2.5, 5.5).toFixed(1)),
     },
     demographics: {
