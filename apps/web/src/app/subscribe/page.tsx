@@ -162,7 +162,8 @@ export default async function SubscribePage() {
           Get Signals
         </h1>
         <p style={{ fontSize: '15px', color: '#666', margin: '0 0 24px 0' }}>
-          Stay ahead with weekly email digests of Italian funds activity.
+          Stay ahead with weekly email digests of Italian funds activity. With agentic coding PE/VC databases have no
+          reason to cost €X000/month.
         </p>
 
         <div style={{ marginBottom: '24px' }}>
