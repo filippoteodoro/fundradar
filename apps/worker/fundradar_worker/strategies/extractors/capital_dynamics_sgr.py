@@ -1,7 +1,8 @@
 """Site-specific extractors for www.capdyn.com (Capital Dynamics SGR).
 
-Note: This site returns 403 Forbidden for plain HTTP requests.
-Requires headless browser (Playwright) via domain_policies.json.
+Top-level navigation pages often return 403. Prefer deep press-release paths for
+signal coverage and treat portfolio/team as non-monitored until stable endpoints
+are consistently available.
 
 Capital Dynamics is a global private asset manager with offices worldwide,
 including Milan. They focus on private equity, clean energy, and infrastructure.
@@ -12,11 +13,15 @@ import re
 
 DOMAIN = "www.capdyn.com"
 
-# URL paths for monitoring - requires headless browser
+# URL paths for monitoring.
+# Keep NEWS coverage via press-release endpoints that historically returned content.
 URLS = {
-    "portfolio": "/investments",
-    "team": "/about/team",
-    "news": "/news",
+    "portfolio": None,
+    "team": None,
+    "news": [
+        "https://news.google.com/rss/search?q=site%3Acapdyn.com+%22Capital+Dynamics%22+when%3A30d&hl=en-US&gl=US&ceid=US:en",
+        "https://news.google.com/rss/search?q=site%3Acapitaldynamics.com+%22Capital+Dynamics%22+when%3A30d&hl=en-US&gl=US&ceid=US:en",
+    ],
 }
 
 
@@ -126,6 +131,31 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     soup = BeautifulSoup(html, "html.parser")
     news = []
     seen_titles = set()
+
+    # Detail page fallback.
+    detail_h1 = soup.find("h1")
+    if detail_h1:
+        title = detail_h1.get_text(strip=True)
+        if title and len(title) >= 15:
+            date = None
+            date_el = soup.select_one("time, .date, [datetime]")
+            if date_el:
+                date = date_el.get("datetime") or date_el.get_text(strip=True)
+                if date and "T" in date:
+                    date = date.split("T", 1)[0]
+
+            summary = None
+            summary_el = soup.select_one("article p, .news-content p, main p")
+            if summary_el:
+                summary = summary_el.get_text(strip=True)[:280] or None
+
+            return [{
+                "title": title,
+                "url": base_url,
+                "date": date,
+                "summary": summary,
+                "confidence": 0.85,
+            }]
 
     for item in soup.select(".news-item, article, .card"):
         heading = item.select_one("h2, h3, h4, a")

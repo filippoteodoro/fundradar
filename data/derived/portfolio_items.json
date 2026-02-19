@@ -873,7 +873,7 @@
       {
         "name": "Witors",
         "sector": "Food & Beverage",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.7,
         "website": null,
         "description": "Produces chocolate pralines and confectionery products",
@@ -1501,7 +1501,7 @@
       {
         "name": "Ekoscan Integrity Group (EIG)",
         "sector": "Real Estate",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/ekoscan/",
         "description": "Strategy: Small Cap En",
@@ -1592,7 +1592,7 @@
       {
         "name": "Groupe Leader Insurance",
         "sector": "Real Estate",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/leader-insurance-group/",
         "description": "Strategy: Mid Cap En",
@@ -1644,7 +1644,7 @@
       {
         "name": "Inlog",
         "sector": "Software",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/inlog/",
         "description": "Strategy: Small Cap En",
@@ -2095,6 +2095,20 @@
         "investment_date": null,
         "source_url": "https://www.abenex.com/portfolios/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Residential asset in Paris 14th arrondissement",
+        "sector": "Real Estate",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A residential real estate asset located in the 14th arrondissement of Paris.",
+        "detail_page_url": null,
+        "headquarters": "Paris, France",
+        "investment_date": "2025-09-23",
+        "source_url": "https://www.abenex.com/paris-real-estate-acquisition-2025/",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-01231"
       }
     ],
     "aksia-sgr": [
@@ -3269,6 +3283,34 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.954743+00:00",
         "curation_note": null
+      },
+      {
+        "name": "EDG",
+        "sector": "Consumer Goods",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "Italian home decor company active in design, planning and distribution.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": "2026-02-19",
+        "source_url": "https://financecommunity.it/gli-advisor-della-acquisizione-di-edg-da-parte-di-alcedo/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00125"
+      },
+      {
+        "name": "P.A. ABS and P.A. Expertise",
+        "sector": "Software",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Leading companies in advanced system integration services.",
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2024-06-14",
+        "source_url": "https://www.alcedo.it/wp-content/uploads/2024/07/72_13.06.24-Comunicato-stampa-Def_ITA-ore-18.45.pdf",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-01219"
       }
     ],
     "alkemia-sgr": [
@@ -5217,6 +5259,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.936752+00:00",
         "curation_note": null
+      },
+      {
+        "name": "exceet Card Group",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "An Austrian company specializing in the production of smart cards and card-based technologies.",
+        "detail_page_url": null,
+        "headquarters": "Austria",
+        "investment_date": "2026-02-19",
+        "source_url": "https://www.anderapartners.com/en/andera-acto-invests-in-the-austrian-company-exceet-card-group/",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-01596"
       }
     ],
     "apax-partners": [
@@ -5430,7 +5486,7 @@
       {
         "name": "Lutech",
         "sector": "Technology",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.85,
         "website": "https://hat.it/partner/lutech/",
         "description": "A leading provider of IT services and solutions supporting digital transformation and system integration.",
@@ -19390,7 +19446,7 @@
       {
         "name": "Lottomatica Group",
         "sector": "Media & Entertainment",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.9,
         "website": "https://www.lottomaticagroup.com/",
         "description": "Italian gaming company. Apollo sold entire remaining 21.3% stake via ABB in June 2025 (full exit).",
@@ -20943,6 +20999,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.923055+00:00",
         "curation_note": null
+      },
+      {
+        "name": "IVB Wellness Lab",
+        "sector": "Consumer Goods",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A fast-growing and innovative supplements brand.",
+        "detail_page_url": null,
+        "headquarters": "Spain",
+        "investment_date": null,
+        "source_url": "https://www.ardian.com/news-insights/press-releases/ardian-signs-agreement-acquire-stake-ivb-wellness-lab-fast-growing-and",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-01155"
       }
     ],
     "b4-investimenti-sgr": [
@@ -21383,6 +21453,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.948998+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Pinard Group",
+        "sector": "Packaging",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2024-10-07",
+        "source_url": "https://www.bluegemcp.com/news/arev-to-acquire-pinard-group",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-00896"
       }
     ],
     "bu": [
@@ -31797,6 +31881,235 @@
     ],
     "oxy-capital": [
       {
+        "name": "A2Brios",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.brios.pt/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Portik",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://portik.group/pt-pt/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Sif Italia",
+        "sector": "Real Estate Services",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "A leader in the real estate administration and building management sector, listed on the Euronext Growth Milan exchange.",
+        "detail_page_url": null,
+        "headquarters": "Milano, Italy",
+        "investment_date": null,
+        "source_url": "https://bebeez.it/private-equity/oxy-capital-rileva-il-28-di-sif-italia-per-79-mln-euro-lad-ruffino-restera-il-principale-azionista/",
+        "data_source": "gemini_missing_asset",
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-14T11:52:31.960215+00:00",
+        "gemini_confidence": "high",
+        "gemini_reason": "Oxy Capital acquired a 28% stake in SIF Italia in March 2023 for approximately \u20ac7.9 million.",
+        "gemini_evidence_urls": [
+          "https://bebeez.it/private-equity/oxy-capital-rileva-il-28-di-sif-italia-per-79-mln-euro-lad-ruffino-restera-il-principale-azionista/"
+        ]
+      },
+      {
+        "name": "Logotipo Ancal",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Jimpisoft",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.jimpisoft.com/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Cerejovidros",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.vidroscerejo.com/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Feedzai Ok",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://feedzai.com/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Inmho",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://inmho.es/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Loja Do Condominio",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.ldc.pt/pt/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Lucios",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.lucios.pt/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Rocha E Filhos",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.rochafilhos.com/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Stonebystone",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.stonebystone.pt/pt/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Sunviaduto",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.sunviauto.pt/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Synergym",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.synergym.es/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Vidraria Mortagua",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://vidrariamortagua.pt/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Vizelpas",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://vizelpas.pt/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Rcn",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://rcn-aluminium.com/",
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+        "data_source": "fund_website"
+      },
+      {
         "name": "Ferroli",
         "sector": "Industrial Manufacturing",
         "status": "current",
@@ -31878,28 +32191,6 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.960190+00:00",
-        "curation_note": null
-      },
-      {
-        "name": "SIF Italia",
-        "sector": "Real Estate Services",
-        "status": "current",
-        "confidence": 0.9,
-        "website": null,
-        "description": "A leader in the real estate administration and building management sector, listed on the Euronext Growth Milan exchange.",
-        "detail_page_url": null,
-        "headquarters": "Milano, Italy",
-        "investment_date": null,
-        "source_url": "https://bebeez.it/private-equity/oxy-capital-rileva-il-28-di-sif-italia-per-79-mln-euro-lad-ruffino-restera-il-principale-azionista/",
-        "data_source": "gemini_missing_asset",
-        "gemini_confidence": "high",
-        "gemini_reason": "Oxy Capital acquired a 28% stake in SIF Italia in March 2023 for approximately \u20ac7.9 million.",
-        "gemini_evidence_urls": [
-          "https://bebeez.it/private-equity/oxy-capital-rileva-il-28-di-sif-italia-per-79-mln-euro-lad-ruffino-restera-il-principale-azionista/"
-        ],
-        "curation_locked": true,
-        "curation_source": "gemini_audit_missing_asset",
-        "curation_applied_at": "2026-02-14T11:52:31.960215+00:00",
         "curation_note": null
       }
     ],
@@ -44464,7 +44755,7 @@
       {
         "name": "IRCA",
         "sector": "Food & Beverage",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.9,
         "website": "https://www.irca.eu",
         "description": "Global confectionery ingredients group headquartered in Gallarate (Varese). Acquired Kerry Sweet Ingredients division for EUR 500M in 2023. Revenue ~EUR 1.5B by 2024. Preparing for potential EUR 3B sale.",
@@ -46541,7 +46832,7 @@
       {
         "name": "Nexi",
         "sector": "Financial Services",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.95,
         "website": null,
         "description": "Provides digital payment infrastructure and merchant services",
@@ -60242,7 +60533,7 @@
       {
         "name": "T.E.A. TEK Sicily Solar",
         "sector": "Energy",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.85,
         "website": null,
         "description": "67 MWp solar plant in Sicily via EPC contract with T.E.A. TEK.",
@@ -60254,7 +60545,7 @@
       {
         "name": "San Nicola Manfredi Wind Farm",
         "sector": "Renewable Energy",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.9,
         "website": null,
         "description": "Onshore wind infrastructure project in Southern Italy.",
@@ -71992,6 +72283,20 @@
         "detail_page_url": null,
         "website": null,
         "investment_date": null
+      },
+      {
+        "name": "Massima Energia",
+        "sector": "Energy",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "An AI platform focused on energy solutions.",
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-01-27",
+        "source_url": "https://bebeez.it/venture-capital/la-piattaforma-ai-massima-energia-raccoglie-10-mln-euro-tra-equity-e-debito/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00061"
       }
     ],
     "entangled-capital-sgr": [
@@ -86343,7 +86648,8 @@
     "equita-capital-sgr": "https://sgr.equita.eu/private-equity.html",
     "muzinich-co": "https://www.muzinich.com/private-markets/private-debt/investments",
     "8a-investimenti-sgr": "https://www.ottoapiu.it/prodotti/",
-    "prana-ventures": "https://pranaventures.it/"
+    "prana-ventures": "https://pranaventures.it/",
+    "oxy-capital": "https://oxycapital.com/private-equity-and-mezzanine-debt/"
   },
   "geo_scopes": {
     "eqt": "Global",

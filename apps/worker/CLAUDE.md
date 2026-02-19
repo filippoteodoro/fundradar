@@ -30,6 +30,7 @@ Run all: `pnpm pipeline`
 Run filter+enrich only: `pnpm pipeline:signals`
 Force re-extraction: `pnpm pipeline --force-extract`
 Specific funds only: `pnpm pipeline --slugs f2i-sgr,triton --force-extract`
+Signal→portfolio only: `pnpm pipeline:signals-to-portfolio` (standalone, with `--dry-run`, `--slugs`, `--force`)
 
 Each step: backs up output files → runs → validates output (exists, non-empty, valid JSON). Validation checks structure but **not schema** — an output of `{}` passes validation even if it should contain a `"signals"` key.
 
@@ -49,7 +50,7 @@ Without `--force-extract`, updated extractor code won't take effect until the we
 | Output File | Producer Module | Web Consumer |
 |-------------|----------------|--------------|
 | `db.json` | `merge-aifi-metrics.ts` (via `pnpm merge-aifi`) | `loadDatabase()` |
-| `portfolio_items.json` | `monitor.py` | `getPortfolioForFund()` |
+| `portfolio_items.json` | `monitor.py` + `signal_to_portfolio.py` | `getPortfolioForFund()` |
 | `detected_signals.json` | `monitor.py` + `differ.py` + `rss_monitor.py` | (raw, not directly used by web) |
 | `detected_signals_filtered.json` | `filter_signals.py` | `getSignalsForFund()`, `loadUnifiedSignals()` |
 | `detected_signals_enriched.json` | `enrich_signals_openai.py` | `loadUnifiedSignals()` (preferred over filtered) |
@@ -57,6 +58,7 @@ Without `--force-extract`, updated extractor code won't take effect until the we
 | `aifi_members_enriched.json` | `aifi_scraper.py` | (merged into `db.json` via scripts) |
 | `fund_people_stats.json` | `linkedin/*.py` | `getTeamAnalyticsForFund()` |
 | `fund_aliases.json` | manual/generated | `slug_normalizer.py` (canonicalizes/blocks slugs) |
+| `signal_to_portfolio_progress.json` | `signal_to_portfolio.py` | (progress tracking, not consumed by web) |
 
 ## Critical Rules
 

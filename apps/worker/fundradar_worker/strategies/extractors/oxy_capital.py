@@ -12,10 +12,72 @@ ALWAYS_EXTRACT = True
 
 # URL paths for monitoring (auto-generated from fund_urls.json)
 URLS = {
-    "portfolio": None,
+    "portfolio": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
     "team": None,
-    "news": None,
+    # Monitor the WP API endpoint directly to avoid blocked HTML/news paths.
+    "news": "https://oxycapital.com/wp-json/wp/v2/posts?per_page=20&_fields=id,title,date,link,excerpt",
 }
+
+
+def _parse_wp_posts_json(raw: str) -> list[dict]:
+    """Parse WordPress posts payload from monitor response body."""
+    if not raw or not raw.strip():
+        return []
+
+    try:
+        posts = json.loads(raw)
+    except (json.JSONDecodeError, TypeError):
+        return []
+    if not isinstance(posts, list):
+        return []
+
+    from html import unescape
+
+    news = []
+    seen_urls = set()
+    for post in posts:
+        if not isinstance(post, dict):
+            continue
+
+        title_obj = post.get("title", {})
+        title = title_obj.get("rendered", "") if isinstance(title_obj, dict) else str(title_obj)
+        title = re.sub(r"<[^>]+>", "", unescape(title)).strip()
+        if not title or len(title) < 10:
+            continue
+
+        url = post.get("link", "")
+        if not isinstance(url, str) or not url or url in seen_urls:
+            continue
+        seen_urls.add(url)
+
+        date = None
+        date_str = post.get("date", "")
+        if isinstance(date_str, str) and date_str:
+            try:
+                dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+                date = dt.strftime("%Y-%m-%d")
+            except Exception:
+                date = None
+
+        summary = None
+        excerpt_obj = post.get("excerpt", {})
+        excerpt = excerpt_obj.get("rendered", "") if isinstance(excerpt_obj, dict) else ""
+        if excerpt:
+            summary = re.sub(r"<[^>]+>", "", unescape(excerpt)).strip()
+            if len(summary) > 200:
+                summary = summary[:200] + "..."
+
+        news.append({
+            "title": title,
+            "url": url,
+            "date": date,
+            "summary": summary,
+            "confidence": 0.90,
+        })
+
+    return news
+
+
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """Extract portfolio companies from Oxy Capital portfolio pages.
 
@@ -163,6 +225,11 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     """
     news = []
     seen_urls = set()
+
+    # First try: monitor fetched the WP API URL directly.
+    parsed_json = _parse_wp_posts_json(html)
+    if parsed_json:
+        return parsed_json
 
     # Try WordPress REST API first
     try:

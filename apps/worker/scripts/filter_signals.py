@@ -574,6 +574,9 @@ FUNDRAISE_CLASSIFY_PATTERNS = [
         r"\bsupera\b.*\b(?:milion\w*|mln|€|eur|miliard\w*)\b",  # Italian: "supera [amount]" = exceeds target
         r"\b(?:revolving\s+)?credit\s+facilit(?:y|ies)\b",  # RCF / credit facility (upsizing, extending)
         r"\bupsize[sd]?\b",  # upsizes, upsized (increasing facility size)
+        # LP/subscription language for existing funds
+        r"\b(?:new|additional)\s+contributions?\s+to\s+(?:the\s+)?(?:[a-z0-9&'’\-]+\s+){0,6}(?:fund|fondo)\b",
+        r"\b(?:nuov[oi]|ulteriori)\s+contribut\w+\s+(?:al|nel)\s+(?:[a-z0-9&'’\-]+\s+){0,6}(?:fondo|fund)\b",
     ]
 ]
 
@@ -1065,6 +1068,8 @@ def _reclassify_signal_type(signal: dict, text: str) -> str:
                 return "other"
             # Concordato/restructuring of portfolio company → other
             if _RE_DEBT_RESTRUCTURING.search(text_lower):
+                if _RE_DEBT_RESTRUCTURE_CONTEXT.search(text_lower) and _mentions_tagged_fund(signal, text_lower):
+                    return "debt_financing"
                 if not _matches_any(DEAL_CLASSIFY_PATTERNS, text_lower) or re.search(r"\bconcordato\b", text_lower):
                     return "other"
             # Government concession award → other (not a PE equity deal)
@@ -1143,6 +1148,8 @@ def _reclassify_signal_type(signal: dict, text: str) -> str:
                 return "debt_financing"
             # "accordo tra creditori" / debt restructuring → other
             if _RE_DEBT_RESTRUCTURING.search(text_lower):
+                if _RE_DEBT_RESTRUCTURE_CONTEXT.search(text_lower) and _mentions_tagged_fund(signal, text_lower):
+                    return "debt_financing"
                 if not _matches_any(DEAL_CLASSIFY_PATTERNS, text_lower):
                     return "other"
             # "surpasses X in raised capital" / "supera X di raccolta" → fundraise
@@ -1549,6 +1556,10 @@ _RE_RACCOGLIE_EXCLUDE = re.compile(r"\bacquis\w*\b|\brileva\b|\bentra nel capita
 _RE_FUNDRAISE_VERBS_FULL = re.compile(r"\bfirst close\b|\bfinal close\b|\bhard cap\b|\bclosed\b|\bclosing\b|\bfundrais\w+\b|\braccolta\b|\bchiude\b|\bchiusura\b|\braccog\w+\b")
 _RE_FUNDRAISE_CLOSED_VERBS = re.compile(r"\bfinal close\b|\bhard cap\b|\bclosed\b|\bchiude\b|\bchius[oa]\b|\bcomplet\w+\b|\bclosing\s+(?:del|di|per|of)\s+(?:il\s+)?(?:fondo|fund|veicolo|oversubscribed)\b|\b(?:primo|secondo|terzo|first|second|third|final|successful)\s+clos(?:e|ing)\b")
 _RE_VC_ROUND = re.compile(r"\b(?:round|serie|series|seed|pre[-\s]?seed)\s+(?:a|b|c|d|e|f|di)\b")
+_RE_DEBT_RESTRUCTURE_CONTEXT = re.compile(
+    r"\b(?:debt|debito|creditor\w*|creditor[ei]|scadenza\s+del\s+debito|maturity)\b",
+    re.IGNORECASE,
+)
 # _RE_STRONG_EXIT_VERBS — imported from signal_patterns
 # _RE_INVEST_VERBS — imported from signal_patterns
 # _RE_INVESTOR_MEETING — imported from signal_patterns
@@ -2389,6 +2400,18 @@ def _normalize_monetary_values(text: str) -> str:
         lambda m: _format_amount(m.group(1), "B", "$") or m.group(0),
         result, flags=re.IGNORECASE,
     )
+    # Pattern: "€1,65 M", "$2.0 B", "£570 K euro" → "€1.65M", "$2B", "£570K"
+    result = re.sub(
+        r'([€$£])\s*(\d+(?:[.,]\d+)?)\s*([KMBT])\s*(?:euro|eur)?\b',
+        lambda m: _format_amount(m.group(2), m.group(3).upper(), m.group(1)) or m.group(0),
+        result, flags=re.IGNORECASE,
+    )
+    # Pattern: "1,65 M euro" / "570 K EUR" (no symbol) → "€1.65M" / "€570K"
+    result = re.sub(
+        r'\b(\d+(?:[.,]\d+)?)\s*([KMBT])\s*(?:euro|eur)\b',
+        lambda m: _format_amount(m.group(1), m.group(2).upper()) or m.group(0),
+        result, flags=re.IGNORECASE,
+    )
 
     return result
 
@@ -2842,6 +2865,27 @@ def _has_entity(signal: dict, summary: str) -> bool:
             continue
         return True
     return False
+
+
+def _mentions_tagged_fund(signal: dict, text: str) -> bool:
+    """Return True if text contains meaningful tokens from the tagged fund identity."""
+    if not text:
+        return False
+
+    stop_tokens = {
+        "sgr", "sim", "sicaf", "spa", "srl", "sa", "sas", "ltd", "inc", "llc",
+        "capital", "partners", "group", "asset", "management", "fund", "fondo",
+        "investment", "investments", "investimento", "investimenti",
+    }
+    candidates: set[str] = set()
+    for raw_name in (signal.get("fund_slug"), signal.get("fund_name"), signal.get("source_name")):
+        value = str(raw_name or "").lower().replace("-", " ")
+        for tok in re.findall(r"[a-z0-9&']+", value):
+            if len(tok) < 4 or tok in stop_tokens:
+                continue
+            candidates.add(tok)
+
+    return any(re.search(rf"\b{re.escape(tok)}\b", text, re.IGNORECASE) for tok in candidates)
 
 
 # _extract_portfolio_company_name, _is_generic_portfolio_name — imported from signal_patterns
@@ -3871,7 +3915,10 @@ def main():
                 signal["signal_type"] = "other"
             # Debt restructuring → other
             elif _RE_DEBT_RESTRUCTURING.search(post_ml_text2) and not has_fund_vehicle:
-                signal["signal_type"] = "other"
+                if _RE_DEBT_RESTRUCTURE_CONTEXT.search(post_ml_text2) and _mentions_tagged_fund(signal, post_ml_text2):
+                    signal["signal_type"] = "debt_financing"
+                else:
+                    signal["signal_type"] = "other"
             # LP commitment to existing fund → fundraise
             elif _RE_LP_COMMITMENT.search(post_ml_text2) and not has_fund_vehicle:
                 signal["signal_type"] = "fundraise_announced"
@@ -3995,6 +4042,9 @@ def main():
                 signal["signal_type"] = "debt_financing"
             elif _RE_DEBT_FINANCING_BROAD.search(text_check) and not _RE_BOND_EXCLUDE.search(text_check):
                 signal["signal_type"] = "debt_financing"
+            elif _RE_DEBT_RESTRUCTURING.search(text_check):
+                if _RE_DEBT_RESTRUCTURE_CONTEXT.search(text_check) and _mentions_tagged_fund(signal, text_check):
+                    signal["signal_type"] = "debt_financing"
 
         # Post-ML correction: exit_announced with buyer-perspective language → deal_announced
         if signal.get("signal_type") == "exit_announced":
@@ -4210,6 +4260,7 @@ def main():
 
     # Save
     data["signals"] = filtered
+    data["signal_count"] = len(filtered)
     data["filtered_at"] = datetime.now(timezone.utc).isoformat()
     data["filter_stats"] = {
         "original_count": len(signals),

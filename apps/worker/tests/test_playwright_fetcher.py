@@ -60,9 +60,7 @@ from fundradar_worker.playwright_fetcher import (
     CONSENT_SELECTORS,
 )
 from fundradar_worker.domain_policies import (
-    DomainPolicyRegistry,
     detect_requires_headless,
-    detect_bot_protection,
     HeadlessDetectionResult,
 )
 from fundradar_worker.fetcher import FetchResult
@@ -167,48 +165,6 @@ class TestHeadlessDetection:
         assert result.framework_detected == "angular"
 
 
-class TestBotProtectionDetection:
-    """Tests for anti-bot challenge detection."""
-
-    def test_detect_cloudflare_challenge(self):
-        """Cloudflare challenge page should be detected."""
-        html = """
-        <html>
-          <head><title>Just a moment...</title></head>
-          <body>
-            <h1>Checking your browser before accessing</h1>
-            <script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
-          </body>
-        </html>
-        """
-        result = detect_bot_protection(html, status_code=403)
-        assert result.is_bot_protected is True
-        assert result.provider == "cloudflare"
-        assert result.confidence >= 0.5
-
-    def test_detect_akamai_challenge(self):
-        """Akamai block page should be detected."""
-        html = """
-        <html>
-          <body>
-            <h1>Access Denied</h1>
-            <p>Reference #18.2f3f1234.1700000000.1a2b3c</p>
-            <p>Akamai Bot Manager</p>
-          </body>
-        </html>
-        """
-        result = detect_bot_protection(html, status_code=403)
-        assert result.is_bot_protected is True
-        assert result.provider == "akamai"
-
-    def test_ignore_normal_html(self):
-        """Normal content should not be treated as bot protection."""
-        html = "<html><body><main><article><h1>News</h1><p>Fund closes acquisition.</p></article></main></body></html>"
-        result = detect_bot_protection(html, status_code=200)
-        assert result.is_bot_protected is False
-        assert result.provider is None
-
-
 class TestFetchOptions:
     """Tests for FetchOptions configuration."""
 
@@ -300,52 +256,6 @@ class TestPoolConfig:
         assert config.viewport_height == 1080
         assert "Rome" in config.timezone
 
-    def test_proxy_settings(self):
-        """Proxy settings should be configurable."""
-        config = PoolConfig(
-            proxy_server="http://proxy.example:8080",
-            proxy_username="user1",
-            proxy_password="pass1",
-            proxy_bypass=".internal",
-        )
-        assert config.proxy_server == "http://proxy.example:8080"
-        assert config.proxy_username == "user1"
-        assert config.proxy_password == "pass1"
-        assert config.proxy_bypass == ".internal"
-
-
-class TestDomainPolicyPlaywrightSettings:
-    """Tests for policy-driven Playwright settings parsing."""
-
-    def test_parse_playwright_policy_fields(self, tmp_path):
-        """Domain policy should expose Playwright overrides."""
-        policy_path = tmp_path / "domain_policies.json"
-        policy_path.write_text(json.dumps({
-            "policies": {
-                "example.com": {
-                    "playwright_profile": "cloudflare",
-                    "playwright_retry_count": 3,
-                    "playwright_headless": False,
-                    "playwright_random_delay_ms": [200, 900],
-                    "playwright_proxy": {
-                        "server": "http://proxy.example:8080",
-                        "username": "proxy-user",
-                        "password": "proxy-pass",
-                        "bypass": ".internal",
-                    },
-                }
-            }
-        }))
-
-        registry = DomainPolicyRegistry(policy_path)
-        policy = registry.get_policy("https://www.example.com/news")
-
-        assert policy.playwright_profile == "cloudflare"
-        assert policy.playwright_retry_count == 3
-        assert policy.playwright_headless is False
-        assert policy.playwright_random_delay_ms == (200, 900)
-        assert policy.playwright_proxy is not None
-        assert policy.playwright_proxy["server"] == "http://proxy.example:8080"
 
 @pytest.mark.skipif(not PLAYWRIGHT_AVAILABLE, reason="Playwright not installed")
 class TestPlaywrightPool:

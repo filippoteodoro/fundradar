@@ -2453,7 +2453,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-01-23T19:46:26.013451+00:00",
+      "last_checked_at": "2026-02-19T20:29:12.619625+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3891,11 +3891,11 @@
     "https://www.siryo.it/investimenti": {
       "url": "https://www.siryo.it/investimenti",
       "status": "other_error",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-02-19T11:16:30.556815+00:00",
-      "consecutive_failures": 2,
-      "next_check_after": "2026-02-19T11:31:30.556815+00:00"
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.siryo.it', port=443): Max retries exceeded with url: /investimenti (Caused by NameResolutionError(\"HTTPSConnection(host='www.siryo.it', port=443): Failed to resolve 'www.siryo.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.635446+00:00",
+      "consecutive_failures": 3,
+      "next_check_after": "2026-02-19T22:31:24.635446+00:00"
     },
     "http://www.siryo.it/it/investimenti": {
       "url": "http://www.siryo.it/it/investimenti",
@@ -9480,11 +9480,11 @@
     "https://www.meritosgr.it/investimenti/": {
       "url": "https://www.meritosgr.it/investimenti/",
       "status": "other_error",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-02-19T11:15:27.559800+00:00",
-      "consecutive_failures": 2,
-      "next_check_after": "2026-02-19T11:30:27.559800+00:00"
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.meritosgr.it', port=443): Max retries exceeded with url: /investimenti/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.meritosgr.it', port=443): Failed to resolve 'www.meritosgr.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.589366+00:00",
+      "consecutive_failures": 3,
+      "next_check_after": "2026-02-19T22:31:24.589366+00:00"
     },
     "https://www.liftt.com/chi-siamo-it/": {
       "url": "https://www.liftt.com/chi-siamo-it/",
@@ -9795,11 +9795,11 @@
     "https://sofinnovapartners.com/team": {
       "url": "https://sofinnovapartners.com/team",
       "status": "other_error",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-02-19T11:16:31.233002+00:00",
-      "consecutive_failures": 3,
-      "next_check_after": "2026-02-19T12:16:31.233002+00:00"
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='sofinnovapartners.com', port=443): Max retries exceeded with url: /team (Caused by NameResolutionError(\"HTTPSConnection(host='sofinnovapartners.com', port=443): Failed to resolve 'sofinnovapartners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.630820+00:00",
+      "consecutive_failures": 4,
+      "next_check_after": "2026-02-20T01:31:24.630820+00:00"
     },
     "https://www.starcapital.it/it/team/": {
       "url": "https://www.starcapital.it/it/team/",
@@ -10137,11 +10137,11 @@
     "https://www.meritosgr.it/team/": {
       "url": "https://www.meritosgr.it/team/",
       "status": "other_error",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-02-19T11:15:27.631741+00:00",
-      "consecutive_failures": 2,
-      "next_check_after": "2026-02-19T11:30:27.631741+00:00"
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.meritosgr.it', port=443): Max retries exceeded with url: /team/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.meritosgr.it', port=443): Failed to resolve 'www.meritosgr.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.608976+00:00",
+      "consecutive_failures": 3,
+      "next_check_after": "2026-02-19T22:31:24.608976+00:00"
     },
     "https://www.nevasgr.com/content/neva/en/portfolio.html": {
       "url": "https://www.nevasgr.com/content/neva/en/portfolio.html",
@@ -10238,7 +10238,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-19T11:16:31.182252+00:00",
+      "last_checked_at": "2026-02-19T20:28:56.802361+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10272,11 +10272,11 @@
     "https://sofinnovapartners.com/news": {
       "url": "https://sofinnovapartners.com/news",
       "status": "other_error",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-02-19T11:16:31.324676+00:00",
-      "consecutive_failures": 3,
-      "next_check_after": "2026-02-19T12:16:31.324676+00:00"
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='sofinnovapartners.com', port=443): Max retries exceeded with url: /news (Caused by NameResolutionError(\"HTTPSConnection(host='sofinnovapartners.com', port=443): Failed to resolve 'sofinnovapartners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.642186+00:00",
+      "consecutive_failures": 4,
+      "next_check_after": "2026-02-20T01:31:24.642186+00:00"
     },
     "https://www.fondisici.it/come-investiamo/": {
       "url": "https://www.fondisici.it/come-investiamo/",
@@ -10488,11 +10488,11 @@
     "https://www.meritosgr.it/news/": {
       "url": "https://www.meritosgr.it/news/",
       "status": "other_error",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-02-19T11:15:27.849473+00:00",
-      "consecutive_failures": 2,
-      "next_check_after": "2026-02-19T11:30:27.849473+00:00"
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.meritosgr.it', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.meritosgr.it', port=443): Failed to resolve 'www.meritosgr.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.621986+00:00",
+      "consecutive_failures": 3,
+      "next_check_after": "2026-02-19T22:31:24.621986+00:00"
     },
     "https://www.sefeaimpact.it/fondo-si-social-impact/": {
       "url": "https://www.sefeaimpact.it/fondo-si-social-impact/",
@@ -10830,29 +10830,29 @@
     "https://www.comoventure.it/holdings.htm": {
       "url": "https://www.comoventure.it/holdings.htm",
       "status": "other_error",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-02-19T11:14:34.229530+00:00",
-      "consecutive_failures": 2,
-      "next_check_after": "2026-02-19T11:29:34.229530+00:00"
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.comoventure.it', port=443): Max retries exceeded with url: /holdings.htm (Caused by NameResolutionError(\"HTTPSConnection(host='www.comoventure.it', port=443): Failed to resolve 'www.comoventure.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.612517+00:00",
+      "consecutive_failures": 3,
+      "next_check_after": "2026-02-19T22:31:24.612517+00:00"
     },
     "https://www.comoventure.it/who.htm": {
       "url": "https://www.comoventure.it/who.htm",
       "status": "other_error",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-02-19T11:14:34.326155+00:00",
-      "consecutive_failures": 2,
-      "next_check_after": "2026-02-19T11:29:34.326155+00:00"
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.comoventure.it', port=443): Max retries exceeded with url: /who.htm (Caused by NameResolutionError(\"HTTPSConnection(host='www.comoventure.it', port=443): Failed to resolve 'www.comoventure.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.635861+00:00",
+      "consecutive_failures": 3,
+      "next_check_after": "2026-02-19T22:31:24.635861+00:00"
     },
     "https://www.excellis.it/": {
       "url": "https://www.excellis.it/",
       "status": "other_error",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-02-19T11:14:56.321123+00:00",
-      "consecutive_failures": 2,
-      "next_check_after": "2026-02-19T11:29:56.321123+00:00"
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.excellis.it', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.excellis.it', port=443): Failed to resolve 'www.excellis.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.582370+00:00",
+      "consecutive_failures": 3,
+      "next_check_after": "2026-02-19T22:31:24.582370+00:00"
     },
     "https://www.capza.co/companies-listing": {
       "url": "https://www.capza.co/companies-listing",
@@ -10938,20 +10938,20 @@
     "https://www.renaissancealternatives.com/portfolio": {
       "url": "https://www.renaissancealternatives.com/portfolio",
       "status": "other_error",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-02-19T11:16:10.309061+00:00",
-      "consecutive_failures": 2,
-      "next_check_after": "2026-02-19T11:31:10.309061+00:00"
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.renaissancealternatives.com', port=443): Max retries exceeded with url: /portfolio (Caused by NameResolutionError(\"HTTPSConnection(host='www.renaissancealternatives.com', port=443): Failed to resolve 'www.renaissancealternatives.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.621323+00:00",
+      "consecutive_failures": 3,
+      "next_check_after": "2026-02-19T22:31:24.621323+00:00"
     },
     "https://www.sosteneo.com/projects": {
       "url": "https://www.sosteneo.com/projects",
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-19T11:16:31.930949+00:00",
-      "consecutive_failures": 2,
-      "next_check_after": "2026-02-19T11:31:31.930949+00:00"
+      "last_checked_at": "2026-02-19T20:31:25.837009+00:00",
+      "consecutive_failures": 3,
+      "next_check_after": "2026-02-19T21:31:25.837009+00:00"
     },
     "https://scientifica.vc/portfolio-startup/": {
       "url": "https://scientifica.vc/portfolio-startup/",
@@ -11054,30 +11054,30 @@
     },
     "https://www.quattrorsgr.it/it/portfolio-companies/": {
       "url": "https://www.quattrorsgr.it/it/portfolio-companies/",
-      "status": "ssl_error",
+      "status": "other_error",
       "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.quattrorsgr.it', port=443): Max retries exceeded with url: /it/portfolio-companies/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)')))",
-      "last_checked_at": "2026-02-19T11:16:10.406802+00:00",
-      "consecutive_failures": 4,
-      "next_check_after": "2026-02-19T15:16:10.406802+00:00"
+      "error_message": "HTTPSConnectionPool(host='www.quattrorsgr.it', port=443): Max retries exceeded with url: /it/portfolio-companies/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.quattrorsgr.it', port=443): Failed to resolve 'www.quattrorsgr.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.598042+00:00",
+      "consecutive_failures": 5,
+      "next_check_after": "2026-02-20T21:31:24.598042+00:00"
     },
     "https://www.quattrorsgr.it/it/people": {
       "url": "https://www.quattrorsgr.it/it/people",
-      "status": "ssl_error",
+      "status": "other_error",
       "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.quattrorsgr.it', port=443): Max retries exceeded with url: /it/people (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)')))",
-      "last_checked_at": "2026-02-19T11:16:10.679609+00:00",
-      "consecutive_failures": 4,
-      "next_check_after": "2026-02-19T15:16:10.679609+00:00"
+      "error_message": "HTTPSConnectionPool(host='www.quattrorsgr.it', port=443): Max retries exceeded with url: /it/people (Caused by NameResolutionError(\"HTTPSConnection(host='www.quattrorsgr.it', port=443): Failed to resolve 'www.quattrorsgr.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.617685+00:00",
+      "consecutive_failures": 5,
+      "next_check_after": "2026-02-20T21:31:24.617685+00:00"
     },
     "https://www.quattrorsgr.it/it/news/": {
       "url": "https://www.quattrorsgr.it/it/news/",
-      "status": "ssl_error",
+      "status": "other_error",
       "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.quattrorsgr.it', port=443): Max retries exceeded with url: /it/news/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)')))",
-      "last_checked_at": "2026-02-19T11:16:10.852856+00:00",
-      "consecutive_failures": 4,
-      "next_check_after": "2026-02-19T15:16:10.852856+00:00"
+      "error_message": "HTTPSConnectionPool(host='www.quattrorsgr.it', port=443): Max retries exceeded with url: /it/news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.quattrorsgr.it', port=443): Failed to resolve 'www.quattrorsgr.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.626815+00:00",
+      "consecutive_failures": 5,
+      "next_check_after": "2026-02-20T21:31:24.626815+00:00"
     },
     "https://www.greenarrow-capital.com/en/investments-divestments-private-equity-eng/": {
       "url": "https://www.greenarrow-capital.com/en/investments-divestments-private-equity-eng/",
@@ -11109,11 +11109,11 @@
     "https://wrmgroup.net/track-record/": {
       "url": "https://wrmgroup.net/track-record/",
       "status": "other_error",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-02-19T11:16:37.910399+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-02-19T11:21:37.910399+00:00"
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='wrmgroup.net', port=443): Max retries exceeded with url: /track-record/ (Caused by NameResolutionError(\"HTTPSConnection(host='wrmgroup.net', port=443): Failed to resolve 'wrmgroup.net' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.636346+00:00",
+      "consecutive_failures": 2,
+      "next_check_after": "2026-02-19T21:46:24.636346+00:00"
     },
     "https://www.spacecapital.it/it/portfolio-investments.html": {
       "url": "https://www.spacecapital.it/it/portfolio-investments.html",
@@ -11145,11 +11145,164 @@
     "https://pranaventures.it/": {
       "url": "https://pranaventures.it/",
       "status": "other_error",
-      "status_code": 304,
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='pranaventures.it', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='pranaventures.it', port=443): Failed to resolve 'pranaventures.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-19T21:31:24.587185+00:00",
+      "consecutive_failures": 3,
+      "next_check_after": "2026-02-19T22:31:24.587185+00:00"
+    },
+    "https://www.sagittasgr.it/en/newsroom/": {
+      "url": "https://www.sagittasgr.it/en/newsroom/",
+      "status": "ok",
+      "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-19T11:16:08.167072+00:00",
-      "consecutive_failures": 2,
-      "next_check_after": "2026-02-19T11:31:08.167072+00:00"
+      "last_checked_at": "2026-02-19T20:29:17.961816+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.algebris.com/portfolio/aquanexa/": {
+      "url": "https://www.algebris.com/portfolio/aquanexa/",
+      "status": "403",
+      "status_code": 403,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:29:05.802360+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-19T20:34:05.802360+00:00"
+    },
+    "https://www.algebris.com/portfolio/omnisyst/": {
+      "url": "https://www.algebris.com/portfolio/omnisyst/",
+      "status": "403",
+      "status_code": 403,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:29:13.151608+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-19T20:34:13.151608+00:00"
+    },
+    "https://www.carlyle.com/our-business/portfolio-of-investments": {
+      "url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:29:16.832272+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.capdyn.com/news-research-events/press-releases/": {
+      "url": "https://www.capdyn.com/news-research-events/press-releases/",
+      "status": "403",
+      "status_code": 403,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:29:17.274496+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-19T20:34:17.274496+00:00"
+    },
+    "https://www.algebris.com/portfolio/openeconomics/": {
+      "url": "https://www.algebris.com/portfolio/openeconomics/",
+      "status": "403",
+      "status_code": 403,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:29:19.247567+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-19T20:34:19.247567+00:00"
+    },
+    "https://oxycapital.com/wp-json/wp/v2/posts?per_page=20&_fields=id,title,date,link,excerpt": {
+      "url": "https://oxycapital.com/wp-json/wp/v2/posts?per_page=20&_fields=id,title,date,link,excerpt",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:29:21.196164+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.algebris.com/it/press-release/algebris-green-transition-fund-acquires-100-of-esapro-italian-energy-transition-enabler/": {
+      "url": "https://www.algebris.com/it/press-release/algebris-green-transition-fund-acquires-100-of-esapro-italian-energy-transition-enabler/",
+      "status": "403",
+      "status_code": 403,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:29:23.874463+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-19T20:34:23.874463+00:00"
+    },
+    "https://www.carlyle.com/our-people": {
+      "url": "https://www.carlyle.com/our-people",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:29:26.079721+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.algebris.com/it/press-release/algebris-green-transition-fund-five-new-companies-join-aquanexa-completing-the-offering-of-services-on-the-entire-value-chain/": {
+      "url": "https://www.algebris.com/it/press-release/algebris-green-transition-fund-five-new-companies-join-aquanexa-completing-the-offering-of-services-on-the-entire-value-chain/",
+      "status": "403",
+      "status_code": 403,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:29:28.554168+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-19T20:34:28.554168+00:00"
+    },
+    "https://www.capdyn.com/news-research-events/press-releases/capital-dynamics-ends-2024-as-one-of-italys-leaders-in-renewable-energy-asset-construction/": {
+      "url": "https://www.capdyn.com/news-research-events/press-releases/capital-dynamics-ends-2024-as-one-of-italys-leaders-in-renewable-energy-asset-construction/",
+      "status": "403",
+      "status_code": 403,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:29:33.136358+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-19T20:34:33.136358+00:00"
+    },
+    "https://www.algebris.com/it/press-release/aquanexa-algebris-green-transition-fund-platform-for-integrated-water-services-acquires-idea/": {
+      "url": "https://www.algebris.com/it/press-release/aquanexa-algebris-green-transition-fund-platform-for-integrated-water-services-acquires-idea/",
+      "status": "403",
+      "status_code": 403,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:29:33.407883+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-19T20:34:33.407883+00:00"
+    },
+    "https://www.algebris.com/press/blubrake-secures-e12-million-to-drive-abs-adoption-in-e-bikes-from-algebris-investments-fundracer-bv-and-tri-star/": {
+      "url": "https://www.algebris.com/press/blubrake-secures-e12-million-to-drive-abs-adoption-in-e-bikes-from-algebris-investments-fundracer-bv-and-tri-star/",
+      "status": "403",
+      "status_code": 403,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:29:38.071421+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-19T20:34:38.071421+00:00"
+    },
+    "https://www.carlyle.com/media-room/news-release-archive": {
+      "url": "https://www.carlyle.com/media-room/news-release-archive",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:29:43.947528+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://news.google.com/rss/search?q=site%3Aalgebris.com+Algebris+when%3A30d&hl=en-US&gl=US&ceid=US:en": {
+      "url": "https://news.google.com/rss/search?q=site%3Aalgebris.com+Algebris+when%3A30d&hl=en-US&gl=US&ceid=US:en",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:57:57.180512+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://news.google.com/rss/search?q=site%3Acapdyn.com+%22Capital+Dynamics%22+when%3A30d&hl=en-US&gl=US&ceid=US:en": {
+      "url": "https://news.google.com/rss/search?q=site%3Acapdyn.com+%22Capital+Dynamics%22+when%3A30d&hl=en-US&gl=US&ceid=US:en",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:57:57.297501+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://news.google.com/rss/search?q=site%3Acapitaldynamics.com+%22Capital+Dynamics%22+when%3A30d&hl=en-US&gl=US&ceid=US:en": {
+      "url": "https://news.google.com/rss/search?q=site%3Acapitaldynamics.com+%22Capital+Dynamics%22+when%3A30d&hl=en-US&gl=US&ceid=US:en",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-19T20:57:57.346414+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     }
   }
 }

@@ -1158,15 +1158,27 @@ export function getPortfolioForFund(fundSlug: string): PortfolioCompany[] {
   const websiteCompanies = rawWebsiteCompanies.map(c => {
     const dataSource = (c as any).data_source || 'fund_website';
     const isManual = dataSource === 'manual';
+    const isSignal = typeof dataSource === 'string' && dataSource.startsWith('signal_');
     // Use entry-level source_url if available, otherwise fall back to fund-level
     const entrySourceUrl = (c as any).source_url || null;
-    const effectiveSourceUrl = isManual ? null : (entrySourceUrl || websiteSourceUrl);
+    const effectiveSourceUrl = isManual ? null : (entrySourceUrl || (isSignal ? null : websiteSourceUrl));
+    // Source label: signal-derived entries show "Signal" with provenance detail
+    let sourceLabel: string;
+    if (isManual) {
+      sourceLabel = 'Manual';
+    } else if (isSignal) {
+      sourceLabel = dataSource === 'signal_fund_press' ? 'Press Release'
+        : dataSource === 'signal_rumor' ? 'Rumor'
+        : 'Signal';
+    } else {
+      sourceLabel = effectiveSourceUrl ? 'Website' : 'Unknown';
+    }
     return {
       ...c,
       status: c.status || ('current' as const),
       data_source: dataSource as DataSource,
       source_url: effectiveSourceUrl,
-      source_label: isManual ? 'Manual' : (effectiveSourceUrl ? 'Website' : 'Unknown'),
+      source_label: sourceLabel,
     };
   });
 
@@ -1336,23 +1348,57 @@ export function getSignalNote(fundSlug: string): string | null {
       try {
         const statusFile = JSON.parse(readFileSync(statusPath, 'utf-8'));
         const statuses = statusFile.statuses || {};
-        // Find any URL matching this domain
-        for (const [url, info] of Object.entries(statuses) as [string, { status: string; status_code: number; consecutive_failures: number }][]) {
+        const domainEntries: Array<{ status?: string; status_code?: number | null; consecutive_failures?: number }> = [];
+
+        for (const [url, info] of Object.entries(statuses) as [string, { status?: string; status_code?: number | null; consecutive_failures?: number }][]) {
           try {
             const urlDomain = new URL(url).hostname;
             if (urlDomain === domain || urlDomain === `www.${domain}` || domain === `www.${urlDomain}`) {
-              if (info.status_code === 403 || info.consecutive_failures >= 3) {
-                return `${fund.name}'s website currently blocks automated access. We are working on alternative monitoring methods.`;
-              }
-              if (info.status === 'other_error' && info.consecutive_failures >= 2) {
-                return `${fund.name}'s website is currently unreachable. Monitoring will resume when access is restored.`;
-              }
-              if (info.status === 'ssl_error') {
-                return `${fund.name}'s website has SSL certificate issues preventing automated monitoring.`;
-              }
-              break;
+              domainEntries.push(info);
             }
           } catch { /* ignore malformed URL */ }
+        }
+
+        if (domainEntries.length > 0) {
+          const isHealthy = (i: { status?: string; status_code?: number | null }) => {
+            const statusCode = i.status_code ?? null;
+            const status = i.status ?? '';
+            if (statusCode === 200 || statusCode === 304) return true;
+            if (status === 'ok') return true;
+            if (status === 'other_error' && statusCode === 304) return true;
+            return false;
+          };
+
+          const hasHealthy = domainEntries.some(isHealthy);
+          const has403 = domainEntries.some((i) => i.status_code === 403 || i.status === '403');
+          const hasSslError = domainEntries.some((i) => i.status === 'ssl_error');
+
+          const hasPersistentUnreachable = domainEntries.some((i) => {
+            if (isHealthy(i)) return false;
+            if (i.status_code === 403 || i.status === '403') return false;
+            if (i.status === 'ssl_error') return false;
+            return (i.consecutive_failures ?? 0) >= 2;
+          });
+
+          // If we still have healthy monitored URLs, avoid hard "blocked/unreachable" claims.
+          if (hasHealthy) {
+            if (has403) {
+              return `${fund.name}'s website is partially accessible. Some sections block automated access, but monitoring continues on reachable pages.`;
+            }
+            return 'No notable signals detected yet. This fund\'s website is being monitored for news, deals, and team changes.';
+          }
+
+          if (has403) {
+            return `${fund.name}'s website currently blocks automated access. We are working on alternative monitoring methods.`;
+          }
+
+          if (hasSslError) {
+            return `${fund.name}'s website has SSL certificate issues preventing automated monitoring.`;
+          }
+
+          if (hasPersistentUnreachable) {
+            return `${fund.name}'s website is currently unreachable. Monitoring will resume when access is restored.`;
+          }
         }
       } catch { /* ignore parse errors */ }
     }

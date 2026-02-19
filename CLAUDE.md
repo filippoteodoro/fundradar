@@ -140,7 +140,8 @@ Content hashing skips unchanged pages — use `--force-extract` after updating e
 | `apps/web/src/lib/signalProcessing.ts` | Shared signal processing (both paths) |
 | `packages/shared/src/types.ts` | Type definitions (Fund, Signal, Deal, DataSource) |
 | `apps/worker/fundradar_worker/pipeline.py` | 8-step orchestration |
-| `apps/worker/fundradar_worker/monitor.py` | Main fetch/extract/diff engine |
+| `apps/worker/fundradar_worker/monitor.py` | Main fetch/extract/diff engine + exit detection |
+| `apps/worker/scripts/signal_to_portfolio.py` | Signal→portfolio conversion (Gemini) |
 | `apps/worker/fundradar_worker/strategies/extractors/` | Fund-specific extractors |
 
 ## Deployment (Vercel)

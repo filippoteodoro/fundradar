@@ -38,6 +38,7 @@ import argparse
 import json
 import os
 import re
+import signal as _signal
 import sys
 import time
 from datetime import datetime, timezone
@@ -63,10 +64,14 @@ PROGRESS_FILE = DATA_DIR / "signal_to_portfolio_progress.json"
 DB_PATH = PROJECT_ROOT / "data" / "db.json"
 
 MODEL = "gemini-3-flash-preview"
-BATCH_SIZE = 15  # Smaller batches for richer prompt context
+BATCH_SIZE = 10  # Rich prompts (signal text + portfolio context) need smaller batches than enrichment
 MAX_RETRIES = 2
-SDK_TIMEOUT_MS = 180_000  # 3 min — Gemini free tier can be slow
-DELAY_BETWEEN_CALLS = 2.0
+CALL_TIMEOUT = 180  # SIGALRM hard timeout — 2x enrichment's 90s due to richer prompts
+SDK_TIMEOUT_MS = 240_000  # SDK-level timeout — must exceed CALL_TIMEOUT
+DELAY_BETWEEN_CALLS = 4.0  # 4s between calls — Gemini free tier ~15 RPM
+
+# Auto-split: when a batch fails at size N, retry at next smaller size
+BATCH_SPLIT_SIZES = [10, 5, 2, 1]
 
 # Signal types to process
 DEAL_TYPES = {"deal_announced", "exit_announced"}
@@ -362,14 +367,23 @@ Signals:
 Return a JSON array with one object per signal, matching by signal_id."""
 
 
-def call_gemini(client, prompt: str) -> tuple[list[dict], int, int]:
-    """Call Gemini API with structured output. Returns (results, in_tokens, out_tokens)."""
+class _AlarmTimeout(Exception):
+    pass
+
+
+def _alarm_handler(signum, frame):
+    raise _AlarmTimeout()
+
+
+def _do_api_call(client, prompt: str) -> tuple[list[dict], int, int]:
+    """Execute a single Gemini API call with structured JSON output."""
     global _schema_disabled
     from google.genai import types
 
     config_kwargs = {
         "temperature": 0.1,
         "response_mime_type": "application/json",
+        "http_options": types.HttpOptions(timeout=SDK_TIMEOUT_MS),
     }
     if not _schema_disabled:
         config_kwargs["response_schema"] = _get_response_schema()
@@ -403,7 +417,6 @@ def call_gemini(client, prompt: str) -> tuple[list[dict], int, int]:
 
     # Safety: ensure we got a list (schema-disabled mode may return a dict)
     if isinstance(results, dict):
-        # Try common wrapper keys
         for key in ("items", "signals", "results"):
             if isinstance(results.get(key), list):
                 results = results[key]
@@ -415,6 +428,114 @@ def call_gemini(client, prompt: str) -> tuple[list[dict], int, int]:
     in_tok = usage.prompt_token_count or 0
     out_tok = usage.candidates_token_count or 0
     return results, in_tok, out_tok
+
+
+def _call_gemini_single(client, prompt: str) -> tuple[list[dict], int, int]:
+    """Call Gemini with SIGALRM hard timeout and retries at a fixed batch size.
+
+    Returns (results, in_tokens, out_tokens). Empty results on total failure.
+    """
+    for attempt in range(1 + MAX_RETRIES):
+        try:
+            old_handler = _signal.signal(_signal.SIGALRM, _alarm_handler)
+            _signal.alarm(CALL_TIMEOUT)
+            results, in_tok, out_tok = _do_api_call(client, prompt)
+            _signal.alarm(0)
+            _signal.signal(_signal.SIGALRM, old_handler)
+            return results, in_tok, out_tok
+
+        except _AlarmTimeout:
+            _signal.alarm(0)
+            if attempt < MAX_RETRIES:
+                wait = 15 * (attempt + 1)  # 15s, 30s — longer backoff for rate limits
+                print(f"    Timeout (attempt {attempt+1}), retrying in {wait}s...", flush=True)
+                time.sleep(wait)
+                continue
+            return [], 0, 0
+
+        except json.JSONDecodeError:
+            _signal.alarm(0)
+            if attempt < MAX_RETRIES:
+                time.sleep(5)
+                continue
+            return [], 0, 0
+
+        except Exception as e:
+            _signal.alarm(0)
+            err_str = str(e).lower()
+            is_rate_limit = "429" in err_str or "rate" in err_str or "quota" in err_str
+            if attempt < MAX_RETRIES:
+                wait = 30 * (attempt + 1) if is_rate_limit else 10 * (attempt + 1)
+                print(f"    Error (attempt {attempt+1}): {str(e)[:80]}, retrying in {wait}s...", flush=True)
+                time.sleep(wait)
+                continue
+            return [], 0, 0
+
+    return [], 0, 0
+
+
+def call_gemini_batch(
+    client, signals: list[dict], fund_name: str, existing_company_names: list[str],
+) -> tuple[list[dict], int, int]:
+    """Call Gemini with auto-split on failure.
+
+    Tries the full batch first. If all retries fail, splits into smaller
+    sub-batches (15 → 7 → 3 → 1) and retries each.
+
+    Returns (results, in_tokens, out_tokens).
+    """
+    batch_size = len(signals)
+    prompt = build_prompt(fund_name, signals, existing_company_names)
+
+    # Find the starting split tier for this batch size
+    split_sizes = [s for s in BATCH_SPLIT_SIZES if s <= batch_size]
+    if not split_sizes:
+        split_sizes = [1]
+
+    for tier_idx, split_size in enumerate(split_sizes):
+        if tier_idx == 0:
+            # First tier: try the full batch as-is
+            results, in_tok, out_tok = _call_gemini_single(client, prompt)
+            if results:
+                return results, in_tok, out_tok
+            if split_size == 1:
+                return [], 0, 0
+            next_size = split_sizes[tier_idx + 1] if tier_idx + 1 < len(split_sizes) else 1
+            print(f"    Batch of {batch_size} failed, auto-splitting to size {next_size}...", flush=True)
+            continue
+
+        # Split into sub-batches of this tier's size
+        all_results = []
+        total_in, total_out = 0, 0
+        sub_failed = False
+
+        for sub_start in range(0, len(signals), split_size):
+            sub_batch = signals[sub_start:sub_start + split_size]
+            sub_prompt = build_prompt(fund_name, sub_batch, existing_company_names)
+            time.sleep(DELAY_BETWEEN_CALLS)
+            sub_results, sub_in, sub_out = _call_gemini_single(client, sub_prompt)
+            total_in += sub_in
+            total_out += sub_out
+
+            if sub_results:
+                all_results.extend(sub_results)
+            else:
+                sub_failed = True
+
+        if all_results and not sub_failed:
+            return all_results, total_in, total_out
+
+        if all_results:
+            print(f"    Split size {split_size}: partial success ({len(all_results)}/{len(signals)})", flush=True)
+            if tier_idx + 1 < len(split_sizes):
+                continue
+            return all_results, total_in, total_out
+
+        if tier_idx + 1 < len(split_sizes):
+            print(f"    Split size {split_size} failed, trying size {split_sizes[tier_idx + 1]}...", flush=True)
+            continue
+
+    return [], 0, 0
 
 
 # ─── Progress tracking ─────────────────────────────────────────────────────
@@ -447,6 +568,10 @@ def load_funds_by_slug() -> dict:
 
 def load_enriched_signals() -> list[dict]:
     """Load enriched signals file."""
+    if not ENRICHED_SIGNALS_FILE.exists():
+        print(f"  WARNING: {ENRICHED_SIGNALS_FILE.name} not found. "
+              f"Run 'pnpm pipeline:signals' first to generate enriched signals.")
+        return []
     with open(ENRICHED_SIGNALS_FILE) as f:
         data = json.load(f)
     return data.get("signals", [])
@@ -498,6 +623,7 @@ def process_fund_signals(
     stats = {
         "added": 0, "exits_updated": 0, "skipped_addon": 0,
         "skipped_existing": 0, "skipped_no_company": 0, "skipped_other": 0,
+        "skipped_exit_no_match": 0,
         "errors": 0, "tokens_in": 0, "tokens_out": 0,
     }
 
@@ -523,37 +649,22 @@ def process_fund_signals(
     # Process in batches
     for batch_start in range(0, len(signals), BATCH_SIZE):
         batch = signals[batch_start:batch_start + BATCH_SIZE]
-        prompt = build_prompt(fund_name, batch, existing_raw_names)
 
         if dry_run:
             print(f"    [dry-run] Would send {len(batch)} signals to Gemini for {fund_slug}")
             for s in batch:
                 print(f"      {s['id']}: {s.get('title', '')[:90]}")
-            # Dry-run: mark as processed (no API call needed)
-            processed_ids.extend(s["id"] for s in batch)
+            # Dry-run: do NOT mark IDs as processed (avoids progress pollution)
             continue
 
-        # Call Gemini with retries
-        results = None
-        batch_succeeded = False
-        for attempt in range(MAX_RETRIES + 1):
-            try:
-                results, in_tok, out_tok = call_gemini(client, prompt)
-                stats["tokens_in"] += in_tok
-                stats["tokens_out"] += out_tok
-                batch_succeeded = True
-                break
-            except Exception as e:
-                if attempt < MAX_RETRIES:
-                    wait = 5 * (attempt + 1)  # 5s, 10s backoff
-                    print(f"    Retry {attempt + 1}/{MAX_RETRIES} after error: {e}", flush=True)
-                    time.sleep(wait)
-                else:
-                    print(f"    ERROR: Failed after {MAX_RETRIES + 1} attempts: {e}", flush=True)
-                    stats["errors"] += len(batch)
+        # Call Gemini with auto-split on failure
+        results, in_tok, out_tok = call_gemini_batch(client, batch, fund_name, existing_raw_names)
+        stats["tokens_in"] += in_tok
+        stats["tokens_out"] += out_tok
 
-        if not batch_succeeded or not results:
+        if not results:
             # Don't mark failed batch signal IDs as processed — they'll be retried next run
+            stats["errors"] += len(batch)
             continue
 
         # Mark this batch as successfully processed
@@ -598,9 +709,13 @@ def process_fund_signals(
                 if action == "exit" and matched_norm:
                     existing_entry = existing_by_norm.get(matched_norm)
                     if existing_entry and existing_entry.get("status") == "current":
-                        existing_entry["status"] = "exited"
-                        stats["exits_updated"] += 1
-                        print(f"    EXIT: {existing_entry.get('name')} → status=exited (signal: {sid})")
+                        # Guard: never mutate curation_locked entries
+                        if existing_entry.get("curation_locked"):
+                            stats["skipped_existing"] += 1
+                        else:
+                            existing_entry["status"] = "exited"
+                            stats["exits_updated"] += 1
+                            print(f"    EXIT: {existing_entry.get('name')} → status=exited (signal: {sid})")
                     else:
                         stats["skipped_existing"] += 1
                 else:
@@ -609,7 +724,7 @@ def process_fund_signals(
 
             if action == "exit":
                 # Exit for company not in portfolio — nothing to update
-                stats["skipped_other"] += 1
+                stats["skipped_exit_no_match"] += 1
                 continue
 
             # ── New investment: create portfolio entry ──
@@ -694,9 +809,14 @@ def main():
     portfolio_data = load_portfolio()
     fund_portfolios = portfolio_data.get("fund_portfolios", {})
 
-    # Load progress
+    # Load progress and prune stale IDs (signals no longer in enriched file)
     progress = load_progress()
-    processed_ids = set(progress.get("processed_signal_ids", []))
+    current_signal_ids = {s.get("id") for s in all_signals if s.get("id")}
+    raw_processed = set(progress.get("processed_signal_ids", []))
+    processed_ids = raw_processed & current_signal_ids  # prune stale
+    pruned = len(raw_processed) - len(processed_ids)
+    if pruned > 0:
+        print(f"  Pruned {pruned} stale IDs from progress file")
 
     # Filter to deal/exit signals with minimum quality
     deal_signals = [
@@ -760,9 +880,15 @@ def main():
     total_stats = {
         "added": 0, "exits_updated": 0, "skipped_addon": 0,
         "skipped_existing": 0, "skipped_no_company": 0, "skipped_other": 0,
+        "skipped_exit_no_match": 0,
         "errors": 0, "tokens_in": 0, "tokens_out": 0,
     }
     all_processed_in_run: list[str] = []
+    funds_processed = 0
+    start_time = time.time()
+
+    # Track which fund portfolios changed (for per-fund saves)
+    changed_slugs: set[str] = set()
 
     for fund_slug, signals in sorted(by_fund.items()):
         fund = funds_by_slug.get(fund_slug)
@@ -786,26 +912,44 @@ def main():
         # Update portfolio reference (process_fund_signals modifies existing_entries in place)
         if not args.dry_run and (fund_stats["added"] > 0 or fund_stats["exits_updated"] > 0):
             fund_portfolios[fund_slug] = existing
+            changed_slugs.add(fund_slug)
 
         for k in total_stats:
             total_stats[k] += fund_stats[k]
 
         all_processed_in_run.extend(fund_processed_ids)
+        funds_processed += 1
 
-    # Save results
+        # Per-fund disk save for crash safety (same pattern as enrich_portfolio_gemini_full.py)
+        if not args.dry_run and fund_processed_ids:
+            # Save progress after each fund
+            updated_processed = list(processed_ids | set(all_processed_in_run))
+            progress = {
+                "processed_signal_ids": updated_processed,
+                "last_run": datetime.now(timezone.utc).isoformat(),
+                "stats": total_stats,
+            }
+            save_progress(progress)
+
+            # Save portfolio if THIS fund changed (only write the current fund to avoid stale overwrites)
+            if fund_slug in changed_slugs:
+                fresh = load_portfolio()
+                fresh_portfolios = fresh.get("fund_portfolios", {})
+                fresh_portfolios[fund_slug] = fund_portfolios[fund_slug]
+                fresh["fund_portfolios"] = fresh_portfolios
+                save_portfolio(fresh)
+
+        # Running rate logging
+        if not args.dry_run and funds_processed > 0:
+            elapsed = time.time() - start_time
+            rate = funds_processed / (elapsed / 60) if elapsed > 0 else 0
+            print(f"    [{funds_processed}/{len(by_fund)}] "
+                  f"+{fund_stats['added']}add +{fund_stats['exits_updated']}exit | "
+                  f"Total: +{total_stats['added']}add +{total_stats['exits_updated']}exit "
+                  f"{total_stats['errors']}err | {rate:.1f} funds/min", flush=True)
+
+    # Final save (also saves incrementally after each fund above)
     if not args.dry_run:
-        if total_stats["added"] > 0 or total_stats["exits_updated"] > 0:
-            print(f"\n  Saving portfolio...", flush=True)
-            # Re-read from disk to merge (same pattern as enrich_portfolio)
-            fresh = load_portfolio()
-            fresh_portfolios = fresh.get("fund_portfolios", {})
-            for slug, entries in fund_portfolios.items():
-                fresh_portfolios[slug] = entries
-            fresh["fund_portfolios"] = fresh_portfolios
-            save_portfolio(fresh)
-            print(f"  Portfolio saved.")
-
-        # Update progress — only add successfully processed IDs
         updated_processed = list(processed_ids | set(all_processed_in_run))
         progress = {
             "processed_signal_ids": updated_processed,
@@ -815,8 +959,11 @@ def main():
         save_progress(progress)
 
     # Summary
+    elapsed = time.time() - start_time
+    cost = total_stats["tokens_in"] * 0.10 / 1_000_000 + total_stats["tokens_out"] * 0.40 / 1_000_000
+
     print(f"\n{'=' * 60}")
-    print(f"  Summary")
+    print(f"  Summary ({elapsed / 60:.1f}m)")
     print(f"{'=' * 60}")
     print(f"  Portfolio entries added:   {total_stats['added']}")
     print(f"  Exits detected & updated: {total_stats['exits_updated']}")
@@ -824,10 +971,20 @@ def main():
     print(f"  Skipped (already exists): {total_stats['skipped_existing']}")
     print(f"  Skipped (no company):     {total_stats['skipped_no_company']}")
     print(f"  Skipped (non-deal/other): {total_stats['skipped_other']}")
+    print(f"  Skipped (exit, no match): {total_stats['skipped_exit_no_match']}")
     print(f"  Errors:                   {total_stats['errors']}")
     if not args.dry_run:
         print(f"  Gemini tokens:            {total_stats['tokens_in']:,} in / {total_stats['tokens_out']:,} out")
+        print(f"  Estimated cost:           ${cost:.4f}")
     print()
+
+    # Exit code 2 for partial success (some batches failed but progress was made)
+    if total_stats["errors"] > 0 and (total_stats["added"] > 0 or total_stats["exits_updated"] > 0):
+        print(f"  {total_stats['errors']} signals failed — will be retried on next run")
+        sys.exit(2)
+    elif total_stats["errors"] > 0 and total_stats["added"] == 0 and total_stats["exits_updated"] == 0:
+        print(f"  All batches failed — check API key and quota")
+        sys.exit(1)
 
 
 if __name__ == "__main__":

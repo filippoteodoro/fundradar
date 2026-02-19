@@ -36,11 +36,6 @@ pnpm worker:geocode        # Geocode fund addresses
 monitor (fetch + extract + diff) → filter (quality scoring) → enrich (AI summaries)
 ```
 
-`pnpm pipeline` and `pnpm worker:monitor` both use `data/derived/domain_policies.json` automatically for:
-- `requires_headless` routing to Playwright
-- per-domain Playwright tuning (`playwright_profile`, `playwright_retry_count`, `playwright_random_delay_ms`)
-- optional per-domain Playwright proxy (`playwright_proxy`)
-
 ### Key Modules
 
 | Module | Purpose |
@@ -57,27 +52,6 @@ monitor (fetch + extract + diff) → filter (quality scoring) → enrich (AI sum
 | `domain_policies.py` | Per-domain fetch configuration |
 | `io_utils.py` | Atomic file writes, sanitization |
 
-### Playwright Policy Fields (per domain)
-
-```json
-{
-  "example.com": {
-    "requires_headless": true,
-    "playwright_profile": "cloudflare",
-    "playwright_retry_count": 3,
-    "playwright_random_delay_ms": [250, 900],
-    "playwright_proxy": {
-      "server": "http://proxy.example:8080",
-      "username": "user",
-      "password": "pass",
-      "bypass": ".internal,.local"
-    }
-  }
-}
-```
-
-The monitor also detects anti-bot challenge pages and records `bot_challenge` in URL status reports for stronger backoff and triage.
-
 ### Extraction Strategy
 
 1. Fund-specific extractor (`strategies/extractors/{fund}.py`) runs first
@@ -90,6 +64,24 @@ Each extractor in `strategies/extractors/` exports:
 - `DOMAIN` — the domain it handles
 - `URLS` — dict of page paths (`portfolio`, `team`, `news`)
 - `EXTRACTORS` — dict mapping data types to extraction functions
+
+### Bot-Blocked Funds (Extractor-Level Routing)
+
+For bot-protected domains, we prefer extractor-level URL routing (deep endpoints or
+API endpoints) instead of changing monitor/pipeline behavior.
+
+Updated extractor routing:
+- `algebris.py`: Google News RSS fallback scoped to `site:algebris.com` (official site currently hard-blocked by Akamai)
+- `capital_dynamics_sgr.py`: Google News RSS fallback scoped to `site:capdyn.com` / `site:capitaldynamics.com` (official site currently behind Cloudflare challenge)
+- `carlyle.py`: `/our-business/portfolio-of-investments` + `/media-room/news-release-archive`
+- `oxy_capital.py`: WordPress API endpoint for news (`/wp-json/wp/v2/posts...`)
+- `sagitta_sgr.py`: team + newsroom routing, portfolio disabled due blocked path
+
+Verification (single fund):
+```bash
+pnpm pipeline --slugs algebris --force-extract
+pnpm pipeline --slugs carlyle --force-extract
+```
 
 ## Tests
 

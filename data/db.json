@@ -172,8 +172,8 @@
         "Technology",
         "Financial Services",
         "Hospitality & Tourism",
-        "Aerospace & Defense",
-        "Industrial Manufacturing"
+        "Professional Services",
+        "Aerospace & Defense"
       ],
       "description": "Established in 1984 as a spinoff from TA Associates, this global firm pioneered a sector-specialized approach to complex buyouts. Notable Italian transactions include the landmark consolidation of Nexi and the take-private of Tinexta.",
       "geographies": [
@@ -344,8 +344,8 @@
       ],
       "sector_tags": [
         "Biotech & Pharma",
+        "Energy",
         "Industrial Manufacturing",
-        "Technology",
         "Automotive",
         "Consumer Goods"
       ],
@@ -1265,7 +1265,7 @@
         "Retail",
         "Consumer Goods",
         "Energy",
-        "Media & Entertainment"
+        "Industrial Manufacturing"
       ],
       "description": "Spun off from Apollo in 1997, this alternative investment leader leverages its massive credit platform to anchor landmark deals like the \u20102 billion stake in Eni's Plenitude and infrastructure investments in Venice Airport.",
       "geographies": [
@@ -1789,9 +1789,9 @@
       ],
       "sector_tags": [
         "Healthcare",
-        "Software",
         "Biotech & Pharma",
         "Industrial Manufacturing",
+        "Software",
         "Professional Services"
       ],
       "description": "Spun off from the consulting firm Bain & Company in 1984, this pioneer of operationally-focused private equity applies management consulting techniques to global buyouts. Key investments include the Italian payments giant Nexi.",
@@ -1989,7 +1989,8 @@
         "Consumer Goods",
         "Food & Beverage",
         "Fashion & Luxury",
-        "Retail"
+        "Retail",
+        "Packaging"
       ],
       "description": "Founded in 2007 by former Investcorp partners, this specialist investor focuses on mid-market consumer brands, famously leading the turnaround and eventual sale of the iconic Liberty London department store.",
       "geographies": [
@@ -2039,9 +2040,9 @@
       "sector_tags": [
         "Software",
         "Professional Services",
+        "Technology",
         "Financial Services",
-        "Healthcare",
-        "Media & Entertainment"
+        "Healthcare"
       ],
       "description": "Spun out from NatWest in 2000, this listed global manager specializes in mid-market buyouts and credit, recently expanding its Italian portfolio through the acquisitions of Interpath and automotive tech provider TWS.",
       "geographies": [
@@ -4575,7 +4576,7 @@
         "Healthcare",
         "Industrial Manufacturing",
         "Fashion & Luxury",
-        "Consumer Goods"
+        "Aerospace & Defense"
       ],
       "description": "Operates as an evergreen investment group backed by prominent European industrial families, providing permanent capital to market leaders like Kiloutou and Ba&sh without the constraints of traditional fund lifecycles.",
       "geographies": [
@@ -5995,9 +5996,9 @@
       "sector_tags": [
         "Technology",
         "Healthcare",
-        "Biotech & Pharma",
         "Industrial Manufacturing",
-        "Real Estate"
+        "Biotech & Pharma",
+        "Professional Services"
       ],
       "description": "Leverages a global Swiss platform to execute landmark Italian deals like Telepass and Bending Spoons. It distinguishes itself by integrating private market solutions into the local banking landscape through strategic alliances with Mediobanca and Sella.",
       "geographies": [
@@ -7697,7 +7698,7 @@
         "Food & Beverage",
         "Healthcare",
         "Hospitality & Tourism",
-        "Technology"
+        "Aerospace & Defense"
       ],
       "description": "Pioneers a 'preferred capital' model for European mid-market firms, providing flexible hybrid financing that bridges the gap between senior debt and equity to support entrepreneur-led growth without diluting control.",
       "geographies": [
@@ -8632,8 +8633,8 @@
       ],
       "sector_tags": [
         "Professional Services",
-        "Software",
         "Industrial Manufacturing",
+        "Software",
         "Biotech & Pharma",
         "Healthcare"
       ],
@@ -8775,8 +8776,8 @@
       "sector_tags": [
         "Industrial Manufacturing",
         "Healthcare",
-        "Retail",
         "Food & Beverage",
+        "Retail",
         "Consumer Goods"
       ],
       "description": "Established by the Bonomi family in 1990, this firm leverages its industrial heritage to scale Southern European mid-market leaders into global brands, with landmark investments including Eataly, Ermenegildo Zegna, and the Flos B&B Italia Group.",

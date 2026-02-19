@@ -10,12 +10,15 @@ Phase 2 enhancement: Integrates with site_extractor.py for site-specific extract
 
 import hashlib
 import re
+import warnings
 from dataclasses import dataclass, field
 from datetime import datetime
 from difflib import SequenceMatcher
+from email.utils import parsedate_to_datetime
 from typing import TypedDict
+import xml.etree.ElementTree as ET
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, FeatureNotFound, XMLParsedAsHTMLWarning
 
 
 def _normalize_signal_title(title: str, max_len: int = 200) -> str:
@@ -612,6 +615,133 @@ def _normalize_date(date_str: str) -> str | None:
     return date_str  # Return original if no pattern matched
 
 
+def _looks_like_xml_feed(content: str) -> bool:
+    """Return True when payload appears to be RSS/Atom XML."""
+    if not content:
+        return False
+    head = content.lstrip()[:500].lower()
+    return head.startswith("<?xml") or "<rss" in head or "<feed" in head
+
+
+def _parse_rss_atom_items(content: str, base_url: str = "") -> list[NewsItem]:
+    """Parse RSS/Atom payloads into NewsItem objects."""
+    items: list[NewsItem] = []
+    seen_fingerprints: set[str] = set()
+
+    def _local_name(tag: str) -> str:
+        return (tag or "").split("}", 1)[-1].split(":")[-1].lower()
+
+    def _append_item(title: str, url: str | None, date_raw: str | None):
+        title_clean = re.sub(r"\s+", " ", (title or "").strip())
+        if len(title_clean) < 10:
+            return
+        if url and not url.startswith("http") and base_url:
+            url = base_url.rstrip("/") + "/" + url.lstrip("/")
+
+        date = None
+        if date_raw:
+            date = _normalize_date(date_raw)
+            if date == date_raw:
+                try:
+                    dt = parsedate_to_datetime(date_raw)
+                    date = dt.strftime("%Y-%m-%d")
+                except Exception:
+                    pass
+
+        fingerprint = _compute_item_fingerprint(title_clean, date)
+        if fingerprint in seen_fingerprints:
+            return
+        seen_fingerprints.add(fingerprint)
+
+        items.append(NewsItem(
+            title=_normalize_signal_title(title_clean),
+            date=date,
+            url=url,
+            fingerprint=fingerprint,
+        ))
+
+    # First attempt: stdlib XML parser (works without external parsers like lxml).
+    try:
+        root = ET.fromstring(content)
+        nodes = [n for n in root.iter() if _local_name(n.tag) in {"item", "entry"}]
+        for node in nodes:
+            is_atom = _local_name(node.tag) == "entry"
+            children = list(node)
+
+            title = None
+            for child in children:
+                if _local_name(child.tag) == "title":
+                    title = (child.text or "").strip()
+                    break
+            if not title:
+                continue
+
+            url = None
+            if is_atom:
+                for child in children:
+                    if _local_name(child.tag) != "link":
+                        continue
+                    href = (child.attrib.get("href") or "").strip()
+                    rel = (child.attrib.get("rel") or "").strip().lower()
+                    if href and (not rel or rel == "alternate"):
+                        url = href
+                        break
+            else:
+                for child in children:
+                    if _local_name(child.tag) != "link":
+                        continue
+                    link_text = (child.text or "").strip()
+                    href = (child.attrib.get("href") or "").strip()
+                    url = link_text or href or None
+                    if url:
+                        break
+
+            if not url:
+                for child in children:
+                    if _local_name(child.tag) != "guid":
+                        continue
+                    guid_text = (child.text or "").strip()
+                    is_permalink = (child.attrib.get("isPermaLink") or "").lower() == "true"
+                    if guid_text.startswith("http") or is_permalink:
+                        url = guid_text
+                        break
+
+            date_raw = None
+            for child in children:
+                if _local_name(child.tag) in {"pubdate", "published", "updated", "date"}:
+                    value = (child.text or "").strip()
+                    if value:
+                        date_raw = value
+                        break
+
+            _append_item(title=title, url=url, date_raw=date_raw)
+
+        if items:
+            return items[:50]
+    except ET.ParseError:
+        pass
+
+    # Fallback for malformed feeds.
+    try:
+        soup = BeautifulSoup(content, "xml")
+    except FeatureNotFound:
+        with warnings.catch_warnings():
+            warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
+            soup = BeautifulSoup(content, "html.parser")
+    nodes = soup.find_all("item") or soup.find_all("entry")
+    for node in nodes:
+        title_el = node.find("title")
+        title = title_el.get_text(separator=" ", strip=True) if title_el else ""
+        link_el = node.find("link")
+        link_text = link_el.get_text(strip=True) if link_el else None
+        link_href = link_el.get("href") if link_el else None
+        date_el = node.find("pubDate") or node.find("published") or node.find("updated") or node.find("date")
+        date_raw = date_el.get_text(" ", strip=True) if date_el else None
+        _append_item(title=title, url=(link_text or link_href), date_raw=date_raw)
+
+    return items[:50]
+
+
 def extract_news_items(html: str, base_url: str = "") -> list[NewsItem]:
     """
     Extract news/press items from HTML content.
@@ -631,6 +761,12 @@ def extract_news_items(html: str, base_url: str = "") -> list[NewsItem]:
     Returns:
         List of NewsItem objects
     """
+    # RSS/Atom feeds are common fallbacks for bot-protected sites.
+    if _looks_like_xml_feed(html):
+        parsed_feed = _parse_rss_atom_items(html, base_url)
+        if parsed_feed:
+            return parsed_feed
+
     # Try site-specific extraction first (Phase 2)
     try:
         site_extract = _get_site_extractor()

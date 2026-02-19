@@ -4,12 +4,17 @@
  */
 
 export type DataSource =
-  | 'fund_website'   // Tier 1 – fund's own website
-  | 'linkedin'       // Tier 2 – LinkedIn profiles/pages
-  | 'aifi'           // Tier 3 – AIFI association
-  | 'pem'            // Tier 4 – PEM deal reports (historical, OCR)
-  | 'news'           // Tier 5 – third-party news (may be unverified)
-  | 'manual';        // Tier 6 – hand-entered or AI-generated seed data
+  | 'fund_website'          // Tier 1 – fund's own website
+  | 'linkedin'              // Tier 2 – LinkedIn profiles/pages
+  | 'aifi'                  // Tier 3 – AIFI association
+  | 'pem'                   // Tier 4 – PEM deal reports (historical, OCR)
+  | 'news'                  // Tier 5 – third-party news (may be unverified)
+  | 'manual'                // Tier 6 – hand-entered or AI-generated seed data
+  | 'signal_fund_press'     // Signal: fund's own press release (0.90 confidence)
+  | 'signal_news_verified'  // Signal: verified news journal (0.80)
+  | 'signal_news'           // Signal: reputable PE/VC journal (0.75)
+  | 'signal_other'          // Signal: other/RSS source (0.70)
+  | 'signal_rumor';         // Signal: unverified rumor (0.60)
 
 /**
  * Fund/Entity category taxonomy

@@ -18,6 +18,7 @@ import json
 import os
 import re
 import time
+import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
@@ -2210,7 +2211,20 @@ def _propagate_translations_to_filtered(enriched_signals: list[dict]) -> None:
         print(f"Propagated translations to filtered file: {updated} field updates")
 
 
-def main():
+def _parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Enrich filtered signals with OpenAI summaries",
+    )
+    parser.add_argument(
+        "--slugs",
+        type=str,
+        default=None,
+        help="Comma-separated fund slugs to enrich (keeps other enriched signals unchanged).",
+    )
+    return parser.parse_args()
+
+
+def main(slugs_filter: str | None = None):
     print("Signal Enrichment with OpenAI")
     print("=" * 50)
     print(f"Model: {MODEL}")
@@ -2232,8 +2246,57 @@ def main():
         return
 
     data = load_json(signals_path)
-    signals = data.get("signals", [])
-    print(f"Loaded {len(signals)} signals from {signals_path.name}")
+    all_signals = data.get("signals", [])
+    signals = all_signals
+    target_slugs: set[str] = set()
+    if slugs_filter:
+        target_slugs = {s.strip() for s in slugs_filter.split(",") if s.strip()}
+        if target_slugs:
+            signals = [s for s in all_signals if (s.get("fund_slug") or "").strip() in target_slugs]
+            print(
+                f"Loaded {len(all_signals)} signals from {signals_path.name} "
+                f"(slug filter: {len(target_slugs)} slugs -> {len(signals)} signals)"
+            )
+        else:
+            print(f"Loaded {len(all_signals)} signals from {signals_path.name}")
+    else:
+        print(f"Loaded {len(all_signals)} signals from {signals_path.name}")
+
+    def _persist_identity(signal: dict) -> str:
+        key = _signal_key(signal)
+        if key:
+            return f"key::{key}"
+        return f"id::{signal.get('id', '')}"
+
+    def _merge_output_signals(processed_signals: list[dict]) -> list[dict]:
+        """Merge slug-scoped enrich output with existing enriched data.
+
+        When --slugs is used, preserve non-target signals from existing enriched
+        output so partial runs never truncate the dataset.
+        """
+        if not target_slugs:
+            return processed_signals
+
+        merged: dict[str, dict] = {}
+        base_signals: list[dict] = []
+        if OUTPUT_FILE.exists():
+            try:
+                base_signals = (load_json(OUTPUT_FILE).get("signals") or [])
+            except Exception:
+                base_signals = []
+        # First slug-scoped run with no enriched file yet: preserve non-target
+        # rows from current filtered input as baseline.
+        if not base_signals:
+            base_signals = [s for s in all_signals if (s.get("fund_slug") or "").strip() not in target_slugs]
+
+        for s in base_signals:
+            slug = (s.get("fund_slug") or "").strip()
+            if slug in target_slugs:
+                continue
+            merged[_persist_identity(s)] = s
+        for s in processed_signals:
+            merged[_persist_identity(s)] = s
+        return list(merged.values())
 
     # Load previous enriched file for merge (avoid rework)
     previous_by_key: dict[str, dict] = {}
@@ -2622,13 +2685,14 @@ def main():
                 # Save progress every 20 LLM calls
                 if completed % 20 == 0:
                     save_progress(processed_ids, processed_keys)
+                    signals_to_save = signals
                     if LLM_FILTER_MODE == "hard" and (filtered_out_keys or filtered_out_ids):
-                        data["signals"] = [
+                        signals_to_save = [
                             s for s in signals
                             if _signal_key(s) not in filtered_out_keys and s.get("id") not in filtered_out_ids
                         ]
-                    else:
-                        data["signals"] = signals
+                    data["signals"] = _merge_output_signals(signals_to_save)
+                    data["signal_count"] = len(data["signals"])
                     save_json(OUTPUT_FILE, data)
 
         elapsed = time.time() - start_time
@@ -2683,7 +2747,8 @@ def main():
     except ImportError:
         pass  # filter_signals not available, skip normalization
 
-    data["signals"] = signals
+    data["signals"] = _merge_output_signals(signals)
+    data["signal_count"] = len(data["signals"])
     if filtered_out_keys or filtered_out_ids:
         data["llm_filter_stats"] = {
             "mode": LLM_FILTER_MODE,
@@ -2713,4 +2778,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    args = _parse_args()
+    main(slugs_filter=args.slugs)

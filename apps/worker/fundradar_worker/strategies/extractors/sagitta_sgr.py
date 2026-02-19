@@ -7,13 +7,59 @@ DOMAIN = "www.sagittasgr.it"
 
 
 
-# URL paths for monitoring - verified against live site
-# Sagitta is a real estate/credit fund manager with product pages
+# URL paths for monitoring.
+# Keep TEAM on the known working path and route NEWS to newsroom pages.
 URLS = {
-    "portfolio": "/prodotti-e-servizi/",
+    "portfolio": None,
     "team": "/chi-siamo/il-team/",
-    "news": None,
+    "news": "/en/newsroom/",
 }
+
+
+def _extract_date_iso(text: str | None) -> str | None:
+    """Extract YYYY-MM-DD from common date formats."""
+    if not text:
+        return None
+    value = text.strip()
+    if re.match(r"^\d{4}-\d{2}-\d{2}$", value):
+        return value
+    if "T" in value and re.match(r"^\d{4}-\d{2}-\d{2}T", value):
+        return value.split("T", 1)[0]
+
+    dmy = re.search(r"(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})", value)
+    if dmy:
+        d, m, y = dmy.groups()
+        return f"{y}-{m.zfill(2)}-{d.zfill(2)}"
+
+    month = re.search(
+        r"(January|February|March|April|May|June|July|August|September|October|November|December)"
+        r"\s+(\d{1,2}),\s*(\d{4})",
+        value,
+        re.IGNORECASE,
+    )
+    if month:
+        month_name, day, year = month.groups()
+        months = {
+            "january": "01",
+            "february": "02",
+            "march": "03",
+            "april": "04",
+            "may": "05",
+            "june": "06",
+            "july": "07",
+            "august": "08",
+            "september": "09",
+            "october": "10",
+            "november": "11",
+            "december": "12",
+        }
+        month_num = months.get(month_name.lower())
+        if month_num:
+            return f"{year}-{month_num}-{day.zfill(2)}"
+
+    return None
+
+
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """
     Extract real estate portfolio assets from Sagitta SGR.
@@ -165,6 +211,31 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     news = []
     seen_titles = set()
 
+    # Detail page fallback.
+    h1 = soup.find("h1")
+    if h1:
+        title = h1.get_text(strip=True)
+        if title and len(title) >= 15:
+            date = None
+            time_el = soup.find("time")
+            if time_el:
+                date = _extract_date_iso(time_el.get("datetime") or time_el.get_text(" ", strip=True))
+            if not date:
+                date = _extract_date_iso(soup.get_text(" ", strip=True))
+
+            summary = None
+            p = soup.find("p")
+            if p:
+                summary = p.get_text(strip=True)[:280] or None
+
+            return [{
+                "title": title,
+                "url": base_url,
+                "date": date,
+                "summary": summary,
+                "confidence": 0.85,
+            }]
+
     date_pattern = re.compile(r"(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})")
 
     for heading in soup.find_all(["h2", "h3"]):
@@ -173,7 +244,9 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             continue
 
         title_lower = title.lower()
-        if any(skip in title_lower for skip in ["news", "sagitta", "menu"]):
+        if title_lower in {"news", "latest news", "menu", "newsroom"}:
+            continue
+        if title_lower in {"sagitta", "sagitta sgr"}:
             continue
 
         if title_lower in seen_titles:
@@ -181,18 +254,28 @@ def extract_news(html: str, base_url: str) -> list[dict]:
         seen_titles.add(title_lower)
 
         url = None
-        parent_link = heading.find_parent("a", href=True)
-        if parent_link:
-            url = urljoin(base_url, parent_link.get("href", ""))
+        child_link = heading.find("a", href=True)
+        if child_link:
+            url = urljoin(base_url, child_link.get("href", ""))
+        else:
+            parent_link = heading.find_parent("a", href=True)
+            if parent_link:
+                url = urljoin(base_url, parent_link.get("href", ""))
 
         date = None
         parent = heading.find_parent(["article", "div"])
         if parent:
-            text = parent.get_text()
-            match = date_pattern.search(text)
-            if match:
-                d, m, y = match.groups()
-                date = f"{y}-{m.zfill(2)}-{d.zfill(2)}"
+            time_el = parent.find("time")
+            if time_el:
+                date = _extract_date_iso(time_el.get("datetime") or time_el.get_text(" ", strip=True))
+            if not date:
+                text = parent.get_text(" ", strip=True)
+                match = date_pattern.search(text)
+                if match:
+                    d, m, y = match.groups()
+                    date = f"{y}-{m.zfill(2)}-{d.zfill(2)}"
+                elif not date:
+                    date = _extract_date_iso(text)
 
         news.append({
             "title": title,

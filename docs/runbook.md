@@ -28,6 +28,15 @@ pnpm pipeline --force-extract
 pnpm pipeline --slugs investindustrial,permira --force-extract
 ```
 
+### Enrich signals for specific funds only
+
+```bash
+pnpm pipeline --step enrich --slugs sagitta-sgr,carlyle
+```
+
+This performs slug-scoped signal enrichment and preserves non-target rows in
+`data/derived/detected_signals_enriched.json`.
+
 ### Filter + enrich only (skip fetching)
 
 ```bash
@@ -63,10 +72,6 @@ python -m fundradar_worker.monitor --force-extract
 | `FUNDRADAR_CIRCUIT_FAILURE_THRESHOLD` | `5` | Failures before circuit opens |
 | `FUNDRADAR_CIRCUIT_COOLDOWN` | `300` | Seconds before circuit half-opens |
 | `PLAYWRIGHT_HEADLESS` | `true` | Run browsers in headless mode |
-| `FUNDRADAR_PLAYWRIGHT_PROXY_SERVER` | unset | Global Playwright proxy server (`http://host:port`) |
-| `FUNDRADAR_PLAYWRIGHT_PROXY_USERNAME` | unset | Global Playwright proxy username |
-| `FUNDRADAR_PLAYWRIGHT_PROXY_PASSWORD` | unset | Global Playwright proxy password |
-| `FUNDRADAR_PLAYWRIGHT_PROXY_BYPASS` | unset | Comma-separated bypass list |
 
 ### Domain-Specific Configuration
 
@@ -77,25 +82,11 @@ Per-domain settings are in `data/derived/domain_policies.json`:
   "www.example.com": {
     "requires_headless": true,
     "ssl_verify": false,
-    "rate_limit_delay": 3.0,
-    "playwright_profile": "cloudflare",
-    "playwright_retry_count": 3,
-    "playwright_random_delay_ms": [250, 900],
-    "playwright_proxy": {
-      "server": "http://proxy.example:8080",
-      "username": "user",
-      "password": "pass",
-      "bypass": ".internal,.local"
-    },
+    "rate_limit_seconds": 3.0,
     "reason": "JS-rendered SPA"
   }
 }
 ```
-
-Notes:
-- These settings are consumed automatically by `pnpm pipeline` and `pnpm worker:monitor` (no extra flags).
-- `playwright_profile` supports `default`, `balanced`, `aggressive`, `cloudflare`, `akamai`.
-- `playwright_proxy` is per-domain and overrides global proxy env vars.
 
 ### Fund-Specific Extractors
 
@@ -158,11 +149,42 @@ python -m fundradar_worker.cli reset-backoff --all
    ```
 3. Re-run: `pnpm pipeline --slugs fund-slug --force-extract`
 
+### Bot-Protected Domain Keeps Returning 403
+
+When a fund domain blocks top-level pages, prefer extractor-level endpoint routing
+instead of monitor/pipeline changes:
+1. Update the fund extractor `URLS` in `apps/worker/fundradar_worker/strategies/extractors/{fund}.py`
+2. Route to deeper endpoints (portfolio detail, newsroom, press archive), public APIs, or scoped RSS fallback feeds when the official site is fully blocked
+3. Add extractor fallback parsing for detail pages / JSON payloads
+4. Re-run only that fund with force extract:
+   ```bash
+   pnpm pipeline --slugs fund-slug --force-extract
+   ```
+
+Current extractor-routed blocked funds:
+- `algebris` (news via scoped RSS fallback)
+- `capital-dynamics-sgr` (news via scoped RSS fallback)
+- `carlyle`
+- `oxy-capital`
+- `sagitta-sgr`
+
+### Actionable Signal Dropped by Filter
+
+If a recent, Italy-relevant signal is missing from `detected_signals_filtered.json`, re-run:
+
+```bash
+pnpm pipeline --step filter
+```
+
+Current strict-type recovery rules include:
+- Creditor/debt-restructuring signals with explicit tagged-fund mention → `debt_financing`
+- "New/additional contributions to <fund>" signals → `fundraise_announced`
+
 ### Rate Limiting / Timeouts
 
 **Fix:** Increase delay in `data/derived/domain_policies.json`:
 ```json
-{ "domain.com": { "rate_limit_delay": 5.0 } }
+{ "domain.com": { "rate_limit_seconds": 5.0 } }
 ```
 
 ### SSL Certificate Errors
@@ -185,15 +207,6 @@ If extraction returns significantly fewer entries than before (< 50% of previous
 ### Web UI Shows Stale Data
 
 Data is cached in-memory with no TTL. After any worker run, restart `pnpm dev`.
-
-### Bot Protection / WAF Challenges
-
-The monitor now detects common anti-bot pages (Cloudflare/Akamai/CAPTCHA markers) and records URL status as `bot_challenge` with longer backoff.
-
-Suggested workflow:
-1. Run `pnpm worker:monitor --slugs fund-slug --force-extract`.
-2. Inspect `data/derived/url_status_report.json` and `data/derived/url_status.json`.
-3. For repeatedly blocked domains, add per-domain Playwright policy fields (`playwright_profile`, `playwright_retry_count`, optional `playwright_proxy`).
 
 ## Common Operations
 

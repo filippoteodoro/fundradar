@@ -126,6 +126,16 @@ Store `monitor_urls.json` as **per entity** allowlist with explicit page types, 
 - Respect canonical URLs; de-duplicate by canonical.
 - Strip tracking params; keep stable query params only when required.
 
+### 3.4 Bot-Blocked Domains (Extractor-Level Routing)
+- If top-level pages are blocked (`403`, WAF challenge), do not change the global pipeline first.
+- Route that fund's extractor `URLS` to known deeper endpoints (press archive, newsroom, portfolio detail) or public JSON API endpoints.
+- Add per-extractor fallback parsing for:
+  - detail pages (`h1`, `time`, canonical URL),
+  - API payloads (JSON),
+  - mixed list/detail layouts.
+- If the official domain is fully blocked, use scoped RSS/Atom feed URLs as extractor `news` endpoints (the monitor generic news parser supports XML feed items).
+- Keep this fund-by-fund and additive: monitor/pipeline behavior stays unchanged.
+
 ---
 
 ## 4) Fetching strategy (minimize bytes, maximize reliability)
@@ -277,10 +287,6 @@ Maintain `domain_policies.json`:
 - `blocked_paths`
 - `preferred_feeds`
 - `known_sitemap_urls`
-- `playwright_profile` (`default|balanced|aggressive|cloudflare|akamai`)
-- `playwright_retry_count`
-- `playwright_random_delay_ms` (2-int array)
-- `playwright_proxy` (`server`, optional `username/password/bypass`)
 
 ---
 

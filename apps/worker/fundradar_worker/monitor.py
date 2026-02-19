@@ -132,26 +132,18 @@ except ImportError:
     QUALITY_MONITOR_AVAILABLE = False
     QualityMonitor = None
     check_and_alert = None
-from .domain_policies import (
-    DomainPolicyRegistry,
-    FetchPolicy,
-    detect_requires_headless,
-    update_domain_policy_headless,
-    detect_bot_protection,
-    BotProtectionDetectionResult,
-)
+from .domain_policies import DomainPolicyRegistry, FetchPolicy, detect_requires_headless, update_domain_policy_headless
 from .fetcher import SnapshotStore, fetch_url, FetchResult
 from .relevance import ItalyRelevanceScorer, RelevanceResult, PageCategory
 
 # Playwright imports - may not be available
 PLAYWRIGHT_AVAILABLE = False
 try:
-    from .playwright_fetcher import PlaywrightFetcher, FetchOptions, PoolConfig, PLAYWRIGHT_AVAILABLE as PW_AVAIL
+    from .playwright_fetcher import PlaywrightFetcher, FetchOptions, PLAYWRIGHT_AVAILABLE as PW_AVAIL
     PLAYWRIGHT_AVAILABLE = PW_AVAIL
 except ImportError:
     PlaywrightFetcher = None
     FetchOptions = None
-    PoolConfig = None
 
 
 @dataclass
@@ -313,7 +305,7 @@ class GracefulShutdown:
         print(f"  Checkpoint saved: {checkpoint_path}")
 
 
-UrlStatusType = Literal["ok", "404", "403", "bot_challenge", "dns_error", "ssl_error", "timeout", "other_error", "unknown"]
+UrlStatusType = Literal["ok", "404", "403", "dns_error", "ssl_error", "timeout", "other_error", "unknown"]
 
 
 class UrlStatusRecord(TypedDict):
@@ -337,7 +329,6 @@ class UrlStatusStore:
     """
 
     BACKOFF_MINUTES = [0, 5, 15, 60, 240, 1440]  # 0, 5min, 15min, 1h, 4h, 24h
-    BOT_BACKOFF_MINUTES = [15, 60, 240, 1440, 2880, 10080]  # 15m, 1h, 4h, 1d, 2d, 7d
 
     def __init__(self, store_path: Path):
         self.store_path = store_path
@@ -375,23 +366,15 @@ class UrlStatusStore:
 
         return datetime.now(timezone.utc) >= datetime.fromisoformat(next_check)
 
-    def update_status(
-        self,
-        url: str,
-        status_code: int | None,
-        error: str | None,
-        bot_detection: "BotProtectionDetectionResult | None" = None,
-    ):
+    def update_status(self, url: str, status_code: int | None, error: str | None):
         """Update the status of a URL after a check."""
         now = datetime.now(timezone.utc)
 
         # Determine status type
-        if bot_detection and bot_detection.is_bot_protected:
-            status_type: UrlStatusType = "bot_challenge"
-        elif error:
+        if error:
             error_lower = error.lower()
             if "timeout" in error_lower:
-                status_type = "timeout"
+                status_type: UrlStatusType = "timeout"
             elif "ssl" in error_lower or "certificate" in error_lower:
                 status_type = "ssl_error"
             elif "dns" in error_lower or "name or service" in error_lower or "getaddrinfo" in error_lower:
@@ -417,25 +400,15 @@ class UrlStatusStore:
         else:
             consecutive_failures = (prev.get("consecutive_failures", 0) if prev else 0) + 1
             # Calculate backoff
-            backoff_table = self.BOT_BACKOFF_MINUTES if status_type == "bot_challenge" else self.BACKOFF_MINUTES
-            backoff_idx = min(consecutive_failures, len(backoff_table) - 1)
-            backoff_minutes = backoff_table[backoff_idx]
+            backoff_idx = min(consecutive_failures, len(self.BACKOFF_MINUTES) - 1)
+            backoff_minutes = self.BACKOFF_MINUTES[backoff_idx]
             next_check_after = (now + timedelta(minutes=backoff_minutes)).isoformat() if backoff_minutes > 0 else None
-
-        error_message = error
-        if bot_detection and bot_detection.is_bot_protected:
-            provider = bot_detection.provider or "unknown"
-            bot_reason = f"Bot protection detected ({provider}, confidence={bot_detection.confidence:.2f})"
-            if error_message:
-                error_message = f"{error_message}; {bot_reason}"
-            else:
-                error_message = bot_reason
 
         self.statuses[url] = {
             "url": url,
             "status": status_type,
             "status_code": status_code,
-            "error_message": error_message,
+            "error_message": error,
             "last_checked_at": now.isoformat(),
             "consecutive_failures": consecutive_failures,
             "next_check_after": next_check_after,
@@ -738,23 +711,40 @@ class PortfolioStore:
         companies = validate_and_clean_portfolio(companies, fund_slug)
 
         existing = self.fund_portfolios.get(fund_slug, [])
-        existing_count = len(existing)
+
+        # Separate signal-derived entries from website-extracted entries for guard calculation.
+        # Signal-derived entries (from signal_to_portfolio.py) are never returned by the website
+        # extractor, so they must be excluded from the count or they inflate existing_count
+        # and cause the 50% guard to falsely trigger.
+        _SIGNAL_PREFIXES = ("signal_", "gemini_", "manual", "pem")
+        existing_website = [
+            e for e in existing
+            if not isinstance(e.get("data_source"), str)
+            or not any(e["data_source"].startswith(p) for p in _SIGNAL_PREFIXES)
+        ]
+        existing_non_website = [
+            e for e in existing
+            if isinstance(e.get("data_source"), str)
+            and any(e["data_source"].startswith(p) for p in _SIGNAL_PREFIXES)
+        ]
+        website_count = len(existing_website)
         new_count = len(companies)
 
         # Guard 1: Never overwrite existing data with empty results
-        if existing_count > 0 and new_count == 0:
+        if website_count > 0 and new_count == 0:
             logger.warning(
                 f"Skipping portfolio update for {fund_slug}: "
-                f"empty results would overwrite {existing_count} existing entries. "
+                f"empty results would overwrite {website_count} existing website entries "
+                f"(+{len(existing_non_website)} signal/manual entries preserved). "
                 f"Website may be down or extractor needs updating."
             )
             return
 
-        # Guard 2: if new count is less than 50% of existing, skip update
-        if existing_count >= 4 and new_count < existing_count * 0.5:
+        # Guard 2: if new count is less than 50% of existing website entries, skip update
+        if website_count >= 4 and new_count < website_count * 0.5:
             logger.warning(
                 f"Skipping portfolio update for {fund_slug}: "
-                f"new count ({new_count}) < 50% of existing ({existing_count}). "
+                f"new count ({new_count}) < 50% of existing website entries ({website_count}). "
                 f"Possible extraction failure."
             )
             return
@@ -817,13 +807,10 @@ class PortfolioStore:
                         if not company.get(field) and old.get(field):
                             company[field] = old[field]
 
-            # Preserve entries that the extractor no longer returns.
-            # - curation_locked: preserve as-is (don't change status)
-            # - signal-derived entries (data_source starts with "signal_"): preserve as-is
-            # - fund_website entries that were "current": mark as "exited" and preserve
-            # - fund_website entries with enrichment: preserve (keep status)
+            # Handle entries that the extractor no longer returns
             for name_key, old_entry in existing_by_name.items():
                 if name_key not in new_name_keys:
+                    # Always preserve curation-locked entries
                     if old_entry.get("curation_locked"):
                         companies.append(old_entry)
                         logger.info(
@@ -832,39 +819,36 @@ class PortfolioStore:
                         )
                         continue
 
-                    data_source = old_entry.get("data_source", "fund_website")
-
-                    # Non-website entries: preserve unchanged.
-                    # Signal-derived, Gemini-enriched, manual entries are independent
-                    # of website extraction — don't mark them as exited.
-                    non_website_sources = (
-                        "signal_", "gemini_", "manual", "pem",
-                    )
-                    if isinstance(data_source, str) and any(
-                        data_source.startswith(prefix) for prefix in non_website_sources
-                    ):
+                    # Always preserve signal-derived / non-website entries
+                    # (they were never on the website, so disappearing from the extractor is expected)
+                    ds = old_entry.get("data_source") or ""
+                    if isinstance(ds, str) and any(ds.startswith(p) for p in _SIGNAL_PREFIXES):
                         companies.append(old_entry)
                         continue
 
-                    # Fund website entries: detect exit
-                    old_status = old_entry.get("status")
+                    # Preserve enriched website entries but mark as exited if they were current
                     has_enrichment = any(
                         old_entry.get(f) for f in ("sector", "headquarters", "description")
                     )
+                    if has_enrichment:
+                        if old_entry.get("status") == "current":
+                            old_entry["status"] = "exited"
+                            logger.info(
+                                f"Exit detected: '{old_entry.get('name')}' for {fund_slug} "
+                                f"(removed from website, marking as exited)"
+                            )
+                        companies.append(old_entry)
 
-                    if old_status == "current":
-                        old_entry["status"] = "exited"
-                        companies.append(old_entry)
-                        logger.info(
-                            f"Exit detected: '{old_entry.get('name')}' for {fund_slug} "
-                            f"(removed from website, status current→exited)"
-                        )
-                    elif has_enrichment:
-                        companies.append(old_entry)
-                        logger.info(
-                            f"Preserved enriched entry '{old_entry.get('name')}' for {fund_slug} "
-                            f"(no longer returned by extractor)"
-                        )
+        # Also append signal-derived entries that weren't in existing_by_name
+        # (shouldn't normally happen, but ensures no signal entries are lost)
+        if existing_non_website:
+            existing_name_keys_in_companies = {
+                (c.get("name") or "").lower().strip() for c in companies
+            }
+            for entry in existing_non_website:
+                nk = (entry.get("name") or "").lower().strip()
+                if nk and nk not in existing_name_keys_in_companies:
+                    companies.append(entry)
 
         self.fund_portfolios[fund_slug] = companies
         if source_url:
@@ -995,25 +979,37 @@ class WebsiteMonitor:
         """Check if shutdown has been requested."""
         return self._shutdown is not None and self._shutdown.should_stop()
 
-    def _build_playwright_pool_config(self, policy: FetchPolicy | None = None) -> "PoolConfig":
-        """Build Playwright pool config from policy (proxy/headless overrides)."""
-        pool_config = PoolConfig()
-        if not policy:
-            return pool_config
+    async def _get_playwright_fetcher(self) -> "PlaywrightFetcher":
+        """Get or create the Playwright fetcher."""
+        if self._playwright_fetcher is None:
+            self._playwright_fetcher = PlaywrightFetcher()
+            await self._playwright_fetcher.start()
+        return self._playwright_fetcher
 
-        if policy.playwright_headless is not None:
-            pool_config.headless = policy.playwright_headless
+    async def _shutdown_playwright(self):
+        """Shut down the Playwright fetcher if running."""
+        if self._playwright_fetcher:
+            await self._playwright_fetcher.stop()
+            self._playwright_fetcher = None
 
-        if policy.playwright_proxy:
-            pool_config.proxy_server = policy.playwright_proxy.get("server")
-            pool_config.proxy_username = policy.playwright_proxy.get("username")
-            pool_config.proxy_password = policy.playwright_proxy.get("password")
-            pool_config.proxy_bypass = policy.playwright_proxy.get("bypass")
+    async def _fetch_with_playwright(
+        self,
+        url: str,
+        page_type: str,
+        fetcher: "PlaywrightFetcher" | None = None,
+    ) -> FetchResult:
+        """
+        Fetch a URL using Playwright headless browser.
 
-        return pool_config
+        Configures fetch options based on page type.
+        Uses site config pagination settings when available (e.g., click-to-load).
+        Enforces PER_URL_TIMEOUT to prevent stalls from scrolling/network-idle waits.
+        """
+        import asyncio as _asyncio
 
-    def _build_playwright_options(self, page_type: str, policy: FetchPolicy | None = None) -> "FetchOptions":
-        """Build page-type-aware Playwright options with optional policy tuning."""
+        fetcher = fetcher or await self._get_playwright_fetcher()
+
+        # Configure options based on page type
         options = FetchOptions(
             wait_for_network_idle=True,
             dismiss_consent=True,
@@ -1031,74 +1027,6 @@ class WebsiteMonitor:
             options.scroll_to_bottom = True
             options.max_scrolls = 2
 
-        if not policy:
-            return options
-
-        profile = (policy.playwright_profile or "default").lower()
-        if profile in ("balanced",):
-            options.random_delay_ms = (150, 700)
-            options.network_idle_timeout = 12000
-        elif profile in ("aggressive", "cloudflare", "akamai"):
-            options.random_delay_ms = (350, 1200)
-            options.wait_for_network_idle = False
-            options.network_idle_timeout = 15000
-            options.wait_for_timeout = 7000
-            options.max_scrolls = max(options.max_scrolls, 6 if page_type in ("portfolio", "investments") else 3)
-
-        if policy.playwright_random_delay_ms:
-            options.random_delay_ms = policy.playwright_random_delay_ms
-
-        options.retry_count = max(1, policy.playwright_retry_count)
-        return options
-
-    def _playwright_fetcher_key(self, policy: FetchPolicy | None = None) -> str:
-        """Build a stable key for per-policy Playwright fetcher reuse."""
-        if not policy:
-            return "default"
-
-        proxy_server = ""
-        proxy_user = ""
-        if policy.playwright_proxy:
-            proxy_server = policy.playwright_proxy.get("server", "")
-            proxy_user = policy.playwright_proxy.get("username", "")
-
-        headless = "default" if policy.playwright_headless is None else str(policy.playwright_headless).lower()
-        return f"profile={policy.playwright_profile}|headless={headless}|proxy={proxy_server}|user={proxy_user}"
-
-    async def _get_playwright_fetcher(self, policy: FetchPolicy | None = None) -> "PlaywrightFetcher":
-        """Get or create the default Playwright fetcher (legacy async path)."""
-        if self._playwright_fetcher is None:
-            self._playwright_fetcher = PlaywrightFetcher(
-                pool_config=self._build_playwright_pool_config(policy)
-            )
-            await self._playwright_fetcher.start()
-        return self._playwright_fetcher
-
-    async def _shutdown_playwright(self):
-        """Shut down the Playwright fetcher if running."""
-        if self._playwright_fetcher:
-            await self._playwright_fetcher.stop()
-            self._playwright_fetcher = None
-
-    async def _fetch_with_playwright(
-        self,
-        url: str,
-        page_type: str,
-        policy: FetchPolicy | None = None,
-        fetcher: "PlaywrightFetcher" | None = None,
-    ) -> FetchResult:
-        """
-        Fetch a URL using Playwright headless browser.
-
-        Configures fetch options based on page type.
-        Uses site config pagination settings when available (e.g., click-to-load).
-        Enforces PER_URL_TIMEOUT to prevent stalls from scrolling/network-idle waits.
-        """
-        import asyncio as _asyncio
-
-        fetcher = fetcher or await self._get_playwright_fetcher(policy)
-        options = self._build_playwright_options(page_type, policy)
-
         try:
             return await _asyncio.wait_for(
                 fetcher.fetch(url, options),
@@ -1111,87 +1039,32 @@ class WebsiteMonitor:
                 content_hash="", error=f"Playwright timeout ({PER_URL_TIMEOUT}s)",
             )
 
-    def _get_thread_playwright(
-        self,
-        policy: FetchPolicy | None = None,
-    ) -> tuple["asyncio.AbstractEventLoop", "PlaywrightFetcher"]:
+    def _get_thread_playwright(self) -> tuple["asyncio.AbstractEventLoop", "PlaywrightFetcher"]:
         """Create or reuse a thread-local Playwright loop and fetcher."""
         import asyncio
 
         state = self._playwright_thread_local
         loop = getattr(state, "loop", None)
-        fetchers = getattr(state, "fetchers", None)
+        fetcher = getattr(state, "fetcher", None)
 
         if loop is None or loop.is_closed():
             loop = asyncio.new_event_loop()
             state.loop = loop
-            state.fetchers = {}
-            fetchers = state.fetchers
 
-        if fetchers is None:
-            fetchers = {}
-            state.fetchers = fetchers
-
-        key = self._playwright_fetcher_key(policy)
-        fetcher = fetchers.get(key)
         if fetcher is None:
-            fetcher = PlaywrightFetcher(
-                pool_config=self._build_playwright_pool_config(policy)
-            )
+            fetcher = PlaywrightFetcher()
             loop.run_until_complete(fetcher.start())
-            fetchers[key] = fetcher
+            state.fetcher = fetcher
             with self._playwright_lock:
                 self._playwright_loops.append(loop)
                 self._playwright_fetchers.append(fetcher)
 
         return loop, fetcher
 
-    def _run_playwright_fetch(
-        self,
-        url: str,
-        page_type: str,
-        policy: FetchPolicy | None = None,
-    ) -> FetchResult:
+    def _run_playwright_fetch(self, url: str, page_type: str) -> FetchResult:
         """Run Playwright fetch on a persistent thread-local event loop."""
-        import time
-
-        loop, fetcher = self._get_thread_playwright(policy)
-        attempts = max(1, policy.playwright_retry_count if policy else 1)
-        last_result: FetchResult | None = None
-
-        for attempt in range(1, attempts + 1):
-            result = loop.run_until_complete(
-                self._fetch_with_playwright(url, page_type, policy=policy, fetcher=fetcher)
-            )
-            last_result = result
-
-            bot_detection = detect_bot_protection(
-                html=result.html,
-                status_code=result.status_code,
-                error=result.error,
-                final_url=result.final_url,
-                log_reasoning=False,
-            )
-            should_retry = attempt < attempts and (
-                bool(result.error)
-                or result.status_code in (0, 403, 429, 503)
-                or bot_detection.is_bot_protected
-            )
-            if not should_retry:
-                return result
-
-            print(f"    Playwright retry {attempt}/{attempts} for {url}")
-            time.sleep(min(2.0, 0.5 * attempt))
-
-        return last_result or FetchResult(
-            url=url,
-            status_code=0,
-            html="",
-            text="",
-            title=None,
-            content_hash="",
-            error="Playwright fetch failed with unknown error",
-        )
+        loop, fetcher = self._get_thread_playwright()
+        return loop.run_until_complete(self._fetch_with_playwright(url, page_type, fetcher=fetcher))
 
     def _should_use_playwright(self, url: str, http_result: FetchResult | None = None) -> tuple[bool, str]:
         """
@@ -1208,21 +1081,6 @@ class WebsiteMonitor:
             return True, f"Domain policy: {policy.reason or 'requires headless'}"
 
         # Check if HTTP result suggests JS-heavy page
-        if http_result:
-            bot_detection = detect_bot_protection(
-                html=http_result.html,
-                status_code=http_result.status_code,
-                error=http_result.error,
-                final_url=http_result.final_url,
-                log_reasoning=False,
-            )
-            if bot_detection.is_bot_protected:
-                provider = bot_detection.provider or "unknown"
-                return True, f"Bot protection detected ({provider})"
-
-            if http_result.status_code in (403, 429, 503):
-                return True, f"HTTP {http_result.status_code} indicates blocking"
-
         if http_result and http_result.html:
             detection = detect_requires_headless(http_result.html)
             if detection.requires_headless:
@@ -1329,7 +1187,7 @@ class WebsiteMonitor:
         if use_playwright:
             print(f"    Using Playwright: {pw_reason}")
             fetch_method = "Playwright"
-            result = self._run_playwright_fetch(monitored.url, monitored.page_type, policy=policy)
+            result = self._run_playwright_fetch(monitored.url, monitored.page_type)
         else:
             # Try HTTP first
             result = fetch_url(
@@ -1341,35 +1199,18 @@ class WebsiteMonitor:
                 retry_count=policy.retry_count,
             )
 
-            # Check if we should fallback to Playwright (JS-heavy and/or anti-bot challenge)
-            # Skip fallback on 304 because we already have a valid cache signal.
-            if result.status_code != 304:
+            # Check if we should fallback to Playwright
+            if result.status_code == 200 and not result.error:
                 use_playwright, pw_reason = self._should_use_playwright(monitored.url, result)
                 if use_playwright:
                     print(f"    Falling back to Playwright: {pw_reason}")
                     fetch_method = "Playwright (fallback)"
-                    result = self._run_playwright_fetch(monitored.url, monitored.page_type, policy=policy)
+                    result = self._run_playwright_fetch(monitored.url, monitored.page_type)
 
         print(f"    Fetch method: {fetch_method}")
 
-        bot_detection = detect_bot_protection(
-            html=result.html,
-            status_code=result.status_code,
-            error=result.error,
-            final_url=result.final_url,
-            log_reasoning=False,
-        )
-        if bot_detection.is_bot_protected:
-            provider = bot_detection.provider or "unknown"
-            print(f"    Bot protection detected: {provider} (confidence {bot_detection.confidence:.2f})")
-
         # Update URL status
-        self.url_status_store.update_status(
-            monitored.url,
-            result.status_code,
-            result.error,
-            bot_detection=bot_detection if bot_detection.is_bot_protected else None,
-        )
+        self.url_status_store.update_status(monitored.url, result.status_code, result.error)
 
         if result.error:
             print(f"    Error: {result.error}")
@@ -2459,33 +2300,18 @@ class WebsiteMonitor:
         """Clean up resources and handlers."""
         # Shutdown Playwright loops/fetchers (thread-local)
         if self._playwright_fetchers:
-            fetcher_loop_pairs = []
             for idx, fetcher in enumerate(self._playwright_fetchers):
                 loop = self._playwright_loops[idx] if idx < len(self._playwright_loops) else None
-                fetcher_loop_pairs.append((fetcher, loop))
-
-            # Stop all fetchers first
-            for fetcher, loop in fetcher_loop_pairs:
                 if not loop or loop.is_closed():
                     continue
                 try:
                     loop.run_until_complete(fetcher.stop())
                 except Exception:
                     pass
-
-            # Then close unique loops once
-            closed = set()
-            for _, loop in fetcher_loop_pairs:
-                if not loop or loop.is_closed():
-                    continue
-                loop_id = id(loop)
-                if loop_id in closed:
-                    continue
                 try:
                     loop.close()
                 except Exception:
                     pass
-                closed.add(loop_id)
             self._playwright_fetchers = []
             self._playwright_loops = []
 
