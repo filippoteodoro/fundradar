@@ -70,11 +70,14 @@ IB_COMPANIES = [
     "banca akros", "equita", "jefferies", "piper sandler",
     # European banks active in Italian M&A market
     "societe generale", "bnp paribas", "credit agricole", "natixis",
-    "nomura", "hsbc", "commerzbank", "ing bank",
+    "nomura", "hsbc", "commerzbank", "ing bank", "abn amro",
+    "rabobank", "ing direct", "raiffeisen", "banca mediolanum",
     # Italian/European IB boutiques
     "houlihan lokey", "lincoln international", "dc advisory",
     "alantra", "oaklins", "banca leonardo", "leonardo & co",
-    "fineurop", "citi", "degroof petercam",
+    "fineurop", "citi", "degroof petercam", "kempen",
+    "intermonte", "banca finnat", "banca akros", "banca imi",
+    "centrobanca", "credito emiliano", "credem",
 ]
 
 PE_COMPANIES = [
@@ -85,6 +88,15 @@ PE_COMPANIES = [
     "xenon", "fondo italiano", "progressio", "mindful capital",
     "dea capital", "quadrivio", "ambienta", "f2i", "trilantic",
     "h.i.g.", "h.i.g capital", "hig capital", "eurazeo", "sagard",
+    # Italian PE/VC funds commonly appearing in professional histories
+    "21 investimenti", "investitori associati", "value partners",
+    "the equity club", "l catterton", "lcatterton",
+    "nb private equity", "nb aurora", "renaissance partners",
+    "verde sgr", "argos wityu", "nuo capital", "palladio",
+    "charme capital", "astorg", "oakley capital", "towerbrook",
+    "portobello capital", "sofinnova", "sofipa",
+    "alter domus", "bridgepoint", "eqt", "apax",
+    "intermediate capital", "icg", "ares management",
 ]
 
 VC_COMPANIES = [
@@ -362,31 +374,58 @@ class ProfileClassifier:
         Returns:
             ClassifiedProfile with background classification
         """
-        # Classify each experience.
-        # Weight: current role = 3, recent past = 2, older = 1.
-        # Board member / non-executive roles at portfolio companies don't signal
-        # professional background — they're an outcome of PE work, so skip them.
-        background_counts: dict[BackgroundType, int] = {}
-        board_titles = {"board member", "member of the board", "board of directors",
-                        "non-executive", "independent director", "consigliere",
-                        "amministratore", "membro del consiglio"}
-        for i, exp in enumerate(profile.experience):
+        # "Background" means career origin — where did this person come from before
+        # joining the fund? Since everyone in our dataset currently works at a PE/VC
+        # fund (company_slug is always set), their current role is a given.
+        # Classifying it as PE would make 100% of people look like PE, hiding the
+        # interesting signal (did they come from IB? consulting? corporate?).
+        # So: when company_slug is set, skip the current fund role from the vote.
+        board_titles = {
+            "board member", "member of the board", "board of directors",
+            "non-executive", "independent director",
+            "consigliere", "amministratore", "membro del consiglio",
+            "vice chairman", "chairman of the board", "of the board",
+        }
+
+        # Words from the fund slug that identify the fund itself in company names.
+        # We only skip the current role if it's at the fund — not all current roles.
+        # (Some professionals have multiple simultaneous "current" roles: portfolio
+        # board seats, advisory roles at other firms, etc.)
+        fund_slug_words: set[str] = set()
+        if profile.company_slug:
+            fund_slug_words = {
+                w for w in profile.company_slug.replace("-", " ").split()
+                if len(w) > 3 and w not in {"sgra", "sgrl", "sicaf", "group", "holding"}
+            }
+
+        # Build the list of experiences that actually inform "background"
+        past_exps = []
+        for exp in profile.experience:
             title_lower = (exp.title or "").lower()
-            # Skip pure board/advisory roles — they are portfolio company seats, not background
-            if any(bt in title_lower for bt in board_titles) and i > 0:
+            company_lower = (exp.company or "").lower()
+
+            # Skip the current role only if it's at the fund itself.
+            if exp.is_current and fund_slug_words:
+                if any(word in company_lower for word in fund_slug_words):
+                    continue
+
+            # Skip board/advisory roles — portfolio company seats, not career background.
+            if any(bt in title_lower for bt in board_titles):
                 continue
-            # Current employer gets strong weight to reflect the person's actual career domain.
-            # Past roles: recent past = 2, older = 1.
-            weight = 5 if exp.is_current else (2 if i <= 2 else 1)
-            # If this is the current role AND we know which fund page this profile came from,
-            # treat the current employer as PE/VC regardless of company name.
-            # All fund slugs in db.json are PE/VC funds.
-            if exp.is_current and profile.company_slug:
-                bg = BackgroundType.PRIVATE_EQUITY
-            else:
-                bg = _classify_experience(exp)
+            past_exps.append(exp)
+
+        background_counts: dict[BackgroundType, int] = {}
+        for i, exp in enumerate(past_exps):
+            # Most recent prior role = highest weight (3), next = 2, older = 1
+            weight = 3 if i == 0 else (2 if i == 1 else 1)
+            bg = _classify_experience(exp)
             if bg:
                 background_counts[bg] = background_counts.get(bg, 0) + weight
+
+        # If no prior experience at all (career began at fund, or only fund listed),
+        # classify as PE since that's their entire professional identity.
+        if not background_counts and profile.company_slug:
+            background_counts[BackgroundType.PRIVATE_EQUITY] = 1
 
         # If no experience data (e.g. basic/headline-only scrape), infer from headline
         if not background_counts and profile.headline:
