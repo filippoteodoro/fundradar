@@ -362,10 +362,12 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
               {/* Legend */}
               <div className="team-analytics-seniority-legend" style={{ display: 'flex', flexDirection: 'column', gap: '6px', flex: 1 }}>
                 {seniorityData.map((d, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: `${CHART_LABEL_FONT_SIZE}px` }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <div className="team-analytics-legend-row" key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: `${CHART_LABEL_FONT_SIZE}px` }}>
+                    <div className="team-analytics-legend-item" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: colorAt(i), display: 'inline-block', flexShrink: 0 }} />
-                      <span style={{ color: '#444' }}>{d.name}</span>
+                      <span className="team-analytics-legend-label" style={{ color: '#444' }} title={d.name}>
+                        {d.name}
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -473,6 +475,24 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
 
           .team-analytics-seniority-legend {
             width: 100% !important;
+          }
+
+          .team-analytics-legend-row {
+            min-width: 0 !important;
+          }
+
+          .team-analytics-legend-item {
+            min-width: 0 !important;
+            flex: 1 !important;
+          }
+
+          .team-analytics-legend-label {
+            display: block !important;
+            min-width: 0 !important;
+            max-width: 100% !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            white-space: nowrap !important;
           }
         }
       `}</style>
