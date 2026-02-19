@@ -8,12 +8,21 @@ Includes auto-detection of JS-heavy sites requiring headless browser.
 import json
 import logging
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
-from typing import TypedDict
+from typing import Any, TypedDict
 from urllib.parse import urlparse
 
 logger = logging.getLogger(__name__)
+
+
+class PlaywrightProxyPolicy(TypedDict, total=False):
+    """Optional per-domain Playwright proxy settings."""
+
+    server: str
+    username: str
+    password: str
+    bypass: str
 
 
 class DomainPolicy(TypedDict, total=False):
@@ -26,6 +35,11 @@ class DomainPolicy(TypedDict, total=False):
     rate_limit_delay: float
     requires_headless: bool
     skip_monitoring: bool
+    playwright_profile: str
+    playwright_retry_count: int
+    playwright_headless: bool
+    playwright_random_delay_ms: list[int]
+    playwright_proxy: PlaywrightProxyPolicy
 
 
 @dataclass
@@ -38,6 +52,11 @@ class FetchPolicy:
     requires_headless: bool = False
     skip_monitoring: bool = False
     reason: str | None = None
+    playwright_profile: str = "default"
+    playwright_retry_count: int = 1
+    playwright_headless: bool | None = None
+    playwright_random_delay_ms: tuple[int, int] | None = None
+    playwright_proxy: dict[str, str] | None = None
 
 
 class DomainPolicyRegistry:
@@ -75,6 +94,55 @@ class DomainPolicyRegistry:
         parsed = urlparse(url)
         return parsed.netloc.lower()
 
+    @staticmethod
+    def _parse_positive_int(value: Any, default: int) -> int:
+        """Parse a positive integer, falling back to default."""
+        try:
+            parsed = int(value)
+            return parsed if parsed > 0 else default
+        except (TypeError, ValueError):
+            return default
+
+    @staticmethod
+    def _normalize_playwright_proxy(raw_proxy: Any) -> dict[str, str] | None:
+        """Validate and normalize playwright_proxy from policy JSON."""
+        if not isinstance(raw_proxy, dict):
+            return None
+
+        server = raw_proxy.get("server")
+        if not isinstance(server, str) or not server.strip():
+            return None
+
+        proxy: dict[str, str] = {"server": server.strip()}
+        for key in ("username", "password", "bypass"):
+            value = raw_proxy.get(key)
+            if isinstance(value, str) and value.strip():
+                proxy[key] = value.strip()
+
+        return proxy
+
+    @staticmethod
+    def _normalize_random_delay(raw_delay: Any) -> tuple[int, int] | None:
+        """Normalize playwright_random_delay_ms to (min_ms, max_ms)."""
+        if raw_delay is None:
+            return None
+
+        if not isinstance(raw_delay, (list, tuple)) or len(raw_delay) != 2:
+            return None
+
+        try:
+            min_ms = int(raw_delay[0])
+            max_ms = int(raw_delay[1])
+        except (TypeError, ValueError):
+            return None
+
+        if min_ms < 0 or max_ms < 0:
+            return None
+        if min_ms > max_ms:
+            min_ms, max_ms = max_ms, min_ms
+
+        return (min_ms, max_ms)
+
     def get_policy(self, url: str) -> FetchPolicy:
         """
         Get the fetch policy for a URL.
@@ -99,6 +167,14 @@ class DomainPolicyRegistry:
         if policy_data:
             merged.update(policy_data)
 
+        playwright_profile = str(merged.get("playwright_profile", "default")).strip().lower() or "default"
+        playwright_retry_count = self._parse_positive_int(merged.get("playwright_retry_count", 1), 1)
+        playwright_headless = merged.get("playwright_headless")
+        if not isinstance(playwright_headless, bool):
+            playwright_headless = None
+        playwright_random_delay_ms = self._normalize_random_delay(merged.get("playwright_random_delay_ms"))
+        playwright_proxy = self._normalize_playwright_proxy(merged.get("playwright_proxy"))
+
         return FetchPolicy(
             timeout=merged.get("timeout", 30),
             ssl_verify=merged.get("ssl_verify", True),
@@ -107,6 +183,11 @@ class DomainPolicyRegistry:
             requires_headless=merged.get("requires_headless", False),
             skip_monitoring=merged.get("skip_monitoring", False),
             reason=merged.get("reason"),
+            playwright_profile=playwright_profile,
+            playwright_retry_count=playwright_retry_count,
+            playwright_headless=playwright_headless,
+            playwright_random_delay_ms=playwright_random_delay_ms,
+            playwright_proxy=playwright_proxy,
         )
 
     def should_skip(self, url: str) -> tuple[bool, str | None]:
@@ -160,6 +241,16 @@ class HeadlessDetectionResult:
     confidence: float  # 0.0 to 1.0
     reasons: list[str]
     framework_detected: str | None = None
+
+
+@dataclass
+class BotProtectionDetectionResult:
+    """Result of anti-bot/WAF challenge detection."""
+
+    is_bot_protected: bool
+    confidence: float  # 0.0 to 1.0
+    provider: str | None = None
+    reasons: list[str] = field(default_factory=list)
 
 
 # Patterns indicating JS-heavy frameworks
@@ -221,6 +312,121 @@ STATIC_HTML_INDICATORS = [
     r"wordpress",  # WordPress typically works without JS
     r"wp-content",
 ]
+
+
+BOT_PROVIDER_PATTERNS: dict[str, list[str]] = {
+    "cloudflare": [
+        r"cloudflare",
+        r"just a moment\.\.\.",
+        r"checking your browser before accessing",
+        r"attention required!\s*\|\s*cloudflare",
+        r"cf-ray",
+        r"challenges\.cloudflare\.com",
+        r"cf-turnstile",
+        r"__cf_bm",
+    ],
+    "akamai": [
+        r"akamai",
+        r"akamai bot manager",
+        r"access denied",
+        r"the requested url was rejected",
+        r"reference #[0-9a-f\.\-]+",
+    ],
+    "perimeterx": [
+        r"perimeterx",
+        r"px-captcha",
+        r"press & hold to confirm",
+    ],
+}
+
+GENERIC_BOT_PATTERNS = [
+    r"why have i been blocked",
+    r"verify you are human",
+    r"are you a robot",
+    r"captcha",
+    r"recaptcha",
+    r"bot detection",
+    r"challenge",
+]
+
+
+def detect_bot_protection(
+    html: str,
+    status_code: int | None = None,
+    error: str | None = None,
+    final_url: str | None = None,
+    log_reasoning: bool = True,
+) -> BotProtectionDetectionResult:
+    """
+    Detect if a response is likely blocked by bot protection/WAF.
+
+    Uses a combination of HTTP status, known provider markers (Cloudflare/Akamai),
+    and generic CAPTCHA/challenge indicators.
+    """
+    html = html or ""
+    reasons: list[str] = []
+    confidence = 0.0
+    provider: str | None = None
+    provider_confidence = 0.0
+
+    if status_code in (403, 429):
+        confidence += 0.25
+        reasons.append(f"HTTP {status_code}")
+    elif status_code == 503:
+        confidence += 0.15
+        reasons.append("HTTP 503")
+
+    if error:
+        error_lower = error.lower()
+        if any(token in error_lower for token in ("forbidden", "blocked", "challenge", "captcha")):
+            confidence += 0.2
+            reasons.append("Error message indicates blocking/challenge")
+
+    html_lower = html.lower()
+    for provider_name, patterns in BOT_PROVIDER_PATTERNS.items():
+        match_count = 0
+        for pattern in patterns:
+            if re.search(pattern, html_lower, re.IGNORECASE):
+                match_count += 1
+        if match_count:
+            score = min(0.8, 0.45 + 0.15 * (match_count - 1))
+            if score > provider_confidence:
+                provider_confidence = score
+                provider = provider_name
+            reasons.append(f"{provider_name} markers ({match_count})")
+
+    generic_matches = 0
+    for pattern in GENERIC_BOT_PATTERNS:
+        if re.search(pattern, html_lower, re.IGNORECASE):
+            generic_matches += 1
+    if generic_matches:
+        confidence += min(0.4, 0.15 * generic_matches)
+        reasons.append(f"Generic bot markers ({generic_matches})")
+
+    if final_url and "challenges.cloudflare.com" in final_url.lower():
+        provider = "cloudflare"
+        provider_confidence = max(provider_confidence, 0.85)
+        reasons.append("Cloudflare challenge redirect")
+
+    # Blend generic/status confidence with provider-specific confidence.
+    confidence = max(confidence, provider_confidence)
+    confidence = min(1.0, confidence)
+
+    is_bot_protected = confidence >= 0.5 and (
+        provider is not None or generic_matches > 0 or status_code in (403, 429)
+    )
+
+    if log_reasoning and is_bot_protected:
+        logger.debug(
+            f"Bot protection detected: provider={provider}, confidence={confidence:.2f}, reasons={reasons}"
+        )
+
+    return BotProtectionDetectionResult(
+        is_bot_protected=is_bot_protected,
+        confidence=confidence,
+        provider=provider,
+        reasons=reasons,
+    )
 
 
 def detect_requires_headless(
@@ -423,4 +629,9 @@ def get_domain_policy(domain_or_url: str) -> dict:
         "requires_headless": policy.requires_headless,
         "skip_monitoring": policy.skip_monitoring,
         "reason": policy.reason,
+        "playwright_profile": policy.playwright_profile,
+        "playwright_retry_count": policy.playwright_retry_count,
+        "playwright_headless": policy.playwright_headless,
+        "playwright_random_delay_ms": policy.playwright_random_delay_ms,
+        "playwright_proxy": policy.playwright_proxy,
     }

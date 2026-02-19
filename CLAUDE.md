@@ -64,10 +64,11 @@ scripts/                      TS seed/parse utilities
 | `pnpm worker:geocode` | Geocode addresses → `fund_coordinates.json` |
 | `pnpm merge-aifi` | Merge AIFI data into `db.json` |
 | `pnpm aifi:full` | AIFI scrape + merge |
-| `pnpm pipeline` | Full: monitor → rss → normalize_sectors → normalize_portfolio → enrich_portfolio → filter → enrich |
+| `pnpm pipeline` | Full: monitor → rss → normalize_sectors → normalize_portfolio → enrich_portfolio → filter → enrich → signal_to_portfolio |
 | `pnpm pipeline --force-extract` | Re-extract even if content unchanged |
 | `pnpm pipeline --slugs s1,s2` | Run for specific fund slugs |
 | `pnpm pipeline:signals` | Filter + enrich only (skip fetching) |
+| `pnpm pipeline:signals-to-portfolio` | Convert deal/exit signals to portfolio entries (standalone) |
 | `pnpm audit:quality` | Fund data quality audit |
 
 ## Critical Rules
@@ -116,7 +117,7 @@ Italy-only funds. Solo project — keep solutions minimal. Avoid over-engineerin
 | LinkedIn URLs | `linkedin/fund_linkedin_urls.json` | merged at load time |
 | Fund coordinates | `fund_coordinates.json` | merged into `db.json` via `merge-aifi` |
 
-Pipeline: `monitor → rss → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini) → filter (quality scoring) → enrich (AI summaries)`
+Pipeline: `monitor → rss → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini) → filter (quality scoring) → enrich (AI summaries) → signal_to_portfolio (Gemini, optional)`
 
 Content hashing skips unchanged pages — use `--force-extract` after updating extractors.
 
@@ -138,7 +139,7 @@ Content hashing skips unchanged pages — use `--force-extract` after updating e
 | `apps/web/src/lib/signals_unified.ts` | Signal loading for `/signals` page |
 | `apps/web/src/lib/signalProcessing.ts` | Shared signal processing (both paths) |
 | `packages/shared/src/types.ts` | Type definitions (Fund, Signal, Deal, DataSource) |
-| `apps/worker/fundradar_worker/pipeline.py` | 7-step orchestration |
+| `apps/worker/fundradar_worker/pipeline.py` | 8-step orchestration |
 | `apps/worker/fundradar_worker/monitor.py` | Main fetch/extract/diff engine |
 | `apps/worker/fundradar_worker/strategies/extractors/` | Fund-specific extractors |
 

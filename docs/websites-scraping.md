@@ -277,6 +277,10 @@ Maintain `domain_policies.json`:
 - `blocked_paths`
 - `preferred_feeds`
 - `known_sitemap_urls`
+- `playwright_profile` (`default|balanced|aggressive|cloudflare|akamai`)
+- `playwright_retry_count`
+- `playwright_random_delay_ms` (2-int array)
+- `playwright_proxy` (`server`, optional `username/password/bypass`)
 
 ---
 

@@ -36,6 +36,11 @@ pnpm worker:geocode        # Geocode fund addresses
 monitor (fetch + extract + diff) → filter (quality scoring) → enrich (AI summaries)
 ```
 
+`pnpm pipeline` and `pnpm worker:monitor` both use `data/derived/domain_policies.json` automatically for:
+- `requires_headless` routing to Playwright
+- per-domain Playwright tuning (`playwright_profile`, `playwright_retry_count`, `playwright_random_delay_ms`)
+- optional per-domain Playwright proxy (`playwright_proxy`)
+
 ### Key Modules
 
 | Module | Purpose |
@@ -51,6 +56,27 @@ monitor (fetch + extract + diff) → filter (quality scoring) → enrich (AI sum
 | `noise_filter.py` | Signal quality scoring |
 | `domain_policies.py` | Per-domain fetch configuration |
 | `io_utils.py` | Atomic file writes, sanitization |
+
+### Playwright Policy Fields (per domain)
+
+```json
+{
+  "example.com": {
+    "requires_headless": true,
+    "playwright_profile": "cloudflare",
+    "playwright_retry_count": 3,
+    "playwright_random_delay_ms": [250, 900],
+    "playwright_proxy": {
+      "server": "http://proxy.example:8080",
+      "username": "user",
+      "password": "pass",
+      "bypass": ".internal,.local"
+    }
+  }
+}
+```
+
+The monitor also detects anti-bot challenge pages and records `bot_challenge` in URL status reports for stronger backoff and triage.
 
 ### Extraction Strategy
 

@@ -45,6 +45,10 @@ class PoolConfig:
     viewport_height: int = 1080
     locale: str = "en-US,it-IT"
     timezone: str = "Europe/Rome"
+    proxy_server: str | None = None
+    proxy_username: str | None = None
+    proxy_password: str | None = None
+    proxy_bypass: str | None = None
 
 
 @dataclass
@@ -99,6 +103,15 @@ class PlaywrightPool:
         # Override headless from environment
         if os.environ.get("PLAYWRIGHT_HEADLESS", "").lower() == "false":
             self.config.headless = False
+
+        # Optional global proxy overrides (used if policy-specific proxy is not set)
+        if not self.config.proxy_server:
+            env_proxy = os.environ.get("FUNDRADAR_PLAYWRIGHT_PROXY_SERVER", "").strip()
+            if env_proxy:
+                self.config.proxy_server = env_proxy
+                self.config.proxy_username = os.environ.get("FUNDRADAR_PLAYWRIGHT_PROXY_USERNAME", "").strip() or None
+                self.config.proxy_password = os.environ.get("FUNDRADAR_PLAYWRIGHT_PROXY_PASSWORD", "").strip() or None
+                self.config.proxy_bypass = os.environ.get("FUNDRADAR_PLAYWRIGHT_PROXY_BYPASS", "").strip() or None
 
     @property
     def is_available(self) -> bool:
@@ -175,19 +188,31 @@ class PlaywrightPool:
 
     async def _create_context(self, browser: "Browser") -> "BrowserContext":
         """Create a new browser context with stealth settings."""
-        context = await browser.new_context(
-            user_agent=self.config.user_agent,
-            viewport={"width": self.config.viewport_width, "height": self.config.viewport_height},
-            locale=self.config.locale,
-            timezone_id=self.config.timezone,
+        context_kwargs = {
+            "user_agent": self.config.user_agent,
+            "viewport": {"width": self.config.viewport_width, "height": self.config.viewport_height},
+            "locale": self.config.locale,
+            "timezone_id": self.config.timezone,
             # Additional stealth settings
-            java_script_enabled=True,
-            ignore_https_errors=False,
-            extra_http_headers={
+            "java_script_enabled": True,
+            "ignore_https_errors": False,
+            "extra_http_headers": {
                 "Accept-Language": "en-US,en;q=0.9,it;q=0.8",
                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
             },
-        )
+        }
+
+        if self.config.proxy_server:
+            proxy: dict[str, str] = {"server": self.config.proxy_server}
+            if self.config.proxy_username:
+                proxy["username"] = self.config.proxy_username
+            if self.config.proxy_password:
+                proxy["password"] = self.config.proxy_password
+            if self.config.proxy_bypass:
+                proxy["bypass"] = self.config.proxy_bypass
+            context_kwargs["proxy"] = proxy
+
+        context = await browser.new_context(**context_kwargs)
 
         # Add stealth scripts to evade detection
         await context.add_init_script("""
@@ -317,6 +342,7 @@ class PlaywrightPool:
                 "total_contexts": total_contexts,
                 "in_use_contexts": in_use_contexts,
                 "max_contexts_per_browser": self.config.max_contexts_per_browser,
+                "proxy_enabled": bool(self.config.proxy_server),
             }
 
     async def __aenter__(self):

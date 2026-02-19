@@ -16,6 +16,7 @@
     "aifi:full": "pnpm worker:aifi && pnpm merge-aifi",
     "pipeline": "cd apps/worker && . .venv/bin/activate && python -m fundradar_worker.pipeline",
     "pipeline:signals": "cd apps/worker && . .venv/bin/activate && python -m fundradar_worker.pipeline --step filter && python -m fundradar_worker.pipeline --step enrich",
+    "pipeline:signals-to-portfolio": "cd apps/worker && . .venv/bin/activate && python3 scripts/signal_to_portfolio.py",
     "worker:geocode": "cd apps/worker && . .venv/bin/activate && python -m fundradar_worker.geocode_funds",
     "worker:linkedin": "cd apps/worker && . .venv/bin/activate && python -m fundradar_worker.linkedin.batch_scraper",
     "gemini:validate": "python3 scripts/validate-gemini-audit-state.py",

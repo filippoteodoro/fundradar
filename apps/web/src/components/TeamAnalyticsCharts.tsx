@@ -301,6 +301,9 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
 
   const hasAverageExperience = analytics.demographics.avg_years_experience > 0;
   const hasAverageTenure = analytics.hiring.avg_tenure_years > 0;
+  const showBackgroundsCard = backgroundsData.length >= 2 && totalBackgrounds >= 5;
+  const showSeniorityCard = seniorityData.length >= 2 && totalSeniority >= 5;
+  const showSchoolsCard = schoolsData.length >= 2 && totalSchools >= 5;
 
   const pctLabel = (v: unknown) => `${v}%`;
   const countLabel = (v: unknown) => `${v}`;
@@ -310,154 +313,145 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
       <div
         className="team-analytics-grid"
         style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
           gap: '24px',
         }}
       >
-        {/* Row 1: Backgrounds | Seniority | Schools */}
-        {backgroundsData.length >= 2 && totalBackgrounds >= 5 && (
-          <HBarCard
-            title="Professional Backgrounds"
-            subtitle={classifiedBackgrounds.length > 6 ? 'top 6' : undefined}
-            data={backgroundsData}
-            yAxisWidth={120}
-            formatLabel={pctLabel}
-          />
-        )}
-
-        {/* Seniority Distribution - Pie Chart */}
-        {seniorityData.length >= 2 && totalSeniority >= 5 && (
-          <div style={CARD_STYLE}>
-            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', margin: '0 0 16px 0' }}>
-              <h3 style={{ ...HEADING_STYLE, margin: 0 }}>
-                Seniority Distribution
-              </h3>
-              {seniorityData.length < Object.values(analytics.seniority).filter(v => v > 0).length && (
-                <span style={{ fontSize: '12px', color: '#999' }}>top {seniorityData.length}</span>
-              )}
-            </div>
-            <div className="team-analytics-seniority-body" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <div className="team-analytics-seniority-chart">
-                <ResponsiveContainer width={180} height={180}>
-                  <PieChart>
-                    <Pie
-                      data={seniorityData}
-                      cx="50%"
-                      cy="50%"
-                      innerRadius={20}
-                      outerRadius={60}
-                      paddingAngle={2}
-                      dataKey="value"
-                      labelLine={false}
-                      label={renderSeniorityLabel}
-                    >
-                      {seniorityData.map((_, index) => (
-                        <Cell key={`cell-${index}`} fill={colorAt(index)} />
-                      ))}
-                    </Pie>
-                  </PieChart>
-                </ResponsiveContainer>
-              </div>
-              {/* Legend */}
-              <div className="team-analytics-seniority-legend" style={{ display: 'flex', flexDirection: 'column', gap: '6px', flex: 1 }}>
-                {seniorityData.map((d, i) => (
-                  <div className="team-analytics-legend-row" key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: `${CHART_LABEL_FONT_SIZE}px` }}>
-                    <div className="team-analytics-legend-item" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: colorAt(i), display: 'inline-block', flexShrink: 0 }} />
-                      <span className="team-analytics-legend-label" style={{ color: '#444' }} title={d.name}>
-                        {d.name}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {(hasAverageExperience || hasAverageTenure) && (
-              <div style={{ marginTop: '18px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {hasAverageExperience && (
-                  <p style={STAT_ROW_STYLE}>
-                    <strong style={{ ...STAT_VALUE_STYLE, minWidth: '88px' }}>
-                      {analytics.demographics.avg_years_experience.toFixed(0)} years
-                    </strong>
-                    <span>average experience</span>
-                  </p>
-                )}
-                {hasAverageTenure && (
-                  <p style={STAT_ROW_STYLE}>
-                    <strong style={{ ...STAT_VALUE_STYLE, minWidth: '88px' }}>
-                      {analytics.hiring.avg_tenure_years.toFixed(1)} years
-                    </strong>
-                    <span>average tenure</span>
-                  </p>
-                )}
-              </div>
-            )}
+        {showBackgroundsCard && (
+          <div className="team-analytics-card" style={{ flex: '0 1 calc((100% - 48px) / 3)' }}>
+            <HBarCard
+              title="Professional Backgrounds"
+              subtitle={classifiedBackgrounds.length > 6 ? 'top 6' : undefined}
+              data={backgroundsData}
+              yAxisWidth={120}
+              formatLabel={pctLabel}
+            />
           </div>
         )}
 
-        {schoolsData.length >= 2 && totalSchools >= 5 && (
-          <HBarCard
-            title="Top Schools"
-            subtitle={allMergedSchools.length > 6 ? 'top 6' : undefined}
-            data={schoolsData}
-            yAxisWidth={140}
-            formatLabel={pctLabel}
-          />
+        {showSeniorityCard && (
+          <div className="team-analytics-card" style={{ flex: '0 1 calc((100% - 48px) / 3)' }}>
+            <div style={CARD_STYLE}>
+              <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', margin: '0 0 16px 0' }}>
+                <h3 style={{ ...HEADING_STYLE, margin: 0 }}>
+                  Seniority Distribution
+                </h3>
+                {seniorityData.length < Object.values(analytics.seniority).filter(v => v > 0).length && (
+                  <span style={{ fontSize: '12px', color: '#999' }}>top {seniorityData.length}</span>
+                )}
+              </div>
+              <div className="team-analytics-seniority-body" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                <div className="team-analytics-seniority-chart">
+                  <ResponsiveContainer width={180} height={180}>
+                    <PieChart>
+                      <Pie
+                        data={seniorityData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={20}
+                        outerRadius={60}
+                        paddingAngle={2}
+                        dataKey="value"
+                        labelLine={false}
+                        label={renderSeniorityLabel}
+                      >
+                        {seniorityData.map((_, index) => (
+                          <Cell key={`cell-${index}`} fill={colorAt(index)} />
+                        ))}
+                      </Pie>
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+                {/* Legend */}
+                <div className="team-analytics-seniority-legend" style={{ display: 'flex', flexDirection: 'column', gap: '6px', flex: 1 }}>
+                  {seniorityData.map((d, i) => (
+                    <div className="team-analytics-legend-row" key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: `${CHART_LABEL_FONT_SIZE}px` }}>
+                      <div className="team-analytics-legend-item" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <span style={{ width: '10px', height: '10px', borderRadius: '2px', background: colorAt(i), display: 'inline-block', flexShrink: 0 }} />
+                        <span className="team-analytics-legend-label" style={{ color: '#444' }} title={d.name}>
+                          {d.name}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {(hasAverageExperience || hasAverageTenure) && (
+                <div style={{ marginTop: '18px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {hasAverageExperience && (
+                    <p style={STAT_ROW_STYLE}>
+                      <strong style={{ ...STAT_VALUE_STYLE, minWidth: '88px' }}>
+                        {analytics.demographics.avg_years_experience.toFixed(0)} years
+                      </strong>
+                      <span>average experience</span>
+                    </p>
+                  )}
+                  {hasAverageTenure && (
+                    <p style={STAT_ROW_STYLE}>
+                      <strong style={{ ...STAT_VALUE_STYLE, minWidth: '88px' }}>
+                        {analytics.hiring.avg_tenure_years.toFixed(1)} years
+                      </strong>
+                      <span>average tenure</span>
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
         )}
 
-        {/* Row 2: Hiring Velocity | Top Majors — centered */}
-        {(hasHiringVelocityData || hasMajorsData) && (
-          <div className="team-analytics-secondary-row" style={{ gridColumn: '1 / -1', display: 'flex', justifyContent: 'center', gap: '24px' }}>
-            {hasHiringVelocityData && (
-              <div className="team-analytics-secondary-card" style={{ flex: '0 1 calc((100% - 48px) / 3)' }}>
-                <HBarCard
-                  title="Hiring Velocity"
-                  data={hiringData}
-                  yAxisWidth={40}
-                  formatLabel={countLabel}
-                />
-              </div>
-            )}
-            {hasMajorsData && (
-              <div className="team-analytics-secondary-card" style={{ flex: '0 1 calc((100% - 48px) / 3)' }}>
-                <HBarCard
-                  title="Top Majors"
-                  subtitle={allMajorsEntries.length > 5 ? 'top 5' : undefined}
-                  data={majorsData}
-                  yAxisWidth={100}
-                  formatLabel={pctLabel}
-                />
-              </div>
-            )}
+        {showSchoolsCard && (
+          <div className="team-analytics-card" style={{ flex: '0 1 calc((100% - 48px) / 3)' }}>
+            <HBarCard
+              title="Top Schools"
+              subtitle={allMergedSchools.length > 6 ? 'top 6' : undefined}
+              data={schoolsData}
+              yAxisWidth={140}
+              formatLabel={pctLabel}
+            />
+          </div>
+        )}
+
+        {hasHiringVelocityData && (
+          <div className="team-analytics-card" style={{ flex: '0 1 calc((100% - 48px) / 3)' }}>
+            <HBarCard
+              title="Hiring Velocity"
+              data={hiringData}
+              yAxisWidth={40}
+              formatLabel={countLabel}
+            />
+          </div>
+        )}
+
+        {hasMajorsData && (
+          <div className="team-analytics-card" style={{ flex: '0 1 calc((100% - 48px) / 3)' }}>
+            <HBarCard
+              title="Top Majors"
+              subtitle={allMajorsEntries.length > 5 ? 'top 5' : undefined}
+              data={majorsData}
+              yAxisWidth={100}
+              formatLabel={pctLabel}
+            />
           </div>
         )}
       </div>
       <style jsx>{`
         @media (max-width: 1100px) {
-          .team-analytics-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-          }
-
-          .team-analytics-secondary-card {
+          .team-analytics-card {
             flex: 1 1 calc((100% - 24px) / 2) !important;
           }
         }
 
         @media (max-width: 768px) {
           .team-analytics-grid {
-            grid-template-columns: 1fr !important;
-            gap: 16px !important;
-          }
-
-          .team-analytics-secondary-row {
             flex-direction: column !important;
-            align-items: stretch !important;
-            justify-content: flex-start !important;
+            flex-wrap: nowrap !important;
             gap: 16px !important;
           }
 
-          .team-analytics-secondary-card {
+          .team-analytics-card {
             flex: 1 1 auto !important;
             width: 100% !important;
           }

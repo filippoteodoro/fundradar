@@ -4,7 +4,7 @@ import { getAllFunds } from '@/lib/data';
 import { SignalsFeed, type FundMeta } from './SignalsFeed';
 
 export const metadata: Metadata = {
-  title: 'Fund Signals',
+  title: 'Signals',
   description: 'Latest signals from Italian PE and VC funds: deals, exits, fundraises, hires, and news — all with source citations.',
   alternates: { canonical: '/signals' },
 };

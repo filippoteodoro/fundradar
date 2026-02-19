@@ -3,7 +3,7 @@ import { getAllFunds } from '@/lib/data';
 import { MapView } from './MapView';
 
 export const metadata: Metadata = {
-  title: 'Fund Map',
+  title: 'Map',
   description: 'Interactive map of investment fund offices across Italy.',
   alternates: { canonical: '/map' },
 };

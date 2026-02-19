@@ -63,6 +63,10 @@ python -m fundradar_worker.monitor --force-extract
 | `FUNDRADAR_CIRCUIT_FAILURE_THRESHOLD` | `5` | Failures before circuit opens |
 | `FUNDRADAR_CIRCUIT_COOLDOWN` | `300` | Seconds before circuit half-opens |
 | `PLAYWRIGHT_HEADLESS` | `true` | Run browsers in headless mode |
+| `FUNDRADAR_PLAYWRIGHT_PROXY_SERVER` | unset | Global Playwright proxy server (`http://host:port`) |
+| `FUNDRADAR_PLAYWRIGHT_PROXY_USERNAME` | unset | Global Playwright proxy username |
+| `FUNDRADAR_PLAYWRIGHT_PROXY_PASSWORD` | unset | Global Playwright proxy password |
+| `FUNDRADAR_PLAYWRIGHT_PROXY_BYPASS` | unset | Comma-separated bypass list |
 
 ### Domain-Specific Configuration
 
@@ -73,11 +77,25 @@ Per-domain settings are in `data/derived/domain_policies.json`:
   "www.example.com": {
     "requires_headless": true,
     "ssl_verify": false,
-    "rate_limit_seconds": 3.0,
+    "rate_limit_delay": 3.0,
+    "playwright_profile": "cloudflare",
+    "playwright_retry_count": 3,
+    "playwright_random_delay_ms": [250, 900],
+    "playwright_proxy": {
+      "server": "http://proxy.example:8080",
+      "username": "user",
+      "password": "pass",
+      "bypass": ".internal,.local"
+    },
     "reason": "JS-rendered SPA"
   }
 }
 ```
+
+Notes:
+- These settings are consumed automatically by `pnpm pipeline` and `pnpm worker:monitor` (no extra flags).
+- `playwright_profile` supports `default`, `balanced`, `aggressive`, `cloudflare`, `akamai`.
+- `playwright_proxy` is per-domain and overrides global proxy env vars.
 
 ### Fund-Specific Extractors
 
@@ -144,7 +162,7 @@ python -m fundradar_worker.cli reset-backoff --all
 
 **Fix:** Increase delay in `data/derived/domain_policies.json`:
 ```json
-{ "domain.com": { "rate_limit_seconds": 5.0 } }
+{ "domain.com": { "rate_limit_delay": 5.0 } }
 ```
 
 ### SSL Certificate Errors
@@ -167,6 +185,15 @@ If extraction returns significantly fewer entries than before (< 50% of previous
 ### Web UI Shows Stale Data
 
 Data is cached in-memory with no TTL. After any worker run, restart `pnpm dev`.
+
+### Bot Protection / WAF Challenges
+
+The monitor now detects common anti-bot pages (Cloudflare/Akamai/CAPTCHA markers) and records URL status as `bot_challenge` with longer backoff.
+
+Suggested workflow:
+1. Run `pnpm worker:monitor --slugs fund-slug --force-extract`.
+2. Inspect `data/derived/url_status_report.json` and `data/derived/url_status.json`.
+3. For repeatedly blocked domains, add per-domain Playwright policy fields (`playwright_profile`, `playwright_retry_count`, optional `playwright_proxy`).
 
 ## Common Operations
 

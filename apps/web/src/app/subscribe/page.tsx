@@ -6,7 +6,7 @@ import { toDisplayType, SIGNAL_TYPE_IMPORTANCE } from '@/lib/signalProcessing';
 import type { UnifiedSignal } from '@/lib/signals_unified';
 
 export const metadata = {
-  title: 'Subscribe — PE & VC Signals',
+  title: 'Subscribe',
   description: 'Get weekly PE & VC signals on Italian deals, exits, fundraises, and key hires for €9/month.',
 };
 

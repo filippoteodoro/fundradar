@@ -3,7 +3,7 @@ import ContactForm from './ContactForm';
 import { CARD_STYLE, CARD_PADDING } from '@/lib/ui';
 
 export const metadata: Metadata = {
-  title: 'About Fundradar',
+  title: 'About',
   description: 'Fundradar is a public, source-cited directory of investment funds active in Italy.',
   alternates: { canonical: '/about' },
 };
