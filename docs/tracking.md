@@ -2,7 +2,8 @@
 
 ## Overview
 
-All tracking runs through **Google Tag Manager (GTM)**. No tracking scripts are hardcoded except the GTM snippet itself.
+Tracking is consent-gated. The app sets default denied consent and only loads optional analytics tags
+after user acceptance in the cookie banner.
 
 ## IDs & Accounts
 
@@ -14,22 +15,25 @@ All tracking runs through **Google Tag Manager (GTM)**. No tracking scripts are 
 
 ## What's Installed
 
-### `apps/web/src/app/layout.tsx`
-Single GTM snippet in `<head>` + noscript fallback in `<body>`. Replaces the old direct `gtag.js` GA4 script.
+### `apps/web/src/components/ConsentManager.tsx`
+- Sets Google consent defaults (`ad_storage`, `analytics_storage`, etc.) to denied
+- Loads GTM only after explicit accept
+- Enables Vercel Analytics only after explicit accept
+- Stores consent in `fundradar_cookie_consent_v1` (6-month validity)
 
 ### Tags in GTM (`GTM-P6LBQD4B`)
 | Tag | Type | Trigger |
 |---|---|---|
-| GA4 - Fundradar | Google Tag (`G-ZK8Z0S6B49`) | Initialization - All Pages |
-| LinkedIn Insight Tag | LinkedIn Insight (`60311`) | All Pages |
+| GA4 - Fundradar | Google Tag (`G-ZK8Z0S6B49`) | Initialization - All Pages (consent-aware) |
+| LinkedIn Insight Tag | LinkedIn Insight (`60311`) | All Pages (consent-aware) |
 | GA4 - Purchase Event | GA4 Event (`purchase`, ecommerce from dataLayer) | Custom Event: `purchase` |
 
 ### `apps/web/src/app/subscribe/success/PurchaseEvent.tsx`
 Client component on the `/subscribe/success` page. Reads `session_id` from the Stripe redirect URL and pushes a `purchase` event to `window.dataLayer` with:
 - `transaction_id`: Stripe `session_id` (prevents duplicate counting on page refresh)
-- `value`: `9.00`
+- `value`: `NEXT_PUBLIC_SUBSCRIPTION_PRICE_EUR` (default `9.00`)
 - `currency`: `EUR`
-- `items`: `[{ item_name: 'Fundradar Weekly Signals', price: 9.00, quantity: 1 }]`
+- `items`: `[{ item_name: 'Fundradar Weekly Signals', price: price, quantity: 1 }]`
 
 ### LinkedIn Conversion
 Configured in LinkedIn Campaign Manager as "Fundradar Subscribe":
@@ -48,7 +52,8 @@ Point the custom domain to the Vercel deployment. Update `NEXT_PUBLIC_BASE_URL` 
 GA4 → Admin → Data Streams → Fundradar → update the stream URL from `fundradar.vercel.app` to the new domain.
 
 ### 3. Google Tag Manager
-GTM → Admin → Fundradar container → update the container URL if prompted. No tag changes needed — tags fire on all domains the GTM snippet is installed on.
+GTM → Admin → Fundradar container → update the container URL if prompted. No tag changes needed.
+Tags fire only for visitors who accepted optional tracking in the cookie banner.
 
 ### 4. LinkedIn Campaign Manager
 - Insight Tag: verify it's detected on the new domain (Settings → Insight Tag)

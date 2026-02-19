@@ -6,6 +6,7 @@
  * - latest_recipients.csv
  * - latest_digest_meta.json
  * - sent_log.json        (unless --dry-run)
+ * - Applies digest-only suppression list from data/digest_unsubscribed_emails.json
  *
  * Selection rule:
  * - Compute an effective signal date:
@@ -146,7 +147,14 @@ interface DigestMeta {
   signals_included: number;
   funds_included: number;
   recipients_active: number;
+  recipients_suppressed: number;
+  recipients_sendable: number;
   dry_run: boolean;
+}
+
+interface SuppressionList {
+  updated_at?: string;
+  emails?: string[];
 }
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -519,6 +527,7 @@ async function loadActiveRecipients(): Promise<string[]> {
     for (const sub of subscriptions.data) {
       const customer = sub.customer;
       if (typeof customer === 'string') continue;
+      if ('deleted' in customer && customer.deleted) continue;
       const email = customer.email;
       if (email) unique.add(email.trim().toLowerCase());
     }
@@ -531,6 +540,24 @@ async function loadActiveRecipients(): Promise<string[]> {
 
   console.log(`  Loaded ${unique.size} active subscribers from Stripe`);
   return Array.from(unique).sort();
+}
+
+function loadSuppressedRecipients(projectRoot: string): Set<string> {
+  const suppressionPath = join(projectRoot, 'data', 'digest_unsubscribed_emails.json');
+  const parsed = loadJsonFile<SuppressionList | string[]>(suppressionPath);
+  if (!parsed) return new Set();
+
+  const rawEmails = Array.isArray(parsed) ? parsed : parsed.emails;
+  if (!Array.isArray(rawEmails)) return new Set();
+
+  const suppressed = new Set<string>();
+  for (const value of rawEmails) {
+    if (typeof value !== 'string') continue;
+    const email = value.trim().toLowerCase();
+    if (!email) continue;
+    suppressed.add(email);
+  }
+  return suppressed;
 }
 
 function loadSignalsFile(derivedDir: string): { filePath: string | null; fileName: string | null; signals: RawSignal[] } {
@@ -919,7 +946,24 @@ function buildDigestText(
     }
   }
 
-  lines.push('- You are receiving this because your Fundradar subscription is active. To manage or cancel your subscription: https://billing.stripe.com/p/login/3cIeVcalm8hwfmz6ac57W00');
+  const billingPortalUrl =
+    process.env.DIGEST_BILLING_PORTAL_URL ||
+    process.env.NEXT_PUBLIC_LEGAL_BILLING_PORTAL_URL ||
+    'https://billing.stripe.com/p/login/3cIeVcalm8hwfmz6ac57W00';
+  const digestUnsubscribeEmail =
+    process.env.DIGEST_UNSUBSCRIBE_EMAIL ||
+    process.env.NEXT_PUBLIC_LEGAL_DIGEST_UNSUBSCRIBE_EMAIL ||
+    process.env.CONTACT_EMAIL ||
+    '';
+
+  lines.push(
+    `- You are receiving this because your Fundradar subscription is active. Billing cancellation: ${billingPortalUrl}`,
+  );
+  if (digestUnsubscribeEmail) {
+    lines.push(
+      `- Digest-only opt-out (without cancelling billing): email ${digestUnsubscribeEmail} with subject "UNSUBSCRIBE".`,
+    );
+  }
 
   return `${lines.join('\n')}\n`;
 }
@@ -943,7 +987,10 @@ async function main(): Promise<void> {
   mkdirSync(digestDir, { recursive: true });
 
   const fundProfiles = loadFundProfiles(projectRoot);
-  const recipients = await loadActiveRecipients();
+  const activeRecipients = await loadActiveRecipients();
+  const suppressedRecipients = loadSuppressedRecipients(projectRoot);
+  const recipients = activeRecipients.filter((email) => !suppressedRecipients.has(email));
+  const suppressedCount = activeRecipients.length - recipients.length;
 
   const loaded = loadSignalsFile(derivedDir);
   const candidates = normalizeCandidates(loaded.signals, windowFrom, windowTo, fundProfiles);
@@ -980,7 +1027,9 @@ async function main(): Promise<void> {
     signals_already_sent: deduped.length - unsent.length,
     signals_included: selectedSignals.length,
     funds_included: selectedGroups.length,
-    recipients_active: recipients.length,
+    recipients_active: activeRecipients.length,
+    recipients_suppressed: suppressedCount,
+    recipients_sendable: recipients.length,
     dry_run: options.dryRun,
   };
 
@@ -1004,7 +1053,9 @@ async function main(): Promise<void> {
   console.log(`  Window matched signals: ${candidates.length}`);
   console.log(`  Included signals: ${selectedSignals.length}`);
   console.log(`  Included funds: ${selectedGroups.length}`);
-  console.log(`  Active recipients: ${recipients.length}`);
+  console.log(`  Active recipients: ${activeRecipients.length}`);
+  console.log(`  Suppressed recipients: ${suppressedCount}`);
+  console.log(`  Sendable recipients: ${recipients.length}`);
   console.log(`  Dry run: ${options.dryRun ? 'yes' : 'no'}`);
 }
 

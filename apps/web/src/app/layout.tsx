@@ -38,6 +38,7 @@ export default function RootLayout({
       <body style={{ margin: 0, fontFamily: 'system-ui, sans-serif', background: '#fafafa' }}>
         <style dangerouslySetInnerHTML={{ __html: `
           .mobile-show { display: none; }
+          .grecaptcha-badge { visibility: hidden !important; }
           @media (max-width: 768px) {
             .hamburger {
               display: block !important;
@@ -119,6 +120,9 @@ export default function RootLayout({
             </Link>
             <Link href="/disclaimer" style={{ color: '#666', textDecoration: 'underline' }}>
               Disclaimer
+            </Link>
+            <Link href="/legal-notice" style={{ color: '#666', textDecoration: 'underline' }}>
+              Legal Notice
             </Link>
           </div>
         </footer>

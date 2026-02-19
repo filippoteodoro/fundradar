@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { LEGAL_BUNDLE_VERSION } from '@/lib/legal';
 
 export function SubscribeForm() {
   const [error, setError] = useState('');
@@ -22,7 +23,12 @@ export function SubscribeForm() {
       const res = await fetch('/api/stripe/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: '{}',
+        body: JSON.stringify({
+          acceptedLegal: true,
+          acceptedLegalVersion: LEGAL_BUNDLE_VERSION,
+          acceptedAt: new Date().toISOString(),
+          acceptedFrom: 'subscribe_page',
+        }),
       });
 
       const data = await res.json();

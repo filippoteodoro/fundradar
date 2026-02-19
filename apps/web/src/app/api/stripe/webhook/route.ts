@@ -31,10 +31,22 @@ export async function POST(request: Request) {
       if (session.mode === 'subscription' && session.customer_email && session.customer && session.subscription) {
         const customerId = typeof session.customer === 'string' ? session.customer : session.customer.id;
         const subscriptionId = typeof session.subscription === 'string' ? session.subscription : session.subscription.id;
+        const metadata = session.metadata || {};
+        const legalAcceptedAt =
+          metadata.legal_accepted_at_server ||
+          metadata.legal_accepted_at_client ||
+          (session.created
+            ? new Date(session.created * 1000).toISOString()
+            : new Date().toISOString());
         createSubscriber({
           email: session.customer_email,
           stripe_customer_id: customerId,
           stripe_subscription_id: subscriptionId,
+          user_id: session.client_reference_id || metadata.legal_user_id || undefined,
+          legal_acceptance_version: metadata.legal_bundle_version || undefined,
+          legal_acceptance_at: legalAcceptedAt || undefined,
+          legal_acceptance_source: metadata.legal_accepted_from || 'stripe_checkout',
+          legal_acceptance_session_id: session.id,
         });
       }
       break;

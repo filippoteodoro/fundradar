@@ -5,6 +5,8 @@ import { loadUnifiedSignals } from '@/lib/signals_unified';
 import { SignalCard } from '@/components/SignalCard';
 import { toDisplayType, SIGNAL_TYPE_IMPORTANCE } from '@/lib/signalProcessing';
 import type { UnifiedSignal } from '@/lib/signals_unified';
+import { LEGAL_BUNDLE_VERSION } from '@/lib/legal';
+import { SUBSCRIPTION_PRICE_EUR } from '@/lib/pricing';
 
 export const metadata = {
   title: 'Subscribe',
@@ -124,6 +126,10 @@ function pickSampleSignals(signals: UnifiedSignal[]): UnifiedSignal[] {
 }
 
 export default async function SubscribePage() {
+  const formattedPrice = Number.isInteger(SUBSCRIPTION_PRICE_EUR)
+    ? SUBSCRIPTION_PRICE_EUR.toString()
+    : SUBSCRIPTION_PRICE_EUR.toFixed(2);
+
   const reviews = [
     {
       quote:
@@ -176,7 +182,7 @@ export default async function SubscribePage() {
             fontWeight: 700,
             color: '#1a1a2e',
           }}>
-            €9
+            €{formattedPrice}
             <span style={{ fontSize: '15px', fontWeight: 400, color: '#888' }}>/month</span>
           </div>
           <p style={{ fontSize: '13px', color: '#888', margin: '4px 0 0 0' }}>Cancel anytime</p>
@@ -227,7 +233,7 @@ export default async function SubscribePage() {
           <Link href="/cookie-policy" style={{ color: '#888', textDecoration: 'underline' }}>
             Cookie Policy
           </Link>
-          .
+          . Legal bundle version: {LEGAL_BUNDLE_VERSION}.
         </p>
       </div>
 

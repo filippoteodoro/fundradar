@@ -26,7 +26,8 @@
     "slug:cleanup:dry": "python3 scripts/cleanup-derived-slug-artifacts.py",
     "slug:cleanup:derived": "python3 scripts/cleanup-derived-slug-artifacts.py --apply",
     "audit:quality": "pnpm -F scripts audit-quality",
-    "digest:build": "pnpm -F scripts digest:build"
+    "digest:build": "pnpm -F scripts digest:build",
+    "digest:suppress": "pnpm -F scripts digest:suppress"
   },
   "devDependencies": {
     "typescript": "^5.3.3"

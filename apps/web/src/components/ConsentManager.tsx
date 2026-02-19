@@ -142,6 +142,7 @@ export function ConsentManager() {
       {showBanner && (
         <div style={{
           position: 'fixed',
+          left: '16px',
           right: '16px',
           bottom: '16px',
           zIndex: 3000,
@@ -150,12 +151,15 @@ export function ConsentManager() {
           borderRadius: '12px',
           padding: '12px',
           boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
-          width: 'min(360px, calc(100vw - 32px))',
+          width: 'auto',
+          maxWidth: '360px',
+          marginLeft: 'auto',
+          boxSizing: 'border-box',
         }}>
           <p style={{ margin: '0 0 8px 0', fontSize: '12px', fontWeight: 700, color: '#333' }}>
             {bannerTitle}
           </p>
-          <p style={{ margin: '0 0 10px 0', fontSize: '12px', color: '#555', lineHeight: 1.45 }}>
+          <p style={{ margin: '0 0 10px 0', fontSize: '12px', color: '#555', lineHeight: 1.45, overflowWrap: 'anywhere' }}>
             We use essential cookies plus optional analytics and conversion tracking. See our{' '}
             <Link href="/cookie-policy" style={{ color: '#0066cc', textDecoration: 'underline' }}>
               Cookie Policy

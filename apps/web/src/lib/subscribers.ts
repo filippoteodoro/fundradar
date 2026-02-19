@@ -17,6 +17,10 @@ export interface Subscriber {
   subscribed_at: string;
   cancelled_at: string | null;
   user_id: string | null;
+  legal_acceptance_version: string | null;
+  legal_acceptance_at: string | null;
+  legal_acceptance_source: string | null;
+  legal_acceptance_session_id: string | null;
 }
 
 interface SubscriberStore {
@@ -62,6 +66,10 @@ export function createSubscriber(data: {
   stripe_customer_id: string;
   stripe_subscription_id: string;
   user_id?: string;
+  legal_acceptance_version?: string;
+  legal_acceptance_at?: string;
+  legal_acceptance_source?: string;
+  legal_acceptance_session_id?: string;
 }): Subscriber {
   const store = loadStore();
 
@@ -74,6 +82,10 @@ export function createSubscriber(data: {
     existing.subscribed_at = new Date().toISOString();
     existing.cancelled_at = null;
     if (data.user_id) existing.user_id = data.user_id;
+    if (data.legal_acceptance_version) existing.legal_acceptance_version = data.legal_acceptance_version;
+    if (data.legal_acceptance_at) existing.legal_acceptance_at = data.legal_acceptance_at;
+    if (data.legal_acceptance_source) existing.legal_acceptance_source = data.legal_acceptance_source;
+    if (data.legal_acceptance_session_id) existing.legal_acceptance_session_id = data.legal_acceptance_session_id;
     saveStore(store);
     return existing;
   }
@@ -87,6 +99,10 @@ export function createSubscriber(data: {
     subscribed_at: new Date().toISOString(),
     cancelled_at: null,
     user_id: data.user_id ?? null,
+    legal_acceptance_version: data.legal_acceptance_version ?? null,
+    legal_acceptance_at: data.legal_acceptance_at ?? null,
+    legal_acceptance_source: data.legal_acceptance_source ?? null,
+    legal_acceptance_session_id: data.legal_acceptance_session_id ?? null,
   };
 
   store.subscribers.push(subscriber);
