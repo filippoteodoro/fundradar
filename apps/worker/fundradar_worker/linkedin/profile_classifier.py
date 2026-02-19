@@ -279,6 +279,60 @@ def _get_seniority(title: str) -> SeniorityLevel:
     return SeniorityLevel.OTHER
 
 
+def is_investment_relevant(profile: "LinkedInProfile") -> bool:
+    """
+    Return False for support staff who are not relevant to investors/fund analytics:
+    IT staff, HR, admin, secretaries, office managers.
+
+    Investor relations, compliance, ESG, CFO, and all investment roles are kept.
+    """
+    # Get the person's current title
+    current_exp = next((e for e in profile.experience if e.is_current), None)
+    title = ((current_exp.title if current_exp else None) or profile.headline or "").lower()
+
+    if not title or title.strip() in ("--", ""):
+        return True  # No title info — keep by default
+
+    # --- Exclude: IT and tech support ---
+    it_patterns = [
+        r"\bit\b.*(manager|director|specialist|operations|program|infrastructure|advisor|coordinator)",
+        r"(helpdesk|help desk|sysadmin|system admin|network admin)",
+        r"software engineer",
+        r"\bprogrammer\b",
+    ]
+    if any(re.search(p, title) for p in it_patterns):
+        return False
+
+    # --- Exclude: HR and talent ---
+    hr_patterns = [
+        r"\b(human resources?|risorse umane)\b",
+        r"\bhr\s+(manager|director|specialist|partner|coordinator)\b",
+        r"(talent acquisition|talent management)",
+        r"\brecruiter\b",
+        r"\brecruiting\b",
+        r"responsabile.*risorse umane",
+        r"sviluppo risorse umane",
+    ]
+    if any(re.search(p, title) for p in hr_patterns):
+        return False
+
+    # --- Exclude: admin and secretarial ---
+    admin_patterns = [
+        r"\bsegretari[ao]\b",           # segretaria, segretario
+        r"segreteria",
+        r"\breception(ist)?\b",
+        r"assistente (amministrativ|di direzione|di team)",
+        r"(administrative|executive) assistant",
+        r"personal assistant",
+        r"\boffice manager\b",
+        r"impiegat[ao].*amministra",     # impiegata area amministrazione
+    ]
+    if any(re.search(p, title) for p in admin_patterns):
+        return False
+
+    return True
+
+
 def _classify_education(education: list[Education]) -> str | None:
     """Classify education tier."""
     for edu in education:

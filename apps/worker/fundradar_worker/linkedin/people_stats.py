@@ -19,6 +19,7 @@ from .profile_classifier import (
     ClassifiedProfile,
     BackgroundType,
     SeniorityLevel,
+    is_investment_relevant,
 )
 
 logger = logging.getLogger(__name__)
@@ -191,8 +192,12 @@ class PeopleStatsCalculator:
         Returns:
             FundPeopleStats with aggregated statistics
         """
+        # Filter out non-investment-relevant profiles (IT, HR, admin, secretaries)
+        # before classification — they skew background and seniority analytics.
+        relevant_profiles = [p for p in profiles if is_investment_relevant(p)]
+
         # Classify profiles
-        classified = self.classifier.classify_batch(profiles)
+        classified = self.classifier.classify_batch(relevant_profiles)
 
         # Count seniority levels
         seniority_counts = {level: 0 for level in SeniorityLevel}
@@ -255,14 +260,14 @@ class PeopleStatsCalculator:
             background_other=background_counts[BackgroundType.OTHER],
 
             # Education
-            education_schools=_extract_school_counts(profiles),
-            top_degrees=_extract_degree_counts(profiles),
+            education_schools=_extract_school_counts(relevant_profiles),
+            top_degrees=_extract_degree_counts(relevant_profiles),
             top_mba_count=top_mba,
             top_undergrad_count=top_undergrad,
 
             # Hiring
-            new_hires_last_6mo=_count_new_hires(employees, profiles, months=6),
-            new_hires_last_12mo=_count_new_hires(employees, profiles, months=12),
+            new_hires_last_6mo=_count_new_hires(employees, relevant_profiles, months=6),
+            new_hires_last_12mo=_count_new_hires(employees, relevant_profiles, months=12),
             avg_tenure_years=_calculate_avg_tenure(classified),
 
             # Demographics
