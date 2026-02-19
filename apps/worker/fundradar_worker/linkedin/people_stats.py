@@ -64,6 +64,7 @@ class FundPeopleStats:
     # Hiring patterns
     new_hires_last_6mo: int = 0
     new_hires_last_12mo: int = 0
+    new_hires_last_24mo: int = 0
     avg_tenure_years: float | None = None
 
     # Demographics
@@ -268,6 +269,7 @@ class PeopleStatsCalculator:
             # Hiring
             new_hires_last_6mo=_count_new_hires(employees, relevant_profiles, months=6),
             new_hires_last_12mo=_count_new_hires(employees, relevant_profiles, months=12),
+            new_hires_last_24mo=_count_new_hires(employees, relevant_profiles, months=24),
             avg_tenure_years=_calculate_avg_tenure(classified),
 
             # Demographics

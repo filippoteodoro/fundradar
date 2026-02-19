@@ -1458,8 +1458,7 @@ function normalizeTeamAnalytics(raw: Record<string, unknown>): TeamAnalytics {
     seniority,
     hiring: {
       new_hires_last_1y: (raw.new_hires_last_12mo as number) || 0,
-      // No 24-month data in flat format — set equal to 1y so the aggregate 2y-1y bar stays 0 (not negative)
-      new_hires_last_2y: (raw.new_hires_last_12mo as number) || 0,
+      new_hires_last_2y: (raw.new_hires_last_24mo as number) || 0,
       avg_tenure_years: (raw.avg_tenure_years as number) || 0,
     },
     demographics: {
