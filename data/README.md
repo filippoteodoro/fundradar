@@ -9,6 +9,7 @@ data/
 ├── db.json              # Main fund database (JSON format)
 ├── users.json           # User accounts
 ├── watchlists.json      # User watchlists
+├── compliance/          # Compliance trackers/templates (DSAR, incidents, processors)
 ├── pem/                 # PEM PDF source files (DO NOT read directly)
 ├── derived/             # Processed/derived data from workers
 │   ├── monitor_urls*.json    # URLs being monitored
@@ -23,3 +24,4 @@ data/
 2. **derived/ is the source of truth** - Workers write here, web app reads from here
 3. **Don't commit large data files** - Only schema files and samples
 4. **Backup before destructive operations** - Use `/backups/` folder
+5. **Track compliance operations** - Use files under `data/compliance/` for DSAR and incident evidence

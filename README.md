@@ -42,6 +42,7 @@ fundradar/
 ├── scripts/           # TS seed/utility scripts
 ├── data/
 │   ├── db.json        # Fund directory (source of truth)
+│   ├── compliance/    # DSAR/incident/processor compliance trackers
 │   ├── pem/           # PEM PDF source files
 │   ├── derived/       # Worker output (JSON consumed by web)
 │   └── AIFI/          # AIFI scraped data
@@ -65,6 +66,8 @@ fundradar/
 | `pnpm worker:aifi` | Scrape AIFI member data |
 | `pnpm worker:geocode` | Geocode fund addresses |
 | `pnpm audit:quality` | Run fund data quality audit |
+| `pnpm digest:build` | Build weekly digest outputs |
+| `pnpm digest:suppress` | Manage digest-only unsubscribe/suppression list |
 
 ## Deployment
 
@@ -113,3 +116,6 @@ playwright install chromium
 - `apps/worker/CLAUDE.md` — worker specifics (extraction, pipeline)
 - `docs/data-flow.md` — data pipeline and source hierarchy
 - `docs/runbook.md` — operations and troubleshooting
+- `docs/compliance-dsar-runbook.md` — GDPR request handling workflow
+- `docs/compliance-incident-response.md` — privacy/security incident workflow
+- `docs/compliance-processor-register.md` — processor register governance

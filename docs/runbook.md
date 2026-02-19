@@ -2,6 +2,11 @@
 
 Operations and troubleshooting for the Fundradar scraping worker.
 
+For legal/compliance operations, use:
+- `docs/compliance-dsar-runbook.md`
+- `docs/compliance-incident-response.md`
+- `docs/compliance-processor-register.md`
+
 ## Prerequisites
 
 - Python 3.11+
@@ -105,6 +110,15 @@ Recent fund-specific update:
   - `news`: `https://www.eiffel-ig.com/en/news/`, `https://www.eiffel-ig.com/actualites/`
   - extractor reads embedded `__FRONTITY_CONNECT_STATE__` JSON (works even when content is JS-app rendered)
   - `portfolio`: intentionally `None` (no stable public company-level portfolio grid)
+- `arca-space-capital` now has routed team/news coverage on Space Capital:
+  - `team`: `https://www.spacecapital.it/it/investment-team.html`, `https://www.spacecapital.it/it/industry-specialist.html`
+  - `news`: `https://www.spacecapital.it/it/news/index.html`, `https://www.spacecapital.it/en/news/index.html`
+  - extractor now includes a custom `news` parser (module-card + fallback link extraction)
+- `hat-sicaf` no longer relies on iframe wrapper HTML:
+  - monitored URLs remain on `www.hatsicaf.it` for correct slug mapping
+  - extractor resolves underlying `hat.it` pages for `portfolio`, `team`, and `news`
+  - module sets `ALWAYS_EXTRACT = True` because wrapper HTML is mostly static
+  - parser uses live target fetch first, then local snapshot cache fallback
 
 ## Monitoring
 

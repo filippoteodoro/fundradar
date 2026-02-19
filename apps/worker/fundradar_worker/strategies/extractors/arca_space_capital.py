@@ -15,9 +15,82 @@ DOMAIN = "www.spacecapital.it"
 # URL paths — verified against live site
 URLS = {
     "portfolio": "/it/portfolio-investments.html",
-    "team": None,
-    "news": None,
+    "team": [
+        "/it/investment-team.html",
+        "/it/industry-specialist.html",
+    ],
+    "news": [
+        "/it/news/index.html",
+        "/en/news/index.html",
+    ],
 }
+
+
+_NEWS_SKIP_TITLES = {
+    "news",
+    "contatti",
+    "contacts",
+    "contact",
+    "team",
+    "portfolio investments",
+}
+
+_NEWS_SKIP_FRAGMENTS = ("scopri di", "read more", "leggi", "discover")
+
+_NEWS_DATE_RE = re.compile(
+    r"\b(?:\d{1,2}[/-]\d{1,2}[/-]\d{2,4}|"
+    r"\d{1,2}\s+(?:gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|"
+    r"settembre|ottobre|novembre|dicembre|january|february|march|april|may|june|"
+    r"july|august|september|october|november|december)\s+\d{4})\b",
+    re.IGNORECASE,
+)
+
+
+def _normalize_text(text: str | None) -> str:
+    return re.sub(r"\s+", " ", text or "").strip()
+
+
+def _is_valid_news_title(title: str) -> bool:
+    normalized = _normalize_text(title)
+    lower = normalized.lower()
+    if not normalized or len(normalized) < 14:
+        return False
+    if len(normalized.split()) < 3:
+        return False
+    if lower in _NEWS_SKIP_TITLES:
+        return False
+    if any(fragment in lower for fragment in _NEWS_SKIP_FRAGMENTS):
+        return False
+    return True
+
+
+def _extract_news_date(node) -> str | None:
+    time_el = node.select_one("time")
+    if time_el:
+        dt = _normalize_text(time_el.get("datetime"))
+        if dt:
+            return dt
+        txt = _normalize_text(time_el.get_text(" ", strip=True))
+        if txt:
+            return txt
+
+    for date_sel in [".date", ".news-date", ".cnt__date", ".meta", ".post-meta"]:
+        el = node.select_one(date_sel)
+        if el:
+            txt = _normalize_text(el.get_text(" ", strip=True))
+            if txt:
+                match = _NEWS_DATE_RE.search(txt)
+                if match:
+                    return match.group(0)
+                return txt
+
+    text = _normalize_text(node.get_text(" ", strip=True))
+    match = _NEWS_DATE_RE.search(text)
+    if match:
+        return match.group(0)
+    return None
+
+
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """Extract portfolio companies from Space Capital portfolio investments page.
 
@@ -118,14 +191,14 @@ def extract_team(html: str, base_url: str) -> list[dict]:
     soup = BeautifulSoup(html, "html.parser")
     members = []
 
-    # Each team member is in div.mod05 or div.mod05.mod05-2
+    # Team pages are module-based blocks with an image + body.
     for item in soup.select("div.mod05"):
-        # Get name from h2.cnt__title
-        name_el = item.select_one("h2.cnt__title")
+        # Get name from heading
+        name_el = item.select_one("h2.cnt__title, h2, h3, h4")
         if not name_el:
             continue
 
-        name = name_el.get_text(strip=True)
+        name = _normalize_text(name_el.get_text(" ", strip=True))
         if not name or len(name) < 3:
             continue
 
@@ -138,7 +211,7 @@ def extract_team(html: str, base_url: str) -> list[dict]:
             if first_p:
                 strong = first_p.find("strong")
                 if strong:
-                    title = strong.get_text(strip=True)
+                    title = _normalize_text(strong.get_text(" ", strip=True))
 
         # Determine role category from title
         role = None
@@ -178,7 +251,89 @@ def extract_team(html: str, base_url: str) -> list[dict]:
     return members
 
 
+def extract_news(html: str, base_url: str) -> list[dict]:
+    """Extract news entries from Space Capital news pages."""
+    soup = BeautifulSoup(html, "html.parser")
+    news = []
+    seen_titles = set()
+
+    main = (
+        soup.select_one("main article#cnt")
+        or soup.select_one("article#cnt")
+        or soup.select_one("main")
+        or soup
+    )
+
+    # Prefer explicit cards, then fallback to generic article blocks.
+    cards = main.select(
+        "article.news-item, .news-item, .news-list article, .mod05, article"
+    )
+
+    for card in cards:
+        heading = card.select_one("h1, h2, h3, h4, .cnt__title, .title")
+        link = None
+        if heading:
+            title = _normalize_text(heading.get_text(" ", strip=True))
+            link = heading.select_one("a[href]") or card.select_one("a[href]")
+        else:
+            link = card.select_one("a[href]")
+            title = _normalize_text(link.get_text(" ", strip=True)) if link else ""
+
+        if not _is_valid_news_title(title):
+            continue
+
+        title_key = title.lower()
+        if title_key in seen_titles:
+            continue
+        seen_titles.add(title_key)
+
+        href = _normalize_text(link.get("href")) if link else ""
+        url = urljoin(base_url, href) if href else None
+
+        summary = None
+        for paragraph in card.select("p"):
+            text = _normalize_text(paragraph.get_text(" ", strip=True))
+            if not text or text.lower() == title_key:
+                continue
+            if any(fragment in text.lower() for fragment in _NEWS_SKIP_FRAGMENTS):
+                continue
+            summary = text[:500]
+            break
+
+        news.append({
+            "title": title,
+            "url": url,
+            "date": _extract_news_date(card),
+            "summary": summary,
+            "confidence": 0.82,
+        })
+
+    # Last-chance fallback for sparse templates.
+    if not news:
+        for link in main.select("a[href*='/news/']"):
+            title = _normalize_text(link.get_text(" ", strip=True))
+            if not _is_valid_news_title(title):
+                continue
+            title_key = title.lower()
+            if title_key in seen_titles:
+                continue
+            seen_titles.add(title_key)
+            href = _normalize_text(link.get("href"))
+            if not href:
+                continue
+            news.append({
+                "title": title,
+                "url": urljoin(base_url, href),
+                "date": None,
+                "summary": None,
+                "confidence": 0.7,
+            })
+
+    return news
+
+
 EXTRACTORS = {
     "portfolio": extract_portfolio,
     "team": extract_team,
+    "news": extract_news,
 }

@@ -24,6 +24,15 @@
 | `fund-quality-optimization-workflow.md` | Quality optimization process |
 | `digest-runbook.md` | Weekly digest generation + manual send workflow |
 
+## Compliance Docs
+
+| Document | Purpose |
+|----------|---------|
+| `compliance-dsar-runbook.md` | GDPR data-subject request handling workflow |
+| `compliance-incident-response.md` | Privacy/security breach response workflow |
+| `compliance-processor-register.md` | Processor register governance and review rules |
+| `legal-governance-checklist.md` | Ongoing legal/compliance maintenance checklist |
+
 ## Subagent Prompts
 
 | Document | Purpose |
