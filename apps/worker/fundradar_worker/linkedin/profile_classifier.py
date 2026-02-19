@@ -7,6 +7,7 @@ and extracts structured data for people analytics.
 
 import logging
 import re
+import unicodedata
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
@@ -68,16 +69,23 @@ IB_COMPANIES = [
     "moelis", "centerview", "perella weinberg", "rothschild",
     "mediobanca", "banca imi", "intesa sanpaolo", "unicredit",
     "banca akros", "equita", "jefferies", "piper sandler",
+    # Defunct IB firms (still common in senior professionals' histories)
+    "lehman brothers", "bear stearns", "dresdner", "wachovia",
+    "banca commerciale italiana", "banca caboto",
     # European banks active in Italian M&A market
     "societe generale", "bnp paribas", "credit agricole", "natixis",
     "nomura", "hsbc", "commerzbank", "ing bank", "abn amro",
     "rabobank", "ing direct", "raiffeisen", "banca mediolanum",
+    "ubi banca", "banco bpm", "mps", "monte dei paschi",
+    "banca sella", "sella bank", "sella group", "ersel",
+    "banca popolare di milano", "banca popolare di sondrio",
     # Italian/European IB boutiques
     "houlihan lokey", "lincoln international", "dc advisory",
     "alantra", "oaklins", "banca leonardo", "leonardo & co",
     "fineurop", "citi", "degroof petercam", "kempen",
-    "intermonte", "banca finnat", "banca akros", "banca imi",
+    "intermonte", "banca finnat",
     "centrobanca", "credito emiliano", "credem",
+    "ing direct", "raiffeisen",
 ]
 
 PE_COMPANIES = [
@@ -87,16 +95,29 @@ PE_COMPANIES = [
     "clessidra", "peninsula", "nb renaissance", "wise equity", "alcedo",
     "xenon", "fondo italiano", "progressio", "mindful capital",
     "dea capital", "quadrivio", "ambienta", "f2i", "trilantic",
-    "h.i.g.", "h.i.g capital", "hig capital", "eurazeo", "sagard",
-    # Italian PE/VC funds commonly appearing in professional histories
-    "21 investimenti", "investitori associati", "value partners",
+    "h.i.g.", "hig capital", "eurazeo", "sagard",
+    # Italian PE/VC funds from our DB (common in senior professionals' histories)
+    "21 invest", "21investimenti", "investitori associati", "value partners",
     "the equity club", "l catterton", "lcatterton",
     "nb private equity", "nb aurora", "renaissance partners",
     "verde sgr", "argos wityu", "nuo capital", "palladio",
     "charme capital", "astorg", "oakley capital", "towerbrook",
     "portobello capital", "sofinnova", "sofipa",
-    "alter domus", "bridgepoint", "eqt", "apax",
+    "bridgepoint", "eqt", "apax",
     "intermediate capital", "icg", "ares management",
+    # More Italian/European PE funds frequently in backgrounds
+    "fsi investimenti", "fsi sgr", "fsi", "algebris",
+    "invitalia",  # Italian public investment agency — in our DB
+    "neuberger berman", "nb investment",
+    "finint investments", "finint",
+    "axon partners", "wrm group", "wrm capital",
+    "green arrow capital", "green arrow",
+    "claris ventures", "oltre impact",
+    "friulia", "antin infrastructure",
+    "europa investimenti", "ethica corporate finance",
+    "aurora growth capital", "aurora growth",
+    "prelios", "castello sgr",
+    "alter domus",  # fund admin — borderline but PE-adjacent
 ]
 
 VC_COMPANIES = [
@@ -112,11 +133,27 @@ CONSULTING_COMPANIES = [
     "roland berger", "oliver wyman", "strategy&", "at kearney",
     "kearney", "lep", "arthur d. little", "simon-kucher",
     "monitor deloitte", "pa consulting", "capgemini", "ibm consulting",
+    "alixpartners", "prometeia", "zeb consulting",
+    "marsh & mclennan", "mercer", "willis towers watson",
+    "the boston consulting group",
 ]
 
 BIG_FOUR = [
     "deloitte", "pwc", "pricewaterhousecoopers", "ey", "ernst & young",
     "kpmg", "accenture",
+    "arthur andersen",  # defunct Big Four
+    "grant thornton", "bdo", "mazars", "crowe",
+]
+
+LAW_FIRMS = [
+    "allen & overy", "allen and overy",
+    "clifford chance", "freshfields", "linklaters", "slaughter and may",
+    "hogan lovells", "white & case", "cleary gottlieb",
+    "latham & watkins", "skadden", "kirkland & ellis",
+    "gianni origoni", "dla piper", "bird & bird",
+    "bonelli erede", "chiomenti", "gattai", "lombardi",
+    "pedersoli", "legance", "dla", "nctm",
+    "studio legale", "law firm",
 ]
 
 # Top MBA programs
@@ -188,11 +225,21 @@ FEMALE_NAMES = [
 ]
 
 
+def _normalize_company(name: str) -> str:
+    """Normalize company name for matching: lowercase, strip accents, remove dots."""
+    # Strip accents: Crédit → Credit, José → Jose
+    nfkd = unicodedata.normalize("NFKD", name)
+    ascii_name = nfkd.encode("ascii", "ignore").decode()
+    # Remove dots (handles "J.P. Morgan" → "jp morgan"), collapse spaces
+    no_dots = ascii_name.replace(".", "")
+    return re.sub(r"\s+", " ", no_dots.lower()).strip()
+
+
 def _check_company_list(company: str, company_list: list[str]) -> bool:
-    """Check if company name matches any in list."""
-    company_lower = company.lower()
+    """Check if company name matches any in list (dot/accent-normalized)."""
+    company_norm = _normalize_company(company)
     for target in company_list:
-        if target in company_lower:
+        if target in company_norm:
             return True
     return False
 
@@ -203,6 +250,7 @@ def _classify_experience(exp: Experience) -> BackgroundType | None:
     title = exp.title or ""
     combined = f"{company} {title}".lower()
     company_lower = company.lower()
+    company_norm = _normalize_company(company)  # dots/accents stripped for matching
 
     # 1. Known company name matching (highest confidence)
     if _check_company_list(company, IB_COMPANIES):
@@ -215,17 +263,29 @@ def _classify_experience(exp: Experience) -> BackgroundType | None:
         return BackgroundType.CONSULTING
     if _check_company_list(company, BIG_FOUR):
         return BackgroundType.BIG_FOUR
+    if _check_company_list(company, LAW_FIRMS):
+        return BackgroundType.LEGAL
 
-    # 2. Structural company name patterns (catches Italian PE/VC not in hardcoded lists)
-    # SGR = Società di Gestione del Risparmio — Italian regulated fund manager, always PE/VC
+    # 2. Structural company name patterns (catches PE/VC/IB not in hardcoded lists)
+    # SGR = Società di Gestione del Risparmio — Italian regulated fund manager
     if re.search(r'\bsgr\b', company_lower):
+        return BackgroundType.PRIVATE_EQUITY
+    # "Investments" / "Investimenti" as standalone word = investment firm
+    # e.g. "Algebris Investments", "Europa Investimenti", "Athena Investments A/S"
+    if re.search(r'\b(investments?|investimenti)\b', company_lower):
         return BackgroundType.PRIVATE_EQUITY
     if any(kw in company_lower for kw in ["private equity", "private capital", "buyout fund"]):
         return BackgroundType.PRIVATE_EQUITY
     if any(kw in company_lower for kw in ["venture capital", "venture fund"]):
         return BackgroundType.VENTURE_CAPITAL
-    # "Capital" + "Partners/Group/Advisors" pattern common for PE/IB boutiques
+    # "Capital" + finance word → PE (e.g. "Charme Capital Partners", "Green Arrow Capital SGR")
     if re.search(r'\bcapital\b.*(partner|group|advisor|management|invest)', company_lower):
+        return BackgroundType.PRIVATE_EQUITY
+    # "[Finance word] Partners" → PE (e.g. "Antin Infrastructure Partners")
+    if re.search(r'\b(equity|infrastructure|growth|buyout|impact|debt|credit)\b.*\bpartners?\b', company_lower):
+        return BackgroundType.PRIVATE_EQUITY
+    # "Investment Partners" or "Investment Management" as name component
+    if re.search(r'\binvestment\s+(partner|manager|management|group|advisor)', company_lower):
         return BackgroundType.PRIVATE_EQUITY
 
     # 3. Title/combined keywords — English and Italian
