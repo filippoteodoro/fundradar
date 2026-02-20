@@ -5,7 +5,6 @@ import { loadUnifiedSignals } from '@/lib/signals_unified';
 import { SignalCard } from '@/components/SignalCard';
 import { toDisplayType, SIGNAL_TYPE_IMPORTANCE } from '@/lib/signalProcessing';
 import type { UnifiedSignal } from '@/lib/signals_unified';
-import { LEGAL_BUNDLE_VERSION } from '@/lib/legal';
 import { SUBSCRIPTION_PRICE_EUR } from '@/lib/pricing';
 
 export const metadata = {
@@ -221,9 +220,6 @@ export default async function SubscribePage() {
         }}>
           Payments processed securely by Stripe. You can cancel your subscription at any time.
           <br />
-          Statutory consumer withdrawal rights are described in our Terms and remain subject to
-          applicable law.
-          <br />
           By subscribing, you agree to our{' '}
           <Link href="/terms-and-conditions" style={{ color: '#888', textDecoration: 'underline' }}>
             Terms
@@ -236,7 +232,7 @@ export default async function SubscribePage() {
           <Link href="/cookie-policy" style={{ color: '#888', textDecoration: 'underline' }}>
             Cookie Policy
           </Link>
-          . Legal bundle version: {LEGAL_BUNDLE_VERSION}.
+          .
         </p>
       </div>
 

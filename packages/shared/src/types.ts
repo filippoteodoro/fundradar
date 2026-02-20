@@ -201,6 +201,33 @@ export interface PemManifest {
  * LinkedIn Team Analytics
  * Aggregated stats from LinkedIn employee profiles
  */
+/**
+ * Company: a PE/VC-backed company aggregated across all fund portfolios
+ */
+export interface CompanyInvestment {
+  fund_slug: string;
+  fund_name: string;
+  status: 'current' | 'exited' | 'partial' | null;
+  entry_date: string | null;
+  exit_date: string | null;
+  data_source: string | null;
+  source_url: string | null;
+  source_label: string | null;
+  invested_amount_eur_mln: number | null;
+  investment_stage: string | null;
+  deal_year: number | null;
+}
+
+export interface Company {
+  slug: string;
+  name: string;
+  sector: string | null;
+  website: string | null;
+  description: string | null;
+  headquarters: string | null;
+  investments: CompanyInvestment[];
+}
+
 export interface TeamEducation {
   top_schools: Record<string, number>;
   top_degrees: Record<string, number>;
