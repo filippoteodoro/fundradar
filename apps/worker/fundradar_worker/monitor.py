@@ -514,6 +514,7 @@ class SignalStore:
         self.store_path = store_path
         self._dirty = False
         self._load()
+        self._collapse_existing_news_duplicates()
         self._index_keys()
 
     def _load(self):
@@ -530,10 +531,14 @@ class SignalStore:
     def _index_keys(self):
         """Build a fast lookup to avoid duplicate signals."""
         self._seen_keys: set[str] = set()
-        for signal in self.signals:
+        self._news_merge_index: dict[str, int] = {}
+        for idx, signal in enumerate(self.signals):
             key = self._signal_key(signal)
             if key:
                 self._seen_keys.add(key)
+            merge_key = self._news_merge_key(signal)
+            if merge_key and merge_key not in self._news_merge_index:
+                self._news_merge_index[merge_key] = idx
 
     def _signal_key(self, signal: SignalRecord) -> str:
         """Composite key for deduplication."""
@@ -542,6 +547,120 @@ class SignalStore:
         published_at = (signal.get("published_at") or "").strip()
         what_changed = (signal.get("what_changed") or "").strip()
         return f"{source_url}::{title}::{published_at}::{what_changed}"
+
+    def _news_merge_key(self, signal: SignalRecord) -> str:
+        """
+        Stable identity for NEWS signals.
+
+        Uses article identity, excluding what_changed text so corrected re-extractions
+        replace stale malformed variants instead of creating near-duplicates.
+        """
+        page_category = (signal.get("page_category") or "").strip().upper()
+        if page_category != "NEWS":
+            return ""
+        fund_slug = (signal.get("fund_slug") or "").strip().lower()
+        source_url = re.sub(r"\s+", "", (signal.get("source_url") or "").strip())
+        title = re.sub(r"\s+", " ", (signal.get("title") or "").strip()).lower()
+        published_at = (signal.get("published_at") or "").strip()
+        if not fund_slug or not source_url or not title:
+            return ""
+        return f"{fund_slug}::{source_url}::{title}::{published_at}"
+
+    @staticmethod
+    def _to_int(value) -> int:
+        """Best-effort numeric conversion for optional quality fields."""
+        try:
+            return int(float(value))
+        except (TypeError, ValueError):
+            return 0
+
+    @staticmethod
+    def _parse_iso_timestamp(value: str | None) -> datetime | None:
+        """Parse ISO timestamp values safely."""
+        if not value:
+            return None
+        text = str(value).strip()
+        if not text:
+            return None
+        if text.endswith("Z"):
+            text = text[:-1] + "+00:00"
+        try:
+            return datetime.fromisoformat(text)
+        except ValueError:
+            return None
+
+    def _prefer_candidate_over_existing(self, existing: SignalRecord, candidate: SignalRecord) -> bool:
+        """
+        Decide which duplicate NEWS signal to keep.
+
+        Preference order:
+        1. Non-empty what_changed
+        2. Higher quality_score (if present)
+        3. Newer observed_at / created_at timestamp
+        4. Longer what_changed text as a tie-breaker
+        """
+        existing_what = (existing.get("what_changed") or "").strip()
+        candidate_what = (candidate.get("what_changed") or "").strip()
+        if candidate_what and not existing_what:
+            return True
+        if existing_what and not candidate_what:
+            return False
+
+        existing_quality = self._to_int(existing.get("quality_score"))
+        candidate_quality = self._to_int(candidate.get("quality_score"))
+        if candidate_quality != existing_quality:
+            return candidate_quality > existing_quality
+
+        existing_observed = self._parse_iso_timestamp(existing.get("observed_at"))
+        candidate_observed = self._parse_iso_timestamp(candidate.get("observed_at"))
+        if candidate_observed and existing_observed and candidate_observed != existing_observed:
+            return candidate_observed > existing_observed
+        if candidate_observed and not existing_observed:
+            return True
+        if existing_observed and not candidate_observed:
+            return False
+
+        existing_created = self._parse_iso_timestamp(existing.get("created_at"))
+        candidate_created = self._parse_iso_timestamp(candidate.get("created_at"))
+        if candidate_created and existing_created and candidate_created != existing_created:
+            return candidate_created > existing_created
+        if candidate_created and not existing_created:
+            return True
+        if existing_created and not candidate_created:
+            return False
+
+        return len(candidate_what) > len(existing_what)
+
+    def _collapse_existing_news_duplicates(self):
+        """Collapse pre-existing duplicate NEWS signals on load."""
+        if not self.signals:
+            return
+
+        best_idx_by_merge_key: dict[str, int] = {}
+        drop_indices: set[int] = set()
+
+        for idx, signal in enumerate(self.signals):
+            merge_key = self._news_merge_key(signal)
+            if not merge_key:
+                continue
+            best_idx = best_idx_by_merge_key.get(merge_key)
+            if best_idx is None:
+                best_idx_by_merge_key[merge_key] = idx
+                continue
+
+            best_signal = self.signals[best_idx]
+            if self._prefer_candidate_over_existing(best_signal, signal):
+                drop_indices.add(best_idx)
+                best_idx_by_merge_key[merge_key] = idx
+            else:
+                drop_indices.add(idx)
+
+        if not drop_indices:
+            return
+
+        self.signals = [s for i, s in enumerate(self.signals) if i not in drop_indices]
+        self.signal_count = len(self.signals)
+        self._dirty = True
 
     def _save(self):
         """Save signals to disk."""
@@ -588,10 +707,28 @@ class SignalStore:
         if key and key in self._seen_keys:
             return
 
+        # NEWS upsert dedup: replace stale variants that differ only in what_changed.
+        merge_key = self._news_merge_key(signal)
+        if merge_key and merge_key in self._news_merge_index:
+            idx = self._news_merge_index[merge_key]
+            existing = self.signals[idx]
+            if self._prefer_candidate_over_existing(existing, signal):
+                old_key = self._signal_key(existing)
+                if old_key:
+                    self._seen_keys.discard(old_key)
+                self.signals[idx] = signal
+                if key:
+                    self._seen_keys.add(key)
+                self._dirty = True
+            return
+
         self.signals.append(signal)
         self.signal_count += 1
+        idx = len(self.signals) - 1
         if key:
             self._seen_keys.add(key)
+        if merge_key:
+            self._news_merge_index[merge_key] = idx
         self._dirty = True
 
     def get_latest_for_fund(self, fund_slug: str, limit: int = 10) -> list[SignalRecord]:

@@ -33679,7 +33679,7 @@
     "ring-capital": [
       {
         "name": "MoEa",
-        "sector": "Fashion & Luxury",
+        "sector": "Fashion",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ringcp.com/portfolio/moea",
@@ -33692,7 +33692,7 @@
       },
       {
         "name": "Enerdigit",
-        "sector": "Energy",
+        "sector": "Industry & Energy",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ringcp.com/portfolio/enerdigit",
@@ -33705,7 +33705,7 @@
       },
       {
         "name": "Knowunity",
-        "sector": "Education",
+        "sector": "EdTech",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ringcp.com/portfolio/knowunity",
@@ -33731,7 +33731,7 @@
       },
       {
         "name": "Enrise",
-        "sector": "Energy",
+        "sector": "Reneweable Energy",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ringcp.com/portfolio/enrise",
@@ -33744,7 +33744,7 @@
       },
       {
         "name": "Zeffy",
-        "sector": "Financial Services",
+        "sector": "FinTech",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ringcp.com/portfolio/zeffy",
@@ -39033,7 +39033,7 @@
         "sector": "Automotive",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://scuter.co",
+        "website": "https://www.vertis.it/portfolio/scuter/",
         "description": "Manufactures electric three-wheeled vehicles for urban mobility sharing",
         "detail_page_url": null,
         "headquarters": "Caserta, Italy",
@@ -39228,7 +39228,7 @@
         "sector": "Software",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://zerynth.com",
+        "website": "https://www.vertis.it/portfolio/zerynth/",
         "description": "Provides an IoT platform for connecting industrial machinery and optimizing production",
         "detail_page_url": null,
         "headquarters": "Pisa, Italy",
@@ -39280,7 +39280,7 @@
         "sector": "Biotech & Pharma",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://www.sibyllabiotech.it",
+        "website": "https://www.vertis.it/portfolio/sibylla-biotech/",
         "description": "Drug discovery company using advanced computational methods to identify small molecules that target protein folding intermediates.",
         "detail_page_url": null,
         "headquarters": "Verona, Italy",
@@ -39319,7 +39319,7 @@
         "sector": "Software",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://buzzoole.com/",
+        "website": "https://www.vertis.it/portfolio/buzzoole/",
         "description": "Operates an AI-driven influencer marketing and data analytics platform",
         "detail_page_url": null,
         "headquarters": "Naples, Italy",
@@ -39384,7 +39384,7 @@
         "sector": "Software",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://cyberdyne.it/it/",
+        "website": "https://www.vertis.it/portfolio/cyber-dyne/",
         "description": "Provides AI-based software for industrial process and design optimization",
         "detail_page_url": null,
         "headquarters": "Bari, Italy",
@@ -52839,9 +52839,9 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Casa Della Piada",
+        "name": "Casa della Piada",
         "sector": "Food & Beverage",
-        "status": "exited",
+        "status": "current",
         "confidence": 0.95,
         "website": "https://casadellapiadacrm.com/it/",
         "description": "Company specialising in the production of bakery products, market leader in the production of piadine and tigelle (Italian flatbreads) for large retailers",
@@ -53051,7 +53051,7 @@
         "sector": "Automotive",
         "status": "exited",
         "confidence": 0.95,
-        "website": "https://tatuus.it/",
+        "website": "https://www.tatuus.it/it",
         "description": "Global leader in the design and production of junior category racing cars. Since its acquisition by Wise Equity, the company has completed two acquisitions in Italy to increase its product offering and vertically integrate its business.",
         "detail_page_url": null,
         "headquarters": "Concorezzo, Italy",
@@ -53117,7 +53117,7 @@
         "status": "exited",
         "confidence": 0.95,
         "website": "https://www.primatcurtis.com/",
-        "description": "Primat SpA, headquartered in Olginate (Lecco, Northern Italy), is a leader in protective treatments for the coating of fasteners and small components used in a variety of fields with a focus on the automotive sector. The Company operates chemical processes on behalf of the major Italian producers of fastening products and solutions, it is therefore perceived as a partner of excellence for suppliers in this market. Primat\u2019s major end-consumers include Audi/Volkswagen, Daimler/Mercedes, Renault/Peugeot, Continental, Caterpillar, BMW, Ford, GM, Opel, MAN, and Volvo Trucks. Region: Italy Sector: Industrial Goods Date of Investment: November 2014 Website: http://www.primatspa.it/",
+        "description": "European leader in anticorrosive coatings for small metal parts. Under Wise Equity ownership, the company completed a capex program, doubling production capacity, and finalized two Italian acquisitions.",
         "detail_page_url": null,
         "headquarters": "Olginate, Italy",
         "investment_date": null,
@@ -53164,7 +53164,7 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Eidosmedia",
+        "name": "EidosMedia",
         "sector": "Software",
         "status": "exited",
         "confidence": 0.95,
@@ -53387,7 +53387,7 @@
       {
         "name": "Fi.Mo.Tec.",
         "sector": "Telecommunications",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.95,
         "website": "https://www.fimoworld.com/it",
         "description": "European leader in components (particularly cable fastening systems) and systems for mobile telecommunications infrastructure.",
@@ -77151,14 +77151,14 @@
     ],
     "hat-sicaf": [
       {
-        "name": "ADVICE",
-        "sector": "Technology",
+        "name": "ADVICE GROUP",
+        "sector": "MARKETING TECHNOLOGY",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/advice-group/",
-        "description": "Martech platform for behavioral loyalty and digital customer engagement",
+        "description": null,
         "detail_page_url": null,
-        "headquarters": "Torino, Italy",
+        "headquarters": null,
         "investment_date": null,
         "source_url": "https://www.hatsicaf.it/portfolio/our-partnership/",
         "data_source": "fund_website"
@@ -77187,7 +77187,7 @@
       },
       {
         "name": "BURKE & BURKE",
-        "sector": "Healthcare",
+        "sector": "MEDICAL TECH",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/burke-burke/",
@@ -77200,7 +77200,7 @@
       },
       {
         "name": "DOCFLOW",
-        "sector": "Technology",
+        "sector": "ICT",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/docflow/",
@@ -77213,7 +77213,7 @@
       },
       {
         "name": "GPI",
-        "sector": "Software",
+        "sector": "SOFTWARE",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/gpi/",
@@ -77226,7 +77226,7 @@
       },
       {
         "name": "HUMA THERAPEUTICS",
-        "sector": "Software",
+        "sector": "SOFTWARE",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/huma-therapeutics/",
@@ -77239,7 +77239,7 @@
       },
       {
         "name": "LUISA VIA ROMA",
-        "sector": "Retail",
+        "sector": "E-COMMERCE",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/luisa-via-roma/",
@@ -77251,8 +77251,8 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Lutech",
-        "sector": "Technology",
+        "name": "LUTECH",
+        "sector": "ICT",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/lutech/",
@@ -77264,8 +77264,8 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Marval",
-        "sector": "Industrial Manufacturing",
+        "name": "MARVAL",
+        "sector": "INDUSTRY 4.0",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/?post_type=partner&p=4900",
@@ -77278,7 +77278,7 @@
       },
       {
         "name": "MECH-I-TRONIC",
-        "sector": "Industrial Manufacturing",
+        "sector": "INDUSTRY 4.0",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/mech-i-tronic/",
@@ -77291,7 +77291,7 @@
       },
       {
         "name": "PLATUM",
-        "sector": "Automotive",
+        "sector": "E-MOBILITY",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/platum/",
@@ -77303,11 +77303,11 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Primat",
-        "sector": "Industrial Manufacturing",
+        "name": "PRIMAT",
+        "sector": "INDUSTRY 4.0",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://www.primatcurtis.com/",
+        "website": "https://hat.it/partner/primat-2/",
         "description": "Primat SpA, headquartered in Olginate (Lecco, Northern Italy), is a leader in protective treatments for the coating of fasteners and small components used in a variety of fields with a focus on the automotive sector. The Company operates chemical processes on behalf of the major Italian producers of fastening products and solutions, it is therefore perceived as a partner of excellence for suppliers in this market. Primat\u2019s major end-consumers include Audi/Volkswagen, Daimler/Mercedes, Renault/Peugeot, Continental, Caterpillar, BMW, Ford, GM, Opel, MAN, and Volvo Trucks. Region: Italy Sector: Industrial Goods Date of Investment: November 2014 Website: http://www.primatspa.it/",
         "detail_page_url": null,
         "headquarters": "Olginate, Italy",
@@ -77339,7 +77339,7 @@
       },
       {
         "name": "SIA",
-        "sector": "Financial Services",
+        "sector": "FINTECH",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/sia/",
@@ -77352,7 +77352,7 @@
       },
       {
         "name": "TEXOR",
-        "sector": "Technology",
+        "sector": "ICT",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/texor/",
@@ -77365,7 +77365,7 @@
       },
       {
         "name": "WEBGENESYS",
-        "sector": "Technology",
+        "sector": "ICT",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/webgenesys/",
@@ -77378,13 +77378,26 @@
       },
       {
         "name": "WIIT",
-        "sector": "Technology",
+        "sector": "DIGITAL ENABLER",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/wiit/",
         "description": "WIIT is a leading European provider of Cloud Computing services, focused on the Hybrid Cloud and Hosted Private Cloud markets for critical applications.",
         "detail_page_url": null,
         "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.hatsicaf.it/portfolio/our-partnership/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "ADVICE",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://hat.it/partner/advice-group/",
+        "description": "Martech platform for behavioral loyalty and digital customer engagement",
+        "detail_page_url": null,
+        "headquarters": "Torino, Italy",
         "investment_date": null,
         "source_url": "https://www.hatsicaf.it/portfolio/our-partnership/",
         "data_source": "fund_website"

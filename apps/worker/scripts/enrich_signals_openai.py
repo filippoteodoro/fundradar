@@ -129,6 +129,9 @@ FINAL_MAX_SUMMARY_LEN = 280  # tighter cap for the finished enriched_summary
 LOCAL_KEEP_VERSION = 3
 ML_KEEP_VERSION = 1
 ML_USE_KEEP = os.environ.get("SIGNAL_ML_USE_KEEP", "0").strip().lower() in {"1", "true", "yes"}
+SIGNAL_TRANSLATION_ALERTS = os.environ.get("SIGNAL_TRANSLATION_ALERTS", "1").strip().lower() not in {"0", "false", "no"}
+SIGNAL_ENRICH_STRICT_NETWORK = os.environ.get("SIGNAL_ENRICH_STRICT_NETWORK", "1").strip().lower() not in {"0", "false", "no"}
+NETWORK_STATUS_FILE = DATA_DIR / "signal_enrichment_network_status.json"
 
 JOB_POSTING_PATTERNS = [re.compile(p, re.IGNORECASE) for p in [
     r"\bjob\s+description\b",
@@ -2030,6 +2033,22 @@ _EN_STRONG_RE = re.compile(
     r"|investment|appointed|appointment|agreement|partnership|million|debt|financing|launched|launch)\b",
     re.IGNORECASE,
 )
+_TRANSLATION_NETWORK_ERROR_HINTS = (
+    "name or service not known",
+    "nodename nor servname",
+    "temporary failure in name resolution",
+    "failed to resolve",
+    "connection error",
+    "connection failed",
+    "max retries exceeded",
+    "connecterror",
+    "dns",
+)
+
+
+def _is_network_error_message(message: str) -> bool:
+    text = (message or "").lower()
+    return any(hint in text for hint in _TRANSLATION_NETWORK_ERROR_HINTS)
 
 
 def _language_token_scores(text: str) -> tuple[int, int, int]:
@@ -2096,16 +2115,38 @@ def _translate_text_with_openai(client: OpenAI, text: str) -> str:
     return _clean_summary_text(out)
 
 
-def _translate_italian_signals(signals: list[dict]) -> int:
+def _translate_italian_signals(signals: list[dict]) -> dict[str, Any]:
     """Translate ALL Italian signal text fields to English using DeepL API.
 
     Translates title, what_changed, and enriched_summary — all three fields
     that can appear in the UI. Stores originals in *_original fields.
     Skips signals where all fields are already translated or already English.
-    Returns count of signals with at least one field translated.
+    Returns detailed translation stats for reporting/alerting.
     """
     deepl_api_key = os.environ.get("DEEPL_API_KEY")
     openai_api_key = os.environ.get("OPENAI_API_KEY")
+    stats: dict[str, Any] = {
+        "italian_fields_detected": 0,
+        "signals_needing_translation": 0,
+        "translated_fields": 0,
+        "translated_signals": 0,
+        "unresolved_fields": 0,
+        "deepl_configured": bool(deepl_api_key),
+        "deepl_available": False,
+        "openai_configured": bool(openai_api_key),
+        "deepl_batch_errors": 0,
+        "openai_translation_errors": 0,
+        "network_error_count": 0,
+        "sample_errors": [],
+        "skipped_reason": "",
+    }
+
+    def _record_error(message: str) -> None:
+        msg = (message or "").strip()
+        if _is_network_error_message(msg):
+            stats["network_error_count"] += 1
+        if msg and len(stats["sample_errors"]) < 3:
+            stats["sample_errors"].append(msg[:280])
 
     deepl_module = None
     if deepl_api_key:
@@ -2114,6 +2155,8 @@ def _translate_italian_signals(signals: list[dict]) -> int:
         except ImportError:
             print("\nDeepL unavailable: deepl package not installed (pip install deepl)")
             deepl_module = None
+            _record_error("DeepL package unavailable")
+    stats["deepl_available"] = bool(deepl_module)
 
     # User-facing text fields and their original-storage counterparts
     TEXT_FIELDS = [
@@ -2133,14 +2176,18 @@ def _translate_italian_signals(signals: list[dict]) -> int:
             if text and _is_italian_text(text):
                 to_translate.append((s, field, orig_field, text))
                 signals_needing_work.add(idx)
+    stats["italian_fields_detected"] = len(to_translate)
+    stats["signals_needing_translation"] = len(signals_needing_work)
 
     if not to_translate:
         print("\nNo Italian text fields to translate")
-        return 0
+        return stats
 
     if not deepl_module and not openai_api_key:
         print(f"\nSkipping translation: no DeepL/OpenAI key available ({len(to_translate)} fields pending)")
-        return 0
+        stats["unresolved_fields"] = len(to_translate)
+        stats["skipped_reason"] = "no_translation_provider_configured"
+        return stats
 
     print(f"\nTranslating {len(to_translate)} Italian text fields across {len(signals_needing_work)} signals (IT→EN)...")
     translator = deepl_module.Translator(deepl_api_key) if deepl_module and deepl_api_key else None
@@ -2166,6 +2213,8 @@ def _translate_italian_signals(signals: list[dict]) -> int:
                     translated_fields += 1
             except Exception as e:
                 print(f"  Translation batch error (DeepL): {e}")
+                stats["deepl_batch_errors"] += 1
+                _record_error(f"DeepL batch error: {e}")
                 unresolved.extend(batch)
     else:
         unresolved.extend(to_translate)
@@ -2173,25 +2222,126 @@ def _translate_italian_signals(signals: list[dict]) -> int:
     # OpenAI fallback for any unresolved fields
     if unresolved and openai_client is not None:
         print(f"  Falling back to OpenAI translation for {len(unresolved)} fields...")
+        still_unresolved: list[tuple[dict, str, str, str]] = []
         for s, field, orig_field, original in unresolved:
             try:
                 translated_text = _translate_text_with_openai(openai_client, original)
             except Exception as e:
                 print(f"  OpenAI translation error ({s.get('id')}/{field}): {e}")
+                stats["openai_translation_errors"] += 1
+                _record_error(f"OpenAI translation error: {e}")
+                still_unresolved.append((s, field, orig_field, original))
                 continue
             if not translated_text:
+                still_unresolved.append((s, field, orig_field, original))
                 continue
             s[orig_field] = original
             s[field] = translated_text
             translated_fields += 1
+        unresolved = still_unresolved
 
     # Count signals that had at least one field translated
     translated_signals = sum(
         1 for s in signals
         if any(s.get(orig) for _, orig in TEXT_FIELDS)
     )
+    stats["translated_fields"] = translated_fields
+    stats["translated_signals"] = translated_signals
+    stats["unresolved_fields"] = len(unresolved)
     print(f"Translated {translated_fields} fields across {len(signals_needing_work)} signals")
-    return translated_signals
+    return stats
+
+
+def _send_translation_issue_alert(translation_stats: dict[str, Any], slugs_filter: str | None = None) -> None:
+    """Send Telegram alert when translation had unresolved Italian fields."""
+    if not SIGNAL_TRANSLATION_ALERTS:
+        return
+
+    detected = int(translation_stats.get("italian_fields_detected") or 0)
+    unresolved = int(translation_stats.get("unresolved_fields") or 0)
+    skip_reason = (translation_stats.get("skipped_reason") or "").strip()
+    if detected <= 0:
+        return
+    if unresolved <= 0 and not skip_reason:
+        return
+
+    try:
+        from fundradar_worker.alerting import AlertConfig, AlertManager, Alert
+    except Exception:
+        return
+
+    config = AlertConfig.from_env()
+    if not config.telegram_enabled:
+        return
+
+    translated_fields = int(translation_stats.get("translated_fields") or 0)
+    signals_count = int(translation_stats.get("signals_needing_translation") or 0)
+    deepl_errors = int(translation_stats.get("deepl_batch_errors") or 0)
+    openai_errors = int(translation_stats.get("openai_translation_errors") or 0)
+    network_errors = int(translation_stats.get("network_error_count") or 0)
+
+    scope = slugs_filter or "all funds"
+    lines = [
+        f"Scope: {scope}",
+        f"Italian fields detected: {detected} across {signals_count} signals",
+        f"Translated fields: {translated_fields}",
+        f"Unresolved fields: {unresolved}",
+        f"Providers: DeepL key={'yes' if translation_stats.get('deepl_configured') else 'no'} / OpenAI key={'yes' if translation_stats.get('openai_configured') else 'no'}",
+    ]
+    if skip_reason:
+        lines.append(f"Reason: {skip_reason}")
+    if deepl_errors or openai_errors:
+        lines.append(f"Errors: DeepL batches={deepl_errors}, OpenAI fields={openai_errors}")
+    if network_errors:
+        lines.append(f"Network/DNS-like API errors: {network_errors}")
+    sample_errors = translation_stats.get("sample_errors") or []
+    if sample_errors:
+        lines.append(f"Sample error: {sample_errors[0]}")
+
+    if unresolved == detected:
+        level = "error"
+        title = f"Signal translation blocked ({unresolved}/{detected})"
+    else:
+        level = "warning"
+        title = f"Signal translation partial ({unresolved}/{detected} unresolved)"
+
+    manager = AlertManager(config)
+    manager.add_alert(
+        Alert(
+            title=title,
+            message="\n".join(lines),
+            level=level,
+            source="signal_translation",
+        )
+    )
+    manager.send_pending_alerts()
+
+
+def _persist_network_status(
+    *,
+    slugs_filter: str | None,
+    llm_connection_fallbacks: int,
+    translation_stats: dict[str, Any],
+    strict_network_mode: bool,
+) -> dict[str, Any]:
+    """Persist latest enrich-network health status for operator visibility."""
+    status = {
+        "checked_at": datetime.now(timezone.utc).isoformat(),
+        "scope": slugs_filter or "all funds",
+        "strict_network_mode": strict_network_mode,
+        "llm_connection_fallbacks": int(llm_connection_fallbacks or 0),
+        "translation_network_errors": int(translation_stats.get("network_error_count") or 0),
+        "translation_unresolved_fields": int(translation_stats.get("unresolved_fields") or 0),
+        "translation_detected_fields": int(translation_stats.get("italian_fields_detected") or 0),
+        "translation_sample_errors": list(translation_stats.get("sample_errors") or []),
+        "translation_skip_reason": translation_stats.get("skipped_reason") or "",
+        "network_degraded": bool(
+            (llm_connection_fallbacks or 0) > 0
+            or int(translation_stats.get("network_error_count") or 0) > 0
+        ),
+    }
+    save_json(NETWORK_STATUS_FILE, status)
+    return status
 
 
 def _propagate_translations_to_filtered(enriched_signals: list[dict]) -> None:
@@ -2380,6 +2530,7 @@ def main(slugs_filter: str | None = None):
     filtered_out_keys: set[str] = set()
     filtered_out_ids: set[str] = set()
     llm_calls = 0
+    llm_connection_fallbacks = 0
 
     def _mark_filtered_out(signal_id: str | None, signal_key: str | None) -> None:
         if signal_key:
@@ -2645,6 +2796,7 @@ def main(slugs_filter: str | None = None):
                 if enrichment and enrichment.get("_llm_error") == "connection":
                     if LLM_DISABLE_ON_ERROR:
                         llm_disabled = True
+                    llm_connection_fallbacks += 1
                     fallback_keep = local_keep if local_keep is not None else True
                     fallback_reason = local_reason or "llm unavailable; local fallback"
                     fallback_conf = local_conf or "low"
@@ -2771,7 +2923,15 @@ def main(slugs_filter: str | None = None):
     _disambiguate_cross_fund_duplicate_summaries(signals)
 
     # ── Translation pass: Italian → English ────────────────────────────────────
-    translated_count = _translate_italian_signals(signals)
+    translation_stats = _translate_italian_signals(signals)
+    translated_count = int(translation_stats.get("translated_signals") or 0)
+    _send_translation_issue_alert(translation_stats, slugs_filter=slugs_filter)
+    network_status = _persist_network_status(
+        slugs_filter=slugs_filter,
+        llm_connection_fallbacks=llm_connection_fallbacks,
+        translation_stats=translation_stats,
+        strict_network_mode=SIGNAL_ENRICH_STRICT_NETWORK,
+    )
 
     # Post-translation cleanup: dedup sentences introduced by translation
     for signal in signals:
@@ -2817,8 +2977,21 @@ def main(slugs_filter: str | None = None):
     print(f"Translated (IT→EN): {translated_count}")
     print(f"LLM type overrides: {llm_type_overrides}")
     print(f"LLM API calls: {llm_calls}")
+    if llm_connection_fallbacks:
+        print(f"LLM connection fallbacks: {llm_connection_fallbacks}")
+    if int(translation_stats.get('network_error_count') or 0):
+        print(f"Translation network errors: {translation_stats.get('network_error_count')}")
+    if int(translation_stats.get('unresolved_fields') or 0):
+        print(f"Translation unresolved fields: {translation_stats.get('unresolved_fields')}")
     print(f"Errors: {errors}")
     print(f"Output: {OUTPUT_FILE}")
+
+    if network_status.get("network_degraded") and SIGNAL_ENRICH_STRICT_NETWORK:
+        print(
+            "\nWARNING: Network/API degradation detected (DNS/connectivity). "
+            "Exiting with code 2 so pipeline retries and flags this run."
+        )
+        raise SystemExit(2)
 
 
 if __name__ == "__main__":

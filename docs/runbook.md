@@ -148,6 +148,9 @@ Recent fund-specific update:
   - `news` extractor now includes HTML-card parsing with WordPress API fallback (`/wp-json/wp/v2/posts`)
 - `wrm-group` now monitors media/news directly:
   - `news`: `/media/?fr_src=fundradar` (wired to existing `extract_news`)
+- `vertis-sgr` team extraction was upgraded for the current WordPress card layout:
+  - parses `.team-l-info` cards (`.text-lead` name + `.text-small` role/title + photo)
+  - keeps legacy `<strong>` parsing as fallback for older page variants
 
 ## Monitoring
 
@@ -233,6 +236,38 @@ pnpm pipeline --step filter
 Current strict-type recovery rules include:
 - Creditor/debt-restructuring signals with explicit tagged-fund mention → `debt_financing`
 - "New/additional contributions to <fund>" signals → `fundraise_announced`
+
+### Duplicate NEWS Signal Variants in Raw Store
+
+If `data/derived/detected_signals.json` shows near-duplicate NEWS rows for the same
+article (for example old malformed text and a later corrected variant), run:
+
+```bash
+python -m fundradar_worker.monitor --slugs fund-slug --force-extract --skip-backoff
+```
+
+`SignalStore` now coalesces NEWS duplicates by stable identity
+(`fund_slug + source_url + title + published_at`) and keeps the better/newer
+variant, so corrected re-extractions replace stale malformed entries.
+
+### Translation Failures (IT→EN)
+
+`enrich_signals_openai.py` now sends a Telegram alert when Italian fields are
+detected but translation is blocked/partial (e.g., DeepL/OpenAI DNS/connectivity
+errors, missing API keys).
+
+Required env vars for Telegram delivery:
+- `FUNDRADAR_TELEGRAM_BOT_TOKEN`
+- `FUNDRADAR_TELEGRAM_CHAT_ID`
+
+Optional toggle:
+- `SIGNAL_TRANSLATION_ALERTS=1` (default on; set `0` to disable)
+- `SIGNAL_ENRICH_STRICT_NETWORK=1` (default on):
+  - when DNS/API connectivity degrades during enrich, script exits with code `2`
+  - pipeline auto-retries and records a step warning instead of silently passing
+
+Latest network health status is persisted to:
+- `data/derived/signal_enrichment_network_status.json`
 
 ### Rate Limiting / Timeouts
 

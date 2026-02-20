@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-02-20T09:56:48.242727+00:00",
+  "scope": "wise-equity-sgr",
+  "strict_network_mode": true,
+  "llm_connection_fallbacks": 5,
+  "translation_network_errors": 19,
+  "translation_unresolved_fields": 18,
+  "translation_detected_fields": 18,
+  "translation_sample_errors": [
+    "DeepL batch error: Connection failed: HTTPSConnectionPool(host='api-free.deepl.com', port=443): Max retries exceeded with url: /v2/translate (Caused by NameResolutionError(\"HTTPSConnection(host='api-free.deepl.com', port=443): Failed to resolve 'api-free.deepl.com' ([Errno 8] nod",
+    "OpenAI translation error: Connection error.",
+    "OpenAI translation error: Connection error."
+  ],
+  "translation_skip_reason": "",
+  "network_degraded": true
+}

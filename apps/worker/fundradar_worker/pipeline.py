@@ -728,6 +728,14 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
         status = "PASS" if ok else "FAIL"
         retry_info = f" ({retry_log[name]} retries)" if name in retry_log else ""
         print(f"  [{status}] {name}{retry_info}")
+    if step_details:
+        print("\n  Step notes:")
+        for name, detail in step_details.items():
+            note_kind = "SKIP" if detail.get("skipped") else "WARN"
+            reason = detail.get("reason", "n/a")
+            exit_code = detail.get("exit_code")
+            exit_suffix = f", exit={exit_code}" if exit_code is not None else ""
+            print(f"  [{note_kind}] {name}: {reason}{exit_suffix}")
 
     failed = [n for n, ok in results.items() if not ok]
     if failed:

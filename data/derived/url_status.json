@@ -2426,7 +2426,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-20T08:59:15.092285+00:00",
+      "last_checked_at": "2026-02-20T09:38:35.627067+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2435,7 +2435,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-20T08:59:06.563765+00:00",
+      "last_checked_at": "2026-02-20T09:38:26.518688+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2444,7 +2444,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-20T08:59:21.075367+00:00",
+      "last_checked_at": "2026-02-20T09:38:42.195524+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -6701,9 +6701,9 @@
       "status": "other_error",
       "status_code": 500,
       "error_message": null,
-      "last_checked_at": "2026-02-19T11:16:37.615120+00:00",
-      "consecutive_failures": 9,
-      "next_check_after": "2026-02-20T11:16:37.615120+00:00"
+      "last_checked_at": "2026-02-20T09:30:38.494370+00:00",
+      "consecutive_failures": 10,
+      "next_check_after": "2026-02-21T09:30:38.494370+00:00"
     },
     "http://www.trilanticeurope.com/management": {
       "url": "http://www.trilanticeurope.com/management",
@@ -6728,9 +6728,9 @@
       "status": "other_error",
       "status_code": 500,
       "error_message": null,
-      "last_checked_at": "2026-02-19T11:16:37.459419+00:00",
-      "consecutive_failures": 9,
-      "next_check_after": "2026-02-20T11:16:37.459419+00:00"
+      "last_checked_at": "2026-02-20T09:30:38.228145+00:00",
+      "consecutive_failures": 10,
+      "next_check_after": "2026-02-21T09:30:38.228145+00:00"
     },
     "https://toseed.it/management": {
       "url": "https://toseed.it/management",
@@ -8777,12 +8777,12 @@
     },
     "https://www.yarpa.it/le-persone/": {
       "url": "https://www.yarpa.it/le-persone/",
-      "status": "ok",
-      "status_code": 200,
+      "status": "other_error",
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-20T08:59:01.196791+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "last_checked_at": "2026-02-20T09:30:38.935063+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-20T09:35:38.935063+00:00"
     },
     "https://zestgroup.vc/management": {
       "url": "https://zestgroup.vc/management",
@@ -8795,12 +8795,12 @@
     },
     "https://www.yarpa.it/press/": {
       "url": "https://www.yarpa.it/press/",
-      "status": "ok",
-      "status_code": 200,
+      "status": "other_error",
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-20T08:59:05.254569+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "last_checked_at": "2026-02-20T09:30:41.778999+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-20T09:35:41.778999+00:00"
     },
     "https://zestgroup.vc/en/news": {
       "url": "https://zestgroup.vc/en/news",
@@ -9860,7 +9860,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-20T08:59:06.206483+00:00",
+      "last_checked_at": "2026-02-20T09:34:48.516911+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9878,7 +9878,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-20T08:59:10.073338+00:00",
+      "last_checked_at": "2026-02-20T09:34:54.196047+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10112,7 +10112,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-20T08:57:14.081972+00:00",
+      "last_checked_at": "2026-02-20T09:30:51.221328+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10130,7 +10130,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-20T08:57:20.741988+00:00",
+      "last_checked_at": "2026-02-20T09:30:56.336703+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10823,7 +10823,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-20T08:58:45.099655+00:00",
+      "last_checked_at": "2026-02-20T09:36:10.961269+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11054,30 +11054,30 @@
     },
     "https://www.quattrorsgr.it/it/portfolio-companies/": {
       "url": "https://www.quattrorsgr.it/it/portfolio-companies/",
-      "status": "ssl_error",
+      "status": "other_error",
       "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.quattrorsgr.it', port=443): Max retries exceeded with url: /it/portfolio-companies/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)')))",
-      "last_checked_at": "2026-02-20T08:37:54.865852+00:00",
-      "consecutive_failures": 6,
-      "next_check_after": "2026-02-21T08:37:54.865852+00:00"
+      "error_message": "Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://www.quattrorsgr.it/it/portfolio-companies/\nCall log:\n  - navigating to \"https://www.quattrorsgr.it/it/portfolio-companies/\", waiting until \"domcontentloaded\"\n",
+      "last_checked_at": "2026-02-20T09:31:53.768950+00:00",
+      "consecutive_failures": 9,
+      "next_check_after": "2026-02-21T09:31:53.768950+00:00"
     },
     "https://www.quattrorsgr.it/it/people": {
       "url": "https://www.quattrorsgr.it/it/people",
-      "status": "ssl_error",
+      "status": "other_error",
       "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.quattrorsgr.it', port=443): Max retries exceeded with url: /it/people (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)')))",
-      "last_checked_at": "2026-02-20T08:37:54.897305+00:00",
-      "consecutive_failures": 6,
-      "next_check_after": "2026-02-21T08:37:54.897305+00:00"
+      "error_message": "Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://www.quattrorsgr.it/it/people\nCall log:\n  - navigating to \"https://www.quattrorsgr.it/it/people\", waiting until \"domcontentloaded\"\n",
+      "last_checked_at": "2026-02-20T09:31:53.950017+00:00",
+      "consecutive_failures": 9,
+      "next_check_after": "2026-02-21T09:31:53.950017+00:00"
     },
     "https://www.quattrorsgr.it/it/news/": {
       "url": "https://www.quattrorsgr.it/it/news/",
-      "status": "ssl_error",
+      "status": "other_error",
       "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.quattrorsgr.it', port=443): Max retries exceeded with url: /it/news/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)')))",
-      "last_checked_at": "2026-02-20T08:37:54.936301+00:00",
-      "consecutive_failures": 6,
-      "next_check_after": "2026-02-21T08:37:54.936301+00:00"
+      "error_message": "Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://www.quattrorsgr.it/it/news/\nCall log:\n  - navigating to \"https://www.quattrorsgr.it/it/news/\", waiting until \"domcontentloaded\"\n",
+      "last_checked_at": "2026-02-20T09:31:54.123642+00:00",
+      "consecutive_failures": 9,
+      "next_check_after": "2026-02-21T09:31:54.123642+00:00"
     },
     "https://www.greenarrow-capital.com/en/investments-divestments-private-equity-eng/": {
       "url": "https://www.greenarrow-capital.com/en/investments-divestments-private-equity-eng/",
@@ -11363,27 +11363,27 @@
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-20T08:57:31.182813+00:00",
-      "consecutive_failures": 2,
-      "next_check_after": "2026-02-20T09:12:31.182813+00:00"
+      "last_checked_at": "2026-02-20T09:30:37.946499+00:00",
+      "consecutive_failures": 3,
+      "next_check_after": "2026-02-20T10:30:37.946499+00:00"
     },
     "https://www.meritosgr.it/team/?fr_src=fundradar": {
       "url": "https://www.meritosgr.it/team/?fr_src=fundradar",
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-20T08:57:31.209041+00:00",
-      "consecutive_failures": 2,
-      "next_check_after": "2026-02-20T09:12:31.209041+00:00"
+      "last_checked_at": "2026-02-20T09:30:41.753464+00:00",
+      "consecutive_failures": 3,
+      "next_check_after": "2026-02-20T10:30:41.753464+00:00"
     },
     "https://www.meritosgr.it/news/?fr_src=fundradar": {
       "url": "https://www.meritosgr.it/news/?fr_src=fundradar",
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-20T08:57:31.237691+00:00",
-      "consecutive_failures": 2,
-      "next_check_after": "2026-02-20T09:12:31.237691+00:00"
+      "last_checked_at": "2026-02-20T09:30:43.087971+00:00",
+      "consecutive_failures": 3,
+      "next_check_after": "2026-02-20T10:30:43.087971+00:00"
     },
     "https://www.spacecapital.it/it/investment-team.html": {
       "url": "https://www.spacecapital.it/it/investment-team.html",
@@ -11426,7 +11426,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-20T08:57:27.775497+00:00",
+      "last_checked_at": "2026-02-20T09:31:01.409288+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11444,25 +11444,25 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-20T09:03:43.864053+00:00",
+      "last_checked_at": "2026-02-20T09:30:38.849843+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.faroalternativeinvestments.com/about-us/": {
       "url": "https://www.faroalternativeinvestments.com/about-us/",
-      "status": "ok",
-      "status_code": 200,
+      "status": "other_error",
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-20T09:03:44.190366+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "last_checked_at": "2026-02-20T09:30:38.912189+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-20T09:35:38.912189+00:00"
     },
     "https://www.faroalternativeinvestments.com/media-events/": {
       "url": "https://www.faroalternativeinvestments.com/media-events/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-20T09:03:47.551484+00:00",
+      "last_checked_at": "2026-02-20T09:30:42.272404+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11471,7 +11471,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-20T09:03:43.415540+00:00",
+      "last_checked_at": "2026-02-20T09:30:38.057657+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },

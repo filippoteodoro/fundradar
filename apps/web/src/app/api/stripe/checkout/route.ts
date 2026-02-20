@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { getCurrentUser } from '@/lib/auth';
 import { LEGAL_BUNDLE_VERSION } from '@/lib/legal';
+import { getBaseUrl } from '@/lib/baseUrl';
 
 function getStripe() {
   return new Stripe(process.env.STRIPE_SECRET_KEY!, {
@@ -42,7 +43,7 @@ export async function POST(request: Request) {
 
     const email = typeof body.email === 'string' && body.email.includes('@') ? body.email.toLowerCase() : undefined;
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const baseUrl = getBaseUrl();
 
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',

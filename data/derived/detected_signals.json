@@ -1501,67 +1501,6 @@
       "extraction_source": "historical_extraction"
     },
     {
-      "id": "web-signal-00164",
-      "fund_id": "",
-      "fund_slug": "fondo-italiano-d-investimento-sgr",
-      "signal_type": "fundraise_announced",
-      "title": "Fondo Italiano Sgr rileva Vetraco e accelera su ricerca e sviluppo",
-      "what_changed": "Il Giorno",
-      "source_url": "https://www.fondoitaliano.it/wp-content/uploads/20260123_IlGiorno_Vetraco.pdf",
-      "source_name": "Fondo Italiano\nd'Investimento SGR",
-      "published_at": "2026-01-26",
-      "observed_at": "2026-01-27T16:06:51.385967+00:00",
-      "created_at": "2026-01-27T16:06:51.385967+00:00",
-      "snapshot_id": "snap-20260127160651-e09eb0c6",
-      "diff_summary": "New news item detected (dated 2026-01-26)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.7,
-      "relevance_reasons": [
-        "Italy mentioned (italiano)",
-        "Italian entity types: SGR"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Fondo Italiano Sgr",
-          "Il Giorno"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00165",
-      "fund_id": "",
-      "fund_slug": "fondo-italiano-d-investimento-sgr",
-      "signal_type": "fundraise_announced",
-      "title": "Il Fondo Italiano rileva il gruppo Vetraco: mercati esteri nel mirino",
-      "what_changed": "Il Sole 24 Ore",
-      "source_url": "https://www.fondoitaliano.it/wp-content/uploads/20260121_Sole24Ore_Vetraco.pdf",
-      "source_name": "Fondo Italiano\nd'Investimento SGR",
-      "published_at": "2026-01-21",
-      "observed_at": "2026-01-27T16:06:51.385967+00:00",
-      "created_at": "2026-01-27T16:06:51.385967+00:00",
-      "snapshot_id": "snap-20260127160651-e09eb0c6",
-      "diff_summary": "New news item detected (dated 2026-01-21)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.4,
-      "relevance_reasons": [
-        "Italy mentioned (italiano)"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Il Sole",
-          "Il\u00a0Fondo Italiano"
-        ],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-00166",
       "fund_id": "",
       "fund_slug": "fondo-italiano-d-investimento-sgr",
@@ -1586,36 +1525,6 @@
         "companies": [],
         "people": [
           "Fondo Italiano"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00167",
-      "fund_id": "",
-      "fund_slug": "fondo-italiano-d-investimento-sgr",
-      "signal_type": "fundraise_announced",
-      "title": "Dalla piadina alla pinsa il Fondo Italiano prende il controllo di Alimenta",
-      "what_changed": "Corriere della Romagna",
-      "source_url": "https://www.fondoitaliano.it/wp-content/uploads/20260110_CorriereRomagna_Alimenta.pdf",
-      "source_name": "Fondo Italiano\nd'Investimento SGR",
-      "published_at": "2026-01-19",
-      "observed_at": "2026-01-27T16:06:51.385967+00:00",
-      "created_at": "2026-01-27T16:06:51.385967+00:00",
-      "snapshot_id": "snap-20260127160651-e09eb0c6",
-      "diff_summary": "New news item detected (dated 2026-01-19)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.4,
-      "relevance_reasons": [
-        "Italy mentioned (italiano)"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Fondo Italiano",
-          "Alimenta Corriere"
         ],
         "locations": []
       }
@@ -1673,33 +1582,6 @@
       "extracted_entities": {
         "companies": [],
         "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00174",
-      "fund_id": "",
-      "fund_slug": "clessidra-sgr",
-      "signal_type": "other",
-      "title": "Private Equity",
-      "what_changed": "New announcement: Private Equity",
-      "source_url": "https://www.clessidragroup.it/soluzioni/private-equity/",
-      "source_name": "Clessidra SGR",
-      "published_at": null,
-      "observed_at": "2026-01-27T16:06:59.228027+00:00",
-      "created_at": "2026-01-27T16:06:59.228027+00:00",
-      "snapshot_id": "snap-20260127160658-51d9d6e8",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Private Equity"
-        ],
         "locations": []
       }
     },
@@ -2136,114 +2018,6 @@
       "italy_relevant": false,
       "extracted_entities": {
         "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00216",
-      "fund_id": "",
-      "fund_slug": "aksia-sgr",
-      "signal_type": "deal_announced",
-      "title": "Valsa, backed by Aks\u00eca SGR, acquires Yahm",
-      "what_changed": "New announcement: Valsa, backed by Aks\u00eca SGR, acquires Yahm",
-      "source_url": "https://aksiasgr.com/valsa-backed-by-aksia-sgr-acquires-yahm/",
-      "source_name": "AKS\u00ccA SGR",
-      "published_at": "2025-09-15",
-      "observed_at": "2026-01-27T21:43:00.100760+00:00",
-      "created_at": "2026-01-27T21:43:00.100760+00:00",
-      "snapshot_id": "snap-20260127214259-885256dc",
-      "diff_summary": "New news item detected (dated 2025-09-15)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.3,
-      "relevance_reasons": [
-        "Italian entity types: SGR"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00217",
-      "fund_id": "",
-      "fund_slug": "aksia-sgr",
-      "signal_type": "other",
-      "title": "Membership in ESG.IAMA Private",
-      "what_changed": "New None involving ESG",
-      "source_url": "https://aksiasgr.com/membership-in-esg-iama-private/",
-      "source_name": "AKS\u00ccA SGR",
-      "published_at": "2025-09-02",
-      "observed_at": "2026-01-27T21:43:00.100760+00:00",
-      "created_at": "2026-01-27T21:43:00.100760+00:00",
-      "snapshot_id": "snap-20260127214259-885256dc",
-      "diff_summary": "New news item detected (dated 2025-09-02)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [
-          "ESG"
-        ],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00221",
-      "fund_id": "",
-      "fund_slug": "aksia-sgr",
-      "signal_type": "deal_announced",
-      "title": "Valsa, backed by Aks\u00eca SGR, acquires Yahm",
-      "what_changed": "New announcement: Valsa, backed by Aks\u00eca SGR, acquires Yahm",
-      "source_url": "https://aksiasgr.com/valsa-backed-by-aksia-sgr-acquires-yahm/",
-      "source_name": "AKS\u00ccA SGR",
-      "published_at": "2025-09-15",
-      "observed_at": "2026-01-27T21:43:11.222308+00:00",
-      "created_at": "2026-01-27T21:43:11.222308+00:00",
-      "snapshot_id": "snap-20260127214311-32e71866",
-      "diff_summary": "New news item detected (dated 2025-09-15)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.3,
-      "relevance_reasons": [
-        "Italian entity types: SGR"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00222",
-      "fund_id": "",
-      "fund_slug": "aksia-sgr",
-      "signal_type": "other",
-      "title": "Membership in ESG.IAMA Private",
-      "what_changed": "New None involving ESG",
-      "source_url": "https://aksiasgr.com/membership-in-esg-iama-private/",
-      "source_name": "AKS\u00ccA SGR",
-      "published_at": "2025-09-02",
-      "observed_at": "2026-01-27T21:43:11.222308+00:00",
-      "created_at": "2026-01-27T21:43:11.222308+00:00",
-      "snapshot_id": "snap-20260127214311-32e71866",
-      "diff_summary": "New news item detected (dated 2025-09-02)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [
-          "ESG"
-        ],
         "people": [],
         "locations": []
       }
@@ -3061,65 +2835,6 @@
         "people": [
           "Olimpiadi Invernali",
           "Squadra Regionale Snowboard"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00362",
-      "fund_id": "",
-      "fund_slug": "green-arrow-capital-sgr",
-      "signal_type": "fundraise_announced",
-      "title": "Nuovo investimento per il fondo Mi.To Real Estate a Torino",
-      "what_changed": "New announcement: Nuovo investimento per il fondo Mi.To Real Estate a Torino",
-      "source_url": "https://www.greenarrow-capital.com/nuovo-investimento-per-il-fondo-mi-to-real-estate-a-torino/",
-      "source_name": "Green Arrow Capital SGR",
-      "published_at": "2025-11-17",
-      "observed_at": "2026-01-27T21:56:40.815631+00:00",
-      "created_at": "2026-01-27T21:56:40.815631+00:00",
-      "snapshot_id": "snap-20260127215640-9337d2ea",
-      "diff_summary": "New news item detected (dated 2025-11-17)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.25,
-      "relevance_reasons": [
-        "Italian cities: Torino"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "To Real Estate"
-        ],
-        "locations": [
-          "Torino"
-        ]
-      }
-    },
-    {
-      "id": "web-signal-00364",
-      "fund_id": "",
-      "fund_slug": "green-arrow-capital-sgr",
-      "signal_type": "other",
-      "title": "Francesco Maria Giovannini entra nel Consiglio Tecnico-Scientifico del MEF",
-      "what_changed": "New announcement: Francesco Maria Giovannini entra nel Consiglio Tecnico-Scientifico del MEF",
-      "source_url": "https://www.greenarrow-capital.com/francesco-maria-giovannini-entra-nel-consiglio-tecnico-scientifico-del-mef/",
-      "source_name": "Green Arrow Capital SGR",
-      "published_at": "2025-11-03",
-      "observed_at": "2026-01-27T21:56:40.815631+00:00",
-      "created_at": "2026-01-27T21:56:40.815631+00:00",
-      "snapshot_id": "snap-20260127215640-9337d2ea",
-      "diff_summary": "New news item detected (dated 2025-11-03)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Consiglio Tecnico",
-          "Francesco Maria Giovannini"
         ],
         "locations": []
       }
@@ -4611,40 +4326,6 @@
           "Pietro Razzi"
         ],
         "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00478",
-      "fund_id": "",
-      "fund_slug": "green-arrow-capital-sgr",
-      "signal_type": "other",
-      "title": "Green Arrow Capital realizza con Stern Energy un nuovo intervento di revamping in Sicilia",
-      "what_changed": "New None involving Sicilia",
-      "source_url": "https://www.greenarrow-capital.com/green-arrow-capital-realizza-con-stern-energy-un-nuovo-intervento-di-revamping-in-sicilia/",
-      "source_name": "Green Arrow Capital SGR",
-      "published_at": "2026-01-27",
-      "observed_at": "2026-01-29T20:08:32.835495+00:00",
-      "created_at": "2026-01-29T20:08:32.835495+00:00",
-      "snapshot_id": "snap-20260129200832-9337d2ea",
-      "diff_summary": "New news item detected (dated 2026-01-27)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.2,
-      "relevance_reasons": [
-        "Italian regions: Sicilia"
-      ],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [
-          "Sicilia"
-        ],
-        "people": [
-          "Stern Energy",
-          "Green Arrow Capital"
-        ],
-        "locations": [
-          "Sicilia"
-        ]
       }
     },
     {
@@ -14532,176 +14213,6 @@
       "quality_score": 75
     },
     {
-      "id": "web-signal-00003",
-      "fund_id": "",
-      "fund_slug": "fondo-italiano-d-investimento-sgr",
-      "signal_type": "deal_announced",
-      "title": "Fondo Italiano invests in Alimenta Produzioni",
-      "what_changed": "New announcement: Fondo Italiano invests in Alimenta Produzioni",
-      "source_url": "https://www.fondoitaliano.it/en/fondo-italiano-invests-in-alimenta-produzioni/",
-      "source_name": "Fondo Italiano d'Investimento SGR",
-      "published_at": "2026-01-09",
-      "observed_at": "2026-02-05T13:26:06.982076+00:00",
-      "created_at": "2026-02-05T13:26:06.982076+00:00",
-      "snapshot_id": "snap-20260205132606-0ae17fa8",
-      "diff_summary": "New news item detected (dated 2026-01-09)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.4,
-      "relevance_reasons": [
-        "Italy mentioned (italiano)"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Fondo Italiano",
-          "Alimenta Produzioni"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00004",
-      "fund_id": "",
-      "fund_slug": "fondo-italiano-d-investimento-sgr",
-      "signal_type": "deal_announced",
-      "title": "Fondo Italiano d\u2019Investimento and The Equity Club acquire Isoclima",
-      "what_changed": "New announcement: Fondo Italiano d\u2019Investimento and The Equity Club acquire Isoclima",
-      "source_url": "https://www.fondoitaliano.it/en/fondo-italiano-dinvestimento-and-the-equity-club-acquire-isoclima/",
-      "source_name": "Fondo Italiano d'Investimento SGR",
-      "published_at": "2025-12-29",
-      "observed_at": "2026-02-05T13:26:06.982076+00:00",
-      "created_at": "2026-02-05T13:26:06.982076+00:00",
-      "snapshot_id": "snap-20260205132606-0ae17fa8",
-      "diff_summary": "New news item detected (dated 2025-12-29)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.4,
-      "relevance_reasons": [
-        "Italy mentioned (italiano)"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Fondo Italiano",
-          "The Equity Club"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00005",
-      "fund_id": "",
-      "fund_slug": "fondo-italiano-d-investimento-sgr",
-      "signal_type": "deal_announced",
-      "title": "Fondo Italiano d\u2019Investimento acquires NPO Torino S.r.l.",
-      "what_changed": "New announcement: Fondo Italiano d\u2019Investimento acquires NPO Torino S.r.l.",
-      "source_url": "https://www.fondoitaliano.it/en/fondo-italiano-dinvestimento-acquires-npo-torino-s-r-l/",
-      "source_name": "Fondo Italiano d'Investimento SGR",
-      "published_at": "2025-11-05",
-      "observed_at": "2026-02-05T13:26:06.982076+00:00",
-      "created_at": "2026-02-05T13:26:06.982076+00:00",
-      "snapshot_id": "snap-20260205132606-0ae17fa8",
-      "diff_summary": "New news item detected (dated 2025-11-05)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.95,
-      "relevance_reasons": [
-        "Italy mentioned (italiano)",
-        "Italian cities: Torino",
-        "Italian entity types: SRL"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "Investimento acquires NPO Torino"
-        ],
-        "people": [
-          "Fondo Italiano"
-        ],
-        "locations": [
-          "Torino"
-        ]
-      }
-    },
-    {
-      "id": "web-signal-00013",
-      "fund_id": "",
-      "fund_slug": "investindustrial",
-      "signal_type": "deal_announced",
-      "title": "Investindustrial announces the acquisition of Proverismore details",
-      "what_changed": "New announcement: Investindustrial announces the acquisition of Proverismore details",
-      "source_url": "https://www.investindustrial.com/publications/news/Investindustrial-announces-the-acquisition-of-Proveris.html",
-      "source_name": "Investindustrial",
-      "published_at": "2026-01-14",
-      "observed_at": "2026-02-05T13:51:17.983098+00:00",
-      "created_at": "2026-02-05T13:51:17.983098+00:00",
-      "snapshot_id": "snap-20260205135116-a873c5be",
-      "diff_summary": "New news item detected (dated 2026-01-14)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00015",
-      "fund_id": "",
-      "fund_slug": "investindustrial",
-      "signal_type": "deal_announced",
-      "title": "Investindustrial announces the acquisition of TreeHouse Foodsmore details",
-      "what_changed": "New announcement: Investindustrial announces the acquisition of TreeHouse Foodsmore details",
-      "source_url": "https://www.investindustrial.com/publications/news/Investindustrial-announces-the-acquisition-of-TreeHouse-Foods.html",
-      "source_name": "Investindustrial",
-      "published_at": "2025-11-10",
-      "observed_at": "2026-02-05T13:51:17.983098+00:00",
-      "created_at": "2026-02-05T13:51:17.983098+00:00",
-      "snapshot_id": "snap-20260205135116-a873c5be",
-      "diff_summary": "New news item detected (dated 2025-11-10)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00017",
-      "fund_id": "",
-      "fund_slug": "investindustrial",
-      "signal_type": "deal_announced",
-      "title": "Investindustrial agrees to acquire Fatromore details",
-      "what_changed": "New announcement: Investindustrial agrees to acquire Fatromore details",
-      "source_url": "https://www.investindustrial.com/publications/news/Investindustrial-agrees-to-acquire-Fatro.html",
-      "source_name": "Investindustrial",
-      "published_at": "2025-09-16",
-      "observed_at": "2026-02-05T13:51:17.983098+00:00",
-      "created_at": "2026-02-05T13:51:17.983098+00:00",
-      "snapshot_id": "snap-20260205135116-a873c5be",
-      "diff_summary": "New news item detected (dated 2025-09-16)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-00018",
       "fund_id": "",
       "fund_slug": "progressio-sgr",
@@ -14729,58 +14240,6 @@
       }
     },
     {
-      "id": "web-signal-00019",
-      "fund_id": "",
-      "fund_slug": "investindustrial",
-      "signal_type": "deal_announced",
-      "title": "Investindustrial agrees to acquire DEA Group and EL.MO.more details",
-      "what_changed": "New announcement: Investindustrial agrees to acquire DEA Group and EL.MO.more details",
-      "source_url": "https://www.investindustrial.com/publications/news/Investindustrial-agrees-to-acquire-DEA-Group-and-EL.MO.0.html",
-      "source_name": "Investindustrial",
-      "published_at": "2025-09-05",
-      "observed_at": "2026-02-05T13:51:17.983098+00:00",
-      "created_at": "2026-02-05T13:51:17.983098+00:00",
-      "snapshot_id": "snap-20260205135116-a873c5be",
-      "diff_summary": "New news item detected (dated 2025-09-05)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00022",
-      "fund_id": "",
-      "fund_slug": "investindustrial",
-      "signal_type": "deal_announced",
-      "title": "Investindustrial agrees to acquire Kiremko, Idaho Steel and Reycomore details",
-      "what_changed": "New announcement: Investindustrial agrees to acquire Kiremko, Idaho Steel and Reycomore details",
-      "source_url": "https://www.investindustrial.com/publications/news/Investindustrial-agrees-to-acquire-Kiremko--Idaho-Steel-and-Reyco.html",
-      "source_name": "Investindustrial",
-      "published_at": "2025-08-27",
-      "observed_at": "2026-02-05T13:51:17.983098+00:00",
-      "created_at": "2026-02-05T13:51:17.983098+00:00",
-      "snapshot_id": "snap-20260205135116-a873c5be",
-      "diff_summary": "New news item detected (dated 2025-08-27)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Idaho Steel"
-        ],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-00023",
       "fund_id": "",
       "fund_slug": "progressio-sgr",
@@ -14802,88 +14261,6 @@
       "extracted_entities": {
         "companies": [],
         "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00024",
-      "fund_id": "",
-      "fund_slug": "alcedo-sgr",
-      "signal_type": "deal_announced",
-      "title": "Alcedo rileva il 100% del capitale di Marino Belotti",
-      "what_changed": "New announcement: Alcedo rileva il 100% del capitale di Marino Belotti",
-      "source_url": "https://www.alcedo.it/wp-content/uploads/2024/07/20240711_CS_Alcedo-investe-nellazienda-Marino-Bellotti_final-DEF.pdf",
-      "source_name": "Alcedo SGR",
-      "published_at": "2024-07-11",
-      "observed_at": "2026-02-05T13:51:19.312143+00:00",
-      "created_at": "2026-02-05T13:51:19.312143+00:00",
-      "snapshot_id": "snap-20260205135116-e67dd061",
-      "diff_summary": "New news item detected (dated 2024-07-11)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Marino Belotti"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00026",
-      "fund_id": "",
-      "fund_slug": "alcedo-sgr",
-      "signal_type": "exit_announced",
-      "title": "Alcedo ha perfezionato la cessione del 100% di Friulair a Ingersoll Rand",
-      "what_changed": "New announcement: Alcedo ha perfezionato la cessione del 100% di Friulair a Ingersoll Rand",
-      "source_url": "https://www.alcedo.it/wp-content/uploads/2024/02/70_2024.01.31_Friulair_Comunicato-ITA-FINALE.pdf",
-      "source_name": "Alcedo SGR",
-      "published_at": "2024-02-01",
-      "observed_at": "2026-02-05T13:51:19.312143+00:00",
-      "created_at": "2026-02-05T13:51:19.312143+00:00",
-      "snapshot_id": "snap-20260205135116-e67dd061",
-      "diff_summary": "New news item detected (dated 2024-02-01)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Ingersoll Rand"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00027",
-      "fund_id": "",
-      "fund_slug": "alcedo-sgr",
-      "signal_type": "people_move",
-      "title": "Alessio Riulini nominato Amministratore Delegato di Demetra",
-      "what_changed": "New announcement: Alessio Riulini nominato Amministratore Delegato di Demetra",
-      "source_url": "https://www.alcedo.it/wp-content/uploads/2023/07/69_Comunicato-Alessio-Riulini-11-lug-2023.pdf",
-      "source_name": "Alcedo SGR",
-      "published_at": "2023-07-11",
-      "observed_at": "2026-02-05T13:51:19.312143+00:00",
-      "created_at": "2026-02-05T13:51:19.312143+00:00",
-      "snapshot_id": "snap-20260205135116-e67dd061",
-      "diff_summary": "New news item detected (dated 2023-07-11)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Amministratore Delegato",
-          "Alessio Riulini"
-        ],
         "locations": []
       }
     },
@@ -15087,253 +14464,6 @@
       }
     },
     {
-      "id": "web-signal-00057",
-      "fund_id": "",
-      "fund_slug": "green-arrow-capital-sgr",
-      "signal_type": "other",
-      "title": "Hybrid renewables-digital fund halfway to target",
-      "what_changed": "New announcement: Hybrid renewables-digital fund halfway to target",
-      "source_url": "https://www.greenarrow-capital.com/en/hybrid-renewables-digital-fund-halfway-to-target/",
-      "source_name": "Green Arrow Capital SGR",
-      "published_at": "2022-02-11",
-      "observed_at": "2026-02-05T15:55:01.712953+00:00",
-      "created_at": "2026-02-05T15:55:01.712953+00:00",
-      "snapshot_id": "snap-20260205155458-4a528341",
-      "diff_summary": "New news item detected (dated 2022-02-11)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00058",
-      "fund_id": "",
-      "fund_slug": "green-arrow-capital-sgr",
-      "signal_type": "other",
-      "title": "AIFI \u2013 Il Punto di\u2026 Eugenio de Blasio",
-      "what_changed": "New announcement: AIFI \u2013 Il Punto di\u2026 Eugenio de Blasio",
-      "source_url": "https://www.greenarrow-capital.com/en/aifi-il-punto-di-eugenio-de-blasio/",
-      "source_name": "Green Arrow Capital SGR",
-      "published_at": "2020-11-02",
-      "observed_at": "2026-02-05T15:55:01.712953+00:00",
-      "created_at": "2026-02-05T15:55:01.712953+00:00",
-      "snapshot_id": "snap-20260205155458-4a528341",
-      "diff_summary": "New news item detected (dated 2020-11-02)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.25,
-      "relevance_reasons": [
-        "Italian business context: AIFI"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Il Punto"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00059",
-      "fund_id": "",
-      "fund_slug": "green-arrow-capital-sgr",
-      "signal_type": "other",
-      "title": "De Blasio (Green Arrow) a M&A Circus: Il futuro delle infrastrutture viene da energia e dati",
-      "what_changed": "New announcement: De Blasio (Green Arrow) a M&A Circus: Il futuro delle infrastrutture viene da energia e dati",
-      "source_url": "https://www.greenarrow-capital.com/en/de-blasio-green-arrow-a-ma-circus-il-futuro-delle-infrastrutture-viene-da-energia-e-dati/",
-      "source_name": "Green Arrow Capital SGR",
-      "published_at": "2020-06-26",
-      "observed_at": "2026-02-05T15:55:01.712953+00:00",
-      "created_at": "2026-02-05T15:55:01.712953+00:00",
-      "snapshot_id": "snap-20260205155458-4a528341",
-      "diff_summary": "New news item detected (dated 2020-06-26)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Green Arrow",
-          "De Blasio"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00060",
-      "fund_id": "",
-      "fund_slug": "green-arrow-capital-sgr",
-      "signal_type": "deal_announced",
-      "title": "Graphic PLC producing medical equipment for the fight against the Covid-19 virus",
-      "what_changed": "New announcement: Graphic PLC producing medical equipment for the fight against the Covid-19 virus",
-      "source_url": "https://www.greenarrow-capital.com/en/graphic-plc-producing-medical-equipment-for-the-fight-against-the-covid-19-virus/",
-      "source_name": "Green Arrow Capital SGR",
-      "published_at": "2020-04-22",
-      "observed_at": "2026-02-05T15:55:01.712953+00:00",
-      "created_at": "2026-02-05T15:55:01.712953+00:00",
-      "snapshot_id": "snap-20260205155458-4a528341",
-      "diff_summary": "New news item detected (dated 2020-04-22)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00061",
-      "fund_id": "",
-      "fund_slug": "green-arrow-capital-sgr",
-      "signal_type": "other",
-      "title": "Unquote Annual Buyout",
-      "what_changed": "New announcement: Unquote Annual Buyout",
-      "source_url": "https://www.greenarrow-capital.com/en/unquote-annual-buyout/",
-      "source_name": "Green Arrow Capital SGR",
-      "published_at": "2020-04-07",
-      "observed_at": "2026-02-05T15:55:01.712953+00:00",
-      "created_at": "2026-02-05T15:55:01.712953+00:00",
-      "snapshot_id": "snap-20260205155458-4a528341",
-      "diff_summary": "New news item detected (dated 2020-04-07)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Unquote Annual Buyout"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00062",
-      "fund_id": "",
-      "fund_slug": "palladio-holding",
-      "signal_type": "deal_announced",
-      "title": "Nice Footwear acquisisce i calzaturifici Corrado Maretto e Dyva: cresce l\u2019hub manifatturiero veneto",
-      "what_changed": "New announcement: Nice Footwear acquisisce i calzaturifici Corrado Maretto e Dyva: cresce l\u2019hub manifatturiero veneto del lusso",
-      "source_url": "https://www.pfh.eu/2024/10/29/nice-footwear-acquisisce-i-calzaturifici-corrado-maretto-e-dyva-cresce-lhub-manifatturiero-veneto-del-lusso/",
-      "source_name": "Palladio Holding",
-      "published_at": "Ottobre 29, 2024",
-      "observed_at": "2026-02-05T15:55:04.049254+00:00",
-      "created_at": "2026-02-05T15:55:04.049254+00:00",
-      "snapshot_id": "snap-20260205155500-f2aba55c",
-      "diff_summary": "New news item detected (dated Ottobre 29, 2024)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.2,
-      "relevance_reasons": [
-        "Italian regions: Veneto"
-      ],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Nice Footwear",
-          "Corrado Maretto"
-        ],
-        "locations": [
-          "Veneto"
-        ]
-      }
-    },
-    {
-      "id": "web-signal-00063",
-      "fund_id": "",
-      "fund_slug": "palladio-holding",
-      "signal_type": "deal_announced",
-      "title": "Eagleprojects conferma il piano di espansione ed entra nel capitale di DEWI s.r.l. e IWED ltd.",
-      "what_changed": "New announcement: Eagleprojects conferma il piano di espansione ed entra nel capitale di DEWI s.r.l. e IWED ltd.",
-      "source_url": "https://www.pfh.eu/2024/08/07/eagleprojects-conferma-il-piano-di-espansione-ed-entra-nel-capitale-di-dewi-s-r-l-e-iwed-ltd/",
-      "source_name": "Palladio Holding",
-      "published_at": "Agosto 7, 2024",
-      "observed_at": "2026-02-05T15:55:04.049254+00:00",
-      "created_at": "2026-02-05T15:55:04.049254+00:00",
-      "snapshot_id": "snap-20260205155500-f2aba55c",
-      "diff_summary": "New news item detected (dated Agosto 7, 2024)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.3,
-      "relevance_reasons": [
-        "Italian entity types: SRL"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "Eagleprojects conferma il piano di espansione ed entra nel capitale di DEWI"
-        ],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00067",
-      "fund_id": "",
-      "fund_slug": "palladio-holding",
-      "signal_type": "other",
-      "title": "Risultato consolidato 2023 posisitivo per 39 milioni di euro",
-      "what_changed": "New announcement: Risultato consolidato 2023 posisitivo per 39 milioni di euro",
-      "source_url": "https://www.pfh.eu/2024/06/05/risultato-consolidato-2023-posisitivo-per-39-milioni-di-euro/",
-      "source_name": "Palladio Holding",
-      "published_at": "Giugno 5, 2024",
-      "observed_at": "2026-02-05T15:55:04.049254+00:00",
-      "created_at": "2026-02-05T15:55:04.049254+00:00",
-      "snapshot_id": "snap-20260205155500-f2aba55c",
-      "diff_summary": "New news item detected (dated Giugno 5, 2024)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00070",
-      "fund_id": "",
-      "fund_slug": "palladio-holding",
-      "signal_type": "deal_announced",
-      "title": "Palladio Holding rileva il 31% di Sonica da Amundi",
-      "what_changed": "New announcement: Palladio Holding rileva il 31% di Sonica da Amundi",
-      "source_url": "https://www.pfh.eu/2023/11/15/palladio-holding-rileva-il-31-di-sonica-da-amundi/",
-      "source_name": "Palladio Holding",
-      "published_at": "Novembre 15, 2023",
-      "observed_at": "2026-02-05T15:55:04.049254+00:00",
-      "created_at": "2026-02-05T15:55:04.049254+00:00",
-      "snapshot_id": "snap-20260205155500-f2aba55c",
-      "diff_summary": "New news item detected (dated Novembre 15, 2023)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Palladio Holding"
-        ],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-00071",
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
@@ -15444,83 +14574,6 @@
       }
     },
     {
-      "id": "web-signal-00089",
-      "fund_id": "",
-      "fund_slug": "eqt",
-      "signal_type": "other",
-      "title": "EQT to Launch USD 371 million Tender Offer for MAMEZO",
-      "what_changed": "New announcement: EQT to Launch USD 371 million Tender Offer for MAMEZO",
-      "source_url": "http://www.eqtgroup.com/news/eqt-to-launch-usd-371-million-tender-offer-for-mamezo-2026-01-23",
-      "source_name": "EQT",
-      "published_at": null,
-      "observed_at": "2026-02-05T15:55:20.707868+00:00",
-      "created_at": "2026-02-05T15:55:20.707868+00:00",
-      "snapshot_id": "snap-20260205155518-f4bb7282",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Tender Offer"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00090",
-      "fund_id": "",
-      "fund_slug": "eqt",
-      "signal_type": "other",
-      "title": "EQT AB (publ) Year-end Report 2025",
-      "what_changed": "New announcement: EQT AB (publ) Year-end Report 2025",
-      "source_url": "http://www.eqtgroup.com/news/eqt-ab-publ-year-end-report-2025-2026-01-22",
-      "source_name": "EQT",
-      "published_at": null,
-      "observed_at": "2026-02-05T15:55:20.707868+00:00",
-      "created_at": "2026-02-05T15:55:20.707868+00:00",
-      "snapshot_id": "snap-20260205155518-f4bb7282",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00097",
-      "fund_id": "",
-      "fund_slug": "advent-international",
-      "signal_type": "deal_announced",
-      "title": "TPG to acquire majority stake in Conservice",
-      "what_changed": "New announcement: TPG to acquire majority stake in Conservice",
-      "source_url": "https://www.adventinternational.com/news/tpg-to-acquire-majority-stake-in-conservice/",
-      "source_name": "Advent International",
-      "published_at": "2025-12-22",
-      "observed_at": "2026-02-05T15:55:38.736436+00:00",
-      "created_at": "2026-02-05T15:55:38.736436+00:00",
-      "snapshot_id": "snap-20260205155535-3fa6cdf5",
-      "diff_summary": "New news item detected (dated 2025-12-22)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-00109",
       "fund_id": "",
       "fund_slug": "eurazeo",
@@ -15542,34 +14595,6 @@
       "extracted_entities": {
         "companies": [],
         "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00110",
-      "fund_id": "",
-      "fund_slug": "cvc-dif",
-      "signal_type": "people_move",
-      "title": "CVC DIF Strengthens European Team with Series of Senior Appointments",
-      "what_changed": "New announcement: CVC DIF Strengthens European Team with Series of Senior Appointments",
-      "source_url": "https://www.cvcdif.com/news-insights/cvc-dif-strengthens-european-team-with-series-of-senior-appointments",
-      "source_name": "DIF Capital Partners",
-      "published_at": "January 29, 2026",
-      "observed_at": "2026-02-05T15:56:05.592704+00:00",
-      "created_at": "2026-02-05T15:56:05.592704+00:00",
-      "snapshot_id": "snap-20260205155600-eeb00fe7",
-      "diff_summary": "New news item detected (dated January 29, 2026)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Senior Appointments",
-          "Strengthens European Team"
-        ],
         "locations": []
       }
     },
@@ -15626,257 +14651,6 @@
       }
     },
     {
-      "id": "web-signal-00114",
-      "fund_id": "",
-      "fund_slug": "cvc-dif",
-      "signal_type": "other",
-      "title": "CVC DIF to invest in iPark",
-      "what_changed": "New announcement: CVC DIF to invest in iPark",
-      "source_url": "https://www.cvcdif.com/news-insights/cvc-dif-to-invest-in-ipark",
-      "source_name": "DIF Capital Partners",
-      "published_at": "January 8, 2026",
-      "observed_at": "2026-02-05T15:56:05.592704+00:00",
-      "created_at": "2026-02-05T15:56:05.592704+00:00",
-      "snapshot_id": "snap-20260205155600-eeb00fe7",
-      "diff_summary": "New news item detected (dated January 8, 2026)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00115",
-      "fund_id": "",
-      "fund_slug": "cvc-dif",
-      "signal_type": "other",
-      "title": "Keynote interview: Building on resilience pays off",
-      "what_changed": "New announcement: Keynote interview: Building on resilience pays off",
-      "source_url": "https://www.cvcdif.com/news-insights/keynote-interview-building-on-resilience-pays-off",
-      "source_name": "DIF Capital Partners",
-      "published_at": "December 4, 2025",
-      "observed_at": "2026-02-05T15:56:05.592704+00:00",
-      "created_at": "2026-02-05T15:56:05.592704+00:00",
-      "snapshot_id": "snap-20260205155600-eeb00fe7",
-      "diff_summary": "New news item detected (dated December 4, 2025)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00116",
-      "fund_id": "",
-      "fund_slug": "capza",
-      "signal_type": "other",
-      "title": "Antoine Druais Aapointed As Co Head Of The Flex Equity Mid Market Team",
-      "what_changed": "New announcement: Antoine Druais Aapointed As Co Head Of The Flex Equity Mid Market Team",
-      "source_url": "https://capza.co/news/antoine-druais-aapointed-as-co-head-of-the-flex-equity-mid-market-team/",
-      "source_name": "CAPZA",
-      "published_at": null,
-      "observed_at": "2026-02-05T15:56:20.085532+00:00",
-      "created_at": "2026-02-05T15:56:20.085532+00:00",
-      "snapshot_id": "snap-20260205155613-e4162b96",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "As Co Head",
-          "Antoine Druais Aapointed",
-          "Equity Mid Market",
-          "Of The Flex"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00117",
-      "fund_id": "",
-      "fund_slug": "capza",
-      "signal_type": "deal_announced",
-      "title": "Capza Acquires A Minority Stake In Concerto",
-      "what_changed": "New announcement: Capza Acquires A Minority Stake In Concerto",
-      "source_url": "https://capza.co/news/capza-acquires-a-minority-stake-in-concerto/",
-      "source_name": "CAPZA",
-      "published_at": null,
-      "observed_at": "2026-02-05T15:56:20.085532+00:00",
-      "created_at": "2026-02-05T15:56:20.085532+00:00",
-      "snapshot_id": "snap-20260205155613-e4162b96",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Minority Stake In",
-          "Capza Acquires"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00118",
-      "fund_id": "",
-      "fund_slug": "capza",
-      "signal_type": "other",
-      "title": "Cazpa Partners With Uuds",
-      "what_changed": "New announcement: Cazpa Partners With Uuds",
-      "source_url": "https://capza.co/news/cazpa-partners-with-uuds/",
-      "source_name": "CAPZA",
-      "published_at": null,
-      "observed_at": "2026-02-05T15:56:20.085532+00:00",
-      "created_at": "2026-02-05T15:56:20.085532+00:00",
-      "snapshot_id": "snap-20260205155613-e4162b96",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Cazpa Partners With"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00119",
-      "fund_id": "",
-      "fund_slug": "capza",
-      "signal_type": "other",
-      "title": "Capza And Mecadaq Accelerate Aerospace Consolidation",
-      "what_changed": "New announcement: Capza And Mecadaq Accelerate Aerospace Consolidation",
-      "source_url": "https://capza.co/news/capza-and-mecadaq-accelerate-aerospace-consolidation/",
-      "source_name": "CAPZA",
-      "published_at": null,
-      "observed_at": "2026-02-05T15:56:20.085532+00:00",
-      "created_at": "2026-02-05T15:56:20.085532+00:00",
-      "snapshot_id": "snap-20260205155613-e4162b96",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [
-          "Capza And Mecadaq Accelerate Aero"
-        ],
-        "people": [
-          "Capza And Mecadaq",
-          "Accelerate Aerospace Consolidation"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00121",
-      "fund_id": "",
-      "fund_slug": "towerbrook",
-      "signal_type": "deal_announced",
-      "title": "TowerBrook Capital Partners: Acquisition - MSA Mizar through a strategic partnership with Columna Capital and Giovanni Campus",
-      "what_changed": "New acquisition involving MSA Mizar through a strategic partnership with Columna Capital and Giovanni Campus",
-      "source_url": "https://www.towerbrook.com/towerbrook-acquires-a-majority-interest-in-msa-mizar-through-a-strategic-partnership-with-columna-capital-and-giovanni-campus/",
-      "source_name": "TowerBrook",
-      "published_at": null,
-      "observed_at": "2026-02-05T15:56:28.872013+00:00",
-      "created_at": "2026-02-05T15:56:28.872013+00:00",
-      "snapshot_id": "snap-20260205155623-9bbcaecc",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [
-          "MSA Mizar through a strategic partnership with Columna Capital and Giovanni Campus"
-        ],
-        "people": [
-          "Giovanni Campus",
-          "Columna Capital"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00123",
-      "fund_id": "",
-      "fund_slug": "towerbrook",
-      "signal_type": "people_move",
-      "title": "TowerBrook appoints Jack Azagury as Senior Advisor to support growth in Business Services Sector",
-      "what_changed": "New None involving Business Services Sector",
-      "source_url": "https://www.towerbrook.com/towerbrook-appoints-jack-azagury-as-senior-advisor-to-support-growth-in-business-services-sector/",
-      "source_name": "TowerBrook",
-      "published_at": null,
-      "observed_at": "2026-02-05T15:56:28.872013+00:00",
-      "created_at": "2026-02-05T15:56:28.872013+00:00",
-      "snapshot_id": "snap-20260205155623-9bbcaecc",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [
-          "Business Services Sector"
-        ],
-        "people": [
-          "Senior Advisor",
-          "Business Services Sector",
-          "Jack Azagury"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00132",
-      "fund_id": "",
-      "fund_slug": "pai-partners",
-      "signal_type": "exit_announced",
-      "title": "PAI Partners enters into an agreement for the sale of Uvesco",
-      "what_changed": "New announcement: PAI Partners enters into an agreement for the sale of Uvesco",
-      "source_url": "https://www.paipartners.com/mediaitem/pai-partners-enters-into-an-agreement-for-the-sale-of-uvesco/",
-      "source_name": "PAI Partners",
-      "published_at": "24 Dec 2025",
-      "observed_at": "2026-02-05T15:56:54.189546+00:00",
-      "created_at": "2026-02-05T15:56:54.189546+00:00",
-      "snapshot_id": "snap-20260205155650-462fc4bc",
-      "diff_summary": "New news item detected (dated 24 Dec 2025)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-00133",
       "fund_id": "",
       "fund_slug": "pai-partners",
@@ -15900,58 +14674,6 @@
         "people": [
           "Real Economy"
         ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00134",
-      "fund_id": "",
-      "fund_slug": "pai-partners",
-      "signal_type": "deal_announced",
-      "title": "PAI Partners acquires Innovad Group",
-      "what_changed": "New announcement: PAI Partners acquires Innovad Group",
-      "source_url": "https://www.paipartners.com/mediaitem/pai-partners-acquires-innovad-group/",
-      "source_name": "PAI Partners",
-      "published_at": "08 Dec 2025",
-      "observed_at": "2026-02-05T15:56:54.189546+00:00",
-      "created_at": "2026-02-05T15:56:54.189546+00:00",
-      "snapshot_id": "snap-20260205155650-462fc4bc",
-      "diff_summary": "New news item detected (dated 08 Dec 2025)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Innovad Group"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00135",
-      "fund_id": "",
-      "fund_slug": "pai-partners",
-      "signal_type": "deal_announced",
-      "title": "PAI Partners enters into exclusive negotiations to acquire Cyrus",
-      "what_changed": "New announcement: PAI Partners enters into exclusive negotiations to acquire Cyrus",
-      "source_url": "https://www.paipartners.com/mediaitem/pai-partners-enters-into-exclusive-negotiations-to-acquire-cyrus/",
-      "source_name": "PAI Partners",
-      "published_at": "22 Oct 2025",
-      "observed_at": "2026-02-05T15:56:54.189546+00:00",
-      "created_at": "2026-02-05T15:56:54.189546+00:00",
-      "snapshot_id": "snap-20260205155650-462fc4bc",
-      "diff_summary": "New news item detected (dated 22 Oct 2025)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
         "locations": []
       }
     },
@@ -16113,34 +14835,6 @@
       }
     },
     {
-      "id": "web-signal-00150",
-      "fund_id": "",
-      "fund_slug": "blackstone",
-      "signal_type": "other",
-      "title": "Why Should You Care About Data Centers?",
-      "what_changed": "New announcement: Why Should You Care About Data Centers?",
-      "source_url": "https://www.blackstone.com/en/news",
-      "source_name": "Blackstone",
-      "published_at": "2026-01-15",
-      "observed_at": "2026-02-05T15:57:08.275480+00:00",
-      "created_at": "2026-02-05T15:57:08.275480+00:00",
-      "snapshot_id": "snap-20260205155705-3b6323a1",
-      "diff_summary": "New news item detected (dated 2026-01-15)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Why Should You",
-          "Care About Data"
-        ],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-00152",
       "fund_id": "",
       "fund_slug": "argos-wityu",
@@ -16164,166 +14858,6 @@
         "people": [
           "Argos Index"
         ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00153",
-      "fund_id": "",
-      "fund_slug": "blackstone",
-      "signal_type": "other",
-      "title": "Real Estate Enters the Next Phase of the Cycle",
-      "what_changed": "New announcement: Real Estate Enters the Next Phase of the Cycle",
-      "source_url": "https://www.blackstone.com/en/news",
-      "source_name": "Blackstone",
-      "published_at": "2026-01-02",
-      "observed_at": "2026-02-05T15:57:08.275480+00:00",
-      "created_at": "2026-02-05T15:57:08.275480+00:00",
-      "snapshot_id": "snap-20260205155705-3b6323a1",
-      "diff_summary": "New news item detected (dated 2026-01-02)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Real Estate Enters",
-          "Next Phase"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00155",
-      "fund_id": "",
-      "fund_slug": "blackstone",
-      "signal_type": "other",
-      "title": "Vision, Ambition, and Humanity in the Age of AI: Insights from Blackstone\u2019s CEO Conference",
-      "what_changed": "New announcement: Vision, Ambition, and Humanity in the Age of AI: Insights from Blackstone\u2019s CEO Conference",
-      "source_url": "https://www.blackstone.com/en/news",
-      "source_name": "Blackstone",
-      "published_at": "2025-12-23",
-      "observed_at": "2026-02-05T15:57:08.275480+00:00",
-      "created_at": "2026-02-05T15:57:08.275480+00:00",
-      "snapshot_id": "snap-20260205155705-3b6323a1",
-      "diff_summary": "New news item detected (dated 2025-12-23)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00156",
-      "fund_id": "",
-      "fund_slug": "blackstone",
-      "signal_type": "other",
-      "title": "Private Credit Beyond the Noise",
-      "what_changed": "New announcement: Private Credit Beyond the Noise",
-      "source_url": "https://www.blackstone.com/en/news",
-      "source_name": "Blackstone",
-      "published_at": "2025-12-18",
-      "observed_at": "2026-02-05T15:57:08.275480+00:00",
-      "created_at": "2026-02-05T15:57:08.275480+00:00",
-      "snapshot_id": "snap-20260205155705-3b6323a1",
-      "diff_summary": "New news item detected (dated 2025-12-18)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Private Credit Beyond"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00157",
-      "fund_id": "",
-      "fund_slug": "blackstone",
-      "signal_type": "other",
-      "title": "Behind the Scenes: Inside QTS with Farhad Karim",
-      "what_changed": "New announcement: Behind the Scenes: Inside QTS with Farhad Karim",
-      "source_url": "https://www.blackstone.com/en/news",
-      "source_name": "Blackstone",
-      "published_at": "2025-12-05",
-      "observed_at": "2026-02-05T15:57:08.275480+00:00",
-      "created_at": "2026-02-05T15:57:08.275480+00:00",
-      "snapshot_id": "snap-20260205155705-3b6323a1",
-      "diff_summary": "New news item detected (dated 2025-12-05)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Farhad Karim"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00158",
-      "fund_id": "",
-      "fund_slug": "abenex",
-      "signal_type": "other",
-      "title": "Abenex wins the Gold Award at the IPEM Wealth Awards 2026",
-      "what_changed": "New announcement: Abenex wins the Gold Award at the IPEM Wealth Awards 2026",
-      "source_url": "https://www.abenex.com/it/abenex-wins-gold-ipem-wealth-awards-2026/",
-      "source_name": "Abenex",
-      "published_at": null,
-      "observed_at": "2026-02-05T15:57:11.399927+00:00",
-      "created_at": "2026-02-05T15:57:11.399927+00:00",
-      "snapshot_id": "snap-20260205155711-7fe1dd87",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Gold Award",
-          "Wealth Awards"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00159",
-      "fund_id": "",
-      "fund_slug": "abenex",
-      "signal_type": "other",
-      "title": "Abenex shines at the PEX Awards 2025 with two major distinctions",
-      "what_changed": "New announcement: Abenex shines at the PEX Awards 2025 with two major distinctions",
-      "source_url": "https://www.abenex.com/it/abenex-pex-awards-2025-best-lbo-fund-young-pe-personality/",
-      "source_name": "Abenex",
-      "published_at": null,
-      "observed_at": "2026-02-05T15:57:11.399927+00:00",
-      "created_at": "2026-02-05T15:57:11.399927+00:00",
-      "snapshot_id": "snap-20260205155711-7fe1dd87",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
         "locations": []
       }
     },
@@ -16487,36 +15021,6 @@
       }
     },
     {
-      "id": "web-signal-00168",
-      "fund_id": "",
-      "fund_slug": "andera-partners",
-      "signal_type": "other",
-      "title": "The Europeanisation of Private Equity: Transcending Borders to Build an Integrated Platform.",
-      "what_changed": "New announcement: The Europeanisation of Private Equity: Transcending Borders to Build an Integrated Platform.",
-      "source_url": "https://www.anderapartners.com/en/the-europeanisation-of-private-equity-transcending-borders-to-build-an-integrated-platform/",
-      "source_name": "Andera Partners",
-      "published_at": "26.01.2026",
-      "observed_at": "2026-02-05T15:57:15.935567+00:00",
-      "created_at": "2026-02-05T15:57:15.935567+00:00",
-      "snapshot_id": "snap-20260205155714-162bdc3b",
-      "diff_summary": "New news item detected (dated 26.01.2026)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "The Europeanisation",
-          "Integrated Platform",
-          "Transcending Borders",
-          "Private Equity"
-        ],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-00174",
       "fund_id": "",
       "fund_slug": "avanzi-etica-sicaf-euveca",
@@ -16658,63 +15162,6 @@
       }
     },
     {
-      "id": "web-signal-00190",
-      "fund_id": "",
-      "fund_slug": "b4-investimenti-sgr",
-      "signal_type": "other",
-      "title": "Fabrizio Baroni interviene all\u2019evento \u201cIl ruolo del CFO nei progetti di Private Capital\u201d",
-      "what_changed": "New announcement: Fabrizio Baroni interviene all\u2019evento \u201cIl ruolo del CFO nei progetti di Private Capital\u201d",
-      "source_url": "https://b4investimenti.it/2025/11/12/fabrizio-baroni-interviene-allevento-il-ruolo-del-cfo-nei-progetti-di-private-capital/",
-      "source_name": "B4 Investimenti SGR",
-      "published_at": "Novembre 12, 2025",
-      "observed_at": "2026-02-05T15:57:26.334080+00:00",
-      "created_at": "2026-02-05T15:57:26.334080+00:00",
-      "snapshot_id": "snap-20260205155724-d423219d",
-      "diff_summary": "New news item detected (dated Novembre 12, 2025)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Fabrizio Baroni",
-          "Private Capital"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00191",
-      "fund_id": "",
-      "fund_slug": "deep-ocean-capital-sgr",
-      "signal_type": "other",
-      "title": "Nasce Il Fondo Promuovere L\u2019innovazione Aerospaziale",
-      "what_changed": "New announcement: Nasce Il Fondo Promuovere L\u2019innovazione Aerospaziale",
-      "source_url": "https://www.advisoronline.it/strumenti-finanziari/investimenti-alternativi/70485-nasce-il-fondo-promuovere-l-innovazione-aerospaziale1.action",
-      "source_name": "Deep Ocean Capital SGR",
-      "published_at": "12 giugno 2023",
-      "observed_at": "2026-02-05T15:57:26.720898+00:00",
-      "created_at": "2026-02-05T15:57:26.720898+00:00",
-      "snapshot_id": "snap-20260205155725-188ebed2",
-      "diff_summary": "New news item detected (dated 12 giugno 2023)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [
-          "innovazione Aero"
-        ],
-        "people": [
-          "Nasce Il Fondo"
-        ],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-00203",
       "fund_id": "",
       "fund_slug": "consilium-sgr",
@@ -16820,31 +15267,6 @@
       }
     },
     {
-      "id": "web-signal-00215",
-      "fund_id": "",
-      "fund_slug": "innovative-rfk",
-      "signal_type": "other",
-      "title": "Innovative-RFK acquista la maggioranza di Abbrevia",
-      "what_changed": "New announcement: Innovative-RFK acquista la maggioranza di Abbrevia",
-      "source_url": "https://financecommunity.it/innovative-rfk-acquista-la-maggioranza-di-abbrevia/",
-      "source_name": "Innovative-RFK",
-      "published_at": "12 Ottobre 2023",
-      "observed_at": "2026-02-05T15:57:45.697662+00:00",
-      "created_at": "2026-02-05T15:57:45.697662+00:00",
-      "snapshot_id": "snap-20260205155744-6141756a",
-      "diff_summary": "New news item detected (dated 12 Ottobre 2023)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-00216",
       "fund_id": "",
       "fund_slug": "innovative-rfk",
@@ -16924,33 +15346,6 @@
       }
     },
     {
-      "id": "web-signal-00220",
-      "fund_id": "",
-      "fund_slug": "itago",
-      "signal_type": "exit_announced",
-      "title": "ITAGO cede Panificio San Francesco a Lantm\u00e4nnen Unibake",
-      "what_changed": "New announcement: ITAGO cede Panificio San Francesco a Lantm\u00e4nnen Unibake",
-      "source_url": "https://www.itagopartners.it/itago-cede-panificio-san-francesco-a-lantmannen-unibake/",
-      "source_name": "Itago",
-      "published_at": "2025-12-23T16:54:45+02:00",
-      "observed_at": "2026-02-05T15:57:47.873034+00:00",
-      "created_at": "2026-02-05T15:57:47.873034+00:00",
-      "snapshot_id": "snap-20260205155746-6198a1e3",
-      "diff_summary": "New news item detected (dated 2025-12-23T16:54:45+02:00)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Panificio San Francesco"
-        ],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-00221",
       "fund_id": "",
       "fund_slug": "key-capital",
@@ -16964,31 +15359,6 @@
       "created_at": "2026-02-05T15:57:48.160608+00:00",
       "snapshot_id": "snap-20260205155746-66faf59a",
       "diff_summary": "New news item detected (dated 8 December 2016)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00222",
-      "fund_id": "",
-      "fund_slug": "itago",
-      "signal_type": "deal_announced",
-      "title": "Alcedo has completed the acquisition of Operamed",
-      "what_changed": "New announcement: Alcedo has completed the acquisition of Operamed",
-      "source_url": "https://www.itagopartners.it/alcedo-has-completed-the-acquisition-of-operamed/",
-      "source_name": "Itago",
-      "published_at": "2025-11-18T17:44:56+02:00",
-      "observed_at": "2026-02-05T15:57:47.873034+00:00",
-      "created_at": "2026-02-05T15:57:47.873034+00:00",
-      "snapshot_id": "snap-20260205155746-6198a1e3",
-      "diff_summary": "New news item detected (dated 2025-11-18T17:44:56+02:00)",
       "page_category": "NEWS",
       "page_type": "NEWS",
       "relevance_score": 0,
@@ -17056,31 +15426,6 @@
           "Leaf Space",
           "Key Capital"
         ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00226",
-      "fund_id": "",
-      "fund_slug": "itago",
-      "signal_type": "other",
-      "title": "Gli investimenti di PreviAmbiente nell\u2019economia reale",
-      "what_changed": "New announcement: Gli investimenti di PreviAmbiente nell\u2019economia reale",
-      "source_url": "https://www.itagopartners.it/gli-investimenti-di-previambiente-nelleconomia-reale/",
-      "source_name": "Itago",
-      "published_at": "2024-11-08T19:10:23+02:00",
-      "observed_at": "2026-02-05T15:57:47.873034+00:00",
-      "created_at": "2026-02-05T15:57:47.873034+00:00",
-      "snapshot_id": "snap-20260205155746-6198a1e3",
-      "diff_summary": "New news item detected (dated 2024-11-08T19:10:23+02:00)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
         "locations": []
       }
     },
@@ -17245,114 +15590,6 @@
       }
     },
     {
-      "id": "web-signal-00250",
-      "fund_id": "",
-      "fund_slug": "oltre-impact-sgr",
-      "signal_type": "fundraise_announced",
-      "title": "OLTRE III continua a crescere: chiuso il closing con una raccolta di 72 milioni",
-      "what_changed": "New announcement: OLTRE III continua a crescere: chiuso il closing con una raccolta di 72 milioni",
-      "source_url": "https://www.oltreimpact.com/it/blog/oltre-iii-continua-a-crescere-chiuso-il-closing-con-una-raccolta-di-72-milioni/",
-      "source_name": "Oltre Impact SGR",
-      "published_at": "30 Novembre 2022",
-      "observed_at": "2026-02-05T15:58:04.763890+00:00",
-      "created_at": "2026-02-05T15:58:04.763890+00:00",
-      "snapshot_id": "snap-20260205155804-54139a32",
-      "diff_summary": "New news item detected (dated 30 Novembre 2022)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00251",
-      "fund_id": "",
-      "fund_slug": "oltre-impact-sgr",
-      "signal_type": "other",
-      "title": "Oltre Impact investe nel \u201cRaccontastorie\u201d di FABA",
-      "what_changed": "New announcement: Oltre Impact investe nel \u201cRaccontastorie\u201d di FABA",
-      "source_url": "https://www.oltreimpact.com/it/blog/oltre-impact-investe-nel-raccontastorie-di-faba/",
-      "source_name": "Oltre Impact SGR",
-      "published_at": "28 Novembre 2022",
-      "observed_at": "2026-02-05T15:58:04.763890+00:00",
-      "created_at": "2026-02-05T15:58:04.763890+00:00",
-      "snapshot_id": "snap-20260205155804-54139a32",
-      "diff_summary": "New news item detected (dated 28 Novembre 2022)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Oltre Impact"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00253",
-      "fund_id": "",
-      "fund_slug": "rivean-capital",
-      "signal_type": "deal_announced",
-      "title": "Valcon acquires Bricobomba Consultancy to expand Nordic footprint",
-      "what_changed": "New announcement: Valcon acquires Bricobomba Consultancy to expand Nordic footprint",
-      "source_url": "https://riveancapital.com/news/valcon-acquires-bricobomba-consultancy-to-expand-nordic-footprint/",
-      "source_name": "Rivean Capital",
-      "published_at": "04.12.2025",
-      "observed_at": "2026-02-05T15:58:14.927399+00:00",
-      "created_at": "2026-02-05T15:58:14.927399+00:00",
-      "snapshot_id": "snap-20260205155814-30949b6c",
-      "diff_summary": "New news item detected (dated 04.12.2025)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Bricobomba Consultancy"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00296",
-      "fund_id": "",
-      "fund_slug": "xgen-venture-sgr",
-      "signal_type": "other",
-      "title": "Clinical trial published in Nature Medicine shows proof of concept of PAGE\u2019s therapeutic approach",
-      "what_changed": "New None involving Nature Medicine shows proof of concept of PAGE",
-      "source_url": "https://www.prnewswire.com/news-releases/clinical-trial-published-in-nature-medicine-shows-proof-of-concept-of-pages-therapeutics-approach-302359655.html?tc=eml_cleartime#new_tab",
-      "source_name": "XGen Venture SGR",
-      "published_at": null,
-      "observed_at": "2026-02-05T15:58:45.101857+00:00",
-      "created_at": "2026-02-05T15:58:45.101857+00:00",
-      "snapshot_id": "snap-20260205155842-09358b66",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [
-          "Nature Medicine shows proof of concept of PAGE"
-        ],
-        "people": [
-          "Nature Medicine"
-        ],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-00319",
       "fund_id": "",
       "fund_slug": "b4-investimenti-sgr",
@@ -17473,90 +15710,6 @@
           "Equity Mid Market",
           "Of The Flex"
         ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00328",
-      "fund_id": "",
-      "fund_slug": "capza",
-      "signal_type": "other",
-      "title": "Cazpa Partners With Uuds",
-      "what_changed": "New announcement: Cazpa Partners With Uuds",
-      "source_url": "https://capza.co/news/cazpa-partners-with-uuds/",
-      "source_name": "CAPZA",
-      "published_at": null,
-      "observed_at": "2026-02-05T17:09:58.607041+00:00",
-      "created_at": "2026-02-05T17:09:58.607041+00:00",
-      "snapshot_id": "snap-20260205170956-3a874a49",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Cazpa Partners With"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00329",
-      "fund_id": "",
-      "fund_slug": "capza",
-      "signal_type": "other",
-      "title": "Capza And Mecadaq Accelerate Aerospace Consolidation",
-      "what_changed": "New announcement: Capza And Mecadaq Accelerate Aerospace Consolidation",
-      "source_url": "https://capza.co/news/capza-and-mecadaq-accelerate-aerospace-consolidation/",
-      "source_name": "CAPZA",
-      "published_at": null,
-      "observed_at": "2026-02-05T17:09:58.607041+00:00",
-      "created_at": "2026-02-05T17:09:58.607041+00:00",
-      "snapshot_id": "snap-20260205170956-3a874a49",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [
-          "Capza And Mecadaq Accelerate Aero"
-        ],
-        "people": [
-          "Capza And Mecadaq",
-          "Accelerate Aerospace Consolidation"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00331",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "signal_type": "other",
-      "title": "Dal mondo cdp venture capital",
-      "what_changed": "New announcement: Dal mondo cdp venture capital",
-      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
-      "source_name": "Cdp Venture Capital",
-      "published_at": null,
-      "observed_at": "2026-02-05T17:10:06.049517+00:00",
-      "created_at": "2026-02-05T17:10:06.049517+00:00",
-      "snapshot_id": "snap-20260205171002-1bc451c2",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.25,
-      "relevance_reasons": [
-        "Italian business context: cdp"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
         "locations": []
       }
     },
@@ -18374,31 +16527,6 @@
       }
     },
     {
-      "id": "web-signal-00513",
-      "fund_id": "",
-      "fund_slug": "clessidra-sgr",
-      "signal_type": "other",
-      "title": "Prosegue la crescita nel terzo trimestre del 2025, utile netto a 5,2 milioni",
-      "what_changed": "New announcement: Prosegue la crescita nel terzo trimestre del 2025, utile netto a 5,2 milioni",
-      "source_url": "https://www.clessidragroup.it/prosegue-la-crescita-nel-terzo-trimestre-del-2025-utile-netto-a-52-milioni/",
-      "source_name": "www.clessidragroup.it",
-      "published_at": "2025-11-17",
-      "observed_at": "2026-02-05T18:22:22.908149+00:00",
-      "created_at": "2026-02-05T18:22:22.908149+00:00",
-      "snapshot_id": "snap-20260205182220-51d9d6e8",
-      "diff_summary": "New news item detected (dated 2025-11-17)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-00521",
       "fund_id": "",
       "fund_slug": "green-arrow-capital-sgr",
@@ -18879,60 +17007,6 @@
       "extracted_entities": {
         "companies": [],
         "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00542",
-      "fund_id": "",
-      "fund_slug": "wise-equity-sgr",
-      "signal_type": "deal_announced",
-      "title": "Wise Equity entra nel capitale di Marullo per accompagnarne la crescita",
-      "what_changed": "New announcement: Wise Equity entra nel capitale diMarulloper accompagnarne la crescita",
-      "source_url": "https://www.wisesgr.com/web/content/458/15-12-2025_Comunicato-Stampa_WISE-Equity_Marullo_v-ITA_DEF.pdf",
-      "source_name": "Wise Equity SGR",
-      "published_at": "2025-12-15",
-      "observed_at": "2026-02-05T18:24:00.488181+00:00",
-      "created_at": "2026-02-05T18:24:00.488181+00:00",
-      "snapshot_id": "snap-20260205182359-0b7ef0c4",
-      "diff_summary": "New news item detected (dated 2025-12-15)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Wise Equity"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00543",
-      "fund_id": "",
-      "fund_slug": "wise-equity-sgr",
-      "signal_type": "deal_announced",
-      "title": "NTC sostenuta da Wise Equity, completa l\u2019acquisizione del Business oftalmico di Pharmathen",
-      "what_changed": "New announcement: NTCsostenuta da Wise Equity, completa l\u2019acquisizione del Business oftalmico diPharmathen",
-      "source_url": "https://www.wisesgr.com/web/content/457/20251210_CS_WE-NTC-Pharmathen_ITA_vF.pdf",
-      "source_name": "Wise Equity SGR",
-      "published_at": "2025-12-10",
-      "observed_at": "2026-02-05T18:24:00.488181+00:00",
-      "created_at": "2026-02-05T18:24:00.488181+00:00",
-      "snapshot_id": "snap-20260205182359-0b7ef0c4",
-      "diff_summary": "New news item detected (dated 2025-12-10)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Wise Equity"
-        ],
         "locations": []
       }
     },
@@ -20724,106 +18798,6 @@
         "people": [
           "Securities Financial Services"
         ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00740",
-      "fund_id": "",
-      "fund_slug": "ardian",
-      "signal_type": "other",
-      "title": "Sustainability as a value creation driver: Ardian\u2019s Co-Investment activity in action",
-      "what_changed": "New announcement: Sustainability as a value creation driver: Ardian\u2019s Co-Investment activity in action",
-      "source_url": "https://www.ardian.com/news-insights",
-      "source_name": "Ardian",
-      "published_at": null,
-      "observed_at": "2026-02-05T21:39:55.569414+00:00",
-      "created_at": "2026-02-05T21:39:55.569414+00:00",
-      "snapshot_id": "snap-20260205213952-efd0aeb4",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00741",
-      "fund_id": "",
-      "fund_slug": "ardian",
-      "signal_type": "other",
-      "title": "Ardian accelerates in the single asset continuation vehicles with a dedicated investment strategy",
-      "what_changed": "New announcement: Ardian accelerates in the single asset continuation vehicles with a dedicated investment strategy",
-      "source_url": "https://www.ardian.com/news-insights",
-      "source_name": "Ardian",
-      "published_at": null,
-      "observed_at": "2026-02-05T21:39:55.569414+00:00",
-      "created_at": "2026-02-05T21:39:55.569414+00:00",
-      "snapshot_id": "snap-20260205213952-efd0aeb4",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00742",
-      "fund_id": "",
-      "fund_slug": "ardian",
-      "signal_type": "other",
-      "title": "Ardian & Alvest: Pioneering innovation in ground support equipment",
-      "what_changed": "New announcement: Ardian & Alvest: Pioneering innovation in ground support equipment",
-      "source_url": "https://www.ardian.com/news-insights",
-      "source_name": "Ardian",
-      "published_at": null,
-      "observed_at": "2026-02-05T21:39:55.569414+00:00",
-      "created_at": "2026-02-05T21:39:55.569414+00:00",
-      "snapshot_id": "snap-20260205213952-efd0aeb4",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-00743",
-      "fund_id": "",
-      "fund_slug": "ardian",
-      "signal_type": "other",
-      "title": "Ardian makes the case for European AI sovereignty",
-      "what_changed": "New announcement: Ardian makes the case for European AI sovereignty",
-      "source_url": "https://www.ardian.com/news-insights",
-      "source_name": "Ardian",
-      "published_at": null,
-      "observed_at": "2026-02-05T21:39:55.569414+00:00",
-      "created_at": "2026-02-05T21:39:55.569414+00:00",
-      "snapshot_id": "snap-20260205213952-efd0aeb4",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
         "locations": []
       }
     },
@@ -24427,36 +22401,6 @@
       }
     },
     {
-      "id": "web-signal-01067",
-      "fund_id": "",
-      "fund_slug": "alcedo-sgr",
-      "signal_type": "deal_announced",
-      "title": "Chequers Capital ha perfezionato l\u2019acquisizione di Gourmet Italian Food, gruppo italiano leader nel settore dei ready meals",
-      "what_changed": "New announcement: Chequers Capital ha perfezionato l\u2019acquisizione di Gourmet Italian Food, gruppo italiano leader nel settore dei ready meals",
-      "source_url": "https://www.alcedo.it/wp-content/uploads/2025/04/74.-GIF_Press_ITA.pdf",
-      "source_name": "Alcedo SGR",
-      "published_at": "2025-04-02",
-      "observed_at": "2026-02-09T09:30:20.106659+00:00",
-      "created_at": "2026-02-09T09:30:20.106659+00:00",
-      "snapshot_id": "snap-20260209093017-16d82369",
-      "diff_summary": "New news item detected (dated 2025-04-02)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.44,
-      "relevance_reasons": [
-        "Italy mentioned (italian, italiano)"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Chequers Capital",
-          "Gourmet Italian Food"
-        ],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-01072",
       "fund_id": "",
       "fund_slug": "progressio-sgr",
@@ -24759,56 +22703,6 @@
       "signal_type": "other",
       "title": "BeNewtral chiude un round da \u20ac7M e punta a decarbonizzare il cemento",
       "what_changed": "New announcement: BeNewtral chiude un round da \u20ac7M e punta a decarbonizzare il cemento",
-      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
-      "source_name": "Cdp Venture Capital",
-      "published_at": null,
-      "observed_at": "2026-02-09T14:28:18.137943+00:00",
-      "created_at": "2026-02-09T14:28:18.137943+00:00",
-      "snapshot_id": "snap-20260209142814-1bc451c2",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-01084",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "signal_type": "fundraise_announced",
-      "title": "NanoPhoria annuncia il secondo closing del suo round di finanziamento serie A, con la partecipazione dell\u2019EIC Fund",
-      "what_changed": "New announcement: NanoPhoria annuncia il secondo closing del suo round di finanziamento serie A, con la partecipazione dell\u2019EIC Fund",
-      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
-      "source_name": "Cdp Venture Capital",
-      "published_at": null,
-      "observed_at": "2026-02-09T14:28:18.137943+00:00",
-      "created_at": "2026-02-09T14:28:18.137943+00:00",
-      "snapshot_id": "snap-20260209142814-1bc451c2",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-01085",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "signal_type": "other",
-      "title": "RARA Factory, spin-off deep-tech i Ca' Foscari, raccoglie oltre \u20ac3M di investimento e accelera sulla scoperta di materiali alternativi alle terre rare",
-      "what_changed": "New announcement: RARA Factory, spin-off deep-tech i Ca' Foscari, raccoglie oltre \u20ac3M di investimento e accelera sulla scoperta di materiali alternativi alle terre rare",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
       "source_name": "Cdp Venture Capital",
       "published_at": null,
@@ -31744,36 +29638,6 @@
       }
     },
     {
-      "id": "web-signal-01223",
-      "fund_id": "",
-      "fund_slug": "alcedo-sgr",
-      "signal_type": "other",
-      "title": "Gourmet Italian Food, controllata da Alcedo, acquista Firma Italia.",
-      "what_changed": "New announcement: Gourmet Italian Food, controllata da Alcedo, acquista Firma Italia.",
-      "source_url": "https://www.alcedo.it/wp-content/uploads/2023/07/67_-Alcedo-SGR-Press-Release-fIRMA.pdf",
-      "source_name": "Alcedo SGR",
-      "published_at": "2023-06-28",
-      "observed_at": "2026-02-12T17:55:55.338431+00:00",
-      "created_at": "2026-02-12T17:55:55.338431+00:00",
-      "snapshot_id": "snap-20260212175554-16d82369",
-      "diff_summary": "New news item detected (dated 2023-06-28)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.44,
-      "relevance_reasons": [
-        "Italy mentioned (italian, italia)"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Gourmet Italian Food",
-          "Firma Italia"
-        ],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-01224",
       "fund_id": "",
       "fund_slug": "abenex",
@@ -31796,35 +29660,6 @@
         "companies": [],
         "people": [
           "Groupe Leader Insurance"
-        ],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-01225",
-      "fund_id": "",
-      "fund_slug": "alcedo-sgr",
-      "signal_type": "exit_announced",
-      "title": "Alcedo SGR vende a Montefiore Investment la propria quota di Exa",
-      "what_changed": "New announcement: Alcedo SGR vende a Montefiore Investment la propria quota di Exa",
-      "source_url": "https://www.alcedo.it/wp-content/uploads/2023/05/Comunicato-Stampa_Alcedo-EXA.pdf",
-      "source_name": "Alcedo SGR",
-      "published_at": "2023-05-08",
-      "observed_at": "2026-02-12T17:55:55.338431+00:00",
-      "created_at": "2026-02-12T17:55:55.338431+00:00",
-      "snapshot_id": "snap-20260212175554-16d82369",
-      "diff_summary": "New news item detected (dated 2023-05-08)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.3,
-      "relevance_reasons": [
-        "Italian entity types: SGR"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Montefiore Investment"
         ],
         "locations": []
       }
@@ -31942,36 +29777,6 @@
       }
     },
     {
-      "id": "web-signal-01230",
-      "fund_id": "",
-      "fund_slug": "alcedo-sgr",
-      "signal_type": "other",
-      "title": "TASTE OF ITALY 2 E ALCEDO V INVESTONO IN DEMETRA S.P.A.",
-      "what_changed": "New announcement: TASTE OF ITALY 2 E ALCEDO V INVESTONO IN DEMETRA S.P.A.",
-      "source_url": "https://www.alcedo.it/wp-content/uploads/2023/02/Persefone-Comunicato-Stampa-DEF-1.pdf",
-      "source_name": "Alcedo SGR",
-      "published_at": "2023-02-20",
-      "observed_at": "2026-02-12T17:55:55.338431+00:00",
-      "created_at": "2026-02-12T17:55:55.338431+00:00",
-      "snapshot_id": "snap-20260212175554-16d82369",
-      "diff_summary": "New news item detected (dated 2023-02-20)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.7,
-      "relevance_reasons": [
-        "Italy mentioned (italy)",
-        "Italian entity types: SPA"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "INVESTONO IN DEMETRA"
-        ],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-01231",
       "fund_id": "",
       "fund_slug": "abenex",
@@ -32021,31 +29826,6 @@
         "companies": [
           "Bracchi S.p.A."
         ],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
-      "id": "web-signal-01233",
-      "fund_id": "",
-      "fund_slug": "alcedo-sgr",
-      "signal_type": "other",
-      "title": "Nethive acquisice il 70% di Xech e rafforza il business dei software in ambito cybersecurity",
-      "what_changed": "New announcement: Nethive acquisice il 70% di Xech e rafforza il business dei software in ambito cybersecurity",
-      "source_url": "https://www.alcedo.it/wp-content/uploads/2023/02/64_Alcedo-SGR-Comunicato-stampa-Nethive-Xech-ITA.pdf",
-      "source_name": "Alcedo SGR",
-      "published_at": "2023-02-08",
-      "observed_at": "2026-02-12T17:55:55.338431+00:00",
-      "created_at": "2026-02-12T17:55:55.338431+00:00",
-      "snapshot_id": "snap-20260212175554-16d82369",
-      "diff_summary": "New news item detected (dated 2023-02-08)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
         "people": [],
         "locations": []
       }
@@ -43969,7 +41749,1552 @@
         ],
         "locations": []
       }
+    },
+    {
+      "id": "web-signal-01673",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "exit_announced",
+      "title": "Industriaitaliana: Partnership Bff-TeamSystem per cessione dei crediti a Pa e Ssn",
+      "what_changed": "New announcement: Industriaitaliana: Partnership Bff-TeamSystem per cessione dei crediti a Pa e Ssn",
+      "source_url": "https://www.tscawsgr.com/downloads/4697/114/4.Industriaitaliana.pdf",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Partnership Bff"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01674",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "other",
+      "title": "TGCom24: BFF Bank: apre all'acquisto dei crediti delle PMI verso la PA",
+      "what_changed": "New announcement: TGCom24: BFF Bank: apre all'acquisto dei crediti delle PMI verso la PA",
+      "source_url": "https://www.tscawsgr.com/downloads/4696/113/3.tgcom24.pdf",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01675",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "other",
+      "title": "BeBeez: Teamsystem Capital@Work lancia fondo FPAM1 per investire in fatture verso la PA. Anchor investor \u00e8 BFF Banking Group",
+      "what_changed": "New announcement: BeBeez: Teamsystem Capital@Work lancia fondo FPAM1 per investire in fatture verso la PA. Anchor investor \u00e8 BFF Banking Group",
+      "source_url": "https://www.tscawsgr.com/downloads/4695/112/2.BeBeez.pdf",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Teamsystem Capital",
+          "Banking Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01676",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "other",
+      "title": "Allianz Trade e Sky Italia: \u201cL\u2019Italia delle Imprese\u201d \u2013 Lo stato di salute finanziario delle Imprese italiane \u2013 Intervento di Riccardo Carradori, PT.2",
+      "what_changed": "New announcement: Allianz Trade e Sky Italia: \u201cL\u2019Italia delle Imprese\u201d \u2013 Lo stato di salute finanziario delle Imprese italiane \u2013 Intervento di Riccardo Carradori, PT.2",
+      "source_url": "https://www.youtube.com/watch?v=UT_ke2vxOtI",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.44,
+      "relevance_reasons": [
+        "Italy mentioned (italia)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Riccardo Carradori",
+          "Sky Italia",
+          "Allianz Trade"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01677",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "other",
+      "title": "Allianz Trade e Sky Italia: \u201cL\u2019Italia delle Imprese\u201d \u2013 Lo stato di salute finanziario delle Imprese italiane \u2013 Intervento di Riccardo Carradori, PT.1",
+      "what_changed": "New announcement: Allianz Trade e Sky Italia: \u201cL\u2019Italia delle Imprese\u201d \u2013 Lo stato di salute finanziario delle Imprese italiane \u2013 Intervento di Riccardo Carradori, PT.1",
+      "source_url": "https://www.youtube.com/watch?v=CO6Wi8WzxYY",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.44,
+      "relevance_reasons": [
+        "Italy mentioned (italia)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Riccardo Carradori",
+          "Sky Italia",
+          "Allianz Trade"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01678",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "other",
+      "title": "Rassegna stampa \u201cL\u2019Italia del Merito\u201d, Roma 15 marzo 2023",
+      "what_changed": "New announcement: Rassegna stampa \u201cL\u2019Italia del Merito\u201d, Roma 15 marzo 2023",
+      "source_url": "https://www.tscawsgr.com/downloads/3683/109/230316_Italia_del_Merito_Rassegna_Stampa.pdf",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.65,
+      "relevance_reasons": [
+        "Italy mentioned (italia)",
+        "Italian cities: Roma"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": [
+          "Roma"
+        ]
+      }
+    },
+    {
+      "id": "web-signal-01679",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "other",
+      "title": "Torna \u201cItalia del Merito\u201d, la kermesse che quest\u2019anno premier\u00e0 i 25 Investitori istituzionali che hanno maggiormente contribuito a creare valore per il Sistema Italia",
+      "what_changed": "New announcement: Torna \u201cItalia del Merito\u201d, la kermesse che quest\u2019anno premier\u00e0 i 25 Investitori istituzionali che hanno maggiormente contribuito a creare valore per il Sistema Italia",
+      "source_url": "https://www.tscawsgr.com/downloads/3682/108/230316_Italia_del_Merito_Comunicato_Stampa.pdf",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.44,
+      "relevance_reasons": [
+        "Italy mentioned (italia)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Sistema Italia"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01680",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "deal_announced",
+      "title": "Sintesi della ricerca svolta da dealset per Italia del Merito",
+      "what_changed": "New announcement: Sintesi della ricerca svolta da dealset per Italia del Merito",
+      "source_url": "https://www.tscawsgr.com/downloads/3681/107/230315_Italia_del_Merito_Sintesi_della_Ricerca.pdf",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italia)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01681",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "other",
+      "title": "Italia Fintech: Invoice Trading, cinque proposte per liberare la crescita del fintech",
+      "what_changed": "New announcement: Italia Fintech: Invoice Trading, cinque proposte per liberare la crescita del fintech",
+      "source_url": "https://www.tscawsgr.com/downloads/3680/106/230306_Italia_Fintech-Invoice_trading_cinque_proposte_per_liberare_la_crescita_del_fintech.pdf",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italia)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Invoice Trading",
+          "Italia Fintech"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01682",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "other",
+      "title": "BeBeez Magazine: Intervista a Riccardo Carradori: \"Tre nuovi fondi e due spv in arrivo\"",
+      "what_changed": "New announcement: BeBeez Magazine: Intervista a Riccardo Carradori: \"Tre nuovi fondi e due spv in arrivo\"",
+      "source_url": "https://www.tscawsgr.com/downloads/3679/104/230304_BeBeeMagazine-Intervista_a_Carradori.pdf",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Riccardo Carradori"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01683",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "other",
+      "title": "Evento Invoice Trading: Il punto di vista di Riccardo Carradori all'evento Invoice Trading",
+      "what_changed": "New announcement: Evento Invoice Trading: Il punto di vista di Riccardo Carradori all'evento Invoice Trading",
+      "source_url": "https://www.youtube.com/watch?v=3k3AJn8jDQo",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Riccardo Carradori",
+          "Invoice Trading",
+          "Evento Invoice Trading"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01684",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "other",
+      "title": "Italia Fintech: Invoice Trading in Italia: analisi, opportunit\u00e0 e proposte",
+      "what_changed": "New announcement: Italia Fintech: Invoice Trading in Italia: analisi, opportunit\u00e0 e proposte",
+      "source_url": "https://www.tscawsgr.com/downloads/3677/102/230228_ITALIA_FINTECH-POSITION_PAPER_INVOICE_TRADING_FINAL.pdf",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.44,
+      "relevance_reasons": [
+        "Italy mentioned (italia)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Invoice Trading",
+          "Italia Fintech"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01685",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "other",
+      "title": "Milano Finanza: L'Angolo del Fintech",
+      "what_changed": "New announcement: Milano Finanza: L'Angolo del Fintech",
+      "source_url": "https://www.tscawsgr.com/downloads/3676/100/230225_MF-L'angolo_del_fintech-Fischetti_e_Peveraro.jpeg",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.25,
+      "relevance_reasons": [
+        "Italian cities: Milano"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Milano Finanza"
+        ],
+        "locations": [
+          "Milano"
+        ]
+      }
+    },
+    {
+      "id": "web-signal-01686",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "other",
+      "title": "Corriere della Sera: La piattaforma di TeamSystem dopo l'accordo con Banco Bpm",
+      "what_changed": "New announcement: Corriere della Sera: La piattaforma di TeamSystem dopo l'accordo con Banco Bpm",
+      "source_url": "https://www.tscawsgr.com/downloads/3675/99/200406_Intervista_Leproux_a_Corriere.png",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Banco Bpm"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01687",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "other",
+      "title": "Corriere L'Economia: Pmi pi\u00f9 liquide, cos\u00ec la fattura si incassa subito",
+      "what_changed": "New announcement: Corriere L'Economia: Pmi pi\u00f9 liquide, cos\u00ec la fattura si incassa subito",
+      "source_url": "https://www.tscawsgr.com/downloads/3642/78/0604 Corriere Economia.pdf",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01688",
+      "fund_id": "",
+      "fund_slug": "yarpa-investimenti-sgr",
+      "signal_type": "other",
+      "title": "Aumento di capitale da 120 milioni per Yarpa",
+      "what_changed": "20 febbraio 2024 | Articolo di Il Sole 24 Ore: Aumento di capitale da 120 milioni per Yarpa",
+      "source_url": "https://yarpa.it/press/aumento-di-capitale-da-120-milioni-per-yarpa/",
+      "source_name": "Yarpa Investimenti SGR",
+      "published_at": "2024-02-20",
+      "observed_at": "2026-02-20T09:30:42.054648+00:00",
+      "created_at": "2026-02-20T09:30:42.054648+00:00",
+      "snapshot_id": "snap-20260220093041-99afb1b7",
+      "diff_summary": "New news item detected (dated 2024-02-20)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Il Sole"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01689",
+      "fund_id": "",
+      "fund_slug": "yarpa-investimenti-sgr",
+      "signal_type": "other",
+      "title": "Maserati e Jeep puntano sull\u2019audio Hi-End, accordi con Sonus faber e McIntosh",
+      "what_changed": "30 settembre 2020 | Articolo di MF Personal \u2013 Motori & Viaggi: I marchi dell\u2019automotive di lusso puntano sull\u2019audio Hi-End",
+      "source_url": "https://yarpa.it/press/maserati-e-jeep-puntano-sullaudio-hi-end-accordi-con-sonus-faber-e-mcintosh/",
+      "source_name": "Yarpa Investimenti SGR",
+      "published_at": "2020-10-01",
+      "observed_at": "2026-02-20T09:30:42.054648+00:00",
+      "created_at": "2026-02-20T09:30:42.054648+00:00",
+      "snapshot_id": "snap-20260220093041-99afb1b7",
+      "diff_summary": "New news item detected (dated 2020-10-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01690",
+      "fund_id": "",
+      "fund_slug": "yarpa-investimenti-sgr",
+      "signal_type": "other",
+      "title": "La finanza etica di Yarpa aiuta il \u201cRegina Margherita\u201d",
+      "what_changed": "25 settembre 2020 | Articolo del Corriere della Sera: La finanza etica di Yarpa aiuta il \u201cRegina Margherita\u201d",
+      "source_url": "https://yarpa.it/press/la-finanza-etica-di-yarpa-aiuta-il-regina-margherita/",
+      "source_name": "Yarpa Investimenti SGR",
+      "published_at": "2020-09-25",
+      "observed_at": "2026-02-20T09:30:42.054648+00:00",
+      "created_at": "2026-02-20T09:30:42.054648+00:00",
+      "snapshot_id": "snap-20260220093041-99afb1b7",
+      "diff_summary": "New news item detected (dated 2020-09-25)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Regina Margherita"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01691",
+      "fund_id": "",
+      "fund_slug": "yarpa-investimenti-sgr",
+      "signal_type": "people_move",
+      "title": "\u201cYarpa aiuta il no profit con il lancio del settimo fondo denominato Fondo Eta\u201d",
+      "what_changed": "25 luglio 2020 | Articolo del Corriere della Sera: Lancio del settimo fondo denominato Fondo Eta.",
+      "source_url": "https://yarpa.it/press/yarpa-aiuta-il-no-profit-con-il-lancio-del-settimo-fondo-denominato-fondo-eta/",
+      "source_name": "Yarpa Investimenti SGR",
+      "published_at": "2020-07-27",
+      "observed_at": "2026-02-20T09:30:42.054648+00:00",
+      "created_at": "2026-02-20T09:30:42.054648+00:00",
+      "snapshot_id": "snap-20260220093041-99afb1b7",
+      "diff_summary": "New news item detected (dated 2020-07-27)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Fondo Eta"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01692",
+      "fund_id": "",
+      "fund_slug": "faro-value",
+      "signal_type": "other",
+      "title": "Faro Alternative Investments unveils the 4 investment sub-funds and annunces overall funding target of around \u20ac1Bn bt 2026",
+      "what_changed": "Media: FARO is a virtuous ecosystem in which relationships, knowledge and skills act as an engine...",
+      "source_url": "https://www.farovalue.com/en/faro-alternative-investments-unveils-the-4-investment-sub-funds-and-annunces-overall-funding-target-of-around-e1bn-bt-2026/",
+      "source_name": "FARO Value",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:42.447594+00:00",
+      "created_at": "2026-02-20T09:30:42.447594+00:00",
+      "snapshot_id": "snap-20260220093042-aa516696",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Faro Alternative Investments"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01693",
+      "fund_id": "",
+      "fund_slug": "faro-value",
+      "signal_type": "other",
+      "title": "Event Streaming: Presentation of FARO Alternative Investments and its investment strategies.",
+      "what_changed": "Press Review: Follow the live streaming of the event on 13 November 2024. From 1:00 am to...",
+      "source_url": "https://www.farovalue.com/en/event-streaming-presentation-of-faro-alternative-investments-and-its-investment-strategies/",
+      "source_name": "FARO Value",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:42.447594+00:00",
+      "created_at": "2026-02-20T09:30:42.447594+00:00",
+      "snapshot_id": "snap-20260220093042-aa516696",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Event Streaming",
+          "Press Review",
+          "Alternative Investments"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01694",
+      "fund_id": "",
+      "fund_slug": "faro-value",
+      "signal_type": "deal_announced",
+      "title": "Faro Alternative Investments announces the acquisition of Sunseeker",
+      "what_changed": "Events: Milan, Poole \u2013 October 31, 2024 \u2013 FARO Alternative Investments\u2019 Real Economy sub-fund supported by...",
+      "source_url": "https://www.farovalue.com/en/faro-alternative-investments-announces-the-acquisition-of-sunseeker/",
+      "source_name": "FARO Value",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:42.447594+00:00",
+      "created_at": "2026-02-20T09:30:42.447594+00:00",
+      "snapshot_id": "snap-20260220093042-aa516696",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.25,
+      "relevance_reasons": [
+        "Italian cities: Milan"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Sunseeker Events",
+          "Real Economy",
+          "Faro Alternative Investments",
+          "Alternative Investments"
+        ],
+        "locations": [
+          "Milan"
+        ]
+      }
+    },
+    {
+      "id": "web-signal-01695",
+      "fund_id": "",
+      "fund_slug": "faro-value",
+      "signal_type": "other",
+      "title": "Orienta Capital Partners to sell Virosac and Rapid to Sphere Group",
+      "what_changed": "Media: Milan, October 29th, 2024 \u2013 Orienta Capital Partners, firm specialized in investments in high-growth potential...",
+      "source_url": "https://www.farovalue.com/en/orienta-capital-partners-to-sell-virosac-and-rapid-to-sphere-group-europes-leading-household-packaging-group-to-strenghthens-its-position-in-italy/",
+      "source_name": "FARO Value",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:42.447594+00:00",
+      "created_at": "2026-02-20T09:30:42.447594+00:00",
+      "snapshot_id": "snap-20260220093042-aa516696",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.25,
+      "relevance_reasons": [
+        "Italian cities: Milan"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Orienta Capital Partners",
+          "Sphere Group Media"
+        ],
+        "locations": [
+          "Milan"
+        ]
+      }
+    },
+    {
+      "id": "web-signal-01696",
+      "fund_id": "",
+      "fund_slug": "faro-value",
+      "signal_type": "other",
+      "title": "Faro Alternative Investments SCSp SICAV-RAIF launches, aiming to raise over Euro 1 billion",
+      "what_changed": "Press Releases: FARO Alternative Investments is a Luxembourg-based umbrella fund managed by Crestbridge Management Company S.A.R.L with...",
+      "source_url": "https://www.farovalue.com/en/faro-alternative-investments-scsp-sicav-raif-launches-aiming-to-raise-over-euro-1-billion/",
+      "source_name": "FARO Value",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:42.447594+00:00",
+      "created_at": "2026-02-20T09:30:42.447594+00:00",
+      "snapshot_id": "snap-20260220093042-aa516696",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Crestbridge Management Company",
+          "Faro Alternative Investments",
+          "Press Releases",
+          "Alternative Investments"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01697",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "deal_announced",
+      "title": "ADVICE GROUP added to HAT Sicaf portfolio (MARKETING TECHNOLOGY)",
+      "what_changed": "ADVICE GROUP added to HAT Sicaf portfolio (MARKETING TECHNOLOGY)",
+      "source_url": "https://www.hatsicaf.it/portfolio/our-partnership/",
+      "source_name": "HAT Sicaf",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:51.877633+00:00",
+      "created_at": "2026-02-20T09:30:51.877633+00:00",
+      "snapshot_id": "snap-20260220093051-2c398935",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "ADVICE GROUP"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01698",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "HAT SGR awarded as \u201cTeam of the year PRIVATE EQUITY \u2013 TMT & ENTERTAINMENT\u201d",
+      "what_changed": "AwardsFeatured NewsPress Review",
+      "source_url": "https://hat.it/hat-sgr-awarded-as-team-of-the-year-private-equity-tmt-entertainment/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2025-11-19",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 19-11-2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01699",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "INSIGHT: HAT SGR contributes to AIFI\u2013Confindustria Brescia event on the strategic role of M&A for international growth",
+      "what_changed": "Press Review",
+      "source_url": "https://hat.it/insight-hat-sgr-contributes-to-aifi-confindustria-brescia-event-on-the-strategic-role-of-ma-for-international-growth/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2025-11-14",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 14-11-2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.85,
+      "relevance_reasons": [
+        "Italian cities: Brescia",
+        "Italian entity types: SGR",
+        "Italian business context: AIFI, Confindustria"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Confindustria Brescia",
+          "Press Review"
+        ],
+        "locations": [
+          "Brescia"
+        ]
+      }
+    },
+    {
+      "id": "web-signal-01700",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "INSIGHT (MAG): Private Equity as a Driver of Digital Transformation",
+      "what_changed": "Featured NewsPress Review",
+      "source_url": "https://hat.it/private-equity-as-a-driver-of-digital-transformation/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2025-09-16",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 16-09-2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Digital Transformation Featured",
+          "Private Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01701",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "HAT shares its 2025 Insights on Italian Private Capital at AIFI annual event hosted by EY in London",
+      "what_changed": "Press Review",
+      "source_url": "https://hat.it/hat-shares-its-2025-insights-on-italian-private-capital-at-aifi-annual-event-hosted-by-ey-in-london/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2025-09-15",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 15-09-2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.65,
+      "relevance_reasons": [
+        "Italy mentioned (italian)",
+        "Italian business context: AIFI"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "London Press Review",
+          "Italian Private Capital"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01702",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "INSIGHT (WeWealth): Private equity? It\u2019s accelerating Italy\u2019s digital transition.",
+      "what_changed": "Press Review",
+      "source_url": "https://hat.it/insight-wewealth-private-equity-its-accelerating-italys-digital-transition/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2025-06-18",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 18-06-2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italy)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Press Review"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01703",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "HAT SGR, Three Hills and Azimut Libera Impresa invest in Mech-I-Tronic",
+      "what_changed": "Featured NewsPress Review",
+      "source_url": "https://hat.it/hat-sgr-three-hills-and-azimut-libera-impresa-invests-in-mech-i-tronic/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2025-05-30",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 30-05-2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Tronic Featured",
+          "Azimut Libera Impresa",
+          "Three Hills"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01704",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "INSIGHT (Private): Private equity plays a crucial role in supporting SMEs through their digital transition",
+      "what_changed": "Featured NewsPress Review",
+      "source_url": "https://hat.it/insight-private-private-equity-plays-a-crucial-role-in-supporting-smes-through-their-digital-transition/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2025-05-23",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 23-05-2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01705",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "deal_announced",
+      "title": "Safety21 (HAT Fund 4) acquires Cross Control",
+      "what_changed": "Featured NewsPress Review",
+      "source_url": "https://hat.it/safety21-hat-fund-4-acquires-cross-control/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2025-05-07",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 07-05-2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Cross Control Featured"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01706",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "INSIGHT (IlSole24Ore): the italian digital market targets \u20ac 166 bn in size",
+      "what_changed": "Featured NewsPress Review",
+      "source_url": "https://hat.it/insight-ilsole24ore-the-italian-digital-market-targets-e-166-bn-in-size/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2025-04-23",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 23-04-2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italian)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01707",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "Ignazio Castiglioni, HAT SGR, is included in Financecommunity.it\u2019s list of the top 50 Private Equity professionals for MAG",
+      "what_changed": "AwardsPress Review",
+      "source_url": "https://hat.it/ignazio-castiglioni-hat-sgr-is-included-in-financecommunity-its-list-of-the-top-50-private-equity-professionals-for-mag/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2025-03-12",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 12-03-2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Ignazio Castiglioni",
+          "Private Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01708",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "INSIGHT: Ignazio Castiglioni participates at Itinereari Previdenziali event dedicated to Family Offices",
+      "what_changed": "Press Review",
+      "source_url": "https://hat.it/insight-ignazio-castiglioni-participates-at-itinereari-previdenziali-event-dedicated-to-family-offices/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2025-02-19",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 19-02-2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Itinereari Previdenziali",
+          "Family Offices Press",
+          "Ignazio Castiglioni"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01709",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "Ignazio Castiglioni awarded as \u201cProfessional of the year \u2013 PRIVATE EQUITY\u201d",
+      "what_changed": "AwardsFeatured NewsPress Review",
+      "source_url": "https://hat.it/ignazio-castiglioni-awarded-as-professional-of-the-year-private-equity/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2024-11-14",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 14-11-2024)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Ignazio Castiglioni"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01710",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "deal_announced",
+      "title": "HAT SGR and TXT acquire Webgenesys",
+      "what_changed": "Featured NewsPress Review",
+      "source_url": "https://hat.it/hat-sgr-and-txt-acquire-webgenesys/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2024-11-12",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 12-11-2024)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Webgenesys Featured"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01711",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "Ignazio Castiglioni at the Financecommunity week",
+      "what_changed": "Press Review",
+      "source_url": "https://hat.it/ignazio-castiglioni-at-the-financecommunity-week/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2024-11-11",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 11-11-2024)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Ignazio Castiglioni",
+          "Press Review"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01712",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "INSIGHT (Private): Institutional investors are showing growing interest in highly innovative companies",
+      "what_changed": "Featured NewsPress Review",
+      "source_url": "https://hat.it/insight-ignazio-castiglioni-on-private/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2024-10-23",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 23-10-2024)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01713",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Wise Equity entra nel capitale di Marullo per accompagnarne la crescita",
+      "what_changed": "New announcement: Wise Equity entra nel capitale di Marullo per accompagnarne la crescita",
+      "source_url": "https://www.wisesgr.com/web/content/458/15-12-2025_Comunicato-Stampa_WISE-Equity_Marullo_v-ITA_DEF.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-12-15",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-12-15)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01714",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "NTC sostenuta da Wise Equity, completa l\u2019acquisizione del Business oftalmico di Pharmathen",
+      "what_changed": "New announcement: NTC sostenuta da Wise Equity, completa l\u2019acquisizione del Business oftalmico di Pharmathen",
+      "source_url": "https://www.wisesgr.com/web/content/457/20251210_CS_WE-NTC-Pharmathen_ITA_vF.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-12-10",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-12-10)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01715",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Wise Equity raddoppia nell\u2019agricoltura sostenibile, tramite la sua partecipata Greenexta , con l\u2019acquisizione di Alba Milagro",
+      "what_changed": "New announcement: Wise Equity raddoppia nell\u2019agricoltura sostenibile, tramite la sua partecipata Greenexta , con l\u2019acquisizione di Alba Milagro",
+      "source_url": "https://www.wisesgr.com/web/content/456/250731_Comunicato-stampa-Alba-Milagro_vSito-ITA.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-07-31",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-07-31)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity",
+          "Alba Milagro"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01716",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Wise Equity e Casa della Piada , puntano sulla pinsa con l\u2019acquisizione di Pizze Vincenti",
+      "what_changed": "New announcement: Wise Equity e Casa della Piada , puntano sulla pinsa con l\u2019acquisizione di Pizze Vincenti",
+      "source_url": "https://www.wisesgr.com/web/content/455/            24.07.2025_Comunicato-stampa-Wise-Equity_Casa-della-Piada_Pizze-Vincenti-vf-ITA.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-07-24",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-07-24)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity",
+          "Pizze Vincenti"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01717",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "other",
+      "title": "Almac , partecipata da Wise Equity, ed EASY LIFT insieme per la crescita",
+      "what_changed": "New announcement: Almac , partecipata da Wise Equity, ed EASY LIFT insieme per la crescita",
+      "source_url": "https://www.wisesgr.com/web/content/454/250715-Almac-Easy-Final.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-07-15",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-07-15)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01718",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Special Flanges acquisisce il 100% di Vilmar",
+      "what_changed": "New announcement: Special Flanges acquisisce il 100% di Vilmar",
+      "source_url": "https://www.wisesgr.com/web/content/453/            SPECIAL-FLANGES-ACQUISISCE-IL-100-DI-VILMAR-AZIENDA-LEADER-NELLA-PRODUZIONE-DI-SISTEMI-INGEGNERIZZATI-PER-APPLICAZIONI-INDUSTRIALI-CRITICHE-DA-INVESTITORI-FRANCESI.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-06-19",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-06-19)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Special Flanges"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01719",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "other",
+      "title": "MEP rafforza la partnership con Promostar",
+      "what_changed": "New announcement: MEP rafforza la partnership con Promostar",
+      "source_url": "https://www.wisesgr.com/web/content/452/MEP-rafforza-la-pertnership-con-Promostar.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-02-20",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-02-20)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01720",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "exit_announced",
+      "title": "Il Fondo Wisequity IV cede a NEVERHACK la partecipata Innovery",
+      "what_changed": "New announcement: Il Fondo Wisequity IV cede a NEVERHACK la partecipata Innovery",
+      "source_url": "https://www.wisesgr.com/web/content/451/Il-Fondo-Wisequity-IV-cede-a-NEVERHACK.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2024-09-27",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2024-09-27)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Il Fondo Wisequity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01721",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "other",
+      "title": "Wise Equity e Absolute insieme per la crescita",
+      "what_changed": "New announcement: Wise Equity e Absolute insieme per la crescita",
+      "source_url": "https://www.wisesgr.com/web/content/450/240622_Comunicato-Stampa_Wise-Equity-entra-in-Absolute_v7.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2024-06-25",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2024-06-25)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01722",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "exit_announced",
+      "title": "Wise Equity e Aks\u00eca annunciano la sigla di un accordo per la cessione di Casa della Piada",
+      "what_changed": "New announcement: Wise Equity e Aks\u00eca annunciano la sigla di un accordo per la cessione di Casa della Piada",
+      "source_url": "https://www.wisesgr.com/web/content/449/            WISE-EQUITY-E-AKSIA-ANNUNCIANO-LA-SIGLA-DI-UN-ACCORDO-PER-LA-CESSIONE-DI-CASA-DELLA-PIADA.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2024-05-16",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2024-05-16)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01723",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "other",
+      "title": "Wise Equity e MEP insieme per la crescita",
+      "what_changed": "New announcement: Wise Equity e MEP insieme per la crescita",
+      "source_url": "https://www.wisesgr.com/web/content/448/            19.01.2024__Comunicato-Stampa_Wise-Equity-entra-in-MEP-vfinal-final_ITA.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2024-01-19",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2024-01-19)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01724",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Wise Equity acquisisce una quota di ampia maggioranza in Wanho",
+      "what_changed": "New announcement: Wise Equity acquisisce una quota di ampia maggioranza in Wanho",
+      "source_url": "https://www.wisesgr.com/web/content/447/13.11.2023_CS_Wise-Equity-acquisizione-WANHO-vfinal_Ita.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2023-11-13",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2023-11-13)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01725",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Wise Equity acquisisce il 100% di Hertecant Flanges",
+      "what_changed": "New announcement: Wise Equity acquisisce il 100% di Hertecant Flanges",
+      "source_url": "https://www.wisesgr.com/web/content/446/            10.11.2023_Comunicato_WISE-EQUITY-acquisisce-Hertecant-Flanges-vfinal-ITA.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2023-11-10",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2023-11-10)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Hertecant Flanges",
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01726",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "other",
+      "title": "Durst sigla un accordo con Wise Equity per acquisire Aleph",
+      "what_changed": "New announcement: Durst sigla un accordo con Wise Equity per acquisire Aleph",
+      "source_url": "https://www.wisesgr.com/web/content/445/19.09.2023_CS_WiseEquity_Aleph_vF-ita-FINANCE_clean-2.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2023-09-19",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2023-09-19)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01727",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "other",
+      "title": "Il Gruppo Calzedonia acquista Cantiere del Pardo",
+      "what_changed": "New announcement: Il Gruppo Calzedonia acquista Cantiere del Pardo",
+      "source_url": "https://www.wisesgr.com/web/content/444/            01.08.2023_Comunicato-Stampa-Wise-Equity_-Cantiere-del-Pardo_-Gruppo-Calzedonia_ITA.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2023-08-01",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2023-08-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Il Gruppo Calzedonia"
+        ],
+        "locations": []
+      }
     }
   ],
-  "signal_count": 1672
+  "signal_count": 1678
 }
