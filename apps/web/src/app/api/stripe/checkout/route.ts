@@ -33,8 +33,10 @@ export async function POST(request: Request) {
     const acceptedFrom = typeof body?.acceptedFrom === 'string'
       ? body.acceptedFrom.trim().slice(0, 64)
       : 'subscribe_page';
+    const acceptedImmediateAccess = body?.acceptedImmediateAccess === true;
+    const acceptedWithdrawalAcknowledgement = body?.acceptedWithdrawalAcknowledgement === true;
 
-    if (!acceptedLegal || !acceptedLegalVersion) {
+    if (!acceptedLegal || !acceptedLegalVersion || !acceptedImmediateAccess || !acceptedWithdrawalAcknowledgement) {
       return NextResponse.json({ error: 'Legal acceptance is required to subscribe.' }, { status: 400 });
     }
 
@@ -61,6 +63,8 @@ export async function POST(request: Request) {
         legal_accepted_at_server: acceptedAtServer,
         legal_accepted_at_client: acceptedAtClient || acceptedAtServer,
         legal_accepted_from: acceptedFrom,
+        legal_immediate_access_requested: acceptedImmediateAccess ? 'true' : 'false',
+        legal_withdrawal_acknowledged: acceptedWithdrawalAcknowledgement ? 'true' : 'false',
         legal_user_id: currentUser?.id || '',
       },
       allow_promotion_codes: true,

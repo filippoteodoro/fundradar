@@ -237,6 +237,11 @@ Current strict-type recovery rules include:
 - Creditor/debt-restructuring signals with explicit tagged-fund mention → `debt_financing`
 - "New/additional contributions to <fund>" signals → `fundraise_announced`
 
+Signal text normalization now also repairs merged-token artifacts systemically
+(e.g. `€62Mof`, `€3.3Mper`, `agreementfor`, `partnershipwith`,
+`diMarulloper`, `TechNovaper`) during `filter`, with entity-aware company token
+deconcatenation. Fixes then propagate to `enrich` outputs on the next run.
+
 ### Duplicate NEWS Signal Variants in Raw Store
 
 If `data/derived/detected_signals.json` shows near-duplicate NEWS rows for the same

@@ -1,11 +1,11 @@
 {
-  "checked_at": "2026-02-20T09:59:20.860019+00:00",
-  "scope": "wise-equity-sgr",
+  "checked_at": "2026-02-20T12:33:22.190202+00:00",
+  "scope": "all funds",
   "strict_network_mode": true,
   "llm_connection_fallbacks": 0,
   "translation_network_errors": 0,
   "translation_unresolved_fields": 0,
-  "translation_detected_fields": 14,
+  "translation_detected_fields": 426,
   "translation_sample_errors": [],
   "translation_skip_reason": "",
   "network_degraded": false

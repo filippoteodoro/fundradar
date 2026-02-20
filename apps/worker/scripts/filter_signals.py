@@ -2007,9 +2007,127 @@ def _mentions_non_eu_geo(text: str) -> bool:
         return False
     return any(pat.search(text) for pat in NON_EU_TEXT_PATTERNS)
 
-
-
 # _strip_read_time, _strip_urls — imported from signal_patterns
+
+_ATTACHED_CONNECTORS = (
+    "dello", "della", "degli", "delle", "dall", "dell", "allo", "alla", "agli", "alle",
+    "nelle", "negli", "nello", "sullo", "sulla", "sugli", "sulle",
+    "with", "from", "into", "through", "between",
+    "dei", "del", "con", "per", "for", "and", "the", "to", "of", "in",
+    "nel", "nei", "gli", "all", "sul", "sui",
+    "di", "da", "al", "ai", "il", "la", "le", "lo", "su", "un", "una", "uno",
+)
+_ATTACHED_CONNECTOR_RE = "|".join(sorted(set(_ATTACHED_CONNECTORS), key=len, reverse=True))
+_ATTACHED_PREFIX_CONNECTOR_RE = (
+    "di|da|del|della|dello|dei|degli|delle|con|for|of|in|with|to|al|alla|allo|ai|agli|alle"
+)
+_ATTACHED_SUFFIX_CONNECTOR_RE = (
+    "per|con|di|da|del|della|dello|dei|degli|delle|for|of|in|with|to|and"
+)
+
+
+def _iter_company_compacts(company_candidates: list[str] | None) -> list[str]:
+    """Return unique compact company identifiers suitable for glue-token repairs."""
+    if not company_candidates:
+        return []
+    compacts: list[str] = []
+    seen: set[str] = set()
+    for raw in company_candidates:
+        compact = re.sub(r"[^A-Za-z0-9À-ÖØ-öø-ÿ]+", "", str(raw or ""))
+        if len(compact) < 5:
+            continue
+        key = compact.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        compacts.append(compact)
+    return compacts
+
+
+def _company_candidates_from_signal(signal: dict) -> list[str]:
+    """Collect company-name candidates from extracted entities and portfolio hints."""
+    entities = signal.get("extracted_entities") or {}
+    companies: list[str] = []
+
+    for company in entities.get("companies") or []:
+        value = str(company or "").strip()
+        if value:
+            companies.append(value)
+
+    portfolio_guess = _extract_portfolio_company_name(
+        signal,
+        signal.get("what_changed") or "",
+        signal.get("title") or "",
+    )
+    if portfolio_guess and not _is_generic_portfolio_name(portfolio_guess):
+        companies.append(portfolio_guess)
+
+    return companies
+
+
+def _repair_attached_connectors(text: str, company_candidates: list[str] | None = None) -> str:
+    """Repair words glued to prepositions/articles around company names and deal nouns."""
+    if not text:
+        return text
+    cleaned = text
+
+    # Prefix connector stuck to a capitalized token: "diMarullo" → "di Marullo".
+    cleaned = re.sub(
+        rf"\b({_ATTACHED_CONNECTOR_RE})(?=[A-ZÀ-ÖØ-Þ])",
+        r"\1 ",
+        cleaned,
+    )
+
+    # Context-aware fallback for unknown company names:
+    # "di Marulloper" → "di Marullo per".
+    cleaned = re.sub(
+        rf"\b({_ATTACHED_PREFIX_CONNECTOR_RE})\s+([A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ]{{4,}})({_ATTACHED_SUFFIX_CONNECTOR_RE})\b",
+        r"\1 \2 \3",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+
+    # Entity-aware repairs around known company names:
+    # "conTechNova" / "TechNovaper" → "con TechNova" / "TechNova per".
+    for raw_company in company_candidates or []:
+        value = str(raw_company or "").strip()
+        if not value or " " in value:
+            continue
+        spaced_value = re.sub(r"(?<=[a-zà-öø-ÿ])(?=[A-ZÀ-ÖØ-Þ])", " ", value)
+        if spaced_value != value:
+            cleaned = re.sub(
+                rf"\b{re.escape(spaced_value)}\b",
+                value,
+                cleaned,
+            )
+
+    for compact in _iter_company_compacts(company_candidates):
+        spaced_compact_pattern = re.sub(
+            r"(?<=[a-zà-öø-ÿ])(?=[A-ZÀ-ÖØ-Þ])",
+            r"\\s*",
+            re.escape(compact),
+        )
+        cleaned = re.sub(
+            rf"(?i)\b({_ATTACHED_CONNECTOR_RE})({spaced_compact_pattern})(?=\b|[A-Za-zÀ-ÖØ-öø-ÿ])",
+            lambda m, c=compact: f"{m.group(1)} {c}",
+            cleaned,
+        )
+        cleaned = re.sub(
+            rf"(?i)\b({spaced_compact_pattern})({_ATTACHED_CONNECTOR_RE})(?=\b|[A-Za-zÀ-ÖØ-öø-ÿ])",
+            lambda m, c=compact: f"{c} {m.group(2)}",
+            cleaned,
+        )
+
+    # English/Italian deal nouns frequently glued to connectors.
+    # Examples: "agreementfor", "partnershipwith", "investimentoper".
+    cleaned = re.sub(
+        r"\b([A-Za-z]{5,}(?:ment|tion|sion|ship|ness))(for|with|of|in|to|per|con|di)\b",
+        r"\1 \2",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+
+    return re.sub(r"\s{2,}", " ", cleaned).strip()
 
 
 def _fix_spacing(text: str) -> str:
@@ -2356,15 +2474,16 @@ def _normalize_monetary_values(text: str) -> str:
         lambda m: _format_amount(m.group(1), "M", "£") or m.group(0),
         result, flags=re.IGNORECASE,
     )
-    # Pattern: standalone "X milioni" / "X miliardi" without currency → €XM / €XB (default EUR for Italian)
+    # Pattern: standalone "X milioni" / "X miliardi" (optional currency symbol)
+    # Preserve the original currency when present, otherwise default to EUR.
     result = re.sub(
-        r'\b(\d+(?:[.,]\d+)?)\s+milion[ie]\b',
-        lambda m: _format_amount(m.group(1), "M") or m.group(0),
+        r'(?:(€|\$|£)\s*)?(\d+(?:[.,]\d+)?)\s+milion[ie]\b',
+        lambda m: _format_amount(m.group(2), "M", m.group(1) or "€") or m.group(0),
         result, flags=re.IGNORECASE,
     )
     result = re.sub(
-        r'\b(\d+(?:[.,]\d+)?)\s+miliard[io]\b',
-        lambda m: _format_amount(m.group(1), "B") or m.group(0),
+        r'(?:(€|\$|£)\s*)?(\d+(?:[.,]\d+)?)\s+miliard[io]\b',
+        lambda m: _format_amount(m.group(2), "B", m.group(1) or "€") or m.group(0),
         result, flags=re.IGNORECASE,
     )
     # Pattern: "X million/billion euros/euro/eur" → €XM/€XB
@@ -2413,7 +2532,31 @@ def _normalize_monetary_values(text: str) -> str:
         result, flags=re.IGNORECASE,
     )
 
-    return result
+    # Safety: monetary normalization can create merged tokens like "€62Mof".
+    # Ensure a separator between compact amount tokens and following letters.
+    result = re.sub(
+        r'([€$£]\d+(?:[.,]\d+)?)\s*([KMBT])(?=[A-Za-zÀ-ÖØ-öø-ÿ])',
+        r'\1\2 ',
+        result,
+    )
+    result = re.sub(
+        r'(\b\d+(?:[.,]\d+)?)\s*([KMBT])(?=[A-Za-zÀ-ÖØ-öø-ÿ])',
+        r'\1\2 ',
+        result,
+    )
+    result = re.sub(
+        r'([€$£]\d+(?:[.,]\d+)?[KMBT])(?=[A-Za-zÀ-ÖØ-öø-ÿ])',
+        r'\1 ',
+        result,
+    )
+    result = re.sub(
+        r'(\b\d+(?:[.,]\d+)?[KMBT])(?=[A-Za-zÀ-ÖØ-öø-ÿ])',
+        r'\1 ',
+        result,
+    )
+
+    result = _repair_attached_connectors(result)
+    return re.sub(r"\s{2,}", " ", result).strip()
 
 
 def _clean_signal_fields(signal: dict) -> dict:
@@ -2421,11 +2564,18 @@ def _clean_signal_fields(signal: dict) -> dict:
     if not signal:
         return signal
     signal = dict(signal)
+    company_candidates = _company_candidates_from_signal(signal)
     if signal.get("title"):
         signal["title"] = _clean_signal_title(signal["title"])
     for key in ("what_changed", "diff_summary", "enriched_summary"):
         if signal.get(key):
             signal[key] = _clean_signal_text(signal[key])
+    for key in ("title", "what_changed", "diff_summary", "enriched_summary"):
+        if signal.get(key):
+            signal[key] = _repair_attached_connectors(
+                signal[key],
+                company_candidates=company_candidates,
+            )
     # Remove duplicate summary when it matches title
     title_norm = _normalize_for_compare(signal.get("title", ""))
     what_norm = _normalize_for_compare(signal.get("what_changed", ""))
@@ -2435,6 +2585,10 @@ def _clean_signal_fields(signal: dict) -> dict:
     for key in ("title", "what_changed", "diff_summary", "enriched_summary"):
         if signal.get(key):
             signal[key] = _normalize_monetary_values(signal[key])
+            signal[key] = _repair_attached_connectors(
+                signal[key],
+                company_candidates=company_candidates,
+            )
     # Normalize date fields to ISO format
     for date_key in ("published_at", "enriched_date"):
         raw_date = signal.get(date_key)

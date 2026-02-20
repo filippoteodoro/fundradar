@@ -221,6 +221,9 @@ export default async function SubscribePage() {
         }}>
           Payments processed securely by Stripe. You can cancel your subscription at any time.
           <br />
+          Statutory consumer withdrawal rights are described in our Terms and remain subject to
+          applicable law.
+          <br />
           By subscribing, you agree to our{' '}
           <Link href="/terms-and-conditions" style={{ color: '#888', textDecoration: 'underline' }}>
             Terms

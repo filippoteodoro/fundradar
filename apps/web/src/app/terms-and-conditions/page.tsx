@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/terms-and-conditions' },
 };
 
-const LAST_UPDATED = 'February 19, 2026';
+const LAST_UPDATED = 'February 20, 2026';
 
 function TermsContact() {
   if (LEGAL_CONTROLLER_EMAIL) {
@@ -98,11 +98,15 @@ export default function TermsAndConditionsPage() {
             <li>Total price: shown at checkout, including applicable taxes where required.</li>
             <li>Duration: recurring until canceled.</li>
             <li>Cancellation: possible at any time for future billing periods.</li>
+            <li>
+              Consumer withdrawal rights: where Italian/EU consumer law applies, consumers generally
+              have a statutory 14-day withdrawal right, subject to legal exceptions and conditions.
+            </li>
           </ul>
         </section>
 
         <section style={{ marginBottom: '20px' }}>
-          <h2 style={{ fontSize: '18px', margin: '0 0 8px 0' }}>6. Cancellation and refunds</h2>
+          <h2 style={{ fontSize: '18px', margin: '0 0 8px 0' }}>6. Cancellation, withdrawal, and refunds</h2>
           <p style={{ margin: '0 0 8px 0', lineHeight: 1.6, color: '#444' }}>
             You can cancel your subscription at any time via Stripe customer billing portal:{' '}
             <a href={LEGAL_BILLING_PORTAL_URL} target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'none' }}>
@@ -110,10 +114,16 @@ export default function TermsAndConditionsPage() {
             </a>
             .
           </p>
+          <p style={{ margin: '0 0 8px 0', lineHeight: 1.6, color: '#444' }}>
+            If you are a consumer, statutory withdrawal rights under applicable law are not excluded
+            by these terms. Where we ask you to request immediate activation of digital services,
+            you acknowledge at checkout that this may affect withdrawal outcomes as permitted by law.
+          </p>
           <p style={{ margin: 0, lineHeight: 1.6, color: '#444' }}>
-            Cancellation stops future renewals. Unless required by applicable law, amounts already
-            paid for the current period are not refunded. Mandatory consumer rights under Italian/EU
-            law remain unaffected.
+            If withdrawal is exercised after immediate activation has started, we may retain or
+            charge an amount proportionate to the service already provided where legally permitted.
+            After the withdrawal period, cancellation stops future renewals. Unless required by
+            applicable law, amounts already paid for the current billing period are not refunded.
           </p>
         </section>
 

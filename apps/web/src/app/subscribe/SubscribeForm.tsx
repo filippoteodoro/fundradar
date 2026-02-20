@@ -1,11 +1,14 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { LEGAL_BUNDLE_VERSION } from '@/lib/legal';
 
 export function SubscribeForm() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [acceptedImmediateAccess, setAcceptedImmediateAccess] = useState(false);
 
   useEffect(() => {
     const handlePageShow = (e: PageTransitionEvent) => {
@@ -16,6 +19,15 @@ export function SubscribeForm() {
   }, []);
 
   async function handleClick() {
+    if (!acceptedTerms) {
+      setError('Please accept the Terms, Privacy Policy, and Cookie Policy to continue.');
+      return;
+    }
+    if (!acceptedImmediateAccess) {
+      setError('Please confirm immediate service activation to continue.');
+      return;
+    }
+
     setError('');
     setLoading(true);
 
@@ -24,10 +36,12 @@ export function SubscribeForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          acceptedLegal: true,
+          acceptedLegal: acceptedTerms,
           acceptedLegalVersion: LEGAL_BUNDLE_VERSION,
           acceptedAt: new Date().toISOString(),
           acceptedFrom: 'subscribe_page',
+          acceptedImmediateAccess,
+          acceptedWithdrawalAcknowledgement: acceptedImmediateAccess,
         }),
       });
 
@@ -62,6 +76,44 @@ export function SubscribeForm() {
           {error}
         </div>
       )}
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
+        <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '13px', color: '#444', lineHeight: 1.5 }}>
+          <input
+            type="checkbox"
+            checked={acceptedTerms}
+            onChange={(e) => setAcceptedTerms(e.target.checked)}
+            style={{ marginTop: '2px' }}
+          />
+          <span>
+            I have read and accept the{' '}
+            <Link href="/terms-and-conditions" style={{ color: '#0066cc', textDecoration: 'underline' }}>
+              Terms
+            </Link>
+            ,{' '}
+            <Link href="/privacy-policy" style={{ color: '#0066cc', textDecoration: 'underline' }}>
+              Privacy Policy
+            </Link>
+            , and{' '}
+            <Link href="/cookie-policy" style={{ color: '#0066cc', textDecoration: 'underline' }}>
+              Cookie Policy
+            </Link>
+            .
+          </span>
+        </label>
+        <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '13px', color: '#444', lineHeight: 1.5 }}>
+          <input
+            type="checkbox"
+            checked={acceptedImmediateAccess}
+            onChange={(e) => setAcceptedImmediateAccess(e.target.checked)}
+            style={{ marginTop: '2px' }}
+          />
+          <span>
+            I request immediate activation of the subscription after payment and acknowledge this
+            may affect statutory withdrawal rights as permitted by applicable consumer law.
+          </span>
+        </label>
+      </div>
 
       <button
         onClick={handleClick}

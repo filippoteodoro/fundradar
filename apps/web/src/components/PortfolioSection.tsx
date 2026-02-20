@@ -450,7 +450,6 @@ function FullPortfolioSection({ companies }: PortfolioSectionProps) {
   const showGeoFilter = italyCount > 0 && italyCount < companies.length;
 
   // Filter and sort companies (current first, then partial, then unknown, then exited)
-  const STATUS_ORDER: Record<string, number> = { current: 0, partial: 1, exited: 3 };
   const filteredCompanies = useMemo(() => {
     return companies.filter(c => {
       // Sector filter
@@ -482,8 +481,8 @@ function FullPortfolioSection({ companies }: PortfolioSectionProps) {
 
       return true;
     }).sort((a, b) => {
-      const aOrder = a.status ? (STATUS_ORDER[a.status] ?? 2) : 2;
-      const bOrder = b.status ? (STATUS_ORDER[b.status] ?? 2) : 2;
+      const aOrder = a.status ? (COMPACT_STATUS_ORDER[a.status] ?? 2) : 2;
+      const bOrder = b.status ? (COMPACT_STATUS_ORDER[b.status] ?? 2) : 2;
       if (aOrder !== bOrder) return aOrder - bOrder;
       const aDate = a.entry_date || a.investment_date || '';
       const bDate = b.entry_date || b.investment_date || '';

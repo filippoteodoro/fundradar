@@ -17,7 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/privacy-policy`, lastModified: now, changeFrequency: 'monthly', priority: 0.2 },
     { url: `${BASE_URL}/cookie-policy`, lastModified: now, changeFrequency: 'monthly', priority: 0.2 },
     { url: `${BASE_URL}/disclaimer`, lastModified: now, changeFrequency: 'monthly', priority: 0.2 },
-    { url: `${BASE_URL}/legal-notice`, lastModified: now, changeFrequency: 'monthly', priority: 0.2 },
   ];
 
   const fundPages: MetadataRoute.Sitemap = funds.map((fund) => ({

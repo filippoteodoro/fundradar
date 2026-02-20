@@ -268,7 +268,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
       matchReasons: reasons,
       matchSummary: total > 0 ? { total, counts } : null,
     };
-  }, [funds, categoryFilter, sectorGroupFilter, hqCountryFilter, hasActiveInvestment, invMinFilter, invMaxFilter, aumMinFilter, aumMaxFilter, aumRangeMax, search, hasActiveFilters]);
+  }, [funds, categoryFilter, sectorGroupFilter, hqCountryFilter, hasActiveInvestment, invMinFilter, invMaxFilter, aumMinFilter, aumMaxFilter, aumRangeMax, search, hasActiveFilters, portfolioCompanyNames]);
 
   // Sort function
   const sortFunds = (fundsToSort: FundSlim[]): FundSlim[] => {

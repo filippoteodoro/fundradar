@@ -121,9 +121,6 @@ export default function RootLayout({
             <Link href="/disclaimer" style={{ color: '#666', textDecoration: 'underline' }}>
               Disclaimer
             </Link>
-            <Link href="/legal-notice" style={{ color: '#666', textDecoration: 'underline' }}>
-              Legal Notice
-            </Link>
           </div>
         </footer>
         <ConsentManager />

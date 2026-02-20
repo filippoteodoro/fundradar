@@ -33,4 +33,4 @@ export const LEGAL_BILLING_PORTAL_URL =
 
 // Bump when legal docs with contractual/privacy impact are materially changed.
 export const LEGAL_BUNDLE_VERSION =
-  process.env.NEXT_PUBLIC_LEGAL_BUNDLE_VERSION || '2026-02-19';
+  process.env.NEXT_PUBLIC_LEGAL_BUNDLE_VERSION || '2026-02-20';

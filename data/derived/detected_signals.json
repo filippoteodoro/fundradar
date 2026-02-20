@@ -22528,31 +22528,6 @@
       }
     },
     {
-      "id": "web-signal-01077",
-      "fund_id": "",
-      "fund_slug": "apollo",
-      "signal_type": "deal_announced",
-      "title": "Schroders and Apollo to deliver next generation investment solutions in ambitious multi-channel partnership",
-      "what_changed": "New announcement: Schroders and Apollo to deliver next generation investment solutions in ambitious multi-channel partnership",
-      "source_url": "https://www.apollo.com/insights-news/pressreleases/2026/02/schroders-and-apollo-to-deliver-next-generation-investment-solutions-in-ambitious-multi-channel-partnership-3234272",
-      "source_name": "Apollo",
-      "published_at": null,
-      "observed_at": "2026-02-09T10:09:18.543810+00:00",
-      "created_at": "2026-02-09T10:09:18.543810+00:00",
-      "snapshot_id": "snap-20260209100909-76d10fe8",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-01078",
       "fund_id": "",
       "fund_slug": "kkr",
@@ -43296,5 +43271,5 @@
       }
     }
   ],
-  "signal_count": 1678
+  "signal_count": 1677
 }
