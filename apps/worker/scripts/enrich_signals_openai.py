@@ -310,8 +310,26 @@ RESPONSE_SCHEMA = {
         "event_type": {"type": "string", "enum": ["deal", "exit", "fund", "debt", "people", "job", "portfolio", "report", "other"]},
         "type_confidence": {"type": "string", "enum": ["high", "medium", "low"]},
         "italy_relevant": {"type": "boolean"},
+        "target_companies": {
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {"type": "string"},
+                            "is_direct_investment": {"type": "boolean"},
+                            "action": {"type": "string", "enum": ["investment", "exit", "other"]},
+                        },
+                        "required": ["name", "is_direct_investment", "action"],
+                        "additionalProperties": False,
+                    },
+                },
+                {"type": "null"},
+            ],
+        },
     },
-    "required": ["summary", "event_date", "confidence", "keep", "keep_reason", "keep_confidence", "event_type", "type_confidence", "italy_relevant"],
+    "required": ["summary", "event_date", "confidence", "keep", "keep_reason", "keep_confidence", "event_type", "type_confidence", "italy_relevant", "target_companies"],
     "additionalProperties": False,
 }
 
@@ -1817,6 +1835,7 @@ def enrich_signal(client: OpenAI, signal: dict) -> dict:
 3. A keep/drop decision for signal quality and Italy/Europe relevance
 4. The event type classification
 5. Whether this signal involves Italy (Italian companies, Italian geography, or the Italian PE market)
+6. For deal/exit signals: the target companies being invested in or exited from
 
 <signal_data>
 Fund: {fund_name}
@@ -1841,7 +1860,10 @@ Respond in JSON format only:
   "keep_confidence": "high/medium/low - how confident are you about keep/drop",
   "event_type": "deal/exit/fund/debt/people/job/report/other",
   "type_confidence": "high/medium/low",
-  "italy_relevant": true
+  "italy_relevant": true,
+  "target_companies": [
+    {{"name": "Company Name", "is_direct_investment": true, "action": "investment"}}
+  ]
 }}
 
 Rules:
@@ -1866,6 +1888,12 @@ Rules:
 - italy_relevant: true if this signal involves an Italian company, Italian geography, the Italian PE market,
   or an Italian office/branch. false if it's clearly about a non-Italian market (e.g. a French deal by a French fund,
   a Nordic acquisition). When in doubt, set true for Italian-named funds (SGR/SICAF).
+- target_companies: For deal/exit signals ONLY, extract the companies being invested in or exited from.
+  Set to null for non-deal signals (fundraising, people moves, fund launches, reports, jobs, etc.).
+  Each entry: name = proper company name (not the fund name, not advisors), is_direct_investment = true
+  only if "{fund_name}" is directly investing/exiting (false if a portfolio company is making an add-on acquisition),
+  action = "investment"/"exit"/"other". If multiple companies are mentioned, include a separate entry for each.
+  target_companies must be a PROPER COMPANY NAME, not a generic description (reject "residential asset", "industrial building").
 - Return ONLY valid JSON, no other text"""
 
     max_retries = 2
@@ -1927,6 +1955,16 @@ Rules:
             llm_italy_relevant = result.get("italy_relevant")
             if isinstance(llm_italy_relevant, bool):
                 enrichment["llm_italy_relevant"] = llm_italy_relevant
+            # Include target company extraction for deal/exit signals
+            target_companies = result.get("target_companies")
+            if target_companies and isinstance(target_companies, list):
+                # Validate each entry has required fields
+                valid = [
+                    tc for tc in target_companies
+                    if isinstance(tc, dict) and tc.get("name") and tc.get("action")
+                ]
+                if valid:
+                    enrichment["target_companies"] = valid
             return enrichment
         except json.JSONDecodeError as e:
             if attempt < max_retries:
@@ -2372,6 +2410,7 @@ def main(slugs_filter: str | None = None):
                 "enriched_summary", "enriched_date", "enrichment_confidence", "enriched_at",
                 "llm_keep", "llm_keep_reason", "llm_keep_confidence", "llm_keep_source",
                 "llm_event_type", "llm_type_confidence", "llm_type_override",
+                "target_companies",
             ]:
                 if field.startswith("llm_keep") and not carry_local_keep:
                     continue
@@ -2465,8 +2504,12 @@ def main(slugs_filter: str | None = None):
             signal["enriched_summary"] = local_summary
             signal["enrichment_confidence"] = signal.get("enrichment_confidence") or "low"
 
-        # Already has a keep/drop decision — skip LLM
-        if signal.get("llm_keep") is not None:
+        # Deal/exit signals without target_companies need re-enrichment to extract them
+        _is_deal_signal = signal.get("signal_type") in {"deal_announced", "exit_announced"}
+        _needs_company_extraction = _is_deal_signal and not signal.get("target_companies")
+
+        # Already has a keep/drop decision — skip LLM (unless missing target_companies)
+        if signal.get("llm_keep") is not None and not _needs_company_extraction:
             skipped_count += 1
             if not signal.get("enriched_at"):
                 signal["enriched_at"] = datetime.now(timezone.utc).isoformat()
@@ -2501,6 +2544,7 @@ def main(slugs_filter: str | None = None):
         )
         use_local = (
             signal.get("llm_keep") is None
+            and not _needs_company_extraction
             and local_keep is not None
             and (local_keep is False or local_summary or (local_keep is True and not _has_extra_context))
         )
@@ -2530,8 +2574,8 @@ def main(slugs_filter: str | None = None):
                 processed_keys.add(signal_key)
             continue
 
-        # Needs LLM enrichment
-        if signal.get("llm_keep") is None:
+        # Needs LLM enrichment (or re-enrichment for target_companies extraction)
+        if signal.get("llm_keep") is None or _needs_company_extraction:
             # Store local decision context for fallback
             signal["_local_keep"] = local_keep
             signal["_local_reason"] = local_reason

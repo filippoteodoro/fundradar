@@ -16,8 +16,8 @@ DOMAIN = "www.faroalternativeinvestments.com"
 # URL paths for monitoring (auto-generated from fund_urls.json)
 URLS = {
     "portfolio": None,
-    "team": "/management",
-    "news": "/en/news",
+    "team": "/about-us/",
+    "news": "/media-events/",
 }
 def extract_team(html: str, base_url: str) -> list[dict]:
     """
@@ -112,19 +112,62 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news/media items from FARO Alternative Investments media page.
 
-    Structure: article.fusion-post-large
-    - Title: h1.blog-shortcode-post-title a
-    - URL: h1.blog-shortcode-post-title a[href]
-    - Date: span in .fusion-meta-info (English format: "November 14, 2024")
-    - Summary: p in .fusion-post-content-container
+    Primary structure (current site):
+    - Card container: .post-item
+    - Title: .post-title a
+    - URL: .post-title a[href]
+    - Category: .cat-label (Media / Events / Press Releases)
+    - Summary: .from_the_blog_excerpt
+
+    Legacy fallback (older site theme):
+    - article.fusion-post-large with blog-shortcode selectors.
     """
     soup = BeautifulSoup(html, "html.parser")
     news = []
     seen_titles = set()
 
-    # Find all article posts
+    # Primary: Flatsome post cards
+    for card in soup.select(".post-item"):
+        title_el = card.select_one(".post-title a")
+        if not title_el:
+            continue
+
+        title = title_el.get_text(strip=True)
+        if not title or len(title) < 10 or title.lower() in seen_titles:
+            continue
+        seen_titles.add(title.lower())
+
+        url = None
+        href = title_el.get("href")
+        if href:
+            url = urljoin(base_url, href)
+
+        category = None
+        cat_el = card.select_one(".cat-label")
+        if cat_el:
+            category = cat_el.get_text(strip=True)
+
+        summary = None
+        summary_el = card.select_one(".from_the_blog_excerpt")
+        if summary_el:
+            summary = summary_el.get_text(" ", strip=True)
+            if len(summary) > 300:
+                summary = summary[:300]
+        if category:
+            summary = f"{category}: {summary}" if summary else category
+
+        news.append({
+            "title": title,
+            "url": url,
+            "date": None,
+            "summary": summary,
+            "confidence": 0.90,
+        })
+
+    # Fallback: older Avada list layout
+    if news:
+        return news
     for article in soup.select("article.fusion-post-large"):
-        # Get title from h1 a
         title_el = article.select_one("h1.blog-shortcode-post-title a")
         if not title_el:
             continue
@@ -134,27 +177,28 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             continue
         seen_titles.add(title.lower())
 
-        # Get URL
         url = None
         href = title_el.get("href")
         if href:
             url = urljoin(base_url, href)
 
-        # Get date from .fusion-meta-info
         date = None
         meta_info = article.select_one(".fusion-meta-info")
         if meta_info:
-            # Find the span with date text (not the hidden ones)
             for span in meta_info.select("span"):
-                if 'vcard' not in span.get('class', []) and 'updated' not in span.get('class', []):
-                    text = span.get_text(strip=True)
-                    # Date pattern: "November 14, 2024" or contains month name
-                    if any(month in text for month in ['January', 'February', 'March', 'April', 'May', 'June',
-                                                        'July', 'August', 'September', 'October', 'November', 'December']):
-                        date = text
-                        break
+                if "vcard" in span.get("class", []) or "updated" in span.get("class", []):
+                    continue
+                text = span.get_text(strip=True)
+                if any(
+                    month in text
+                    for month in [
+                        "January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December",
+                    ]
+                ):
+                    date = text
+                    break
 
-        # Get summary from first p
         summary = None
         content = article.select_one(".fusion-post-content-container p")
         if content:

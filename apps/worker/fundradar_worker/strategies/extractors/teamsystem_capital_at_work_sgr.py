@@ -9,8 +9,8 @@ DOMAIN = "www.tscawsgr.com"
 # URL paths for monitoring (auto-generated from fund_urls.json)
 URLS = {
     "portfolio": None,
-    "team": "/it/management",
-    "news": "/it/en/news",
+    "team": "/it/team",
+    "news": "/it/stampa",
 }
 logger = logging.getLogger(__name__)
 
@@ -98,6 +98,59 @@ def extract_team(html: str, base_url: str) -> list[dict]:
             "email": None,
             "photo_url": photo_url,
             "confidence": 0.85,
+        })
+
+    # Pattern 2: row-based cards used on some TSCA pages.
+    for row in soup.select(".row.item"):
+        name_el = row.select_one(".nome")
+        if not name_el:
+            continue
+        name = name_el.get_text(" ", strip=True)
+        if not name:
+            continue
+
+        # Person-like guardrails: avoid company/legal entities.
+        words = [w for w in name.split() if w]
+        lower = name.lower()
+        if len(words) < 2 or len(words) > 4:
+            continue
+        if any(tok in lower for tok in ("s.p.a", "s.r.l", "srl", "spa", "group", "teamsystem", "@work")):
+            continue
+        if not all(w[0].isupper() for w in words if w and w[0].isalpha()):
+            continue
+        if name in seen_names:
+            continue
+
+        title = None
+        text_el = row.select_one(".text")
+        if text_el:
+            title = text_el.get_text(" ", strip=True)
+            if title and len(title) > 200:
+                title = title[:200]
+
+        role = None
+        if title:
+            title_lower = title.lower()
+            if "ceo" in title_lower or "amministratore delegato" in title_lower:
+                role = "partner"
+            elif "coo" in title_lower or "chief operating" in title_lower:
+                role = "partner"
+            elif "manager" in title_lower or "investment manager" in title_lower:
+                role = "investment_manager"
+            elif "senior" in title_lower:
+                role = "senior"
+            elif "officer" in title_lower:
+                role = "officer"
+
+        seen_names.add(name)
+        members.append({
+            "name": name,
+            "title": title,
+            "role": role,
+            "linkedin": None,
+            "email": None,
+            "photo_url": None,
+            "confidence": 0.80,
         })
 
     return members

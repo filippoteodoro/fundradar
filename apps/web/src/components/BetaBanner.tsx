@@ -4,13 +4,21 @@ import { useState, useEffect } from 'react';
 
 const STORAGE_KEY = 'fundradar_beta_banner_dismissed';
 
+function getTodayKey() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
 export function BetaBanner() {
   const [dismissed, setDismissed] = useState(true); // hidden by default to avoid flash
 
   useEffect(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (!stored) setDismissed(false);
+      setDismissed(stored === getTodayKey());
     } catch {
       // localStorage unavailable — keep hidden
     }
@@ -21,7 +29,7 @@ export function BetaBanner() {
   const handleDismiss = () => {
     setDismissed(true);
     try {
-      localStorage.setItem(STORAGE_KEY, '1');
+      localStorage.setItem(STORAGE_KEY, getTodayKey());
     } catch {
       // ignore
     }

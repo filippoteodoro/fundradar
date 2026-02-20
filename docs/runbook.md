@@ -119,6 +119,35 @@ Recent fund-specific update:
   - extractor resolves underlying `hat.it` pages for `portfolio`, `team`, and `news`
   - module sets `ALWAYS_EXTRACT = True` because wrapper HTML is mostly static
   - parser uses live target fetch first, then local snapshot cache fallback
+- `quattror` now has custom `team` and `news` extraction from structured cards:
+  - `team`: parses `People` cards (`article.str__article`) including role mapping and photos
+  - `news`: parses newsroom cards with title/date/summary and press-PDF URL fallback
+  - portfolio parsing is now scoped to portfolio-card links (avoids accidental team/news misreads)
+- `merito-sgr` now has extractor-native API routing plus popup-team parsing:
+  - monitored URLs stay on canonical pages with stable cache-buster params (`/investimenti/?fr_src=fundradar`, `/team/?fr_src=fundradar`, `/news/?fr_src=fundradar`) to avoid stale `304` loops without cached blobs
+  - extractor attempts WordPress JSON fallback (`/wp-json/wp/v2/posts?...`) for `portfolio` and `news` when HTML shell pages are empty
+  - `team`: parses popup cards (`.paoc-cb-popup-body`) for name/title/photo with role mapping
+  - module sets `ALWAYS_EXTRACT = True` so API-backed pages are re-extracted even when HTML wrappers are unchanged
+- `faro-value` URL routing was corrected from stale 404 paths:
+  - `team`: `/about-us/` (replaces `/management`)
+  - `news`: `/media-events/` (replaces `/en/news`)
+- `teamsystem-capital-at-work-sgr` URL routing was corrected from stale 404 paths:
+  - `team`: `/it/team` (replaces `/it/management`)
+  - `news`: `/it/stampa` (replaces `/it/en/news`)
+- `ream-sgr` now has extractor URL routing enabled (was effectively disabled with all paths `None`):
+  - `portfolio`: routed to fund-category pages (`/i-fondi-ream/core.html`, `/residenziale.html`, `/etico.html`, `/sanitario.html`, `/rigenerazione-urbana.html`)
+  - `team`: `/la-societa/chi-siamo-ream.html`
+  - `news`: `/comunicazione/comunicati-e-notizie.html`
+- `finint-investments-sgr` URL routing was corrected from stale 404 paths:
+  - `team`: `/it/chi-siamo/management-team.php`, `/it/chi-siamo/storia.php` (replaces `/management`)
+  - `news`: `/it/press/comunicati-stampa.php` (replaces missing news URL)
+  - team extractor now normalizes all-caps names so members are not dropped by shared team post-processing
+- `scientifica-vc` now has full URL routing enabled:
+  - `team`: `/team/?fr_src=fundradar`
+  - `news`: `/media-ed-eventi/?fr_src=fundradar`
+  - `news` extractor now includes HTML-card parsing with WordPress API fallback (`/wp-json/wp/v2/posts`)
+- `wrm-group` now monitors media/news directly:
+  - `news`: `/media/?fr_src=fundradar` (wired to existing `extract_news`)
 
 ## Monitoring
 

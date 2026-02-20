@@ -9,7 +9,7 @@ DOMAIN = "wrmgroup.net"
 URLS = {
     "portfolio": "/track-record/",
     "team": None,
-    "news": None,
+    "news": "/media/?fr_src=fundradar",
 }
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """Extract portfolio companies from WRM Group investments page (mixed current/exited)."""

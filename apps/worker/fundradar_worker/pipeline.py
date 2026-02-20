@@ -10,7 +10,7 @@ Runs the full monitoring pipeline in dependency order:
   5. enrich_portfolio      - fill missing sector/HQ/description via Gemini (optional)
   6. filter                - quality-score signals and remove noise
   7. enrich                - add AI summaries via OpenAI
-  8. signal_to_portfolio   - convert deal/exit signals to portfolio entries (Gemini, optional)
+  8. signal_to_portfolio   - convert deal/exit signals to portfolio entries (local, reads from step 7)
 
 Each step validates its output before proceeding to the next.
 
@@ -118,14 +118,11 @@ STEPS = [
     },
     {
         "name": "signal_to_portfolio",
-        "description": "Convert deal/exit signals into portfolio entries (Gemini)",
+        "description": "Convert deal/exit signals into portfolio entries (local, no API)",
         "command": [sys.executable, "scripts/signal_to_portfolio.py", "--pipeline"],
         "cwd": str(WORKER_DIR),
         "outputs": [DATA_DIR / "portfolio_items.json"],
-        "optional": True,
-        "timeout": 30 * 60,  # 30 min — capped at 15 calls in --pipeline mode (~20 min typical)
-        "retry_on_partial": True,
-        "max_retries": 2,
+        "timeout": 2 * 60,  # 2 min — purely local, reads pre-extracted target_companies
     },
 ]
 

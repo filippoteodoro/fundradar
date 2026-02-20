@@ -2,10 +2,11 @@
 """
 Convert deal/exit signals into portfolio entries.
 
+Purely local pipeline step — zero API calls. Reads target_companies
+pre-extracted by step 7 (enrich_signals_openai.py) from each signal.
+
 Two-phase pipeline:
-  Phase 1 — Gemini extraction: read enriched signals, send to Gemini 3 Flash
-             with existing portfolio context so it can distinguish direct investments
-             from add-on acquisitions by portfolio companies.
+  Phase 1 — Read: load enriched signals with pre-extracted target_companies
   Phase 2 — Dedup + write: match extracted companies against existing portfolio,
              add new entries, update exits, skip add-ons/duplicates.
 
@@ -16,16 +17,6 @@ Trust hierarchy (confidence scoring):
   0.75  signal_news           — reputable PE/VC journal
   0.70  signal_rss            — other RSS / unknown source
   0.60  signal_rumor          — explicitly flagged as rumor
-
-New entries get sector, HQ, and description from Gemini in the same call
-(one-shot enrichment). Entries still get the full enrichment treatment from
-enrich_portfolio_gemini_full.py on the next pipeline run.
-
-Why Gemini over OpenAI:
-  - Native structured JSON output mode (not function-calling workarounds)
-  - ~$0.01 total for all signals (Gemini 3 Flash pricing)
-  - Already used for portfolio enrichment in this project
-  - Excellent Italian language understanding
 
 Usage:
     python apps/worker/scripts/signal_to_portfolio.py --dry-run
@@ -38,22 +29,17 @@ import argparse
 import json
 import os
 import re
-import signal as _signal
 import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
-from dotenv import load_dotenv, dotenv_values
+from dotenv import load_dotenv
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
 ENV_PATH = PROJECT_ROOT / ".env"
 load_dotenv(ENV_PATH, override=False)
-if ENV_PATH.exists() and not os.environ.get("GEMINI_API_KEY"):
-    env_vars = dotenv_values(ENV_PATH)
-    if env_vars.get("GEMINI_API_KEY"):
-        os.environ["GEMINI_API_KEY"] = env_vars["GEMINI_API_KEY"]
 
 sys.path.insert(0, str(PROJECT_ROOT / "apps" / "worker"))
 
@@ -62,24 +48,6 @@ ENRICHED_SIGNALS_FILE = DATA_DIR / "detected_signals_enriched.json"
 PORTFOLIO_FILE = DATA_DIR / "portfolio_items.json"
 PROGRESS_FILE = DATA_DIR / "signal_to_portfolio_progress.json"
 DB_PATH = PROJECT_ROOT / "data" / "db.json"
-
-MODEL = "gemini-3-flash-preview"
-# Gemini Flash free tier: ~30s per signal for structured extraction. Batches of 5
-# frequently timeout, batches of 2-3 work reliably. Size 3 balances throughput and
-# reliability (~90s per batch, well within 300s timeout).
-BATCH_SIZE = 3
-MAX_RETRIES = 2
-CALL_TIMEOUT = 300  # 5min — Gemini Flash free tier is slow on complex structured output
-SDK_TIMEOUT_MS = 360_000  # SDK-level timeout — must exceed CALL_TIMEOUT
-DELAY_BETWEEN_CALLS = 4.0  # 4s between calls — Gemini free tier ~15 RPM
-
-# Auto-split: when a batch fails at size N, retry at next smaller size
-BATCH_SPLIT_SIZES = [3, 1]
-
-# Pipeline mode: cap API calls so this step completes in ~20 min.
-# 15 calls × 3 signals/call = 45 signals per pipeline run.
-# Remaining signals are processed on the next run (progress tracking).
-PIPELINE_DEFAULT_LIMIT = 15
 
 # Signal types to process
 DEAL_TYPES = {"deal_announced", "exit_announced"}
@@ -158,7 +126,7 @@ def _matches_existing(
     Check if a company name matches any existing portfolio entry.
 
     Returns (matched: bool, matched_norm: str | None for exit updates).
-    Uses: exact normalized, compact (no spaces), and token overlap (≥0.8 Jaccard).
+    Uses: exact normalized, compact (no spaces), numeric suffix, and token overlap (≥0.8 Jaccard).
     """
     norm = normalize_company_name(new_name)
     if not norm:
@@ -265,298 +233,6 @@ def classify_source(signal: dict, fund_domain: str | None) -> tuple[str, float]:
     return "signal_other", 0.70
 
 
-# ─── Gemini extraction ────────────────────────────────────────────────────
-
-_RESPONSE_SCHEMA = None
-
-
-def _get_response_schema():
-    """Lazy-init Gemini structured output schema."""
-    global _RESPONSE_SCHEMA
-    if _RESPONSE_SCHEMA is None:
-        from google.genai import types as genai_types
-        _RESPONSE_SCHEMA = genai_types.Schema(
-            type=genai_types.Type.ARRAY,
-            items=genai_types.Schema(
-                type=genai_types.Type.OBJECT,
-                properties={
-                    "signal_id": genai_types.Schema(type=genai_types.Type.STRING),
-                    "target_company": genai_types.Schema(
-                        type=genai_types.Type.STRING, nullable=True,
-                    ),
-                    "is_direct_investment": genai_types.Schema(
-                        type=genai_types.Type.BOOLEAN,
-                    ),
-                    "action": genai_types.Schema(
-                        type=genai_types.Type.STRING,
-                        enum=["investment", "exit", "other"],
-                    ),
-                    "sector": genai_types.Schema(
-                        type=genai_types.Type.STRING, nullable=True,
-                        enum=SECTOR_TAXONOMY,
-                    ),
-                    "headquarters": genai_types.Schema(
-                        type=genai_types.Type.STRING, nullable=True,
-                    ),
-                    "description": genai_types.Schema(
-                        type=genai_types.Type.STRING, nullable=True,
-                    ),
-                    "investment_date": genai_types.Schema(
-                        type=genai_types.Type.STRING, nullable=True,
-                    ),
-                },
-                required=["signal_id", "is_direct_investment", "action"],
-            ),
-        )
-    return _RESPONSE_SCHEMA
-
-
-_schema_disabled = False
-
-
-def build_prompt(fund_name: str, signals: list[dict], existing_company_names: list[str]) -> str:
-    """
-    Build Gemini prompt for a batch of signals.
-
-    Includes existing portfolio company names so Gemini can detect add-on
-    acquisitions (portfolio company X acquires company Y).
-    """
-    signal_lines = []
-    for s in signals:
-        # Use the richest available text: enriched_summary > what_changed > title
-        text = s.get("enriched_summary") or s.get("what_changed") or ""
-        title = s.get("title", "")
-        title_orig = s.get("title_original", "")
-
-        parts = [f"id={s['id']}"]
-        parts.append(f"type={s.get('signal_type', 'unknown')}")
-        parts.append(f"title={title}")
-        if title_orig and title_orig != title:
-            parts.append(f"title_it={title_orig}")
-        if text and text != title:
-            parts.append(f"summary={text[:400]}")
-        if s.get("published_at"):
-            parts.append(f"date={s['published_at'][:10]}")
-        if s.get("source_name"):
-            parts.append(f"source={s['source_name']}")
-        # Include extracted entities if available
-        entities = s.get("extracted_entities", {})
-        if entities.get("companies"):
-            parts.append(f"entities={','.join(entities['companies'][:5])}")
-
-        signal_lines.append(" | ".join(parts))
-
-    signals_block = "\n".join(signal_lines)
-
-    # Portfolio context — helps detect add-ons. Keep short to avoid Gemini timeouts.
-    portfolio_context = ""
-    if existing_company_names:
-        sample = existing_company_names[:50]
-        portfolio_context = f"""
-EXISTING PORTFOLIO of "{fund_name}" (already invested): {', '.join(sample)}{"..." if len(existing_company_names) > 50 else ""}
-"""
-
-    example_portco = existing_company_names[0] if existing_company_names else "PortCo X"
-
-    return f"""You are analyzing investment news signals for the PE/VC fund "{fund_name}".
-{portfolio_context}
-For each signal, extract:
-1. target_company: The company being invested in or exited from. Use the company's proper name (not the fund name, not the advisor name). null if no specific target company is mentioned or if the signal is about fund-level activity (fundraising, fund launch, etc.). IMPORTANT: If a signal mentions MULTIPLE target companies (e.g. "acquires CompanyA and CompanyB"), return a SEPARATE object for EACH company, all sharing the same signal_id.
-2. is_direct_investment: true ONLY if "{fund_name}" is directly investing in or exiting the target company. Set false if:
-   - A company from the EXISTING PORTFOLIO list above is making an acquisition (add-on/bolt-on)
-   - The signal is about a different fund's deal, not "{fund_name}"'s
-   - The signal mentions "{fund_name}" only as a co-investor alongside the lead investor
-3. action: "investment" if the fund is buying/investing, "exit" if the fund is selling/exiting/divesting, "other" for anything else (fundraising, partnerships, events, reports).
-4. sector: one of the allowed enum values if clearly inferable from the signal text, or null.
-5. headquarters: city and country of the target company if mentioned (e.g. "Milan, Italy"), or null.
-6. description: a 1-2 sentence description of the target company's business, based on what's mentioned in the signal. null if nothing is described.
-7. investment_date: the date of the investment/exit in YYYY-MM-DD format if mentioned, or null.
-
-CRITICAL RULES:
-- "{fund_name}" is the fund we're tracking. We only care about THEIR direct investments/exits.
-- If a company from the existing portfolio list (e.g. "{example_portco}") acquires another company, that is an add-on — set is_direct_investment=false.
-- Fundraising signals (fund raises capital), fund launches, reports, and partnership announcements are action="other".
-- For the company name, prefer the Italian/original name if it's a proper noun (e.g. "Marullo" not "Marulloper").
-- target_company must be a PROPER COMPANY NAME, not a generic description (e.g. reject "residential asset in Paris", "industrial building", "logistics platform").
-
-Signals:
-{signals_block}
-
-Return a JSON array with one object per signal, matching by signal_id."""
-
-
-class _AlarmTimeout(Exception):
-    pass
-
-
-def _alarm_handler(signum, frame):
-    raise _AlarmTimeout()
-
-
-def _do_api_call(client, prompt: str) -> tuple[list[dict], int, int]:
-    """Execute a single Gemini API call with structured JSON output."""
-    global _schema_disabled
-    from google.genai import types
-
-    config_kwargs = {
-        "temperature": 0.1,
-        "response_mime_type": "application/json",
-        "http_options": types.HttpOptions(timeout=SDK_TIMEOUT_MS),
-    }
-    if not _schema_disabled:
-        config_kwargs["response_schema"] = _get_response_schema()
-
-    try:
-        response = client.models.generate_content(
-            model=MODEL,
-            contents=prompt,
-            config=types.GenerateContentConfig(**config_kwargs),
-        )
-    except Exception as e:
-        if not _schema_disabled and "schema" in str(e).lower():
-            _schema_disabled = True
-            print("    Schema rejected by API — falling back to mime_type only", flush=True)
-            config_kwargs.pop("response_schema", None)
-            response = client.models.generate_content(
-                model=MODEL,
-                contents=prompt,
-                config=types.GenerateContentConfig(**config_kwargs),
-            )
-        else:
-            raise
-
-    text = response.text.strip()
-    if text.startswith("```"):
-        lines = text.split("\n")
-        lines = [l for l in lines if not l.strip().startswith("```")]
-        text = "\n".join(lines)
-
-    results = json.loads(text)
-
-    # Safety: ensure we got a list (schema-disabled mode may return a dict)
-    if isinstance(results, dict):
-        for key in ("items", "signals", "results"):
-            if isinstance(results.get(key), list):
-                results = results[key]
-                break
-        else:
-            results = []
-
-    usage = response.usage_metadata
-    in_tok = usage.prompt_token_count or 0
-    out_tok = usage.candidates_token_count or 0
-    return results, in_tok, out_tok
-
-
-def _call_gemini_single(client, prompt: str) -> tuple[list[dict], int, int]:
-    """Call Gemini with SIGALRM hard timeout and retries at a fixed batch size.
-
-    Returns (results, in_tokens, out_tokens). Empty results on total failure.
-    """
-    for attempt in range(1 + MAX_RETRIES):
-        try:
-            old_handler = _signal.signal(_signal.SIGALRM, _alarm_handler)
-            _signal.alarm(CALL_TIMEOUT)
-            results, in_tok, out_tok = _do_api_call(client, prompt)
-            _signal.alarm(0)
-            _signal.signal(_signal.SIGALRM, old_handler)
-            return results, in_tok, out_tok
-
-        except _AlarmTimeout:
-            _signal.alarm(0)
-            if attempt < MAX_RETRIES:
-                wait = 15 * (attempt + 1)  # 15s, 30s — longer backoff for rate limits
-                print(f"    Timeout (attempt {attempt+1}), retrying in {wait}s...", flush=True)
-                time.sleep(wait)
-                continue
-            return [], 0, 0
-
-        except json.JSONDecodeError:
-            _signal.alarm(0)
-            if attempt < MAX_RETRIES:
-                time.sleep(5)
-                continue
-            return [], 0, 0
-
-        except Exception as e:
-            _signal.alarm(0)
-            err_str = str(e).lower()
-            is_rate_limit = "429" in err_str or "rate" in err_str or "quota" in err_str
-            if attempt < MAX_RETRIES:
-                wait = 30 * (attempt + 1) if is_rate_limit else 10 * (attempt + 1)
-                print(f"    Error (attempt {attempt+1}): {str(e)[:80]}, retrying in {wait}s...", flush=True)
-                time.sleep(wait)
-                continue
-            return [], 0, 0
-
-    return [], 0, 0
-
-
-def call_gemini_batch(
-    client, signals: list[dict], fund_name: str, existing_company_names: list[str],
-) -> tuple[list[dict], int, int]:
-    """Call Gemini with auto-split on failure.
-
-    Tries the full batch first. If all retries fail, splits into smaller
-    sub-batches (15 → 7 → 3 → 1) and retries each.
-
-    Returns (results, in_tokens, out_tokens).
-    """
-    batch_size = len(signals)
-    prompt = build_prompt(fund_name, signals, existing_company_names)
-
-    # Find the starting split tier for this batch size
-    split_sizes = [s for s in BATCH_SPLIT_SIZES if s <= batch_size]
-    if not split_sizes:
-        split_sizes = [1]
-
-    for tier_idx, split_size in enumerate(split_sizes):
-        if tier_idx == 0:
-            # First tier: try the full batch as-is
-            results, in_tok, out_tok = _call_gemini_single(client, prompt)
-            if results:
-                return results, in_tok, out_tok
-            if split_size == 1:
-                return [], 0, 0
-            next_size = split_sizes[tier_idx + 1] if tier_idx + 1 < len(split_sizes) else 1
-            print(f"    Batch of {batch_size} failed, auto-splitting to size {next_size}...", flush=True)
-            continue
-
-        # Split into sub-batches of this tier's size
-        all_results = []
-        total_in, total_out = 0, 0
-        sub_failed = False
-
-        for sub_idx, sub_start in enumerate(range(0, len(signals), split_size)):
-            sub_batch = signals[sub_start:sub_start + split_size]
-            sub_prompt = build_prompt(fund_name, sub_batch, existing_company_names)
-            if sub_idx > 0:
-                time.sleep(DELAY_BETWEEN_CALLS)
-            sub_results, sub_in, sub_out = _call_gemini_single(client, sub_prompt)
-            total_in += sub_in
-            total_out += sub_out
-
-            if sub_results:
-                all_results.extend(sub_results)
-            else:
-                sub_failed = True
-
-        if all_results and not sub_failed:
-            return all_results, total_in, total_out
-
-        if all_results:
-            print(f"    Split size {split_size}: partial success ({len(all_results)}/{len(signals)})", flush=True)
-            if tier_idx + 1 < len(split_sizes):
-                continue
-            return all_results, total_in, total_out
-
-        if tier_idx + 1 < len(split_sizes):
-            print(f"    Split size {split_size} failed, trying size {split_sizes[tier_idx + 1]}...", flush=True)
-            continue
-
-    return [], 0, 0
-
-
 # ─── Progress tracking ─────────────────────────────────────────────────────
 
 def load_progress() -> dict:
@@ -622,200 +298,205 @@ def build_existing_names(entries: list[dict]) -> tuple[set[str], set[str]]:
     return norm_names, compact_names
 
 
+def _detect_addon_locally(
+    signal: dict,
+    target_name: str,
+    all_target_names: list[str],
+    existing_names: set[str],
+    existing_compact: set[str],
+) -> bool:
+    """
+    Local add-on detection: if the signal text mentions ANOTHER company that's
+    already in the portfolio (and is NOT one of the target companies), the
+    target_name is likely an add-on acquisition.
+
+    Example: "Casa della Piada acquires Pizze Vincenti" where Casa della Piada
+    is a portfolio company → Pizze Vincenti is an add-on, not a direct investment.
+    """
+    text = " ".join(filter(None, [
+        signal.get("title"), signal.get("enriched_summary"), signal.get("what_changed"),
+    ])).lower()
+    if not text:
+        return False
+
+    # Build set of all target company names to exclude from add-on check
+    target_norms = set()
+    target_compacts = set()
+    for tn in all_target_names:
+        n = normalize_company_name(tn)
+        if n:
+            target_norms.add(n)
+            target_compacts.add(n.replace(" ", ""))
+
+    for en in existing_names:
+        if not en:
+            continue
+        # Skip if this existing name is any of the target companies
+        if en in target_norms or en.replace(" ", "") in target_compacts:
+            continue
+        # Check if this existing portfolio company name appears in the signal text
+        en_words = en.split()
+        if len(en_words) < 2:
+            # Single-word names: require exact word boundary match (min 4 chars to avoid noise)
+            if len(en) >= 4 and re.search(r"\b" + re.escape(en) + r"\b", text):
+                return True
+        else:
+            # Multi-word names: check if the full name appears in text
+            if en in text:
+                return True
+    return False
+
+
 def process_fund_signals(
     fund_slug: str,
     fund_name: str,
     signals: list[dict],
     existing_entries: list[dict],
     fund_domain: str | None,
-    client,
     dry_run: bool = False,
-    call_budget: int = 0,
-) -> tuple[dict, list[str], int]:
+) -> tuple[dict, list[str]]:
     """
-    Process signals for a single fund.
+    Process signals for a single fund — purely local, no API calls.
 
-    Phase 1: Send signals + existing portfolio context to Gemini.
-    Phase 2: Dedup results, add new entries, update exits.
+    Reads target_companies from pre-enriched signals (extracted by step 7).
+    Dedup results, add new entries, update exits.
 
-    call_budget: max Gemini API calls for this fund (0 = unlimited).
-    Returns (stats_dict, successfully_processed_signal_ids, calls_used).
+    Returns (stats_dict, successfully_processed_signal_ids).
     """
     stats = {
         "added": 0, "exits_updated": 0, "skipped_addon": 0,
         "skipped_existing": 0, "skipped_no_company": 0, "skipped_other": 0,
         "skipped_exit_no_match": 0,
-        "errors": 0, "tokens_in": 0, "tokens_out": 0,
+        "errors": 0,
     }
 
     existing_names, existing_compact = build_existing_names(existing_entries)
     # Lookup by normalized name for exit updates.
-    # NOTE: these are the SAME dict objects as in existing_entries —
-    # in-place mutation of existing_entry["status"] propagates to existing_entries.
     existing_by_norm: dict[str, dict] = {}
     for e in existing_entries:
         n = normalize_company_name(e.get("name", ""))
         if n:
             existing_by_norm[n] = e
 
-    # Build list of current portfolio company names for Gemini context
-    existing_raw_names = [
-        e.get("name", "") for e in existing_entries
-        if e.get("name") and e.get("status") in ("current", None)
-    ]
-
     new_entries: list[dict] = []
-    processed_ids: list[str] = []  # Only IDs from successful batches
-    calls_used = 0
+    processed_ids: list[str] = []
 
-    # Process in batches
-    for batch_start in range(0, len(signals), BATCH_SIZE):
-        # Budget check: stop before starting a batch we can't afford
-        if call_budget > 0 and calls_used >= call_budget:
-            remaining = len(signals) - batch_start
-            print(f"    Call budget reached ({call_budget}), deferring {remaining} signals to next run")
-            break
+    for s in signals:
+        sid = s["id"]
+        target_companies = s.get("target_companies")
 
-        batch = signals[batch_start:batch_start + BATCH_SIZE]
-
-        if dry_run:
-            print(f"    [dry-run] Would send {len(batch)} signals to Gemini for {fund_slug}")
-            for s in batch:
-                print(f"      {s['id']}: {s.get('title', '')[:90]}")
-            # Dry-run: do NOT mark IDs as processed (avoids progress pollution)
+        if not target_companies or not isinstance(target_companies, list):
+            stats["skipped_no_company"] += 1
+            # Do NOT mark as processed — signal needs re-enrichment by step 7
+            # to get target_companies. Will be retried on next run.
             continue
 
-        # Call Gemini with auto-split on failure
-        results, in_tok, out_tok = call_gemini_batch(client, batch, fund_name, existing_raw_names)
-        calls_used += 1  # Count the top-level batch call (auto-split counts as 1 logical call)
-        stats["tokens_in"] += in_tok
-        stats["tokens_out"] += out_tok
-
-        if not results:
-            # Don't mark failed batch signal IDs as processed — they'll be retried next run
-            stats["errors"] += len(batch)
-            continue
-
-        # Mark this batch as successfully processed
-        processed_ids.extend(s["id"] for s in batch)
-
-        # Index by signal_id (list: one signal can yield multiple companies)
-        results_by_id: dict[str, list[dict]] = {}
-        for r in results:
-            sid = r.get("signal_id")
-            if sid:
-                results_by_id.setdefault(sid, []).append(r)
-
-        # Phase 2: process each extraction
-        for s in batch:
-            sid = s["id"]
-            extractions = results_by_id.get(sid)
-            if not extractions:
+        for tc in target_companies:
+            company_name = (tc.get("name") or "").strip()
+            if not company_name:
                 stats["skipped_no_company"] += 1
                 continue
 
-            for r in extractions:
-                company_name = (r.get("target_company") or "").strip()
-                if not company_name:
-                    stats["skipped_no_company"] += 1
-                    continue
+            is_direct = tc.get("is_direct_investment", False)
+            action = tc.get("action", "other")
 
-                is_direct = r.get("is_direct_investment", False)
-                action = r.get("action", "other")
+            # Skip add-on acquisitions by portfolio companies
+            if not is_direct:
+                stats["skipped_addon"] += 1
+                continue
 
-                # Skip add-on acquisitions by portfolio companies
-                if not is_direct:
-                    stats["skipped_addon"] += 1
-                    continue
+            # Local add-on detection: if signal text mentions a portfolio company
+            # (other than the target companies) making the acquisition, it's an add-on
+            all_target_names = [tc2.get("name", "") for tc2 in target_companies]
+            if action == "investment" and _detect_addon_locally(s, company_name, all_target_names, existing_names, existing_compact):
+                stats["skipped_addon"] += 1
+                print(f"    ADDON (local): {company_name} — signal mentions existing portfolio company (signal: {sid})")
+                continue
 
-                # Skip non-investment/exit actions (fundraise, partnership, report, etc.)
-                if action == "other":
-                    stats["skipped_other"] += 1
-                    continue
+            # Skip non-investment/exit actions
+            if action == "other":
+                stats["skipped_other"] += 1
+                continue
 
-                # Check if already in portfolio
-                matched, matched_norm = _matches_existing(company_name, existing_names, existing_compact)
-                if matched:
-                    if action == "exit" and matched_norm:
-                        existing_entry = existing_by_norm.get(matched_norm)
-                        if existing_entry and existing_entry.get("status") == "current":
-                            # Guard: never mutate curation_locked entries
-                            if existing_entry.get("curation_locked"):
-                                stats["skipped_existing"] += 1
-                            else:
-                                existing_entry["status"] = "exited"
-                                stats["exits_updated"] += 1
-                                print(f"    EXIT: {existing_entry.get('name')} → status=exited (signal: {sid})")
-                        else:
+            # Check if already in portfolio
+            matched, matched_norm = _matches_existing(company_name, existing_names, existing_compact)
+            if matched:
+                if action == "exit" and matched_norm:
+                    existing_entry = existing_by_norm.get(matched_norm)
+                    if existing_entry and existing_entry.get("status") == "current":
+                        if existing_entry.get("curation_locked"):
                             stats["skipped_existing"] += 1
+                        elif not dry_run:
+                            existing_entry["status"] = "exited"
+                            stats["exits_updated"] += 1
+                            print(f"    EXIT: {existing_entry.get('name')} → status=exited (signal: {sid})")
+                        else:
+                            stats["exits_updated"] += 1
+                            print(f"    [dry-run] EXIT: {existing_entry.get('name')} → status=exited (signal: {sid})")
                     else:
                         stats["skipped_existing"] += 1
-                    continue
+                else:
+                    stats["skipped_existing"] += 1
+                continue
 
-                if action == "exit":
-                    # Exit for company not in portfolio — nothing to update
-                    stats["skipped_exit_no_match"] += 1
-                    continue
+            if action == "exit":
+                stats["skipped_exit_no_match"] += 1
+                continue
 
-                # ── New investment: create portfolio entry ──
-                data_source, confidence = classify_source(s, fund_domain)
+            # ── New investment: create portfolio entry ──
+            data_source, confidence = classify_source(s, fund_domain)
 
-                # Investment date: prefer Gemini extraction, fallback to signal date
-                investment_date = r.get("investment_date")
-                if not investment_date and s.get("published_at"):
-                    try:
-                        investment_date = s["published_at"][:10]
-                    except Exception:
-                        pass
+            # Investment date: prefer signal's enriched date, fallback to published_at
+            investment_date = s.get("enriched_date") or None
+            if not investment_date and s.get("published_at"):
+                try:
+                    investment_date = s["published_at"][:10]
+                except Exception:
+                    pass
 
-                # Sector: validate against taxonomy
-                sector = r.get("sector")
-                if sector and sector not in SECTOR_SET:
-                    sector = None
+            new_entry = {
+                "name": company_name,
+                "sector": None,
+                "status": "current",
+                "confidence": confidence,
+                "website": None,
+                "description": None,
+                "detail_page_url": None,
+                "headquarters": None,
+                "investment_date": investment_date,
+                "source_url": s.get("source_url"),
+                "data_source": data_source,
+                "signal_id": sid,
+            }
 
-                new_entry = {
-                    "name": company_name,
-                    "sector": sector,
-                    "status": "current",
-                    "confidence": confidence,
-                    "website": None,
-                    "description": r.get("description"),
-                    "detail_page_url": None,
-                    "headquarters": r.get("headquarters"),
-                    "investment_date": investment_date,
-                    "source_url": s.get("source_url"),
-                    "data_source": data_source,
-                    "signal_id": sid,
-                }
-
+            if dry_run:
+                print(f"    [dry-run] ADD: {company_name} (conf={confidence}, source={data_source}, signal={sid})")
+            else:
                 new_entries.append(new_entry)
-                # Update dedup sets so subsequent signals in the same run don't add duplicates
-                norm = normalize_company_name(company_name)
-                existing_names.add(norm)
-                existing_compact.add(norm.replace(" ", ""))
-                existing_by_norm[norm] = new_entry
-                stats["added"] += 1
-                print(f"    ADD: {company_name} (sector={sector}, hq={r.get('headquarters')}, "
-                      f"conf={confidence}, source={data_source}, signal={sid})")
+                print(f"    ADD: {company_name} (conf={confidence}, source={data_source}, signal={sid})")
 
-        # Rate limit between batches
-        if batch_start + BATCH_SIZE < len(signals):
-            time.sleep(DELAY_BETWEEN_CALLS)
+            # Update dedup sets so subsequent signals don't add duplicates
+            norm = normalize_company_name(company_name)
+            existing_names.add(norm)
+            existing_compact.add(norm.replace(" ", ""))
+            existing_by_norm[norm] = new_entry
+            stats["added"] += 1
+
+        processed_ids.append(sid)
 
     # Append new entries
     if not dry_run and new_entries:
         existing_entries.extend(new_entries)
 
-    return stats, processed_ids, calls_used
+    return stats, processed_ids
 
 
 def _send_alert(
-    stats: dict, elapsed: float, remaining: int,
-    budget_exhausted: bool, calls_used: int,
+    stats: dict, elapsed: float, signals_without_extraction: int,
 ):
     """Send Telegram alert summarizing signal-to-portfolio results.
 
-    Only sends if there are issues (errors, remaining work). Clean runs are silent.
+    Only sends if there are issues. Clean runs are silent.
     """
     try:
         from fundradar_worker.alerting import AlertConfig, AlertManager, Alert
@@ -826,9 +507,8 @@ def _send_alert(
     if not config.telegram_enabled:
         return
 
-    has_issues = stats["errors"] > 0 or remaining > 0
+    has_issues = stats["errors"] > 0 or signals_without_extraction > 20
 
-    # Clean run with no remaining work — skip alert (pipeline summary covers it)
     if not has_issues:
         return
 
@@ -836,23 +516,19 @@ def _send_alert(
     elapsed_min = elapsed / 60
     lines: list[str] = []
 
-    lines.append(f"Signal→Portfolio: {elapsed_min:.1f}m, {calls_used} calls")
+    lines.append(f"Signal to Portfolio: {elapsed_min:.1f}m (local)")
     lines.append(f"+{stats['added']} added, +{stats['exits_updated']} exits, {stats['errors']} errors")
 
-    if remaining > 0:
-        lines.append(f"\n*Remaining:* {remaining} signals deferred to next run")
-        if budget_exhausted:
-            lines.append("(call limit reached — self-heals on re-run)")
+    if signals_without_extraction > 20:
+        lines.append(f"\nMissing extraction: {signals_without_extraction} deal/exit signals lack target_companies")
+        lines.append("(re-run pnpm pipeline step 7 to extract)")
 
-    if stats["errors"] > 0:
-        lines.append(f"\n*Errors:* {stats['errors']} signals failed (will retry)")
-
-    level = "error" if stats["errors"] > 0 else "warning" if remaining > 0 else "info"
-    title = "Signal→Portfolio"
+    level = "error" if stats["errors"] > 0 else "warning"
+    title = "Signal to Portfolio"
     if stats["errors"] > 0:
         title += f": {stats['errors']} errors"
-    elif remaining > 0:
-        title += f": {remaining} remaining"
+    elif signals_without_extraction > 20:
+        title += f": {signals_without_extraction} missing extractions"
 
     manager.add_alert(Alert(
         title=title,
@@ -864,33 +540,18 @@ def _send_alert(
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Convert deal/exit signals to portfolio entries")
+    parser = argparse.ArgumentParser(description="Convert deal/exit signals to portfolio entries (local, no API)")
     parser.add_argument("--dry-run", action="store_true", help="Print what would be done, don't write")
     parser.add_argument("--slugs", type=str, help="Comma-separated fund slugs to process")
     parser.add_argument("--force", action="store_true",
-                        help="Re-send all signals to Gemini (ignore progress). Dedup still applies.")
-    parser.add_argument("--pipeline", action="store_true", help="Pipeline mode (auto-skip if no API key)")
-    parser.add_argument("--limit", type=int, default=0,
-                        help="Max Gemini API calls (0=unlimited). --pipeline defaults to 15.")
+                        help="Reprocess all signals (ignore progress). Dedup still applies.")
+    parser.add_argument("--pipeline", action="store_true", help="Pipeline mode")
     args = parser.parse_args()
 
-    # Pipeline mode: apply default call limit (self-heals over multiple runs)
-    if args.pipeline and args.limit == 0:
-        args.limit = PIPELINE_DEFAULT_LIMIT
-
     print(f"\n{'=' * 60}")
-    print(f"  Signal → Portfolio Conversion")
+    print(f"  Signal → Portfolio Conversion (local)")
     print(f"  {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print(f"{'=' * 60}\n")
-
-    # Check API key
-    api_key = os.environ.get("GEMINI_API_KEY")
-    if not api_key:
-        if args.pipeline:
-            print("  GEMINI_API_KEY not set — skipping signal-to-portfolio (pipeline mode)")
-            return
-        print("  ERROR: GEMINI_API_KEY not set. Export it or add to .env")
-        sys.exit(1)
 
     # Load data
     print("  Loading data...", flush=True)
@@ -914,9 +575,14 @@ def main():
         if s.get("signal_type") in DEAL_TYPES
         and s.get("fund_slug")
         and s.get("id")
-        and (s.get("quality_score", 0) or 0) >= 60  # Skip very low quality
+        and (s.get("quality_score", 0) or 0) >= 60
     ]
     print(f"  Total deal/exit signals (quality>=60): {len(deal_signals)}")
+
+    # Count how many have target_companies extraction
+    with_extraction = sum(1 for s in deal_signals if s.get("target_companies"))
+    without_extraction = len(deal_signals) - with_extraction
+    print(f"  With target_companies: {with_extraction}, without: {without_extraction}")
 
     # Filter by slugs FIRST (before progress filter and early-exit)
     if args.slugs:
@@ -932,10 +598,8 @@ def main():
         if skipped:
             print(f"  Skipping {skipped} already-processed signals (use --force to reprocess)")
     else:
-        # --force for specific slugs: clear progress for those slugs only
         if args.slugs:
             slug_filter_set = set(args.slugs.split(","))
-            # Remove progress entries for the targeted slugs
             signals_in_scope = {
                 s["id"] for s in all_signals
                 if s.get("fund_slug") in slug_filter_set and s.get("id")
@@ -956,67 +620,40 @@ def main():
 
     print(f"  Funds with signals: {len(by_fund)}")
 
-    # Init Gemini client (unless dry-run)
-    client = None
-    if not args.dry_run:
-        from google import genai
-        from google.genai import types as genai_types
-        client = genai.Client(
-            api_key=api_key,
-            http_options=genai_types.HttpOptions(timeout=SDK_TIMEOUT_MS),
-        )
-
     # Process each fund
     total_stats = {
         "added": 0, "exits_updated": 0, "skipped_addon": 0,
         "skipped_existing": 0, "skipped_no_company": 0, "skipped_other": 0,
         "skipped_exit_no_match": 0,
-        "errors": 0, "tokens_in": 0, "tokens_out": 0,
+        "errors": 0,
     }
     all_processed_in_run: list[str] = []
     funds_processed = 0
-    total_calls_used = 0
     start_time = time.time()
-    budget_exhausted = False
 
-    if args.limit:
-        print(f"  Call limit: {args.limit} Gemini calls")
-
-    # Track which fund portfolios changed (for per-fund saves)
+    # Track which fund portfolios changed
     changed_slugs: set[str] = set()
 
-    # Sort funds by signal count ascending: process small funds first for broader
-    # coverage within the pipeline call budget. Large funds get tackled gradually.
+    # Sort funds by signal count ascending (small funds first for broader coverage)
     sorted_funds = sorted(by_fund.items(), key=lambda x: len(x[1]))
 
     for fund_slug, signals in sorted_funds:
-        # Budget check: skip remaining funds if call limit reached
-        if args.limit and total_calls_used >= args.limit:
-            budget_exhausted = True
-            break
-
         fund = funds_by_slug.get(fund_slug)
         fund_name = fund["name"] if fund else fund_slug
         fund_domain = _get_fund_domain(fund_slug, funds_by_slug)
         existing = fund_portfolios.get(fund_slug, [])
 
-        # Per-fund call budget: remaining calls from total limit
-        fund_budget = (args.limit - total_calls_used) if args.limit else 0
-
         print(f"\n  {fund_name} ({fund_slug}): {len(signals)} signals, "
               f"{len(existing)} existing portfolio entries")
 
-        fund_stats, fund_processed_ids, fund_calls = process_fund_signals(
+        fund_stats, fund_processed_ids = process_fund_signals(
             fund_slug=fund_slug,
             fund_name=fund_name,
             signals=signals,
             existing_entries=existing,
             fund_domain=fund_domain,
-            client=client,
             dry_run=args.dry_run,
-            call_budget=fund_budget,
         )
-        total_calls_used += fund_calls
 
         # Update portfolio reference (process_fund_signals modifies existing_entries in place)
         if not args.dry_run and (fund_stats["added"] > 0 or fund_stats["exits_updated"] > 0):
@@ -1029,9 +666,8 @@ def main():
         all_processed_in_run.extend(fund_processed_ids)
         funds_processed += 1
 
-        # Per-fund disk save for crash safety (same pattern as enrich_portfolio_gemini_full.py)
+        # Per-fund disk save for crash safety
         if not args.dry_run and fund_processed_ids:
-            # Save progress after each fund
             updated_processed = list(processed_ids | set(all_processed_in_run))
             progress = {
                 "processed_signal_ids": updated_processed,
@@ -1040,7 +676,6 @@ def main():
             }
             save_progress(progress)
 
-            # Save portfolio if THIS fund changed (only write the current fund to avoid stale overwrites)
             if fund_slug in changed_slugs:
                 fresh = load_portfolio()
                 fresh_portfolios = fresh.get("fund_portfolios", {})
@@ -1048,20 +683,14 @@ def main():
                 fresh["fund_portfolios"] = fresh_portfolios
                 save_portfolio(fresh)
 
-        # Inter-fund delay for Gemini rate limit recovery (skip for dry-run and last fund)
-        if not args.dry_run and funds_processed < len(by_fund):
-            time.sleep(10)
-
         # Running rate logging
-        if not args.dry_run and funds_processed > 0:
+        if not args.dry_run and funds_processed > 0 and (fund_stats["added"] > 0 or fund_stats["exits_updated"] > 0):
             elapsed = time.time() - start_time
-            rate = funds_processed / (elapsed / 60) if elapsed > 0 else 0
             print(f"    [{funds_processed}/{len(by_fund)}] "
                   f"+{fund_stats['added']}add +{fund_stats['exits_updated']}exit | "
-                  f"Total: +{total_stats['added']}add +{total_stats['exits_updated']}exit "
-                  f"{total_stats['errors']}err | {rate:.1f} funds/min", flush=True)
+                  f"Total: +{total_stats['added']}add +{total_stats['exits_updated']}exit", flush=True)
 
-    # Final save (also saves incrementally after each fund above)
+    # Final save
     if not args.dry_run:
         updated_processed = list(processed_ids | set(all_processed_in_run))
         progress = {
@@ -1071,18 +700,11 @@ def main():
         }
         save_progress(progress)
 
-    # Count remaining signals (not yet processed after this run)
-    final_processed = processed_ids | set(all_processed_in_run)
-    remaining_signals = len([
-        s for s in deal_signals if s["id"] not in final_processed
-    ])
-
     # Summary
     elapsed = time.time() - start_time
-    cost = total_stats["tokens_in"] * 0.10 / 1_000_000 + total_stats["tokens_out"] * 0.40 / 1_000_000
 
     print(f"\n{'=' * 60}")
-    print(f"  Summary ({elapsed / 60:.1f}m, {total_calls_used} API calls)")
+    print(f"  Summary ({elapsed:.1f}s — local, zero API calls)")
     print(f"{'=' * 60}")
     print(f"  Portfolio entries added:   {total_stats['added']}")
     print(f"  Exits detected & updated: {total_stats['exits_updated']}")
@@ -1092,26 +714,13 @@ def main():
     print(f"  Skipped (non-deal/other): {total_stats['skipped_other']}")
     print(f"  Skipped (exit, no match): {total_stats['skipped_exit_no_match']}")
     print(f"  Errors:                   {total_stats['errors']}")
-    if not args.dry_run:
-        print(f"  Gemini tokens:            {total_stats['tokens_in']:,} in / {total_stats['tokens_out']:,} out")
-        print(f"  Estimated cost:           ${cost:.4f}")
-    if remaining_signals > 0:
-        print(f"  Remaining signals:        {remaining_signals} (will be processed on next run)")
-    if budget_exhausted:
-        print(f"  Budget limit reached:     {args.limit} calls used — re-run to continue")
+    if without_extraction > 0:
+        print(f"  Signals without extraction: {without_extraction} (need re-enrichment via step 7)")
     print()
 
     # Telegram alert (skip for dry-run)
     if not args.dry_run:
-        _send_alert(total_stats, elapsed, remaining_signals, budget_exhausted, total_calls_used)
-
-    # Exit code 2 for partial success (some batches failed but progress was made)
-    if total_stats["errors"] > 0 and (total_stats["added"] > 0 or total_stats["exits_updated"] > 0):
-        print(f"  {total_stats['errors']} signals failed — will be retried on next run")
-        sys.exit(2)
-    elif total_stats["errors"] > 0 and total_stats["added"] == 0 and total_stats["exits_updated"] == 0:
-        print(f"  All batches failed — check API key and quota")
-        sys.exit(1)
+        _send_alert(total_stats, elapsed, without_extraction)
 
 
 if __name__ == "__main__":

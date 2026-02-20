@@ -43060,7 +43060,916 @@
         ],
         "locations": []
       }
+    },
+    {
+      "id": "web-signal-01641",
+      "fund_id": "",
+      "fund_slug": "ream-sgr",
+      "signal_type": "other",
+      "title": "Campus MIND: il primo passo per gli studenti",
+      "what_changed": "New announcement: Campus MIND: il primo passo per gli studenti",
+      "source_url": "https://www.reamsgr.it/comunicazione/comunicati-e-notizie.html",
+      "source_name": "REAM SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:08:08.745067+00:00",
+      "created_at": "2026-02-20T09:08:08.745067+00:00",
+      "snapshot_id": "snap-20260220090808-372da86a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01642",
+      "fund_id": "",
+      "fund_slug": "ream-sgr",
+      "signal_type": "other",
+      "title": "La riqualificazione di un edificio in disuso",
+      "what_changed": "New announcement: La riqualificazione di un edificio in disuso",
+      "source_url": "https://www.reamsgr.it/comunicazione/comunicati-e-notizie.html",
+      "source_name": "REAM SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:08:08.745067+00:00",
+      "created_at": "2026-02-20T09:08:08.745067+00:00",
+      "snapshot_id": "snap-20260220090808-372da86a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01643",
+      "fund_id": "",
+      "fund_slug": "ream-sgr",
+      "signal_type": "other",
+      "title": "LENDLEASE CONCLUDE LA PRIMA FASE DI SVILUPPO Nuove aree di MIND aperte alla citt\u00e0 e avviati i nuovi cantieri nel WESTGATE",
+      "what_changed": "New announcement: LENDLEASE CONCLUDE LA PRIMA FASE DI SVILUPPO Nuove aree di MIND aperte alla citt\u00e0 e avviati i nuovi cantieri nel WESTGATE",
+      "source_url": "https://www.reamsgr.it/comunicazione/comunicati-e-notizie.html",
+      "source_name": "REAM SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:08:08.745067+00:00",
+      "created_at": "2026-02-20T09:08:08.745067+00:00",
+      "snapshot_id": "snap-20260220090808-372da86a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01644",
+      "fund_id": "",
+      "fund_slug": "finint-investments-sgr",
+      "signal_type": "other",
+      "title": "Trentino Minibond: a Palazzo Stella celebrata la conclusione positiva dell\u2019operazione del Fondo Strategico Trentino Alto-Adige",
+      "what_changed": "New announcement: Trentino Minibond: a Palazzo Stella celebrata la conclusione positiva dell\u2019operazione del Fondo Strategico Trentino Alto-Adige",
+      "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/5.2 CS Confindustria Trento_Finint Investments_Trentino Minibond.pdf",
+      "source_name": "Finint Investments SGR",
+      "published_at": "2026-02-05",
+      "observed_at": "2026-02-20T09:10:38.015157+00:00",
+      "created_at": "2026-02-20T09:10:38.015157+00:00",
+      "snapshot_id": "snap-20260220091037-2111bf67",
+      "diff_summary": "New news item detected (dated 2026-02-05)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Trentino Minibond",
+          "Fondo Strategico Trentino",
+          "Palazzo Stella"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01645",
+      "fund_id": "",
+      "fund_slug": "finint-investments-sgr",
+      "signal_type": "other",
+      "title": "Presentato oggi a Torino il progetto di social housing nel Quartiere Falchera",
+      "what_changed": "New announcement: Presentato oggi a Torino il progetto di social housing nel Quartiere Falchera",
+      "source_url": "http://www.finintinvestments.com/files/siti/finintsgr.com/press/comunicati_stampa/cartella senza titolo/CS_FASP_Falchera_28.01.26.pdf",
+      "source_name": "Finint Investments SGR",
+      "published_at": "2026-01-28",
+      "observed_at": "2026-02-20T09:10:38.015157+00:00",
+      "created_at": "2026-02-20T09:10:38.015157+00:00",
+      "snapshot_id": "snap-20260220091037-2111bf67",
+      "diff_summary": "New news item detected (dated 2026-01-28)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.25,
+      "relevance_reasons": [
+        "Italian cities: Torino"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Quartiere Falchera"
+        ],
+        "locations": [
+          "Torino"
+        ]
+      }
+    },
+    {
+      "id": "web-signal-01646",
+      "fund_id": "",
+      "fund_slug": "finint-investments-sgr",
+      "signal_type": "other",
+      "title": "Fondo Housing Sociale FVG: inaugurati oggi 19 nuovi alloggi a Pasian di Prato (UD)",
+      "what_changed": "New announcement: Fondo Housing Sociale FVG: inaugurati oggi 19 nuovi alloggi a Pasian di Prato (UD)",
+      "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/press/comunicati_stampa/2025/CS_Nuovi alloggi Pasian di Prato_FHSFVG_DEF.pdf",
+      "source_name": "Finint Investments SGR",
+      "published_at": "2025-12-01",
+      "observed_at": "2026-02-20T09:10:38.015157+00:00",
+      "created_at": "2026-02-20T09:10:38.015157+00:00",
+      "snapshot_id": "snap-20260220091037-2111bf67",
+      "diff_summary": "New news item detected (dated 2025-12-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Fondo Housing Sociale"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01647",
+      "fund_id": "",
+      "fund_slug": "finint-investments-sgr",
+      "signal_type": "other",
+      "title": "Student Housing: Campusx, CDP, Finint Investments e Supernova inaugurano a Modena una nuova residenza da 366 posti con parco urbano di oltre 5.000 metri quadrati",
+      "what_changed": "New announcement: Student Housing: Campusx, CDP, Finint Investments e Supernova inaugurano a Modena una nuova residenza da 366 posti con parco urbano di oltre 5.000 metri quadrati",
+      "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/press/comunicati_stampa/2025/CS  STUDENT HOUSING CAMPUSX CDP FININT INVESTMENTS E SUPERNOVA  MODENA.pdf",
+      "source_name": "Finint Investments SGR",
+      "published_at": "2025-11-14",
+      "observed_at": "2026-02-20T09:10:38.015157+00:00",
+      "created_at": "2026-02-20T09:10:38.015157+00:00",
+      "snapshot_id": "snap-20260220091037-2111bf67",
+      "diff_summary": "New news item detected (dated 2025-11-14)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.5,
+      "relevance_reasons": [
+        "Italian cities: Modena",
+        "Italian business context: CDP"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Finint Investments",
+          "Student Housing"
+        ],
+        "locations": [
+          "Modena"
+        ]
+      }
+    },
+    {
+      "id": "web-signal-01648",
+      "fund_id": "",
+      "fund_slug": "finint-investments-sgr",
+      "signal_type": "other",
+      "title": "L\u2019expertise di Finint Investments scelta dal Fondo Pensione UniCredit per la gestione di mandati multi-asset e portafogli FIA per un totale di 224 milioni di euro",
+      "what_changed": "New announcement: L\u2019expertise di Finint Investments scelta dal Fondo Pensione UniCredit per la gestione di mandati multi-asset e portafogli FIA per un totale di 224 milioni di euro",
+      "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/05.11_CS_Finint Investments_Fondo Pensione Unicredit.pdf",
+      "source_name": "Finint Investments SGR",
+      "published_at": "2025-11-05",
+      "observed_at": "2026-02-20T09:10:38.015157+00:00",
+      "created_at": "2026-02-20T09:10:38.015157+00:00",
+      "snapshot_id": "snap-20260220091037-2111bf67",
+      "diff_summary": "New news item detected (dated 2025-11-05)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Fondo Pensione",
+          "Finint Investments"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01649",
+      "fund_id": "",
+      "fund_slug": "finint-investments-sgr",
+      "signal_type": "other",
+      "title": "CDP e Finint Investments sostengono la crescita di Feudi di San Gregorio, sottoscrivendo due bond per complessivi 5 milioni emessi dall\u2019azienda campana",
+      "what_changed": "New announcement: CDP e Finint Investments sostengono la crescita di Feudi di San Gregorio, sottoscrivendo due bond per complessivi 5 milioni emessi dall\u2019azienda campana",
+      "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/CS Finint Investments_CDP_emissione bond Feudi di San GregorioDEF.pdf",
+      "source_name": "Finint Investments SGR",
+      "published_at": "2025-10-20",
+      "observed_at": "2026-02-20T09:10:38.015157+00:00",
+      "created_at": "2026-02-20T09:10:38.015157+00:00",
+      "snapshot_id": "snap-20260220091037-2111bf67",
+      "diff_summary": "New news item detected (dated 2025-10-20)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.25,
+      "relevance_reasons": [
+        "Italian business context: CDP"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Finint Investments",
+          "San Gregorio"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01650",
+      "fund_id": "",
+      "fund_slug": "finint-investments-sgr",
+      "signal_type": "deal_announced",
+      "title": "Finint Equity For Growth (Finint E4G) cresce ancora: rilevato Il 60% di A.M.",
+      "what_changed": "New announcement: Finint Equity For Growth (Finint E4G) cresce ancora: rilevato Il 60% di A.M.",
+      "source_url": "http://www.finintinvestments.com/files/siti/finintsgr.com/press/comunicati_stampa/20250903 CS Finint E4G_AM_.pdf",
+      "source_name": "Finint Investments SGR",
+      "published_at": "2025-09-11",
+      "observed_at": "2026-02-20T09:10:38.015157+00:00",
+      "created_at": "2026-02-20T09:10:38.015157+00:00",
+      "snapshot_id": "snap-20260220091037-2111bf67",
+      "diff_summary": "New news item detected (dated 2025-09-11)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Finint Equity For"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01651",
+      "fund_id": "",
+      "fund_slug": "finint-investments-sgr",
+      "signal_type": "other",
+      "title": "Riello Investimenti Sgr e Finint Investments insieme per sostenere ERREBIELLE ed espandere il Design Made in Italy",
+      "what_changed": "New announcement: Riello Investimenti Sgr e Finint Investments insieme per sostenere ERREBIELLE ed espandere il Design Made in Italy",
+      "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/2025-06-30 CS_Bond Errebielle_Riello_Finint Investments_final.pdf",
+      "source_name": "Finint Investments SGR",
+      "published_at": "2025-06-30",
+      "observed_at": "2026-02-20T09:10:38.015157+00:00",
+      "created_at": "2026-02-20T09:10:38.015157+00:00",
+      "snapshot_id": "snap-20260220091037-2111bf67",
+      "diff_summary": "New news item detected (dated 2025-06-30)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.95,
+      "relevance_reasons": [
+        "Italy mentioned (italy)",
+        "Italian entity types: SGR",
+        "Italian business context: Made in Italy"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Design Made",
+          "Finint Investments",
+          "Riello Investimenti Sgr"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01652",
+      "fund_id": "",
+      "fund_slug": "finint-investments-sgr",
+      "signal_type": "other",
+      "title": "Service housing: parte dal Friuli-Venezia Giulia con Finint Investments la 4aESSE dell\u2019Abitare sociale di CDP",
+      "what_changed": "New announcement: Service housing: parte dal Friuli-Venezia Giulia con Finint Investments la 4aESSE dell\u2019Abitare sociale di CDP",
+      "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/comunicato_stampa_9maggio25_CDPRA_FININT_4ESSE.pdf",
+      "source_name": "Finint Investments SGR",
+      "published_at": "2025-05-12",
+      "observed_at": "2026-02-20T09:10:38.015157+00:00",
+      "created_at": "2026-02-20T09:10:38.015157+00:00",
+      "snapshot_id": "snap-20260220091037-2111bf67",
+      "diff_summary": "New news item detected (dated 2025-05-12)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.7,
+      "relevance_reasons": [
+        "Italian cities: Venezia",
+        "Italian regions: Friuli-Venezia Giulia",
+        "Italian business context: CDP"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Finint Investments",
+          "Venezia Giulia"
+        ],
+        "locations": [
+          "Venezia",
+          "Friuli-Venezia Giulia"
+        ]
+      }
+    },
+    {
+      "id": "web-signal-01653",
+      "fund_id": "",
+      "fund_slug": "finint-investments-sgr",
+      "signal_type": "other",
+      "title": "Student housing: da Finint Investments e CDP Real Asset un nuovo progetto a genova per oltre 230 posti letto",
+      "what_changed": "New announcement: Student housing: da Finint Investments e CDP Real Asset un nuovo progetto a genova per oltre 230 posti letto",
+      "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/CS_Studentato Genova.pdf",
+      "source_name": "Finint Investments SGR",
+      "published_at": "2025-04-23",
+      "observed_at": "2026-02-20T09:10:38.015157+00:00",
+      "created_at": "2026-02-20T09:10:38.015157+00:00",
+      "snapshot_id": "snap-20260220091037-2111bf67",
+      "diff_summary": "New news item detected (dated 2025-04-23)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.5,
+      "relevance_reasons": [
+        "Italian cities: Genova",
+        "Italian business context: CDP"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Finint Investments",
+          "Real Asset"
+        ],
+        "locations": [
+          "Genova"
+        ]
+      }
+    },
+    {
+      "id": "web-signal-01654",
+      "fund_id": "",
+      "fund_slug": "scientifica-vc",
+      "signal_type": "deal_announced",
+      "title": "Green Independence added to Scientifica VC portfolio",
+      "what_changed": "Green Independence added to Scientifica VC portfolio",
+      "source_url": "https://scientifica.vc/portfolio-startup/",
+      "source_name": "Scientifica VC",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:17:51.861187+00:00",
+      "created_at": "2026-02-20T09:17:51.861187+00:00",
+      "snapshot_id": "snap-20260220091749-5e153dc1",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Green Independence"
+        ],
+        "people": [
+          "Green Independence"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01655",
+      "fund_id": "",
+      "fund_slug": "wrm-group",
+      "signal_type": "other",
+      "title": "Millstream Films & Media and Miriam Productions, a WRM Group company, announce that the Emilia-Romagna Film Commission has awarded a production grant to aid in the making of a feature length",
+      "what_changed": "New announcement: Millstream Films & Media and Miriam Productions, a WRM Group company, announce that the Emilia-Romagna Film Commission has awarded a production grant to aid in the making of a feature length documentary celebrating the life and legacy of Miriam Makeba",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2023/10/Makeba-Press-Release_MillstreamFilm_WRMGroup_12oct.23_EN-IT_rev.pdf",
+      "source_name": "WRM Group",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2023)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.2,
+      "relevance_reasons": [
+        "Italian regions: Emilia-Romagna"
+      ],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Romagna Film Commission",
+          "Millstream Films",
+          "Miriam Productions",
+          "Miriam Makeba"
+        ],
+        "locations": [
+          "Emilia-Romagna"
+        ]
+      }
+    },
+    {
+      "id": "web-signal-01656",
+      "fund_id": "",
+      "fund_slug": "wrm-group",
+      "signal_type": "other",
+      "title": "REDELFI AND FLASH (WRM GROUP) SIGN AN AGREEMENT FOR THE DEVELOPMENT OF STAND-ALONE BATTERY ENERGY STORAGE SYSTEMS IN ITALY",
+      "what_changed": "New announcement: REDELFI AND FLASH (WRM GROUP) SIGN AN AGREEMENT FOR THE DEVELOPMENT OF STAND-ALONE BATTERY ENERGY STORAGE SYSTEMS IN ITALY",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2023/10/DEF-PR-FLASH_REDELFI_04.10.23_IT-EN-1.pdf",
+      "source_name": "WRM Group",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2023)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italy)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01657",
+      "fund_id": "",
+      "fund_slug": "wrm-group",
+      "signal_type": "other",
+      "title": "WRM Capital Asset Management collaboration with Fabio MORVILLI, an institutional, economic and financial expert in Luxembourg",
+      "what_changed": "New announcement: WRM Capital Asset Management collaboration with Fabio MORVILLI, an institutional, economic and financial expert in Luxembourg",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2023/07/WRMCAM-MORVILLI-26.06.23_EN_IT.pdf",
+      "source_name": "WRM Group",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2023)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Capital Asset Management"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01658",
+      "fund_id": "",
+      "fund_slug": "wrm-group",
+      "signal_type": "people_move",
+      "title": "WRM Group and AXPO Italia Group join forces for new investments in renewable energy",
+      "what_changed": "New announcement: WRM Group and AXPO Italia Group join forces for new investments in renewable energy",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2022/04/Announcement_19-04-2222_WRM_AXPO.pdf",
+      "source_name": "WRM Group",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2022)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italia)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Italia Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01659",
+      "fund_id": "",
+      "fund_slug": "wrm-group",
+      "signal_type": "exit_announced",
+      "title": "WRM Group completes the reorganization of the KIPRE Group with the sale of KING'S to Rigamonti Salumificio (JBS Group)",
+      "what_changed": "New announcement: WRM Group completes the reorganization of the KIPRE Group with the sale of KING'S to Rigamonti Salumificio (JBS Group)",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/WRM-Announcement-07022022.pdf",
+      "source_name": "WRM Group",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2022)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Rigamonti Salumificio"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01660",
+      "fund_id": "",
+      "fund_slug": "wrm-group",
+      "signal_type": "other",
+      "title": "Illimity, through its JV with VEI Green, purchases a portfolio of non-performing loans in the green energy sector from WRM Group",
+      "what_changed": "New announcement: Illimity, through its JV with VEI Green, purchases a portfolio of non-performing loans in the green energy sector from WRM Group",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/CS-illimity_WRM-Group-en.pdf",
+      "source_name": "WRM Group",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2021)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01661",
+      "fund_id": "",
+      "fund_slug": "wrm-group",
+      "signal_type": "other",
+      "title": "WRM Group accelerates restructuring plan for Kipre Group",
+      "what_changed": "New announcement: WRM Group accelerates restructuring plan for Kipre Group",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/CS_WRM-GROUP-ACCELERA-IL-PIANO-DI-RISTRUTTURAZIONE-DEL-GRUPPO-KIPRE-en-1.pdf",
+      "source_name": "WRM Group",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2020)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Kipre Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01662",
+      "fund_id": "",
+      "fund_slug": "wrm-group",
+      "signal_type": "deal_announced",
+      "title": "WRM Group acquires 100% of Kipre",
+      "what_changed": "New announcement: WRM Group acquires 100% of Kipre",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/WRM_Kipre_en.pdf",
+      "source_name": "WRM Group",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2020)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01663",
+      "fund_id": "",
+      "fund_slug": "wrm-group",
+      "signal_type": "other",
+      "title": "Margherita Distribuzione Signs an Agreement with OVS Spa for 18 New Shops",
+      "what_changed": "New announcement: Margherita Distribuzione Signs an Agreement with OVS Spa for 18 New Shops",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/CS_Margherita-Distribuzione-Signs-an-Agreement-with-OVS-Spa-for-18-New-Shops_en.pdf",
+      "source_name": "WRM Group",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2020)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SPA"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "Margherita Distribuzione Signs an Agreement with OVS"
+        ],
+        "people": [
+          "New Shops",
+          "Margherita Distribuzione Signs"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01664",
+      "fund_id": "",
+      "fund_slug": "wrm-group",
+      "signal_type": "deal_announced",
+      "title": "WRM Group acquisition of Kipre Group",
+      "what_changed": "New announcement: WRM Group acquisition of Kipre Group",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/WRM-ACQUISITION-OF-KIPRE-GROUP_en.pdf",
+      "source_name": "WRM Group",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2020)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Kipre Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01665",
+      "fund_id": "",
+      "fund_slug": "wrm-group",
+      "signal_type": "other",
+      "title": "WRM Group disposes of its participation in Fiber 4.0",
+      "what_changed": "New announcement: WRM Group disposes of its participation in Fiber 4.0",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/FIWRM_Fiber_en.pdf",
+      "source_name": "WRM Group",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2020)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01666",
+      "fund_id": "",
+      "fund_slug": "wrm-group",
+      "signal_type": "other",
+      "title": "WRM GROUP enter in the capital of Badrutt's Palace Hotel AG",
+      "what_changed": "New announcement: WRM GROUP enter in the capital of Badrutt's Palace Hotel AG",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/CS_Badrutts-Palace_WRM-Group_en.pdf",
+      "source_name": "WRM Group",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2019)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Palace Hotel"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01667",
+      "fund_id": "",
+      "fund_slug": "wrm-group",
+      "signal_type": "deal_announced",
+      "title": "WRM Group and CONAD have concluded the procedures for the acquisition of Auchan Retail Italia\u2019s assets",
+      "what_changed": "New announcement: WRM Group and CONAD have concluded the procedures for the acquisition of Auchan Retail Italia\u2019s assets",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/CS-CONAD_WRM-Group_en.pdf",
+      "source_name": "WRM Group",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2019)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italia)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Auchan Retail Italia"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01668",
+      "fund_id": "",
+      "fund_slug": "wrm-group",
+      "signal_type": "deal_announced",
+      "title": "WRM Group acquires a portfolio of energy credits from renewable souces from Mediocredito Italiano",
+      "what_changed": "New announcement: WRM Group acquires a portfolio of energy credits from renewable souces from Mediocredito Italiano",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/CS_Mediocredito_WRM-Group_en.pdf",
+      "source_name": "WRM Group",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2019)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italiano)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Mediocredito Italiano"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01669",
+      "fund_id": "",
+      "fund_slug": "scientifica-vc",
+      "signal_type": "other",
+      "title": "Super Sapiens Europe",
+      "what_changed": "Luglio 3, 2025",
+      "source_url": "https://scientifica.vc/super-sapiens-europe/",
+      "source_name": "Scientifica VC",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:21.174348+00:00",
+      "created_at": "2026-02-20T09:20:21.174348+00:00",
+      "snapshot_id": "snap-20260220092021-60e45700",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Super Sapiens Europe"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01670",
+      "fund_id": "",
+      "fund_slug": "scientifica-vc",
+      "signal_type": "other",
+      "title": "IAG meets Scientifica",
+      "what_changed": "Aprile 15, 2025",
+      "source_url": "https://scientifica.vc/iag-meets-scientifica/",
+      "source_name": "Scientifica VC",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:21.174348+00:00",
+      "created_at": "2026-02-20T09:20:21.174348+00:00",
+      "snapshot_id": "snap-20260220092021-60e45700",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Scientifica Aprile"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01671",
+      "fund_id": "",
+      "fund_slug": "scientifica-vc",
+      "signal_type": "other",
+      "title": "Tecnologie Quantistiche e il futuro della ricerca farmaceutica",
+      "what_changed": "Giugno 27, 2024",
+      "source_url": "https://scientifica.vc/tecnologie-quantistiche-e-il-futuro-della-ricerca-farmaceutica/",
+      "source_name": "Scientifica VC",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:21.174348+00:00",
+      "created_at": "2026-02-20T09:20:21.174348+00:00",
+      "snapshot_id": "snap-20260220092021-60e45700",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Tecnologie Quantistiche"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01672",
+      "fund_id": "",
+      "fund_slug": "scientifica-vc",
+      "signal_type": "other",
+      "title": "La Notte dei Ricercatori",
+      "what_changed": "Settembre 29, 2023",
+      "source_url": "https://scientifica.vc/la-notte-dei-ricercatori/",
+      "source_name": "Scientifica VC",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:20:21.174348+00:00",
+      "created_at": "2026-02-20T09:20:21.174348+00:00",
+      "snapshot_id": "snap-20260220092021-60e45700",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "La Notte",
+          "Ricercatori Settembre"
+        ],
+        "locations": []
+      }
     }
   ],
-  "signal_count": 1640
+  "signal_count": 1672
 }

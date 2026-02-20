@@ -9,9 +9,15 @@ DOMAIN = "www.reamsgr.it"
 
 # URL paths for monitoring (auto-generated from fund_urls.json)
 URLS = {
-    "portfolio": None,
-    "team": None,
-    "news": None,
+    "portfolio": [
+        "/i-fondi-ream/core.html",
+        "/i-fondi-ream/residenziale.html",
+        "/i-fondi-ream/etico.html",
+        "/i-fondi-ream/sanitario.html",
+        "/i-fondi-ream/rigenerazione-urbana.html",
+    ],
+    "team": "/la-societa/chi-siamo-ream.html",
+    "news": "/comunicazione/comunicati-e-notizie.html",
 }
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """

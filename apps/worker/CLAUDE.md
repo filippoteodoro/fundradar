@@ -8,7 +8,7 @@ Key modules: core pipeline, fund-specific extractors (with URLS dicts), domain p
 ## Pipeline (8 steps)
 
 ```
-monitor → rss → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini, optional) → filter → enrich (AI summaries) → signal_to_portfolio (Gemini, optional)
+monitor → rss → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini, optional) → filter → enrich (AI summaries + target_companies) → signal_to_portfolio (local)
 ```
 
 1. **monitor** — Fetch pages via Playwright/requests, extract data using strategies, detect changes via diffing. Exit detection: companies removed from fund website are marked `status: "exited"` (not silently dropped). Signal-derived and Gemini-enriched entries are preserved unchanged.
@@ -23,8 +23,8 @@ monitor → rss → normalize_sectors → normalize_portfolio → enrich_portfol
    - ML classifier (optional, confidence-gated), event/conference reclassification
    - Signal types: deal, exit, fundraise, fund_launch, people_move, partnership, report, job_posting
    - Title/text cleaning: ALL CAPS→title case, newspaper suffixes, date prefixes
-7. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). **DO NOT use ChatGPT 4o** — it hallucinates too frequently. Use `gpt-5-mini` or better.
-8. **signal_to_portfolio** (`signal_to_portfolio.py`) — Convert deal/exit signals into portfolio entries via Gemini 3 Flash. **Optional**: auto-skips if `GEMINI_API_KEY` not set. Sends existing portfolio context to Gemini to detect add-on acquisitions vs direct investments. Trust hierarchy: fund press (0.90) > verified news (0.80) > news (0.75) > other (0.70) > rumor (0.60). Progress tracked to avoid re-processing. Also updates exit status for existing entries when exit signals match.
+7. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). Also extracts `target_companies` for deal/exit signals (used by step 8). **DO NOT use ChatGPT 4o** — it hallucinates too frequently. Use `gpt-5-mini` or better.
+8. **signal_to_portfolio** (`signal_to_portfolio.py`) — Convert deal/exit signals into portfolio entries. **Purely local, zero API calls** — reads `target_companies` pre-extracted by step 7 (OpenAI enrichment). Trust hierarchy: fund press (0.90) > verified news (0.80) > news (0.75) > other (0.70) > rumor (0.60). Progress tracked to avoid re-processing. Also updates exit status for existing entries when exit signals match.
 
 Run all: `pnpm pipeline`
 Run filter+enrich only: `pnpm pipeline:signals`
