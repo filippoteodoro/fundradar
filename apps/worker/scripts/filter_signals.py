@@ -2169,6 +2169,8 @@ def _fix_spacing(text: str) -> str:
     cleaned = re.sub(r"\bB\s+4\s+i\b", "B4i", cleaned)
     cleaned = re.sub(r"\bCO\s+2\b", "CO2", cleaned)
     cleaned = re.sub(r"\b3\s+i\b", "3i", cleaned)
+    # Media brand token can be split by acronym/lowercase + digit spacing rules.
+    cleaned = re.sub(r"\bTGC\s*om\s*24\b", "TGCom24", cleaned, flags=re.IGNORECASE)
     # L Catterton scrape artifact: "LC atterton" → "L Catterton"
     cleaned = re.sub(r"\bLC\s*atterton\b", "L Catterton", cleaned)
     cleaned = re.sub(r"\s{2,}", " ", cleaned)

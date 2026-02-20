@@ -267,6 +267,24 @@ T5.2 Gate “watchlists + digest” behind paid plan
 T5.3 Admin “merge funds / fix aliases” page (protected)
 - DoD: you can merge duplicates safely and preserve provenance
 
+### Phase 6 — Asset-Centric Features
+
+**Implemented:**
+- `/companies` — browse all PE/VC-backed companies with filters (sector, status, country, search)
+- `/companies/[slug]` — company detail page showing all fund investors, deal history, and sources
+- Cross-fund company deduplication via `normalizeCompanyName()` + `compactName()` matching
+- Statically generated at build time (same pattern as fund pages)
+- Italy filter defaults on (consistent with fund portfolio pages)
+
+**Future roadmap (from PE professional feedback):**
+- Multi-strategy breakdown: show which fund vehicle/strategy made each investment
+- Fund vehicle granularity: distinguish between Fund I, Fund II, etc.
+- Co-investor mapping: "which funds co-invest most frequently?"
+- Company signals: show signals mentioning a specific portfolio company
+- Sector browse page: `/sectors/[sector]` with aggregate views
+- CSV/Excel export of filtered company lists
+- Company timeline: visual deal history across funds
+
 ## 12) Subagent review prompt (use after Sprint plan is drafted)
 Paste this to a subagent:
 

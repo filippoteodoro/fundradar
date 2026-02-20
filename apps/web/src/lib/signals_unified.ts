@@ -18,6 +18,12 @@ import {
   normalizeSignalText,
   reclassifySignalType,
 } from './signalProcessing';
+import {
+  buildFundMentionEntries,
+  resolveSignalFundSlugs,
+  resolveFundNamesForSlugs,
+  type FundMentionEntry,
+} from './signalFundTags';
 
 // ─── Cross-language equivalence for dedup (hoisted from loadUnifiedSignals) ────
 const CROSS_LANG: Record<string, string> = {
@@ -58,6 +64,8 @@ function parseSignalDate(s: { published_at?: string | null; observed_at?: string
 export interface UnifiedSignal extends Signal {
   fund_name?: string;
   fund_slug?: string;
+  related_fund_slugs?: string[];
+  related_fund_names?: string[];
   page_category?: string;
   page_type?: string;
   diff_summary?: string;
@@ -90,6 +98,7 @@ interface WebsiteMonitorSignal {
   enriched_summary_original?: string;
   title_original?: string;
   what_changed_original?: string;
+  related_fund_slugs?: string[];
 }
 
 interface DetectedSignalsFile {
@@ -176,18 +185,65 @@ function getCompositeKey(signal: UnifiedSignal): string {
   return `${signal.source_url}::${signal.what_changed}::${signal.published_at || ''}`;
 }
 
+function mergeRelatedFundTags(
+  target: UnifiedSignal,
+  source: UnifiedSignal,
+  fundsBySlug: Map<string, Fund>,
+): void {
+  const mergedSlugs = [
+    ...(target.related_fund_slugs || []),
+    target.fund_slug || '',
+    ...(source.related_fund_slugs || []),
+    source.fund_slug || '',
+  ]
+    .map((slug) => slug.trim())
+    .filter(Boolean)
+    .filter((slug, index, arr) => arr.indexOf(slug) === index);
+
+  const nameBySlug = new Map<string, string>();
+  (target.related_fund_slugs || []).forEach((slug, idx) => {
+    const name = target.related_fund_names?.[idx];
+    if (name) nameBySlug.set(slug, name);
+  });
+  (source.related_fund_slugs || []).forEach((slug, idx) => {
+    const name = source.related_fund_names?.[idx];
+    if (name) nameBySlug.set(slug, name);
+  });
+  if (target.fund_slug && target.fund_name) nameBySlug.set(target.fund_slug, target.fund_name);
+  if (source.fund_slug && source.fund_name) nameBySlug.set(source.fund_slug, source.fund_name);
+
+  target.related_fund_slugs = mergedSlugs;
+  target.related_fund_names = mergedSlugs.map((slug) => {
+    return nameBySlug.get(slug) || fundsBySlug.get(slug)?.name || slug.replace(/-/g, ' ');
+  });
+
+  if (!target.fund_slug && source.fund_slug) {
+    target.fund_slug = source.fund_slug;
+    target.fund_name = source.fund_name;
+  }
+}
+
 /**
  * Normalize a Website Monitor signal to the unified format
  * Uses enriched summary/date if available from Gemini enrichment
  */
 function normalizeWebsiteMonitorSignal(
   sig: WebsiteMonitorSignal,
-  funds: Fund[]
+  funds: Fund[],
+  mentionEntries: FundMentionEntry[],
+  fundsBySlug: Map<string, Fund>,
 ): UnifiedSignal {
+  const relatedFundSlugs = resolveSignalFundSlugs(
+    sig as WebsiteMonitorSignal & Record<string, unknown>,
+    mentionEntries,
+  );
+  const primaryFundSlug = sig.fund_slug || relatedFundSlugs[0] || '';
+
   // Try to find matching fund by slug
-  const fund = sig.fund_slug
-    ? funds.find((f) => f.slug === sig.fund_slug)
+  const fund = primaryFundSlug
+    ? funds.find((f) => f.slug === primaryFundSlug)
     : undefined;
+  const relatedFundNames = resolveFundNamesForSlugs(relatedFundSlugs, fundsBySlug);
 
   // Single display text: prefer enriched summary, fall back to what_changed, then title
   // But skip enriched_summary if it's just restating the title (no added value)
@@ -314,8 +370,10 @@ function normalizeWebsiteMonitorSignal(
     observed_at: sig.observed_at,
     created_at: sig.created_at,
     // Extended fields
-    fund_name: fund?.name || sig.fund_slug?.replace(/-/g, ' ') || 'Unknown Fund',
-    fund_slug: sig.fund_slug || fund?.slug || '',
+    fund_name: fund?.name || primaryFundSlug.replace(/-/g, ' ') || 'Unknown Fund',
+    fund_slug: primaryFundSlug || fund?.slug || '',
+    related_fund_slugs: relatedFundSlugs,
+    related_fund_names: relatedFundNames,
     page_category: sig.page_category || 'OTHER',
     page_type: sig.page_type,
     diff_summary: sig.diff_summary,
@@ -363,6 +421,10 @@ export function loadUnifiedSignals(): { signals: UnifiedSignal[]; fundPrioritySc
   if (cachedResult) return cachedResult;
   // Load funds for reference (needed for fund names)
   const funds = loadFundsReference();
+  const fundsBySlug = new Map(funds.map((f) => [f.slug, f]));
+  const mentionEntries = buildFundMentionEntries(
+    funds.map((f) => ({ slug: f.slug, name: f.name })),
+  );
 
   // Build composite fund priority scores: AUM (log-scaled) + LinkedIn priority + Italy focus
   const linkedInScores = loadFundPriorityScores();
@@ -390,27 +452,32 @@ export function loadUnifiedSignals(): { signals: UnifiedSignal[]; fundPrioritySc
   // Normalize Website Monitor signals, then filter garbage
   const normalizedWebMonitor = websiteMonitorSignals
     .filter((s) => s.signal_type !== 'website_change')
-    .map((s) => normalizeWebsiteMonitorSignal(s, funds))
+    .map((s) => normalizeWebsiteMonitorSignal(s, funds, mentionEntries, fundsBySlug))
     .filter((s) => !isGarbageSignal(s, knownFundNames));
 
   // Dedupe using composite keys and normalized content
-  const seenKeys = new Set<string>();
-  const seenContent = new Set<string>();
-  // Cross-fund dedup: same title across different funds (e.g. shared deal signals)
-  const seenCrossFund = new Set<string>();
+  const byCompositeKey = new Map<string, UnifiedSignal>();
+  const byContentKey = new Map<string, UnifiedSignal>();
+  const byCrossFundKey = new Map<string, UnifiedSignal>();
   const unified: UnifiedSignal[] = [];
 
   for (const signal of normalizedWebMonitor) {
     const key = getCompositeKey(signal);
     const normText = normalizeSignalText(signal.what_changed || '');
     const contentKey = `${normText}::${signal.published_at || ''}`;
-    if (seenKeys.has(key) || seenContent.has(contentKey)) continue;
-    // Cross-fund dedup: if same URL + same text already seen under a different fund, skip
     const crossFundKey = `${signal.source_url}::${normText}`;
-    if (seenCrossFund.has(crossFundKey)) continue;
-    seenKeys.add(key);
-    seenContent.add(contentKey);
-    seenCrossFund.add(crossFundKey);
+    const existing =
+      byCrossFundKey.get(crossFundKey) ||
+      byCompositeKey.get(key) ||
+      byContentKey.get(contentKey);
+    if (existing) {
+      mergeRelatedFundTags(existing, signal, fundsBySlug);
+      continue;
+    }
+
+    byCompositeKey.set(key, signal);
+    byContentKey.set(contentKey, signal);
+    byCrossFundKey.set(crossFundKey, signal);
     unified.push(signal);
   }
 

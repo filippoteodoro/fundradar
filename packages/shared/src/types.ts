@@ -143,6 +143,9 @@ export interface Signal {
   id: string;
   fund_id: string;
   fund_slug?: string;
+  // Optional multi-fund tagging for cross-fund deals/news.
+  // Includes fund_slug when available.
+  related_fund_slugs?: string[];
   signal_type: SignalType;
   title: string;
   what_changed: string;

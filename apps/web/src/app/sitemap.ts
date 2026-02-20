@@ -1,16 +1,18 @@
 import { MetadataRoute } from 'next';
-import { getAllFunds } from '@/lib/data';
+import { getAllFunds, getAllCompanies } from '@/lib/data';
 import { getBaseUrl } from '@/lib/baseUrl';
 
 const BASE_URL = getBaseUrl();
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const funds = getAllFunds();
+  const companies = getAllCompanies();
   const now = new Date().toISOString();
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE_URL, lastModified: now, changeFrequency: 'daily', priority: 1.0 },
     { url: `${BASE_URL}/signals`, lastModified: now, changeFrequency: 'daily', priority: 0.9 },
+    { url: `${BASE_URL}/companies`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/map`, lastModified: now, changeFrequency: 'weekly', priority: 0.6 },
     { url: `${BASE_URL}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
     { url: `${BASE_URL}/terms-and-conditions`, lastModified: now, changeFrequency: 'monthly', priority: 0.2 },
@@ -26,5 +28,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...fundPages];
+  const companyPages: MetadataRoute.Sitemap = companies.map((company) => ({
+    url: `${BASE_URL}/companies/${company.slug}`,
+    changeFrequency: 'weekly' as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...fundPages, ...companyPages];
 }

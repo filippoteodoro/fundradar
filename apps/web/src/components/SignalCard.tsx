@@ -6,7 +6,13 @@ import { CARD_STYLE, CARD_PADDING, badgeStyle, RUMOR_STYLE } from '@/lib/ui';
 import { toDisplayType, SIGNAL_TYPE_STYLES } from '@/lib/signalProcessing';
 
 interface SignalCardProps {
-  signal: Signal & { fund_name?: string; fund_slug?: string; is_rumor?: boolean };
+  signal: Signal & {
+    fund_name?: string;
+    fund_slug?: string;
+    related_fund_slugs?: string[];
+    related_fund_names?: string[];
+    is_rumor?: boolean;
+  };
   /** Show fund name as a link (used on /signals page, not on fund detail page) */
   showFundLink?: boolean;
 }
@@ -35,6 +41,20 @@ export function SignalCard({ signal, showFundLink = false }: SignalCardProps) {
     : `${formatDate(signal.observed_at)} (observed)`;
 
   const primaryText = signal.what_changed || signal.title || '';
+  const relatedFundSlugs = (signal.related_fund_slugs || []).filter(Boolean);
+  const relatedFundNames = signal.related_fund_names || [];
+  const fundTags =
+    relatedFundSlugs.length > 0
+      ? relatedFundSlugs.map((slug, idx) => ({
+          slug,
+          name: relatedFundNames[idx] || slug.replace(/-/g, ' '),
+        }))
+      : ((signal as any).fund_slug
+          ? [{
+              slug: (signal as any).fund_slug as string,
+              name: (signal as any).fund_name as string || ((signal as any).fund_slug as string).replace(/-/g, ' '),
+            }]
+          : []);
 
   return (
     <div
@@ -49,14 +69,17 @@ export function SignalCard({ signal, showFundLink = false }: SignalCardProps) {
           {signal.is_rumor && (
             <span style={badgeStyle(RUMOR_STYLE)}>{RUMOR_STYLE.label}</span>
           )}
-          {showFundLink && (signal as any).fund_slug && (
-            <a
-              href={`/funds/${(signal as any).fund_slug}`}
-              style={{ color: '#0066cc', textDecoration: 'none', fontWeight: 500 }}
-            >
-              {(signal as any).fund_name}
-            </a>
-          )}
+          {showFundLink && fundTags.map((fund, idx) => (
+            <span key={`${fund.slug}-${idx}`} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+              {idx > 0 && <span style={{ color: '#999' }}>•</span>}
+              <a
+                href={`/funds/${fund.slug}`}
+                style={{ color: '#0066cc', textDecoration: 'none', fontWeight: 500 }}
+              >
+                {fund.name}
+              </a>
+            </span>
+          ))}
         </div>
         <span
           style={{

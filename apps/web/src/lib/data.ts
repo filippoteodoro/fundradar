@@ -12,7 +12,7 @@
 
 import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
-import type { Fund, Deal, Signal, SignalType, PemManifest, TeamAnalytics, DataSource, Office } from '@fundradar/shared';
+import type { Fund, Deal, Signal, SignalType, PemManifest, TeamAnalytics, DataSource, Office, Company, CompanyInvestment } from '@fundradar/shared';
 import { getRepoRoot } from './repoRoot';
 import {
   isGarbageSignal,
@@ -23,6 +23,11 @@ import {
   normalizeSignalText,
   reclassifySignalType,
 } from './signalProcessing';
+import {
+  buildFundMentionEntries,
+  resolveSignalFundSlugs,
+  type FundMentionEntry,
+} from './signalFundTags';
 
 interface Database {
   generated_at: string;
@@ -354,6 +359,7 @@ interface FilteredSignalsFile {
 }
 
 let cachedFilteredSignals: Signal[] | null = null;
+let cachedFundMentionEntries: FundMentionEntry[] | null = null;
 
 function loadFilteredSignals(): Signal[] {
   if (cachedFilteredSignals) {
@@ -387,16 +393,33 @@ function loadFilteredSignals(): Signal[] {
 }
 
 export function getSignalsForFund(fundSlug: string): Signal[] {
-  const signals = loadFilteredSignals().filter(
-    (s) => s.fund_slug === fundSlug
-  );
+  if (!cachedFundMentionEntries) {
+    const funds = getAllFunds().map((f) => ({ slug: f.slug, name: f.name }));
+    cachedFundMentionEntries = buildFundMentionEntries(funds);
+  }
+
+  const signals = loadFilteredSignals()
+    .map((s) => {
+      const related = resolveSignalFundSlugs(
+        s as Signal & Record<string, unknown>,
+        cachedFundMentionEntries || [],
+      );
+      return {
+        ...s,
+        related_fund_slugs: related.length ? related : (s.fund_slug ? [s.fund_slug] : []),
+      } as Signal;
+    })
+    .filter((s) => (s.related_fund_slugs || []).includes(fundSlug));
   // Build known fund names for misattribution detection (auto-derived from db.json)
   const knownFundNames = buildKnownFundNames(getAllFunds());
   // Deduplicate by content (source_url + title + published_at)
   const seen = new Set<string>();
   const seenContent = new Set<string>();
   return signals
-    .filter(s => !isGarbageSignal(s, knownFundNames))
+    .filter((s) => {
+      const contextSignal = s.fund_slug === fundSlug ? s : { ...s, fund_slug: fundSlug };
+      return !isGarbageSignal(contextSignal, knownFundNames);
+    })
     .map(s => {
       // Clean title artifacts and reclassify mistyped signals
       const cleanedTitle = cleanSignalText(cleanSignalTitle(s.title || ''));
@@ -449,7 +472,13 @@ interface PortfolioItemsFile {
 }
 
 function slugify(name: string): string {
-  return name.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  return name
+    .toLowerCase()
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
 }
 
 /**
@@ -1654,5 +1683,249 @@ export function getSortedOffices(fund: Fund): Office[] {
     if (a.is_italy !== b.is_italy) return a.is_italy ? -1 : 1;
     if (a.is_hq !== b.is_hq) return a.is_hq ? -1 : 1;
     return a.city.localeCompare(b.city);
+  });
+}
+
+// ── Company aggregation (cross-fund) ───────────────────────────────────────
+
+let cachedCompanies: Company[] | null = null;
+
+/**
+ * Aggregate all portfolio companies across all funds into deduplicated Company entries.
+ * Uses existing getPortfolioForFund() (already cached) for each fund.
+ * Deduplicates by compactName(normalizeCompanyName(name)) — same key used within-fund.
+ */
+export function getAllCompanies(): Company[] {
+  if (cachedCompanies) return cachedCompanies;
+
+  const funds = getAllFunds();
+  const fundNameMap = new Map<string, string>();
+  for (const f of funds) fundNameMap.set(f.slug, f.name);
+
+  // Group portfolio entries by normalized company key
+  const companyMap = new Map<string, {
+    displayName: string;
+    sector: string | null;
+    website: string | null;
+    description: string | null;
+    headquarters: string | null;
+    investments: CompanyInvestment[];
+  }>();
+
+  for (const fund of funds) {
+    const portfolio = getPortfolioForFund(fund.slug);
+    for (const item of portfolio) {
+      const key = compactName(normalizeCompanyName(item.company_name));
+      if (!key || key.length <= 1) continue;
+
+      const existing = companyMap.get(key);
+      const investment: CompanyInvestment = {
+        fund_slug: fund.slug,
+        fund_name: fundNameMap.get(fund.slug) || fund.slug,
+        status: item.status,
+        entry_date: item.entry_date || item.investment_date || null,
+        exit_date: item.exit_date || null,
+        data_source: item.data_source || null,
+        source_url: item.source_url || null,
+        source_label: item.source_label || null,
+        invested_amount_eur_mln: item.invested_amount_eur_mln || null,
+        investment_stage: item.investment_stage || null,
+        deal_year: item.deal_year || null,
+      };
+
+      if (existing) {
+        // Pick longest display name
+        if (item.company_name.length > existing.displayName.length) {
+          existing.displayName = item.company_name;
+        }
+        // Fill missing metadata from any fund
+        if (!existing.sector && item.sector) existing.sector = item.sector;
+        if (!existing.website && item.website) existing.website = item.website;
+        if (!existing.description && item.description) existing.description = item.description;
+        if (!existing.headquarters && item.headquarters) existing.headquarters = item.headquarters;
+        existing.investments.push(investment);
+      } else {
+        companyMap.set(key, {
+          displayName: item.company_name,
+          sector: item.sector || null,
+          website: item.website || null,
+          description: item.description || null,
+          headquarters: item.headquarters || null,
+          investments: [investment],
+        });
+      }
+    }
+  }
+
+  // Filter out fund vehicles, SGRs, and other non-company entities.
+  // Applied here (not in isValidPortfolioEntry) so fund detail pages can still show
+  // legitimate acquisitions of fund entities (e.g. Blackstone → Kryalos SGR).
+  const FUND_ENTITY_PATTERNS = [
+    /\bfund\s*(?:\([^)]*\))?\s*$/i,    // ends with "Fund" or "Fund (X)" — fund vehicles
+    /\bSGR\b/i,                          // Italian fund management companies (Società di Gestione del Risparmio)
+    /\bcapital\s+portfolio\b/i,          // "X Capital Portfolio" — fund portfolio labels
+    /^fondo$/i,                          // bare "Fondo" — incomplete entry
+  ];
+
+  function isFundEntity(name: string): boolean {
+    return FUND_ENTITY_PATTERNS.some(pat => pat.test(name.trim()));
+  }
+
+  // Convert to Company[] sorted alphabetically
+  const companies: Company[] = [];
+  for (const [, data] of companyMap) {
+    if (isFundEntity(data.displayName)) continue;
+    companies.push({
+      slug: slugify(normalizeCompanyName(data.displayName)) || slugify(data.displayName),
+      name: data.displayName,
+      sector: data.sector,
+      website: data.website,
+      description: data.description,
+      headquarters: data.headquarters,
+      investments: data.investments,
+    });
+  }
+
+  companies.sort((a, b) => a.name.localeCompare(b.name));
+  cachedCompanies = companies;
+  return cachedCompanies;
+}
+
+export function getCompanyBySlug(slug: string): Company | undefined {
+  return getAllCompanies().find(c => c.slug === slug);
+}
+
+export interface CompanySlim {
+  slug: string;
+  name: string;
+  sector: string | null;
+  headquarters: string | null;
+  investmentCount: number;
+  hasCurrentInvestment: boolean;
+  allExited: boolean;
+}
+
+export function getAllCompaniesSlim(): CompanySlim[] {
+  return getAllCompanies().map(c => ({
+    slug: c.slug,
+    name: c.name,
+    sector: c.sector,
+    headquarters: c.headquarters,
+    investmentCount: c.investments.length,
+    hasCurrentInvestment: c.investments.some(inv => inv.status === 'current'),
+    allExited: c.investments.length > 0 && c.investments.every(inv => inv.status === 'exited'),
+  }));
+}
+
+// ── Company signals (from enriched signals with target_companies) ────────────
+
+export interface CompanySignal extends Signal {
+  fund_name: string;
+  fund_slug: string;
+}
+
+let cachedCompanySignalIndex: Map<string, CompanySignal[]> | null = null;
+
+function buildCompanySignalIndex(): Map<string, CompanySignal[]> {
+  if (cachedCompanySignalIndex) return cachedCompanySignalIndex;
+
+  const index = new Map<string, CompanySignal[]>();
+
+  // Read enriched signals file directly (same as loadFilteredSignals but we need target_companies)
+  const repoRoot = getRepoRoot();
+  const enrichedPath = join(repoRoot, 'data', 'derived', 'detected_signals_enriched.json');
+  if (!existsSync(enrichedPath)) {
+    cachedCompanySignalIndex = index;
+    return index;
+  }
+
+  let rawSignals: Array<Record<string, unknown>>;
+  try {
+    const data = readFileSync(enrichedPath, 'utf-8');
+    const file = JSON.parse(data);
+    rawSignals = file.signals || [];
+  } catch (e) {
+    console.error('Failed to load enriched signals for company index:', e);
+    cachedCompanySignalIndex = index;
+    return index;
+  }
+
+  // Build fund slug → name lookup
+  const fundNameMap = new Map<string, string>();
+  for (const f of getAllFunds()) fundNameMap.set(f.slug, f.name);
+
+  const knownFundNames = buildKnownFundNames(getAllFunds());
+
+  for (const raw of rawSignals) {
+    const targetCompanies = raw.target_companies as Array<{ name: string }> | undefined;
+    if (!targetCompanies || targetCompanies.length === 0) continue;
+
+    const signal = raw as unknown as Signal;
+    if (signal.signal_type === 'website_change') continue;
+
+    // Apply signal processing (same as getSignalsForFund)
+    const fundSlug = (signal.fund_slug || '') as string;
+    if (isGarbageSignal({ ...signal, fund_slug: fundSlug }, knownFundNames)) continue;
+
+    const cleanedTitle = cleanSignalText(cleanSignalTitle(signal.title || ''));
+    const cleanedWhatChanged = cleanSignalText(signal.what_changed || '');
+    const newType = reclassifySignalType({ ...signal, title: cleanedTitle, what_changed: cleanedWhatChanged });
+    const isDupText = isRedundantSignalSummary(cleanedTitle, cleanedWhatChanged);
+
+    const processedSignal: CompanySignal = {
+      ...signal,
+      title: cleanedTitle,
+      what_changed: isDupText ? '' : cleanedWhatChanged,
+      ...(newType ? { signal_type: newType } : {}),
+      fund_slug: fundSlug,
+      fund_name: fundNameMap.get(fundSlug) || fundSlug.replace(/-/g, ' '),
+    };
+
+    for (const tc of targetCompanies) {
+      if (!tc.name) continue;
+      const key = compactName(normalizeCompanyName(tc.name));
+      if (!key || key.length <= 1) continue;
+      const existing = index.get(key) || [];
+      existing.push(processedSignal);
+      index.set(key, existing);
+    }
+  }
+
+  cachedCompanySignalIndex = index;
+  return index;
+}
+
+/**
+ * Get signals mentioning a specific portfolio company.
+ * Uses target_companies from enriched signals, matched by normalized name.
+ * Only returns signals where fund_slug is in the company's investor set.
+ */
+export function getSignalsForCompany(companySlug: string): CompanySignal[] {
+  const company = getCompanyBySlug(companySlug);
+  if (!company) return [];
+
+  const index = buildCompanySignalIndex();
+  const key = compactName(normalizeCompanyName(company.name));
+  const candidates = index.get(key) || [];
+  if (candidates.length === 0) return [];
+
+  // Only keep signals from funds that actually invested in this company
+  const investorSlugs = new Set(company.investments.map(inv => inv.fund_slug));
+  const filtered = candidates.filter(s => investorSlugs.has(s.fund_slug));
+
+  // Deduplicate by source_url + title + published_at
+  const seen = new Set<string>();
+  const deduped = filtered.filter(s => {
+    const dedupKey = `${s.source_url}::${s.title}::${s.published_at || ''}`;
+    if (seen.has(dedupKey)) return false;
+    seen.add(dedupKey);
+    return true;
+  });
+
+  // Sort by date descending (published_at preferred, fallback to observed_at)
+  return deduped.sort((a, b) => {
+    const dateA = a.published_at || a.observed_at;
+    const dateB = b.published_at || b.observed_at;
+    return dateB.localeCompare(dateA);
   });
 }

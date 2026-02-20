@@ -33,6 +33,7 @@ export function badgeStyle(colors: BadgeColor): CSSProperties {
 
 export const STATUS_STYLES: Record<string, { label: string } & BadgeColor> = {
   current: { label: 'Current', bg: '#e8f5e9', color: '#2e7d32' },
+  partial: { label: 'Partial', bg: '#e3f2fd', color: '#1565c0' },
   exited:  { label: 'Exited',  bg: '#fff3e0', color: '#e65100' },
   unknown: { label: 'Unknown', bg: '#f5f5f5', color: '#757575' },
 };

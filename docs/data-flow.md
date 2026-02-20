@@ -57,6 +57,15 @@ Both `/signals` and `/funds/[slug]` pages apply identical signal processing via 
 - `cleanSignalText()` — strips read-time labels, fixes spacing, strips leading labels
 - `reclassifySignalType()` — corrects misclassified signal types (e.g. fundraise → deal)
 
+### Multi-fund signal tags
+
+- RSS/news signals can involve more than one fund. Worker output now stores this in
+  `related_fund_slugs` while still emitting one row per primary `fund_slug`.
+- `loadUnifiedSignals()` merges duplicate cross-fund copies into one feed card and keeps all
+  associated `related_fund_slugs` for UI rendering.
+- `getSignalsForFund()` includes signals where the requested slug appears in
+  `related_fund_slugs` (not only where it is the primary `fund_slug`).
+
 ## Portfolio Validation
 
 Portfolio entries are validated in two layers:

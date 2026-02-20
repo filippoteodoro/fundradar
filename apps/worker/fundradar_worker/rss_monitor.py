@@ -526,6 +526,8 @@ def articles_to_signals(
         fund_name_matched = set(article.get("_fund_name_matched_slugs", []))
         llm_confirmed = set(classification.get("_llm_confirmed_slugs", []))
 
+        # Keep only accepted slugs after portfolio-only guard.
+        accepted_slugs: list[str] = []
         for slug in fund_slugs:
             # Skip if this slug was matched only via portfolio company name (not fund name)
             # AND the LLM didn't independently confirm it as relevant
@@ -534,9 +536,15 @@ def articles_to_signals(
                     f"Skipping portfolio-only match: {slug} for '{article['title'][:60]}'"
                 )
                 continue
+            if slug not in accepted_slugs:
+                accepted_slugs.append(slug)
 
-            fund = funds_by_slug.get(slug, {})
-            fund_name = fund.get("name", slug)
+        if not accepted_slugs:
+            continue
+
+        accepted_slugs = sorted(accepted_slugs)
+
+        for slug in accepted_slugs:
             counter += 1
 
             is_rumor = classification.get("is_rumor", False)
@@ -546,6 +554,7 @@ def articles_to_signals(
                 "id": f"rss-signal-{counter:05d}",
                 "fund_id": "",
                 "fund_slug": slug,
+                "related_fund_slugs": list(accepted_slugs),
                 "signal_type": classification.get("signal_type", "other"),
                 "title": article["title"],
                 "what_changed": summary,

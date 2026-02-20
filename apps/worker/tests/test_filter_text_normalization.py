@@ -45,3 +45,13 @@ def test_clean_signal_fields_repairs_company_tokens_using_entity_candidates():
     cleaned = _clean_signal_fields(signal)
     assert "partnership with TechNova per growth" in cleaned["title"]
     assert "con TechNova per accelerare" in cleaned["what_changed"]
+
+
+def test_clean_signal_fields_keeps_tgcom24_token_intact():
+    signal = {
+        "title": "TGCom24: BFF Bank: apre all'acquisto dei crediti delle PMI verso la PA",
+        "what_changed": "New announcement: TGCom24: BFF Bank: apre all'acquisto dei crediti delle PMI verso la PA",
+    }
+    cleaned = _clean_signal_fields(signal)
+    assert "TGCom24" in cleaned["title"]
+    assert "TGC om 24" not in cleaned["title"]

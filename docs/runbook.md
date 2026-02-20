@@ -255,6 +255,31 @@ python -m fundradar_worker.monitor --slugs fund-slug --force-extract --skip-back
 (`fund_slug + source_url + title + published_at`) and keeps the better/newer
 variant, so corrected re-extractions replace stale malformed entries.
 
+### Multi-fund tagging in `/signals`
+
+Expected behavior:
+- A single signal card can show multiple blue fund links in the header.
+- The same signal should appear on each tagged fund page without duplicating cards in `/signals`.
+
+How it works:
+- RSS monitor emits `related_fund_slugs` for each signal when multiple funds are involved.
+- Web loaders keep backward compatibility by inferring extra fund tags from signal text for older rows.
+
+Validation:
+```bash
+python - <<'PY'
+import json
+from pathlib import Path
+p=Path("data/derived/detected_signals_enriched.json")
+if not p.exists(): p=Path("data/derived/detected_signals_filtered.json")
+s=json.loads(p.read_text()).get("signals", [])
+print(sum(1 for x in s if isinstance(x.get("related_fund_slugs"), list) and len(x["related_fund_slugs"])>1))
+PY
+```
+
+Note: this checks persisted `related_fund_slugs` written by worker runs. The web layer
+also infers extra tags for legacy rows that predate this field.
+
 ### Translation Failures (IT→EN)
 
 `enrich_signals_openai.py` now sends a Telegram alert when Italian fields are

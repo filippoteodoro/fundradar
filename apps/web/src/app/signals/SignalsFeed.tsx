@@ -13,6 +13,7 @@ import { FilterBar } from '@/components/filters/FilterBar';
 import { FilterChips, type ChipItem } from '@/components/filters/FilterChips';
 import { FilterDropdown } from '@/components/filters/FilterDropdown';
 import { FilterPanel } from '@/components/filters/FilterPanel';
+import { LEGAL_BUNDLE_VERSION } from '@/lib/legal';
 
 export interface FundMeta {
   category: FundCategory;
@@ -67,7 +68,11 @@ function getImportanceScore(signal: UnifiedSignal, fundPriorityScores: Record<st
   const quality = typeof s.quality_score === 'number' ? s.quality_score : 50;
   const evidence = typeof s.evidence_score === 'number' ? s.evidence_score : 0;
   const confidence = typeof s.confidence_score === 'number' ? s.confidence_score : 0.5;
-  const fundScore = fundPriorityScores[signal.fund_slug || ''] || 0;
+  const relatedSlugs = Array.isArray((signal as any).related_fund_slugs)
+    ? (signal as any).related_fund_slugs.filter(Boolean)
+    : [];
+  const slugs = relatedSlugs.length > 0 ? relatedSlugs : [signal.fund_slug || ''];
+  const fundScore = Math.max(...slugs.map((slug: string) => fundPriorityScores[slug] || 0), 0);
 
   const typePts = SIGNAL_TYPE_IMPORTANCE[signal.signal_type] || 0;
 
@@ -139,6 +144,8 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
   const [search, setSearch] = useState('');
   const [showFilters, setShowFilters] = useState(false);
   const [page, setPage] = useState(0);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const [checkoutError, setCheckoutError] = useState('');
   const pageSize = 20;
 
   // Reset page when filters change
@@ -146,7 +153,17 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
 
   // Build fund-level filter catalogs from the funds that have signals
   const fundMetaForSignals = useMemo(() => {
-    const slugs = new Set(baseSignals.map(s => s.fund_slug).filter(Boolean));
+    const slugs = new Set<string>();
+    for (const signal of baseSignals) {
+      const related = Array.isArray((signal as any).related_fund_slugs)
+        ? (signal as any).related_fund_slugs.filter(Boolean)
+        : [];
+      if (related.length > 0) {
+        for (const slug of related) slugs.add(slug);
+      } else if (signal.fund_slug) {
+        slugs.add(signal.fund_slug);
+      }
+    }
     return Array.from(slugs)
       .map(slug => fundMetaMap[slug!])
       .filter(Boolean) as FundMeta[];
@@ -168,6 +185,40 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
       setInvMaxFilter(invRangeMax);
     }
   }, [invMaxFilter, invRangeMax]);
+
+  async function handleCheckoutClick() {
+    if (checkoutLoading) return;
+    setCheckoutError('');
+    setCheckoutLoading(true);
+    try {
+      const res = await fetch('/api/stripe/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          acceptedLegal: true,
+          acceptedLegalVersion: LEGAL_BUNDLE_VERSION,
+          acceptedAt: new Date().toISOString(),
+          acceptedFrom: 'signals_page',
+          acceptedImmediateAccess: true,
+          acceptedWithdrawalAcknowledgement: true,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setCheckoutError(data.error || 'Something went wrong');
+        return;
+      }
+      if (data.url) {
+        window.location.href = data.url;
+        return;
+      }
+      setCheckoutError('Failed to start checkout. Please try again.');
+    } catch {
+      setCheckoutError('An error occurred. Please try again.');
+    } finally {
+      setCheckoutLoading(false);
+    }
+  }
 
   const typeCounts = useMemo(() => {
     const counts = new Map<DisplaySignalType, number>();
@@ -207,21 +258,36 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
 
       // Fund-level filters
       if (hasFundMetadata && (categoryFilter !== 'all' || sectorGroupFilter !== 'all' || hqCountryFilter !== 'all' || hasActiveInvestment || hasActiveAum)) {
-        const meta = fundMetaMap[s.fund_slug || ''];
-        if (!meta) return false;
-        if (categoryFilter !== 'all' && meta.category !== categoryFilter) return false;
-        if (!matchesSectorGroupFilter(meta, sectorGroupFilter)) return false;
-        if (!matchesHqCountryFilter(meta, hqCountryFilter)) return false;
+        const related = Array.isArray((s as any).related_fund_slugs)
+          ? (s as any).related_fund_slugs.filter(Boolean)
+          : [];
+        const signalSlugs = related.length > 0 ? related : [s.fund_slug || ''].filter(Boolean);
+        const metas = signalSlugs
+          .map((slug: string) => fundMetaMap[slug])
+          .filter(Boolean) as FundMeta[];
+        if (metas.length === 0) return false;
+        if (categoryFilter !== 'all' && !metas.some((meta) => meta.category === categoryFilter)) return false;
+        if (sectorGroupFilter !== 'all' && !metas.some((meta) => matchesSectorGroupFilter(meta, sectorGroupFilter))) return false;
+        if (hqCountryFilter !== 'all' && !metas.some((meta) => matchesHqCountryFilter(meta, hqCountryFilter))) return false;
         if (hasActiveInvestment) {
-          const fundMin = meta.investment_min_eur || 0;
-          const fundMax = meta.investment_max_eur || 0;
-          if (fundMax === 0) return false;
           const filterMax = Number.isFinite(invMaxFilter) ? invMaxFilter : Infinity;
-          if (fundMax < invMinFilter || fundMin > filterMax) return false;
+          const investmentMatch = metas.some((meta) => {
+            const fundMin = meta.investment_min_eur || 0;
+            const fundMax = meta.investment_max_eur || 0;
+            if (fundMax === 0) return false;
+            return !(fundMax < invMinFilter || fundMin > filterMax);
+          });
+          if (!investmentMatch) return false;
         }
-        const aum = meta.aum_eur || 0;
-        if (aumMinFilter > 0 && aum < aumMinFilter) return false;
-        if (aumMaxFilter < aumRangeMax && aum > aumMaxFilter) return false;
+        if (aumMinFilter > 0 || aumMaxFilter < aumRangeMax) {
+          const aumMatch = metas.some((meta) => {
+            const aum = meta.aum_eur || 0;
+            if (aumMinFilter > 0 && aum < aumMinFilter) return false;
+            if (aumMaxFilter < aumRangeMax && aum > aumMaxFilter) return false;
+            return true;
+          });
+          if (!aumMatch) return false;
+        }
       }
 
       if (!search.trim()) return true;
@@ -372,21 +438,31 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
                   <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', margin: '0 0 14px 0' }}>
                     Deals, exits, fundraises, and key hires — straight to your inbox.
                   </p>
-                  <a
-                    href="/subscribe"
+                  <button
+                    onClick={handleCheckoutClick}
+                    disabled={checkoutLoading}
                     style={{
-                      display: 'inline-block',
-                      padding: '7px 18px',
-                      background: '#2563eb',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      padding: '10px 22px',
+                      background: checkoutLoading ? '#6b7280' : '#2563eb',
                       color: 'white',
-                      borderRadius: '6px',
-                      fontSize: '13px',
+                      border: 'none',
+                      borderRadius: '8px',
+                      fontSize: '14px',
                       fontWeight: 600,
                       textDecoration: 'none',
+                      cursor: checkoutLoading ? 'not-allowed' : 'pointer',
                     }}
                   >
-                    Subscribe
-                  </a>
+                    {checkoutLoading ? 'Redirecting to checkout...' : 'Get Signals'}
+                  </button>
+                  {checkoutError && (
+                    <p style={{ color: '#fecaca', fontSize: '12px', margin: '10px 0 0 0' }}>
+                      {checkoutError}
+                    </p>
+                  )}
                 </div>
               )}
             </div>
