@@ -65,15 +65,21 @@ DB_PATH = PROJECT_ROOT / "data" / "db.json"
 
 MODEL = "gemini-3-flash-preview"
 # Gemini Flash free tier: ~30s per signal for structured extraction. Batches of 5
-# take ~150s, batches of 10 take ~300s. Keep batches small to stay within timeout.
-BATCH_SIZE = 5
+# frequently timeout, batches of 2-3 work reliably. Size 3 balances throughput and
+# reliability (~90s per batch, well within 300s timeout).
+BATCH_SIZE = 3
 MAX_RETRIES = 2
 CALL_TIMEOUT = 300  # 5min — Gemini Flash free tier is slow on complex structured output
 SDK_TIMEOUT_MS = 360_000  # SDK-level timeout — must exceed CALL_TIMEOUT
 DELAY_BETWEEN_CALLS = 4.0  # 4s between calls — Gemini free tier ~15 RPM
 
 # Auto-split: when a batch fails at size N, retry at next smaller size
-BATCH_SPLIT_SIZES = [5, 2, 1]
+BATCH_SPLIT_SIZES = [3, 1]
+
+# Pipeline mode: cap API calls so this step completes in ~20 min.
+# 15 calls × 3 signals/call = 45 signals per pipeline run.
+# Remaining signals are processed on the next run (progress tracking).
+PIPELINE_DEFAULT_LIMIT = 15
 
 # Signal types to process
 DEAL_TYPES = {"deal_announced", "exit_announced"}
@@ -170,7 +176,16 @@ def _matches_existing(
                 return True, en
         return True, None
 
-    # 3. Token overlap (≥0.8 Jaccard) — safer than substring matching
+    # 3. Numeric suffix: "company 2" matches "company", "abc3" matches "abc"
+    norm_stripped = re.sub(r"\s*\d+$", "", norm)
+    if norm_stripped and norm_stripped != norm and norm_stripped in existing_names:
+        return True, norm_stripped
+    for en in existing_names:
+        en_stripped = re.sub(r"\s*\d+$", "", en)
+        if en_stripped and en_stripped != en and en_stripped == norm:
+            return True, en
+
+    # 4. Token overlap (≥0.8 Jaccard) — safer than substring matching
     norm_tokens = set(norm.split())
     if len(norm_tokens) >= 1:
         for en in existing_names:
@@ -362,6 +377,7 @@ CRITICAL RULES:
 - If a company from the existing portfolio list (e.g. "{example_portco}") acquires another company, that is an add-on — set is_direct_investment=false.
 - Fundraising signals (fund raises capital), fund launches, reports, and partnership announcements are action="other".
 - For the company name, prefer the Italian/original name if it's a proper noun (e.g. "Marullo" not "Marulloper").
+- target_company must be a PROPER COMPANY NAME, not a generic description (e.g. reject "residential asset in Paris", "industrial building", "logistics platform").
 
 Signals:
 {signals_block}
@@ -614,14 +630,16 @@ def process_fund_signals(
     fund_domain: str | None,
     client,
     dry_run: bool = False,
-) -> tuple[dict, list[str]]:
+    call_budget: int = 0,
+) -> tuple[dict, list[str], int]:
     """
     Process signals for a single fund.
 
     Phase 1: Send signals + existing portfolio context to Gemini.
     Phase 2: Dedup results, add new entries, update exits.
 
-    Returns (stats_dict, successfully_processed_signal_ids).
+    call_budget: max Gemini API calls for this fund (0 = unlimited).
+    Returns (stats_dict, successfully_processed_signal_ids, calls_used).
     """
     stats = {
         "added": 0, "exits_updated": 0, "skipped_addon": 0,
@@ -648,9 +666,16 @@ def process_fund_signals(
 
     new_entries: list[dict] = []
     processed_ids: list[str] = []  # Only IDs from successful batches
+    calls_used = 0
 
     # Process in batches
     for batch_start in range(0, len(signals), BATCH_SIZE):
+        # Budget check: stop before starting a batch we can't afford
+        if call_budget > 0 and calls_used >= call_budget:
+            remaining = len(signals) - batch_start
+            print(f"    Call budget reached ({call_budget}), deferring {remaining} signals to next run")
+            break
+
         batch = signals[batch_start:batch_start + BATCH_SIZE]
 
         if dry_run:
@@ -662,6 +687,7 @@ def process_fund_signals(
 
         # Call Gemini with auto-split on failure
         results, in_tok, out_tok = call_gemini_batch(client, batch, fund_name, existing_raw_names)
+        calls_used += 1  # Count the top-level batch call (auto-split counts as 1 logical call)
         stats["tokens_in"] += in_tok
         stats["tokens_out"] += out_tok
 
@@ -780,7 +806,61 @@ def process_fund_signals(
     if not dry_run and new_entries:
         existing_entries.extend(new_entries)
 
-    return stats, processed_ids
+    return stats, processed_ids, calls_used
+
+
+def _send_alert(
+    stats: dict, elapsed: float, remaining: int,
+    budget_exhausted: bool, calls_used: int,
+):
+    """Send Telegram alert summarizing signal-to-portfolio results.
+
+    Only sends if there are issues (errors, remaining work). Clean runs are silent.
+    """
+    try:
+        from fundradar_worker.alerting import AlertConfig, AlertManager, Alert
+    except ImportError:
+        return
+
+    config = AlertConfig.from_env()
+    if not config.telegram_enabled:
+        return
+
+    has_issues = stats["errors"] > 0 or remaining > 0
+
+    # Clean run with no remaining work — skip alert (pipeline summary covers it)
+    if not has_issues:
+        return
+
+    manager = AlertManager(config)
+    elapsed_min = elapsed / 60
+    lines: list[str] = []
+
+    lines.append(f"Signal→Portfolio: {elapsed_min:.1f}m, {calls_used} calls")
+    lines.append(f"+{stats['added']} added, +{stats['exits_updated']} exits, {stats['errors']} errors")
+
+    if remaining > 0:
+        lines.append(f"\n*Remaining:* {remaining} signals deferred to next run")
+        if budget_exhausted:
+            lines.append("(call limit reached — self-heals on re-run)")
+
+    if stats["errors"] > 0:
+        lines.append(f"\n*Errors:* {stats['errors']} signals failed (will retry)")
+
+    level = "error" if stats["errors"] > 0 else "warning" if remaining > 0 else "info"
+    title = "Signal→Portfolio"
+    if stats["errors"] > 0:
+        title += f": {stats['errors']} errors"
+    elif remaining > 0:
+        title += f": {remaining} remaining"
+
+    manager.add_alert(Alert(
+        title=title,
+        message="\n".join(lines),
+        level=level,
+        source="signal_to_portfolio",
+    ))
+    manager.send_pending_alerts()
 
 
 def main():
@@ -790,7 +870,13 @@ def main():
     parser.add_argument("--force", action="store_true",
                         help="Re-send all signals to Gemini (ignore progress). Dedup still applies.")
     parser.add_argument("--pipeline", action="store_true", help="Pipeline mode (auto-skip if no API key)")
+    parser.add_argument("--limit", type=int, default=0,
+                        help="Max Gemini API calls (0=unlimited). --pipeline defaults to 15.")
     args = parser.parse_args()
+
+    # Pipeline mode: apply default call limit (self-heals over multiple runs)
+    if args.pipeline and args.limit == 0:
+        args.limit = PIPELINE_DEFAULT_LIMIT
 
     print(f"\n{'=' * 60}")
     print(f"  Signal → Portfolio Conversion")
@@ -889,21 +975,38 @@ def main():
     }
     all_processed_in_run: list[str] = []
     funds_processed = 0
+    total_calls_used = 0
     start_time = time.time()
+    budget_exhausted = False
+
+    if args.limit:
+        print(f"  Call limit: {args.limit} Gemini calls")
 
     # Track which fund portfolios changed (for per-fund saves)
     changed_slugs: set[str] = set()
 
-    for fund_slug, signals in sorted(by_fund.items()):
+    # Sort funds by signal count ascending: process small funds first for broader
+    # coverage within the pipeline call budget. Large funds get tackled gradually.
+    sorted_funds = sorted(by_fund.items(), key=lambda x: len(x[1]))
+
+    for fund_slug, signals in sorted_funds:
+        # Budget check: skip remaining funds if call limit reached
+        if args.limit and total_calls_used >= args.limit:
+            budget_exhausted = True
+            break
+
         fund = funds_by_slug.get(fund_slug)
         fund_name = fund["name"] if fund else fund_slug
         fund_domain = _get_fund_domain(fund_slug, funds_by_slug)
         existing = fund_portfolios.get(fund_slug, [])
 
+        # Per-fund call budget: remaining calls from total limit
+        fund_budget = (args.limit - total_calls_used) if args.limit else 0
+
         print(f"\n  {fund_name} ({fund_slug}): {len(signals)} signals, "
               f"{len(existing)} existing portfolio entries")
 
-        fund_stats, fund_processed_ids = process_fund_signals(
+        fund_stats, fund_processed_ids, fund_calls = process_fund_signals(
             fund_slug=fund_slug,
             fund_name=fund_name,
             signals=signals,
@@ -911,7 +1014,9 @@ def main():
             fund_domain=fund_domain,
             client=client,
             dry_run=args.dry_run,
+            call_budget=fund_budget,
         )
+        total_calls_used += fund_calls
 
         # Update portfolio reference (process_fund_signals modifies existing_entries in place)
         if not args.dry_run and (fund_stats["added"] > 0 or fund_stats["exits_updated"] > 0):
@@ -943,6 +1048,10 @@ def main():
                 fresh["fund_portfolios"] = fresh_portfolios
                 save_portfolio(fresh)
 
+        # Inter-fund delay for Gemini rate limit recovery (skip for dry-run and last fund)
+        if not args.dry_run and funds_processed < len(by_fund):
+            time.sleep(10)
+
         # Running rate logging
         if not args.dry_run and funds_processed > 0:
             elapsed = time.time() - start_time
@@ -962,12 +1071,18 @@ def main():
         }
         save_progress(progress)
 
+    # Count remaining signals (not yet processed after this run)
+    final_processed = processed_ids | set(all_processed_in_run)
+    remaining_signals = len([
+        s for s in deal_signals if s["id"] not in final_processed
+    ])
+
     # Summary
     elapsed = time.time() - start_time
     cost = total_stats["tokens_in"] * 0.10 / 1_000_000 + total_stats["tokens_out"] * 0.40 / 1_000_000
 
     print(f"\n{'=' * 60}")
-    print(f"  Summary ({elapsed / 60:.1f}m)")
+    print(f"  Summary ({elapsed / 60:.1f}m, {total_calls_used} API calls)")
     print(f"{'=' * 60}")
     print(f"  Portfolio entries added:   {total_stats['added']}")
     print(f"  Exits detected & updated: {total_stats['exits_updated']}")
@@ -980,7 +1095,15 @@ def main():
     if not args.dry_run:
         print(f"  Gemini tokens:            {total_stats['tokens_in']:,} in / {total_stats['tokens_out']:,} out")
         print(f"  Estimated cost:           ${cost:.4f}")
+    if remaining_signals > 0:
+        print(f"  Remaining signals:        {remaining_signals} (will be processed on next run)")
+    if budget_exhausted:
+        print(f"  Budget limit reached:     {args.limit} calls used — re-run to continue")
     print()
+
+    # Telegram alert (skip for dry-run)
+    if not args.dry_run:
+        _send_alert(total_stats, elapsed, remaining_signals, budget_exhausted, total_calls_used)
 
     # Exit code 2 for partial success (some batches failed but progress was made)
     if total_stats["errors"] > 0 and (total_stats["added"] > 0 or total_stats["exits_updated"] > 0):

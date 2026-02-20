@@ -468,11 +468,15 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
           }
 
           .team-analytics-seniority-legend {
+            display: grid !important;
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
             width: 100% !important;
+            gap: 6px 12px !important;
           }
 
           .team-analytics-legend-row {
             min-width: 0 !important;
+            width: 100% !important;
           }
 
           .team-analytics-legend-item {

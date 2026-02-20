@@ -123,7 +123,7 @@ STEPS = [
         "cwd": str(WORKER_DIR),
         "outputs": [DATA_DIR / "portfolio_items.json"],
         "optional": True,
-        "timeout": 60 * 60,  # 60 min — Gemini Flash free tier is slow on structured output
+        "timeout": 30 * 60,  # 30 min — capped at 15 calls in --pipeline mode (~20 min typical)
         "retry_on_partial": True,
         "max_retries": 2,
     },
@@ -359,6 +359,38 @@ def _portfolio_enrichment_status() -> dict | None:
         return None
 
 
+def _signal_to_portfolio_status() -> dict | None:
+    """Check how many deal/exit signals still need portfolio conversion."""
+    enriched_path = DATA_DIR / "detected_signals_enriched.json"
+    progress_path = DATA_DIR / "signal_to_portfolio_progress.json"
+    if not enriched_path.exists():
+        return None
+    try:
+        with open(enriched_path) as f:
+            enriched = json.load(f)
+        signals = enriched.get("signals", [])
+        deal_types = {"deal_announced", "exit_announced"}
+        deal_signals = [
+            s for s in signals
+            if s.get("signal_type") in deal_types
+            and s.get("fund_slug") and s.get("id")
+            and (s.get("quality_score", 0) or 0) >= 60
+        ]
+        processed_ids = set()
+        if progress_path.exists():
+            with open(progress_path) as f:
+                progress = json.load(f)
+            processed_ids = set(progress.get("processed_signal_ids", []))
+        remaining = [s for s in deal_signals if s["id"] not in processed_ids]
+        return {
+            "total_signals": len(deal_signals),
+            "processed": len(deal_signals) - len(remaining),
+            "remaining": len(remaining),
+        }
+    except Exception:
+        return None
+
+
 def _suggest_reruns(report: dict | None) -> list[tuple[str, str]]:
     """Generate actionable re-run commands based on pipeline state."""
     suggestions: list[tuple[str, str]] = []
@@ -434,6 +466,14 @@ def _send_pipeline_alert(
     if portfolio_status and portfolio_status["remaining_entries"] > 0:
         remaining_work.append(
             f"Portfolio enrichment: {portfolio_status['remaining_entries']} entries remaining"
+        )
+
+    # Check signal-to-portfolio remaining work
+    stp_status = _signal_to_portfolio_status()
+    if stp_status and stp_status["remaining"] > 0:
+        remaining_work.append(
+            f"Signal→Portfolio: {stp_status['remaining']} signals remaining "
+            f"({stp_status['processed']}/{stp_status['total_signals']} done)"
         )
 
     if report:
@@ -761,6 +801,14 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
                 else:
                     print(f"  Signal enrichment: COMPLETE")
 
+            stp_status = _signal_to_portfolio_status()
+            if stp_status:
+                if stp_status["remaining"] > 0:
+                    print(f"  Signal→Portfolio: {stp_status['remaining']} signals remaining "
+                          f"({stp_status['processed']}/{stp_status['total_signals']} done)")
+                else:
+                    print(f"  Signal→Portfolio: COMPLETE")
+
             if retry_log:
                 print(f"  Auto-retries used: {', '.join(f'{k}={v}' for k, v in retry_log.items())}")
             else:
@@ -769,6 +817,7 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
             has_remaining = (
                 (portfolio_status and portfolio_status.get("remaining_entries", 0) > 0)
                 or (report and (report.get("enriched", {}).get("llm_keep_counts") or {}).get("none", 0) > 0)
+                or (stp_status and stp_status.get("remaining", 0) > 0)
             )
             if has_remaining:
                 print(f"  Pipeline: has remaining work (re-run to continue)")
