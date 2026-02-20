@@ -5,7 +5,7 @@
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
       "signal_type": "deal_announced",
-      "title": "Wise Equity entra nel capitale di Marullo per accompagnarne la crescita",
+      "title": "Wise Equity enters Marullo's capital to accompany its growth",
       "what_changed": "",
       "source_url": "https://www.wisesgr.com/web/content/458/15-12-2025_Comunicato-Stampa_WISE-Equity_Marullo_v-ITA_DEF.pdf",
       "source_name": "Wise Equity SGR",
@@ -38,14 +38,15 @@
       "quality_score": 100,
       "evidence_score": 4,
       "quality_confidence": "high",
-      "confidence_score": 0.92
+      "confidence_score": 0.92,
+      "title_original": "Wise Equity entra nel capitale di Marullo per accompagnarne la crescita"
     },
     {
       "id": "web-signal-01714",
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
       "signal_type": "deal_announced",
-      "title": "NTC sostenuta da Wise Equity, completa l\u2019acquisizione del Business oftalmico di Pharmathen",
+      "title": "NTC backed by Wise Equity, completes acquisition of Pharmathen's Ophthalmic Business",
       "what_changed": "",
       "source_url": "https://www.wisesgr.com/web/content/457/20251210_CS_WE-NTC-Pharmathen_ITA_vF.pdf",
       "source_name": "Wise Equity SGR",
@@ -78,14 +79,15 @@
       "quality_score": 100,
       "evidence_score": 4,
       "quality_confidence": "high",
-      "confidence_score": 0.92
+      "confidence_score": 0.92,
+      "title_original": "NTC sostenuta da Wise Equity, completa l\u2019acquisizione del Business oftalmico di Pharmathen"
     },
     {
       "id": "web-signal-01716",
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
       "signal_type": "deal_announced",
-      "title": "Wise Equity e Casa della Piada , puntano sulla pinsa con l\u2019acquisizione di Pizze Vincenti",
+      "title": "Wise Equity and Casa della Piada , bet on pinsa with acquisition of Pizze Vincenti",
       "what_changed": "",
       "source_url": "https://www.wisesgr.com/web/content/455/            24.07.2025_Comunicato-stampa-Wise-Equity_Casa-della-Piada_Pizze-Vincenti-vf-ITA.pdf",
       "source_name": "Wise Equity SGR",
@@ -119,14 +121,15 @@
       "quality_score": 100,
       "evidence_score": 4,
       "quality_confidence": "high",
-      "confidence_score": 0.92
+      "confidence_score": 0.92,
+      "title_original": "Wise Equity e Casa della Piada , puntano sulla pinsa con l\u2019acquisizione di Pizze Vincenti"
     },
     {
       "id": "web-signal-01718",
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
       "signal_type": "deal_announced",
-      "title": "Special Flanges acquisisce il 100% di Vilmar",
+      "title": "Special Flanges acquires 100 percent of Vilmar",
       "what_changed": "",
       "source_url": "https://www.wisesgr.com/web/content/453/            SPECIAL-FLANGES-ACQUISISCE-IL-100-DI-VILMAR-AZIENDA-LEADER-NELLA-PRODUZIONE-DI-SISTEMI-INGEGNERIZZATI-PER-APPLICAZIONI-INDUSTRIALI-CRITICHE-DA-INVESTITORI-FRANCESI.pdf",
       "source_name": "Wise Equity SGR",
@@ -159,14 +162,15 @@
       "quality_score": 100,
       "evidence_score": 4,
       "quality_confidence": "high",
-      "confidence_score": 0.92
+      "confidence_score": 0.92,
+      "title_original": "Special Flanges acquisisce il 100% di Vilmar"
     },
     {
       "id": "web-signal-01722",
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
       "signal_type": "exit_announced",
-      "title": "Wise Equity e Aks\u00eca annunciano la sigla di un accordo per la cessione di Casa della Piada",
+      "title": "Wise Equity and Aks\u00eca announce the signing of an agreement to sell Casa della Piada",
       "what_changed": "",
       "source_url": "https://www.wisesgr.com/web/content/449/            WISE-EQUITY-E-AKSIA-ANNUNCIANO-LA-SIGLA-DI-UN-ACCORDO-PER-LA-CESSIONE-DI-CASA-DELLA-PIADA.pdf",
       "source_name": "Wise Equity SGR",
@@ -199,7 +203,8 @@
       "quality_score": 100,
       "evidence_score": 4,
       "quality_confidence": "high",
-      "confidence_score": 0.92
+      "confidence_score": 0.92,
+      "title_original": "Wise Equity e Aks\u00eca annunciano la sigla di un accordo per la cessione di Casa della Piada"
     },
     {
       "id": "web-signal-01699",
@@ -15965,7 +15970,7 @@
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
       "signal_type": "exit_announced",
-      "title": "Il Fondo Wisequity IV cede a NEVERHACK la partecipata Innovery",
+      "title": "Wisequity IV Fund Sells Innovery Investee to NEVERHACK",
       "what_changed": "",
       "source_url": "https://www.wisesgr.com/web/content/451/Il-Fondo-Wisequity-IV-cede-a-NEVERHACK.pdf",
       "source_name": "Wise Equity SGR",
@@ -15998,7 +16003,8 @@
       "quality_score": 93,
       "evidence_score": 2,
       "quality_confidence": "medium",
-      "confidence_score": 0.682
+      "confidence_score": 0.682,
+      "title_original": "Il Fondo Wisequity IV cede a NEVERHACK la partecipata Innovery"
     },
     {
       "id": "web-signal-01257",
@@ -17698,7 +17704,7 @@
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
       "signal_type": "partnership",
-      "title": "MEP rafforza la partnership con Promostar",
+      "title": "MEP strengthens partnership with Promostar",
       "what_changed": "",
       "source_url": "https://www.wisesgr.com/web/content/452/MEP-rafforza-la-pertnership-con-Promostar.pdf",
       "source_name": "Wise Equity SGR",
@@ -17729,7 +17735,8 @@
       "quality_score": 86,
       "evidence_score": 1,
       "quality_confidence": "low",
-      "confidence_score": 0.474
+      "confidence_score": 0.474,
+      "title_original": "MEP rafforza la partnership con Promostar"
     },
     {
       "id": "web-signal-01662",
@@ -18215,7 +18222,7 @@
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
       "signal_type": "portfolio_update",
-      "title": "Wise Equity raddoppia nell\u2019agricoltura sostenibile, tramite la sua partecipata Greenexta , con l\u2019acquisizione di Alba Milagro",
+      "title": "Wise Equity doubles down on sustainable agriculture, through its investee Greenexta , with the acquisition of Alba Milagro",
       "what_changed": "",
       "source_url": "https://www.wisesgr.com/web/content/456/250731_Comunicato-stampa-Alba-Milagro_vSito-ITA.pdf",
       "source_name": "Wise Equity SGR",
@@ -18249,14 +18256,15 @@
       "quality_score": 85,
       "evidence_score": 3,
       "quality_confidence": "high",
-      "confidence_score": 0.73
+      "confidence_score": 0.73,
+      "title_original": "Wise Equity raddoppia nell\u2019agricoltura sostenibile, tramite la sua partecipata Greenexta , con l\u2019acquisizione di Alba Milagro"
     },
     {
       "id": "web-signal-01717",
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
       "signal_type": "portfolio_update",
-      "title": "Almac , partecipata da Wise Equity, ed EASY LIFT insieme per la crescita",
+      "title": "Almac , an investee of Wise Equity, and EASY LIFT together for growth",
       "what_changed": "",
       "source_url": "https://www.wisesgr.com/web/content/454/250715-Almac-Easy-Final.pdf",
       "source_name": "Wise Equity SGR",
@@ -18289,7 +18297,8 @@
       "quality_score": 85,
       "evidence_score": 2,
       "quality_confidence": "medium",
-      "confidence_score": 0.6
+      "confidence_score": 0.6,
+      "title_original": "Almac , partecipata da Wise Equity, ed EASY LIFT insieme per la crescita"
     },
     {
       "id": "rss-signal-00123",
@@ -19369,5 +19378,6 @@
       "medium": 165,
       "low": 13
     }
-  }
+  },
+  "translations_synced_at": "2026-02-20T09:59:21.054388+00:00"
 }

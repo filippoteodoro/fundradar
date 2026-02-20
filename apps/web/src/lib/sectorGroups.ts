@@ -160,6 +160,8 @@ const SECTOR_TAG_ALIASES: Record<string, string> = {
   'infrastructure aviation': 'Transportation & Logistics',
   'infrastructure maritime': 'Transportation & Logistics',
   'aviation mro': 'Transportation & Logistics',
+  'digital enabler': 'Technology',
+  'industry 4 0': 'Industrial Manufacturing',
 };
 
 function includesAny(text: string, words: string[]): boolean {
