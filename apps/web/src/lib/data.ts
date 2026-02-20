@@ -406,6 +406,8 @@ export function getSignalsForFund(fundSlug: string): Signal[] {
       );
       return {
         ...s,
+        // NOTE: related_fund_names is not populated here (only slugs). Harmless while
+        // showFundLink=false on /funds/[slug] signal cards (L4 audit note).
         related_fund_slugs: related.length ? related : (s.fund_slug ? [s.fund_slug] : []),
       } as Signal;
     })

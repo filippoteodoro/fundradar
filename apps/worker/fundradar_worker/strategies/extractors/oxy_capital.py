@@ -231,67 +231,9 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     if parsed_json:
         return parsed_json
 
-    # Try WordPress REST API first
-    try:
-        import requests
-        api_url = "https://oxycapital.com/wp-json/wp/v2/posts"
-        params = {"per_page": 20, "orderby": "date", "order": "desc"}
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-        }
-
-        response = requests.get(api_url, params=params, headers=headers, timeout=10)
-        if response.status_code == 200:
-            posts = response.json()
-
-            for post in posts:
-                title_obj = post.get("title", {})
-                title = title_obj.get("rendered", "") if isinstance(title_obj, dict) else str(title_obj)
-
-                # Clean HTML entities from title
-                from html import unescape
-                title = unescape(title)
-                title = re.sub(r"<[^>]+>", "", title).strip()
-
-                if not title or len(title) < 10:
-                    continue
-
-                url = post.get("link", "")
-                if not url or url in seen_urls:
-                    continue
-                seen_urls.add(url)
-
-                # Parse date from ISO format
-                date_str = post.get("date", "")
-                date = None
-                if date_str:
-                    try:
-                        dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
-                        date = dt.strftime("%Y-%m-%d")
-                    except:
-                        pass
-
-                # Get excerpt/summary
-                excerpt_obj = post.get("excerpt", {})
-                excerpt = excerpt_obj.get("rendered", "") if isinstance(excerpt_obj, dict) else str(excerpt_obj)
-                summary = None
-                if excerpt:
-                    summary = re.sub(r"<[^>]+>", "", unescape(excerpt)).strip()
-                    if len(summary) > 200:
-                        summary = summary[:200] + "..."
-
-                news.append({
-                    "title": title,
-                    "url": url,
-                    "date": date,
-                    "summary": summary,
-                    "confidence": 0.90,
-                })
-
-            return news
-    except Exception:
-        # Fall through to HTML parsing if API fails
-        pass
+    # The monitor fetches the WP API URL via URLS["news"] and passes the response
+    # to _parse_wp_posts_json() above. No standalone requests.get() fallback needed —
+    # bypassing the monitor's rate limiter/circuit breaker causes reliability issues (M3 audit fix).
 
     # Fallback: try to extract from individual post page HTML using JSON-LD
     soup = BeautifulSoup(html, "html.parser")

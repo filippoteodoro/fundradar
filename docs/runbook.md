@@ -223,7 +223,7 @@ Current extractor-routed blocked funds:
 - `capital-dynamics-sgr` (news via scoped RSS fallback)
 - `carlyle`
 - `oxy-capital`
-- `sagitta-sgr`
+- `sagitta-sgr` (news via direct newsroom URL `/en/newsroom/`, not RSS)
 
 ### Actionable Signal Dropped by Filter
 

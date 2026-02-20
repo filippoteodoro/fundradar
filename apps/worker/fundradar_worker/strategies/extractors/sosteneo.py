@@ -10,7 +10,7 @@ DOMAIN = "www.sosteneo.com"
 # URL paths — verified against live site
 URLS = {
     "portfolio": "/projects",
-    "team": None,
+    "team": None,  # TODO: enable when Sosteneo adds public team/news pages
     "news": None,
 }
 def extract_team(html: str, base_url: str) -> list[dict]:

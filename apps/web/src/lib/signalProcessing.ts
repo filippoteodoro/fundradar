@@ -294,6 +294,9 @@ export function isGarbageSignal(signal: Signal, knownFundNames?: Set<string>): b
     if (/\(\+\d+ more\)/.test(title)) return true;
     // Non-senior roles: filter out administrative/support staff — not actionable signals
     // Only check single-person additions (the ones that survive the baseline filter above)
+    // NOTE: `front office` is approximate for Italian PE — in Italian finance it can
+    // refer to client-facing investment roles, not just admin. Acceptable trade-off
+    // since most TEAM page "front office" entries are administrative (L1 audit note).
     const NON_SENIOR_ROLES = /\b(?:intern|stagist[ae]|tirocinant[ei]|account(?:ant|ing)|contabil|secretary|segretari[ao]|receptionist|administrative|amministrativ[ao]|assistant[ei]?|office\s+manager|hr\s+(?:specialist|assistant|coordinator)|human\s+resources\s+(?:specialist|assistant)|it\s+support|data\s+entry|back\s+office|front\s+office)\b/i;
     if (NON_SENIOR_ROLES.test(wc)) return true;
   }
@@ -501,7 +504,7 @@ export function cleanSignalText(text: string): string {
   cleaned = cleaned.replace(/\boltre\b/gi, 'over');
   cleaned = cleaned.replace(/\bcirca\b/gi, '~');
   cleaned = cleaned.replace(/(\d[\d.,]*)\s*milion[ei]\s+(?:di\s+)?euro/gi, (_, n) => `€${n.replace(',', '.')}M`);
-  cleaned = cleaned.replace(/(\d[\d.,]*)\s*miliard[ei]\s+(?:di\s+)?euro/gi, (_, n) => `€${n.replace(',', '.')}M`);
+  cleaned = cleaned.replace(/(\d[\d.,]*)\s*miliard[ei]\s+(?:di\s+)?euro/gi, (_, n) => `€${n.replace(',', '.')}B`);
   cleaned = cleaned.replace(/(\d[\d.,]*)\s*mln\s+(?:di\s+)?euros?/gi, (_, n) => `€${n.replace(',', '.')}M`);
   cleaned = cleaned.replace(/(\d[\d.,]*)\s*mld\s+(?:di\s+)?euros?/gi, (_, n) => `€${n.replace(',', '.')}B`);
   cleaned = cleaned.replace(/€\s+(\d)/g, '€$1');
@@ -632,18 +635,9 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
     }
   }
 
-  // Accelerator/program launch → fund_launch (strategic initiative launch)
-  // SAFETY NET: Check this after portfolio company check but before other demotions
-  if (/(?:\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?|new|al\s+via)\b.*\b(?:accelerat\w*|polo|programma|hub)\b|\b(?:accelerat\w*|polo|programma|hub)\b.*\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?)\b)/i.test(text)) {
-    // If it's also launching a fund vehicle, it's fund_launch
-    if (/\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?|new)\b.*\b(?:fondo|fund|comparto|veicolo|vehicle)\b/i.test(text) ||
-        /\b(?:fund|fondo)\s+(?:i{1,3}|iv|v|vi{1,3}|ix|x|\d+)\b/i.test(text) ||
-        /\b(?:new\s+fund|nuovo\s+fondo|fund\s+formation|vehicle\s+launch|fund\s+(?:launch|inception|creation))\b/i.test(text)) {
-      return 'fund_launch';
-    }
-    // Pure accelerator/program launch without fund vehicle → fund_launch
-    return 'fund_launch';
-  }
+  // Accelerator/program launches: Python classifies as `other` (filter_signals.py:1311).
+  // The TS safety net at lines 754-761 demotes fund_launch→other for accelerators.
+  // Do NOT re-promote here — that would override the primary Python gate (M1 audit fix).
 
   // Italian ownership + bolt-on patterns → portfolio_update
   if (signal.signal_type === 'deal_announced' || signal.signal_type === 'other' || signal.signal_type === 'partnership') {

@@ -185,6 +185,14 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
         onToggleFilters={() => setShowFilters(!showFilters)}
         filterPanel={
           <FilterPanel>
+            <FilterChips
+              items={statusChipItems}
+              activeValue={statusFilter}
+              onSelect={(v) => { setStatusFilter(v as typeof statusFilter); setPage(0); }}
+              allLabel="All"
+              allCount={allStatusCount}
+              rowLabel="Status"
+            />
             <FilterDropdown
               label="Sector"
               value={sectorGroupFilter}
@@ -214,35 +222,7 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
             </div>
           </FilterPanel>
         }
-      >
-        <FilterChips
-          items={statusChipItems}
-          activeValue={statusFilter}
-          onSelect={(v) => { setStatusFilter(v as typeof statusFilter); setPage(0); }}
-          allLabel="All"
-          allCount={allStatusCount}
-          rowLabel="Status"
-        />
-      </FilterBar>
-
-      {/* Italy filter note */}
-      {countryFilter === 'italy' && sortedCompanies.length < companies.length && (
-        <p style={{ fontSize: '12px', color: '#888', margin: '-12px 0 12px 0' }}>
-          Filtered to Italy ({sortedCompanies.length} of {companies.length} companies).{' '}
-          <button
-            onClick={() => { setCountryFilter('all'); setPage(0); }}
-            style={{ background: 'none', border: 'none', color: '#1976d2', cursor: 'pointer', padding: 0, fontSize: '12px' }}
-          >
-            Show all countries
-          </button>
-        </p>
-      )}
-
-      {/* Results count */}
-      <p style={{ fontSize: '13px', color: '#888', margin: '0 0 12px 0' }}>
-        {sortedCompanies.length} companies
-        {(activeFilterCount > 0 || search.trim()) && sortedCompanies.length !== companies.length ? ` (of ${companies.length} total)` : ''}
-      </p>
+      />
 
       {/* Table */}
       <div style={{ ...CARD_STYLE, padding: CARD_PADDING }}>

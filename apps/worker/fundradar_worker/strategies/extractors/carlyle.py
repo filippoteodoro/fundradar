@@ -246,6 +246,7 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
     legacy_mode = (
         base_url.startswith(PORTFOLIO_BASE)
         or parsed.path.rstrip("/") == "/portfolio"
+        or parsed.path.rstrip("/") == "/our-business/portfolio-of-investments"
     )
     if not legacy_mode:
         return companies

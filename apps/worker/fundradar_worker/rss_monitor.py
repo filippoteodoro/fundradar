@@ -550,6 +550,9 @@ def articles_to_signals(
             is_rumor = classification.get("is_rumor", False)
             summary = classification.get("summary", article["title"])
 
+            # NOTE: rss_monitor is the only producer of `related_fund_slugs`.
+            # monitor.py signals don't write this field — the web layer re-derives
+            # tags from text via signalFundTags.ts for those signals.
             signal = {
                 "id": f"rss-signal-{counter:05d}",
                 "fund_id": "",
@@ -608,7 +611,11 @@ def merge_into_signals(new_signals: list[dict]) -> int:
 
     existing_signals = existing_data.get("signals", [])
 
-    # Build set of existing source URLs + fund_slug for dedup
+    # Build set of existing source URLs + fund_slug for dedup.
+    # NOTE: Dedup key is source_url::fund_slug, so re-running RSS on an article
+    # already in detected_signals.json will skip it — stale `related_fund_slugs`
+    # on existing entries won't be updated. A full pipeline re-run from scratch
+    # is needed to refresh all tags.
     existing_keys: set[str] = set()
     for s in existing_signals:
         url = s.get("source_url", "")

@@ -40,8 +40,8 @@ export function HeaderNav() {
       {/* Desktop nav links */}
       <nav className="header-nav-desktop" style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
         <Link href="/" style={linkStyle}>Funds</Link>
-        <Link href="/companies" style={linkStyle}>Companies</Link>
         <Link href="/signals" style={linkStyle}>Signals</Link>
+        <Link href="/companies" style={linkStyle}>Companies</Link>
         <Link href="/map" style={linkStyle}>Map</Link>
         <Link href="/about" style={linkStyle}>About</Link>
         <Link href="/about#contact" style={linkStyle}>Contact</Link>
@@ -90,8 +90,8 @@ export function HeaderNav() {
             }}
           >
             <Link href="/" style={{ ...linkStyle, fontSize: '15px', padding: '4px 0' }} onClick={() => setOpen(false)}>Funds</Link>
-            <Link href="/companies" style={{ ...linkStyle, fontSize: '15px', padding: '4px 0' }} onClick={() => setOpen(false)}>Companies</Link>
             <Link href="/signals" style={{ ...linkStyle, fontSize: '15px', padding: '4px 0' }} onClick={() => setOpen(false)}>Signals</Link>
+            <Link href="/companies" style={{ ...linkStyle, fontSize: '15px', padding: '4px 0' }} onClick={() => setOpen(false)}>Companies</Link>
             <Link href="/map" style={{ ...linkStyle, fontSize: '15px', padding: '4px 0' }} onClick={() => setOpen(false)}>Map</Link>
             <Link href="/about" style={{ ...linkStyle, fontSize: '15px', padding: '4px 0' }} onClick={() => setOpen(false)}>About</Link>
             <Link href="/about#contact" style={{ ...linkStyle, fontSize: '15px', padding: '4px 0' }} onClick={() => setOpen(false)}>Contact</Link>
