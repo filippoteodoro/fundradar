@@ -127,6 +127,12 @@ GARBAGE_PATTERNS = [
         r"\bpremio\b",
         r"\baward\b",
         r"news list update",
+        # Award-style titles with no deal content: "Best Spanish LBO Fund", "Best PE House"
+        r"^best\s+[\w\s]{1,35}\s+(?:fund|lbo|pe|vc)\b",
+        # HAT SICAF / HAT SGR extractor artifact
+        r"\bfeatured news press review\b",
+        # LinkedIn newsletter navigation artifacts: "Title | Deals com Person Name"
+        r"\|\s*deals?\s+com\s+\w",
     ]
 ]
 
@@ -4154,7 +4160,14 @@ def main():
             # e.g. "Al via la fusione tra Smart Capital, Crowd Fund Me" — "al via" + "Fund" = false match
             if not re.search(r"\b(?:fusion[ei]|merger|fonde|si\s+fondono)\b", title_for_fl):
                 has_launch_verb_and_fund = bool(_RE_FUND_LAUNCH_STRICT.search(title_for_fl))
-                if has_launch_verb_and_fund:
+                # Guard: don't promote if title also has acquisition/exit verbs.
+                # e.g. "Armònia Italy Fund II acquisisce PSH" — "Fund II" matches strict
+                # pattern but "acquisisce" is a deal verb, not a fund launch verb.
+                if (
+                    has_launch_verb_and_fund
+                    and not _matches_any(DEAL_CLASSIFY_PATTERNS, title_for_fl)
+                    and not _matches_any(EXIT_CLASSIFY_PATTERNS, title_for_fl)
+                ):
                     signal["signal_type"] = "fund_launch"
 
         # Post-ML correction: fundraise that is actually a company round → deal_announced

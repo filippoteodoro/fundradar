@@ -6,7 +6,6 @@ import {
   getSignalsForFund,
   getPortfolioForFund,
   getPortfolioNote,
-  getSignalNote,
   getTeamAnalyticsForFund,
   isManualLinkedinProfileFund,
   getSortedOffices,
@@ -494,22 +493,11 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
       )}
 
       {/* Signals Section */}
-      <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>Signals ({signals.length})</h2>
-      {signals.length === 0 ? (
-        <div
-          style={{
-            background: '#f8f9fa',
-            padding: '24px',
-            borderRadius: '12px',
-            border: '1px solid #e9ecef',
-          }}
-        >
-          <p style={{ margin: 0, color: '#6c757d', fontSize: '14px' }}>
-            {getSignalNote(slug) || 'No signals recorded yet.'}
-          </p>
-        </div>
-      ) : (
-        <SignalsCompact signals={signals} />
+      {signals.length > 0 && (
+        <>
+          <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>Signals ({signals.length})</h2>
+          <SignalsCompact signals={signals} />
+        </>
       )}
     </div>
   );

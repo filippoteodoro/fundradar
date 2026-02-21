@@ -121,11 +121,37 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
   const pageIndex = Math.min(page, Math.max(0, totalPages - 1));
   const paginatedCompanies = sortedCompanies.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize);
 
-  // Build sector group dropdown options
-  const sectorGroupOptions = SECTOR_GROUPS.map(g => ({
-    value: g.name,
-    label: g.name,
-  }));
+  // Build sector dropdown counts/options based on search + status + country filters (excluding sector filter)
+  const { allSectorCount, sectorGroupOptions } = useMemo(() => {
+    const searchLower = search.toLowerCase().trim();
+    const baseFiltered = companies.filter(c => {
+      if (searchLower && !c.name.toLowerCase().includes(searchLower)) return false;
+      if (statusFilter !== 'all') {
+        const status = getCompanyStatus(c);
+        if (statusFilter === 'current' && status !== 'current') return false;
+        if (statusFilter === 'exited' && status !== 'exited') return false;
+      }
+      if (countryFilter === 'italy') {
+        if (!isItalianCompany({ headquarters: c.headquarters })) return false;
+      }
+      return true;
+    });
+
+    const counts = new Map<string, number>();
+    for (const c of baseFiltered) {
+      const group = getSectorGroup(c.sector);
+      if (!group) continue;
+      counts.set(group, (counts.get(group) ?? 0) + 1);
+    }
+
+    return {
+      allSectorCount: baseFiltered.length,
+      sectorGroupOptions: SECTOR_GROUPS.map((group) => ({
+        value: group.name,
+        label: `${group.name} (${counts.get(group.name) ?? 0})`,
+      })),
+    };
+  }, [companies, search, statusFilter, countryFilter]);
 
   // Build status dropdown counts/options based on search + sector + country filters (excluding status filter)
   const { allStatusCount, statusDropdownOptions } = useMemo(() => {
@@ -159,7 +185,7 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
     };
   }, [companies, search, sectorGroupFilter, countryFilter]);
 
-  // Build country chips with counts based on search + sector + status filters (excluding country filter)
+  // Build country chips with counts based on currently active filters.
   const { allCountryCount, countryChipItems } = useMemo(() => {
     const searchLower = search.toLowerCase().trim();
     const baseFiltered = companies.filter(c => {
@@ -173,6 +199,9 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
         if (statusFilter === 'current' && status !== 'current') return false;
         if (statusFilter === 'exited' && status !== 'exited') return false;
       }
+      if (countryFilter === 'italy') {
+        if (!isItalianCompany({ headquarters: c.headquarters })) return false;
+      }
       return true;
     });
 
@@ -184,7 +213,7 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
       allCountryCount: baseFiltered.length,
       countryChipItems: [{ value: 'italy', label: 'Italy', count: italyCount }],
     };
-  }, [companies, search, sectorGroupFilter, statusFilter]);
+  }, [companies, search, sectorGroupFilter, statusFilter, countryFilter]);
 
   return (
     <>
@@ -209,7 +238,7 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
               label="Sector"
               value={sectorGroupFilter}
               options={sectorGroupOptions}
-              allLabel="All Sectors"
+              allLabel={`All Sectors (${allSectorCount})`}
               onChange={(v) => { setSectorGroupFilter(v); setPage(0); }}
             />
           </FilterPanel>

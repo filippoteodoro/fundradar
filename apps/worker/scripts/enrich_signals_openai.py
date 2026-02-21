@@ -40,6 +40,11 @@ except Exception:  # optional ML dependency
     get_signal_classifier = None
     map_type_to_signal_type = None
 
+from filter_signals import (
+    _matches_any,
+    DEAL_CLASSIFY_PATTERNS,
+    EXIT_CLASSIFY_PATTERNS,
+)
 from signal_patterns import (
     BULK_TEAM_EXTRACTION_THRESHOLD,
     GENERIC_PORTFOLIO_NAME_TOKENS,
@@ -748,7 +753,13 @@ def _apply_post_type_corrections(signal: dict) -> None:
         title_for_fl = (signal.get("title") or "").lower()
         # Don't promote mergers/fusions back to fund_launch
         if not re.search(r"\b(?:fusion[ei]|merger|fonde|si\s+fondono)\b", title_for_fl):
-            if _RE_FUND_LAUNCH_STRICT.search(title_for_fl):
+            # Guard: don't promote if title has deal/exit verbs — "Fund II" in fund name
+            # (e.g. "Armònia Italy Fund II acquisisce PSH") must NOT become fund_launch
+            if (
+                _RE_FUND_LAUNCH_STRICT.search(title_for_fl)
+                and not _matches_any(DEAL_CLASSIFY_PATTERNS, title_for_fl)
+                and not _matches_any(EXIT_CLASSIFY_PATTERNS, title_for_fl)
+            ):
                 signal["signal_type"] = "fund_launch"
 
     # exit_announced corrections: acquisition without exit verbs → deal
@@ -2186,25 +2197,34 @@ def _translate_text_with_openai(client: OpenAI, text: str) -> str:
         "Return only the translated text — no quotes, no explanation.\n\n"
         f"{text}"
     )
-    resp = client.chat.completions.create(
-        model=MODEL,
-        messages=[
-            {"role": "system", "content": "You are a precise financial translator. Return only the translated text."},
-            {"role": "user", "content": prompt},
-        ],
-        max_completion_tokens=350,
-    )
-    out = ((resp.choices[0].message.content or "").strip() if resp.choices else "").strip()
-    if out.startswith("```"):
-        out = out.strip("`").replace("text", "", 1).strip()
-    return _clean_summary_text(out)
+    max_completion_tokens = 512
+    for attempt in range(2):
+        try:
+            resp = client.chat.completions.create(
+                model=MODEL,
+                messages=[
+                    {"role": "system", "content": "You are a precise financial translator. Return only the translated text."},
+                    {"role": "user", "content": prompt},
+                ],
+                max_completion_tokens=max_completion_tokens,
+            )
+            out = ((resp.choices[0].message.content or "").strip() if resp.choices else "").strip()
+            if out.startswith("```"):
+                out = out.strip("`").replace("text", "", 1).strip()
+            return _clean_summary_text(out)
+        except Exception as e:
+            err_text = str(e).lower()
+            if ("max_tokens" in err_text or "output limit" in err_text or "maxtokens" in err_text) and attempt == 0:
+                max_completion_tokens = 1024
+                continue
+            raise
+    return ""
 
 
 def _translate_batch_with_openai(client: OpenAI, texts: list[str]) -> list[str]:
     """Translate a batch of non-English PE/VC texts to English in a single API call.
 
-    Returns translated texts in the same order. Falls back to empty string on failure.
-    Much more efficient than calling _translate_text_with_openai() for each text separately.
+    Returns translated texts in the same order. Falls back to individual translations on failure.
     """
     if not texts:
         return []
@@ -2217,23 +2237,31 @@ def _translate_batch_with_openai(client: OpenAI, texts: list[str]) -> list[str]:
         "Return a JSON array of translated strings in the same order.\n\n"
         f"{numbered}"
     )
-    try:
-        resp = client.chat.completions.create(
-            model=MODEL,
-            messages=[
-                {"role": "system", "content": "You are a precise financial translator. Return only a JSON array of translated strings."},
-                {"role": "user", "content": prompt},
-            ],
-            max_completion_tokens=1500,
-        )
-        raw = (resp.choices[0].message.content or "").strip() if resp.choices else ""
-        if raw.startswith("```"):
-            raw = raw.strip("`").lstrip("json").strip()
-        result = _json.loads(raw)
-        if isinstance(result, list) and len(result) == len(texts):
-            return [_clean_summary_text(str(r)) for r in result]
-    except Exception as e:
-        _record_error(f"Batch OpenAI translation error: {e}")
+    max_completion_tokens = 2000
+    for attempt in range(2):
+        try:
+            resp = client.chat.completions.create(
+                model=MODEL,
+                messages=[
+                    {"role": "system", "content": "You are a precise financial translator. Return only a JSON array of translated strings."},
+                    {"role": "user", "content": prompt},
+                ],
+                max_completion_tokens=max_completion_tokens,
+            )
+            raw = (resp.choices[0].message.content or "").strip() if resp.choices else ""
+            if raw.startswith("```"):
+                raw = raw.strip("`").lstrip("json").strip()
+            result = _json.loads(raw)
+            if isinstance(result, list) and len(result) == len(texts):
+                return [_clean_summary_text(str(r)) for r in result]
+        except Exception as e:
+            err_text = str(e).lower()
+            if ("max_tokens" in err_text or "output limit" in err_text or "maxtokens" in err_text) and attempt == 0:
+                max_completion_tokens = 4000
+                print(f"  Translation batch output limit, retrying with higher tokens...")
+                continue
+            print(f"  Translation batch error (OpenAI): {e}")
+            break
     # Fall back to individual translations
     return [_translate_text_with_openai(client, t) for t in texts]
 
@@ -2304,8 +2332,8 @@ def _translate_italian_signals(signals: list[dict]) -> dict[str, Any]:
     translated_fields = 0
     unresolved: list[tuple[dict, str, str, str]] = []
 
-    # Batched OpenAI translation — 10 fields per call (efficient, handles any source language)
-    BATCH_SIZE = 10
+    # Batched OpenAI translation — 5 fields per call (reduced to avoid max_tokens hits)
+    BATCH_SIZE = 5
     for i in range(0, len(to_translate), BATCH_SIZE):
         batch = to_translate[i : i + BATCH_SIZE]
         texts = [item[3] for item in batch]
@@ -2557,10 +2585,17 @@ def main(slugs_filter: str | None = None):
         print(f"Loaded {len(all_signals)} signals from {signals_path.name}")
 
     def _persist_identity(signal: dict) -> str:
+        # Use signal ID as primary key — it's unique per signal even when the
+        # same source article is matched to multiple funds (RSS dedup case).
+        # Falling back to signal_key (source_url+title+date) is unsafe because
+        # RSS articles matched to N funds share the same key, causing N-1 drops.
+        signal_id = signal.get("id") or ""
+        if signal_id:
+            return f"id::{signal_id}"
         key = _signal_key(signal)
         if key:
             return f"key::{key}"
-        return f"id::{signal.get('id', '')}"
+        return f"id::"
 
     def _merge_output_signals(processed_signals: list[dict]) -> list[dict]:
         """Merge slug-scoped enrich output with existing enriched data.
@@ -2674,18 +2709,24 @@ def main(slugs_filter: str | None = None):
                 if prev.get(field) is not None and signal.get(field) is None:
                     signal[field] = prev.get(field)
 
-        # Clear stale enriched_summary that just restates the title — force LLM re-enrichment
+        # Clear stale enriched_summary that just restates the title — force LLM re-enrichment.
+        # Only clear when there's extra context (what_changed) available that the LLM can use
+        # to generate a better summary. Without what_changed, forcing re-enrichment achieves
+        # nothing — the LLM also only has the title and will return the same title-copy summary.
+        _has_what_changed = bool((signal.get("what_changed") or "").strip())
         _es = (signal.get("enriched_summary") or "").strip().rstrip(".")
         _ti = (signal.get("title") or "").strip().rstrip(".")
-        if _es and _ti:
+        if _es and _ti and _has_what_changed:
             _es_words = set(re.findall(r"\w{3,}", _es.lower()))
             _ti_words = set(re.findall(r"\w{3,}", _ti.lower()))
             if _ti_words and _es_words:
                 _overlap = len(_es_words & _ti_words) / min(len(_es_words), len(_ti_words))
                 if _overlap >= 0.7 and len(_es_words) < 25:
                     signal["enriched_summary"] = None
-                    # Also clear stale llm_keep so the signal gets re-evaluated
-                    if signal.get("llm_keep_source") in {"local", "local_fallback"}:
+                    # Also clear stale llm_keep so the signal gets re-evaluated.
+                    # Include "llm" source: LLM sometimes returns the title verbatim as
+                    # summary — we need to force a fresh LLM call, not skip the signal.
+                    if signal.get("llm_keep_source") in {"local", "local_fallback", "llm"}:
                         for _k in ("llm_keep", "llm_keep_reason", "llm_keep_confidence",
                                    "llm_keep_source", "llm_keep_version"):
                             signal.pop(_k, None)
@@ -2723,7 +2764,12 @@ def main(slugs_filter: str | None = None):
                     )
 
                 _apply_post_type_corrections(signal)
-                if signal.get("signal_type") == "other" and _filtered_signal_type and _filtered_signal_type != "other":
+                # Filter is authoritative: don't let enricher demote to "other" or
+                # incorrectly promote deal_announced→fund_launch
+                if _filtered_signal_type and _filtered_signal_type != "other" and (
+                    signal.get("signal_type") == "other"
+                    or (signal.get("signal_type") == "fund_launch" and _filtered_signal_type == "deal_announced")
+                ):
                     signal["signal_type"] = _filtered_signal_type
                 # Portfolio company news is NOT a fund-level signal
                 _pc_text = ((signal.get("title") or "") + " " + (signal.get("what_changed") or "")).lower()
@@ -2779,8 +2825,12 @@ def main(slugs_filter: str | None = None):
                     signal["llm_type_override"] = True
                     llm_type_overrides += 1
             _apply_post_type_corrections(signal)
-            # Filter is authoritative — don't let enricher demote back to "other"
-            if signal.get("signal_type") == "other" and _filtered_signal_type and _filtered_signal_type != "other":
+            # Filter is authoritative — don't let enricher demote to "other" or
+            # incorrectly promote deal_announced→fund_launch
+            if _filtered_signal_type and _filtered_signal_type != "other" and (
+                signal.get("signal_type") == "other"
+                or (signal.get("signal_type") == "fund_launch" and _filtered_signal_type == "deal_announced")
+            ):
                 signal["signal_type"] = _filtered_signal_type
             # Portfolio company news is NOT a fund-level signal
             _pc_text_skip = ((signal.get("title") or "") + " " + (signal.get("what_changed") or "")).lower()
@@ -2954,8 +3004,12 @@ def main(slugs_filter: str | None = None):
                             llm_type_overrides += 1
 
                     _apply_post_type_corrections(signal)
-                    # Filter is authoritative — don't let enricher demote back to "other"
-                    if signal.get("signal_type") == "other" and _filtered_signal_type and _filtered_signal_type != "other":
+                    # Filter is authoritative — don't let enricher demote to "other" or
+                    # incorrectly promote deal_announced→fund_launch
+                    if _filtered_signal_type and _filtered_signal_type != "other" and (
+                        signal.get("signal_type") == "other"
+                        or (signal.get("signal_type") == "fund_launch" and _filtered_signal_type == "deal_announced")
+                    ):
                         signal["signal_type"] = _filtered_signal_type
                     # Portfolio company news is NOT a fund-level signal
                     _pc_text_llm = ((signal.get("title") or "") + " " + (signal.get("what_changed") or "")).lower()
@@ -3023,9 +3077,16 @@ def main(slugs_filter: str | None = None):
         signals = [s for s in signals if not _is_filtered_out(s)]
 
     # Final local quality pass for summaries (fill empties, clean truncation/source suffixes).
+    _finalize_errors = 0
     for signal in signals:
-        _clean_signal_fields(signal)
-        _finalize_signal_summary(signal)
+        try:
+            _clean_signal_fields(signal)
+            _finalize_signal_summary(signal)
+        except Exception as _fe:
+            _finalize_errors += 1
+            print(f"  Warning: _finalize_signal_summary failed for {signal.get('id')}: {_fe}")
+    if _finalize_errors:
+        print(f"  Phase 3 summary finalization: {_finalize_errors} errors (skipped, continue)")
     _disambiguate_cross_fund_duplicate_summaries(signals)
 
     # ── Translation pass: Italian → English ────────────────────────────────────

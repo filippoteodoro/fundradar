@@ -63,8 +63,9 @@ Then signals already present in `sent_log.json` are excluded.
 
 ## Ranking + Readability Rules
 
-- Funds are ranked by overall signal importance with Italy/relevance weighting.
-- Signals are grouped under each fund.
+- Event-first ranking: signals are ranked by overall signal importance with Italy/relevance weighting.
+- Multi-fund handling: each signal is shown once, with all related funds listed on the same item.
+- Diversity cap: `--max-per-fund` still applies using each signal's primary fund.
 - Date shown is a single best date:
   - `published_at` when available
   - otherwise `observed_at` with `(observed)` label

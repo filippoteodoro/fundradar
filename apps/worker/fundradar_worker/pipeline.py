@@ -112,7 +112,7 @@ STEPS = [
         "outputs": [
             DATA_DIR / "detected_signals_enriched.json",
         ],
-        "timeout": 30 * 60,  # 30 min — API calls for 300+ signals + OpenAI translation pass
+        "timeout": 60 * 60,  # 60 min — API calls for 300+ signals + OpenAI translation pass
         "retry_on_partial": True,
         "max_retries": 2,
     },

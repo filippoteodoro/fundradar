@@ -16,8 +16,9 @@
  * - Exclude already-sent signals from sent_log.json
  *
  * Ranking:
- * - Funds ranked by AUM + Italy/relevance-weighted signal importance.
- * - Signals within each fund ranked by signals-feed style importance.
+ * - Event-first ranking based on signals-feed style importance.
+ * - Multi-fund events are emitted once with all related funds listed.
+ * - Selection still caps by primary fund for diversity.
  */
 
 import { config } from 'dotenv';
@@ -43,6 +44,7 @@ interface CliOptions {
 interface RawSignal {
   id?: unknown;
   fund_slug?: unknown;
+  related_fund_slugs?: unknown;
   signal_type?: unknown;
   title?: unknown;
   what_changed?: unknown;
@@ -105,8 +107,10 @@ interface FundProfile {
 interface DigestSignal {
   id: string;
   key: string;
-  fundSlug: string;
-  fundName: string;
+  primaryFundSlug: string;
+  primaryFundName: string;
+  relatedFundSlugs: string[];
+  relatedFundNames: string[];
   signalType: string;
   title: string;
   sourceUrl: string;
@@ -119,14 +123,6 @@ interface DigestSignal {
   relevanceNorm: number;
   italyRelevant: boolean | null;
   importanceScore: number;
-}
-
-interface FundDigestGroup {
-  fundSlug: string;
-  fundName: string;
-  aumEur: number | null;
-  fundRankScore: number;
-  signals: DigestSignal[];
 }
 
 interface DigestMeta {
@@ -344,6 +340,19 @@ function buildSignalKey(signal: {
   sourceUrl: string;
   title: string;
   publishedDate: Date | null;
+}): string {
+  const publishedPart = signal.publishedDate ? signal.publishedDate.toISOString().slice(0, 10) : 'null';
+  return [
+    normalizeForKey(signal.sourceUrl),
+    normalizeForKey(signal.title),
+    publishedPart,
+  ].join('::');
+}
+
+function buildLegacySignalKey(signal: {
+  sourceUrl: string;
+  title: string;
+  publishedDate: Date | null;
   fundSlug: string;
 }): string {
   const publishedPart = signal.publishedDate ? signal.publishedDate.toISOString().slice(0, 10) : 'null';
@@ -368,6 +377,78 @@ function prettifyFundSlug(slug: string): string {
   const words = slug.split('-').filter(Boolean);
   if (words.length === 0) return 'Unknown Fund';
   return words.map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}
+
+function parseRelatedFundSlugs(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  const related: string[] = [];
+  const seen = new Set<string>();
+  for (const raw of value) {
+    const slug = toSlug(cleanText(raw));
+    if (!slug || seen.has(slug)) continue;
+    seen.add(slug);
+    related.push(slug);
+  }
+  return related;
+}
+
+function mergeFundLists(
+  aSlugs: string[],
+  aNames: string[],
+  bSlugs: string[],
+  bNames: string[],
+): { slugs: string[]; names: string[] } {
+  const slugs: string[] = [];
+  const names: string[] = [];
+  const seen = new Set<string>();
+  const nameBySlug = new Map<string, string>();
+
+  for (let i = 0; i < aSlugs.length; i += 1) {
+    const slug = aSlugs[i];
+    if (!slug || seen.has(slug)) continue;
+    seen.add(slug);
+    slugs.push(slug);
+    const name = aNames[i];
+    if (name) nameBySlug.set(slug, name);
+  }
+
+  for (let i = 0; i < bSlugs.length; i += 1) {
+    const slug = bSlugs[i];
+    if (!slug) continue;
+    const name = bNames[i];
+    if (name && !nameBySlug.has(slug)) nameBySlug.set(slug, name);
+    if (seen.has(slug)) continue;
+    seen.add(slug);
+    slugs.push(slug);
+  }
+
+  for (const slug of slugs) {
+    names.push(nameBySlug.get(slug) || prettifyFundSlug(slug));
+  }
+
+  return { slugs, names };
+}
+
+function normalizeRelatedFundNames(signal: DigestSignal): DigestSignal {
+  const merged = mergeFundLists(
+    signal.relatedFundSlugs,
+    signal.relatedFundNames,
+    signal.relatedFundSlugs,
+    signal.relatedFundNames,
+  );
+  return {
+    ...signal,
+    relatedFundSlugs: merged.slugs,
+    relatedFundNames: merged.names,
+  };
+}
+
+function mergeItalyRelevant(a: boolean | null, b: boolean | null): boolean | null {
+  if (a === true || b === true) return true;
+  if (a === false && b === false) return false;
+  if (a === null) return b;
+  if (b === null) return a;
+  return null;
 }
 
 function getDisplayDate(signal: DigestSignal, timeZone: string): string {
@@ -597,14 +678,26 @@ function normalizeCandidates(
     const title = cleanText(raw.title) || cleanText(raw.enriched_summary) || cleanText(raw.what_changed);
     if (!title) continue;
 
-    const rawFundSlug = cleanText(raw.fund_slug);
-    const fundSlug = toSlug(rawFundSlug || 'unknown-fund') || 'unknown-fund';
-    const fundProfile = fundProfiles[fundSlug];
-    const fundName = fundProfile?.name || prettifyFundSlug(fundSlug);
-    const fundPriority = fundProfile?.priorityScore ?? 0;
+    const rawFundSlug = toSlug(cleanText(raw.fund_slug)) || 'unknown-fund';
+    const relatedFundSlugsRaw = parseRelatedFundSlugs(raw.related_fund_slugs);
+    const relatedFundSlugs = mergeFundLists(
+      [rawFundSlug],
+      [fundProfiles[rawFundSlug]?.name || prettifyFundSlug(rawFundSlug)],
+      relatedFundSlugsRaw,
+      relatedFundSlugsRaw.map((slug) => fundProfiles[slug]?.name || prettifyFundSlug(slug)),
+    ).slugs;
+    const primaryFundSlug = relatedFundSlugs[0] || rawFundSlug;
+    const relatedFundNames = relatedFundSlugs.map((slug) => {
+      return fundProfiles[slug]?.name || prettifyFundSlug(slug);
+    });
+    const primaryFundName = relatedFundNames[0] || prettifyFundSlug(primaryFundSlug);
+    const fundPriority = relatedFundSlugs.reduce((max, slug) => {
+      const priority = fundProfiles[slug]?.priorityScore ?? 0;
+      return Math.max(max, priority);
+    }, 0);
 
     const signalType = cleanText(raw.signal_type) || 'other';
-    const id = cleanText(raw.id) || buildSignalKey({ sourceUrl, title, publishedDate: null, fundSlug });
+    const id = cleanText(raw.id) || buildSignalKey({ sourceUrl, title, publishedDate: null });
 
     const publishedAtRaw = typeof raw.published_at === 'string' ? raw.published_at.trim() : null;
     const observedAtRaw = typeof raw.observed_at === 'string' ? raw.observed_at.trim() : null;
@@ -641,14 +734,15 @@ function normalizeCandidates(
       sourceUrl,
       title,
       publishedDate,
-      fundSlug,
     });
 
     results.push({
       id,
       key,
-      fundSlug,
-      fundName,
+      primaryFundSlug,
+      primaryFundName,
+      relatedFundSlugs,
+      relatedFundNames,
       signalType,
       title,
       sourceUrl,
@@ -668,16 +762,43 @@ function normalizeCandidates(
 }
 
 function dedupeByKey(signals: DigestSignal[]): DigestSignal[] {
-  const seen = new Set<string>();
-  const deduped: DigestSignal[] = [];
+  const byKey = new Map<string, DigestSignal>();
 
   for (const signal of signals) {
-    if (seen.has(signal.key)) continue;
-    seen.add(signal.key);
-    deduped.push(signal);
+    const existing = byKey.get(signal.key);
+    if (!existing) {
+      byKey.set(signal.key, normalizeRelatedFundNames(signal));
+      continue;
+    }
+
+    const mergedFunds = mergeFundLists(
+      existing.relatedFundSlugs,
+      existing.relatedFundNames,
+      signal.relatedFundSlugs,
+      signal.relatedFundNames,
+    );
+    const keepIncoming =
+      signal.importanceScore > existing.importanceScore ||
+      (signal.importanceScore === existing.importanceScore && getPrimaryTimestamp(signal) > getPrimaryTimestamp(existing));
+    const canonical = keepIncoming ? signal : existing;
+
+    byKey.set(signal.key, normalizeRelatedFundNames({
+      ...canonical,
+      importanceScore: Math.max(existing.importanceScore, signal.importanceScore),
+      relevanceNorm: Math.max(existing.relevanceNorm, signal.relevanceNorm),
+      italyRelevant: mergeItalyRelevant(existing.italyRelevant, signal.italyRelevant),
+      relatedFundSlugs: mergedFunds.slugs,
+      relatedFundNames: mergedFunds.names,
+      primaryFundSlug: mergedFunds.slugs.includes(canonical.primaryFundSlug)
+        ? canonical.primaryFundSlug
+        : mergedFunds.slugs[0] || canonical.primaryFundSlug,
+      primaryFundName: mergedFunds.slugs.includes(canonical.primaryFundSlug)
+        ? canonical.primaryFundName
+        : mergedFunds.names[0] || canonical.primaryFundName,
+    }));
   }
 
-  return deduped;
+  return Array.from(byKey.values());
 }
 
 function sortSignalsByImportance(signals: DigestSignal[]): DigestSignal[] {
@@ -749,25 +870,24 @@ function updateSentLog(
   };
 }
 
-function rankAndGroupSignals(
+function rankAndSelectSignals(
   unsentSignals: DigestSignal[],
   fundProfiles: Record<string, FundProfile>,
   maxSignals: number,
   maxPerFund: number,
-): FundDigestGroup[] {
-  const byFund = new Map<string, DigestSignal[]>();
+): DigestSignal[] {
+  const byPrimaryFund = new Map<string, DigestSignal[]>();
   for (const signal of sortSignalsByImportance(unsentSignals)) {
-    const list = byFund.get(signal.fundSlug) ?? [];
+    const list = byPrimaryFund.get(signal.primaryFundSlug) ?? [];
     list.push(signal);
-    byFund.set(signal.fundSlug, list);
+    byPrimaryFund.set(signal.primaryFundSlug, list);
   }
 
-  const groupInputs = Array.from(byFund.entries()).map(([fundSlug, signals]) => {
+  const fundInputs = Array.from(byPrimaryFund.entries()).map(([fundSlug, signals]) => {
     const profile = fundProfiles[fundSlug];
-    const fundName = signals[0]?.fundName || profile?.name || prettifyFundSlug(fundSlug);
+    const fundName = signals[0]?.primaryFundName || profile?.name || prettifyFundSlug(fundSlug);
     const aumEur = profile?.aumEur ?? null;
     const priority = profile?.priorityScore ?? 0;
-
     const sortedSignals = sortSignalsByImportance(signals);
     const topImportance = sortedSignals[0]?.importanceScore ?? 0;
     const avgRelevance =
@@ -778,68 +898,59 @@ function rankAndGroupSignals(
       fundName,
       aumEur,
       priority,
-      avgRelevance,
       topImportance,
+      avgRelevance,
       signals: sortedSignals,
     };
   });
 
-  const maxLogAum = groupInputs.reduce((max, group) => {
-    if (!group.aumEur || group.aumEur <= 0) return max;
-    return Math.max(max, Math.log1p(group.aumEur));
+  const maxLogAum = fundInputs.reduce((max, fund) => {
+    if (!fund.aumEur || fund.aumEur <= 0) return max;
+    return Math.max(max, Math.log1p(fund.aumEur));
   }, 0);
 
-  const rankedGroups = groupInputs
-    .map((group) => {
-      const aumNorm = group.aumEur && maxLogAum > 0 ? Math.log1p(group.aumEur) / maxLogAum : 0;
+  const rankedFunds = fundInputs
+    .map((fund) => {
+      const aumNorm = fund.aumEur && maxLogAum > 0 ? Math.log1p(fund.aumEur) / maxLogAum : 0;
       const fundRankScore =
-        group.topImportance + // signals-feed style importance (already includes priority)
-        (aumNorm * 40) + // AUM weighting
-        (group.avgRelevance * 20) + // Italy relevance weighting
-        (group.priority * 0.2); // small extra boost from fund priority
-
-      return {
-        ...group,
-        fundRankScore,
-      };
+        fund.topImportance +
+        (aumNorm * 40) +
+        (fund.avgRelevance * 20) +
+        (fund.priority * 0.2);
+      return { ...fund, fundRankScore };
     })
     .sort((a, b) => {
       if (b.fundRankScore !== a.fundRankScore) return b.fundRankScore - a.fundRankScore;
       return a.fundName.localeCompare(b.fundName);
     });
 
-  const selectedGroups: FundDigestGroup[] = [];
-  const selectedBySlug = new Map<string, FundDigestGroup>();
-  let selectedCount = 0;
+  const selected: DigestSignal[] = [];
+  const selectedKeys = new Set<string>();
+  const selectedPerFund = new Map<string, number>();
 
-  for (const group of rankedGroups) {
-    if (selectedCount >= maxSignals) break;
-    const takeCount = Math.min(maxPerFund, group.signals.length, maxSignals - selectedCount);
-    if (takeCount <= 0) continue;
-
-    const selectedGroup: FundDigestGroup = {
-      fundSlug: group.fundSlug,
-      fundName: group.fundName,
-      aumEur: group.aumEur,
-      fundRankScore: group.fundRankScore,
-      signals: group.signals.slice(0, takeCount),
-    };
-    selectedGroups.push(selectedGroup);
-    selectedBySlug.set(group.fundSlug, selectedGroup);
-    selectedCount += takeCount;
+  for (const fund of rankedFunds) {
+    if (selected.length >= maxSignals) break;
+    const current = selectedPerFund.get(fund.fundSlug) ?? 0;
+    const remainingForFund = Math.max(0, maxPerFund - current);
+    if (remainingForFund <= 0) continue;
+    for (const signal of fund.signals) {
+      if (selected.length >= maxSignals) break;
+      if (selectedKeys.has(signal.key)) continue;
+      selected.push(signal);
+      selectedKeys.add(signal.key);
+      selectedPerFund.set(fund.fundSlug, (selectedPerFund.get(fund.fundSlug) ?? 0) + 1);
+      if ((selectedPerFund.get(fund.fundSlug) ?? 0) >= maxPerFund) break;
+    }
   }
 
-  if (selectedCount < maxSignals) {
-    const extras: { fundSlug: string; fundRankScore: number; signal: DigestSignal }[] = [];
-
-    for (const group of rankedGroups) {
-      const existing = selectedBySlug.get(group.fundSlug);
-      const already = existing ? existing.signals.length : 0;
-      for (const signal of group.signals.slice(already)) {
-        extras.push({ fundSlug: group.fundSlug, fundRankScore: group.fundRankScore, signal });
+  if (selected.length < maxSignals) {
+    const extras: Array<{ fundRankScore: number; signal: DigestSignal }> = [];
+    for (const fund of rankedFunds) {
+      for (const signal of fund.signals) {
+        if (selectedKeys.has(signal.key)) continue;
+        extras.push({ fundRankScore: fund.fundRankScore, signal });
       }
     }
-
     extras.sort((a, b) => {
       if (b.fundRankScore !== a.fundRankScore) return b.fundRankScore - a.fundRankScore;
       if (b.signal.importanceScore !== a.signal.importanceScore) {
@@ -847,48 +958,26 @@ function rankAndGroupSignals(
       }
       return getPrimaryTimestamp(b.signal) - getPrimaryTimestamp(a.signal);
     });
-
     for (const extra of extras) {
-      if (selectedCount >= maxSignals) break;
-      const existing = selectedBySlug.get(extra.fundSlug);
-      if (!existing) {
-        const profile = fundProfiles[extra.fundSlug];
-        const created: FundDigestGroup = {
-          fundSlug: extra.fundSlug,
-          fundName: extra.signal.fundName || profile?.name || prettifyFundSlug(extra.fundSlug),
-          aumEur: profile?.aumEur ?? null,
-          fundRankScore: extra.fundRankScore,
-          signals: [extra.signal],
-        };
-        selectedGroups.push(created);
-        selectedBySlug.set(extra.fundSlug, created);
-      } else {
-        existing.signals.push(extra.signal);
-      }
-      selectedCount += 1;
+      if (selected.length >= maxSignals) break;
+      if (selectedKeys.has(extra.signal.key)) continue;
+      selected.push(extra.signal);
+      selectedKeys.add(extra.signal.key);
     }
   }
 
-  selectedGroups.sort((a, b) => {
-    if (b.fundRankScore !== a.fundRankScore) return b.fundRankScore - a.fundRankScore;
-    return a.fundName.localeCompare(b.fundName);
-  });
-
-  for (const group of selectedGroups) {
-    group.signals = sortSignalsByImportance(group.signals);
-  }
-
-  return selectedGroups;
+  return sortSignalsByImportance(selected).map(normalizeRelatedFundNames);
 }
 
-function flattenSignals(groups: FundDigestGroup[]): DigestSignal[] {
-  const all: DigestSignal[] = [];
-  for (const group of groups) {
-    for (const signal of group.signals) {
-      all.push(signal);
+function countUniqueFunds(signals: DigestSignal[]): number {
+  const slugs = new Set<string>();
+  for (const signal of signals) {
+    for (const slug of signal.relatedFundSlugs) {
+      if (!slug) continue;
+      slugs.add(slug);
     }
   }
-  return all;
+  return slugs.size;
 }
 
 function toCsv(emails: string[]): string {
@@ -904,13 +993,14 @@ function toCsv(emails: string[]): string {
 }
 
 function buildDigestText(
-  groups: FundDigestGroup[],
+  signals: DigestSignal[],
   windowFrom: Date,
   windowTo: Date,
   timezone: string,
 ): string {
   const lines: string[] = [];
-  const includedSignals = flattenSignals(groups).length;
+  const includedSignals = signals.length;
+  const includedFunds = countUniqueFunds(signals);
   const headerWeek = formatDay(windowTo, timezone);
   const fromLabel = formatDay(windowFrom, timezone);
   const toLabel = formatDay(windowTo, timezone);
@@ -923,25 +1013,27 @@ function buildDigestText(
   lines.push('');
   lines.push(`Coverage window (${timezone}): ${fromLabel} to ${toLabel}`);
   lines.push('Date shown: published date when available, otherwise observed date (observed)');
-  lines.push(`Funds included: ${groups.length}`);
+  lines.push(`Funds mentioned: ${includedFunds}`);
   lines.push(`Signals included: ${includedSignals}`);
-  lines.push('Ranking: funds ordered by overall signal importance and Italy relevance');
+  lines.push('Ranking: event-first by signal importance and Italy relevance (multi-fund events shown once)');
   lines.push('');
 
-  if (groups.length === 0) {
+  if (signals.length === 0) {
     lines.push('No new signals matched this window.');
     lines.push('');
   } else {
-    for (let i = 0; i < groups.length; i += 1) {
-      const group = groups[i];
-      lines.push(`${i + 1}) ${group.fundName}`);
-      for (const signal of group.signals) {
-        const titleLines = wrapWithIndent(signal.title, '   - ', '     ');
-        const suffix = `${getDisplayDate(signal, timezone)} — ${toMarkdownLink(getSourceDomain(signal.sourceUrl), signal.sourceUrl)}`;
-        const lastIndex = titleLines.length - 1;
-        titleLines[lastIndex] = `${titleLines[lastIndex]} — ${suffix}`;
-        lines.push(...titleLines);
-      }
+    for (let i = 0; i < signals.length; i += 1) {
+      const signal = signals[i];
+      const titleLines = wrapWithIndent(signal.title, `${i + 1}) `, '   ');
+      const suffix = `${getDisplayDate(signal, timezone)} — ${toMarkdownLink(getSourceDomain(signal.sourceUrl), signal.sourceUrl)}`;
+      const lastIndex = titleLines.length - 1;
+      titleLines[lastIndex] = `${titleLines[lastIndex]} — ${suffix}`;
+      lines.push(...titleLines);
+
+      const fundsLabel = signal.relatedFundNames.length > 0
+        ? signal.relatedFundNames.join(' • ')
+        : signal.primaryFundName;
+      lines.push(...wrapWithIndent(`Funds: ${fundsLabel}`, '   ', '   '));
       lines.push('');
     }
   }
@@ -1000,11 +1092,24 @@ async function main(): Promise<void> {
   const sentLog = loadSentLog(sentLogPath);
   const sentKeys = new Set(sentLog.entries.map((entry) => entry.signal_key));
 
-  const unsent = deduped.filter((signal) => !sentKeys.has(signal.key));
-  const selectedGroups = rankAndGroupSignals(unsent, fundProfiles, options.maxSignals, options.maxPerFund);
-  const selectedSignals = flattenSignals(selectedGroups);
+  const unsent = deduped.filter((signal) => {
+    if (sentKeys.has(signal.key)) return false;
+    // Backward compatibility with historical sent_log entries created with fund-scoped keys.
+    for (const slug of signal.relatedFundSlugs) {
+      const legacyKey = buildLegacySignalKey({
+        sourceUrl: signal.sourceUrl,
+        title: signal.title,
+        publishedDate: signal.publishedDate,
+        fundSlug: slug,
+      });
+      if (sentKeys.has(legacyKey)) return false;
+    }
+    return true;
+  });
+  const selectedSignals = rankAndSelectSignals(unsent, fundProfiles, options.maxSignals, options.maxPerFund);
+  const fundsIncluded = countUniqueFunds(selectedSignals);
 
-  const digestText = buildDigestText(selectedGroups, windowFrom, windowTo, options.timezone);
+  const digestText = buildDigestText(selectedSignals, windowFrom, windowTo, options.timezone);
   const recipientsCsv = toCsv(recipients);
 
   const digestId = `digest-${now.toISOString().replace(/[:.]/g, '-')}`;
@@ -1021,12 +1126,12 @@ async function main(): Promise<void> {
     days: options.days,
     max_signals: options.maxSignals,
     max_per_fund: options.maxPerFund,
-    ranking_mode: 'fund_rank = top_signal_importance + size_weight + Italy_relevance_weight',
+    ranking_mode: 'event_first_rank_with_primary_fund_diversity_cap_and_multi_fund_projection',
     signals_window_matched: candidates.length,
     signals_after_in_batch_dedupe: deduped.length,
     signals_already_sent: deduped.length - unsent.length,
     signals_included: selectedSignals.length,
-    funds_included: selectedGroups.length,
+    funds_included: fundsIncluded,
     recipients_active: activeRecipients.length,
     recipients_suppressed: suppressedCount,
     recipients_sendable: recipients.length,
@@ -1052,7 +1157,7 @@ async function main(): Promise<void> {
   console.log(`  Meta:        ${metaPath}`);
   console.log(`  Window matched signals: ${candidates.length}`);
   console.log(`  Included signals: ${selectedSignals.length}`);
-  console.log(`  Included funds: ${selectedGroups.length}`);
+  console.log(`  Included funds: ${fundsIncluded}`);
   console.log(`  Active recipients: ${activeRecipients.length}`);
   console.log(`  Suppressed recipients: ${suppressedCount}`);
   console.log(`  Sendable recipients: ${recipients.length}`);

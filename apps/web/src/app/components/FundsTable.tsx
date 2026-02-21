@@ -182,11 +182,19 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
   ].filter(Boolean).length;
   const hasActiveFilters = activeFilterCount > 0;
 
-  const { primaryFunds, secondaryFunds, matchReasons, matchSummary } = useMemo(() => {
-    const matchesFilters = (fund: FundSlim) => {
-      if (categoryFilter !== 'all' && fund.category !== categoryFilter) return false;
-      if (!matchesSectorGroupFilter(fund, sectorGroupFilter)) return false;
-      if (!matchesHqCountryFilter(fund, hqCountryFilter)) return false;
+  const {
+    primaryFunds,
+    secondaryFunds,
+    matchReasons,
+    matchSummary,
+    categoryCounts,
+    allCategoryCount,
+    sectorGroupDropdownOptions,
+    allSectorCount,
+    hqCountryDropdownOptions,
+    allHqCountryCount,
+  } = useMemo(() => {
+    const matchesRangeFilters = (fund: FundSlim) => {
       if (hasActiveInvestment) {
         const fundMin = fund.investment_min_eur || 0;
         const fundMax = fund.investment_max_eur || 0;
@@ -198,6 +206,29 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
       if (aumMinFilter > 0 && aum < aumMinFilter) return false;
       if (aumMaxFilter < aumRangeMax && aum > aumMaxFilter) return false;
       return true;
+    };
+
+    const matchesNonCategoryFilters = (fund: FundSlim) => {
+      if (!matchesSectorGroupFilter(fund, sectorGroupFilter)) return false;
+      if (!matchesHqCountryFilter(fund, hqCountryFilter)) return false;
+      return matchesRangeFilters(fund);
+    };
+
+    const matchesNonSectorFilters = (fund: FundSlim) => {
+      if (categoryFilter !== 'all' && fund.category !== categoryFilter) return false;
+      if (!matchesHqCountryFilter(fund, hqCountryFilter)) return false;
+      return matchesRangeFilters(fund);
+    };
+
+    const matchesNonHqFilters = (fund: FundSlim) => {
+      if (categoryFilter !== 'all' && fund.category !== categoryFilter) return false;
+      if (!matchesSectorGroupFilter(fund, sectorGroupFilter)) return false;
+      return matchesRangeFilters(fund);
+    };
+
+    const matchesFilters = (fund: FundSlim) => {
+      if (categoryFilter !== 'all' && fund.category !== categoryFilter) return false;
+      return matchesNonCategoryFilters(fund);
     };
 
     const matchesSearch = (fund: FundSlim, query: string): { matched: boolean; reason: string; detail?: string } => {
@@ -234,13 +265,58 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
     };
 
     const searchActive = search.trim().length > 0;
+    const contextualCategoryCounts = new Map<FundCategory, number>();
+    let contextualAllCount = 0;
+    const contextualSectorCounts = new Map<string, number>();
+    let contextualAllSectorCount = 0;
+    const contextualHqCountryCounts = new Map<string, number>();
+    let contextualAllHqCountryCount = 0;
+
+    const countCategory = (fund: FundSlim) => {
+      contextualCategoryCounts.set(fund.category, (contextualCategoryCounts.get(fund.category) ?? 0) + 1);
+      contextualAllCount += 1;
+    };
+    const countSector = (fund: FundSlim) => {
+      contextualAllSectorCount += 1;
+      for (const group of fundSectorGroups(fund.sector_tags)) {
+        contextualSectorCounts.set(group, (contextualSectorCounts.get(group) ?? 0) + 1);
+      }
+    };
+    const countHqCountry = (fund: FundSlim) => {
+      contextualAllHqCountryCount += 1;
+      const country = deriveFundHqCountry(fund);
+      if (!country) return;
+      contextualHqCountryCounts.set(country, (contextualHqCountryCounts.get(country) ?? 0) + 1);
+    };
+
+    const sectorOptions = () =>
+      filterSource.sectorGroupDropdownOptions.map((group) => ({
+        value: group.value,
+        label: `${group.value} (${contextualSectorCounts.get(group.value) ?? 0})`,
+      }));
+    const hqCountryOptions = () =>
+      filterSource.hqCountryDropdownOptions.map((country) => ({
+        value: country.value,
+        label: `${country.value} (${contextualHqCountryCounts.get(country.value) ?? 0})`,
+      }));
 
     if (!searchActive) {
+      for (const fund of funds) {
+        if (matchesNonCategoryFilters(fund)) countCategory(fund);
+        if (matchesNonSectorFilters(fund)) countSector(fund);
+        if (matchesNonHqFilters(fund)) countHqCountry(fund);
+      }
       return {
         primaryFunds: funds.filter(matchesFilters),
         secondaryFunds: [] as FundSlim[],
         matchReasons: new Map<string, { reason: string; detail?: string }>(),
         matchSummary: null as null | { total: number; counts: Record<string, number> },
+        categoryCounts: contextualCategoryCounts,
+        allCategoryCount: contextualAllCount,
+        sectorGroupDropdownOptions: sectorOptions(),
+        allSectorCount: contextualAllSectorCount,
+        hqCountryDropdownOptions: hqCountryOptions(),
+        allHqCountryCount: contextualAllHqCountryCount,
       };
     }
 
@@ -252,6 +328,9 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
     for (const fund of funds) {
       const result = matchesSearch(fund, search);
       if (!result.matched) continue;
+      if (matchesNonCategoryFilters(fund)) countCategory(fund);
+      if (matchesNonSectorFilters(fund)) countSector(fund);
+      if (matchesNonHqFilters(fund)) countHqCountry(fund);
       reasons.set(fund.slug, { reason: result.reason, detail: result.detail });
       counts[result.reason] = (counts[result.reason] || 0) + 1;
       if (matchesFilters(fund)) {
@@ -267,8 +346,14 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
       secondaryFunds: secondary,
       matchReasons: reasons,
       matchSummary: total > 0 ? { total, counts } : null,
+      categoryCounts: contextualCategoryCounts,
+      allCategoryCount: contextualAllCount,
+      sectorGroupDropdownOptions: sectorOptions(),
+      allSectorCount: contextualAllSectorCount,
+      hqCountryDropdownOptions: hqCountryOptions(),
+      allHqCountryCount: contextualAllHqCountryCount,
     };
-  }, [funds, categoryFilter, sectorGroupFilter, hqCountryFilter, hasActiveInvestment, invMinFilter, invMaxFilter, aumMinFilter, aumMaxFilter, aumRangeMax, search, hasActiveFilters, portfolioCompanyNames]);
+  }, [funds, categoryFilter, sectorGroupFilter, hqCountryFilter, hasActiveInvestment, invMinFilter, invMaxFilter, aumMinFilter, aumMaxFilter, aumRangeMax, search, hasActiveFilters, portfolioCompanyNames, filterSource.sectorGroupDropdownOptions, filterSource.hqCountryDropdownOptions]);
 
   // Sort function
   const sortFunds = (fundsToSort: FundSlim[]): FundSlim[] => {
@@ -362,13 +447,15 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
   };
 
   // Build category chip items
-  const categoryChipItems: ChipItem[] = filterSource.categoryChipItems;
-
-  // Build sector group dropdown options
-  const sectorGroupDropdownOptions = filterSource.sectorGroupDropdownOptions;
-
-  // Build HQ country dropdown options
-  const hqCountryDropdownOptions = filterSource.hqCountryDropdownOptions;
+  const categoryChipItems: ChipItem[] = useMemo(() =>
+    filterSource.categories.map((category) => ({
+      value: category,
+      label: FUND_CATEGORY_LABELS[category],
+      count: categoryCounts.get(category) ?? 0,
+      color: CATEGORY_COLORS[category],
+    })),
+    [filterSource.categories, categoryCounts]
+  );
 
   return (
     <>
@@ -386,14 +473,14 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
               label="Sector"
               value={sectorGroupFilter}
               options={sectorGroupDropdownOptions}
-              allLabel="All Sectors"
+              allLabel={`All Sectors (${allSectorCount})`}
               onChange={(v) => { setSectorGroupFilter(v); setPage(0); }}
             />
             <FilterDropdown
               label="HQ Country"
               value={hqCountryFilter}
               options={hqCountryDropdownOptions}
-              allLabel="All HQ Countries"
+              allLabel={`All HQ Countries (${allHqCountryCount})`}
               onChange={(v) => { setHqCountryFilter(v); setPage(0); }}
             />
             {invStops.length > 1 && (
@@ -447,7 +534,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
           activeValue={categoryFilter}
           onSelect={(v) => { setCategoryFilter(v as FundCategory | 'all'); setPage(0); }}
           allLabel="All"
-          allCount={funds.length}
+          allCount={allCategoryCount}
         />
       </FilterBar>
 

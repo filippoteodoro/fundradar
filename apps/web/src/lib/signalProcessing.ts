@@ -354,8 +354,13 @@ export function isGarbageSignal(signal: Signal, knownFundNames?: Set<string>): b
   // Podcast episode titles (contain fund name + "|" + guest name format)
   if (/\|\s*(?:deals?\s+com|dealing\s+with|episode\s+\d|ep\.\s*\d)/i.test(titleLower)) return true;
 
-  // Image/product SKU scraped as portfolio company: "480 X 480 added to portfolio"
-  if (/\b\d{2,4}\s*[Xx×]\s*\d{2,4}\b/.test(titleLower) && /\badded\s+to\b/i.test(titleLower)) return true;
+  // Image/product dimensions embedded in titles: "480 X 480" or "480 X 480 added to portfolio"
+  // Catch both "added to portfolio" form AND bare dimension strings with no PE action verb
+  if (/\b\d{2,4}\s*[Xx×]\s*\d{2,4}\b/.test(titleLower) &&
+      (/\badded\s+to\b/i.test(titleLower) || !/\b(?:acqui|invest|rilev|exit|sell|rais|launch|clos|deal|fund)\w*/i.test(titleLower))) return true;
+
+  // Serialized thought-leadership / editorial series: "(Part 1 of 2)" — not a deal signal
+  if (/\bpart\s+\d+\s+of\s+\d+\b/i.test(titleLower) && !RE_PE_ACTION_VERBS.test(titleLower)) return true;
 
   return false;
 }
@@ -527,6 +532,17 @@ function fixSignalSpacing(text: string): string {
   cleaned = cleaned.replace(/\bB\s+2\s+O\b/g, 'B2O');
   cleaned = cleaned.replace(/\bAI\s+4\s+IV\b/g, 'AI4IV');
   cleaned = cleaned.replace(/\bBIO\s+4\s+DREAMS\b/gi, 'Bio4Dreams');
+  // Third audit additions: more word-split artifacts
+  cleaned = cleaned.replace(/\bBee\s+2\s+[Ll]ink\b/gi, 'Bee2Link');  // case-insensitive (bee 2 link)
+  cleaned = cleaned.replace(/\bB\s+2\s+B\b/g, 'B2B');
+  cleaned = cleaned.replace(/\bNeo\s+2\s+A\b/g, 'Neo2A');
+  cleaned = cleaned.replace(/\bJob\s+4\s+U\b/g, 'Job4U');
+  cleaned = cleaned.replace(/\bEpilepsy\s+GT\s+x\b/g, 'Epilepsy GTx');
+  cleaned = cleaned.replace(/\bLV\s+enture\b/g, 'LVenture');
+  cleaned = cleaned.replace(/\bInves\s+to\s+Uno\b/g, 'Investo Uno');
+  cleaned = cleaned.replace(/\bfinanziamen\s+to\b/gi, 'finanziamento');
+  cleaned = cleaned.replace(/\binvestimen\s+to\b/gi, 'investimento');
+  cleaned = cleaned.replace(/â¬€/g, '€');  // UTF-8 mojibake for euro sign
   cleaned = cleaned.replace(/\s{2,}/g, ' ');
   return cleaned.trim();
 }
@@ -580,6 +596,9 @@ export function cleanSignalText(text: string): string {
   cleaned = cleaned.replace(/,?\s+in\s+a\s+dated\s+\d{4}-\d{2}-\d{2}\b[^,.]*/gi, '');
   // Strip mid-text "Media: City, Date –" press release header (audit: faro-value)
   cleaned = cleaned.replace(/\s+Media\s*:\s*\w+,\s+[A-Za-z]+\s+\d{1,2}(?:\s*(?:th|st|nd|rd))?,?\s+\d{4}\s*[–\-—]+\s*/gi, ' ');
+  // Strip Italian lead sentence when English translation follows (BeBeez double-language artifact)
+  // "Italian text tramite/mediante. English text." → keep only English part
+  cleaned = cleaned.replace(/^[^.]{10,250}\b(?:tramite|mediante|che\s+ha|del\s+fondo|nel\s+capitale|al\s+fianco|ha\s+effettuato|ha\s+completato|ha\s+investito|ha\s+chiuso|ha\s+lanciato)\b[^.]*\.\s+(?=[A-Z])/i, '');
   // Strip Italian restatement appended after English summary sentence (audit: ibla-capital)
   // "Fund acquires X. Fund acquisisce X." — remove trailing Italian-language sentence
   cleaned = cleaned.replace(/\.\s+[A-Z][^.]{5,100}\b(?:acquis(?:isce|ta|to)|investe|annuncia|cede|raccoglie|sottoscrive|avvia|rileva)\b[^.]*\.?\s*$/i, '');
@@ -880,7 +899,7 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
     if (/\bproject\s+financing\b|\briceve\s+finanziamento\b|\bsottoscritto\s+(?:project\s+)?financ\w+\b/i.test(text)) {
       return 'debt_financing';
     }
-    if (/\b(?:acquisizion|investi(?:ment|sce|to)|rileva|entra (?:nel capitale|in)|acqui(?:res?|sisce|red)|compra|buyout|operazione|finalizzat\w+|investitore\s+unic\w*\s+al\s+fianco\s+di|sole\s+investor\s+(?:backing|alongside))\b/i.test(text)) {
+    if (/\b(?:acquisizion\w*|acquis[it]\w+|investi(?:ment|sce|to)|rileva|entra (?:nel capitale|in)|acqui(?:res?|sisce|red)|compra|buyout|operazione|finalizzat\w+|investitore\s+unic\w*\s+al\s+fianco\s+di|sole\s+investor\s+(?:backing|alongside))\b/i.test(text)) {
       return 'deal_announced';
     }
     if (/\b(?:exit|divest\w+|sells?|sold|cessione|vendita|vend(?:e|ere|ono)|vendut[oa])\b/i.test(text)) {

@@ -475,6 +475,73 @@ interface PortfolioItemsFile {
   fund_portfolio_notes?: Record<string, string>;
 }
 
+const ITALIAN_TO_ENGLISH_CITY: Record<string, string> = {
+  milano: 'Milan',
+  roma: 'Rome',
+  torino: 'Turin',
+  firenze: 'Florence',
+  napoli: 'Naples',
+  venezia: 'Venice',
+  genova: 'Genoa',
+  padova: 'Padua',
+  mantova: 'Mantua',
+  siracusa: 'Syracuse',
+  parigi: 'Paris',
+  lussemburgo: 'Luxembourg',
+  londra: 'London',
+  zurigo: 'Zurich',
+  'monaco di baviera': 'Munich',
+};
+
+function normalizeCityToken(token: string): string {
+  const trimmed = token.trim();
+  if (!trimmed) return '';
+  const mapped = ITALIAN_TO_ENGLISH_CITY[trimmed.toLowerCase()];
+  return mapped || trimmed;
+}
+
+function normalizeCompanyHeadquarters(headquarters: string | null | undefined): string | null {
+  if (!headquarters) return null;
+
+  const raw = headquarters.trim().replace(/\s+/g, ' ');
+  if (!raw) return null;
+
+  const parts = raw.split(',');
+  if (parts.length === 0) return raw;
+
+  const first = parts[0].trim();
+  if (first) {
+    const normalizedFirst = first
+      .split('/')
+      .map((part) => {
+        const trimmedPart = part.trim();
+        if (!trimmedPart) return '';
+        // Normalize "(Milano)" style parenthetical city markers without touching other text.
+        const withParenthesisNormalized = trimmedPart.replace(/\(([^)]+)\)/g, (_m, inner) => {
+          return `(${normalizeCityToken(inner)})`;
+        });
+        const exact = normalizeCityToken(withParenthesisNormalized);
+        if (exact !== withParenthesisNormalized) return exact;
+
+        // Normalize leading city token in strings like "Milano (Italy)".
+        const leadingToken = withParenthesisNormalized.match(/^([A-Za-zÀ-ÿ.'-]+)(.*)$/);
+        if (leadingToken) {
+          const mappedLeading = normalizeCityToken(leadingToken[1]);
+          if (mappedLeading !== leadingToken[1]) {
+            return `${mappedLeading}${leadingToken[2]}`;
+          }
+        }
+
+        return withParenthesisNormalized;
+      })
+      .filter(Boolean)
+      .join('/');
+    parts[0] = normalizedFirst || first;
+  }
+
+  return parts.map((part) => part.trim()).join(', ');
+}
+
 function slugify(name: string): string {
   return name
     .toLowerCase()
@@ -522,7 +589,7 @@ function loadPortfolios(): PortfoliosFile {
             website: item.website,
             description: item.description,
             detail_page_url: item.detail_page_url,
-            headquarters: item.headquarters,
+            headquarters: normalizeCompanyHeadquarters(item.headquarters),
           }));
 
         // Dedup within fund: keep first occurrence by compact normalized name

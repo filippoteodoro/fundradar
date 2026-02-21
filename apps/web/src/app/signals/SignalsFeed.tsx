@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
-import type { FundCategory, Office } from '@fundradar/shared';
+import { FUND_CATEGORY_LABELS, type FundCategory, type Office } from '@fundradar/shared';
 import type { UnifiedSignal } from '@/lib/signals_unified';
 import { toDisplayType, SIGNAL_TYPE_STYLES, SIGNAL_TYPE_IMPORTANCE, type DisplaySignalType } from '@/lib/signalProcessing';
-import { matchesHqCountryFilter, matchesSectorGroupFilter } from '@/lib/fundFilters';
-import { buildDynamicFundFilterSource, buildSignalTypeChipItems } from '@/lib/filterConfig';
+import { deriveFundHqCountry, matchesHqCountryFilter, matchesSectorGroupFilter } from '@/lib/fundFilters';
+import { buildDynamicFundFilterSource, buildSignalTypeChipItems, SIGNAL_TYPE_FILTERS } from '@/lib/filterConfig';
 import { formatAum, findNearestStopIndex } from '@/lib/fundRangeFilters';
+import { fundSectorGroups } from '@/lib/sectorGroups';
 import { SignalCard } from '@/components/SignalCard';
 import { DualRangeSlider } from '@/components/filters/DualRangeSlider';
 import { FilterBar } from '@/components/filters/FilterBar';
@@ -220,24 +221,6 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
     }
   }
 
-  const typeCounts = useMemo(() => {
-    const counts = new Map<DisplaySignalType, number>();
-    baseSignals.forEach((s) => {
-      const displayType = toDisplayType(s.signal_type);
-      counts.set(displayType, (counts.get(displayType) ?? 0) + 1);
-    });
-    return counts;
-  }, [baseSignals]);
-
-  const typeChipItems: ChipItem[] = useMemo(() => {
-    return buildSignalTypeChipItems(typeCounts).map((type) => ({
-        value: type.value,
-        label: type.label,
-        count: type.count,
-        color: SIGNAL_TYPE_STYLES[type.value] ? { bg: SIGNAL_TYPE_STYLES[type.value].bg, text: SIGNAL_TYPE_STYLES[type.value].color } : undefined,
-      }));
-  }, [typeCounts]);
-
   const hasFundMetadata = fundMetaForSignals.length > 0;
   const hasActiveInvestment = invMinFilter > 0 || (Number.isFinite(invMaxFilter) && invMaxFilter < invRangeMax);
   const hasActiveAum = aumMinFilter > 0 || aumMaxFilter < aumRangeMax;
@@ -251,11 +234,8 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
     hasActiveAum,
   ].filter(Boolean).length;
 
-  const filteredSignals = useMemo(() => {
-    const filtered = baseSignals.filter((s) => {
-      const displayType = toDisplayType(s.signal_type);
-      if (typeFilter !== 'all' && displayType !== typeFilter) return false;
-
+  const signalsMatchingNonTypeFilters = useMemo(() => {
+    return baseSignals.filter((s) => {
       // Fund-level filters
       if (hasFundMetadata && (categoryFilter !== 'all' || sectorGroupFilter !== 'all' || hqCountryFilter !== 'all' || hasActiveInvestment || hasActiveAum)) {
         const related = Array.isArray((s as any).related_fund_slugs)
@@ -297,8 +277,174 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
         (s.fund_name || '').toLowerCase().includes(q)
       );
     });
-    return sortSignals(filtered, fundPriorityScores);
-  }, [baseSignals, typeFilter, categoryFilter, sectorGroupFilter, hqCountryFilter, hasActiveInvestment, hasActiveAum, invMinFilter, invMaxFilter, aumMinFilter, aumMaxFilter, aumRangeMax, search, fundPriorityScores, hasFundMetadata, fundMetaMap]);
+  }, [baseSignals, categoryFilter, sectorGroupFilter, hqCountryFilter, hasActiveInvestment, hasActiveAum, invMinFilter, invMaxFilter, aumMinFilter, aumMaxFilter, aumRangeMax, search, hasFundMetadata, fundMetaMap]);
+
+  const typeCounts = useMemo(() => {
+    const counts = new Map<DisplaySignalType, number>();
+    for (const signal of signalsMatchingNonTypeFilters) {
+      const displayType = toDisplayType(signal.signal_type);
+      counts.set(displayType, (counts.get(displayType) ?? 0) + 1);
+    }
+    return counts;
+  }, [signalsMatchingNonTypeFilters]);
+
+  const typeChipItems: ChipItem[] = useMemo(() => {
+    const items = buildSignalTypeChipItems(typeCounts);
+    if (typeFilter !== 'all' && !items.some((item) => item.value === typeFilter)) {
+      const label = SIGNAL_TYPE_FILTERS.find((item) => item.value === typeFilter)?.label || SIGNAL_TYPE_STYLES[typeFilter]?.label || typeFilter;
+      items.push({ value: typeFilter, label, count: 0 });
+    }
+    return items.map((type) => ({
+      value: type.value,
+      label: type.label,
+      count: type.count,
+      color: SIGNAL_TYPE_STYLES[type.value] ? { bg: SIGNAL_TYPE_STYLES[type.value].bg, text: SIGNAL_TYPE_STYLES[type.value].color } : undefined,
+    }));
+  }, [typeCounts, typeFilter]);
+
+  const filteredSignals = useMemo(() => {
+    const typeFiltered = typeFilter === 'all'
+      ? signalsMatchingNonTypeFilters
+      : signalsMatchingNonTypeFilters.filter((s) => toDisplayType(s.signal_type) === typeFilter);
+    return sortSignals(typeFiltered, fundPriorityScores);
+  }, [signalsMatchingNonTypeFilters, typeFilter, fundPriorityScores]);
+
+  const {
+    categoryDropdownOptions,
+    allCategoryOptionCount,
+    sectorGroupDropdownOptions,
+    allSectorOptionCount,
+    hqCountryDropdownOptions,
+    allHqCountryOptionCount,
+  } = useMemo(() => {
+    const signalMatchesSearch = (signal: UnifiedSignal): boolean => {
+      if (!search.trim()) return true;
+      const q = search.trim().toLowerCase();
+      return (
+        (signal.what_changed || '').toLowerCase().includes(q) ||
+        (signal.fund_name || '').toLowerCase().includes(q)
+      );
+    };
+
+    const signalFundSlugs = (signal: UnifiedSignal): string[] => {
+      const related = Array.isArray((signal as any).related_fund_slugs)
+        ? (signal as any).related_fund_slugs.filter(Boolean)
+        : [];
+      return related.length > 0 ? related : [signal.fund_slug || ''].filter(Boolean);
+    };
+
+    const collectFundSlugs = (ignore: 'category' | 'sector' | 'hq') => {
+      const slugs = new Set<string>();
+      for (const signal of baseSignals) {
+        if (typeFilter !== 'all' && toDisplayType(signal.signal_type) !== typeFilter) continue;
+        if (!signalMatchesSearch(signal)) continue;
+
+        const signalSlugs = signalFundSlugs(signal);
+        const metas = signalSlugs
+          .map((slug) => fundMetaMap[slug])
+          .filter(Boolean) as FundMeta[];
+        if (hasFundMetadata && metas.length === 0) continue;
+
+        if (hasFundMetadata && (categoryFilter !== 'all' || sectorGroupFilter !== 'all' || hqCountryFilter !== 'all' || hasActiveInvestment || hasActiveAum)) {
+          if (ignore !== 'category' && categoryFilter !== 'all' && !metas.some((meta) => meta.category === categoryFilter)) continue;
+          if (ignore !== 'sector' && sectorGroupFilter !== 'all' && !metas.some((meta) => matchesSectorGroupFilter(meta, sectorGroupFilter))) continue;
+          if (ignore !== 'hq' && hqCountryFilter !== 'all' && !metas.some((meta) => matchesHqCountryFilter(meta, hqCountryFilter))) continue;
+          if (hasActiveInvestment) {
+            const filterMax = Number.isFinite(invMaxFilter) ? invMaxFilter : Infinity;
+            const investmentMatch = metas.some((meta) => {
+              const fundMin = meta.investment_min_eur || 0;
+              const fundMax = meta.investment_max_eur || 0;
+              if (fundMax === 0) return false;
+              return !(fundMax < invMinFilter || fundMin > filterMax);
+            });
+            if (!investmentMatch) continue;
+          }
+          if (hasActiveAum) {
+            const aumMatch = metas.some((meta) => {
+              const aum = meta.aum_eur || 0;
+              if (aumMinFilter > 0 && aum < aumMinFilter) return false;
+              if (aumMaxFilter < aumRangeMax && aum > aumMaxFilter) return false;
+              return true;
+            });
+            if (!aumMatch) continue;
+          }
+        }
+
+        for (const slug of signalSlugs) {
+          if (fundMetaMap[slug]) slugs.add(slug);
+        }
+      }
+      return slugs;
+    };
+
+    const categorySlugs = collectFundSlugs('category');
+    const categoryCounts = new Map<FundCategory, number>();
+    for (const slug of categorySlugs) {
+      const meta = fundMetaMap[slug];
+      if (!meta) continue;
+      categoryCounts.set(meta.category, (categoryCounts.get(meta.category) ?? 0) + 1);
+    }
+    const dynamicCategoryDropdownOptions = fundFilterSource.categories.map((cat) => ({
+      value: cat,
+      label: `${FUND_CATEGORY_LABELS[cat]} (${categoryCounts.get(cat) ?? 0})`,
+    }));
+
+    const sectorSlugs = collectFundSlugs('sector');
+    const sectorCounts = new Map<string, number>();
+    for (const slug of sectorSlugs) {
+      const meta = fundMetaMap[slug];
+      if (!meta) continue;
+      for (const group of fundSectorGroups(meta.sector_tags)) {
+        sectorCounts.set(group, (sectorCounts.get(group) ?? 0) + 1);
+      }
+    }
+    const dynamicSectorDropdownOptions = fundFilterSource.sectorGroupDropdownOptions.map((group) => ({
+      value: group.value,
+      label: `${group.value} (${sectorCounts.get(group.value) ?? 0})`,
+    }));
+
+    const hqSlugs = collectFundSlugs('hq');
+    const hqCounts = new Map<string, number>();
+    for (const slug of hqSlugs) {
+      const meta = fundMetaMap[slug];
+      if (!meta) continue;
+      const country = deriveFundHqCountry(meta);
+      if (!country) continue;
+      hqCounts.set(country, (hqCounts.get(country) ?? 0) + 1);
+    }
+    const dynamicHqDropdownOptions = fundFilterSource.hqCountryDropdownOptions.map((country) => ({
+      value: country.value,
+      label: `${country.value} (${hqCounts.get(country.value) ?? 0})`,
+    }));
+
+    return {
+      categoryDropdownOptions: dynamicCategoryDropdownOptions,
+      allCategoryOptionCount: categorySlugs.size,
+      sectorGroupDropdownOptions: dynamicSectorDropdownOptions,
+      allSectorOptionCount: sectorSlugs.size,
+      hqCountryDropdownOptions: dynamicHqDropdownOptions,
+      allHqCountryOptionCount: hqSlugs.size,
+    };
+  }, [
+    baseSignals,
+    typeFilter,
+    categoryFilter,
+    sectorGroupFilter,
+    hqCountryFilter,
+    hasFundMetadata,
+    hasActiveInvestment,
+    hasActiveAum,
+    invMinFilter,
+    invMaxFilter,
+    aumMinFilter,
+    aumMaxFilter,
+    aumRangeMax,
+    search,
+    fundMetaMap,
+    fundFilterSource.categories,
+    fundFilterSource.sectorGroupDropdownOptions,
+    fundFilterSource.hqCountryDropdownOptions,
+  ]);
 
   const totalPages = Math.ceil(filteredSignals.length / pageSize);
   const paginatedSignals = filteredSignals.slice(page * pageSize, (page + 1) * pageSize);
@@ -314,9 +460,6 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
     setAumMaxFilter(aumRangeMax);
     setSearch('');
   };
-  const categoryDropdownOptions = fundFilterSource.categoryDropdownOptions;
-  const sectorGroupDropdownOptions = fundFilterSource.sectorGroupDropdownOptions;
-  const hqCountryDropdownOptions = fundFilterSource.hqCountryDropdownOptions;
 
   return (
     <>
@@ -336,21 +479,21 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
                   label="Fund Category"
                   value={categoryFilter}
                   options={categoryDropdownOptions}
-                  allLabel="All Categories"
+                  allLabel={`All Categories (${allCategoryOptionCount})`}
                   onChange={(v) => setCategoryFilter(v as FundCategory | 'all')}
                 />
                 <FilterDropdown
                   label="Sector"
                   value={sectorGroupFilter}
                   options={sectorGroupDropdownOptions}
-                  allLabel="All Sectors"
+                  allLabel={`All Sectors (${allSectorOptionCount})`}
                   onChange={setSectorGroupFilter}
                 />
                 <FilterDropdown
                   label="HQ Country"
                   value={hqCountryFilter}
                   options={hqCountryDropdownOptions}
-                  allLabel="All HQ Countries"
+                  allLabel={`All HQ Countries (${allHqCountryOptionCount})`}
                   onChange={setHqCountryFilter}
                 />
                 {invStops.length > 1 && (
@@ -409,7 +552,7 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
           activeValue={typeFilter}
           onSelect={(v) => setTypeFilter(v as DisplaySignalType | 'all')}
           allLabel="All"
-          allCount={baseSignals.length}
+          allCount={signalsMatchingNonTypeFilters.length}
           pinToEnd={['other']}
         />
       </FilterBar>

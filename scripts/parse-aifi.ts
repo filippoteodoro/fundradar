@@ -22,6 +22,8 @@ const ITALIAN_TO_ENGLISH_CITY: Record<string, string> = {
   'Venezia': 'Venice',
   'Genova': 'Genoa',
   'Padova': 'Padua',
+  'Parigi': 'Paris',
+  'Lussemburgo': 'Luxembourg',
 };
 
 function normalizeCity(city: string | null): string | null {
