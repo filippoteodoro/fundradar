@@ -1,11 +1,11 @@
 {
-  "checked_at": "2026-02-21T16:02:47.383960+00:00",
+  "checked_at": "2026-02-21T19:08:04.049921+00:00",
   "scope": "all funds",
   "strict_network_mode": true,
   "llm_connection_fallbacks": 0,
   "translation_network_errors": 0,
-  "translation_unresolved_fields": 32,
-  "translation_detected_fields": 286,
+  "translation_unresolved_fields": 22,
+  "translation_detected_fields": 140,
   "translation_sample_errors": [],
   "translation_skip_reason": "",
   "network_degraded": false
