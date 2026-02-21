@@ -557,6 +557,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
             minWidth: '100%',
             borderCollapse: 'collapse',
             tableLayout: 'auto',
+            fontSize: '14px',
           }}
         >
           <thead>
@@ -564,7 +565,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
             <th
               onClick={() => toggleSort('name')}
               style={{
-                padding: '12px 12px',
+                padding: '10px 12px',
                 borderBottom: '1px solid #eee',
                 whiteSpace: 'nowrap',
                 cursor: 'pointer',
@@ -576,7 +577,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
             <th
               onClick={() => toggleSort('category')}
               style={{
-                padding: '12px 12px',
+                padding: '10px 12px',
                 borderBottom: '1px solid #eee',
                 whiteSpace: 'nowrap',
                 cursor: 'pointer',
@@ -588,7 +589,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
             <th
               onClick={() => toggleSort('hq')}
               style={{
-                padding: '12px 12px',
+                padding: '10px 12px',
                 borderBottom: '1px solid #eee',
                 whiteSpace: 'nowrap',
                 cursor: 'pointer',
@@ -600,7 +601,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
             <th
               onClick={() => toggleSort('aum')}
               style={{
-                padding: '12px 12px',
+                padding: '10px 12px',
                 borderBottom: '1px solid #eee',
                 whiteSpace: 'nowrap',
                 cursor: 'pointer',
@@ -611,7 +612,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
             </th>
             <th
               style={{
-                padding: '12px 12px',
+                padding: '10px 12px',
                 borderBottom: '1px solid #eee',
                 whiteSpace: 'nowrap',
                 width: '1%',
@@ -627,7 +628,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
               {index === separatorIndex && secondaryFunds.length > 0 && separatorIndex > 0 && separatorIndex < paginatedFunds.length && (
                 <tr>
                   <td colSpan={5} style={{
-                    padding: '12px 12px',
+                    padding: '10px 12px',
                     background: '#f5f5f5',
                     color: '#666',
                     fontSize: '13px',
@@ -643,10 +644,10 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
                 onMouseOver={(e) => (e.currentTarget.style.background = '#f9f9f9')}
                 onMouseOut={(e) => (e.currentTarget.style.background = 'white')}
               >
-                <td style={{ padding: '12px 12px', borderBottom: '1px solid #eee' }}>
+                <td style={{ padding: '10px 12px', borderBottom: '1px solid #eee' }}>
                   <a
                     href={`/funds/${fund.slug}`}
-                    style={{ color: '#0066cc', textDecoration: 'none', fontWeight: 500 }}
+                    style={{ color: '#1976d2', textDecoration: 'none', fontWeight: 500 }}
                     onClick={(e) => e.stopPropagation()}
                   >
                     <span className="mobile-hide">{fund.name}</span>
@@ -664,7 +665,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
                     return <div style={{ fontSize: '11px', color: '#aaa', marginTop: '2px' }}>{label}</div>;
                   })()}
                 </td>
-                <td style={{ padding: '12px 12px', borderBottom: '1px solid #eee' }}>
+                <td style={{ padding: '10px 12px', borderBottom: '1px solid #eee' }}>
                   <span
                     style={{
                       background: CATEGORY_COLORS[fund.category].bg,
@@ -679,15 +680,15 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
                     <span className="mobile-show">{SHORT_CATEGORY_LABELS[FUND_CATEGORY_LABELS[fund.category]] || FUND_CATEGORY_LABELS[fund.category]}</span>
                   </span>
                 </td>
-                <td style={{ padding: '12px 12px', borderBottom: '1px solid #eee', color: '#666', whiteSpace: 'nowrap' }}>
+                <td style={{ padding: '10px 12px', borderBottom: '1px solid #eee', color: '#666', whiteSpace: 'nowrap' }}>
                   {getHqLabel(fund)}
                 </td>
-                <td style={{ padding: '12px 12px', borderBottom: '1px solid #eee', color: '#666', whiteSpace: 'nowrap' }}>
+                <td style={{ padding: '10px 12px', borderBottom: '1px solid #eee', color: '#666', whiteSpace: 'nowrap' }}>
                   {fund.aum_eur ? formatAum(fund.aum_eur) : '-'}
                 </td>
                 <td
                   style={{
-                    padding: '12px 12px',
+                    padding: '10px 12px',
                     borderBottom: '1px solid #eee',
                     whiteSpace: 'nowrap',
                     width: '1%',

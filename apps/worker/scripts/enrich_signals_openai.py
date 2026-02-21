@@ -1112,6 +1112,48 @@ def _clean_summary_text(text: str) -> str:
         cleaned,
     )
     cleaned = re.sub(r"(?i)\b(?:press\s*release|comunicato\s*stampa)\b\s*[-:]?\s*", "", cleaned)
+    # Fix brand name OCR/PDF artifacts (must mirror filter_signals.py _fix_spacing)
+    cleaned = re.sub(r"\bK\s+3\s*R\s*X\b", "K3RX", cleaned)
+    cleaned = re.sub(r"\bE\s+4\s+G\b", "E4G", cleaned)
+    cleaned = re.sub(r"\bP\s+101\b", "P101", cleaned)
+    cleaned = re.sub(r"\bT\s+2\s+Y\b", "T2Y", cleaned)
+    cleaned = re.sub(r"\bB\s+2\s+O\b", "B2O", cleaned)
+    cleaned = re.sub(r"\b3\s+D\s+AI\b", "3D AI", cleaned)
+    cleaned = re.sub(r"\bSME\s+s\b", "SMEs", cleaned)
+    cleaned = re.sub(r"\b([QH])\s+(\d)\b", r"\1\2", cleaned)  # "Q 1" → "Q1"
+    cleaned = re.sub(r"\b(\d)\s+([QH])\s+(\d{4})\b", r"\2\1 \3", cleaned)  # "1 Q 2025" → "Q1 2025"
+    cleaned = re.sub(r"\b(\d+)\s+M\s*W\b", r"\1MW", cleaned)
+    cleaned = re.sub(r"\bMi\s*CROTEC\b", "MiCROTEC", cleaned)
+    cleaned = re.sub(r"\bAAV\s*antgarde\b", "AAVantgarde", cleaned)
+    cleaned = re.sub(r"\bLV\s*enture\b", "LVenture", cleaned)
+    cleaned = re.sub(r"\bWS\s*ense\b", "WSense", cleaned)
+    cleaned = re.sub(r"\bNano\s+Phoria\b", "NanoPhoria", cleaned)
+    cleaned = re.sub(r"\bPintau\s+di\b", "Pintaudi", cleaned)
+    cleaned = re.sub(r"\bUV\s*T[\s-]*Growth\b", "UVT-Growth", cleaned)
+    cleaned = re.sub(r"\b[Bb]ee\s*2\s*[Ll]ink\b", "Bee2Link", cleaned)
+    cleaned = re.sub(r"\bSmart\s*4\s*T\s*ech\b", "Smart4Tech", cleaned)
+    cleaned = re.sub(r"\bID\s*e\s*A\b", "IDea", cleaned)
+    cleaned = re.sub(r"\bGT\s*x\b", "GTx", cleaned)
+    cleaned = re.sub(r"\bFounta\s*in\s*Vest\b", "FountainVest", cleaned)
+    cleaned = re.sub(r"\b([Tt]rasferimen)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\b([Ff]inanziamen)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\b([Dd]eposi)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\b([Ss]tabilimen)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\b([Pp]otenziamen)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\b([Ii]nvestimen)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\b([Rr]iferimen)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\bi\s*SPLASH\b", "iSPLASH", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\bWarste\s+in\b", "Warstein", cleaned)
+    cleaned = re.sub(r"\bSeries\s+([ABC])(?=[a-z])", r"Series \1 ", cleaned)
+    # Strip leading list-number artifacts ("1. ", "2. ")
+    cleaned = re.sub(r"^\d+\.\s+", "", cleaned)
+    # Strip press release dateline: "City (XX), date – "
+    cleaned = re.sub(
+        r"^[A-Z][a-z]+(?:\s+\([A-Z]{2,4}\))?,\s*\d{1,2}\s+\w+\s+\d{4}\s*[-–—]\s*",
+        "", cleaned,
+    )
+    # Strip navigation breadcrumbs: "... | Press releases."
+    cleaned = re.sub(r"\s*\|?\s*[Pp]ress\s+[Rr]eleases?\.?\s*$", ".", cleaned).strip()
     # Strip trailing newspaper/source attribution noise.
     cleaned = _RE_SOURCE_ATTR_SUFFIX.sub("", cleaned)
     # Strip leading source labels (e.g., "Il Sole 24 Ore: ...").
@@ -1517,8 +1559,48 @@ def _normalize_currency_amounts(text: str) -> str:
         lambda m: f"${_fmt_amount(m.group(1))}M",
         text, flags=re.IGNORECASE,
     )
+    # Standalone "X mln" (when not already caught by euro-specific patterns above)
+    text = re.sub(
+        r"\b(\d[\d.,]*)\s+mln\b",
+        lambda m: f"€{_fmt_amount(m.group(1))}M",
+        text, flags=re.IGNORECASE,
+    )
+    # "X M€" without leading digit already handled; also catch "X,Y M€"
+    # "€X million" / "$X million" → "€XM" / "$XM"
+    text = re.sub(r"€(\d[\d.,]*)\s+million\b", lambda m: f"€{_fmt_amount(m.group(1))}M", text, flags=re.IGNORECASE)
+    text = re.sub(r"\$(\d[\d.,]*)\s+million\b", lambda m: f"${_fmt_amount(m.group(1))}M", text, flags=re.IGNORECASE)
+    text = re.sub(r"€(\d[\d.,]*)\s+billion\b", lambda m: f"€{_fmt_amount(m.group(1))}B", text, flags=re.IGNORECASE)
+    text = re.sub(r"\$(\d[\d.,]*)\s+billion\b", lambda m: f"${_fmt_amount(m.group(1))}B", text, flags=re.IGNORECASE)
+    # "€XM of dollars" contradictions → "$XM"
+    text = re.sub(r"€(\d[\d.,]*[MBK])\s+of\s+dollars", lambda m: f"${m.group(1)}", text, flags=re.IGNORECASE)
     # Clean up spacing: "€ 500M" → "€500M"
     text = re.sub(r"€\s+(\d)", r"€\1", text)
+    return text
+
+
+def _normalize_token_splits(text: str) -> str:
+    """Fix common word/token splits introduced by OCR or PDF extraction artifacts.
+
+    Handles patterns like "SME s" → "SMEs", "29 th" → "29th", "Q 1" → "Q1".
+    Called from _finalize_signal_summary so fixes apply to every enricher run.
+    """
+    if not text:
+        return text
+    # Ordinal suffixes split from number: "29 th" → "29th", "1 st" → "1st"
+    text = re.sub(r"\b(\d+)\s+(th|st|nd|rd)\b", r"\1\2", text, flags=re.IGNORECASE)
+    # Quarter abbreviations: "Q 1" → "Q1", "1 Q" → "Q1"
+    text = re.sub(r"\bQ\s+([1-4])\b", r"Q\1", text)
+    text = re.sub(r"\b([1-4])\s+Q\b", r"Q\1", text)
+    # Half-year: "H 1" → "H1", "H 2" → "H2"
+    text = re.sub(r"\bH\s+([12])\b", r"H\1", text)
+    # SMEs (very common split from tokenizer)
+    text = re.sub(r"\bSME\s+s\b", "SMEs", text)
+    # Italian round types in English context: "Serie A/B/C" → "Series A/B/C"
+    text = re.sub(r"\bSerie\s+([ABC])\b", r"Series \1", text)
+    # "Series Cfinancing" → "Series C financing" (missing space)
+    text = re.sub(r"\b(Series\s+[A-Z])financing\b", r"\1 financing", text)
+    # Italian word split from PDF: "Trasferimen to" → "Trasferimento"
+    text = re.sub(r"\bTrasferimen\s+to\b", "Trasferimento", text)
     return text
 
 
@@ -1646,7 +1728,11 @@ def _compact_leading_label_chain(text: str) -> str:
 
 
 def _dedup_sentences(text: str) -> str:
-    """Drop sentences that repeat earlier content (>70% word overlap)."""
+    """Drop sentences that repeat earlier content (>70% word overlap).
+
+    Also drops Italian/French sentences that appear to be untranslated duplicates
+    of preceding English content (detected by high proper-noun overlap + Italian markers).
+    """
     sentences = re.split(r"(?<=[.!?])\s+", text)
     if len(sentences) < 2:
         return text
@@ -1659,6 +1745,11 @@ def _dedup_sentences(text: str) -> str:
         w_kept = set(re.findall(r"\w{3,}", " ".join(kept).lower()))
         overlap = len(w_sent & w_kept) / len(w_sent) if w_sent else 0
         if overlap < 0.7:
+            # Check if this sentence is an Italian/French duplicate of the English kept text.
+            # Italian sentences share numbers, proper nouns, and amounts with the English
+            # version but use different common words — overlap is typically 30-60%.
+            if overlap >= 0.3 and _is_italian_text(sent):
+                continue  # drop Italian duplicate
             kept.append(sent)
     return " ".join(kept)
 
@@ -1749,6 +1840,7 @@ def _finalize_signal_summary(signal: dict) -> None:
 
     summary = _clean_summary_text(summary)
     summary = _normalize_currency_amounts(summary)
+    summary = _normalize_token_splits(summary)
     summary = _compact_leading_label_chain(summary)
     # Fix double articles ("the The", "a A")
     summary = re.sub(r"\b(the|a|an)\s+\1\b", r"\1", summary, flags=re.IGNORECASE)
@@ -3152,6 +3244,24 @@ def main(slugs_filter: str | None = None):
             print(f"  Warning: _finalize_signal_summary failed for {signal.get('id')}: {_fe}")
     if _finalize_errors:
         print(f"  Phase 3 summary finalization: {_finalize_errors} errors (skipped, continue)")
+
+    # Remap internal classification types to canonical output types.
+    # "fundraise_closed" / "fundraise_announced" are useful internally for precision
+    # but the frontend only knows "fundraise". "partnership" maps to deal_announced.
+    _CANONICAL_TYPE_MAP = {
+        "fundraise_closed": "fundraise",
+        "fundraise_announced": "fundraise",
+        "partnership": "deal_announced",
+    }
+    _type_remapped = 0
+    for signal in signals:
+        st = signal.get("signal_type")
+        if st in _CANONICAL_TYPE_MAP:
+            signal["signal_type"] = _CANONICAL_TYPE_MAP[st]
+            _type_remapped += 1
+    if _type_remapped:
+        print(f"  Remapped {_type_remapped} non-canonical signal types to frontend types")
+
     _disambiguate_cross_fund_duplicate_summaries(signals)
 
     # ── Translation pass: Italian → English ────────────────────────────────────

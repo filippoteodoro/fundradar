@@ -2191,6 +2191,44 @@ def _fix_spacing(text: str) -> str:
     cleaned = re.sub(r"\bB\s+4\s+i\b", "B4i", cleaned)
     cleaned = re.sub(r"\bCO\s+2\b", "CO2", cleaned)
     cleaned = re.sub(r"\b3\s+i\b", "3i", cleaned)
+    cleaned = re.sub(r"\bK\s+3\s*R\s*X\b", "K3RX", cleaned)
+    cleaned = re.sub(r"\bE\s+4\s+G\b", "E4G", cleaned)
+    cleaned = re.sub(r"\bP\s+101\b", "P101", cleaned)
+    cleaned = re.sub(r"\bT\s+2\s+Y\b", "T2Y", cleaned)
+    cleaned = re.sub(r"\bB\s+2\s+O\b", "B2O", cleaned)
+    cleaned = re.sub(r"\b3\s+D\s+AI\b", "3D AI", cleaned)
+    cleaned = re.sub(r"\bSME\s+s\b", "SMEs", cleaned)
+    # Quarter/half notation: "Q 1 2026" → "Q1 2026", "1 Q 2025" → "Q1 2025", "H 1" → "H1"
+    cleaned = re.sub(r"\b([QH])\s+(\d)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\b(\d)\s+([QH])\s+(\d{4})\b", r"\2\1 \3", cleaned)
+    # Units: "39 M W" → "39MW"
+    cleaned = re.sub(r"\b(\d+)\s+M\s*W\b", r"\1MW", cleaned)
+    # Brand name OCR artifacts
+    cleaned = re.sub(r"\bMi\s*CROTEC\b", "MiCROTEC", cleaned)
+    cleaned = re.sub(r"\bAAV\s*antgarde\b", "AAVantgarde", cleaned)
+    cleaned = re.sub(r"\bLV\s*enture\b", "LVenture", cleaned)
+    cleaned = re.sub(r"\bWS\s*ense\b", "WSense", cleaned)
+    cleaned = re.sub(r"\bNano\s+Phoria\b", "NanoPhoria", cleaned)
+    cleaned = re.sub(r"\bPintau\s+di\b", "Pintaudi", cleaned)
+    cleaned = re.sub(r"\bUV\s*T[\s-]*Growth\b", "UVT-Growth", cleaned)
+    cleaned = re.sub(r"\b[Bb]ee\s*2\s*[Ll]ink\b", "Bee2Link", cleaned)
+    cleaned = re.sub(r"\bSmart\s*4\s*T\s*ech\b", "Smart4Tech", cleaned)
+    cleaned = re.sub(r"\bID\s*e\s*A\b", "IDea", cleaned)
+    cleaned = re.sub(r"\bGT\s*x\b", "GTx", cleaned)
+    cleaned = re.sub(r"\bFounta\s*in\s*Vest\b", "FountainVest", cleaned)
+    # Italian word splits from OCR/PDF: "-mento" suffix splits
+    cleaned = re.sub(r"\b([Tt]rasferimen)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\b([Ff]inanziamen)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\b([Dd]eposi)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\b([Ss]tabilimen)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\b([Pp]otenziamen)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\b([Ii]nvestimen)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\b([Rr]iferimen)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\bi\s*SPLASH\b", "iSPLASH", cleaned, flags=re.IGNORECASE)
+    # "Warste in" → "Warstein"
+    cleaned = re.sub(r"\bWarste\s+in\b", "Warstein", cleaned)
+    # "Series Cfinancing" → "Series C financing" (missing space after letter)
+    cleaned = re.sub(r"\bSeries\s+([ABC])(?=[a-z])", r"Series \1 ", cleaned)
     # Media brand token can be split by acronym/lowercase + digit spacing rules.
     cleaned = re.sub(r"\bTGC\s*om\s*24\b", "TGCom24", cleaned, flags=re.IGNORECASE)
     # L Catterton scrape artifact: "LC atterton" → "L Catterton"
@@ -2632,7 +2670,78 @@ def _clean_signal_fields(signal: dict) -> dict:
             normalized = _normalize_date_string(raw_date)
             if normalized:
                 signal[date_key] = normalized
+    # Humanize source_name: convert slug-format names to display names
+    signal["source_name"] = _humanize_source_name(signal.get("source_name", ""))
+    # Fix word splits in all text fields (OCR/PDF artifacts)
+    for key in ("title", "what_changed", "diff_summary", "enriched_summary"):
+        if signal.get(key):
+            signal[key] = _fix_spacing(signal[key])
+    # Strip leading list-number artifacts ("1. ", "2. ", "3. ") from titles/summaries
+    for key in ("title", "enriched_summary"):
+        if signal.get(key):
+            signal[key] = re.sub(r"^\d+\.\s+", "", signal[key])
+    # Strip press release dateline: "City (XX), date – " or "City, date – "
+    for key in ("enriched_summary",):
+        if signal.get(key):
+            signal[key] = re.sub(
+                r"^[A-Z][a-z]+(?:\s+\([A-Z]{2,4}\))?,\s*\d{1,2}\s+\w+\s+\d{4}\s*[-–—]\s*",
+                "", signal[key],
+            )
+    # Strip navigation breadcrumbs leaked from source (e.g., "andera Acto | Press releases.")
+    for key in ("enriched_summary",):
+        if signal.get(key):
+            signal[key] = re.sub(r"\s*\|?\s*[Pp]ress\s+[Rr]eleases?\.?\s*$", ".", signal[key]).strip()
     return signal
+
+
+# Source name overrides for non-obvious slug → display name mappings
+_SOURCE_NAME_OVERRIDES = {
+    "manual-192": "CVC DIF",
+    "manual_192": "CVC DIF",
+}
+
+
+def _humanize_source_name(name: str) -> str:
+    """Convert slug-format source names to human-readable display names.
+
+    Handles: 'alcedo-sgr' → 'Alcedo SGR', 'fondo-italiano-d-investimento-sgr' → "Fondo Italiano d'Investimento SGR"
+    Passes through names that already look human-readable (contain spaces or uppercase).
+    """
+    if not name or not name.strip():
+        return name
+    name = name.strip()
+    # Strip embedded newlines
+    name = name.replace("\n", " ").replace("\r", " ")
+    # Check overrides first
+    if name in _SOURCE_NAME_OVERRIDES:
+        return _SOURCE_NAME_OVERRIDES[name]
+    # If it already has spaces AND mixed case, it's probably already human-readable
+    if " " in name and not name.islower():
+        return name
+    # If it's a slug (lowercase with hyphens), humanize it
+    if "-" in name and name == name.lower():
+        parts = name.split("-")
+        # Italian suffixes that stay uppercase
+        _UPPER_SUFFIXES = {"sgr", "sicaf", "sim", "spa", "srl", "aifm"}
+        # Re-join "d" + next word with apostrophe (Italian contraction)
+        humanized = []
+        i = 0
+        while i < len(parts):
+            part = parts[i]
+            if part == "d" and i + 1 < len(parts):
+                humanized.append(f"d'{parts[i+1].title()}")
+                i += 2
+                continue
+            if part in _UPPER_SUFFIXES:
+                humanized.append(part.upper())
+            else:
+                humanized.append(part.title())
+            i += 1
+        return " ".join(humanized)
+    # If it's a single lowercase word, title-case it
+    if name == name.lower() and " " not in name:
+        return name.title()
+    return name
 
 
 def _normalize_for_dedupe(text: str) -> str:
@@ -4300,6 +4409,66 @@ def main():
                 if not re.search(r"\b(?:nomin\w+|appoint\w+|hired?|joins?|joined|firmato|signed|accordo|agreement)\b", text_check_pi):
                     signal["signal_type"] = "other"
                     demoted_to_other_by_editorial = True
+
+        # Post-ML correction: deal_announced where title says "appoints/appointed" → people_move
+        if signal.get("signal_type") == "deal_announced":
+            text_check_da = (raw_title + " " + raw_summary).lower()
+            if re.search(r"\b(?:appoints?|appointed|nomin(?:at|a)\w*)\b", text_check_da):
+                if not re.search(r"\b(?:acquir\w+|invest\w+|stake|majority|minority)\b", text_check_da):
+                    signal["signal_type"] = "people_move"
+
+        # Post-ML correction: deal_announced with "launches" + fund vehicle/accelerator → fund_launch
+        if signal.get("signal_type") == "deal_announced":
+            text_check_da2 = (raw_title + " " + raw_summary).lower()
+            has_launch = re.search(r"\b(?:launch(?:es|ed)?|lancia|lanci[ao])\b", text_check_da2)
+            has_vehicle = _matches_any(FUND_LAUNCH_CLASSIFY_PATTERNS, text_check_da2) or re.search(r"\b(?:accelerat(?:or|ore)|incubat(?:or|ore))\b", text_check_da2)
+            if has_launch and has_vehicle:
+                if not re.search(r"\b(?:acquir\w+|invest\w+\s+in\b|stake|majority|minority)\b", text_check_da2):
+                    signal["signal_type"] = "fund_launch"
+
+        # Post-ML correction: deal_announced where portfolio company (not the fund) acquires → portfolio_update
+        # Pattern: "CompanyX, backed by FundY, acquires Z" or "CompanyX (FundY) acquires Z"
+        if signal.get("signal_type") == "deal_announced":
+            text_check_pu = (raw_title + " " + raw_summary).lower()
+            fund_slug = (signal.get("fund_slug") or "").replace("-", " ").lower()
+            fund_first = fund_slug.split()[0] if fund_slug else ""
+            # Check if company acquires and fund is in parenthetical/backing role
+            if re.search(r"\b(?:backed\s+by|controlled\s+by|owned\s+by|supported\s+by)\b.{0,50}\b(?:acquir\w+|complet\w+\s+acquisition)\b", text_check_pu):
+                signal["signal_type"] = "portfolio_update"
+            elif re.search(r"\b(?:acquir\w+|complet\w+\s+(?:the\s+)?acquisition)\b", text_check_pu):
+                # Check if the acquiring entity is NOT the fund (fund appears later in parenthetical)
+                if fund_first and len(fund_first) >= 3:
+                    # Fund mentioned only in parenthetical = portfolio company is the buyer
+                    if re.search(rf"\([^)]*{re.escape(fund_first)}[^)]*\)", text_check_pu):
+                        if not text_check_pu.startswith(fund_first):
+                            signal["signal_type"] = "portfolio_update"
+
+        # Post-ML correction: deal_announced/exit with "estimate/analysis/market" → report or other
+        if signal.get("signal_type") in ("deal_announced", "exit_announced"):
+            text_check_rpt = (raw_title + " " + raw_summary).lower()
+            if re.search(r"\b(?:estimat\w+|analysis|market\s+(?:at|size)|joint\s+analysis)\b", text_check_rpt):
+                if not re.search(r"\b(?:acquir\w+|invest\w+|stake|close[ds]?|complet\w+)\b", text_check_rpt):
+                    signal["signal_type"] = "other"
+
+        # Post-ML correction: deal_announced/exit with "joined/joins network" → other
+        if signal.get("signal_type") in ("deal_announced", "exit_announced"):
+            text_check_net = (raw_title + " " + raw_summary).lower()
+            if re.search(r"\b(?:join(?:s|ed)?)\s+(?:the\s+)?(?:\w+\s+)*?network\b", text_check_net):
+                if not re.search(r"\b(?:acquir\w+|invest\w+|stake|close[ds]?)\b", text_check_net):
+                    signal["signal_type"] = "other"
+
+        # Post-ML correction: exit_announced with bank "finances/financing" → debt_financing
+        if signal.get("signal_type") == "exit_announced":
+            text_check_df = (raw_title + " " + raw_summary).lower()
+            if re.search(r"\b(?:financ(?:es?|ing|ed)|secured?\s+.*?financ|credit\s+facilit)\b", text_check_df):
+                if not re.search(r"\b(?:sells?|sold|exit\w*|divest\w*|cede|cession)\b", text_check_df):
+                    signal["signal_type"] = "debt_financing"
+
+        # Post-ML correction: fund_launch for "restructuring plan/accelerat" → portfolio_update or other
+        if signal.get("signal_type") == "fund_launch":
+            text_check_fl2 = (raw_title + " " + raw_summary).lower()
+            if re.search(r"\brestructur\w+\s+plan\b", text_check_fl2):
+                signal["signal_type"] = "portfolio_update"
 
         # Post-ML correction: re-run full reclassifier for "other" signals.
         # ML often overrides the reclassifier's correct decision — trust pattern matches.

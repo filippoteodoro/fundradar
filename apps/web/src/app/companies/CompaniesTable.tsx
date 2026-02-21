@@ -185,7 +185,7 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
     };
   }, [companies, search, sectorGroupFilter, countryFilter]);
 
-  // Build country chips with counts based on currently active filters.
+  // Build country chips with counts based on currently active filters (excluding country filter).
   const { allCountryCount, countryChipItems } = useMemo(() => {
     const searchLower = search.toLowerCase().trim();
     const baseFiltered = companies.filter(c => {
@@ -199,9 +199,6 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
         if (statusFilter === 'current' && status !== 'current') return false;
         if (statusFilter === 'exited' && status !== 'exited') return false;
       }
-      if (countryFilter === 'italy') {
-        if (!isItalianCompany({ headquarters: c.headquarters })) return false;
-      }
       return true;
     });
 
@@ -213,7 +210,7 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
       allCountryCount: baseFiltered.length,
       countryChipItems: [{ value: 'italy', label: 'Italy', count: italyCount }],
     };
-  }, [companies, search, sectorGroupFilter, statusFilter, countryFilter]);
+  }, [companies, search, sectorGroupFilter, statusFilter]);
 
   return (
     <>
