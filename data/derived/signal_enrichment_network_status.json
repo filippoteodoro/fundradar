@@ -1,12 +1,16 @@
 {
-  "checked_at": "2026-02-21T10:13:20.412529+00:00",
+  "checked_at": "2026-02-21T10:45:27.046080+00:00",
   "scope": "all funds",
   "strict_network_mode": true,
   "llm_connection_fallbacks": 0,
   "translation_network_errors": 0,
-  "translation_unresolved_fields": 0,
-  "translation_detected_fields": 427,
-  "translation_sample_errors": [],
+  "translation_unresolved_fields": 92,
+  "translation_detected_fields": 438,
+  "translation_sample_errors": [
+    "DeepL batch error: Quota for this billing period has been exceeded, message: Quota exceeded",
+    "DeepL batch error: Quota for this billing period has been exceeded, message: Quota exceeded",
+    "DeepL batch error: Quota for this billing period has been exceeded, message: Quota exceeded"
+  ],
   "translation_skip_reason": "",
   "network_degraded": false
 }

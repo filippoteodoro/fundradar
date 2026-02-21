@@ -354,6 +354,9 @@ export function isGarbageSignal(signal: Signal, knownFundNames?: Set<string>): b
   // Podcast episode titles (contain fund name + "|" + guest name format)
   if (/\|\s*(?:deals?\s+com|dealing\s+with|episode\s+\d|ep\.\s*\d)/i.test(titleLower)) return true;
 
+  // Image/product SKU scraped as portfolio company: "480 X 480 added to portfolio"
+  if (/\b\d{2,4}\s*[Xx×]\s*\d{2,4}\b/.test(titleLower) && /\badded\s+to\b/i.test(titleLower)) return true;
+
   return false;
 }
 
@@ -513,6 +516,10 @@ function fixSignalSpacing(text: string): string {
   cleaned = cleaned.replace(/\bBee\s+2\s+Link\b/g, 'Bee2Link');
   cleaned = cleaned.replace(/\bSmart\s+4\s+T\s*ech\b/g, 'Smart4Tech');
   cleaned = cleaned.replace(/\bAlcedo\s+V\s+and\b/g, 'Alcedo V and');  // preserve as-is: "Alcedo V" is fund gen, "and" is conjunction
+  // Additional word-split fixes from second audit
+  cleaned = cleaned.replace(/\bT\s+erm\b/g, 'Term');
+  cleaned = cleaned.replace(/\bWarste\s+in\b/g, 'Warstein');
+  cleaned = cleaned.replace(/\bAAV\s+antgarde\b/g, 'AAVantgarde');
   // Additional known name corrections (digit-letter split artifacts)
   cleaned = cleaned.replace(/\bCY\s*4\s*GATE\b/g, 'CY4GATE');
   cleaned = cleaned.replace(/\bMi\s*CROTEC\b/g, 'MiCROTEC');
@@ -568,6 +575,16 @@ export function cleanSignalText(text: string): string {
   cleaned = cleaned.replace(/\s+\d{4}-\d{2}-\d{2}\s*\.?\s*$/i, '');
   // Strip malformed "the is dated" artifacts (audit C1 variant)
   cleaned = cleaned.replace(/\s+the\s+is\s+dated\s+.{0,30}$/i, '');
+  // Strip mid-text date artifacts: "announced in a dated YYYY-MM-DD; ..." (audit: equinox-aifm)
+  cleaned = cleaned.replace(/,?\s+announced\s+in\s+a\s+dated\s+\d{4}-\d{2}-\d{2}\b[^.]*\./gi, '.');
+  cleaned = cleaned.replace(/,?\s+in\s+a\s+dated\s+\d{4}-\d{2}-\d{2}\b[^,.]*/gi, '');
+  // Strip mid-text "Media: City, Date –" press release header (audit: faro-value)
+  cleaned = cleaned.replace(/\s+Media\s*:\s*\w+,\s+[A-Za-z]+\s+\d{1,2}(?:\s*(?:th|st|nd|rd))?,?\s+\d{4}\s*[–\-—]+\s*/gi, ' ');
+  // Strip Italian restatement appended after English summary sentence (audit: ibla-capital)
+  // "Fund acquires X. Fund acquisisce X." — remove trailing Italian-language sentence
+  cleaned = cleaned.replace(/\.\s+[A-Z][^.]{5,100}\b(?:acquis(?:isce|ta|to)|investe|annuncia|cede|raccoglie|sottoscrive|avvia|rileva)\b[^.]*\.?\s*$/i, '');
+  // Strip redundant "New investment involving X" template suffix (audit: gradiente-sgr)
+  cleaned = cleaned.replace(/\.\s+New\s+investment\s+involving\s+[^.]{3,80}\.?\s*$/i, '');
   cleaned = cleaned.replace(/\s{2,}/g, ' ').trim();
   // Strip trailing periods — signal text is a headline, not a sentence
   cleaned = cleaned.replace(/\.+\s*$/, '');
@@ -835,6 +852,10 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
     }
     // Ordinal investment for existing fund → deal (Italian + English ordinals)
     if (/\b(?:nuovo|nuov[oa]|primo|secondo|terz[oa]|quart[oa]|quint[oa]|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|\d+[°ºª]?)\s+(?:investiment[oi]|investment|operazione|operation)\b/i.test(text)) {
+      return 'deal_announced';
+    }
+    // "takes a stake in X" / "preso quota in X" = acquisition language → deal
+    if (/\btakes?\s+(?:a\s+)?(?:stake|quota|partecipazione)\b|\bpreso\s+(?:una?\s+)?(?:quota|partecipazione)\b/i.test(text)) {
       return 'deal_announced';
     }
     // Board/appointment language → people_move

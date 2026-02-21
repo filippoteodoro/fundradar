@@ -2057,9 +2057,10 @@ Rules:
     return {}
 
 
-# ── Italian → English translation via DeepL ──────────────────────────────────
-# DeepL Free API: 500k chars/month, excellent IT→EN quality.
-# Set DEEPL_API_KEY in .env to enable. Gracefully skips if not configured.
+# ── Non-English → English translation via OpenAI ─────────────────────────────
+# Uses the same OpenAI API key already required for signal enrichment.
+# Handles Italian, French, and any European language automatically.
+# No external translation service needed — LLMs are excellent translators.
 
 _LANG_WORD_RE = re.compile(r"[A-Za-zÀ-ÖØ-öø-ÿ']+")
 _IT_STOPWORDS = {
@@ -2136,7 +2137,7 @@ def _language_token_scores(text: str) -> tuple[int, int, int]:
 def _is_italian_text(text: str) -> bool:
     """Detect if text is predominantly Italian (robust for short finance snippets).
 
-    Tuned to be aggressive — better to translate an already-English text (DeepL
+    Tuned to be aggressive — better to translate an already-English text (OpenAI
     returns it unchanged) than to leave Italian on the English website.
     """
     if not text:
@@ -2175,19 +2176,20 @@ def _is_french_text(text: str) -> bool:
 
 
 def _translate_text_with_openai(client: OpenAI, text: str) -> str:
-    """Fallback translator when DeepL is unavailable or a batch fails."""
+    """Translate a single non-English PE/VC signal text to English via OpenAI."""
     if not text:
         return ""
     prompt = (
-        "Translate the following Italian PE/VC news summary into concise, factual English. "
+        "Translate the following PE/VC news text into concise, factual English. "
+        "The source may be Italian, French, or another European language. "
         "Preserve names, numbers, dates, currencies, and deal terms exactly. "
-        "Return only translated text.\n\n"
+        "Return only the translated text — no quotes, no explanation.\n\n"
         f"{text}"
     )
     resp = client.chat.completions.create(
         model=MODEL,
         messages=[
-            {"role": "system", "content": "You are a precise financial translator."},
+            {"role": "system", "content": "You are a precise financial translator. Return only the translated text."},
             {"role": "user", "content": prompt},
         ],
         max_completion_tokens=350,
@@ -2198,15 +2200,53 @@ def _translate_text_with_openai(client: OpenAI, text: str) -> str:
     return _clean_summary_text(out)
 
 
+def _translate_batch_with_openai(client: OpenAI, texts: list[str]) -> list[str]:
+    """Translate a batch of non-English PE/VC texts to English in a single API call.
+
+    Returns translated texts in the same order. Falls back to empty string on failure.
+    Much more efficient than calling _translate_text_with_openai() for each text separately.
+    """
+    if not texts:
+        return []
+    import json as _json
+    numbered = "\n".join(f"{i+1}. {t}" for i, t in enumerate(texts))
+    prompt = (
+        f"Translate the following {len(texts)} PE/VC news texts to English. "
+        "Each is numbered. Source may be Italian, French, or another European language. "
+        "Preserve names, numbers, currencies, and deal terms exactly. "
+        "Return a JSON array of translated strings in the same order.\n\n"
+        f"{numbered}"
+    )
+    try:
+        resp = client.chat.completions.create(
+            model=MODEL,
+            messages=[
+                {"role": "system", "content": "You are a precise financial translator. Return only a JSON array of translated strings."},
+                {"role": "user", "content": prompt},
+            ],
+            max_completion_tokens=1500,
+        )
+        raw = (resp.choices[0].message.content or "").strip() if resp.choices else ""
+        if raw.startswith("```"):
+            raw = raw.strip("`").lstrip("json").strip()
+        result = _json.loads(raw)
+        if isinstance(result, list) and len(result) == len(texts):
+            return [_clean_summary_text(str(r)) for r in result]
+    except Exception as e:
+        _record_error(f"Batch OpenAI translation error: {e}")
+    # Fall back to individual translations
+    return [_translate_text_with_openai(client, t) for t in texts]
+
+
 def _translate_italian_signals(signals: list[dict]) -> dict[str, Any]:
-    """Translate ALL Italian signal text fields to English using DeepL API.
+    """Translate all non-English signal text fields to English via OpenAI.
 
     Translates title, what_changed, and enriched_summary — all three fields
     that can appear in the UI. Stores originals in *_original fields.
+    Handles Italian, French, and any other European language automatically.
     Skips signals where all fields are already translated or already English.
     Returns detailed translation stats for reporting/alerting.
     """
-    deepl_api_key = os.environ.get("DEEPL_API_KEY")
     openai_api_key = os.environ.get("OPENAI_API_KEY")
     stats: dict[str, Any] = {
         "italian_fields_detected": 0,
@@ -2214,10 +2254,7 @@ def _translate_italian_signals(signals: list[dict]) -> dict[str, Any]:
         "translated_fields": 0,
         "translated_signals": 0,
         "unresolved_fields": 0,
-        "deepl_configured": bool(deepl_api_key),
-        "deepl_available": False,
         "openai_configured": bool(openai_api_key),
-        "deepl_batch_errors": 0,
         "openai_translation_errors": 0,
         "network_error_count": 0,
         "sample_errors": [],
@@ -2230,16 +2267,6 @@ def _translate_italian_signals(signals: list[dict]) -> dict[str, Any]:
             stats["network_error_count"] += 1
         if msg and len(stats["sample_errors"]) < 3:
             stats["sample_errors"].append(msg[:280])
-
-    deepl_module = None
-    if deepl_api_key:
-        try:
-            import deepl as deepl_module  # type: ignore[assignment]
-        except ImportError:
-            print("\nDeepL unavailable: deepl package not installed (pip install deepl)")
-            deepl_module = None
-            _record_error("DeepL package unavailable")
-    stats["deepl_available"] = bool(deepl_module)
 
     # User-facing text fields and their original-storage counterparts
     TEXT_FIELDS = [
@@ -2263,49 +2290,45 @@ def _translate_italian_signals(signals: list[dict]) -> dict[str, Any]:
     stats["signals_needing_translation"] = len(signals_needing_work)
 
     if not to_translate:
-        print("\nNo Italian/French text fields to translate")
+        print("\nNo non-English fields to translate")
         return stats
 
-    if not deepl_module and not openai_api_key:
-        print(f"\nSkipping translation: no DeepL/OpenAI key available ({len(to_translate)} fields pending)")
+    if not openai_api_key:
+        print(f"\nSkipping translation: OPENAI_API_KEY not set ({len(to_translate)} fields pending)")
         stats["unresolved_fields"] = len(to_translate)
-        stats["skipped_reason"] = "no_translation_provider_configured"
+        stats["skipped_reason"] = "no_openai_key"
         return stats
 
-    print(f"\nTranslating {len(to_translate)} Italian text fields across {len(signals_needing_work)} signals (IT→EN)...")
-    translator = deepl_module.Translator(deepl_api_key) if deepl_module and deepl_api_key else None
-    openai_client = OpenAI(api_key=openai_api_key, timeout=90.0) if openai_api_key else None
+    print(f"\nTranslating {len(to_translate)} non-English fields across {len(signals_needing_work)} signals via OpenAI...")
+    openai_client = OpenAI(api_key=openai_api_key, timeout=90.0)
     translated_fields = 0
     unresolved: list[tuple[dict, str, str, str]] = []
 
-    if translator is not None:
-        # Batch translate for efficiency — send just the text strings
-        BATCH_SIZE = 20
-        for i in range(0, len(to_translate), BATCH_SIZE):
-            batch = to_translate[i : i + BATCH_SIZE]
-            texts = [item[3] for item in batch]
-            try:
-                # Use auto-detect (source_lang=None) to handle French and other non-Italian sources
-                results = translator.translate_text(texts, target_lang="EN-US")
-                for (s, field, orig_field, original), result in zip(batch, results):
-                    translated_text = _clean_summary_text(result.text)
-                    if not translated_text:
-                        unresolved.append((s, field, orig_field, original))
-                        continue
-                    s[orig_field] = original
-                    s[field] = translated_text
-                    translated_fields += 1
-            except Exception as e:
-                print(f"  Translation batch error (DeepL): {e}")
-                stats["deepl_batch_errors"] += 1
-                _record_error(f"DeepL batch error: {e}")
-                unresolved.extend(batch)
-    else:
-        unresolved.extend(to_translate)
+    # Batched OpenAI translation — 10 fields per call (efficient, handles any source language)
+    BATCH_SIZE = 10
+    for i in range(0, len(to_translate), BATCH_SIZE):
+        batch = to_translate[i : i + BATCH_SIZE]
+        texts = [item[3] for item in batch]
+        try:
+            translated_texts = _translate_batch_with_openai(openai_client, texts)
+            for (s, field, orig_field, original), translated_text in zip(batch, translated_texts):
+                if not translated_text or translated_text == original:
+                    unresolved.append((s, field, orig_field, original))
+                    continue
+                s[orig_field] = original
+                s[field] = translated_text
+                translated_fields += 1
+        except Exception as e:
+            print(f"  Translation batch error (OpenAI): {e}")
+            stats["openai_batch_errors"] = stats.get("openai_batch_errors", 0) + 1
+            _record_error(f"OpenAI batch translation error: {e}")
+            unresolved.extend(batch)
+        import time
+        time.sleep(0.5)  # gentle rate limit between batches
 
-    # OpenAI fallback for any unresolved fields
-    if unresolved and openai_client is not None:
-        print(f"  Falling back to OpenAI translation for {len(unresolved)} fields...")
+    # Retry unresolved fields individually
+    if unresolved:
+        print(f"  Retrying {len(unresolved)} unresolved fields individually...")
         still_unresolved: list[tuple[dict, str, str, str]] = []
         for s, field, orig_field, original in unresolved:
             try:
@@ -2316,7 +2339,7 @@ def _translate_italian_signals(signals: list[dict]) -> dict[str, Any]:
                 _record_error(f"OpenAI translation error: {e}")
                 still_unresolved.append((s, field, orig_field, original))
                 continue
-            if not translated_text:
+            if not translated_text or translated_text == original:
                 still_unresolved.append((s, field, orig_field, original))
                 continue
             s[orig_field] = original
@@ -2360,22 +2383,21 @@ def _send_translation_issue_alert(translation_stats: dict[str, Any], slugs_filte
 
     translated_fields = int(translation_stats.get("translated_fields") or 0)
     signals_count = int(translation_stats.get("signals_needing_translation") or 0)
-    deepl_errors = int(translation_stats.get("deepl_batch_errors") or 0)
     openai_errors = int(translation_stats.get("openai_translation_errors") or 0)
     network_errors = int(translation_stats.get("network_error_count") or 0)
 
     scope = slugs_filter or "all funds"
     lines = [
         f"Scope: {scope}",
-        f"Italian fields detected: {detected} across {signals_count} signals",
+        f"Non-English fields detected: {detected} across {signals_count} signals",
         f"Translated fields: {translated_fields}",
         f"Unresolved fields: {unresolved}",
-        f"Providers: DeepL key={'yes' if translation_stats.get('deepl_configured') else 'no'} / OpenAI key={'yes' if translation_stats.get('openai_configured') else 'no'}",
+        f"Provider: OpenAI key={'yes' if translation_stats.get('openai_configured') else 'no'}",
     ]
     if skip_reason:
         lines.append(f"Reason: {skip_reason}")
-    if deepl_errors or openai_errors:
-        lines.append(f"Errors: DeepL batches={deepl_errors}, OpenAI fields={openai_errors}")
+    if openai_errors:
+        lines.append(f"Errors: OpenAI fields={openai_errors}")
     if network_errors:
         lines.append(f"Network/DNS-like API errors: {network_errors}")
     sample_errors = translation_stats.get("sample_errors") or []

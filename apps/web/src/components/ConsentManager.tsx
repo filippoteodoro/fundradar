@@ -57,6 +57,13 @@ function updateConsent(consent: Exclude<ConsentState, null>) {
 function loadGtmIfNeeded() {
   if (document.querySelector(`script[data-fundradar-gtm="${GTM_ID}"]`)) return;
 
+  const w = window as ConsentWindow;
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push({
+    'gtm.start': Date.now(),
+    event: 'gtm.js',
+  });
+
   const script = document.createElement('script');
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
