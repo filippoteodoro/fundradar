@@ -43269,7 +43269,366 @@
         ],
         "locations": []
       }
+    },
+    {
+      "id": "web-signal-01678",
+      "fund_id": "",
+      "fund_slug": "apax-partners",
+      "signal_type": "other",
+      "title": "Oncourse home solutions completes whole business securitization",
+      "what_changed": "New announcement: Oncourse home solutions completes whole business securitization",
+      "source_url": "https://www.apax.com/news-views/oncourse-home-solutions-completes-whole-business-securitization/",
+      "source_name": "Apax Partners",
+      "published_at": null,
+      "observed_at": "2026-02-21T09:33:24.142062+00:00",
+      "created_at": "2026-02-21T09:33:24.142062+00:00",
+      "snapshot_id": "snap-20260221093324-1ff51925",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01679",
+      "fund_id": "",
+      "fund_slug": "eiffel",
+      "signal_type": "other",
+      "title": "La BEI engage 100 millions d\u2019euros dans un nouveau projet vert d\u2019Eiffel pour soutenir les \u00e9conomies d\u2019\u00e9nergie des entreprises europ\u00e9ennes",
+      "what_changed": "La BEI engage 100 millions d\u2019euros \u00e0 l\u2019appui d\u2019un nouveau projet port\u00e9 par Eiffel Investment Group afin de soutenir les \u00e9conomies d\u2019\u00e9nergie des entreprises en Europe. Le partenariat a pour objet de financer des initiatives d\u2019efficacit\u00e9 \u00e9nerg\u00e9tique et de d\u00e9carbonation ainsi que des mod\u00e8les pilotes de",
+      "source_url": "https://www.eiffel-ig.com/articles/businesses-in-europe-to-get-energy-savings-boost-as-eib-commits-e100-million-to-new-green-project-by-eiffel-investment-group/",
+      "source_name": "Eiffel Investment Group",
+      "published_at": "2026-02-11",
+      "observed_at": "2026-02-21T09:34:40.383885+00:00",
+      "created_at": "2026-02-21T09:34:40.383885+00:00",
+      "snapshot_id": "snap-20260221093440-7c7e9f5b",
+      "diff_summary": "New news item detected (dated 2026-02-11)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Eiffel Investment Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01680",
+      "fund_id": "",
+      "fund_slug": "eiffel",
+      "signal_type": "other",
+      "title": "Un financement strat\u00e9gique de 300 millions d\u2019euros d'Eiffel Investment Group pour Amarenco",
+      "what_changed": "New announcement: Un financement strat\u00e9gique de 300 millions d\u2019euros d'Eiffel Investment Group pour Amarenco",
+      "source_url": "https://www.eiffel-ig.com/articles/un-financement-strategique-de-300-millions-deuros-deiffel-investment-group-pour-amarenco/",
+      "source_name": "Eiffel Investment Group",
+      "published_at": "2026-01-20",
+      "observed_at": "2026-02-21T09:34:40.383885+00:00",
+      "created_at": "2026-02-21T09:34:40.383885+00:00",
+      "snapshot_id": "snap-20260221093440-7c7e9f5b",
+      "diff_summary": "New news item detected (dated 2026-01-20)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Eiffel Investment Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01681",
+      "fund_id": "",
+      "fund_slug": "eiffel",
+      "signal_type": "other",
+      "title": "Eiffel l\u00e8ve avec succ\u00e8s le fonds Eiffel Energy Transition III, atteignant le hard cap de 1,2 milliard d\u2019euros",
+      "what_changed": "New announcement: Eiffel l\u00e8ve avec succ\u00e8s le fonds Eiffel Energy Transition III, atteignant le hard cap de 1,2 milliard d\u2019euros",
+      "source_url": "https://www.eiffel-ig.com/articles/eiffel-leve-avec-succes-le-fonds-eiffel-energy-transition-iii-atteignant-le-hard-cap-de-12-milliard-deuros/",
+      "source_name": "Eiffel Investment Group",
+      "published_at": "2025-12-09",
+      "observed_at": "2026-02-21T09:34:40.383885+00:00",
+      "created_at": "2026-02-21T09:34:40.383885+00:00",
+      "snapshot_id": "snap-20260221093440-7c7e9f5b",
+      "diff_summary": "New news item detected (dated 2025-12-09)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Eiffel Energy Transition"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01682",
+      "fund_id": "",
+      "fund_slug": "finint-investments-sgr",
+      "signal_type": "other",
+      "title": "Messina: 20 milioni dal Fondo Piani Urbani Integrati per la realizzazione del nuovo Centro commerciale di Zafferia",
+      "what_changed": "New announcement: Messina: 20 milioni dal Fondo Piani Urbani Integrati per la realizzazione del nuovo Centro commerciale di Zafferia",
+      "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/20.02 CS Fondo PUI_Centro commerciale Zafferia_Messina.pdf",
+      "source_name": "Finint Investments SGR",
+      "published_at": "2026-02-20",
+      "observed_at": "2026-02-21T09:34:45.695659+00:00",
+      "created_at": "2026-02-21T09:34:45.695659+00:00",
+      "snapshot_id": "snap-20260221093445-2111bf67",
+      "diff_summary": "New news item detected (dated 2026-02-20)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Fondo Piani Urbani"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01683",
+      "fund_id": "",
+      "fund_slug": "oxy-capital",
+      "signal_type": "deal_announced",
+      "title": "Kaffa Capsula Cafe Portuguesa 480X480 added to Oxy Capital portfolio",
+      "what_changed": "Kaffa Capsula Cafe Portuguesa 480X480 added to Oxy Capital portfolio",
+      "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+      "source_name": "Oxy Capital",
+      "published_at": null,
+      "observed_at": "2026-02-21T09:35:39.190271+00:00",
+      "created_at": "2026-02-21T09:35:39.190271+00:00",
+      "snapshot_id": "snap-20260221093535-9c416e0a",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Kaffa Capsula Cafe Portuguesa 480X480"
+        ],
+        "people": [
+          "Kaffa Capsula Cafe"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01684",
+      "fund_id": "",
+      "fund_slug": "partners-group",
+      "signal_type": "other",
+      "title": "Partners Group addresses share price falls in listed private markets sector",
+      "what_changed": "New announcement: Partners Group addresses share price falls in listed private markets sector",
+      "source_url": "https://www.partnersgroup.com/news-and-views/press-releases/corporate-news/detail?news_id=4755dcd7-aecd-446d-95e3-62f87e355b39",
+      "source_name": "Partners Group",
+      "published_at": null,
+      "observed_at": "2026-02-21T09:35:42.329635+00:00",
+      "created_at": "2026-02-21T09:35:42.329635+00:00",
+      "snapshot_id": "snap-20260221093541-b7711bcf",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Partners Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01685",
+      "fund_id": "",
+      "fund_slug": "sofinnova-partners",
+      "signal_type": "people_move",
+      "title": "GenSight Biologics Bolsters Regulatory Leadership in US and Europe with Two Senior Appointments",
+      "what_changed": "New announcement: GenSight Biologics Bolsters Regulatory Leadership in US and Europe with Two Senior Appointments",
+      "source_url": "https://sofinnovapartners.com/news/gensight-biologics-bolsters-regulatory-leadership-in-us-and-europe-with-two-senior-appointments",
+      "source_name": "Sofinnova Partners",
+      "published_at": "2026-02-18",
+      "observed_at": "2026-02-21T09:36:17.484626+00:00",
+      "created_at": "2026-02-21T09:36:17.484626+00:00",
+      "snapshot_id": "snap-20260221093617-bbe621ef",
+      "diff_summary": "New news item detected (dated 18 February, 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Two Senior Appointments",
+          "Biologics Bolsters Regulatory"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01686",
+      "fund_id": "",
+      "fund_slug": "sofinnova-partners",
+      "signal_type": "other",
+      "title": "Sensorion Announces Leadership Changes",
+      "what_changed": "New announcement: Sensorion Announces Leadership Changes",
+      "source_url": "https://sofinnovapartners.com/news/sensorion-announces-leadership-changes",
+      "source_name": "Sofinnova Partners",
+      "published_at": "2026-02-17",
+      "observed_at": "2026-02-21T09:36:17.484626+00:00",
+      "created_at": "2026-02-21T09:36:17.484626+00:00",
+      "snapshot_id": "snap-20260221093617-bbe621ef",
+      "diff_summary": "New news item detected (dated 17 February, 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Sensorion Announces Leadership"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01687",
+      "fund_id": "",
+      "fund_slug": "sofinnova-partners",
+      "signal_type": "other",
+      "title": "Artios Strengthens Leadership Team to Accelerate Late-Stage Development of Potential First-in-Class Oncology Pipeline",
+      "what_changed": "New announcement: Artios Strengthens Leadership Team to Accelerate Late-Stage Development of Potential First-in-Class Oncology Pipeline",
+      "source_url": "https://sofinnovapartners.com/news/Artios%20Strengthens%20Leadership%20Team%20to%20Accelerate%20Late-Stage%20Development%20of%20Potential%20First-in-Class%20Oncology%20Pipeline",
+      "source_name": "Sofinnova Partners",
+      "published_at": "2026-02-16",
+      "observed_at": "2026-02-21T09:36:17.484626+00:00",
+      "created_at": "2026-02-21T09:36:17.484626+00:00",
+      "snapshot_id": "snap-20260221093617-bbe621ef",
+      "diff_summary": "New news item detected (dated 16 February, 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Accelerate Late",
+          "Class Oncology Pipeline",
+          "Stage Development",
+          "Potential First",
+          "Artios Strengthens Leadership"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01688",
+      "fund_id": "",
+      "fund_slug": "sofinnova-partners",
+      "signal_type": "other",
+      "title": "The 15-20 National Hospital and GenSight Biologics announce the treatment of the first patient in the GS010/LUMEVOQ\u00ae REVISE Study",
+      "what_changed": "New announcement: The 15-20 National Hospital and GenSight Biologics announce the treatment of the first patient in the GS010/LUMEVOQ\u00ae REVISE Study",
+      "source_url": "https://sofinnovapartners.com/news/the-15-20-national-hospital-and-gensight-biologics-announce-the-treatment-of-the-first-patient-in-the-gs010-lumevoq-r-revise-study",
+      "source_name": "Sofinnova Partners",
+      "published_at": null,
+      "observed_at": "2026-02-21T09:36:17.484626+00:00",
+      "created_at": "2026-02-21T09:36:17.484626+00:00",
+      "snapshot_id": "snap-20260221093617-bbe621ef",
+      "diff_summary": "New news item detected (dated 10 February, 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "National Hospital"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01689",
+      "fund_id": "",
+      "fund_slug": "towerbrook",
+      "signal_type": "deal_announced",
+      "title": "GMC added to TowerBrook portfolio",
+      "what_changed": "GMC added to TowerBrook portfolio",
+      "source_url": "https://www.towerbrook.com/investments/",
+      "source_name": "TowerBrook",
+      "published_at": null,
+      "observed_at": "2026-02-21T09:36:21.771671+00:00",
+      "created_at": "2026-02-21T09:36:21.771671+00:00",
+      "snapshot_id": "snap-20260221093618-688a3470",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "GMC"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00135",
+      "fund_id": "",
+      "fund_slug": "deep-ocean-capital-sgr",
+      "related_fund_slugs": [
+        "deep-ocean-capital-sgr"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "In spacetech e difesa K3RX raccoglie 1,65 milioni di euro. Guidano il round Deep Ocean Capital SGR e RoboIT",
+      "what_changed": "K3RX, a spacetech and defence startup, has raised \u20ac1.65 million in a round led by Deep Ocean Capital SGR and RoboIT (Polo Nazionale di Trasferimento Tecnologico), with participation from Deep Blue Ventures, Pariter Robotics and Pariter Partners. The funding supports K3RX's defence and robotics technology development in Italy.",
+      "source_url": "https://startupitalia.eu/startup/k3rx-raccoglie-165-milioni-di-euro-space/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-02-20T16:13:04+00:00",
+      "observed_at": "2026-02-21T09:38:00.975387+00:00",
+      "created_at": "2026-02-21T09:38:00.975387+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "K3RX"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "1,65 milioni di euro"
     }
   ],
-  "signal_count": 1677
+  "signal_count": 1689
 }

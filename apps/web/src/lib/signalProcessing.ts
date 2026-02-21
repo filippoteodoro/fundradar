@@ -213,17 +213,22 @@ export function isGarbageSignal(signal: Signal, knownFundNames?: Set<string>): b
       'venture', 'private', 'infra', 'infrastructure', 'la', 'il', 'lo',
     ]);
     // Check if the signal explicitly names a different SGR (e.g. "ACP sgr", "Nextalia SGR")
-    const sgrMention = combined.match(/\b((?:[a-z]{2,}\s+){0,3}[a-z]{2,})\s+sgr\b/i);
-    if (sgrMention) {
-      const mentionedWords = sgrMention[1].toLowerCase().split(/\s+/);
-      // Filter out generic words — they're fund suffixes, not distinctive names
-      const nonGeneric = mentionedWords.filter(w => !GENERIC_SGR_PREFIXES.has(w));
-      if (nonGeneric.length > 0) {
-        // Check if any non-generic word from the mentioned SGR is in the fund's name/slug
-        const fundWords = fundName.toLowerCase().split(/[\s-]+/);
-        const isOwnFund = nonGeneric.some(w => fundWords.some(fw => fw.includes(w) || w.includes(fw)));
-        if (!isOwnFund) {
-          return true;
+    // Skip for RSS/news signals — they legitimately mention multiple funds in context.
+    // Website Monitor signals come from a single fund's website, so an SGR mismatch = misattribution.
+    const isWebsiteMonitor = signal.source_name === 'Website Monitor';
+    if (isWebsiteMonitor) {
+      const sgrMention = combined.match(/\b((?:[a-z]{2,}\s+){0,3}[a-z]{2,})\s+sgr\b/i);
+      if (sgrMention) {
+        const mentionedWords = sgrMention[1].toLowerCase().split(/\s+/);
+        // Filter out generic words — they're fund suffixes, not distinctive names
+        const nonGeneric = mentionedWords.filter(w => !GENERIC_SGR_PREFIXES.has(w));
+        if (nonGeneric.length > 0) {
+          // Check if any non-generic word from the mentioned SGR is in the fund's name/slug
+          const fundWords = fundName.toLowerCase().split(/[\s-]+/);
+          const isOwnFund = nonGeneric.some(w => fundWords.some(fw => fw.includes(w) || w.includes(fw)));
+          if (!isOwnFund) {
+            return true;
+          }
         }
       }
     }

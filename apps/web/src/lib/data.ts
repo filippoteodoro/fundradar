@@ -26,6 +26,7 @@ import {
 import {
   buildFundMentionEntries,
   resolveSignalFundSlugs,
+  resolveFundNamesForSlugs,
   type FundMentionEntry,
 } from './signalFundTags';
 
@@ -423,16 +424,17 @@ export function getSignalsForFund(fundSlug: string): Signal[] {
       return !isGarbageSignal(contextSignal, knownFundNames);
     })
     .map(s => {
-      // Clean title artifacts and reclassify mistyped signals
+      // For classification: use original Italian text (reclassifier has Italian-specific patterns)
       const cleanedTitle = cleanSignalText(cleanSignalTitle(s.title || ''));
       const cleanedWhatChanged = cleanSignalText(s.what_changed || '');
       const newType = reclassifySignalType({ ...s, title: cleanedTitle, what_changed: cleanedWhatChanged });
-      const isDupText = isRedundantSignalSummary(cleanedTitle, cleanedWhatChanged);
-      const finalWhatChanged = isDupText ? '' : cleanedWhatChanged;
+      // For display: prefer English enriched_summary, fall back to what_changed/title
+      const enrichedSummary = typeof (s as any).enriched_summary === 'string' ? (s as any).enriched_summary as string : '';
+      const displayText = cleanSignalText(cleanSignalTitle(enrichedSummary || s.what_changed || s.title || ''));
       return {
         ...s,
-        title: cleanedTitle,
-        what_changed: finalWhatChanged,
+        title: displayText,
+        what_changed: displayText,
         ...(newType ? { signal_type: newType } : {}),
       };
     })
@@ -1824,6 +1826,7 @@ export function getAllCompaniesSlim(): CompanySlim[] {
 export interface CompanySignal extends Signal {
   fund_name: string;
   fund_slug: string;
+  related_fund_names?: string[];
 }
 
 let cachedCompanySignalIndex: Map<string, CompanySignal[]> | null = null;
@@ -1853,10 +1856,21 @@ function buildCompanySignalIndex(): Map<string, CompanySignal[]> {
   }
 
   // Build fund slug → name lookup
+  const allFunds = getAllFunds();
   const fundNameMap = new Map<string, string>();
-  for (const f of getAllFunds()) fundNameMap.set(f.slug, f.name);
+  const fundsBySlug = new Map<string, { slug: string; name: string }>();
+  for (const f of allFunds) {
+    fundNameMap.set(f.slug, f.name);
+    fundsBySlug.set(f.slug, { slug: f.slug, name: f.name });
+  }
 
-  const knownFundNames = buildKnownFundNames(getAllFunds());
+  const knownFundNames = buildKnownFundNames(allFunds);
+
+  // Reuse cached mention entries (or build fresh) — same fund-name mention index used by getSignalsForFund
+  if (!cachedFundMentionEntries) {
+    cachedFundMentionEntries = buildFundMentionEntries(allFunds.map(f => ({ slug: f.slug, name: f.name })));
+  }
+  const mentionEntries = cachedFundMentionEntries;
 
   for (const raw of rawSignals) {
     const targetCompanies = raw.target_companies as Array<{ name: string }> | undefined;
@@ -1869,18 +1883,31 @@ function buildCompanySignalIndex(): Map<string, CompanySignal[]> {
     const fundSlug = (signal.fund_slug || '') as string;
     if (isGarbageSignal({ ...signal, fund_slug: fundSlug }, knownFundNames)) continue;
 
+    // For classification: use original Italian text (reclassifier has Italian-specific patterns)
     const cleanedTitle = cleanSignalText(cleanSignalTitle(signal.title || ''));
     const cleanedWhatChanged = cleanSignalText(signal.what_changed || '');
     const newType = reclassifySignalType({ ...signal, title: cleanedTitle, what_changed: cleanedWhatChanged });
-    const isDupText = isRedundantSignalSummary(cleanedTitle, cleanedWhatChanged);
+    // For display: prefer English enriched_summary, fall back to what_changed/title
+    const rawSignal = signal as unknown as Record<string, unknown>;
+    const enrichedSummary = typeof rawSignal.enriched_summary === 'string' ? rawSignal.enriched_summary as string : '';
+    const displayText = cleanSignalText(cleanSignalTitle(enrichedSummary || signal.what_changed || signal.title || ''));
+
+    // Resolve all related fund slugs (same multi-fund mention detection as getSignalsForFund / signals page)
+    const relatedFundSlugs = resolveSignalFundSlugs(
+      signal as Signal & Record<string, unknown>,
+      mentionEntries,
+    );
+    const relatedFundNames = resolveFundNamesForSlugs(relatedFundSlugs, fundsBySlug);
 
     const processedSignal: CompanySignal = {
       ...signal,
-      title: cleanedTitle,
-      what_changed: isDupText ? '' : cleanedWhatChanged,
+      title: displayText,
+      what_changed: displayText,
       ...(newType ? { signal_type: newType } : {}),
       fund_slug: fundSlug,
       fund_name: fundNameMap.get(fundSlug) || fundSlug.replace(/-/g, ' '),
+      related_fund_slugs: relatedFundSlugs,
+      related_fund_names: relatedFundNames,
     };
 
     for (const tc of targetCompanies) {
