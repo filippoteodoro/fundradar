@@ -1505,9 +1505,47 @@ def _normalize_currency_amounts(text: str) -> str:
         lambda m: f"€{_fmt_amount(m.group(1))}B",
         text, flags=re.IGNORECASE,
     )
+    # "X M€" / "X,X M€" → "€XM" (European shorthand: number then M€)
+    text = re.sub(
+        r"(\d[\d.,]*)\s*M€",
+        lambda m: f"€{_fmt_amount(m.group(1))}M",
+        text, flags=re.IGNORECASE,
+    )
+    # "X M$" → "$XM"
+    text = re.sub(
+        r"(\d[\d.,]*)\s*M\$",
+        lambda m: f"${_fmt_amount(m.group(1))}M",
+        text, flags=re.IGNORECASE,
+    )
     # Clean up spacing: "€ 500M" → "€500M"
     text = re.sub(r"€\s+(\d)", r"€\1", text)
     return text
+
+
+_RE_INTERNAL_COMMENTARY = re.compile(
+    r"\s*(?:The (?:transaction|deal|financing|acquisition|announced sale) "
+    r"(?:is a|represents a|formalizes a|expands)"
+    r"[\s\S]*?"
+    r"(?:tracked universe|top-ranked|highest-ranked|most sponsored|"
+    r"prior signal|previous signal|change of control|zero signals|"
+    r"international expansion|sponsor tracking)"
+    r"[^.]*\.?)"
+    r"|\s*This is a (?:clear|concrete)[\s\S]*?(?:signal|M&A|company)[^.]*\.?",
+    re.IGNORECASE,
+)
+
+
+def _strip_internal_commentary(text: str) -> str:
+    """Remove leaked pipeline rationale text from seed/generated signal summaries.
+
+    Seed signals sometimes include internal commentary like 'The transaction is a
+    concrete equity deal around Moncler's control structure' or 'relevant for sponsor
+    tracking on a top-ranked company'. These are pipeline-internal notes, not user-facing.
+    """
+    if not text:
+        return text
+    cleaned = _RE_INTERNAL_COMMENTARY.sub("", text).strip()
+    return cleaned if cleaned else text
 
 
 def _ensure_terminal_punctuation(text: str) -> str:
@@ -1752,6 +1790,10 @@ def _finalize_signal_summary(signal: dict) -> None:
         combined = _ensure_terminal_punctuation(combined)
         if len(combined) > len(summary) + 10:
             summary = combined
+
+    # Strip internal pipeline commentary that leaks from seed signal generation
+    # Patterns: "The transaction is a concrete...", "...tracked universe", "...top-ranked company"
+    summary = _strip_internal_commentary(summary)
 
     signal["enriched_summary"] = summary
 
@@ -2374,6 +2416,29 @@ def _translate_italian_signals(signals: list[dict]) -> dict[str, Any]:
             s[field] = translated_text
             translated_fields += 1
         unresolved = still_unresolved
+
+    # Last resort for still-unresolved: try a second individual pass with higher
+    # temperature / alternate prompt.  OpenAI empty responses are transient —
+    # a second attempt often succeeds.
+    if unresolved:
+        print(f"  Final retry pass for {len(unresolved)} still-unresolved fields...")
+        final_unresolved: list[tuple[dict, str, str, str]] = []
+        import time as _time
+        for s, field, orig_field, original in unresolved:
+            _time.sleep(1.0)  # extra delay for final retry
+            try:
+                translated_text = _translate_text_with_openai(openai_client, original)
+            except Exception:
+                final_unresolved.append((s, field, orig_field, original))
+                continue
+            if not translated_text or translated_text == original:
+                final_unresolved.append((s, field, orig_field, original))
+                continue
+            s[orig_field] = original
+            s[field] = translated_text
+            translated_fields += 1
+        print(f"  Final retry resolved {len(unresolved) - len(final_unresolved)} of {len(unresolved)} fields")
+        unresolved = final_unresolved
 
     # Count signals that had at least one field translated
     translated_signals = sum(

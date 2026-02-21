@@ -1708,8 +1708,13 @@ def _is_misattributed_signal(signal: dict, fund: dict | None = None) -> bool:
     if not title_lower:
         return False
 
-    # Skip misattribution check for signals from the fund's own website
-    # A fund posting about another fund acquiring something = the fund is the seller
+    # Skip misattribution check for signals from the fund's own website —
+    # UNLESS the fund's newsroom is a known ecosystem aggregator (covers the
+    # whole market, not just the fund's own activity).  For these funds, if the
+    # fund name does not appear anywhere in title/what_changed, treat it as
+    # misattributed ecosystem news.
+    _ECOSYSTEM_NEWSROOM_SLUGS = {"cdp-venture-capital"}
+
     source_url = (signal.get("source_url") or "").lower()
     if fund and source_url:
         fund_website = (fund.get("website") or "").lower().rstrip("/")
@@ -1718,6 +1723,17 @@ def _is_misattributed_signal(signal: dict, fund: dict | None = None) -> bool:
             fund_domain = urlparse(fund_website).netloc or fund_website.split("//")[-1].split("/")[0]
             source_domain = urlparse(source_url).netloc or ""
             if fund_domain and source_domain and fund_domain.replace("www.", "") == source_domain.replace("www.", ""):
+                if fund_slug in _ECOSYSTEM_NEWSROOM_SLUGS:
+                    # Ecosystem newsroom — require fund name in title/what_changed
+                    combined_text = (
+                        (signal.get("title") or "") + " " + (signal.get("what_changed") or "")
+                    ).lower()
+                    # Extract meaningful words from slug (e.g. "cdp-venture-capital" → ["cdp"])
+                    slug_keywords = [w for w in fund_slug.split("-") if len(w) >= 3 and w not in ("sgr", "sicaf", "sim", "spa", "srl", "capital", "partners", "group", "venture")]
+                    if not slug_keywords:
+                        slug_keywords = [fund_slug.split("-")[0]]
+                    if not any(kw in combined_text for kw in slug_keywords):
+                        return True  # ecosystem news not about this fund
                 return False
 
     # Build a set of words from the fund name for matching
@@ -2537,6 +2553,18 @@ def _normalize_monetary_values(text: str) -> str:
     result = re.sub(
         r'\b(\d+(?:[.,]\d+)?)\s*([KMBT])\s*(?:euro|eur)\b',
         lambda m: _format_amount(m.group(1), m.group(2).upper()) or m.group(0),
+        result, flags=re.IGNORECASE,
+    )
+    # Pattern: "X M€" / "X,X M€" → "€XM" (European shorthand: number then M€)
+    result = re.sub(
+        r'\b(\d+(?:[.,]\d+)?)\s*M€',
+        lambda m: _format_amount(m.group(1), "M") or m.group(0),
+        result, flags=re.IGNORECASE,
+    )
+    # Pattern: "X M$" → "$XM"
+    result = re.sub(
+        r'\b(\d+(?:[.,]\d+)?)\s*M\$',
+        lambda m: _format_amount(m.group(1), "M", "$") or m.group(0),
         result, flags=re.IGNORECASE,
     )
 
