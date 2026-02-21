@@ -334,6 +334,26 @@ export function isGarbageSignal(signal: Signal, knownFundNames?: Set<string>): b
   // Generic fund/program descriptions without a specific deal or event
   if (/^(?:investire in innovazione|seed per il sud\b)/i.test(titleLower)) return true;
 
+  // "INSIGHT:" / "INSIGHTS:" prefix — market commentary, not actionable deal signals
+  if (/^insights?\s*:/i.test(titleLower) && !RE_PE_ACTION_VERBS.test(titleLower)) return true;
+
+  // Pipe suffix garbage: "Entity | Deals" / "Entity | deals?" = website nav scraped as signal
+  if (/ \| (?:deals?|transactions?|case\s+studi\w*|success\s+stories?)\s*$/i.test(whatChanged)) return true;
+
+  // Award announcements for non-Italy funds (Best Spanish/French/German LBO Fund etc.)
+  if (/\bbest\s+(?:spanish|french|german|portuguese|nordic|nordic|uk|british)\s+(?:lbo|pe|vc|buyout|fund)\b/i.test(titleLower)) return true;
+
+  // Thought leadership / "What it takes to X" article titles — not deal signals
+  if (/\bwhat\s+it\s+(?:really\s+)?takes?\s+to\b/i.test(titleLower) &&
+      !RE_PE_ACTION_VERBS.test(titleLower)) return true;
+
+  // "Bringing together investors" / corporate event hosting — not a deal signal
+  if (/\bbrings?\s+together\b.*\b(?:investors?|portfolio|limited\s+partners?)\b/i.test(titleLower) &&
+      !RE_PE_ACTION_VERBS.test(titleLower)) return true;
+
+  // Podcast episode titles (contain fund name + "|" + guest name format)
+  if (/\|\s*(?:deals?\s+com|dealing\s+with|episode\s+\d|ep\.\s*\d)/i.test(titleLower)) return true;
+
   return false;
 }
 
@@ -361,6 +381,9 @@ export function cleanSignalTitle(title: string): string {
     `New portfolio addition: ${company.trim()}`);
   // Strip "Press release" prefix (with or without space/separator after it)
   cleaned = cleaned.replace(/^Press\s*release\s*/i, '');
+  // Strip press release dateline: "MILAN – November 25,2025 –" or "ROME, January 15 2026 –"
+  cleaned = cleaned.replace(/^[A-Z][A-Z\s,]+[–\-—]+\s*(?:January|February|March|April|May|June|July|August|September|October|November|December|\d{1,2})\s+\d{1,2},?\s*\d{4}\s*[–\-—]+\s*/i, '');
+  cleaned = cleaned.replace(/^[A-Z][A-Z\s,]+,\s+\d{1,2}\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{4}\s*[–\-—]+\s*/i, '');
   // Strip date prefix concatenated to content: "16 January 2026F2i..." -> "F2i..."
   cleaned = cleaned.replace(/^\d{1,2}\s+(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{4}\s*(?:[|–—-]\s*)?/i, '');
   // Strip "Feb 4,2026|BU news" style prefix
@@ -432,6 +455,8 @@ function fixSignalSpacing(text: string): string {
   cleaned = cleaned.replace(/(?<=[A-ZÀ-ÖØ-Þ]{2})(?=[a-zà-öø-ÿ])/g, ' ');
   cleaned = cleaned.replace(/(?<=[a-zà-öø-ÿ]{3})(?=[A-ZÀ-ÖØ-Þ]{2,})/g, ' ');
   cleaned = cleaned.replace(/([,;:])(?=[A-Za-zÀ-ÖØ-öø-ÿ])/g, '$1 ');
+  // Fuse split ordinal suffixes: "28 th" → "28th", "3 rd" → "3rd"
+  cleaned = cleaned.replace(/\b(\d+)\s+(st|nd|rd|th)\b/g, '$1$2');
   // Fix missing space after period before uppercase (e.g. "S.p.A.ha" → "S.p.A. ha")
   // but not inside abbreviations like "S.p.A." or "S.r.l."
   cleaned = cleaned.replace(/(\.[A-Za-z]\.)(?=[A-Z][a-z])/g, '$1 ');
@@ -477,6 +502,17 @@ function fixSignalSpacing(text: string): string {
   cleaned = cleaned.replace(/Ne Xt RE/g, 'NeXt RE');
   // L Catterton scrape artifact: "LC atterton" → "L Catterton"
   cleaned = cleaned.replace(/LC atterton/g, 'L Catterton');
+  // Known name fixes — word-split artifacts (audit H3 + second audit)
+  cleaned = cleaned.replace(/\bThe\s+Equity\s+CL\s+ub\b/gi, 'The Equity Club');
+  cleaned = cleaned.replace(/\bPintau\s+di\b/g, 'Pintaudi');
+  cleaned = cleaned.replace(/\bRobo\s+IT\b/g, 'Robo.IT');
+  cleaned = cleaned.replace(/\bSME\s+s\b/g, 'SMEs');
+  cleaned = cleaned.replace(/\bB\s+anco\b/g, 'Banco');
+  cleaned = cleaned.replace(/\bTGC\s+om\s+24\b/g, 'TGCom24');
+  cleaned = cleaned.replace(/\bE\s+4\s+G\b/g, 'E4G');
+  cleaned = cleaned.replace(/\bBee\s+2\s+Link\b/g, 'Bee2Link');
+  cleaned = cleaned.replace(/\bSmart\s+4\s+T\s*ech\b/g, 'Smart4Tech');
+  cleaned = cleaned.replace(/\bAlcedo\s+V\s+and\b/g, 'Alcedo V and');  // preserve as-is: "Alcedo V" is fund gen, "and" is conjunction
   // Additional known name corrections (digit-letter split artifacts)
   cleaned = cleaned.replace(/\bCY\s*4\s*GATE\b/g, 'CY4GATE');
   cleaned = cleaned.replace(/\bMi\s*CROTEC\b/g, 'MiCROTEC');
@@ -497,6 +533,10 @@ export function cleanSignalText(text: string): string {
   let cleaned = text;
   // Strip [Rumor] prefix — rumor status is conveyed via is_rumor field/badge, not inline text
   cleaned = cleaned.replace(/^\s*\[Rumor\]\s*/i, '');
+  // Strip "Featured News Press Review" header (audit H1)
+  cleaned = cleaned.replace(/^Featured\s+News\s+Press\s+Review\s*[:\-–]?\s*/i, '');
+  // Strip "Media: Milan," or "Media: Rome," press release location headers (audit H2)
+  cleaned = cleaned.replace(/^Media\s*:\s*[A-Za-z\u00C0-\u024F]+,?\s+/i, '');
   cleaned = cleaned.replace(/\b\d+\s*min(?:ute)?s?\s*read\b/gi, '');
   cleaned = cleaned.replace(/\b\d+\s*min\.?\s*read\b/gi, '');
   cleaned = cleaned.replace(/\b\d+\s*min(?:uto|uti)\s*di\s*lettura\b/gi, '');
@@ -512,9 +552,22 @@ export function cleanSignalText(text: string): string {
   cleaned = cleaned.replace(/(\d[\d.,]*)\s*miliard[ei]\s+(?:di\s+)?euro/gi, (_, n) => `€${n.replace(',', '.')}B`);
   cleaned = cleaned.replace(/(\d[\d.,]*)\s*mln\s+(?:di\s+)?euros?/gi, (_, n) => `€${n.replace(',', '.')}M`);
   cleaned = cleaned.replace(/(\d[\d.,]*)\s*mld\s+(?:di\s+)?euros?/gi, (_, n) => `€${n.replace(',', '.')}B`);
+  // Standalone "mln"/"mld" without explicit currency: in Italian PE, always millions/billions of EUR
+  cleaned = cleaned.replace(/(\d[\d.,]*)\s*mln\b(?!\s*(?:azioni|shares?|unit[àa]?))/gi, (_, n) => `€${n.replace(',', '.')}M`);
+  cleaned = cleaned.replace(/(\d[\d.,]*)\s*mld\b(?!\s*(?:azioni|shares?|unit[àa]?))/gi, (_, n) => `€${n.replace(',', '.')}B`);
   cleaned = cleaned.replace(/€\s+(\d)/g, '€$1');
   // Strip space + normalize suffix: "€2.9 M" → "€2.9M", "€5 Mn" → "€5M", "€1 Bn" → "€1B", etc.
   cleaned = cleaned.replace(/([€$£]\d[\d.,]*)\s+([MKBT])[a-z]{0,2}\b/g, '$1$2');
+  cleaned = cleaned.replace(/\s{2,}/g, ' ').trim();
+  // Strip date artifacts appended by enricher (audit C1: 96 signals affected)
+  // Pattern: "...announced on 2026-01-15." or "...as of January 15, 2026."
+  cleaned = cleaned.replace(/[,.]?\s*(?:announced?|published|reported|observed|noted|dated?|as\s+of)\s+(?:on\s+)?\d{4}-\d{2}-\d{2}\s*\.?\s*$/i, '');
+  cleaned = cleaned.replace(/[,.]?\s*(?:announced?|published|reported|observed|noted|dated?|as\s+of)\s+(?:on\s+)?(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s*\d{4}\s*\.?\s*$/i, '');
+  // Also strip orphaned trailing ISO date: "... on 2026-01-15." or " 2026-01-15"
+  cleaned = cleaned.replace(/\s+on\s+\d{4}-\d{2}-\d{2}\s*\.?\s*$/i, '');
+  cleaned = cleaned.replace(/\s+\d{4}-\d{2}-\d{2}\s*\.?\s*$/i, '');
+  // Strip malformed "the is dated" artifacts (audit C1 variant)
+  cleaned = cleaned.replace(/\s+the\s+is\s+dated\s+.{0,30}$/i, '');
   cleaned = cleaned.replace(/\s{2,}/g, ' ').trim();
   // Strip trailing periods — signal text is a headline, not a sentence
   cleaned = cleaned.replace(/\.+\s*$/, '');
@@ -620,8 +673,10 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
   }
 
   // Investor meetings / AGMs → other (not deals)
+  // Use strict deal verbs (exclude "invest/investors" as nouns) to avoid false positives
   if (/\binvestor\s+(?:meeting|day|event|conference)\b|\bassemblea\s+(?:dei\s+)?(?:soci|azionisti|investitori)\b|\bagm\b|\bannual\s+general\s+meeting\b/i.test(text)) {
-    if (!RE_PE_ACTION_VERBS.test(text)) {
+    const STRICT_DEAL_VERBS = /\b(?:acqui(?:res?|sisce|red|sit\w+)|rileva|entra\s+nel\s+capitale|buys?|compra|sells?|sold|exit\w*|cessione|vendita|merger|fusione|ipo\b)\b/i;
+    if (!STRICT_DEAL_VERBS.test(text)) {
       return 'other';
     }
   }
@@ -707,6 +762,10 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
 
   // exit_announced corrections: acquisition/investment verbs → deal_announced
   if (signal.signal_type === 'exit_announced') {
+    // Editorial/publication format change (not a PE exit) — e.g. "Grazia evoluzione editoriale"
+    if (/\bevoluzione\s+editoriale\b|\bda\s+settimanale\s+a\b|\brivista\b.*\beditoriale\b|\bedizione\s+speciale\b|\bformato\s+editoriale\b/i.test(text)) {
+      return 'other';
+    }
     const buyerCues = /\bin\s+lizza\b|\bpotrebbe\s+essere\s+interessat\w*\b|\bpotrebbero\s+essere\s+interessat\w*\b|\bvaluta\s+l['\u2019]acqui\w+\b/i;
     const hasExplicitSeller = /\ba\s+vendere\b|\bil\s+venditore\b|\bcede\s+(?:la\s+)?(?:propria\s+)?(?:partecipat\w+|quota|partecipazione)\b|\bcede\s+(?:il\s+)?(?:proprio\s+)?(?:\d+%|controllo|majority|maggioranza)\b|\bdisinvestiment[oi]\b/i.test(text);
     // Buyer-perspective: "in lizza" (bidding), "potrebbe essere interessat" (might be interested) → deal
@@ -774,8 +833,8 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
     if (/\b(?:procedura\s+di\s+selezione|ricerca\s+(?:una?\s+)?risors[ae]|selezione\s+per\s+(?:il\s+)?(?:ruolo|responsabile|posizione)|avvia\s+(?:la\s+)?selezione)\b/i.test(text)) {
       return 'job_posting';
     }
-    // Ordinal investment for existing fund → deal
-    if (/\b(?:nuovo|nuov[oa]|primo|secondo|terz[oa]|quart[oa]|quint[oa]|\d+[°ºª]?)\s+(?:investiment[oi]|operazione)\b/i.test(text)) {
+    // Ordinal investment for existing fund → deal (Italian + English ordinals)
+    if (/\b(?:nuovo|nuov[oa]|primo|secondo|terz[oa]|quart[oa]|quint[oa]|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|\d+[°ºª]?)\s+(?:investiment[oi]|investment|operazione|operation)\b/i.test(text)) {
       return 'deal_announced';
     }
     // Board/appointment language → people_move

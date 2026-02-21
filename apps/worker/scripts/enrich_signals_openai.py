@@ -125,7 +125,7 @@ LOCAL_KEEP_MIN_QUALITY = 80
 LOCAL_KEEP_MIN_QUALITY_NEWS = 70
 LOCAL_MIN_SUMMARY_LEN = 25
 LOCAL_MAX_SUMMARY_LEN = 500
-FINAL_MAX_SUMMARY_LEN = 280  # tighter cap for the finished enriched_summary
+FINAL_MAX_SUMMARY_LEN = 220  # tighter cap for the finished enriched_summary (audit: 105 signals exceeded 200 chars)
 LOCAL_KEEP_VERSION = 3
 ML_KEEP_VERSION = 1
 ML_USE_KEEP = os.environ.get("SIGNAL_ML_USE_KEEP", "0").strip().lower() in {"1", "true", "yes"}
@@ -1140,6 +1140,56 @@ def _clean_summary_text(text: str) -> str:
         cleaned,
         flags=re.IGNORECASE,
     )
+    # Strip date context artifacts appended by LLM enricher (audit C1: 96 signals)
+    # Pattern: "...announced on 2026-01-15." or "...as of January 15, 2026."
+    cleaned = re.sub(
+        r"[,.]?\s*(?:announced?|published|reported|observed|noted|dated?|as\s+of)\s+(?:on\s+)?\d{4}-\d{2}-\d{2}\s*\.?\s*$",
+        "",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+    cleaned = re.sub(
+        r"[,.]?\s*(?:announced?|published|reported|observed|noted|dated?|as\s+of)\s+(?:on\s+)?(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s*\d{4}\s*\.?\s*$",
+        "",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+    # Strip orphaned trailing ISO date: " on 2026-01-15." or " 2026-01-15"
+    cleaned = re.sub(r"\s+on\s+\d{4}-\d{2}-\d{2}\s*\.?\s*$", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\s+\d{4}-\d{2}-\d{2}\s*\.?\s*$", "", cleaned)
+    # Strip malformed "the is dated" / "in a dated" artifacts
+    cleaned = re.sub(r"\s+(?:the\s+is\s+dated|in\s+a\s+dated)\s+.{0,40}$", "", cleaned, flags=re.IGNORECASE)
+    # Strip "according to a [source] dated YYYY-MM-DD" suffix
+    cleaned = re.sub(
+        r"\s*,?\s*according\s+to\s+a\s+\w[\w\s]{0,30}dated\s+\d{4}-\d{2}-\d{2}\s*\.?\s*$",
+        "",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+    # Strip "The signal refers to..." meta-commentary
+    cleaned = re.sub(
+        r"\s*\.?\s*The\s+signal\s+refers?\s+to\s+.{0,100}$",
+        "",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+    # Strip "The announcement was published on [source] website on YYYY-MM-DD" suffix
+    cleaned = re.sub(
+        r"\s*\.?\s*The\s+announcement\s+was\s+published\s+on\s+.{0,60}\s+on\s+\d{4}-\d{2}-\d{2}\s*\.?\s*$",
+        "",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+    # Strip "Featured News Press Review" header artifact (audit H1/MED-5)
+    cleaned = re.sub(r"\s*\.?\s*Featured\s+News\s+Press\s+Review\s*\.?\s*$", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"^Featured\s+News\s+Press\s+Review\s*[:\-–]?\s*", "", cleaned, flags=re.IGNORECASE)
+    # Strip press release dateline at start: "MILAN – November 25,2025 –" or "ROME, January 15 2026 –"
+    cleaned = re.sub(
+        r"^[A-Z][A-Z\s,]+[–\-—]+\s*(?:January|February|March|April|May|June|July|August|September|October|November|December|\d{1,2})\s+\d{1,2},?\s*\d{4}\s*[–\-—]+\s*",
+        "",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
     # Avoid summaries ending on dangling connectors.
     if _RE_DANGLING_END.search(cleaned):
         cleaned = re.sub(r"\s+\S+\s*$", "", cleaned).strip()
@@ -1879,6 +1929,8 @@ Rules:
 - Do NOT write filler like "the listing does not provide specific details" or "as part of ongoing team developments".
 - Don't include technical details like "lines added/removed".
 - If you can't determine the exact date, use null.
+- CRITICAL: Do NOT include observation/publication dates in the summary. Never write "announced on YYYY-MM-DD", "published on", "observed on", "as of [date]", "according to a [source] dated [date]", or any reference to when or where you found the information. The summary should read as a news headline, not a data entry log.
+- CRITICAL: Maximum 150 characters for the summary. Be concise. One or two sentences maximum.
 - Set keep=false for: generic website updates, navigation/footer text, cookie/privacy/legal notices,
   or non-Italy/Europe content (especially if the fund is global).
 - Job postings can be valuable; keep them if they are relevant to PE/VC (investment, portfolio, strategy, senior ops)
@@ -2028,6 +2080,17 @@ _IT_STRONG_RE = re.compile(
     r"|cartolarizzazione|partecipazione|sottoscritto|sottoscrive)\b",
     re.IGNORECASE,
 )
+# French stopwords and strong indicators for non-Italian non-English detection
+_FR_STOPWORDS = {
+    "le", "la", "les", "un", "une", "des", "du", "de", "et", "ou", "en", "au", "aux",
+    "pour", "par", "sur", "avec", "dans", "que", "qui", "se", "est", "sont", "cette",
+    "son", "sa", "ses", "leur", "leurs",
+}
+_FR_STRONG_RE = re.compile(
+    r"\b(?:annonce|annoncé|acquiert|acquisition|lève|atteint|franchit|investissement|financement"
+    r"|fonds|milliard|million|clôture|closing|réalise|cède|cession)\b",
+    re.IGNORECASE,
+)
 _EN_STRONG_RE = re.compile(
     r"\b(?:announced|announces|closed|closing|raised|acquired|acquisition|sold|sale|invested"
     r"|investment|appointed|appointment|agreement|partnership|million|debt|financing|launched|launch)\b",
@@ -2089,6 +2152,26 @@ def _is_italian_text(text: str) -> bool:
     if re.search(r"[àèéìòù]", text) and it_score >= 1:
         return True
     return False
+
+
+def _is_french_text(text: str) -> bool:
+    """Detect if text is predominantly French (for funds like Eiffel, Eurazeo, Tikehau with French sources)."""
+    if not text:
+        return False
+    words = [w.lower().strip("'") for w in _LANG_WORD_RE.findall(text)]
+    if len(words) < 4:
+        return False
+    fr_score = sum(1 for w in words if w in _FR_STOPWORDS)
+    en_score = sum(1 for w in words if w in _EN_STOPWORDS)
+    lowered = text.lower()
+    if _FR_STRONG_RE.search(lowered):
+        fr_score += 2
+    if _EN_STRONG_RE.search(lowered):
+        en_score += 2
+    # Check for French-specific accented characters (ê, î, û, ô, œ, ç + accents also in Italian)
+    if re.search(r"[êîûôœ]", lowered):
+        fr_score += 2
+    return fr_score >= 2 and fr_score > en_score
 
 
 def _translate_text_with_openai(client: OpenAI, text: str) -> str:
@@ -2173,14 +2256,14 @@ def _translate_italian_signals(signals: list[dict]) -> dict[str, Any]:
             if s.get(orig_field):
                 continue  # already translated
             text = s.get(field) or ""
-            if text and _is_italian_text(text):
+            if text and (_is_italian_text(text) or _is_french_text(text)):
                 to_translate.append((s, field, orig_field, text))
                 signals_needing_work.add(idx)
     stats["italian_fields_detected"] = len(to_translate)
     stats["signals_needing_translation"] = len(signals_needing_work)
 
     if not to_translate:
-        print("\nNo Italian text fields to translate")
+        print("\nNo Italian/French text fields to translate")
         return stats
 
     if not deepl_module and not openai_api_key:
@@ -2202,7 +2285,8 @@ def _translate_italian_signals(signals: list[dict]) -> dict[str, Any]:
             batch = to_translate[i : i + BATCH_SIZE]
             texts = [item[3] for item in batch]
             try:
-                results = translator.translate_text(texts, source_lang="IT", target_lang="EN-US")
+                # Use auto-detect (source_lang=None) to handle French and other non-Italian sources
+                results = translator.translate_text(texts, target_lang="EN-US")
                 for (s, field, orig_field, original), result in zip(batch, results):
                     translated_text = _clean_summary_text(result.text)
                     if not translated_text:

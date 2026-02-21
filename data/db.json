@@ -172,8 +172,8 @@
         "Technology",
         "Financial Services",
         "Hospitality & Tourism",
-        "Aerospace & Defense",
-        "Professional Services"
+        "Professional Services",
+        "Aerospace & Defense"
       ],
       "description": "Established in 1984 as a spinoff from TA Associates, this global firm pioneered a sector-specialized approach to complex buyouts. Notable Italian transactions include the landmark consolidation of Nexi and the take-private of Tinexta.",
       "geographies": [
@@ -3019,8 +3019,8 @@
         "Food & Beverage",
         "Agriculture",
         "Consumer Goods",
-        "Industrial Manufacturing",
-        "Media & Entertainment"
+        "Healthcare",
+        "Industrial Manufacturing"
       ],
       "description": "Alternative investment arm of the De Agostini Group, managing specialized thematic vehicles such as Taste of Italy, Europe\u2019s first agrifood-focused fund, with a portfolio including Alice Pizza and Costa Edutainment.",
       "geographies": [
@@ -3065,7 +3065,8 @@
         "Early-Stage"
       ],
       "sector_tags": [
-        "Technology"
+        "Technology",
+        "Biotech & Pharma"
       ],
       "description": "Specializes in commercializing Italian deep tech and robotics research as the manager of the RoboIT National Technology Transfer Hub, backing university spin-offs in AI, space tech, and industrial automation.",
       "geographies": [
@@ -4529,10 +4530,10 @@
       ],
       "sector_tags": [
         "Technology",
+        "Industrial Manufacturing",
         "Healthcare",
         "Software",
-        "Financial Services",
-        "Retail"
+        "Automotive"
       ],
       "description": "Pioneered the Sicaf investment model in Italy to drive digital transformation within traditional SMEs, executing buyouts and expansion rounds in the healthcare and industrial manufacturing sectors.",
       "geographies": [
@@ -5870,8 +5871,8 @@
         "Food & Beverage",
         "Healthcare",
         "Hospitality & Tourism",
-        "Industrial Manufacturing",
-        "Professional Services"
+        "Professional Services",
+        "Construction"
       ],
       "description": "Tracing its roots to the investment arm of Paribas, this manager specializes in complex pan-European buyouts and operates major global platforms like the Nestl\u00e9-partnered ice cream giant Froneri.",
       "geographies": [
@@ -6059,10 +6060,10 @@
       ],
       "sector_tags": [
         "Technology",
+        "Consumer Goods",
         "Financial Services",
         "Healthcare",
-        "Biotech & Pharma",
-        "Fashion & Luxury"
+        "Biotech & Pharma"
       ],
       "description": "Tracing its roots back to Schroder Ventures in 1985, this global buyout specialist is renowned for transforming premium consumer brands like Valentino and Golden Goose into international powerhouses.",
       "geographies": [
@@ -8397,8 +8398,8 @@
         "Technology",
         "Healthcare",
         "Industrial Manufacturing",
-        "Professional Services",
-        "Water & Utilities"
+        "Retail",
+        "Professional Services"
       ],
       "description": "Founded in 1976 as a pioneer of the leveraged buyout model, this global firm executed the historic RJR Nabisco takeover and recently completed the landmark \u20ac22 billion acquisition of Telecom Italia\u2019s fixed-line network.",
       "created_at": "2026-01-26T15:27:27.990306+00:00",
@@ -8474,8 +8475,9 @@
       "sector_tags": [
         "Technology",
         "Education",
-        "Professional Services",
-        "Retail"
+        "Fashion & Luxury",
+        "Financial Services",
+        "Media & Entertainment"
       ],
       "description": "Leverages an entrepreneurial heritage to partner with founders and business owners, specializing in complex mid-market deals and digital transformation across Europe, with notable successes like IU Group and Facile.it.",
       "created_at": "2026-01-26T15:27:27.990335+00:00",

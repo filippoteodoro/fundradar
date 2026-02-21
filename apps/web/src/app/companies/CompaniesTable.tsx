@@ -7,7 +7,7 @@ import { CARD_STYLE, CARD_PADDING, badgeStyle, STATUS_STYLES } from '@/lib/ui';
 import { canonicalizeSectorTag, SECTOR_GROUPS, SECTOR_TO_GROUP, getSectorGroupColor } from '@/lib/sectorGroups';
 import { isItalianCompany } from '@/lib/italianCompany';
 import { FilterBar } from '@/components/filters/FilterBar';
-import { FilterChips, type ChipItem } from '@/components/filters/FilterChips';
+import { FilterChips } from '@/components/filters/FilterChips';
 import { FilterDropdown } from '@/components/filters/FilterDropdown';
 import { FilterPanel } from '@/components/filters/FilterPanel';
 
@@ -127,9 +127,8 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
     label: g.name,
   }));
 
-  // Build status chip items with counts
-  const statusChipItems: ChipItem[] = useMemo(() => {
-    // Count based on current search + sector + country filters (but not status filter)
+  // Build status dropdown counts/options based on search + sector + country filters (excluding status filter)
+  const { allStatusCount, statusDropdownOptions } = useMemo(() => {
     const searchLower = search.toLowerCase().trim();
     const baseFiltered = companies.filter(c => {
       if (searchLower && !c.name.toLowerCase().includes(searchLower)) return false;
@@ -151,27 +150,41 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
       else if (status === 'exited') exitedCount++;
     }
 
-    return [
-      { value: 'current', label: 'Current', count: currentCount, color: { bg: '#e8f5e9', text: '#2e7d32' } },
-      { value: 'exited', label: 'Exited', count: exitedCount, color: { bg: '#fff3e0', text: '#e65100' } },
-    ];
+    return {
+      allStatusCount: baseFiltered.length,
+      statusDropdownOptions: [
+        { value: 'current', label: `Current (${currentCount})` },
+        { value: 'exited', label: `Exited (${exitedCount})` },
+      ],
+    };
   }, [companies, search, sectorGroupFilter, countryFilter]);
 
-  // Total count for "All" chip (same base filter)
-  const allStatusCount = useMemo(() => {
+  // Build country chips with counts based on search + sector + status filters (excluding country filter)
+  const { allCountryCount, countryChipItems } = useMemo(() => {
     const searchLower = search.toLowerCase().trim();
-    return companies.filter(c => {
+    const baseFiltered = companies.filter(c => {
       if (searchLower && !c.name.toLowerCase().includes(searchLower)) return false;
       if (sectorGroupFilter !== 'all') {
         const group = getSectorGroup(c.sector);
         if (group !== sectorGroupFilter) return false;
       }
-      if (countryFilter === 'italy') {
-        if (!isItalianCompany({ headquarters: c.headquarters })) return false;
+      if (statusFilter !== 'all') {
+        const status = getCompanyStatus(c);
+        if (statusFilter === 'current' && status !== 'current') return false;
+        if (statusFilter === 'exited' && status !== 'exited') return false;
       }
       return true;
-    }).length;
-  }, [companies, search, sectorGroupFilter, countryFilter]);
+    });
+
+    const italyCount = baseFiltered.filter(c =>
+      isItalianCompany({ headquarters: c.headquarters })
+    ).length;
+
+    return {
+      allCountryCount: baseFiltered.length,
+      countryChipItems: [{ value: 'italy', label: 'Italy', count: italyCount }],
+    };
+  }, [companies, search, sectorGroupFilter, statusFilter]);
 
   return (
     <>
@@ -185,13 +198,12 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
         onToggleFilters={() => setShowFilters(!showFilters)}
         filterPanel={
           <FilterPanel>
-            <FilterChips
-              items={statusChipItems}
-              activeValue={statusFilter}
-              onSelect={(v) => { setStatusFilter(v as typeof statusFilter); setPage(0); }}
-              allLabel="All"
-              allCount={allStatusCount}
-              rowLabel="Status"
+            <FilterDropdown
+              label="Status"
+              value={statusFilter}
+              options={statusDropdownOptions}
+              allLabel={`All (${allStatusCount})`}
+              onChange={(v) => { setStatusFilter(v as typeof statusFilter); setPage(0); }}
             />
             <FilterDropdown
               label="Sector"
@@ -200,29 +212,17 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
               allLabel="All Sectors"
               onChange={(v) => { setSectorGroupFilter(v); setPage(0); }}
             />
-            <div>
-              <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500, fontSize: '14px' }}>
-                Country
-              </label>
-              <select
-                value={countryFilter}
-                onChange={(e) => { setCountryFilter(e.target.value as typeof countryFilter); setPage(0); }}
-                style={{
-                  width: '100%',
-                  padding: '8px 12px',
-                  border: '1px solid #ddd',
-                  borderRadius: '8px',
-                  fontSize: '14px',
-                  background: 'white',
-                }}
-              >
-                <option value="italy">Italy</option>
-                <option value="all">All Countries</option>
-              </select>
-            </div>
           </FilterPanel>
         }
-      />
+      >
+        <FilterChips
+          items={countryChipItems}
+          activeValue={countryFilter}
+          onSelect={(v) => { setCountryFilter(v as typeof countryFilter); setPage(0); }}
+          allLabel="All"
+          allCount={allCountryCount}
+        />
+      </FilterBar>
 
       {/* Table */}
       <div style={{ ...CARD_STYLE, padding: CARD_PADDING }}>

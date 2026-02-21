@@ -10302,6 +10302,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.929754+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Porto Turistico di Lavagna",
+        "sector": "Hospitality & Tourism",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A major tourist port located in Liguria, Italy, providing mooring services and facilities for leisure boats.",
+        "detail_page_url": null,
+        "headquarters": "Lavagna, Italy",
+        "investment_date": "2026-02-05",
+        "source_url": "https://www.f2isgr.it/en/media/press-releases/f2i-si-aggiudica-la-concessione-del-porto-turistico-di-lavagna.html",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-00772"
       }
     ],
     "fsi": [
@@ -24475,7 +24489,7 @@
       },
       {
         "name": "Robin Health",
-        "sector": "Healthtech",
+        "sector": "Healthcare",
         "status": "current",
         "confidence": 0.72,
         "website": null,
@@ -40027,6 +40041,20 @@
         "investment_date": null,
         "source_url": "https://wrmgroup.net/track-record/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Badrutt's Palace Hotel AG",
+        "sector": "Hospitality & Tourism",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A historic luxury hotel in St. Moritz, Switzerland, offering high-end accommodations and services in the Swiss Alps.",
+        "detail_page_url": null,
+        "headquarters": "St. Moritz, Switzerland",
+        "investment_date": null,
+        "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/CS_Badrutts-Palace_WRM-Group_en.pdf",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-01666"
       }
     ],
     "xgen-venture-sgr": [
@@ -44904,7 +44932,7 @@
     "advent-international": [
       {
         "name": "Vestacy",
-        "sector": "Consumer",
+        "sector": "Consumer Goods",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -47842,7 +47870,7 @@
       },
       {
         "name": "1-800 Contacts, Inc",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.1800contacts.com",
@@ -47907,7 +47935,7 @@
       },
       {
         "name": "Accell Group N.V",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.accell-group.com",
@@ -47946,7 +47974,7 @@
       },
       {
         "name": "Adopt A Cow",
-        "sector": "Consumer Staples",
+        "sector": "Food & Beverage",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -47972,7 +48000,7 @@
       },
       {
         "name": "Advanta Seeds",
-        "sector": "Materials",
+        "sector": "Agriculture",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.advantaseeds.com",
@@ -48102,7 +48130,7 @@
       },
       {
         "name": "Arnott's",
-        "sector": "Consumer Staples",
+        "sector": "Food & Beverage",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.arnotts.com",
@@ -48258,7 +48286,7 @@
       },
       {
         "name": "Bay Club",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.bayclubs.com",
@@ -48479,7 +48507,7 @@
       },
       {
         "name": "Charter Next Generation",
-        "sector": "Materials",
+        "sector": "Agriculture",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.cnginc.com",
@@ -48765,7 +48793,7 @@
       },
       {
         "name": "Davante",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.masterd.es",
@@ -48804,7 +48832,7 @@
       },
       {
         "name": "Dayao Soda",
-        "sector": "Consumer Staples",
+        "sector": "Food & Beverage",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.dayaoyinpin.com/",
@@ -48882,7 +48910,7 @@
       },
       {
         "name": "EQuest Education Joint Stock Company",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://equest.vn/en/",
@@ -49116,7 +49144,7 @@
       },
       {
         "name": "Flora Food Group",
-        "sector": "Consumer Staples",
+        "sector": "Food & Beverage",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.florafoodgroup.com",
@@ -49168,7 +49196,7 @@
       },
       {
         "name": "Gambol Pet Group",
-        "sector": "Consumer Staples",
+        "sector": "Food & Beverage",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.gambolpet.com",
@@ -49272,7 +49300,7 @@
       },
       {
         "name": "Goodpack",
-        "sector": "Materials",
+        "sector": "Agriculture",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.goodpack.com",
@@ -49285,7 +49313,7 @@
       },
       {
         "name": "Graduation Alliance",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.graduationalliance.com",
@@ -49324,7 +49352,7 @@
       },
       {
         "name": "Groundworks",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.groundworks.com/",
@@ -49350,7 +49378,7 @@
       },
       {
         "name": "Grupo Alvic",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.grupoalvic.com/en",
@@ -49480,7 +49508,7 @@
       },
       {
         "name": "Huohua Logic",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.huohua.cn",
@@ -49493,7 +49521,7 @@
       },
       {
         "name": "Hyperion Materials & Technologies",
-        "sector": "Materials",
+        "sector": "Agriculture",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.hyperionmt.com",
@@ -49714,7 +49742,7 @@
       },
       {
         "name": "Jiangsu Yuguan",
-        "sector": "Consumer Staples",
+        "sector": "Food & Beverage",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -49818,7 +49846,7 @@
       },
       {
         "name": "Knowlton Development Corp",
-        "sector": "Consumer Staples",
+        "sector": "Food & Beverage",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.kdc-one.com",
@@ -49857,7 +49885,7 @@
       },
       {
         "name": "LCY Chemical Group",
-        "sector": "Materials",
+        "sector": "Agriculture",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.lcygroup.com/lcygroup/en",
@@ -49896,7 +49924,7 @@
       },
       {
         "name": "LS Automotive",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.lsautomotive.com/en/main.do",
@@ -49909,7 +49937,7 @@
       },
       {
         "name": "Landal",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.landal.co.uk",
@@ -49961,7 +49989,7 @@
       },
       {
         "name": "Lenskart",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.lenskart.com",
@@ -50013,7 +50041,7 @@
       },
       {
         "name": "Lighthouse Learning Private Limited",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.lighthouse-learning.com",
@@ -50039,7 +50067,7 @@
       },
       {
         "name": "MUSINSA",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://global.musinsa.com/us/",
@@ -50156,7 +50184,7 @@
       },
       {
         "name": "My Pizza Technologies, Inc",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.slicelife.com",
@@ -50169,7 +50197,7 @@
       },
       {
         "name": "NVC Lighting",
-        "sector": "Consumer Staples",
+        "sector": "Food & Beverage",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.nvc-lighting.com.cn/",
@@ -50195,7 +50223,7 @@
       },
       {
         "name": "Natural Pet Food Group",
-        "sector": "Consumer Staples",
+        "sector": "Food & Beverage",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.naturalpetfoodgroup.com",
@@ -50208,7 +50236,7 @@
       },
       {
         "name": "Neighborly",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.neighborlybrands.com",
@@ -50494,7 +50522,7 @@
       },
       {
         "name": "PHINMA Education",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.phinma.edu.ph",
@@ -50793,7 +50821,7 @@
       },
       {
         "name": "Reliance Retail Ventures Limited",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.relianceretail.com",
@@ -50858,7 +50886,7 @@
       },
       {
         "name": "Ruichen Pet Veterinary Hospitals",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ruichen.com/index.html",
@@ -50897,7 +50925,7 @@
       },
       {
         "name": "Samhwa",
-        "sector": "Consumer Staples",
+        "sector": "Food & Beverage",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.e-samhwa.com",
@@ -50923,7 +50951,7 @@
       },
       {
         "name": "Sector Alarm",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.sectoralarm.com",
@@ -50975,7 +51003,7 @@
       },
       {
         "name": "Shanghai Moody E-commerce Co., Ltd",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.moodylenses.com",
@@ -51157,7 +51185,7 @@
       },
       {
         "name": "Sylvan",
-        "sector": "Consumer Staples",
+        "sector": "Food & Beverage",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.sylvaninc.com/",
@@ -51183,7 +51211,7 @@
       },
       {
         "name": "Teaching Strategies Inc",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.teachingstrategies.com",
@@ -51261,7 +51289,7 @@
       },
       {
         "name": "Travelopia",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.travelopia.com",
@@ -51313,7 +51341,7 @@
       },
       {
         "name": "V3 Group Limited",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.v3group.com",
@@ -51339,7 +51367,7 @@
       },
       {
         "name": "Varsity Brands",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.varsitybrands.com",
@@ -51365,7 +51393,7 @@
       },
       {
         "name": "Vini Cosmetics Pvt. Ltd",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.viniinternational.com",
@@ -51417,7 +51445,7 @@
       },
       {
         "name": "Walnut Programming",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.hetao101.com",
@@ -51443,7 +51471,7 @@
       },
       {
         "name": "Wella",
-        "sector": "Consumer Staples",
+        "sector": "Food & Beverage",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.wella.com",
@@ -51456,7 +51484,7 @@
       },
       {
         "name": "Xingsheng Youxuan",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.xsyxsc.com",
@@ -51495,7 +51523,7 @@
       },
       {
         "name": "ZJLD Group Inc",
-        "sector": "Consumer Staples",
+        "sector": "Food & Beverage",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -51534,7 +51562,7 @@
       },
       {
         "name": "Zinnia Corporate Holdings, LLC",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://zinnia.com/",
@@ -51586,7 +51614,7 @@
       },
       {
         "name": "nexeye",
-        "sector": "Consumer Discretionary",
+        "sector": "Retail",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.nexeye.com",
@@ -52841,7 +52869,7 @@
       {
         "name": "Casa Della Piada",
         "sector": "Food & Beverage",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.95,
         "website": "https://casadellapiadacrm.com/it/",
         "description": "Company specialising in the production of bakery products, market leader in the production of piadine and tigelle (Italian flatbreads) for large retailers",
@@ -78292,6 +78320,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.963843+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Sunseeker",
+        "sector": "Fashion & Luxury",
+        "status": "current",
+        "confidence": 0.72,
+        "website": null,
+        "description": "Sunseeker International is a British luxury performance motor yacht manufacturer known for its high-end design and engineering.",
+        "detail_page_url": null,
+        "headquarters": "Poole, United Kingdom",
+        "investment_date": "2024-10-31",
+        "source_url": "https://www.farovalue.com/en/faro-alternative-investments-announces-the-acquisition-of-sunseeker/",
+        "data_source": "signal_other",
+        "signal_id": "web-signal-01694"
       }
     ],
     "star-tech-ventures": [
@@ -81315,7 +81357,7 @@
       },
       {
         "name": "Sardex",
-        "sector": "FinTech",
+        "sector": "Financial Services",
         "status": "current",
         "confidence": 0.9,
         "website": null,
@@ -81371,7 +81413,7 @@
       },
       {
         "name": "Wesual",
-        "sector": "Artificial Intelligence / Visual Content",
+        "sector": "Technology",
         "status": "current",
         "confidence": 0.9,
         "website": null,
@@ -81539,7 +81581,7 @@
       },
       {
         "name": "Radical Storage",
-        "sector": "Travel Tech",
+        "sector": "Hospitality & Tourism",
         "status": "current",
         "confidence": 0.9,
         "website": null,
@@ -81805,7 +81847,7 @@
       },
       {
         "name": "Serenis",
-        "sector": "HealthTech / Mental Health",
+        "sector": "Healthcare",
         "status": "current",
         "confidence": 0.9,
         "website": null,
@@ -81956,6 +81998,20 @@
         "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
         "data_source": "signal_fund_press",
         "signal_id": "news-signal-20260205111509-fb1ed3df-932937bc"
+      },
+      {
+        "name": "Soundsafe Care",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-05",
+        "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+        "data_source": "signal_fund_press",
+        "signal_id": "news-signal-20260205111509-fb1ed3df-405b1f57"
       }
     ],
     "equiter": [
@@ -86108,7 +86164,7 @@
       },
       {
         "name": "K-Way",
-        "sector": "Consumer",
+        "sector": "Consumer Goods",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.permira.com/portfolio/our-portfolio/k-way/",
@@ -86147,7 +86203,7 @@
       },
       {
         "name": "Valentino",
-        "sector": "Consumer",
+        "sector": "Consumer Goods",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.permira.com/portfolio/our-portfolio/valentino/",

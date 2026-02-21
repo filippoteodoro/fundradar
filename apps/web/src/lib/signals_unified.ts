@@ -253,7 +253,10 @@ function normalizeWebsiteMonitorSignal(
     const titleWords = new Set(sig.title.toLowerCase().replace(/[^\w\s]/g, '').split(/\s+/).filter(w => w.length >= 3));
     if (titleWords.size > 0 && summaryWords.size > 0 && summaryWords.size < 25) {
       const overlap = [...summaryWords].filter(w => titleWords.has(w)).length;
-      if (overlap / Math.min(summaryWords.size, titleWords.size) >= 0.7) {
+      // Raised threshold from 0.7 to 0.9 to avoid suppressing genuine English translations
+      // of Italian titles (audit H5: too-aggressive suppression dropped valid enriched summaries)
+      if (overlap / Math.min(summaryWords.size, titleWords.size) >= 0.9 &&
+          summaryWords.size <= titleWords.size * 1.3) {
         // Don't suppress if summary is an English translation of an Italian title
         // (they share proper nouns but the summary adds English readability)
         const italianWords = /\b(acquisisce|nominato|entra|avvia|rileva|investe|finanziamento|raccoglie|sottoscritto|operazione|milioni|miliardi)\b/i;
