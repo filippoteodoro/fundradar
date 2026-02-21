@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/cookie-policy' },
 };
 
-const LAST_UPDATED = 'February 19, 2026';
+const LAST_UPDATED = 'February 21, 2026';
 
 export default function CookiePolicyPage() {
   return (
@@ -53,7 +53,8 @@ export default function CookiePolicyPage() {
             </li>
             <li>
               <strong>Optional analytics/conversion tracking</strong>: Google Tag Manager, Google
-              Analytics, LinkedIn Insight Tag, and Vercel Analytics (only when consented).
+              Analytics, LinkedIn Insight Tag, Meta Pixel (Facebook), and Vercel Analytics (only
+              when consented).
             </li>
             <li>
               <strong>Security / anti-spam</strong>: Google reCAPTCHA tokens for contact-form abuse
@@ -75,8 +76,8 @@ export default function CookiePolicyPage() {
           <h2 style={{ fontSize: '18px', margin: '0 0 8px 0' }}>5. Third-party providers</h2>
           <p style={{ margin: '0 0 8px 0', lineHeight: 1.6, color: '#444' }}>
             Cookie or tag-related processing may involve Google (Tag Manager, Analytics,
-            reCAPTCHA), LinkedIn (Insight Tag), Stripe (checkout flow), and Vercel (hosting and
-            analytics infrastructure).
+            reCAPTCHA), LinkedIn (Insight Tag), Meta Platforms (Meta Pixel), Stripe (checkout
+            flow), and Vercel (hosting and analytics infrastructure).
           </p>
           <p style={{ margin: 0, lineHeight: 1.6, color: '#444' }}>
             Provider policies and transfer safeguards are handled in our{' '}

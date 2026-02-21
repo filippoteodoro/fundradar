@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/privacy-policy' },
 };
 
-const LAST_UPDATED = 'February 19, 2026';
+const LAST_UPDATED = 'February 21, 2026';
 
 function ControllerContact() {
   if (LEGAL_CONTROLLER_EMAIL) {
@@ -65,7 +65,8 @@ export default function PrivacyPolicyPage() {
             <li>Contact-form data: name, email, message, anti-spam metadata, IP address.</li>
             <li>
               Technical and usage data: browser/device data, page events, local-storage or cookie
-              identifiers, conversion events.
+              identifiers, conversion events, and event metadata such as URL/path and purchase event
+              parameters (for example value, currency, and transaction/session identifier).
             </li>
             <li>Operational audit data: policy version and timestamp acceptance for subscriptions.</li>
           </ul>
@@ -118,7 +119,7 @@ export default function PrivacyPolicyPage() {
           </p>
           <p style={{ margin: 0, lineHeight: 1.6, color: '#444' }}>
             Optional measurement stack can include Google Tag Manager, Google Analytics, LinkedIn
-            Insight Tag, and Vercel Analytics when consent is granted.
+            Insight Tag, Meta Pixel (Facebook), and Vercel Analytics when consent is granted.
           </p>
         </section>
 
@@ -133,6 +134,7 @@ export default function PrivacyPolicyPage() {
             <li>Vercel: hosting and infrastructure operations.</li>
             <li>Google: Tag Manager, Analytics, and reCAPTCHA services.</li>
             <li>LinkedIn: Insight Tag conversion/measurement events when consented.</li>
+            <li>Meta Platforms: Meta Pixel conversion/measurement events when consented.</li>
             <li>Resend: contact-form email delivery.</li>
           </ul>
         </section>
