@@ -923,7 +923,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:49.987263+00:00",
+      "last_checked_at": "2026-02-22T19:39:14.226434+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -950,7 +950,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:57.352392+00:00",
+      "last_checked_at": "2026-02-22T19:39:19.458162+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -968,7 +968,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:09.306986+00:00",
+      "last_checked_at": "2026-02-22T19:39:31.191288+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1031,7 +1031,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T10:05:11.455992+00:00",
+      "last_checked_at": "2026-02-22T19:39:48.990404+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1067,7 +1067,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:51.284842+00:00",
+      "last_checked_at": "2026-02-22T19:38:08.037834+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1094,7 +1094,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:21.688877+00:00",
+      "last_checked_at": "2026-02-22T19:37:36.437483+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1103,7 +1103,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:21.236456+00:00",
+      "last_checked_at": "2026-02-22T19:37:35.470070+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1112,7 +1112,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:19.981538+00:00",
+      "last_checked_at": "2026-02-22T19:37:32.998536+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1130,7 +1130,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:26.106501+00:00",
+      "last_checked_at": "2026-02-22T19:38:46.600310+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1139,7 +1139,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:24.666637+00:00",
+      "last_checked_at": "2026-02-22T19:38:45.789587+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1157,7 +1157,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:45.269430+00:00",
+      "last_checked_at": "2026-02-22T19:37:57.814028+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1229,7 +1229,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:37.399325+00:00",
+      "last_checked_at": "2026-02-22T19:37:50.594706+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1238,7 +1238,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:36.082486+00:00",
+      "last_checked_at": "2026-02-22T19:37:47.493294+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1247,7 +1247,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:40.829318+00:00",
+      "last_checked_at": "2026-02-22T19:39:00.959457+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1310,7 +1310,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:17.069158+00:00",
+      "last_checked_at": "2026-02-22T19:40:41.125808+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1373,7 +1373,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:21.147707+00:00",
+      "last_checked_at": "2026-02-22T19:38:38.417352+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1463,7 +1463,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:50.352212+00:00",
+      "last_checked_at": "2026-02-22T19:40:20.533834+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1571,7 +1571,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:11.283130+00:00",
+      "last_checked_at": "2026-02-22T19:39:40.607538+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1580,7 +1580,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:04.152982+00:00",
+      "last_checked_at": "2026-02-22T19:39:32.474942+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1643,7 +1643,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:22.707529+00:00",
+      "last_checked_at": "2026-02-22T19:37:35.507299+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1652,7 +1652,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:22.247272+00:00",
+      "last_checked_at": "2026-02-22T19:37:34.364330+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1670,7 +1670,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:58.678861+00:00",
+      "last_checked_at": "2026-02-22T19:40:25.264929+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2021,7 +2021,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:19.714491+00:00",
+      "last_checked_at": "2026-02-22T19:40:43.050731+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2030,7 +2030,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:19.012826+00:00",
+      "last_checked_at": "2026-02-22T19:40:41.982715+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2264,7 +2264,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:05.304373+00:00",
+      "last_checked_at": "2026-02-22T19:40:38.094786+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2282,7 +2282,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:35.510282+00:00",
+      "last_checked_at": "2026-02-22T19:40:06.616051+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2291,7 +2291,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:47.493821+00:00",
+      "last_checked_at": "2026-02-22T19:39:08.059229+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2300,7 +2300,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:40.150989+00:00",
+      "last_checked_at": "2026-02-22T19:39:00.842173+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2390,7 +2390,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:03.607608+00:00",
+      "last_checked_at": "2026-02-22T19:40:32.789821+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2399,7 +2399,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:01.555777+00:00",
+      "last_checked_at": "2026-02-22T19:40:28.336924+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2408,7 +2408,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:04.154805+00:00",
+      "last_checked_at": "2026-02-22T19:40:33.322865+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2417,7 +2417,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:18.867061+00:00",
+      "last_checked_at": "2026-02-22T19:40:43.693345+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2426,7 +2426,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:37.962452+00:00",
+      "last_checked_at": "2026-02-22T19:41:00.175004+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2435,7 +2435,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:29.649070+00:00",
+      "last_checked_at": "2026-02-22T19:40:52.535130+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2444,7 +2444,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:43.860388+00:00",
+      "last_checked_at": "2026-02-22T19:41:06.280560+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2453,7 +2453,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T10:05:07.432678+00:00",
+      "last_checked_at": "2026-02-22T19:40:04.185719+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2489,7 +2489,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:51.968160+00:00",
+      "last_checked_at": "2026-02-22T19:39:15.742115+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2516,7 +2516,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:28.711897+00:00",
+      "last_checked_at": "2026-02-22T19:38:47.250833+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2525,7 +2525,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:25.951525+00:00",
+      "last_checked_at": "2026-02-22T19:38:44.099772+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2534,7 +2534,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:27.614298+00:00",
+      "last_checked_at": "2026-02-22T19:38:46.233958+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2543,7 +2543,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:20.636975+00:00",
+      "last_checked_at": "2026-02-22T19:40:43.789220+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2723,7 +2723,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:21.145961+00:00",
+      "last_checked_at": "2026-02-22T19:37:33.037175+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2813,7 +2813,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:22.362498+00:00",
+      "last_checked_at": "2026-02-22T19:37:35.576083+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2822,7 +2822,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:21.718461+00:00",
+      "last_checked_at": "2026-02-22T19:37:34.522412+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2939,7 +2939,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:21.475247+00:00",
+      "last_checked_at": "2026-02-22T19:37:33.763235+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2957,7 +2957,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:20.529647+00:00",
+      "last_checked_at": "2026-02-22T19:37:32.706676+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2993,7 +2993,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:25.366098+00:00",
+      "last_checked_at": "2026-02-22T19:37:34.774187+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3065,7 +3065,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:24.514800+00:00",
+      "last_checked_at": "2026-02-22T19:37:37.033280+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3101,7 +3101,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:24.093169+00:00",
+      "last_checked_at": "2026-02-22T19:37:37.815040+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3155,7 +3155,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:30.347283+00:00",
+      "last_checked_at": "2026-02-22T19:37:43.207291+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3227,7 +3227,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:51.049595+00:00",
+      "last_checked_at": "2026-02-22T19:38:31.929795+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3281,7 +3281,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:23.339969+00:00",
+      "last_checked_at": "2026-02-22T19:38:42.174392+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3290,7 +3290,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:24.251308+00:00",
+      "last_checked_at": "2026-02-22T19:38:44.739677+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3389,7 +3389,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:36.332244+00:00",
+      "last_checked_at": "2026-02-22T19:38:56.006553+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3452,7 +3452,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:46.754941+00:00",
+      "last_checked_at": "2026-02-22T19:39:06.545852+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3551,7 +3551,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:47.353221+00:00",
+      "last_checked_at": "2026-02-22T19:39:09.092489+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3623,7 +3623,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:29.618886+00:00",
+      "last_checked_at": "2026-02-22T19:39:55.719784+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3704,7 +3704,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:49.381693+00:00",
+      "last_checked_at": "2026-02-22T19:40:18.707503+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3713,7 +3713,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:50.781892+00:00",
+      "last_checked_at": "2026-02-22T19:40:18.873975+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3758,7 +3758,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:54.460307+00:00",
+      "last_checked_at": "2026-02-22T19:40:21.661824+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3848,18 +3848,18 @@
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:59.593030+00:00",
-      "consecutive_failures": 7,
-      "next_check_after": "2026-02-22T09:35:59.593030+00:00"
+      "last_checked_at": "2026-02-22T19:40:27.160067+00:00",
+      "consecutive_failures": 8,
+      "next_check_after": "2026-02-23T19:40:27.160067+00:00"
     },
     "https://www.rielloinvestimenti.it/portfolio.html": {
       "url": "https://www.rielloinvestimenti.it/portfolio.html",
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:59.533782+00:00",
-      "consecutive_failures": 7,
-      "next_check_after": "2026-02-22T09:35:59.533782+00:00"
+      "last_checked_at": "2026-02-22T19:40:27.007915+00:00",
+      "consecutive_failures": 8,
+      "next_check_after": "2026-02-23T19:40:27.007915+00:00"
     },
     "https://www.rielloinvestimenti.it/category/news/": {
       "url": "https://www.rielloinvestimenti.it/category/news/",
@@ -3893,9 +3893,9 @@
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:10.000512+00:00",
-      "consecutive_failures": 5,
-      "next_check_after": "2026-02-22T09:36:10.000512+00:00"
+      "last_checked_at": "2026-02-22T19:40:37.786820+00:00",
+      "consecutive_failures": 6,
+      "next_check_after": "2026-02-23T19:40:37.786820+00:00"
     },
     "http://www.siryo.it/it/investimenti": {
       "url": "http://www.siryo.it/it/investimenti",
@@ -4073,7 +4073,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:18.560364+00:00",
+      "last_checked_at": "2026-02-22T19:40:41.376084+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -4091,7 +4091,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:27.676765+00:00",
+      "last_checked_at": "2026-02-22T19:39:58.771660+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -4100,7 +4100,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:24.521283+00:00",
+      "last_checked_at": "2026-02-22T19:39:55.181550+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -4127,7 +4127,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:35.255563+00:00",
+      "last_checked_at": "2026-02-22T19:37:50.132063+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -4163,7 +4163,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:21.406113+00:00",
+      "last_checked_at": "2026-02-22T19:40:44.632067+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -4172,7 +4172,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:47.532288+00:00",
+      "last_checked_at": "2026-02-22T19:39:09.799970+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -4181,7 +4181,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:23.217050+00:00",
+      "last_checked_at": "2026-02-22T19:37:36.099120+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -4235,7 +4235,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:20.783973+00:00",
+      "last_checked_at": "2026-02-22T19:37:32.410822+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -4262,7 +4262,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:58.177432+00:00",
+      "last_checked_at": "2026-02-22T19:40:22.804513+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -4838,7 +4838,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:56.537699+00:00",
+      "last_checked_at": "2026-02-22T19:39:23.759658+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -4892,7 +4892,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:32.770405+00:00",
+      "last_checked_at": "2026-02-22T19:38:55.405921+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -4955,7 +4955,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:23.253917+00:00",
+      "last_checked_at": "2026-02-22T19:40:43.964557+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -4964,7 +4964,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:07.783661+00:00",
+      "last_checked_at": "2026-02-22T19:38:21.026051+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -5162,7 +5162,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:43.585458+00:00",
+      "last_checked_at": "2026-02-22T19:38:00.422330+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -5270,9 +5270,9 @@
       "status": "404",
       "status_code": 404,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:22.207014+00:00",
-      "consecutive_failures": 13,
-      "next_check_after": "2026-02-22T09:33:22.207014+00:00"
+      "last_checked_at": "2026-02-22T19:37:33.148832+00:00",
+      "consecutive_failures": 14,
+      "next_check_after": "2026-02-23T19:37:33.148832+00:00"
     },
     "http://www.alkemiacapital.com/en/news": {
       "url": "http://www.alkemiacapital.com/en/news",
@@ -5333,7 +5333,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:25.672005+00:00",
+      "last_checked_at": "2026-02-22T19:37:39.057524+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -5567,7 +5567,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:28.035578+00:00",
+      "last_checked_at": "2026-02-22T19:38:48.507898+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -5873,7 +5873,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:00.697071+00:00",
+      "last_checked_at": "2026-02-22T19:39:30.186778+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -5927,7 +5927,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:01.207606+00:00",
+      "last_checked_at": "2026-02-22T19:39:31.985462+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -5945,7 +5945,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:59.029300+00:00",
+      "last_checked_at": "2026-02-22T19:39:28.288408+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -5972,7 +5972,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:00.335534+00:00",
+      "last_checked_at": "2026-02-22T19:39:31.556724+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -6053,7 +6053,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:07.701167+00:00",
+      "last_checked_at": "2026-02-22T19:39:38.180153+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -6332,7 +6332,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:00.968753+00:00",
+      "last_checked_at": "2026-02-22T19:40:30.607318+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -6359,7 +6359,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:00.456338+00:00",
+      "last_checked_at": "2026-02-22T19:40:29.166427+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -6395,9 +6395,9 @@
       "status": "404",
       "status_code": 404,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:00.567664+00:00",
-      "consecutive_failures": 11,
-      "next_check_after": "2026-02-22T09:36:00.567664+00:00"
+      "last_checked_at": "2026-02-22T19:40:29.501387+00:00",
+      "consecutive_failures": 12,
+      "next_check_after": "2026-02-23T19:40:29.501387+00:00"
     },
     "https://www.sagard.com/midcap/investments": {
       "url": "https://www.sagard.com/midcap/investments",
@@ -6584,7 +6584,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:13.793240+00:00",
+      "last_checked_at": "2026-02-22T19:40:40.535800+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -6609,11 +6609,11 @@
     "https://www.equityclub.eu/en/news": {
       "url": "https://www.equityclub.eu/en/news",
       "status": "other_error",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-02-21T10:04:49.374818+00:00",
-      "consecutive_failures": 3,
-      "next_check_after": "2026-02-21T11:04:49.374818+00:00"
+      "status_code": 0,
+      "error_message": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
+      "last_checked_at": "2026-02-22T19:38:57.303915+00:00",
+      "consecutive_failures": 4,
+      "next_check_after": "2026-02-22T23:38:57.303915+00:00"
     },
     "http://www.tagescapitalsgr.com/management": {
       "url": "http://www.tagescapitalsgr.com/management",
@@ -6629,9 +6629,9 @@
       "status": "404",
       "status_code": 404,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:12.554521+00:00",
-      "consecutive_failures": 11,
-      "next_check_after": "2026-02-22T09:36:12.554521+00:00"
+      "last_checked_at": "2026-02-22T19:40:38.969236+00:00",
+      "consecutive_failures": 12,
+      "next_check_after": "2026-02-23T19:40:38.969236+00:00"
     },
     "http://www.threehills.com/investments": {
       "url": "http://www.threehills.com/investments",
@@ -6701,9 +6701,9 @@
       "status": "other_error",
       "status_code": 500,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:20.849539+00:00",
-      "consecutive_failures": 11,
-      "next_check_after": "2026-02-22T09:36:20.849539+00:00"
+      "last_checked_at": "2026-02-22T19:40:44.060858+00:00",
+      "consecutive_failures": 12,
+      "next_check_after": "2026-02-23T19:40:44.060858+00:00"
     },
     "http://www.trilanticeurope.com/management": {
       "url": "http://www.trilanticeurope.com/management",
@@ -6728,9 +6728,9 @@
       "status": "other_error",
       "status_code": 500,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:20.671661+00:00",
-      "consecutive_failures": 11,
-      "next_check_after": "2026-02-22T09:36:20.671661+00:00"
+      "last_checked_at": "2026-02-22T19:40:43.880935+00:00",
+      "consecutive_failures": 12,
+      "next_check_after": "2026-02-23T19:40:43.880935+00:00"
     },
     "https://toseed.it/management": {
       "url": "https://toseed.it/management",
@@ -6881,7 +6881,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:27.137857+00:00",
+      "last_checked_at": "2026-02-22T19:37:40.658954+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7043,9 +7043,9 @@
       "status": "404",
       "status_code": 404,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:21.856639+00:00",
-      "consecutive_failures": 13,
-      "next_check_after": "2026-02-22T09:33:21.856639+00:00"
+      "last_checked_at": "2026-02-22T19:37:33.791957+00:00",
+      "consecutive_failures": 14,
+      "next_check_after": "2026-02-23T19:37:33.791957+00:00"
     },
     "https://www.alcedo.it/investments": {
       "url": "https://www.alcedo.it/investments",
@@ -7151,7 +7151,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:26.103129+00:00",
+      "last_checked_at": "2026-02-22T19:37:38.870211+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7178,7 +7178,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:28.210036+00:00",
+      "last_checked_at": "2026-02-22T19:37:40.521005+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7214,7 +7214,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:28.637629+00:00",
+      "last_checked_at": "2026-02-22T19:37:41.118178+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7250,9 +7250,9 @@
       "status": "404",
       "status_code": 404,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:29.746039+00:00",
-      "consecutive_failures": 13,
-      "next_check_after": "2026-02-22T09:33:29.746039+00:00"
+      "last_checked_at": "2026-02-22T19:37:44.530371+00:00",
+      "consecutive_failures": 14,
+      "next_check_after": "2026-02-23T19:37:44.530371+00:00"
     },
     "https://www.aimpact.org/investments": {
       "url": "https://www.aimpact.org/investments",
@@ -7331,9 +7331,9 @@
       "status": "404",
       "status_code": 404,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:51.109312+00:00",
-      "consecutive_failures": 13,
-      "next_check_after": "2026-02-22T09:33:51.109312+00:00"
+      "last_checked_at": "2026-02-22T19:38:12.928116+00:00",
+      "consecutive_failures": 14,
+      "next_check_after": "2026-02-23T19:38:12.928116+00:00"
     },
     "https://www.capza.co/investments": {
       "url": "https://www.capza.co/investments",
@@ -7427,19 +7427,19 @@
     },
     "https://canovasgr.it/blog/": {
       "url": "https://canovasgr.it/blog/",
-      "status": "ok",
-      "status_code": 200,
+      "status": "other_error",
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:00.622378+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "last_checked_at": "2026-02-22T19:38:19.683938+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-22T19:43:19.683938+00:00"
     },
     "https://www.cdpventurecapital.it/it/management.page": {
       "url": "https://www.cdpventurecapital.it/it/management.page",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:15.774262+00:00",
+      "last_checked_at": "2026-02-22T19:38:28.281466+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7457,7 +7457,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:18.355867+00:00",
+      "last_checked_at": "2026-02-22T19:38:33.339049+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7502,7 +7502,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:23.290244+00:00",
+      "last_checked_at": "2026-02-22T19:38:37.696737+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7538,7 +7538,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:20.128547+00:00",
+      "last_checked_at": "2026-02-22T19:38:35.631071+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7556,7 +7556,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:21.905302+00:00",
+      "last_checked_at": "2026-02-22T19:38:37.372701+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7583,16 +7583,16 @@
       "status": "404",
       "status_code": 404,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:36.674117+00:00",
-      "consecutive_failures": 13,
-      "next_check_after": "2026-02-22T09:34:36.674117+00:00"
+      "last_checked_at": "2026-02-22T19:38:56.220399+00:00",
+      "consecutive_failures": 14,
+      "next_check_after": "2026-02-23T19:38:56.220399+00:00"
     },
     "https://www.deacapitalaf.com/gruppo/": {
       "url": "https://www.deacapitalaf.com/gruppo/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:29.550549+00:00",
+      "last_checked_at": "2026-02-22T19:38:49.510876+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7763,7 +7763,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:43.889841+00:00",
+      "last_checked_at": "2026-02-22T19:39:02.315146+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7853,7 +7853,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:52.974927+00:00",
+      "last_checked_at": "2026-02-22T19:39:21.607064+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7880,7 +7880,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:53.900678+00:00",
+      "last_checked_at": "2026-02-22T19:39:22.925623+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7934,7 +7934,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:57.594661+00:00",
+      "last_checked_at": "2026-02-22T19:39:28.246087+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7943,7 +7943,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:56.004974+00:00",
+      "last_checked_at": "2026-02-22T19:39:24.229679+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7952,7 +7952,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:53.588475+00:00",
+      "last_checked_at": "2026-02-22T19:39:23.644202+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7961,7 +7961,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:58.071029+00:00",
+      "last_checked_at": "2026-02-22T19:39:25.601953+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -7988,7 +7988,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:13.513954+00:00",
+      "last_checked_at": "2026-02-22T19:39:46.479523+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8015,7 +8015,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:21.385947+00:00",
+      "last_checked_at": "2026-02-22T19:39:55.292616+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8024,7 +8024,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:29.895101+00:00",
+      "last_checked_at": "2026-02-22T19:40:05.388077+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8042,7 +8042,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:52.567571+00:00",
+      "last_checked_at": "2026-02-22T19:40:27.940399+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8051,7 +8051,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:16.038492+00:00",
+      "last_checked_at": "2026-02-22T19:39:51.275880+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8150,7 +8150,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:16.440682+00:00",
+      "last_checked_at": "2026-02-22T19:39:46.748891+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8168,7 +8168,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:17.460071+00:00",
+      "last_checked_at": "2026-02-22T19:39:48.180387+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8573,7 +8573,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:13.388165+00:00",
+      "last_checked_at": "2026-02-22T19:40:39.087388+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8591,7 +8591,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:13.530564+00:00",
+      "last_checked_at": "2026-02-22T19:40:39.461924+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8771,7 +8771,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:24.801107+00:00",
+      "last_checked_at": "2026-02-22T19:40:45.537836+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8780,7 +8780,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:25.202215+00:00",
+      "last_checked_at": "2026-02-22T19:40:47.026807+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8789,16 +8789,16 @@
       "status": "404",
       "status_code": 404,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:25.276801+00:00",
-      "consecutive_failures": 12,
-      "next_check_after": "2026-02-22T09:36:25.276801+00:00"
+      "last_checked_at": "2026-02-22T19:40:45.887732+00:00",
+      "consecutive_failures": 13,
+      "next_check_after": "2026-02-23T19:40:45.887732+00:00"
     },
     "https://www.yarpa.it/press/": {
       "url": "https://www.yarpa.it/press/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:25.525630+00:00",
+      "last_checked_at": "2026-02-22T19:40:47.639328+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8807,7 +8807,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:25.832306+00:00",
+      "last_checked_at": "2026-02-22T19:40:46.792760+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8870,7 +8870,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:28.506222+00:00",
+      "last_checked_at": "2026-02-22T19:37:41.448925+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8888,7 +8888,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:23.231814+00:00",
+      "last_checked_at": "2026-02-22T19:37:35.963226+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8906,7 +8906,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:32.337567+00:00",
+      "last_checked_at": "2026-02-22T19:37:44.324625+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8978,7 +8978,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:19.936442+00:00",
+      "last_checked_at": "2026-02-22T19:39:43.351171+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8987,7 +8987,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:57.226172+00:00",
+      "last_checked_at": "2026-02-22T19:39:25.740700+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -8996,7 +8996,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:56.644375+00:00",
+      "last_checked_at": "2026-02-22T19:39:26.026861+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9005,7 +9005,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:59.320558+00:00",
+      "last_checked_at": "2026-02-22T19:39:28.361213+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9068,7 +9068,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:29.886654+00:00",
+      "last_checked_at": "2026-02-22T19:40:00.510190+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9149,7 +9149,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:22.974877+00:00",
+      "last_checked_at": "2026-02-22T19:37:34.898941+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9158,7 +9158,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:23.162174+00:00",
+      "last_checked_at": "2026-02-22T19:37:36.528113+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9167,7 +9167,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:23.718198+00:00",
+      "last_checked_at": "2026-02-22T19:37:35.462262+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9176,7 +9176,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:23.629459+00:00",
+      "last_checked_at": "2026-02-22T19:37:37.171224+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9185,9 +9185,9 @@
       "status": "404",
       "status_code": 404,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:38.474731+00:00",
-      "consecutive_failures": 12,
-      "next_check_after": "2026-02-22T09:33:38.474731+00:00"
+      "last_checked_at": "2026-02-22T19:37:51.454293+00:00",
+      "consecutive_failures": 13,
+      "next_check_after": "2026-02-23T19:37:51.454293+00:00"
     },
     "https://www.carlyle.com/investments": {
       "url": "https://www.carlyle.com/investments",
@@ -9221,7 +9221,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:55.964500+00:00",
+      "last_checked_at": "2026-02-22T19:38:14.416932+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9230,7 +9230,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:15.041362+00:00",
+      "last_checked_at": "2026-02-22T19:38:26.676278+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9239,7 +9239,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:56.962466+00:00",
+      "last_checked_at": "2026-02-22T19:38:15.682533+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9248,7 +9248,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:15.850092+00:00",
+      "last_checked_at": "2026-02-22T19:38:28.131145+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9257,7 +9257,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:29.390373+00:00",
+      "last_checked_at": "2026-02-22T19:38:48.064572+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9275,7 +9275,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:42.836315+00:00",
+      "last_checked_at": "2026-02-22T19:39:01.678222+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9284,7 +9284,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:41.913802+00:00",
+      "last_checked_at": "2026-02-22T19:38:59.785407+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9293,7 +9293,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:39.168426+00:00",
+      "last_checked_at": "2026-02-22T19:38:59.651210+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9302,7 +9302,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:42.573123+00:00",
+      "last_checked_at": "2026-02-22T19:39:00.893974+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9311,7 +9311,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:45.113745+00:00",
+      "last_checked_at": "2026-02-22T19:39:04.453455+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9329,7 +9329,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:48.316302+00:00",
+      "last_checked_at": "2026-02-22T19:39:08.776847+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9338,16 +9338,16 @@
       "status": "404",
       "status_code": 404,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:51.492236+00:00",
-      "consecutive_failures": 13,
-      "next_check_after": "2026-02-22T09:34:51.492236+00:00"
+      "last_checked_at": "2026-02-22T19:39:11.477722+00:00",
+      "consecutive_failures": 14,
+      "next_check_after": "2026-02-23T19:39:11.477722+00:00"
     },
     "https://www.fvssgr.it/fondi": {
       "url": "https://www.fvssgr.it/fondi",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:51.769615+00:00",
+      "last_checked_at": "2026-02-22T19:39:13.622232+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9356,7 +9356,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:54.014848+00:00",
+      "last_checked_at": "2026-02-22T19:39:16.121124+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9365,7 +9365,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:53.214334+00:00",
+      "last_checked_at": "2026-02-22T19:39:14.887321+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9374,7 +9374,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:55.291116+00:00",
+      "last_checked_at": "2026-02-22T19:39:19.288069+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9383,7 +9383,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:59.272863+00:00",
+      "last_checked_at": "2026-02-22T19:39:20.819732+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9392,7 +9392,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:50.523922+00:00",
+      "last_checked_at": "2026-02-22T19:39:17.123173+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9401,7 +9401,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:51.552459+00:00",
+      "last_checked_at": "2026-02-22T19:39:18.075266+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9428,7 +9428,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:59.004647+00:00",
+      "last_checked_at": "2026-02-22T19:39:29.616970+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9437,7 +9437,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:20.999432+00:00",
+      "last_checked_at": "2026-02-22T19:38:44.348200+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9446,7 +9446,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:59.494195+00:00",
+      "last_checked_at": "2026-02-22T19:39:30.192267+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9455,7 +9455,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:02.300092+00:00",
+      "last_checked_at": "2026-02-22T19:39:40.491424+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9464,7 +9464,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:18.202776+00:00",
+      "last_checked_at": "2026-02-22T19:40:41.796859+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9473,7 +9473,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:22.750374+00:00",
+      "last_checked_at": "2026-02-22T19:40:43.542452+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9500,7 +9500,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:13.105090+00:00",
+      "last_checked_at": "2026-02-22T19:40:38.188858+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9509,7 +9509,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:16.147155+00:00",
+      "last_checked_at": "2026-02-22T19:39:46.316526+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9536,7 +9536,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:18.388680+00:00",
+      "last_checked_at": "2026-02-22T19:39:48.175183+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9545,7 +9545,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:34.416004+00:00",
+      "last_checked_at": "2026-02-22T19:40:58.168283+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9563,7 +9563,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:17.949003+00:00",
+      "last_checked_at": "2026-02-22T19:39:48.325253+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9572,7 +9572,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:19.080157+00:00",
+      "last_checked_at": "2026-02-22T19:39:48.689594+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9581,7 +9581,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:22.893205+00:00",
+      "last_checked_at": "2026-02-22T19:39:53.886849+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9608,7 +9608,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:23.312541+00:00",
+      "last_checked_at": "2026-02-22T19:39:50.858508+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9626,7 +9626,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:23.677437+00:00",
+      "last_checked_at": "2026-02-22T19:39:55.631758+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9635,7 +9635,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:52.966240+00:00",
+      "last_checked_at": "2026-02-22T19:40:24.656993+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9644,7 +9644,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:24.650809+00:00",
+      "last_checked_at": "2026-02-22T19:39:57.380089+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9662,7 +9662,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T10:05:11.222606+00:00",
+      "last_checked_at": "2026-02-22T19:40:16.161359+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9680,7 +9680,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:57.318298+00:00",
+      "last_checked_at": "2026-02-22T19:40:22.685325+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9689,7 +9689,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:58.160753+00:00",
+      "last_checked_at": "2026-02-22T19:40:24.614788+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9698,16 +9698,16 @@
       "status": "404",
       "status_code": 404,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:52.329277+00:00",
-      "consecutive_failures": 14,
-      "next_check_after": "2026-02-22T09:35:52.329277+00:00"
+      "last_checked_at": "2026-02-22T19:40:20.033712+00:00",
+      "consecutive_failures": 15,
+      "next_check_after": "2026-02-23T19:40:20.033712+00:00"
     },
     "https://www.portobellocapital.es/en/portobello/": {
       "url": "https://www.portobellocapital.es/en/portobello/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:58.067594+00:00",
+      "last_checked_at": "2026-02-22T19:40:24.694085+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9716,7 +9716,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:58.315797+00:00",
+      "last_checked_at": "2026-02-22T19:40:23.487850+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9734,7 +9734,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:59.348128+00:00",
+      "last_checked_at": "2026-02-22T19:40:26.189541+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9752,9 +9752,9 @@
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:59.563565+00:00",
-      "consecutive_failures": 7,
-      "next_check_after": "2026-02-22T09:35:59.563565+00:00"
+      "last_checked_at": "2026-02-22T19:40:27.092631+00:00",
+      "consecutive_failures": 8,
+      "next_check_after": "2026-02-23T19:40:27.092631+00:00"
     },
     "https://www.sagittasgr.it/prodotti-e-servizi/": {
       "url": "https://www.sagittasgr.it/prodotti-e-servizi/",
@@ -9779,34 +9779,34 @@
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:10.162732+00:00",
-      "consecutive_failures": 6,
-      "next_check_after": "2026-02-22T09:36:10.162732+00:00"
+      "last_checked_at": "2026-02-22T19:40:36.908688+00:00",
+      "consecutive_failures": 7,
+      "next_check_after": "2026-02-23T19:40:36.908688+00:00"
     },
     "https://www.starcapital.it/it/investimenti/fondo-star-iv/": {
       "url": "https://www.starcapital.it/it/investimenti/fondo-star-iv/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:11.705256+00:00",
+      "last_checked_at": "2026-02-22T19:40:38.930864+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://sofinnovapartners.com/team": {
       "url": "https://sofinnovapartners.com/team",
-      "status": "ok",
-      "status_code": 200,
+      "status": "other_error",
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:10.954674+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "last_checked_at": "2026-02-22T19:40:37.045044+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-22T19:45:37.045044+00:00"
     },
     "https://www.starcapital.it/it/team/": {
       "url": "https://www.starcapital.it/it/team/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:12.611998+00:00",
+      "last_checked_at": "2026-02-22T19:40:39.707336+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9815,7 +9815,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:14.590420+00:00",
+      "last_checked_at": "2026-02-22T19:40:39.632602+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9824,7 +9824,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:15.577524+00:00",
+      "last_checked_at": "2026-02-22T19:40:40.121939+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9833,7 +9833,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:16.403273+00:00",
+      "last_checked_at": "2026-02-22T19:40:40.841410+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9842,7 +9842,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:20.175009+00:00",
+      "last_checked_at": "2026-02-22T19:40:42.780631+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9851,7 +9851,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:16.835687+00:00",
+      "last_checked_at": "2026-02-22T19:40:41.121186+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9860,7 +9860,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:22.118577+00:00",
+      "last_checked_at": "2026-02-22T19:40:46.767819+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9869,7 +9869,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:24.225291+00:00",
+      "last_checked_at": "2026-02-22T19:40:46.337978+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9878,7 +9878,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:23.689309+00:00",
+      "last_checked_at": "2026-02-22T19:40:47.849836+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9905,7 +9905,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:24.993153+00:00",
+      "last_checked_at": "2026-02-22T19:37:37.399367+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9923,7 +9923,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:30.316357+00:00",
+      "last_checked_at": "2026-02-22T19:37:43.245091+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9932,7 +9932,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:25.683816+00:00",
+      "last_checked_at": "2026-02-22T19:37:38.000965+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9941,7 +9941,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:36.779397+00:00",
+      "last_checked_at": "2026-02-22T19:37:52.166107+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9959,7 +9959,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:32.325514+00:00",
+      "last_checked_at": "2026-02-22T19:37:44.378615+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -9977,7 +9977,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:33.755434+00:00",
+      "last_checked_at": "2026-02-22T19:37:45.130425+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10031,7 +10031,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:25.204742+00:00",
+      "last_checked_at": "2026-02-22T19:38:45.499726+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10040,7 +10040,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:28.881014+00:00",
+      "last_checked_at": "2026-02-22T19:38:48.693362+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10067,7 +10067,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:29.319311+00:00",
+      "last_checked_at": "2026-02-22T19:38:49.825196+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10085,7 +10085,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:29.700604+00:00",
+      "last_checked_at": "2026-02-22T19:38:50.128950+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10094,7 +10094,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:46.147488+00:00",
+      "last_checked_at": "2026-02-22T19:39:05.917749+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10112,7 +10112,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T10:05:00.560845+00:00",
+      "last_checked_at": "2026-02-22T19:39:27.022927+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10130,7 +10130,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T10:05:07.590047+00:00",
+      "last_checked_at": "2026-02-22T19:39:34.877078+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10145,30 +10145,30 @@
     },
     "https://www.nevasgr.com/content/neva/en/portfolio.html": {
       "url": "https://www.nevasgr.com/content/neva/en/portfolio.html",
-      "status": "ok",
-      "status_code": 200,
+      "status": "other_error",
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:19.673075+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "last_checked_at": "2026-02-22T19:39:48.679322+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-22T19:44:48.679322+00:00"
     },
     "https://www.nextaliasgr.com/portfolio/": {
       "url": "https://www.nextaliasgr.com/portfolio/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:20.385859+00:00",
+      "last_checked_at": "2026-02-22T19:39:50.425688+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.nevasgr.com/content/neva/en/team.html": {
       "url": "https://www.nevasgr.com/content/neva/en/team.html",
-      "status": "ok",
-      "status_code": 200,
+      "status": "other_error",
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:19.938933+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "last_checked_at": "2026-02-22T19:39:48.713708+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-22T19:44:48.713708+00:00"
     },
     "https://www.paipartners.com/about/pai-at-a-glance/": {
       "url": "https://www.paipartners.com/about/pai-at-a-glance/",
@@ -10181,19 +10181,19 @@
     },
     "https://www.nevasgr.com/content/neva/en/news.html": {
       "url": "https://www.nevasgr.com/content/neva/en/news.html",
-      "status": "ok",
-      "status_code": 200,
+      "status": "other_error",
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:21.261681+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "last_checked_at": "2026-02-22T19:39:48.832313+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-22T19:44:48.832313+00:00"
     },
     "https://www.nextaliasgr.com/societa/": {
       "url": "https://www.nextaliasgr.com/societa/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:21.090543+00:00",
+      "last_checked_at": "2026-02-22T19:39:51.107040+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10202,7 +10202,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:32.204004+00:00",
+      "last_checked_at": "2026-02-22T19:40:01.934466+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10211,7 +10211,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:46.446334+00:00",
+      "last_checked_at": "2026-02-22T19:40:17.742914+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10229,7 +10229,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:12.548044+00:00",
+      "last_checked_at": "2026-02-22T19:40:39.138391+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10238,7 +10238,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:06.630548+00:00",
+      "last_checked_at": "2026-02-22T19:40:33.203724+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10247,7 +10247,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:56.095390+00:00",
+      "last_checked_at": "2026-02-22T19:40:27.351584+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10265,25 +10265,25 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:16.042072+00:00",
+      "last_checked_at": "2026-02-22T19:40:42.901177+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://sofinnovapartners.com/news": {
       "url": "https://sofinnovapartners.com/news",
-      "status": "ok",
-      "status_code": 200,
+      "status": "other_error",
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:17.352338+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "last_checked_at": "2026-02-22T19:40:37.352035+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-22T19:45:37.352035+00:00"
     },
     "https://www.fondisici.it/come-investiamo/": {
       "url": "https://www.fondisici.it/come-investiamo/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:14.783389+00:00",
+      "last_checked_at": "2026-02-22T19:40:39.694423+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10292,7 +10292,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:19.320150+00:00",
+      "last_checked_at": "2026-02-22T19:40:46.118678+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10301,7 +10301,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:15.893819+00:00",
+      "last_checked_at": "2026-02-22T19:40:40.054050+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10319,7 +10319,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:16.511258+00:00",
+      "last_checked_at": "2026-02-22T19:40:40.593875+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10337,7 +10337,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:20.381035+00:00",
+      "last_checked_at": "2026-02-22T19:40:43.112831+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10355,7 +10355,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:21.437200+00:00",
+      "last_checked_at": "2026-02-22T19:40:43.973329+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10391,7 +10391,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:20.971289+00:00",
+      "last_checked_at": "2026-02-22T19:37:33.255219+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10400,7 +10400,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:23.776404+00:00",
+      "last_checked_at": "2026-02-22T19:37:36.449610+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10418,7 +10418,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:25.019743+00:00",
+      "last_checked_at": "2026-02-22T19:37:37.754186+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10427,9 +10427,9 @@
       "status": "404",
       "status_code": 404,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:23.669649+00:00",
-      "consecutive_failures": 12,
-      "next_check_after": "2026-02-22T09:33:23.669649+00:00"
+      "last_checked_at": "2026-02-22T19:37:36.240792+00:00",
+      "consecutive_failures": 13,
+      "next_check_after": "2026-02-23T19:37:36.240792+00:00"
     },
     "https://www.apeironmgmt.com/news-insights/": {
       "url": "https://www.apeironmgmt.com/news-insights/",
@@ -10445,7 +10445,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:10.693861+00:00",
+      "last_checked_at": "2026-02-22T19:38:26.905282+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10460,21 +10460,21 @@
     },
     "https://www.bluegemcp.com/team": {
       "url": "https://www.bluegemcp.com/team",
-      "status": "other_error",
-      "status_code": 304,
+      "status": "ok",
+      "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:11.177256+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-02-21T09:39:11.177256+00:00"
+      "last_checked_at": "2026-02-22T19:38:29.466051+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.bluegemcp.com/news": {
       "url": "https://www.bluegemcp.com/news",
-      "status": "other_error",
-      "status_code": 304,
+      "status": "ok",
+      "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:11.313699+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-02-21T09:39:11.313699+00:00"
+      "last_checked_at": "2026-02-22T19:38:30.686583+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.bridgepoint.eu/about-us/news-and-insights": {
       "url": "https://www.bridgepoint.eu/about-us/news-and-insights",
@@ -10499,7 +10499,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:06.370646+00:00",
+      "last_checked_at": "2026-02-22T19:40:36.202616+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10508,7 +10508,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:09.602070+00:00",
+      "last_checked_at": "2026-02-22T19:40:38.739000+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10517,25 +10517,25 @@
       "status": "timeout",
       "status_code": 0,
       "error_message": "Timeout",
-      "last_checked_at": "2026-02-21T09:33:39.625284+00:00",
-      "consecutive_failures": 3,
-      "next_check_after": "2026-02-21T10:33:39.625284+00:00"
+      "last_checked_at": "2026-02-22T19:37:54.892617+00:00",
+      "consecutive_failures": 4,
+      "next_check_after": "2026-02-22T23:37:54.892617+00:00"
     },
     "https://www.aresmgmt.com/news-views": {
       "url": "https://www.aresmgmt.com/news-views",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:53.922738+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "timeout",
+      "status_code": 0,
+      "error_message": "Timeout",
+      "last_checked_at": "2026-02-22T19:38:05.848554+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-22T19:43:05.848554+00:00"
     },
     "https://www.macquarie.com/it/en/about/company/macquarie-asset-management/our-portfolio.html": {
       "url": "https://www.macquarie.com/it/en/about/company/macquarie-asset-management/our-portfolio.html",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:30.008771+00:00",
+      "last_checked_at": "2026-02-22T19:39:56.773052+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10544,7 +10544,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:04.133535+00:00",
+      "last_checked_at": "2026-02-22T19:40:32.678565+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10553,7 +10553,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:57.640175+00:00",
+      "last_checked_at": "2026-02-22T19:38:41.281974+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10562,7 +10562,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:17.402712+00:00",
+      "last_checked_at": "2026-02-22T19:38:50.318902+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10580,7 +10580,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:14.953414+00:00",
+      "last_checked_at": "2026-02-22T19:39:44.609540+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10589,7 +10589,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:06.049107+00:00",
+      "last_checked_at": "2026-02-22T19:38:22.279692+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10598,7 +10598,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:26.348348+00:00",
+      "last_checked_at": "2026-02-22T19:38:43.602925+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10607,7 +10607,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:17.263084+00:00",
+      "last_checked_at": "2026-02-22T19:38:14.881334+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10616,7 +10616,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:26.837287+00:00",
+      "last_checked_at": "2026-02-22T19:38:27.387601+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10625,7 +10625,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:42.918814+00:00",
+      "last_checked_at": "2026-02-22T19:38:54.855002+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10634,7 +10634,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:47.626449+00:00",
+      "last_checked_at": "2026-02-22T19:39:14.598285+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10643,7 +10643,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:24.694624+00:00",
+      "last_checked_at": "2026-02-22T19:37:44.629546+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10652,7 +10652,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:15.009773+00:00",
+      "last_checked_at": "2026-02-22T19:38:27.391274+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10661,7 +10661,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:46.914149+00:00",
+      "last_checked_at": "2026-02-22T19:40:19.287607+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10670,7 +10670,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:47.307159+00:00",
+      "last_checked_at": "2026-02-22T19:40:20.091645+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10679,7 +10679,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:47.681511+00:00",
+      "last_checked_at": "2026-02-22T19:40:21.551962+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10688,7 +10688,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:22.079953+00:00",
+      "last_checked_at": "2026-02-22T19:37:36.702157+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10697,7 +10697,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:22.395504+00:00",
+      "last_checked_at": "2026-02-22T19:37:38.920636+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10706,7 +10706,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T10:05:07.715608+00:00",
+      "last_checked_at": "2026-02-22T19:39:39.212462+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10724,7 +10724,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:41.783623+00:00",
+      "last_checked_at": "2026-02-22T19:40:13.541090+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10733,7 +10733,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:56.114387+00:00",
+      "last_checked_at": "2026-02-22T19:40:25.282180+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10742,7 +10742,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:38.637960+00:00",
+      "last_checked_at": "2026-02-22T19:37:54.400223+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10751,7 +10751,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:02.404894+00:00",
+      "last_checked_at": "2026-02-22T19:38:27.500636+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10778,7 +10778,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:28.547593+00:00",
+      "last_checked_at": "2026-02-22T19:37:41.751075+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10787,7 +10787,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:29.433368+00:00",
+      "last_checked_at": "2026-02-22T19:37:43.376463+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10814,7 +10814,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:06.469930+00:00",
+      "last_checked_at": "2026-02-22T19:40:34.041980+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10823,7 +10823,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:08.709275+00:00",
+      "last_checked_at": "2026-02-22T19:40:36.368206+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10832,34 +10832,34 @@
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:23.291640+00:00",
-      "consecutive_failures": 5,
-      "next_check_after": "2026-02-22T09:34:23.291640+00:00"
+      "last_checked_at": "2026-02-22T19:38:39.748430+00:00",
+      "consecutive_failures": 6,
+      "next_check_after": "2026-02-23T19:38:39.748430+00:00"
     },
     "https://www.comoventure.it/who.htm": {
       "url": "https://www.comoventure.it/who.htm",
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:23.396256+00:00",
-      "consecutive_failures": 5,
-      "next_check_after": "2026-02-22T09:34:23.396256+00:00"
+      "last_checked_at": "2026-02-22T19:38:39.783198+00:00",
+      "consecutive_failures": 6,
+      "next_check_after": "2026-02-23T19:38:39.783198+00:00"
     },
     "https://www.excellis.it/": {
       "url": "https://www.excellis.it/",
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:42.621047+00:00",
-      "consecutive_failures": 5,
-      "next_check_after": "2026-02-22T09:34:42.621047+00:00"
+      "last_checked_at": "2026-02-22T19:39:01.727643+00:00",
+      "consecutive_failures": 6,
+      "next_check_after": "2026-02-23T19:39:01.727643+00:00"
     },
     "https://www.capza.co/companies-listing": {
       "url": "https://www.capza.co/companies-listing",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:53.056862+00:00",
+      "last_checked_at": "2026-02-22T19:38:08.661338+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10868,7 +10868,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:23.783399+00:00",
+      "last_checked_at": "2026-02-22T19:37:34.115001+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10877,7 +10877,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:46.403562+00:00",
+      "last_checked_at": "2026-02-22T19:39:07.690428+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10886,7 +10886,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:26.981421+00:00",
+      "last_checked_at": "2026-02-22T19:38:47.510688+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10895,7 +10895,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:49.341877+00:00",
+      "last_checked_at": "2026-02-22T19:39:18.132524+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10904,7 +10904,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:46.849431+00:00",
+      "last_checked_at": "2026-02-22T19:39:07.308210+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10913,7 +10913,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:52.894641+00:00",
+      "last_checked_at": "2026-02-22T19:39:22.712949+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10922,7 +10922,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:54.783484+00:00",
+      "last_checked_at": "2026-02-22T19:39:23.595392+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10931,7 +10931,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:29.098351+00:00",
+      "last_checked_at": "2026-02-22T19:39:59.608704+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10940,25 +10940,25 @@
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:59.103330+00:00",
-      "consecutive_failures": 5,
-      "next_check_after": "2026-02-22T09:35:59.103330+00:00"
+      "last_checked_at": "2026-02-22T19:40:26.812904+00:00",
+      "consecutive_failures": 6,
+      "next_check_after": "2026-02-23T19:40:26.812904+00:00"
     },
     "https://www.sosteneo.com/projects": {
       "url": "https://www.sosteneo.com/projects",
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:10.725495+00:00",
-      "consecutive_failures": 5,
-      "next_check_after": "2026-02-22T09:36:10.725495+00:00"
+      "last_checked_at": "2026-02-22T19:40:38.607765+00:00",
+      "consecutive_failures": 6,
+      "next_check_after": "2026-02-23T19:40:38.607765+00:00"
     },
     "https://scientifica.vc/portfolio-startup/": {
       "url": "https://scientifica.vc/portfolio-startup/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:05.711234+00:00",
+      "last_checked_at": "2026-02-22T19:40:33.316306+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10967,7 +10967,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:51.988746+00:00",
+      "last_checked_at": "2026-02-22T19:39:20.414551+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10976,7 +10976,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:19.369917+00:00",
+      "last_checked_at": "2026-02-22T19:40:44.484209+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -10985,7 +10985,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:52.912147+00:00",
+      "last_checked_at": "2026-02-22T19:39:21.603339+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11012,7 +11012,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:24.474259+00:00",
+      "last_checked_at": "2026-02-22T19:37:37.517266+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11021,7 +11021,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:44.617454+00:00",
+      "last_checked_at": "2026-02-22T19:39:05.905059+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11030,7 +11030,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:18.678286+00:00",
+      "last_checked_at": "2026-02-22T19:39:47.108134+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11039,52 +11039,52 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:14.968434+00:00",
+      "last_checked_at": "2026-02-22T19:40:43.471411+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.equityclub.eu/en/investments-details": {
       "url": "https://www.equityclub.eu/en/investments-details",
-      "status": "other_error",
-      "status_code": 304,
+      "status": "ok",
+      "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T10:04:49.331531+00:00",
-      "consecutive_failures": 3,
-      "next_check_after": "2026-02-21T11:04:49.331531+00:00"
+      "last_checked_at": "2026-02-22T19:38:57.217499+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.quattrorsgr.it/it/portfolio-companies/": {
       "url": "https://www.quattrorsgr.it/it/portfolio-companies/",
       "status": "ssl_error",
       "status_code": 0,
       "error_message": "HTTPSConnectionPool(host='www.quattrorsgr.it', port=443): Max retries exceeded with url: /it/portfolio-companies/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)')))",
-      "last_checked_at": "2026-02-21T09:35:58.691529+00:00",
-      "consecutive_failures": 10,
-      "next_check_after": "2026-02-22T09:35:58.691529+00:00"
+      "last_checked_at": "2026-02-22T19:40:25.831910+00:00",
+      "consecutive_failures": 11,
+      "next_check_after": "2026-02-23T19:40:25.831910+00:00"
     },
     "https://www.quattrorsgr.it/it/people": {
       "url": "https://www.quattrorsgr.it/it/people",
       "status": "ssl_error",
       "status_code": 0,
       "error_message": "HTTPSConnectionPool(host='www.quattrorsgr.it', port=443): Max retries exceeded with url: /it/people (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)')))",
-      "last_checked_at": "2026-02-21T09:35:58.793626+00:00",
-      "consecutive_failures": 10,
-      "next_check_after": "2026-02-22T09:35:58.793626+00:00"
+      "last_checked_at": "2026-02-22T19:40:25.976804+00:00",
+      "consecutive_failures": 11,
+      "next_check_after": "2026-02-23T19:40:25.976804+00:00"
     },
     "https://www.quattrorsgr.it/it/news/": {
       "url": "https://www.quattrorsgr.it/it/news/",
       "status": "ssl_error",
       "status_code": 0,
       "error_message": "HTTPSConnectionPool(host='www.quattrorsgr.it', port=443): Max retries exceeded with url: /it/news/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1006)')))",
-      "last_checked_at": "2026-02-21T09:35:58.875760+00:00",
-      "consecutive_failures": 10,
-      "next_check_after": "2026-02-22T09:35:58.875760+00:00"
+      "last_checked_at": "2026-02-22T19:40:26.451024+00:00",
+      "consecutive_failures": 11,
+      "next_check_after": "2026-02-23T19:40:26.451024+00:00"
     },
     "https://www.greenarrow-capital.com/en/investments-divestments-private-equity-eng/": {
       "url": "https://www.greenarrow-capital.com/en/investments-divestments-private-equity-eng/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:48.710093+00:00",
+      "last_checked_at": "2026-02-22T19:39:14.098034+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11093,7 +11093,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:28.778595+00:00",
+      "last_checked_at": "2026-02-22T19:37:41.562862+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11102,7 +11102,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:41.323712+00:00",
+      "last_checked_at": "2026-02-22T19:38:02.749289+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11111,16 +11111,16 @@
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:22.091296+00:00",
-      "consecutive_failures": 4,
-      "next_check_after": "2026-02-21T13:36:22.091296+00:00"
+      "last_checked_at": "2026-02-22T19:40:44.218539+00:00",
+      "consecutive_failures": 5,
+      "next_check_after": "2026-02-23T19:40:44.218539+00:00"
     },
     "https://www.spacecapital.it/it/portfolio-investments.html": {
       "url": "https://www.spacecapital.it/it/portfolio-investments.html",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:24.202378+00:00",
+      "last_checked_at": "2026-02-22T19:37:37.009230+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11129,7 +11129,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:42.134430+00:00",
+      "last_checked_at": "2026-02-22T19:39:01.264326+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11138,7 +11138,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:40.547306+00:00",
+      "last_checked_at": "2026-02-22T19:38:59.705261+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11147,16 +11147,16 @@
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:56.974235+00:00",
-      "consecutive_failures": 5,
-      "next_check_after": "2026-02-22T09:35:56.974235+00:00"
+      "last_checked_at": "2026-02-22T19:40:22.161436+00:00",
+      "consecutive_failures": 6,
+      "next_check_after": "2026-02-23T19:40:22.161436+00:00"
     },
     "https://www.sagittasgr.it/en/newsroom/": {
       "url": "https://www.sagittasgr.it/en/newsroom/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:07.697710+00:00",
+      "last_checked_at": "2026-02-22T19:40:33.537093+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11183,7 +11183,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:19.498147+00:00",
+      "last_checked_at": "2026-02-22T19:38:30.337587+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11210,7 +11210,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T10:05:17.456356+00:00",
+      "last_checked_at": "2026-02-22T19:40:18.391952+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11228,7 +11228,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:28.913874+00:00",
+      "last_checked_at": "2026-02-22T19:39:11.283251+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11273,7 +11273,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:46.881052+00:00",
+      "last_checked_at": "2026-02-22T19:39:43.475477+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11282,7 +11282,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:19.661811+00:00",
+      "last_checked_at": "2026-02-22T19:37:32.423635+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11291,7 +11291,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:20.143615+00:00",
+      "last_checked_at": "2026-02-22T19:37:32.881518+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11300,7 +11300,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:20.490708+00:00",
+      "last_checked_at": "2026-02-22T19:37:33.204123+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11309,34 +11309,34 @@
       "status": "404",
       "status_code": 404,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:28.252876+00:00",
-      "consecutive_failures": 3,
-      "next_check_after": "2026-02-21T10:34:28.252876+00:00"
+      "last_checked_at": "2026-02-22T19:38:49.426371+00:00",
+      "consecutive_failures": 4,
+      "next_check_after": "2026-02-22T23:38:49.426371+00:00"
     },
     "https://www.eiffel-ig.com/groupe/equipe/": {
       "url": "https://www.eiffel-ig.com/groupe/equipe/",
-      "status": "other_error",
-      "status_code": 500,
+      "status": "ok",
+      "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:28.860287+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-02-21T09:39:28.860287+00:00"
+      "last_checked_at": "2026-02-22T19:39:04.467373+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.eiffel-ig.com/en/news/": {
       "url": "https://www.eiffel-ig.com/en/news/",
       "status": "404",
       "status_code": 404,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:30.078817+00:00",
-      "consecutive_failures": 3,
-      "next_check_after": "2026-02-21T10:34:30.078817+00:00"
+      "last_checked_at": "2026-02-22T19:39:05.413828+00:00",
+      "consecutive_failures": 4,
+      "next_check_after": "2026-02-22T23:39:05.413828+00:00"
     },
     "https://www.eiffel-ig.com/actualites/": {
       "url": "https://www.eiffel-ig.com/actualites/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:40.310023+00:00",
+      "last_checked_at": "2026-02-22T19:39:20.902514+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11363,34 +11363,34 @@
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:13.450663+00:00",
-      "consecutive_failures": 4,
-      "next_check_after": "2026-02-21T13:35:13.450663+00:00"
+      "last_checked_at": "2026-02-22T19:39:40.805265+00:00",
+      "consecutive_failures": 5,
+      "next_check_after": "2026-02-23T19:39:40.805265+00:00"
     },
     "https://www.meritosgr.it/team/?fr_src=fundradar": {
       "url": "https://www.meritosgr.it/team/?fr_src=fundradar",
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:13.525205+00:00",
-      "consecutive_failures": 4,
-      "next_check_after": "2026-02-21T13:35:13.525205+00:00"
+      "last_checked_at": "2026-02-22T19:39:40.850325+00:00",
+      "consecutive_failures": 5,
+      "next_check_after": "2026-02-23T19:39:40.850325+00:00"
     },
     "https://www.meritosgr.it/news/?fr_src=fundradar": {
       "url": "https://www.meritosgr.it/news/?fr_src=fundradar",
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:13.590776+00:00",
-      "consecutive_failures": 4,
-      "next_check_after": "2026-02-21T13:35:13.590776+00:00"
+      "last_checked_at": "2026-02-22T19:39:40.866126+00:00",
+      "consecutive_failures": 5,
+      "next_check_after": "2026-02-23T19:39:40.866126+00:00"
     },
     "https://www.spacecapital.it/it/investment-team.html": {
       "url": "https://www.spacecapital.it/it/investment-team.html",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:24.438476+00:00",
+      "last_checked_at": "2026-02-22T19:37:37.377475+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11399,7 +11399,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:24.746174+00:00",
+      "last_checked_at": "2026-02-22T19:37:37.740683+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11408,7 +11408,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:39.189512+00:00",
+      "last_checked_at": "2026-02-22T19:37:54.412611+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11417,7 +11417,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:33:46.807239+00:00",
+      "last_checked_at": "2026-02-22T19:38:03.832981+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11426,7 +11426,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T10:05:14.589457+00:00",
+      "last_checked_at": "2026-02-22T19:39:41.577393+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11444,7 +11444,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:15.609976+00:00",
+      "last_checked_at": "2026-02-22T19:40:40.369525+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11453,7 +11453,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:44.398199+00:00",
+      "last_checked_at": "2026-02-22T19:39:04.594702+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11462,7 +11462,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:44.881625+00:00",
+      "last_checked_at": "2026-02-22T19:39:05.250881+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11471,7 +11471,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:15.180740+00:00",
+      "last_checked_at": "2026-02-22T19:40:40.069607+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11489,7 +11489,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:03.464666+00:00",
+      "last_checked_at": "2026-02-22T19:40:30.856614+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11498,7 +11498,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:45.445144+00:00",
+      "last_checked_at": "2026-02-22T19:39:06.590048+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11516,7 +11516,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:45.590247+00:00",
+      "last_checked_at": "2026-02-22T19:39:06.758365+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11525,7 +11525,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:04.252707+00:00",
+      "last_checked_at": "2026-02-22T19:40:31.966855+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11534,7 +11534,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:34:45.198740+00:00",
+      "last_checked_at": "2026-02-22T19:39:06.356406+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11543,7 +11543,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:35:59.492482+00:00",
+      "last_checked_at": "2026-02-22T19:40:26.471860+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11552,7 +11552,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:00.339676+00:00",
+      "last_checked_at": "2026-02-22T19:40:27.130649+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11561,7 +11561,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:00.945490+00:00",
+      "last_checked_at": "2026-02-22T19:40:27.924554+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11570,7 +11570,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:01.744526+00:00",
+      "last_checked_at": "2026-02-22T19:40:29.132775+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11579,7 +11579,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:02.462315+00:00",
+      "last_checked_at": "2026-02-22T19:40:30.120072+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11588,16 +11588,16 @@
       "status": "other_error",
       "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-21T10:04:49.365715+00:00",
-      "consecutive_failures": 3,
-      "next_check_after": "2026-02-21T11:04:49.365715+00:00"
+      "last_checked_at": "2026-02-22T19:40:44.264231+00:00",
+      "consecutive_failures": 4,
+      "next_check_after": "2026-02-22T23:40:44.264231+00:00"
     },
     "https://scientifica.vc/team/?fr_src=fundradar": {
       "url": "https://scientifica.vc/team/?fr_src=fundradar",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:06.715328+00:00",
+      "last_checked_at": "2026-02-22T19:40:35.013201+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -11606,7 +11606,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-21T09:36:07.585351+00:00",
+      "last_checked_at": "2026-02-22T19:40:36.213187+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     }

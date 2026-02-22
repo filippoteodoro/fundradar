@@ -20676,8 +20676,8 @@
         "sector": "Technology",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://riveancapital.com/investments/trustteam/",
-        "description": "Trustteam is a one-stop-shop IT managed services provider serving a stable base of over 8,000 active customers in the Benelux and France. The Company aims to fully unburden their customers of their IT needs, and mainly targets SMEs, an attractive segment with growing IT needs. Trustteam has office locations Belgium, Luxembourg, France, the Netherlands and Romania.",
+        "website": null,
+        "description": "How a solid buy-and-build strategy was accelerated to new heights with Ardian",
         "detail_page_url": null,
         "headquarters": "Kortrijk, Belgium",
         "investment_date": null,
@@ -20685,12 +20685,12 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Solina",
+        "name": "SOLINA",
         "sector": "Food & Beverage",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://www.astorg.com/investments/solina",
-        "description": "A global provider of customized savory ingredient solutions and seasonings for the food and beverage industry.",
+        "website": null,
+        "description": "Creating a global leader in culinary food solutions",
         "detail_page_url": null,
         "headquarters": "Br\u00e9al-sous-Montfort, France",
         "investment_date": null,
@@ -20724,12 +20724,12 @@
         "data_source": "fund_website"
       },
       {
-        "name": "I-Tracing",
+        "name": "I-TRACING",
         "sector": "Technology",
         "status": "current",
         "confidence": 0.95,
         "website": null,
-        "description": "Provider of cybersecurity services including consulting, integration, and managed security services.",
+        "description": "A strategic leap to global expansion",
         "detail_page_url": null,
         "headquarters": "Courbevoie, France",
         "investment_date": null,
@@ -20763,12 +20763,25 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Alvest",
+        "name": "ASTM",
+        "sector": "Construction",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Major strategic partnership alongside Ardian Infrastructure",
+        "detail_page_url": null,
+        "headquarters": "Turin, Italy",
+        "investment_date": null,
+        "source_url": "https://www.ardian.com/expertise/our-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "ALVEST",
         "sector": "Aerospace & Defense",
         "status": "current",
         "confidence": 0.95,
         "website": null,
-        "description": "Alvest is the world leader in airport Ground Support Equipment (\u201cGSE\u201d) full-lifecycle solutions",
+        "description": "A global aviation industry leader",
         "detail_page_url": null,
         "headquarters": "Paris, France",
         "investment_date": null,
@@ -20797,19 +20810,6 @@
         "description": "How a successful public-private partnership build a leading satellite data business",
         "detail_page_url": null,
         "headquarters": "Toulouse, France",
-        "investment_date": null,
-        "source_url": "https://www.ardian.com/expertise/our-portfolio",
-        "data_source": "fund_website"
-      },
-      {
-        "name": "ASTM",
-        "sector": "Construction",
-        "status": "current",
-        "confidence": 0.95,
-        "website": null,
-        "description": "Major strategic partnership alongside Ardian Infrastructure",
-        "detail_page_url": null,
-        "headquarters": "Turin, Italy",
         "investment_date": null,
         "source_url": "https://www.ardian.com/expertise/our-portfolio",
         "data_source": "fund_website"
@@ -44932,7 +44932,7 @@
     "advent-international": [
       {
         "name": "Vestacy",
-        "sector": "Consumer Goods",
+        "sector": "Consumer",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -44945,11 +44945,11 @@
       },
       {
         "name": "Tinexta",
-        "sector": "Professional Services",
+        "sector": "Business & financial services",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://tinexta.com/it-IT",
-        "description": "A leading provider of digital trust, cybersecurity, and business innovation services.",
+        "website": null,
+        "description": "An Italian fintech listed group",
         "detail_page_url": null,
         "headquarters": "Milan, Italy",
         "investment_date": null,
@@ -44971,7 +44971,7 @@
       },
       {
         "name": "Heidrick & Struggles",
-        "sector": "Financial Services",
+        "sector": "Business & financial services",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -44997,7 +44997,7 @@
       },
       {
         "name": "Automic",
-        "sector": "Financial Services",
+        "sector": "Business & financial services",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -45010,7 +45010,7 @@
       },
       {
         "name": "u-blox",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrial",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -45023,7 +45023,7 @@
       },
       {
         "name": "Kereis",
-        "sector": "Financial Services",
+        "sector": "Business & financial services",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -45040,7 +45040,7 @@
         "status": "current",
         "confidence": 0.95,
         "website": null,
-        "description": "Provider of digital patient engagement and health education in medical offices",
+        "description": "A point-of-care education and promotional network",
         "detail_page_url": null,
         "headquarters": "Cincinnati, United States",
         "investment_date": null,
@@ -47857,7 +47857,7 @@
     "kkr": [
       {
         "name": "+Simple",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.plussimple.fr",
@@ -47870,7 +47870,7 @@
       },
       {
         "name": "1-800 Contacts, Inc",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.1800contacts.com",
@@ -47896,7 +47896,7 @@
       },
       {
         "name": "A-Gas",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.agas.com",
@@ -47909,7 +47909,7 @@
       },
       {
         "name": "AEP Transmission",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.aeptransmission.com",
@@ -47922,7 +47922,7 @@
       },
       {
         "name": "AVIV Group",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.aviv-group.com/",
@@ -47935,7 +47935,7 @@
       },
       {
         "name": "Accell Group N.V",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.accell-group.com",
@@ -47948,7 +47948,7 @@
       },
       {
         "name": "Accountor Software",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.accountorgroup.com",
@@ -47961,7 +47961,7 @@
       },
       {
         "name": "Accuris",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://accuristech.com/",
@@ -47974,7 +47974,7 @@
       },
       {
         "name": "Adopt A Cow",
-        "sector": "Food & Beverage",
+        "sector": "Consumer Staples",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -47987,7 +47987,7 @@
       },
       {
         "name": "Advanced Navigation",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.advancednavigation.com/",
@@ -48000,7 +48000,7 @@
       },
       {
         "name": "Advanta Seeds",
-        "sector": "Agriculture",
+        "sector": "Materials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.advantaseeds.com",
@@ -48013,7 +48013,7 @@
       },
       {
         "name": "Agiloft",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.agiloft.com",
@@ -48026,7 +48026,7 @@
       },
       {
         "name": "Aiwyn Inc",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.aiwyn.ai",
@@ -48039,7 +48039,7 @@
       },
       {
         "name": "Albioma",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.albioma.com",
@@ -48052,7 +48052,7 @@
       },
       {
         "name": "Alchemer",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.alchemer.com",
@@ -48065,7 +48065,7 @@
       },
       {
         "name": "Altitude Aircraft Leasing",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -48078,7 +48078,7 @@
       },
       {
         "name": "Anchorage Digital",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.anchorage.com",
@@ -48091,7 +48091,7 @@
       },
       {
         "name": "Apex Analytix",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.apexanalytix.com",
@@ -48104,7 +48104,7 @@
       },
       {
         "name": "April",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.april.com/",
@@ -48130,7 +48130,7 @@
       },
       {
         "name": "Arnott's",
-        "sector": "Food & Beverage",
+        "sector": "Consumer Staples",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.arnotts.com",
@@ -48143,7 +48143,7 @@
       },
       {
         "name": "Artlist",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.artlist.io",
@@ -48156,7 +48156,7 @@
       },
       {
         "name": "Ascend Asia",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://ascendasiagroup.com/",
@@ -48182,7 +48182,7 @@
       },
       {
         "name": "Aster Renewable Energy",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.asterrenewable.com",
@@ -48195,7 +48195,7 @@
       },
       {
         "name": "Atlantic Aviation",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.atlanticaviation.com",
@@ -48208,7 +48208,7 @@
       },
       {
         "name": "Avantus",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.avantus.com",
@@ -48221,7 +48221,7 @@
       },
       {
         "name": "Avendus Capital",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.avendus.com",
@@ -48234,7 +48234,7 @@
       },
       {
         "name": "Axius Water",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.axiuswater.com",
@@ -48247,7 +48247,7 @@
       },
       {
         "name": "BMC",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.bmc.com",
@@ -48273,7 +48273,7 @@
       },
       {
         "name": "Barracuda Networks",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.barracuda.com",
@@ -48286,7 +48286,7 @@
       },
       {
         "name": "Bay Club",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.bayclubs.com",
@@ -48299,7 +48299,7 @@
       },
       {
         "name": "Beacon Pointe Advisors Holdings, LLC",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.beaconpointe.com",
@@ -48364,7 +48364,7 @@
       },
       {
         "name": "BrightView",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.brightview.com",
@@ -48403,7 +48403,7 @@
       },
       {
         "name": "ByteDance",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.bytedance.com",
@@ -48416,7 +48416,7 @@
       },
       {
         "name": "CIRCOR",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.circor.com",
@@ -48429,7 +48429,7 @@
       },
       {
         "name": "CMC Packaging Automation",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.cmcsolutions.com/",
@@ -48442,7 +48442,7 @@
       },
       {
         "name": "CapeOmega",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.capeomega.com",
@@ -48455,7 +48455,7 @@
       },
       {
         "name": "CarbonCount Holdings",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.hasi.com",
@@ -48468,7 +48468,7 @@
       },
       {
         "name": "Caruna Oy",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://caruna.fi/en",
@@ -48481,7 +48481,7 @@
       },
       {
         "name": "Cegid",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.cegid.com",
@@ -48507,7 +48507,7 @@
       },
       {
         "name": "Charter Next Generation",
-        "sector": "Agriculture",
+        "sector": "Materials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.cnginc.com",
@@ -48520,7 +48520,7 @@
       },
       {
         "name": "Chase Corp",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.chasecorp.com",
@@ -48533,7 +48533,7 @@
       },
       {
         "name": "Citation Group",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://thecitationgroup.com/",
@@ -48572,7 +48572,7 @@
       },
       {
         "name": "Cloudera",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.cloudera.com",
@@ -48611,7 +48611,7 @@
       },
       {
         "name": "Colonial First State",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.cfs.com.au",
@@ -48624,7 +48624,7 @@
       },
       {
         "name": "Contabo",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.contabo.com",
@@ -48637,11 +48637,11 @@
       },
       {
         "name": "Contentsquare",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.contentsquare.com",
-        "description": "Digital experience analytics platform that helps businesses understand and optimize user behavior.",
+        "description": "Customer experience analytics software to optimize a user's online journey.",
         "detail_page_url": null,
         "headquarters": "Paris, France",
         "investment_date": null,
@@ -48650,7 +48650,7 @@
       },
       {
         "name": "Contour Global",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.contourglobal.com",
@@ -48663,7 +48663,7 @@
       },
       {
         "name": "CoolIT Systems",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.coolitsystems.com/",
@@ -48676,7 +48676,7 @@
       },
       {
         "name": "Cordia Energy",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.cordiaenergy.com",
@@ -48702,7 +48702,7 @@
       },
       {
         "name": "Corel",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.corel.com/",
@@ -48741,7 +48741,7 @@
       },
       {
         "name": "Cue & Co",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://cue.group",
@@ -48754,7 +48754,7 @@
       },
       {
         "name": "CyrusOne, LLC",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.cyrusone.com",
@@ -48767,7 +48767,7 @@
       },
       {
         "name": "Darwinbox (Darjeeling)",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://darwinbox.com/",
@@ -48780,7 +48780,7 @@
       },
       {
         "name": "Data X",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://data-x.co.jp/",
@@ -48793,7 +48793,7 @@
       },
       {
         "name": "Davante",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.masterd.es",
@@ -48819,7 +48819,7 @@
       },
       {
         "name": "Dawsongroup",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://dawsongroup.co.uk",
@@ -48832,7 +48832,7 @@
       },
       {
         "name": "Dayao Soda",
-        "sector": "Food & Beverage",
+        "sector": "Consumer Staples",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.dayaoyinpin.com/",
@@ -48845,7 +48845,7 @@
       },
       {
         "name": "Dcar",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.dongchedi.com",
@@ -48871,7 +48871,7 @@
       },
       {
         "name": "Depot Connect International",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.depotconnect.com",
@@ -48884,7 +48884,7 @@
       },
       {
         "name": "Devoteam",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.devoteam.com",
@@ -48897,7 +48897,7 @@
       },
       {
         "name": "EGC Group",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.energyglobalco.com",
@@ -48910,7 +48910,7 @@
       },
       {
         "name": "EQuest Education Joint Stock Company",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://equest.vn/en/",
@@ -48923,7 +48923,7 @@
       },
       {
         "name": "ERM Worldwide Group Limited",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.erm.com/",
@@ -48949,7 +48949,7 @@
       },
       {
         "name": "Education Perfect Limited",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.educationperfect.com",
@@ -48975,7 +48975,7 @@
       },
       {
         "name": "Employment Hero",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://employmenthero.com/",
@@ -48988,7 +48988,7 @@
       },
       {
         "name": "Encavis AG",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.encavis.com",
@@ -49014,7 +49014,7 @@
       },
       {
         "name": "Ensono Holdings, LLC",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ensono.com",
@@ -49027,7 +49027,7 @@
       },
       {
         "name": "Epic Games",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.epicgames.com",
@@ -49040,7 +49040,7 @@
       },
       {
         "name": "Exact",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.exact.com",
@@ -49053,7 +49053,7 @@
       },
       {
         "name": "FGS Global",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://fgsglobal.com/",
@@ -49066,7 +49066,7 @@
       },
       {
         "name": "FUJI SOFT",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.fsi.co.jp",
@@ -49092,7 +49092,7 @@
       },
       {
         "name": "Feedzai",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.feedzai.com",
@@ -49105,7 +49105,7 @@
       },
       {
         "name": "FiberCop NetCo",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.fibercop.com/en/",
@@ -49118,7 +49118,7 @@
       },
       {
         "name": "First Gen Corporation",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.firstgen.com.ph",
@@ -49131,7 +49131,7 @@
       },
       {
         "name": "Five-Star Business Finance Limited",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.fivestargroup.in",
@@ -49144,7 +49144,7 @@
       },
       {
         "name": "Flora Food Group",
-        "sector": "Food & Beverage",
+        "sector": "Consumer Staples",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.florafoodgroup.com",
@@ -49157,7 +49157,7 @@
       },
       {
         "name": "Flow Control Group",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.flowcontrolgroup.com",
@@ -49170,7 +49170,7 @@
       },
       {
         "name": "Fortifi",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.fortififoodsolutions.com/",
@@ -49196,7 +49196,7 @@
       },
       {
         "name": "Gambol Pet Group",
-        "sector": "Food & Beverage",
+        "sector": "Consumer Staples",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.gambolpet.com",
@@ -49248,7 +49248,7 @@
       },
       {
         "name": "GetYourGuide",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.getyourguide.com",
@@ -49261,7 +49261,7 @@
       },
       {
         "name": "GfK SE",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.gfk.com",
@@ -49287,7 +49287,7 @@
       },
       {
         "name": "Global Technical Realty",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.globaltechnicalrealty.com",
@@ -49300,7 +49300,7 @@
       },
       {
         "name": "Goodpack",
-        "sector": "Agriculture",
+        "sector": "Materials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.goodpack.com",
@@ -49313,7 +49313,7 @@
       },
       {
         "name": "Graduation Alliance",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.graduationalliance.com",
@@ -49326,7 +49326,7 @@
       },
       {
         "name": "Greentide Maritime",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -49339,7 +49339,7 @@
       },
       {
         "name": "Greenvolt",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.greenvolt.com",
@@ -49352,7 +49352,7 @@
       },
       {
         "name": "Groundworks",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.groundworks.com/",
@@ -49365,7 +49365,7 @@
       },
       {
         "name": "Growsari",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.growsari.com",
@@ -49378,7 +49378,7 @@
       },
       {
         "name": "Grupo Alvic",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.grupoalvic.com/en",
@@ -49391,7 +49391,7 @@
       },
       {
         "name": "Guesty",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.guesty.com",
@@ -49404,7 +49404,7 @@
       },
       {
         "name": "Gulf Data Hub",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.gulfdatahub.ae",
@@ -49482,7 +49482,7 @@
       },
       {
         "name": "Hero Future Energies",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.herofutureenergies.com",
@@ -49495,7 +49495,7 @@
       },
       {
         "name": "Hoken Minaoshi Hompo",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.mhompo.co.jp",
@@ -49508,7 +49508,7 @@
       },
       {
         "name": "Huohua Logic",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.huohua.cn",
@@ -49521,7 +49521,7 @@
       },
       {
         "name": "Hyperion Materials & Technologies",
-        "sector": "Agriculture",
+        "sector": "Materials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.hyperionmt.com",
@@ -49534,7 +49534,7 @@
       },
       {
         "name": "Hyperoptic",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.hyperoptic.com",
@@ -49547,7 +49547,7 @@
       },
       {
         "name": "Hyundai Marine Solution., Ltd",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.hd-marinesolution.com/eng/Main.do",
@@ -49560,7 +49560,7 @@
       },
       {
         "name": "IQGeo",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.iqgeo.com/",
@@ -49586,7 +49586,7 @@
       },
       {
         "name": "Ignis",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://ignis.es",
@@ -49625,7 +49625,7 @@
       },
       {
         "name": "IndiGrid",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.indigrid.co.in",
@@ -49638,7 +49638,7 @@
       },
       {
         "name": "Industrial Physics",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://industrialphysics.com/",
@@ -49664,7 +49664,7 @@
       },
       {
         "name": "Infios",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.infios.com",
@@ -49677,7 +49677,7 @@
       },
       {
         "name": "Instructure Holdings Inc",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.instructure.com",
@@ -49690,7 +49690,7 @@
       },
       {
         "name": "Integrated Specialty Coverages",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.iscmga.com",
@@ -49703,7 +49703,7 @@
       },
       {
         "name": "Internet Brands",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.internetbrands.com",
@@ -49729,7 +49729,7 @@
       },
       {
         "name": "Janney Montgomery Scott",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.janney.com",
@@ -49742,7 +49742,7 @@
       },
       {
         "name": "Jiangsu Yuguan",
-        "sector": "Food & Beverage",
+        "sector": "Consumer Staples",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -49755,7 +49755,7 @@
       },
       {
         "name": "Jio Platforms Limited",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.jio.com",
@@ -49768,7 +49768,7 @@
       },
       {
         "name": "John Laing",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.laing.com",
@@ -49807,7 +49807,7 @@
       },
       {
         "name": "KiotViet",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.kiotviet.vn",
@@ -49820,7 +49820,7 @@
       },
       {
         "name": "Kito Crosby Group",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.kitocrosby.com",
@@ -49833,7 +49833,7 @@
       },
       {
         "name": "KnowBe4",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.knowbe4.com",
@@ -49846,7 +49846,7 @@
       },
       {
         "name": "Knowlton Development Corp",
-        "sector": "Food & Beverage",
+        "sector": "Consumer Staples",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.kdc-one.com",
@@ -49859,7 +49859,7 @@
       },
       {
         "name": "Koki Holdings Co., Ltd",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.koki-holdings.com",
@@ -49872,7 +49872,7 @@
       },
       {
         "name": "Kokusai Electric Corporation",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.kokusai-electric.com/en",
@@ -49885,7 +49885,7 @@
       },
       {
         "name": "LCY Chemical Group",
-        "sector": "Agriculture",
+        "sector": "Materials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.lcygroup.com/lcygroup/en",
@@ -49898,7 +49898,7 @@
       },
       {
         "name": "LEAP India Private Limited",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://leapindia.net/index.html",
@@ -49911,7 +49911,7 @@
       },
       {
         "name": "LOGISTEED",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.logisteed.com",
@@ -49924,7 +49924,7 @@
       },
       {
         "name": "LS Automotive",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.lsautomotive.com/en/main.do",
@@ -49937,7 +49937,7 @@
       },
       {
         "name": "Landal",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.landal.co.uk",
@@ -49963,7 +49963,7 @@
       },
       {
         "name": "Latitude Financial Services",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.latitudefinancial.com.au",
@@ -49976,7 +49976,7 @@
       },
       {
         "name": "Leapwork A/S",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.leapwork.com",
@@ -49989,7 +49989,7 @@
       },
       {
         "name": "Lenskart",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.lenskart.com",
@@ -50002,7 +50002,7 @@
       },
       {
         "name": "Level Access",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.levelaccess.com",
@@ -50015,7 +50015,7 @@
       },
       {
         "name": "Lightcast",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.lightcast.io",
@@ -50028,7 +50028,7 @@
       },
       {
         "name": "Lighthouse",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.mylighthouse.com",
@@ -50041,7 +50041,7 @@
       },
       {
         "name": "Lighthouse Learning Private Limited",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.lighthouse-learning.com",
@@ -50067,7 +50067,7 @@
       },
       {
         "name": "MUSINSA",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://global.musinsa.com/us/",
@@ -50080,7 +50080,7 @@
       },
       {
         "name": "MYOB",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.myob.com/au/about/group",
@@ -50093,7 +50093,7 @@
       },
       {
         "name": "Marmic Fire & Safety, Inc",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://marmicfire.com/about/",
@@ -50106,7 +50106,7 @@
       },
       {
         "name": "MasOrange",
-        "sector": "Technology",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.masorange.es/en",
@@ -50119,7 +50119,7 @@
       },
       {
         "name": "Mediawan Holding",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.mediawan.com",
@@ -50158,7 +50158,7 @@
       },
       {
         "name": "MetroNet Fiber Inc",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.metronet.com",
@@ -50184,7 +50184,7 @@
       },
       {
         "name": "My Pizza Technologies, Inc",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.slicelife.com",
@@ -50197,7 +50197,7 @@
       },
       {
         "name": "NVC Lighting",
-        "sector": "Food & Beverage",
+        "sector": "Consumer Staples",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.nvc-lighting.com.cn/",
@@ -50210,7 +50210,7 @@
       },
       {
         "name": "Nasuni",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.nasuni.com",
@@ -50223,7 +50223,7 @@
       },
       {
         "name": "Natural Pet Food Group",
-        "sector": "Food & Beverage",
+        "sector": "Consumer Staples",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.naturalpetfoodgroup.com",
@@ -50236,7 +50236,7 @@
       },
       {
         "name": "Neighborly",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.neighborlybrands.com",
@@ -50249,7 +50249,7 @@
       },
       {
         "name": "Neon Renewables",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.nexteraenergy.com/",
@@ -50262,7 +50262,7 @@
       },
       {
         "name": "Ness Digital",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ness.com",
@@ -50275,7 +50275,7 @@
       },
       {
         "name": "NetSPI",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.netspi.com",
@@ -50288,7 +50288,7 @@
       },
       {
         "name": "NetStars",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.netstars.co.jp",
@@ -50314,7 +50314,7 @@
       },
       {
         "name": "Northumbrian Water",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.nwg.co.uk/",
@@ -50327,7 +50327,7 @@
       },
       {
         "name": "Novaria Group",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.novariagroup.com",
@@ -50340,7 +50340,7 @@
       },
       {
         "name": "Nxera",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.nxera-dc.com/",
@@ -50353,7 +50353,7 @@
       },
       {
         "name": "OHB",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ohb.de/en/",
@@ -50366,7 +50366,7 @@
       },
       {
         "name": "ON*NET Fibra Chile",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.onnetfibra.com",
@@ -50379,7 +50379,7 @@
       },
       {
         "name": "ON*NET Fibra Colombia",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.onnetfibra.com",
@@ -50392,7 +50392,7 @@
       },
       {
         "name": "Ocean Yield",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.oceanyield.no",
@@ -50405,7 +50405,7 @@
       },
       {
         "name": "Omnissa",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.omnissa.com",
@@ -50418,7 +50418,7 @@
       },
       {
         "name": "OneStream Software",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.onestreamsoftware.com",
@@ -50431,7 +50431,7 @@
       },
       {
         "name": "Open Dutch Fiber",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.opendutchfiber.nl",
@@ -50444,7 +50444,7 @@
       },
       {
         "name": "Optic Marine Services Group",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.opticmarine.com",
@@ -50457,7 +50457,7 @@
       },
       {
         "name": "Optiv",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.optiv.com",
@@ -50470,7 +50470,7 @@
       },
       {
         "name": "Ornikar",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ornikar.com",
@@ -50483,7 +50483,7 @@
       },
       {
         "name": "OutSystems",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.outsystems.com",
@@ -50496,7 +50496,7 @@
       },
       {
         "name": "OverDrive",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.overdrive.com",
@@ -50522,7 +50522,7 @@
       },
       {
         "name": "PHINMA Education",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.phinma.edu.ph",
@@ -50535,7 +50535,7 @@
       },
       {
         "name": "Paddle.com Market Limited",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.paddle.com",
@@ -50574,7 +50574,7 @@
       },
       {
         "name": "Pinnacle Towers Pte Ltd",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.frontiertowersphilippines.com",
@@ -50587,7 +50587,7 @@
       },
       {
         "name": "PlayOn! Sports",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.nfhsnetwork.com",
@@ -50613,7 +50613,7 @@
       },
       {
         "name": "Potter Global Technologies",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.potterglobaltech.com",
@@ -50639,7 +50639,7 @@
       },
       {
         "name": "Privy ID",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.privy.id",
@@ -50652,7 +50652,7 @@
       },
       {
         "name": "Probe Group Pty Ltd",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.probegroup.com.au",
@@ -50665,7 +50665,7 @@
       },
       {
         "name": "Q-Park N.V",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.q-park.com",
@@ -50678,7 +50678,7 @@
       },
       {
         "name": "Qonto",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.qonto.com",
@@ -50691,7 +50691,7 @@
       },
       {
         "name": "Queensland Airports Limited",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.qldairports.com.au",
@@ -50704,7 +50704,7 @@
       },
       {
         "name": "Qventus Inc",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.qventus.com",
@@ -50717,7 +50717,7 @@
       },
       {
         "name": "RVShare",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.rvshare.com",
@@ -50730,7 +50730,7 @@
       },
       {
         "name": "RainFocus",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.rainfocus.com",
@@ -50743,7 +50743,7 @@
       },
       {
         "name": "Re Sustainability Limited",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://resustainability.com/",
@@ -50756,7 +50756,7 @@
       },
       {
         "name": "Rebel Foods",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.rebelfoods.com",
@@ -50769,7 +50769,7 @@
       },
       {
         "name": "Refresco",
-        "sector": "Agriculture",
+        "sector": "Materials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.refresco.com",
@@ -50782,7 +50782,7 @@
       },
       {
         "name": "Reintel",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.reintel.es",
@@ -50794,21 +50794,21 @@
         "data_source": "fund_website"
       },
       {
-        "name": "ReliaQuest",
-        "sector": "Technology",
+        "name": "ReliaQuest LLC",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.reliaquest.com",
         "description": "Cyber security managed service and intelligence platform for global enterprises",
         "detail_page_url": null,
-        "headquarters": "Tampa, United States",
+        "headquarters": null,
         "investment_date": null,
         "source_url": "https://www.kkr.com/invest/portfolio",
         "data_source": "fund_website"
       },
       {
         "name": "Reliance Logistics and Warehouse Holdings Limited",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.reliancelogisticsgroup.com",
@@ -50821,7 +50821,7 @@
       },
       {
         "name": "Reliance Retail Ventures Limited",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.relianceretail.com",
@@ -50847,7 +50847,7 @@
       },
       {
         "name": "Resource Environmental Solutions (\"RES\")",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://res.us",
@@ -50860,7 +50860,7 @@
       },
       {
         "name": "Restaurant365",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.restaurant365.com",
@@ -50873,7 +50873,7 @@
       },
       {
         "name": "Ritchies Transport Holdings Ltd",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ritchies.co.nz",
@@ -50886,7 +50886,7 @@
       },
       {
         "name": "Ruichen Pet Veterinary Hospitals",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ruichen.com/index.html",
@@ -50912,7 +50912,7 @@
       },
       {
         "name": "STT Global",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.sttelemediagdc.com",
@@ -50925,7 +50925,7 @@
       },
       {
         "name": "Samhwa",
-        "sector": "Food & Beverage",
+        "sector": "Consumer Staples",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.e-samhwa.com",
@@ -50951,7 +50951,7 @@
       },
       {
         "name": "Sector Alarm",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.sectoralarm.com",
@@ -50964,7 +50964,7 @@
       },
       {
         "name": "Semperis",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.semperis.com",
@@ -50977,7 +50977,7 @@
       },
       {
         "name": "Sempra Infrastructure",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.semprainfrastructure.com",
@@ -50990,7 +50990,7 @@
       },
       {
         "name": "Serentica Renewables",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.serenticaglobal.com",
@@ -51003,7 +51003,7 @@
       },
       {
         "name": "Shanghai Moody E-commerce Co., Ltd",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.moodylenses.com",
@@ -51016,7 +51016,7 @@
       },
       {
         "name": "Shenzhen XunCe Technology Co., Ltd",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -51029,7 +51029,7 @@
       },
       {
         "name": "Shriram General Insurance",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.shriramgi.com",
@@ -51042,7 +51042,7 @@
       },
       {
         "name": "Simon & Schuster",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.simonandschuster.com",
@@ -51081,7 +51081,7 @@
       },
       {
         "name": "Smart Metering Services",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.sms-plc.com/",
@@ -51094,7 +51094,7 @@
       },
       {
         "name": "SmartHR",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://smarthr.jp/",
@@ -51107,7 +51107,7 @@
       },
       {
         "name": "Sol Systems LLC",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.solsystems.com",
@@ -51120,7 +51120,7 @@
       },
       {
         "name": "Spark Infrastructure",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.sparkinfrastructure.com",
@@ -51146,7 +51146,7 @@
       },
       {
         "name": "Superstruct Entertainment",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.superstruct.com",
@@ -51159,7 +51159,7 @@
       },
       {
         "name": "SupplyHouse",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.supplyhouse.com",
@@ -51185,7 +51185,7 @@
       },
       {
         "name": "Sylvan",
-        "sector": "Food & Beverage",
+        "sector": "Consumer Staples",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.sylvaninc.com/",
@@ -51198,7 +51198,7 @@
       },
       {
         "name": "S\u00f6derberg & Partners",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.soderbergpartners.se/en",
@@ -51211,7 +51211,7 @@
       },
       {
         "name": "Teaching Strategies Inc",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.teachingstrategies.com",
@@ -51224,7 +51224,7 @@
       },
       {
         "name": "Telenor Fiber",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.telenor.com/about/our-companies/nordics/telenor-norway/",
@@ -51237,7 +51237,7 @@
       },
       {
         "name": "The Parking Spot",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.theparkingspot.com",
@@ -51250,7 +51250,7 @@
       },
       {
         "name": "The Stepstone Group",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.thestepstonegroup.com/",
@@ -51276,7 +51276,7 @@
       },
       {
         "name": "TowerNex",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://towernex.com/",
@@ -51289,7 +51289,7 @@
       },
       {
         "name": "Travelopia",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.travelopia.com",
@@ -51328,7 +51328,7 @@
       },
       {
         "name": "USI Insurance Services LLC",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.usi.com",
@@ -51341,7 +51341,7 @@
       },
       {
         "name": "V3 Group Limited",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.v3group.com",
@@ -51354,7 +51354,7 @@
       },
       {
         "name": "Vantage Towers",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.vantagetowers.com",
@@ -51367,7 +51367,7 @@
       },
       {
         "name": "Varsity Brands",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.varsitybrands.com",
@@ -51380,7 +51380,7 @@
       },
       {
         "name": "Vertis Infrastructure Trust",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://vertis.co.in/",
@@ -51393,7 +51393,7 @@
       },
       {
         "name": "Vini Cosmetics Pvt. Ltd",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.viniinternational.com",
@@ -51406,7 +51406,7 @@
       },
       {
         "name": "Viridor",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.viridor.co.uk",
@@ -51419,7 +51419,7 @@
       },
       {
         "name": "Vitesse",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.vitesse.io",
@@ -51432,7 +51432,7 @@
       },
       {
         "name": "Voyager Innovations",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.voyagerinnovation.com",
@@ -51445,7 +51445,7 @@
       },
       {
         "name": "Walnut Programming",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.hetao101.com",
@@ -51458,7 +51458,7 @@
       },
       {
         "name": "We Park Limited",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.huiboparking.com/en",
@@ -51471,7 +51471,7 @@
       },
       {
         "name": "Wella",
-        "sector": "Food & Beverage",
+        "sector": "Consumer Staples",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.wella.com",
@@ -51484,7 +51484,7 @@
       },
       {
         "name": "Xingsheng Youxuan",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.xsyxsc.com",
@@ -51497,7 +51497,7 @@
       },
       {
         "name": "Xoi",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.xoi.io",
@@ -51510,7 +51510,7 @@
       },
       {
         "name": "Yayoi Co., Ltd",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.yayoi-kk.co.jp",
@@ -51523,7 +51523,7 @@
       },
       {
         "name": "ZJLD Group Inc",
-        "sector": "Food & Beverage",
+        "sector": "Consumer Staples",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -51536,7 +51536,7 @@
       },
       {
         "name": "Zenobe",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.zenobe.com",
@@ -51562,7 +51562,7 @@
       },
       {
         "name": "Zinnia Corporate Holdings, LLC",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://zinnia.com/",
@@ -51575,7 +51575,7 @@
       },
       {
         "name": "Zwift Inc",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.zwift.com",
@@ -51588,7 +51588,7 @@
       },
       {
         "name": "ghSMART",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ghsmart.com",
@@ -51601,7 +51601,7 @@
       },
       {
         "name": "mdf Commerce",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.mdfcommerce.com",
@@ -51614,7 +51614,7 @@
       },
       {
         "name": "nexeye",
-        "sector": "Retail",
+        "sector": "Consumer Discretionary",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.nexeye.com",
@@ -51627,7 +51627,7 @@
       },
       {
         "name": "o9 Solutions",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.o9solutions.com",
@@ -51955,6 +51955,964 @@
     ],
     "carlyle": [
       {
+        "name": "Acufocus, Inc",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Addison Lee Group",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Alamar Foods",
+        "sector": "Consumer, Media & Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Amecor",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Amrod",
+        "sector": "Consumer, Media & Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Beautycounter",
+        "sector": "Consumer, Media & Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Clean beauty brand focused on safer skincare and cosmetics.",
+        "detail_page_url": null,
+        "headquarters": "Santa Monica, USA",
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "BenefitMall",
+        "sector": "Financial Services",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "China Literature Limited",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Comdata",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Major European BPO/contact center company. Carlyle acquired 90% in 2015, built through add-ons (Digitex, Izium). Merged with Grupo Konecta in 2022. 130,000+ employees at exit.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Content Partners LLC",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "CUPA Group",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Delhivery Logistics Private Limited",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Eggplant",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "END",
+        "sector": "Consumer, Media & Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "European Camping Group",
+        "sector": "Consumer, Media & Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Extreme Reach, Inc",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Fang Holdings Limited",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Global Health Private Limited",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "H.C. Starck GmbH",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Indegene",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "iNova Pharmaceuticals",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Interlink Maritime Corp",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Irca",
+        "sector": "Food & Beverage",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Global confectionery ingredients group headquartered in Gallarate (Varese). Acquired Kerry Sweet Ingredients division for EUR 500M in 2023. Revenue ~EUR 1.5B by 2024. Preparing for potential EUR 3B sale.",
+        "detail_page_url": null,
+        "headquarters": "Gallarate, Italy",
+        "investment_date": null,
+        "source_url": "https://www.pe-insights.com/news/2022/04/11/advent-buys-italian-dessert-ingredients-firm-irca-from-carlyle/",
+        "data_source": "gemini_missing_asset",
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-14T11:52:31.914746+00:00",
+        "gemini_confidence": "high",
+        "gemini_reason": "Carlyle acquired a majority stake in 2017 and sold it to Advent International in 2022.",
+        "gemini_evidence_urls": [
+          "https://www.pe-insights.com/news/2022/04/11/advent-buys-italian-dessert-ingredients-firm-irca-from-carlyle/",
+          "https://www.ardian.com/news-insights/press-releases/ardian-sells-majority-stake-irca-group-carlyle-group"
+        ]
+      },
+      {
+        "name": "Ithaca Holdings, LLC",
+        "sector": "Consumer, Media & Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "J&J Africa",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Jagex",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Kokusai Kogyo Co., Ltd",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Livingstone Technologies",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Luolai Lifestyle Technology",
+        "sector": "Consumer, Media & Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "MKS Instruments, Inc",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Money Square Holdings, Inc",
+        "sector": "Financial Services",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "NEOGOV",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "NetMotion, Inc",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "NOSA Group",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Novetta Solutions, LLC",
+        "sector": "Aerospace, Defense & Government",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Novolex",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Manufacturer of diverse packaging products for food and retail.",
+        "detail_page_url": null,
+        "headquarters": "Hartsville, USA",
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "On Location Experiences",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "One Medical",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Membership-based primary care practice with digital health integration.",
+        "detail_page_url": null,
+        "headquarters": "San Francisco, USA",
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Oyatsu Company Limited",
+        "sector": "Consumer, Media & Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Packable",
+        "sector": "Consumer, Media & Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Paradigm Precision",
+        "sector": "Aerospace, Defense & Government",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Pharmaceutical Product Development, Inc. (PPD)",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "PIB Limited",
+        "sector": "Financial Services",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "PNB Housing Finance Limited",
+        "sector": "Financial Services",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Praesidiad",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Prima Solutions SA",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "PrimeFlight Aviation Services, Inc",
+        "sector": "Aerospace, Defense & Government",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "PurposeBuilt Brands",
+        "sector": "Consumer, Media & Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Ri-Happy Brinquedos S.A",
+        "sector": "Consumer, Media & Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Saverglass",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "SBI Card",
+        "sector": "Financial Services",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Leading credit card issuer and payment solutions provider in India.",
+        "detail_page_url": null,
+        "headquarters": "Gurugram, India",
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "SBI Life Insurance Company Ltd",
+        "sector": "Financial Services",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "SENQCIA CORPORATION",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Sequa Corporation",
+        "sector": "Aerospace, Defense & Government",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Shanghai ANE",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Shenzhen Salubris Pharmaceutical Co., Ltd",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Sports Surgery Clinic Limited",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Sunsho Pharmaceutical Co., Ltd",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Supreme",
+        "sector": "Consumer, Media & Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": "A global streetwear brand known for its clothing, accessories, and skateboards.",
+        "detail_page_url": null,
+        "headquarters": "New York, USA",
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Tessara",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "The Bountiful Company",
+        "sector": "Consumer, Media & Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "The City Bin Co",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Thomas Scientific, LLC",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Titan Acquisition Holdings",
+        "sector": "Aerospace, Defense & Government",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Tongyi Lubricant",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Totoku Inc",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Traxys Group",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Twin Set",
+        "sector": "Consumer, Media & Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "United Road Services",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Victory Innovations",
+        "sector": "Industrial",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Visionary RCM Infotech (India) Private Limited",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "VXI Global Solutions",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Yes Bank Limited",
+        "sector": "Financial Services",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+        "data_source": "fund_website"
+      },
+      {
         "name": "Dainese",
         "sector": "Consumer Goods",
         "status": "current",
@@ -52030,18 +52988,6 @@
         "data_source": "manual"
       },
       {
-        "name": "Comdata",
-        "sector": "Professional Services",
-        "status": "exited",
-        "confidence": 0.9,
-        "website": null,
-        "description": "Major European BPO/contact center company. Carlyle acquired 90% in 2015, built through add-ons (Digitex, Izium). Merged with Grupo Konecta in 2022. 130,000+ employees at exit.",
-        "detail_page_url": null,
-        "headquarters": "Milan, Italy",
-        "investment_date": "2015-12-01",
-        "data_source": "manual"
-      },
-      {
         "name": "TwinSet",
         "sector": "Fashion & Luxury",
         "status": "current",
@@ -52056,7 +53002,7 @@
       {
         "name": "Lynx Group",
         "sector": "Software",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.85,
         "website": null,
         "description": "Specialized in digital transformation and software solutions for financial and utility sectors",
@@ -52099,29 +53045,6 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.914725+00:00",
-        "curation_note": null
-      },
-      {
-        "name": "Irca",
-        "sector": "Food & Beverage",
-        "status": "exited",
-        "confidence": 0.9,
-        "website": null,
-        "description": "Global confectionery ingredients group headquartered in Gallarate (Varese). Acquired Kerry Sweet Ingredients division for EUR 500M in 2023. Revenue ~EUR 1.5B by 2024. Preparing for potential EUR 3B sale.",
-        "detail_page_url": null,
-        "headquarters": "Gallarate, Italy",
-        "investment_date": null,
-        "source_url": "https://www.pe-insights.com/news/2022/04/11/advent-buys-italian-dessert-ingredients-firm-irca-from-carlyle/",
-        "data_source": "gemini_missing_asset",
-        "gemini_confidence": "high",
-        "gemini_reason": "Carlyle acquired a majority stake in 2017 and sold it to Advent International in 2022.",
-        "gemini_evidence_urls": [
-          "https://www.pe-insights.com/news/2022/04/11/advent-buys-italian-dessert-ingredients-firm-irca-from-carlyle/",
-          "https://www.ardian.com/news-insights/press-releases/ardian-sells-majority-stake-irca-group-carlyle-group"
-        ],
-        "curation_locked": true,
-        "curation_source": "gemini_audit_missing_asset",
-        "curation_applied_at": "2026-02-14T11:52:31.914746+00:00",
         "curation_note": null
       },
       {
@@ -52311,18 +53234,6 @@
         "investment_date": null
       },
       {
-        "name": "Beautycounter",
-        "sector": "Consumer Goods",
-        "headquarters": "Santa Monica, USA",
-        "status": "exited",
-        "description": "Clean beauty brand focused on safer skincare and cosmetics.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Fortitude Re",
         "sector": "Insurance",
         "headquarters": "Hamilton, Bermuda",
@@ -52371,18 +53282,6 @@
         "investment_date": null
       },
       {
-        "name": "One Medical",
-        "sector": "Healthcare",
-        "headquarters": "San Francisco, USA",
-        "status": "exited",
-        "description": "Membership-based primary care practice with digital health integration.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
         "name": "Flender",
         "sector": "Industrial Manufacturing",
         "headquarters": "Bocholt, Germany",
@@ -52400,18 +53299,6 @@
         "headquarters": "Sao Paulo, Brazil",
         "status": "exited",
         "description": "Largest independent hospital operator in Brazil.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "SBI Card",
-        "sector": "Financial Services",
-        "headquarters": "Gurugram, India",
-        "status": "exited",
-        "description": "Leading credit card issuer and payment solutions provider in India.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -52496,18 +53383,6 @@
         "headquarters": "London, UK",
         "status": "exited",
         "description": "Innovation and transformation consultancy.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Novolex",
-        "sector": "Industrial Manufacturing",
-        "headquarters": "Hartsville, USA",
-        "status": "exited",
-        "description": "Manufacturer of diverse packaging products for food and retail.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -52616,18 +53491,6 @@
         "headquarters": "Shanghai, China",
         "status": "current",
         "description": "Operates as the master franchisee for McDonald's restaurants in mainland China and Hong Kong.",
-        "confidence": 0.7,
-        "data_source": "gemini_global_enrichment",
-        "detail_page_url": null,
-        "website": null,
-        "investment_date": null
-      },
-      {
-        "name": "Supreme",
-        "sector": "Fashion & Luxury",
-        "headquarters": "New York, USA",
-        "status": "exited",
-        "description": "A global streetwear brand known for its clothing, accessories, and skateboards.",
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
@@ -77192,14 +78055,14 @@
     ],
     "hat-sicaf": [
       {
-        "name": "ADVICE",
-        "sector": "Technology",
+        "name": "ADVICE GROUP",
+        "sector": "MARKETING TECHNOLOGY",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/advice-group/",
-        "description": "Martech platform for behavioral loyalty and digital customer engagement",
+        "description": null,
         "detail_page_url": null,
-        "headquarters": "Torino, Italy",
+        "headquarters": null,
         "investment_date": null,
         "source_url": "https://www.hatsicaf.it/portfolio/our-partnership/",
         "data_source": "fund_website"
@@ -77228,7 +78091,7 @@
       },
       {
         "name": "BURKE & BURKE",
-        "sector": "Healthcare",
+        "sector": "MEDICAL TECH",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/burke-burke/",
@@ -77241,7 +78104,7 @@
       },
       {
         "name": "DOCFLOW",
-        "sector": "Technology",
+        "sector": "ICT",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/docflow/",
@@ -77254,7 +78117,7 @@
       },
       {
         "name": "GPI",
-        "sector": "Software",
+        "sector": "SOFTWARE",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/gpi/",
@@ -77267,7 +78130,7 @@
       },
       {
         "name": "HUMA THERAPEUTICS",
-        "sector": "Software",
+        "sector": "SOFTWARE",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/huma-therapeutics/",
@@ -77280,7 +78143,7 @@
       },
       {
         "name": "LUISA VIA ROMA",
-        "sector": "Retail",
+        "sector": "E-COMMERCE",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/luisa-via-roma/",
@@ -77292,8 +78155,8 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Lutech",
-        "sector": "Technology",
+        "name": "LUTECH",
+        "sector": "ICT",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/lutech/",
@@ -77305,8 +78168,8 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Marval",
-        "sector": "Industrial Manufacturing",
+        "name": "MARVAL",
+        "sector": "INDUSTRY 4.0",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/?post_type=partner&p=4900",
@@ -77319,7 +78182,7 @@
       },
       {
         "name": "MECH-I-TRONIC",
-        "sector": "Industrial Manufacturing",
+        "sector": "INDUSTRY 4.0",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/mech-i-tronic/",
@@ -77332,7 +78195,7 @@
       },
       {
         "name": "PLATUM",
-        "sector": "Automotive",
+        "sector": "E-MOBILITY",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/platum/",
@@ -77344,11 +78207,11 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Primat",
-        "sector": "Industrial Manufacturing",
+        "name": "PRIMAT",
+        "sector": "INDUSTRY 4.0",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://www.primatcurtis.com/",
+        "website": "https://hat.it/partner/primat-2/",
         "description": "European leader in anticorrosive coatings for small metal parts. Under Wise Equity ownership, the company completed a capex program, doubling production capacity, and finalized two Italian acquisitions.",
         "detail_page_url": null,
         "headquarters": "Olginate, Italy",
@@ -77380,7 +78243,7 @@
       },
       {
         "name": "SIA",
-        "sector": "Financial Services",
+        "sector": "FINTECH",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/sia/",
@@ -77393,7 +78256,7 @@
       },
       {
         "name": "TEXOR",
-        "sector": "Technology",
+        "sector": "ICT",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/texor/",
@@ -77406,7 +78269,7 @@
       },
       {
         "name": "WEBGENESYS",
-        "sector": "Technology",
+        "sector": "ICT",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/webgenesys/",
@@ -77419,7 +78282,7 @@
       },
       {
         "name": "WIIT",
-        "sector": "Technology",
+        "sector": "DIGITAL ENABLER",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/wiit/",
@@ -84943,7 +85806,7 @@
       },
       {
         "name": "A-Train",
-        "sector": "Transportation & Logistics",
+        "sector": "Transportation",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.macquarie.com/it/en/about/company/macquarie-asset-management/our-portfolio/a-train.html",
@@ -85060,7 +85923,7 @@
       },
       {
         "name": "Ashoka Concessions",
-        "sector": "Transportation & Logistics",
+        "sector": "Transportation",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.macquarie.com/it/en/about/company/macquarie-asset-management/our-portfolio/ashoka-concessions.html",
@@ -85098,14 +85961,14 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Autostrade per l'Italia",
-        "sector": "Transportation & Logistics",
+        "name": "Autostrade per l\u2019Italia",
+        "sector": "Transportation",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://www.autostrade.it",
-        "description": "Largest European toll road network by traffic. 3,000+ km covering ~50% of Italy's toll motorways. Blackstone holds 24.5% alongside CDP Equity (51%) and Macquarie (24.5%).",
+        "website": "https://www.macquarie.com/it/en/about/company/macquarie-asset-management/our-portfolio/autostrade-per-l-italia.html",
+        "description": "Italian toll road operatorEMEA|Transport",
         "detail_page_url": null,
-        "headquarters": "Rome, Italy",
+        "headquarters": null,
         "investment_date": null,
         "source_url": "https://www.macquarie.com/it/en/about/company/macquarie-asset-management/our-portfolio.html",
         "data_source": "fund_website"
@@ -85203,7 +86066,7 @@
       },
       {
         "name": "Best Western Incheon Airport Hotel",
-        "sector": "Transportation & Logistics",
+        "sector": "Transportation",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.macquarie.com/it/en/about/company/macquarie-asset-management/our-portfolio/best-western-incheon-airport-hotel.html",
@@ -88116,7 +88979,8 @@
     "prana-ventures": "https://pranaventures.it/",
     "oxy-capital": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
     "hat-sicaf": "https://www.hatsicaf.it/portfolio/our-partnership/",
-    "ream-sgr": "https://www.reamsgr.it/i-fondi-ream/sanitario.html"
+    "ream-sgr": "https://www.reamsgr.it/i-fondi-ream/sanitario.html",
+    "carlyle": "https://www.carlyle.com/our-business/portfolio-of-investments"
   },
   "geo_scopes": {
     "eqt": "Global",

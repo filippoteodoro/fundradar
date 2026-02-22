@@ -5,12 +5,13 @@ Fundradar pipeline orchestrator.
 Runs the full monitoring pipeline in dependency order:
   1. monitor               - fetch websites, extract data, generate raw signals
   2. rss                   - fetch Italian news RSS feeds, match to funds, append signals
-  3. normalize_sectors     - normalize sectors to canonical taxonomy
-  4. normalize_portfolio   - normalize company data across fund portfolios
-  5. enrich_portfolio      - fill missing sector/HQ/description via Gemini (optional)
-  6. filter                - quality-score signals and remove noise
-  7. enrich                - add AI summaries via OpenAI
-  8. signal_to_portfolio   - convert deal/exit signals to portfolio entries (local, reads from step 7)
+  3. translate             - translate Italian/French signals to English (DeepL→OpenAI, optional)
+  4. normalize_sectors     - normalize sectors to canonical taxonomy
+  5. normalize_portfolio   - normalize company data across fund portfolios
+  6. enrich_portfolio      - fill missing sector/HQ/description via Gemini (optional)
+  7. filter                - quality-score signals and remove noise
+  8. enrich                - add AI summaries via OpenAI
+  9. signal_to_portfolio   - convert deal/exit signals to portfolio entries (local, reads from step 8)
 
 Each step validates its output before proceeding to the next.
 
@@ -37,7 +38,7 @@ SUMMARY_REPORT_PATH = DATA_DIR / "signal_summary_report.json"
 DB_PATH = PROJECT_ROOT / "data" / "db.json"
 
 # Pipeline step definitions
-# Order: monitor -> rss -> normalize_sectors -> normalize_portfolio -> enrich_portfolio (optional) -> filter -> enrich signals
+# Order: monitor -> rss -> translate -> normalize_sectors -> normalize_portfolio -> enrich_portfolio (optional) -> filter -> enrich signals
 STEPS = [
     {
         "name": "monitor",
@@ -60,6 +61,17 @@ STEPS = [
         ],
         "optional": True,
         "timeout": 5 * 60,  # 5 min
+    },
+    {
+        "name": "translate",
+        "description": "Translate Italian/French signals to English (DeepL→OpenAI fallback)",
+        "command": [sys.executable, "scripts/translate_signals.py"],
+        "cwd": str(WORKER_DIR),
+        "outputs": [
+            DATA_DIR / "detected_signals.json",
+        ],
+        "optional": True,  # skip gracefully if no API keys configured
+        "timeout": 5 * 60,  # 5 min — mostly DeepL API calls (fast), OpenAI fallback for new signals only
     },
     {
         "name": "normalize_sectors",
@@ -872,6 +884,8 @@ if __name__ == "__main__":
                 step["command"].append("--force-extract")
             if slugs_filter:
                 step["command"].extend(["--slugs", slugs_filter])
+        elif step["name"] == "translate" and slugs_filter:
+            step["command"].extend(["--slugs", slugs_filter])
         elif step["name"] == "enrich_portfolio" and slugs_filter:
             step["command"].extend(["--slugs", slugs_filter])
         elif step["name"] == "enrich" and slugs_filter:

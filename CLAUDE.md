@@ -117,7 +117,9 @@ Italy-only funds. Solo project — keep solutions minimal. Avoid over-engineerin
 | LinkedIn URLs | `linkedin/fund_linkedin_urls.json` | merged at load time |
 | Fund coordinates | `fund_coordinates.json` | merged into `db.json` via `merge-aifi` |
 
-Pipeline: `monitor → rss → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini) → filter (quality scoring) → enrich (AI summaries) → signal_to_portfolio (Gemini, optional)`
+Pipeline: `monitor → rss → translate (DeepL→OpenAI) → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini) → filter (quality scoring) → enrich (AI summaries) → signal_to_portfolio (local)`
+
+**Translation order is CRITICAL**: `translate` runs at step 3, BEFORE `filter`. The filter uses English keyword patterns — Italian signals reaching it untraduced score lower and get misclassified. See `apps/worker/CLAUDE.md` for the full translation architecture and why removing DeepL cost $15.
 
 Content hashing skips unchanged pages — use `--force-extract` after updating extractors.
 
@@ -204,6 +206,11 @@ Items covered in detail by sub-project CLAUDE.md files are marked with → refer
 10. **After AIFI scrape** → verify names are brand names (not legal entity names). No `(Italia)`, no `Associati` suffix. `name` must match fund's own website.
 11. **AI is never disclosed in UI** — never say a field is "AI-generated." Reference sources, not AI.
 12. **No "as of" labels** — claim data is current. If stale, update the data instead.
+13. **Never delete enrichment progress/output files** → `signal_enrichment_progress.json` and `detected_signals_enriched.json` prevent costly re-translation and re-enrichment. Deleting either forces full re-run (~$2–5 in OpenAI credits). See `apps/worker/CLAUDE.md` for full cost control rules.
+14. **Fix signals by editing JSON directly, not re-running enricher** → Direct edits to `detected_signals_enriched.json` are free. Re-running `pnpm pipeline:signals` costs ~$0.30–0.50/run. During debugging, 50 re-runs = $15+.
+15. **NEVER remove or bypass the DeepL translation layer** → DeepL is the primary translation provider (500K chars/month free × 2 keys). Removing it forces all translation through OpenAI at ~$0.10/run just for translation. The `translate` pipeline step (step 3) runs before `filter` — this order is intentional: filter patterns are English-language, translating first improves signal classification quality. See `apps/worker/CLAUDE.md` for the full translation architecture.
+16. **NEVER move translation after the filter step** → The filter (`filter_signals.py`) uses English-language keyword patterns (deal, exit, fundraise, etc.). Italian signals hitting the filter score lower and get misclassified. Translation must run at step 3 (before step 7/filter). The enricher's translation pass is a safety net only, not the primary path.
+17. **DeepL quota exhaustion sends Telegram alerts automatically** → Both keys exhausted = Telegram alert fires. Monthly quota resets on the 1st. `data/derived/deepl_quota_state.json` tracks per-key exhaustion — delete this file to reset state if needed.
 
 For portfolio-specific pitfalls (PEM merge, garbage entries, manual entries, status detection): see `apps/web/CLAUDE.md`.
 For extractor/worker pitfalls (force-extract, PortfolioStore guard, site configs): see `apps/worker/CLAUDE.md`.

@@ -105,6 +105,8 @@ if ENV_PATH.exists():
         os.environ["OPENAI_API_KEY"] = env_vars["OPENAI_API_KEY"]
     if not os.environ.get("DEEPL_API_KEY") and env_vars.get("DEEPL_API_KEY"):
         os.environ["DEEPL_API_KEY"] = env_vars["DEEPL_API_KEY"]
+    if not os.environ.get("DEEPL_API_KEY_2") and env_vars.get("DEEPL_API_KEY_2"):
+        os.environ["DEEPL_API_KEY_2"] = env_vars["DEEPL_API_KEY_2"]
 
 # Paths — reads filtered signals (quality-scored, noise removed) to avoid
 # wasting API calls on garbage.  Falls back to raw if filtered doesn't exist.
@@ -113,7 +115,6 @@ SIGNALS_FILE_FILTERED = DATA_DIR / "detected_signals_filtered.json"
 SIGNALS_FILE_RAW = DATA_DIR / "detected_signals.json"
 OUTPUT_FILE = DATA_DIR / "detected_signals_enriched.json"
 PROGRESS_FILE = DATA_DIR / "signal_enrichment_progress.json"
-
 # Model to use - GPT-5 mini: faster/cheaper GPT-5 variant for well-defined tasks
 MODEL = "gpt-5-mini"
 
@@ -2291,350 +2292,32 @@ Rules:
     return {}
 
 
-# ── Non-English → English translation via OpenAI ─────────────────────────────
-# Uses the same OpenAI API key already required for signal enrichment.
-# Handles Italian, French, and any European language automatically.
-# No external translation service needed — LLMs are excellent translators.
+# ── Non-English → English translation ────────────────────────────────────────
+# Translation infrastructure lives in fundradar_worker/translator.py (shared
+# with the standalone translate_signals.py pipeline step that runs before filter).
+# Here we keep only the enricher-specific wrappers.
 
-_LANG_WORD_RE = re.compile(r"[A-Za-zÀ-ÖØ-öø-ÿ']+")
-_IT_STOPWORDS = {
-    "il", "lo", "la", "i", "gli", "le", "un", "uno", "una", "di", "da", "del", "della", "dello",
-    "dei", "degli", "delle", "nel", "nella", "nello", "nei", "negli", "nelle", "sul", "sulla",
-    "sullo", "sui", "sugli", "sulle", "che", "per", "con", "come", "tra", "fra", "e", "ed",
-    "o", "ma", "non", "si", "ha", "hanno", "è", "sono", "era", "alla", "alle", "agli", "al",
-    "ai", "dopo", "prima", "dal", "dai", "dalle", "dagli", "nella", "dell", "nell", "all",
-}
-_EN_STOPWORDS = {
-    "the", "a", "an", "and", "or", "for", "with", "from", "of", "to", "in", "on", "at", "by",
-    "as", "that", "this", "is", "are", "was", "were", "has", "have", "had", "will", "would",
-    "it", "its", "their", "his", "her", "be", "been", "after", "before", "into", "over", "about",
-}
-_IT_STRONG_RE = re.compile(
-    r"\b(?:annuncia|annunciato|annunciata|chiude|chiuso|chiusa|raccoglie|raccolta|acquisisce|acquisita"
-    r"|acquisito|cede|cessione|investe|investimento|finanziamento|nomina|partnership|accordo|milioni"
-    r"|cartolarizzazione|partecipazione|sottoscritto|sottoscrive)\b",
-    re.IGNORECASE,
-)
-# French stopwords and strong indicators for non-Italian non-English detection
-_FR_STOPWORDS = {
-    "le", "la", "les", "un", "une", "des", "du", "de", "et", "ou", "en", "au", "aux",
-    "pour", "par", "sur", "avec", "dans", "que", "qui", "se", "est", "sont", "cette",
-    "son", "sa", "ses", "leur", "leurs",
-}
-_FR_STRONG_RE = re.compile(
-    r"\b(?:annonce|annoncé|acquiert|acquisition|lève|atteint|franchit|investissement|financement"
-    r"|fonds|milliard|million|clôture|closing|réalise|cède|cession)\b",
-    re.IGNORECASE,
-)
-_EN_STRONG_RE = re.compile(
-    r"\b(?:announced|announces|closed|closing|raised|acquired|acquisition|sold|sale|invested"
-    r"|investment|appointed|appointment|agreement|partnership|million|debt|financing|launched|launch)\b",
-    re.IGNORECASE,
-)
-_TRANSLATION_NETWORK_ERROR_HINTS = (
-    "name or service not known",
-    "nodename nor servname",
-    "temporary failure in name resolution",
-    "failed to resolve",
-    "connection error",
-    "connection failed",
-    "max retries exceeded",
-    "connecterror",
-    "dns",
+from fundradar_worker.translator import (
+    is_italian_text as _is_italian_text,
+    is_french_text as _is_french_text,
+    is_network_error_message as _is_network_error_message,
+    translate_signals_inplace,
 )
 
 
-def _is_network_error_message(message: str) -> bool:
-    text = (message or "").lower()
-    return any(hint in text for hint in _TRANSLATION_NETWORK_ERROR_HINTS)
+def _translate_italian_signals(signals: list[dict], slugs_filter: str | None = None) -> dict[str, Any]:
+    """Safety-net translation pass for the enricher.
 
-
-def _language_token_scores(text: str) -> tuple[int, int, int]:
-    words = [
-        w.lower().replace("\u2019", "'").strip("'")
-        for w in _LANG_WORD_RE.findall(text or "")
-    ]
-    if not words:
-        return 0, 0, 0
-    it_score = sum(1 for w in words if w in _IT_STOPWORDS)
-    en_score = sum(1 for w in words if w in _EN_STOPWORDS)
-    lowered = (text or "").lower()
-    if _IT_STRONG_RE.search(lowered):
-        it_score += 2
-    if _EN_STRONG_RE.search(lowered):
-        en_score += 2
-    if re.search(r"[àèéìòù]", lowered):
-        it_score += 1
-    return it_score, en_score, len(words)
-
-
-def _is_italian_text(text: str) -> bool:
-    """Detect if text is predominantly Italian (robust for short finance snippets).
-
-    Tuned to be aggressive — better to translate an already-English text (OpenAI
-    returns it unchanged) than to leave Italian on the English website.
+    Most signals arrive pre-translated from the translate pipeline step.
+    This pass catches any remaining non-English text — typically LLM-generated
+    enriched_summary fields that somehow ended up in Italian, or signals that
+    were added after the translate step ran.
     """
-    if not text:
-        return False
-    it_score, en_score, token_count = _language_token_scores(text)
-    if token_count < 4:
-        return it_score >= 1 and it_score > en_score
-    if it_score >= 2 and it_score > en_score:
-        return True
-    if it_score >= 3 and en_score == 0:
-        return True
-    # Check for accented characters (strong Italian signal)
-    if re.search(r"[àèéìòù]", text) and it_score >= 1:
-        return True
-    return False
-
-
-def _is_french_text(text: str) -> bool:
-    """Detect if text is predominantly French (for funds like Eiffel, Eurazeo, Tikehau with French sources)."""
-    if not text:
-        return False
-    words = [w.lower().strip("'") for w in _LANG_WORD_RE.findall(text)]
-    if len(words) < 4:
-        return False
-    fr_score = sum(1 for w in words if w in _FR_STOPWORDS)
-    en_score = sum(1 for w in words if w in _EN_STOPWORDS)
-    lowered = text.lower()
-    if _FR_STRONG_RE.search(lowered):
-        fr_score += 2
-    if _EN_STRONG_RE.search(lowered):
-        en_score += 2
-    # Check for French-specific accented characters (ê, î, û, ô, œ, ç + accents also in Italian)
-    if re.search(r"[êîûôœ]", lowered):
-        fr_score += 2
-    return fr_score >= 2 and fr_score > en_score
-
-
-def _translate_text_with_openai(client: OpenAI, text: str) -> str:
-    """Translate a single non-English PE/VC signal text to English via OpenAI."""
-    if not text:
-        return ""
-    prompt = (
-        "Translate the following PE/VC news text into concise, factual English. "
-        "The source may be Italian, French, or another European language. "
-        "Preserve names, numbers, dates, currencies, and deal terms exactly. "
-        "Return only the translated text — no quotes, no explanation.\n\n"
-        f"{text}"
+    return translate_signals_inplace(
+        signals,
+        openai_api_key=os.environ.get("OPENAI_API_KEY"),
+        slugs_filter=slugs_filter,
     )
-    max_completion_tokens = 512
-    for attempt in range(2):
-        try:
-            resp = client.chat.completions.create(
-                model=MODEL,
-                messages=[
-                    {"role": "system", "content": "You are a precise financial translator. Return only the translated text."},
-                    {"role": "user", "content": prompt},
-                ],
-                max_completion_tokens=max_completion_tokens,
-            )
-            out = ((resp.choices[0].message.content or "").strip() if resp.choices else "").strip()
-            if out.startswith("```"):
-                out = out.strip("`").replace("text", "", 1).strip()
-            return _clean_summary_text(out)
-        except Exception as e:
-            err_text = str(e).lower()
-            if ("max_tokens" in err_text or "output limit" in err_text or "maxtokens" in err_text) and attempt == 0:
-                max_completion_tokens = 1024
-                continue
-            raise
-    return ""
-
-
-def _translate_batch_with_openai(client: OpenAI, texts: list[str]) -> list[str]:
-    """Translate a batch of non-English PE/VC texts to English in a single API call.
-
-    Returns translated texts in the same order. Falls back to individual translations on failure.
-    """
-    if not texts:
-        return []
-    import json as _json
-    numbered = "\n".join(f"{i+1}. {t}" for i, t in enumerate(texts))
-    prompt = (
-        f"Translate the following {len(texts)} PE/VC news texts to English. "
-        "Each is numbered. Source may be Italian, French, or another European language. "
-        "Preserve names, numbers, currencies, and deal terms exactly. "
-        "Return a JSON array of translated strings in the same order.\n\n"
-        f"{numbered}"
-    )
-    max_completion_tokens = 2000
-    for attempt in range(2):
-        try:
-            resp = client.chat.completions.create(
-                model=MODEL,
-                messages=[
-                    {"role": "system", "content": "You are a precise financial translator. Return only a JSON array of translated strings."},
-                    {"role": "user", "content": prompt},
-                ],
-                max_completion_tokens=max_completion_tokens,
-            )
-            raw = (resp.choices[0].message.content or "").strip() if resp.choices else ""
-            if raw.startswith("```"):
-                raw = raw.strip("`").lstrip("json").strip()
-            result = _json.loads(raw)
-            if isinstance(result, list) and len(result) == len(texts):
-                return [_clean_summary_text(str(r)) for r in result]
-        except Exception as e:
-            err_text = str(e).lower()
-            if ("max_tokens" in err_text or "output limit" in err_text or "maxtokens" in err_text) and attempt == 0:
-                max_completion_tokens = 4000
-                print(f"  Translation batch output limit, retrying with higher tokens...")
-                continue
-            print(f"  Translation batch error (OpenAI): {e}")
-            break
-    # Fall back to individual translations
-    return [_translate_text_with_openai(client, t) for t in texts]
-
-
-def _translate_italian_signals(signals: list[dict]) -> dict[str, Any]:
-    """Translate all non-English signal text fields to English via OpenAI.
-
-    Translates title, what_changed, and enriched_summary — all three fields
-    that can appear in the UI. Stores originals in *_original fields.
-    Handles Italian, French, and any other European language automatically.
-    Skips signals where all fields are already translated or already English.
-    Returns detailed translation stats for reporting/alerting.
-    """
-    openai_api_key = os.environ.get("OPENAI_API_KEY")
-    stats: dict[str, Any] = {
-        "italian_fields_detected": 0,
-        "signals_needing_translation": 0,
-        "translated_fields": 0,
-        "translated_signals": 0,
-        "unresolved_fields": 0,
-        "openai_configured": bool(openai_api_key),
-        "openai_translation_errors": 0,
-        "network_error_count": 0,
-        "sample_errors": [],
-        "skipped_reason": "",
-    }
-
-    def _record_error(message: str) -> None:
-        msg = (message or "").strip()
-        if _is_network_error_message(msg):
-            stats["network_error_count"] += 1
-        if msg and len(stats["sample_errors"]) < 3:
-            stats["sample_errors"].append(msg[:280])
-
-    # User-facing text fields and their original-storage counterparts
-    TEXT_FIELDS = [
-        ("enriched_summary", "enriched_summary_original"),
-        ("what_changed", "what_changed_original"),
-        ("title", "title_original"),
-    ]
-
-    # Collect (signal, field, text) tuples needing translation
-    to_translate: list[tuple[dict, str, str, str]] = []  # (signal, field, original_field, text)
-    signals_needing_work: set[int] = set()
-    for idx, s in enumerate(signals):
-        for field, orig_field in TEXT_FIELDS:
-            text = s.get(field) or ""
-            if not text:
-                continue
-            # Even if *_original is set, re-check: the current field might still contain
-            # non-English text (e.g., from summary backfill or partial translation).
-            if s.get(orig_field) and not (_is_italian_text(text) or _is_french_text(text)):
-                continue  # already translated and current text looks English
-            if _is_italian_text(text) or _is_french_text(text):
-                to_translate.append((s, field, orig_field, text))
-                signals_needing_work.add(idx)
-    stats["italian_fields_detected"] = len(to_translate)
-    stats["signals_needing_translation"] = len(signals_needing_work)
-
-    if not to_translate:
-        print("\nNo non-English fields to translate")
-        return stats
-
-    if not openai_api_key:
-        print(f"\nSkipping translation: OPENAI_API_KEY not set ({len(to_translate)} fields pending)")
-        stats["unresolved_fields"] = len(to_translate)
-        stats["skipped_reason"] = "no_openai_key"
-        return stats
-
-    print(f"\nTranslating {len(to_translate)} non-English fields across {len(signals_needing_work)} signals via OpenAI...")
-    openai_client = OpenAI(api_key=openai_api_key, timeout=90.0)
-    translated_fields = 0
-    unresolved: list[tuple[dict, str, str, str]] = []
-
-    # Batched OpenAI translation — 5 fields per call (reduced to avoid max_tokens hits)
-    BATCH_SIZE = 5
-    for i in range(0, len(to_translate), BATCH_SIZE):
-        batch = to_translate[i : i + BATCH_SIZE]
-        texts = [item[3] for item in batch]
-        try:
-            translated_texts = _translate_batch_with_openai(openai_client, texts)
-            for (s, field, orig_field, original), translated_text in zip(batch, translated_texts):
-                if not translated_text or translated_text == original:
-                    unresolved.append((s, field, orig_field, original))
-                    continue
-                s[orig_field] = original
-                s[field] = translated_text
-                translated_fields += 1
-        except Exception as e:
-            print(f"  Translation batch error (OpenAI): {e}")
-            stats["openai_batch_errors"] = stats.get("openai_batch_errors", 0) + 1
-            _record_error(f"OpenAI batch translation error: {e}")
-            unresolved.extend(batch)
-        import time
-        time.sleep(0.5)  # gentle rate limit between batches
-
-    # Retry unresolved fields individually
-    if unresolved:
-        print(f"  Retrying {len(unresolved)} unresolved fields individually...")
-        still_unresolved: list[tuple[dict, str, str, str]] = []
-        for s, field, orig_field, original in unresolved:
-            try:
-                translated_text = _translate_text_with_openai(openai_client, original)
-            except Exception as e:
-                print(f"  OpenAI translation error ({s.get('id')}/{field}): {e}")
-                stats["openai_translation_errors"] += 1
-                _record_error(f"OpenAI translation error: {e}")
-                still_unresolved.append((s, field, orig_field, original))
-                continue
-            if not translated_text or translated_text == original:
-                still_unresolved.append((s, field, orig_field, original))
-                continue
-            s[orig_field] = original
-            s[field] = translated_text
-            translated_fields += 1
-        unresolved = still_unresolved
-
-    # Last resort for still-unresolved: try a second individual pass with higher
-    # temperature / alternate prompt.  OpenAI empty responses are transient —
-    # a second attempt often succeeds.
-    if unresolved:
-        print(f"  Final retry pass for {len(unresolved)} still-unresolved fields...")
-        final_unresolved: list[tuple[dict, str, str, str]] = []
-        import time as _time
-        for s, field, orig_field, original in unresolved:
-            _time.sleep(1.0)  # extra delay for final retry
-            try:
-                translated_text = _translate_text_with_openai(openai_client, original)
-            except Exception:
-                final_unresolved.append((s, field, orig_field, original))
-                continue
-            if not translated_text or translated_text == original:
-                final_unresolved.append((s, field, orig_field, original))
-                continue
-            s[orig_field] = original
-            s[field] = translated_text
-            translated_fields += 1
-        print(f"  Final retry resolved {len(unresolved) - len(final_unresolved)} of {len(unresolved)} fields")
-        unresolved = final_unresolved
-
-    # Count signals that had at least one field translated
-    translated_signals = sum(
-        1 for s in signals
-        if any(s.get(orig) for _, orig in TEXT_FIELDS)
-    )
-    stats["translated_fields"] = translated_fields
-    stats["translated_signals"] = translated_signals
-    stats["unresolved_fields"] = len(unresolved)
-    print(f"Translated {translated_fields} fields across {len(signals_needing_work)} signals")
-    return stats
 
 
 def _send_translation_issue_alert(translation_stats: dict[str, Any], slugs_filter: str | None = None) -> None:
@@ -2958,6 +2641,21 @@ def main(slugs_filter: str | None = None):
                     continue
                 if prev.get(field) is not None and signal.get(field) is None:
                     signal[field] = prev.get(field)
+
+            # Restore previously-translated text fields so the translation step does not
+            # re-translate on every pipeline run.  The filter always re-reads raw signals
+            # (original Italian), so without this restore the translation gate sees Italian
+            # text every time and re-translates — wasting DeepL/OpenAI credits on every run.
+            # Logic: if title_original is set in the enriched file, the title was translated.
+            # Restore both the translated text and the _original marker so the gate skips it.
+            for _tf, _of in (
+                ("title", "title_original"),
+                ("what_changed", "what_changed_original"),
+                ("enriched_summary", "enriched_summary_original"),
+            ):
+                if prev.get(_of):  # was previously translated
+                    signal[_of] = prev[_of]          # restore original-language marker
+                    signal[_tf] = prev.get(_tf, signal.get(_tf))  # restore translated text
 
         # Clear stale enriched_summary that just restates the title — force LLM re-enrichment.
         # Only clear when there's extra context (what_changed) available that the LLM can use
@@ -3386,7 +3084,7 @@ def main(slugs_filter: str | None = None):
     _disambiguate_cross_fund_duplicate_summaries(signals)
 
     # ── Translation pass: Italian → English ────────────────────────────────────
-    translation_stats = _translate_italian_signals(signals)
+    translation_stats = _translate_italian_signals(signals, slugs_filter=slugs_filter)
     translated_count = int(translation_stats.get("translated_signals") or 0)
     _send_translation_issue_alert(translation_stats, slugs_filter=slugs_filter)
     network_status = _persist_network_status(

@@ -5,26 +5,27 @@ Python 3.10+ worker. Fetches fund websites, extracts structured data, detects ch
 
 Key modules: core pipeline, fund-specific extractors (with URLS dicts), domain policies.
 
-## Pipeline (8 steps)
+## Pipeline (9 steps)
 
 ```
-monitor → rss → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini, optional) → filter → enrich (AI summaries + target_companies) → signal_to_portfolio (local)
+monitor → rss → translate → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini, optional) → filter → enrich (AI summaries + target_companies) → signal_to_portfolio (local)
 ```
 
 1. **monitor** — Fetch pages via Playwright/requests, extract data using strategies, detect changes via diffing. Exit detection: companies removed from fund website are marked `status: "exited"` (not silently dropped). Signal-derived and Gemini-enriched entries are preserved unchanged.
 2. **rss** — Fetch Italian news RSS feeds (BeBeez, FinanceCommunity, Il Sole 24 Ore, etc.), match articles to funds, append signals. Optional: skipped if no feeds configured.
-3. **normalize_sectors** — Normalize fund + company sectors to canonical 30-sector taxonomy
-4. **normalize_portfolio** — Normalize company data across fund portfolios (names, dedup)
-5. **enrich_portfolio** (`enrich_portfolio_gemini_full.py`) — Fill missing sector/HQ/description via Gemini 3 Flash with Google Search grounding. **Optional**: auto-skips if `GEMINI_API_KEY` not set. Capped at 50 API calls in pipeline mode.
-6. **filter** (`filter_signals.py`) — Multi-gate quality pipeline, threshold at score >= 80 (configurable via `SIGNAL_MIN_QUALITY` env var):
+3. **translate** (`translate_signals.py`) — **CRITICAL ORDER** — Translates Italian/French signal text to English using DeepL (primary, 500K chars/month free × 2 keys) with OpenAI fallback. Writes back to `detected_signals.json` with originals in `*_original` fields. **Must run BEFORE filter** — filter patterns are English-language; Italian signals score lower and get misclassified. Optional: skips gracefully if no API keys, but quality degrades. Shared logic in `fundradar_worker/translator.py`.
+4. **normalize_sectors** — Normalize fund + company sectors to canonical 30-sector taxonomy
+5. **normalize_portfolio** — Normalize company data across fund portfolios (names, dedup)
+6. **enrich_portfolio** (`enrich_portfolio_gemini_full.py`) — Fill missing sector/HQ/description via Gemini 3 Flash with Google Search grounding. **Optional**: auto-skips if `GEMINI_API_KEY` not set. Capped at 50 API calls in pipeline mode.
+7. **filter** (`filter_signals.py`) — Multi-gate quality pipeline, threshold at score >= 80 (configurable via `SIGNAL_MIN_QUALITY` env var):
    - Garbage detection (regex patterns), dedup (composite key + semantic 50% word overlap)
    - Misattribution detection (signals naming a different fund than tagged)
    - Italy-relevance gate: 3-tier fund classification (`italy_focused` / `europe_wide` / `mixed_or_global`)
    - ML classifier (optional, confidence-gated), event/conference reclassification
    - Signal types: deal, exit, fundraise, fund_launch, people_move, partnership, report, job_posting
    - Title/text cleaning: ALL CAPS→title case, newspaper suffixes, date prefixes
-7. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). Also extracts `target_companies` for deal/exit signals (used by step 8). **DO NOT use ChatGPT 4o** — it hallucinates too frequently. Use `gpt-5-mini` or better.
-8. **signal_to_portfolio** (`signal_to_portfolio.py`) — Convert deal/exit signals into portfolio entries. **Purely local, zero API calls** — reads `target_companies` pre-extracted by step 7 (OpenAI enrichment). Trust hierarchy: fund press (0.90) > verified news (0.80) > news (0.75) > other (0.70) > rumor (0.60). Progress tracked to avoid re-processing. Also updates exit status for existing entries when exit signals match.
+8. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). Also extracts `target_companies` for deal/exit signals (used by step 9). **DO NOT use ChatGPT 4o** — it hallucinates too frequently. Use `gpt-5-mini` or better. Contains a safety-net translation pass for any Italian that survived step 3 (e.g., LLM-generated Italian summaries).
+9. **signal_to_portfolio** (`signal_to_portfolio.py`) — Convert deal/exit signals into portfolio entries. **Purely local, zero API calls** — reads `target_companies` pre-extracted by step 8 (OpenAI enrichment). Trust hierarchy: fund press (0.90) > verified news (0.80) > news (0.75) > other (0.70) > rumor (0.60). Progress tracked to avoid re-processing. Also updates exit status for existing entries when exit signals match.
 
 Run all: `pnpm pipeline`
 Run filter+enrich only: `pnpm pipeline:signals`
@@ -344,6 +345,62 @@ This is error-prone because there's no schema enforcement:
 5. Update the web loader if needed (`data.ts` or `signals_unified.ts`)
 6. Run the pipeline and manually inspect the output JSON to verify the field appears correctly
 7. Restart `pnpm dev` and verify the web app uses it
+
+## ⚠️ Translation Architecture — Read Before Touching Anything Translation-Related
+
+### Why translation order is CRITICAL
+The filter (`filter_signals.py`) uses **English-language keyword patterns** to classify and score signals. Italian signals hitting the filter:
+- Score lower (keywords don't match Italian verbs)
+- Get misclassified (e.g., `acquisisce` doesn't match English exit/deal patterns)
+- May be incorrectly filtered out as noise
+
+**Translation MUST happen at step 3 (before filter step 7).** The `translate_signals.py` pipeline step translates `detected_signals.json` in-place before filter ever runs.
+
+### NEVER do any of these:
+- **Remove or disable the `translate` pipeline step** — filter quality immediately degrades for ~60% of signals (Italian-sourced ones)
+- **Move translation after filter** — same effect as removing it
+- **Replace DeepL with OpenAI for bulk translation** — DeepL is ~50× cheaper and 10× faster. OpenAI translation costs ~$0.10/run. DeepL costs ~$0.001/run.
+- **Remove the DeepL SDK (`deepl` package)** — the fallback to OpenAI works but burns money
+
+### Translation chain (never change this order)
+1. `DEEPL_API_KEY` — primary key (500K chars/month free)
+2. `DEEPL_API_KEY_2` — secondary key (auto-failover when primary exhausted)
+3. OpenAI `gpt-5-mini` — last resort fallback (paid, ~$0.10/run for all Italian signals)
+
+Exhausted keys are auto-skipped via `data/derived/deepl_quota_state.json`. Both keys exhausted → Telegram alert fires. Monthly quota resets on the 1st.
+
+### Idempotency — how re-translation is prevented
+- `translate_signals.py` checks `title_original` / `what_changed_original`: if set and current text looks English → skip
+- The enricher's merge loop restores `*_original` fields from the previous enriched file, so the safety-net pass in `enrich_signals_openai.py` also skips already-translated signals
+- **DO NOT delete `detected_signals_enriched.json`** — it carries the `*_original` fields that prevent re-translation. Deleting it forces full re-translation of all Italian signals on the next enricher run.
+
+### History: how we learned this the hard way (Feb 2026)
+DeepL was removed thinking "OpenAI is a better translator". What actually happened:
+1. OpenAI now did translation + enrichment, costing ~$0.30/run instead of ~$0.05/run
+2. A merge loop bug caused the enricher to re-translate ALL Italian signals on EVERY run (not just new ones)
+3. 50 debug runs × $0.30 = ~$15 in one session
+4. Filter quality dropped because Italian signals arrived untranslated at the filter step
+5. Full re-integration took a full day to restore signal quality
+
+**Result**: DeepL re-added as step 3, translation moved before filter, merge loop fixed, `translator.py` module created as shared infrastructure.
+
+## ⚠️ OpenAI Cost Control — Read Before Running Enrichment
+
+Signal enrichment (`pnpm pipeline:signals` or step 8 of `pnpm pipeline`) makes OpenAI API calls. Misuse can cost $10–$20 in a single debugging session.
+
+### Rules
+1. **NEVER delete `data/derived/signal_enrichment_progress.json`** — it tracks which signals have been LLM-enriched. Deleting it forces full re-enrichment of all ~400 signals (~$2–5).
+2. **NEVER delete `data/derived/detected_signals_enriched.json`** — it carries `*_original` translation fields. Deleting it forces re-translation of all Italian signals on the next run.
+3. **Before any `pnpm pipeline:signals` run**, check how many signals would be affected: `python3 -c "import json; d=json.load(open('data/derived/signal_enrichment_progress.json')); print(len(d.get('processed_ids',[])),'already processed')"`.
+4. **For debugging/testing fixes**: edit `detected_signals_enriched.json` directly (free) instead of re-running the enricher.
+5. **For testing new classification patterns**: run `pnpm pipeline:signals --slugs specific-fund` (processes one fund's signals only).
+6. **Re-enrichment costs ~$0.05–0.20 per full run** (~10–30 new signals needing LLM, translation via DeepL). Fine for weekly runs. Expensive when run 50× during debugging.
+
+### Cost breakdown (with DeepL in place)
+- Translation: ~45K chars/run via DeepL ≈ **free** (within 500K/month quota)
+- LLM enrichment: 10–30 new signals × ~500 tokens ≈ $0.05–0.15/run
+- Safety-net translation pass in enricher: ~0 fields (already translated by step 3)
+- Total: **~$0.05–0.20/run** (vs ~$0.30–0.50 before DeepL re-integration)
 
 ## Testing
 
