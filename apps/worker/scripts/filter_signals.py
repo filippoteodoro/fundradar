@@ -2303,6 +2303,9 @@ def _fix_spacing(text: str) -> str:
     # Italian ordinals in text: "4 a" → "4a", "1 o" → "1o" (prevent treating as list prefix)
     cleaned = re.sub(r"\b(\d+)\s+([ao])\s+", r"\1\2 ", cleaned)
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
+    # Re-compact currency amount suffixes split by digit-letter spacing above.
+    # "€62 M" → "€62M", "€200 M" → "€200M" (normalisation produced these, spacing split them)
+    cleaned = re.sub(r'([€$£]\d+(?:[.,]\d+)?)\s+([KMBT])\b', r'\1\2', cleaned)
     return cleaned.strip()
 
 
@@ -2797,6 +2800,12 @@ def _clean_signal_fields(signal: dict) -> dict:
     for key in ("title", "what_changed", "diff_summary", "enriched_summary"):
         if signal.get(key):
             signal[key] = _fix_spacing(signal[key])
+            # Re-apply entity-aware repairs: _fix_spacing may have split camelCase company
+            # tokens (e.g. "TechNova" → "Tech Nova"). Re-running restores the original form.
+            signal[key] = _repair_attached_connectors(
+                signal[key],
+                company_candidates=company_candidates,
+            )
     # Strip leading list-number artifacts ("1. ", "2. ", "3. ") from titles/summaries
     for key in ("title", "enriched_summary"):
         if signal.get(key):
