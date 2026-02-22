@@ -102,7 +102,7 @@
       "evidence_score": 2,
       "quality_confidence": "low",
       "confidence_score": 0.61,
-      "enriched_summary": "Sofinnova Partners portfolio company GenSight Biologics strengthens its regulatory team in the US and Europe with two senior hires.",
+      "enriched_summary": "GenSight Biologics Bolsters Regulatory Leadership in US and Europe with Two Senior Appointments.",
       "enriched_at": "2026-02-21T19:59:26.776888+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high quality score",
@@ -315,7 +315,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.84,
       "title_original": "Finint Equity For Growth (Finint E 4 G) cresce ancora: rilevato Il 60% di A.M.",
-      "enriched_summary": "Finint Equity For Growth (Finint E4G) acquired a 60% stake in A.M. Srl, an Italian manufacturing company.",
+      "enriched_summary": "Finint Equity For Growth (Finint E4G) acquired a 60% stake in A.M.",
       "enriched_date": "2025-09-03",
       "enrichment_confidence": "high",
       "llm_keep": true,
@@ -339,7 +339,7 @@
       "id": "web-signal-01651",
       "fund_id": "",
       "fund_slug": "finint-investments-sgr",
-      "signal_type": "deal_announced",
+      "signal_type": "other",
       "title": "Riello Investimenti SGR and Finint Investments together to support ERREBIELLE and expand Made-in-Italy design",
       "what_changed": "",
       "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/2025-06-30 CS_Bond Errebielle_Riello_Finint Investments_final.pdf",
@@ -387,7 +387,7 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "type": "deal_announced"
+      "type": "other"
     },
     {
       "id": "web-signal-01679",
@@ -407,7 +407,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [
@@ -617,7 +617,7 @@
       "id": "web-signal-01718",
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Special Flanges acquires 100% of Vilmar",
       "what_changed": "",
       "source_url": "https://www.wisesgr.com/web/content/453/            SPECIAL-FLANGES-ACQUISISCE-IL-100-DI-VILMAR-AZIENDA-LEADER-NELLA-PRODUZIONE-DI-SISTEMI-INGEGNERIZZATI-PER-APPLICAZIONI-INDUSTRIALI-CRITICHE-DA-INVESTITORI-FRANCESI.pdf",
@@ -653,7 +653,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "title_original": "Special Flanges acquisisce il 100% di Vilmar",
-      "enriched_summary": "Wise Equity portfolio company Special Flanges acquires 100% of Vilmar.",
+      "enriched_summary": "Special Flanges acquires 100% of Vilmar.",
       "enriched_date": "2026-02-20",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:59:26.814272+00:00",
@@ -671,7 +671,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "web-signal-01722",
@@ -1147,7 +1147,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": true,
+      "italy_relevant": false,
       "extracted_entities": {
         "companies": [],
         "people": [
@@ -1451,7 +1451,7 @@
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.84,
-      "enriched_summary": "New contributions to the UTP Italia Fund: over €100M (GBV) in new real estate leasing UTP portfolios.",
+      "enriched_summary": "New contributions to the Utp Italia Fund: over €100M (GBV) in new real estate leasing utp portfolios.",
       "enriched_at": "2026-02-21T19:59:26.868972+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
@@ -1550,7 +1550,7 @@
       "evidence_score": 1,
       "quality_confidence": "high",
       "confidence_score": 0.63,
-      "enriched_summary": "Sagitta SGR appoints Federico Baldasarre as Head of Compliance and AML.",
+      "enriched_summary": "Federico Baldasarre Appointed New Head of Compliance and AML.",
       "enriched_at": "2026-02-21T19:59:26.874802+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
@@ -1655,7 +1655,7 @@
       "evidence_score": 2,
       "quality_confidence": "high",
       "confidence_score": 0.71,
-      "enriched_summary": "Sagitta SGR appoints Giuseppe Semeraro as Senior Director.",
+      "enriched_summary": "Giuseppe Semeraro Appointed as Senior Director.",
       "enriched_at": "2026-02-21T19:59:26.880546+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
@@ -2089,7 +2089,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "title_original": "Chequers Capital ha perfezionato l’acquisizione di Gourmet Italian Food, gruppo italiano leader nel settore dei ready meals",
-      "enriched_summary": "Chequers Capital acquires Gourmet Italian Food from Alcedo SGR (Alcedo IV) and FVS SGR, completing the exit for both funds.",
+      "enriched_summary": "Chequers Capital has completed the acquisition of Gourmet Italian Food, an Italian group and leader in the ready meals sector.",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:59:26.905450+00:00",
       "llm_event_type": "deal",
@@ -2275,7 +2275,7 @@
       "llm_keep_source": "local",
       "llm_keep_version": 3,
       "enriched_at": "2026-02-21T19:59:26.922070+00:00",
-      "enriched_summary": "Ultra-refractory materials: K3RX raises €1.6M, led by Deep Ocean Capital SGR and Robo IT, Polo di Trasferimento Tecnologico di CDP Venture Capital.",
+      "enriched_summary": "Ultra-refractory materials: K3RX raises €1.6M, led by Deep Ocean Capital SGR and Robo IT, Polo di Trasferimen to Tecnologico di CDP Venture Capital.",
       "type": "deal_announced"
     },
     {
@@ -2752,7 +2752,7 @@
       "evidence_score": 4,
       "quality_confidence": "high",
       "confidence_score": 0.92,
-      "enriched_summary": "Fondo Nazionale Innovazione (CDP Venture Capital SGR) invests €8M through the AccelerORA! program.",
+      "enriched_summary": "Fondo Nazionale Innovazione (CDP Venture Capital SGR) invests €8M through the Acceler ORA! program.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "llm_keep": true,
@@ -3183,7 +3183,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-f73c3d7a",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "fund_launch",
+      "signal_type": "deal_announced",
       "title": "Fondo Italia Venture II: to support and accelerate investments in companies in the South",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -3221,13 +3221,13 @@
       "llm_type_confidence": "high",
       "llm_italy_relevant": true,
       "title_original": "Fondo Italia Venture II: per sostenere e accelerare gli investimenti nelle imprese del Sud",
-      "type": "fund_launch"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-8ca83daa",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "fund_launch",
+      "signal_type": "deal_announced",
       "title": "CDP Venture Capital launches Next Age: €5.5M of investments for the first accelerator in Europe dedicated to the growth of startups operating in the Silver Economy",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -3265,13 +3265,13 @@
       "llm_type_confidence": "high",
       "llm_italy_relevant": true,
       "title_original": "CDP Venture Capital lancia Next Age: €5.5 M di investimenti per il primo acceleratore in Europa dedicato alla crescita di startup operative nella Silver Economy",
-      "type": "fund_launch"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-1cdc238b",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "fund_launch",
+      "signal_type": "deal_announced",
       "title": "Takeoff accelerator launched in Turin: over €21M of investments for aerospace and advanced hardware",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -3309,7 +3309,7 @@
       "llm_type_confidence": "high",
       "llm_italy_relevant": true,
       "title_original": "Nasce a Torino l’acceleratore Takeoff: oltre €21 M di investimenti per l’aerospazio e l’advanced hardware",
-      "type": "fund_launch"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-71189221",
@@ -3445,7 +3445,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-96e7259b",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "fund_launch",
+      "signal_type": "deal_announced",
       "title": "CDP Venture Capital SGR announces the launch of Extend: over €55M of investments for the National Technology Transfer Hub dedicated to the development of new drugs and innovative therapies",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -3471,7 +3471,7 @@
       "evidence_score": 4,
       "quality_confidence": "high",
       "confidence_score": 0.92,
-      "enriched_summary": "CDP Venture Capital SGR launches Extend with over €55M to fund the Polo Nazionale di Trasferimento Tecnologico for developing new drugs and innovative therapies.",
+      "enriched_summary": "CDP Venture Capital SGR launches Extend with over €55M to fund the Polo Nazionale di Trasferimen to Tecnologico for developing new drugs and innovative therapies.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "llm_keep": true,
@@ -3483,7 +3483,7 @@
       "llm_type_confidence": "high",
       "llm_italy_relevant": true,
       "title_original": "CDP Venture Capital Sgr annuncia la nascita di Extend: oltre €55 M di investimenti per il Polo Nazionale di Trasferimento Tecnologico dedicato allo sviluppo di nuovi farmaci e terapie innovative",
-      "type": "fund_launch"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-0c6898da",
@@ -3572,7 +3572,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-bc00c9d8",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "fund_launch",
+      "signal_type": "deal_announced",
       "title": "Food Seed Accelerator launched in Verona: over €15M of investments dedicated to the growth of startups developing innovative technologies for food.",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -3610,7 +3610,7 @@
       "llm_type_confidence": "high",
       "llm_italy_relevant": true,
       "title_original": "A Verona nasce l’Acceleratore Food Seed: oltre €15 M di investimenti dedicati alla crescita di startup che sviluppano tecnologie innovative per l’alimentazione",
-      "type": "fund_launch"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-5005c33d",
@@ -3718,7 +3718,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-e865797f",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Axelera AI raises $50M for the democratization of Edge technology",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -3744,7 +3744,7 @@
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.84,
-      "enriched_summary": "CDP Venture Capital portfolio company Axelera AI raised €50M to support the democratization of Edge AI technology.",
+      "enriched_summary": "Axelera AI raised €50M to support the democratization of Edge technology.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "medium",
       "llm_keep": true,
@@ -3763,7 +3763,7 @@
         }
       ],
       "title_original": "Axelera AI raccoglie €50 M di dollari per la democratizzazione della tecnologia Edge",
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-b2e750fd",
@@ -4100,7 +4100,7 @@
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.84,
-      "enriched_summary": "CDP Venture Capital portfolio company Vite Sicure closes a €2M bridge round.",
+      "enriched_summary": "Vite Sicure, an Italian insurtech, closes a €2M bridge round.",
       "enriched_summary_original": "Insurtech vite Sicure chiude un bridge round da €2 M.",
       "title_original": "Insurtech: vite Sicure chiude un bridge round da €2 M",
       "type": "portfolio_update"
@@ -4388,7 +4388,7 @@
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.84,
-      "enriched_summary": "RISE Technology raised €1.5M from Tech 4 Planet and CDP's Progress Tech Transfer program to scale iSPLASH industrially.",
+      "enriched_summary": "RISE Technology raised €1.5M from Tech 4 Planet and Progress Tech Transfer to scale iSPLASH industrially.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "llm_keep": true,
@@ -4924,7 +4924,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-ebb991e3",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Involve closes a round of €2.5M and welcomes astronaut Paolo Nespoli",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -4951,7 +4951,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "title_original": "Involve chiude un round da €2.5 M e accoglie l'astronauta Paolo Nespoli",
-      "enriched_summary": "CDP Venture Capital portfolio company Involve closed a €2.5M funding round and added astronaut Paolo Nespoli to its team.",
+      "enriched_summary": "Involve closed a €2.5M funding round and added astronaut Paolo Nespoli to its team.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "llm_keep": true,
@@ -4969,7 +4969,7 @@
           "action": "investment"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-a228ef82",
@@ -5179,7 +5179,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-a914be66",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Reefilla closes a €4.5M round and launches an equity crowdfunding campaign",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -5206,7 +5206,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.84,
       "title_original": "Reefilla chiude un round da €4.5 M e lancia una campagna di equity crowdfunding",
-      "enriched_summary": "CDP Venture Capital portfolio company Reefilla closes a €4.5M round and launches an equity crowdfunding campaign.",
+      "enriched_summary": "Reefilla closes a €4.5M round and launches an equity crowdfunding campaign.",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:59:27.088192+00:00",
       "llm_event_type": "deal",
@@ -5223,7 +5223,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-0c73f1b8",
@@ -5331,7 +5331,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-cdc3f0b5",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Mole Urbana: the Made in Italy electric vehicle startup completes a capital increase",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -5358,7 +5358,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.84,
       "title_original": "Mole Urbana: la startup di veicoli elettrici Made in Italy conclude un aumento di capitale",
-      "enriched_summary": "CDP Venture Capital portfolio company Mole Urbana, an Italian electric vehicle startup, has completed a capital increase.",
+      "enriched_summary": "Mole Urbana, an Italian electric vehicle startup, has completed a capital increase.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "medium",
       "llm_keep": true,
@@ -5376,7 +5376,7 @@
           "action": "investment"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-3bae21b5",
@@ -5614,6 +5614,56 @@
       "confidence_score": 0.84,
       "title_original": "Valo Therapeutics annuncia la chiusura di un aumento di capitale da 19 M€",
       "enriched_summary": "Valo Therapeutics announces the closing of a capital increase of €19M.",
+      "type": "deal_announced"
+    },
+    {
+      "id": "news-signal-20260205111509-fb1ed3df-8c71ff40",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "deal_announced",
+      "title": "Biorsaf closes a round of €1.4M led by Maia Ventures",
+      "what_changed": "",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "CDP Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-02-05T11:15:09.807824+00:00",
+      "created_at": "2026-02-05T11:15:09.807824+00:00",
+      "fingerprint": "bd7f903c2fd6",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 100,
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.662,
+      "ml_type_confident": false,
+      "ml_confidence": 0.662,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.84,
+      "title_original": "Biorsaf chiude un round da 1,4 M€ guidato da Maia Ventures",
+      "enriched_summary": "Biorsaf closes a round of €1.4M led by Maia Ventures.",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-02-21T19:59:27.103957+00:00",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "Biorsaf",
+          "is_direct_investment": false,
+          "action": "investment"
+        }
+      ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -5917,6 +5967,57 @@
       "type": "deal_announced"
     },
     {
+      "id": "news-signal-20260205111509-fb1ed3df-83349cb0",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "deal_announced",
+      "title": "Neva SGR (Intesa Sanpaolo) and Fondazione Compagnia di San Paolo invest €2.5M in Galaxia",
+      "what_changed": "",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "CDP Venture Capital",
+      "published_at": "2026-02-05",
+      "observed_at": "2026-02-05T11:15:09.807530+00:00",
+      "created_at": "2026-02-05T11:15:09.807530+00:00",
+      "fingerprint": "92b85bc52e6b",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 100,
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.84,
+      "enriched_summary": "Neva SGR (Intesa Sanpaolo) and Fondazione Compagnia di San Paolo invest €2.5M in Galaxia.",
+      "enriched_date": "2026-02-05",
+      "enrichment_confidence": "high",
+      "llm_keep": true,
+      "llm_keep_reason": "Specific investment involving Italian investors and an Italian target company; relevant to Italian PE/VC market.",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "enriched_at": "2026-02-21T20:01:07.663964+00:00",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [
+        {
+          "name": "Galaxia",
+          "is_direct_investment": false,
+          "action": "investment"
+        }
+      ],
+      "title_original": "Neva Sgr (Intesa Sanpaolo) e Fondazione Compagnia di San Paolo investono 2,5 M€ in Galaxia",
+      "type": "deal_announced"
+    },
+    {
       "id": "news-signal-20260205111509-fb1ed3df-236359e5",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
@@ -6018,6 +6119,46 @@
         }
       ],
       "type": "deal_announced"
+    },
+    {
+      "id": "news-signal-20260205111509-fb1ed3df-64fc474d",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "fundraise",
+      "title": "P101 SGR announces the closing of the fund Programma 103 at €250M",
+      "what_changed": "",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "CDP Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-02-05T11:15:09.807358+00:00",
+      "created_at": "2026-02-05T11:15:09.807358+00:00",
+      "fingerprint": "06345b4fdce0",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 100,
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "fund",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.84,
+      "title_original": "P 101 SGR annuncia il closing del fondo “Programma 103” a 250 M€",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
+      "enriched_at": "2026-02-21T19:59:27.122637+00:00",
+      "enriched_summary": "P101 SGR announces the closing of the fund Programma 103 at €250M.",
+      "type": "fundraise"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-92a80ab9",
@@ -6154,6 +6295,56 @@
       ],
       "enriched_summary_original": "Cdp Venture Capital partecipa al round da €570 K di lit per democratizzare i dati energetici e scalare la disaggregazione dei consumi.",
       "title_original": "lit chiude un round da €570 K per democratizzare i dati energetici e scalare la disaggregazione dei consumi in Italia e all’estero",
+      "type": "deal_announced"
+    },
+    {
+      "id": "news-signal-20260205111509-fb1ed3df-18bd2b7d",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "deal_announced",
+      "title": "Glutensens closes a €1.1M seed round led by Farming Future",
+      "what_changed": "",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "CDP Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-02-05T11:15:09.807078+00:00",
+      "created_at": "2026-02-05T11:15:09.807078+00:00",
+      "fingerprint": "afb6bfd8ef49",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 100,
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "fund",
+      "ml_type_prob": 0.705,
+      "ml_type_confident": false,
+      "ml_confidence": 0.705,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "title_original": "Glutensens chiude un round seed da €1.1 M guidato da Farming Future",
+      "enriched_summary": "Glutensens closes a €1.1M seed round led by Farming Future.",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-02-21T19:59:27.130040+00:00",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "Glutensens",
+          "is_direct_investment": false,
+          "action": "investment"
+        }
+      ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -6389,7 +6580,7 @@
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.84,
-      "enriched_summary": "CDP Venture Capital-backed Shop Circle extends its Series B round to $100M to accelerate M&A and AI development.",
+      "enriched_summary": "CDP Venture Capital reports Shop Circle extends its Series B round to $100M to accelerate M&A and AI development.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "llm_keep": true,
@@ -6515,6 +6706,45 @@
       ],
       "title_original": "CDP Venture Capital investe in Digital Brokerage Europe nell'ambito del seed round della società",
       "type": "deal_announced"
+    },
+    {
+      "id": "news-signal-20260205111509-fb1ed3df-920ee1e8",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "fund_launch",
+      "title": "Maia Ventures is launched: an early-stage fund of €55M to support Agri Food Tech entrepreneurs",
+      "what_changed": "",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "CDP Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-02-05T11:15:09.806781+00:00",
+      "created_at": "2026-02-05T11:15:09.806781+00:00",
+      "fingerprint": "4ee5b1acab01",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 100,
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1,
+      "ml_keep_confidence": 1,
+      "ml_keep_confident": true,
+      "ml_type": "fund",
+      "ml_type_prob": 1,
+      "ml_type_confident": true,
+      "ml_confidence": 1,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "title_original": "Nasce Maia Ventures: fondo early-stage da €55 M per sostenere gli imprenditori Agri Food Tech",
+      "enriched_summary": "Maia Ventures launches an early-stage fund of €55M to support Agri Food Tech entrepreneurs.",
+      "enriched_at": "2026-02-21T19:31:15.023891+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "type": "fund_launch"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-105cd5ca",
@@ -7042,7 +7272,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-ab2bef7f",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "deal_announced",
+      "signal_type": "fundraise",
       "title": "RARA Factory, a deep-tech spin-off of Ca' Foscari, raises over €3M in investment and accelerates the discovery of alternative materials to rare earths",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -7075,7 +7305,7 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "type": "deal_announced"
+      "type": "fundraise"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-89b2f22b",
@@ -7536,7 +7766,7 @@
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.74,
-      "enriched_summary": "Capza completes the first closing of its Capza 6 Private Debt fund.",
+      "enriched_summary": "A Successful First Closing For Capza 6 Private Debt.",
       "enriched_at": "2026-02-21T19:59:27.226321+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
@@ -7638,7 +7868,7 @@
       "id": "news-signal-20260205105313-cc65210b-8677345c",
       "fund_id": "",
       "fund_slug": "capza",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Capza Supports Wifirst In The Acquisition Of Hotsplots",
       "what_changed": "",
       "source_url": "https://capza.co/news/capza-supports-wifirst-in-the-acquisition-of-hotsplots/",
@@ -7682,13 +7912,13 @@
           "action": "investment"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205105313-cc65210b-22d67246",
       "fund_id": "",
       "fund_slug": "capza",
-      "signal_type": "other",
+      "signal_type": "deal_announced",
       "title": "Capza Is Thrilled To Announce Its Full Acquisition By Axa Im Alts",
       "what_changed": "",
       "source_url": "https://capza.co/news/capza-is-thrilled-to-announce-its-full-acquisition-by-axa-im-alts/",
@@ -7715,13 +7945,13 @@
       "quality_confidence": "high",
       "confidence_score": 0.74,
       "enriched_summary": "CAPZA is fully acquired by AXA IM Alts.",
-      "type": "other"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205105313-cc65210b-89e125d5",
       "fund_id": "",
       "fund_slug": "capza",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Capza Supports Tevah The French Leader In Electronic Security Products Distribution In Its Merger With Onyx Vision",
       "what_changed": "",
       "source_url": "https://capza.co/news/capza-supports-tevah-the-french-leader-in-electronic-security-products-distribution-in-its-merger-with-onyx-vision/",
@@ -7770,7 +8000,7 @@
           "action": "other"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205105313-cc65210b-5181820b",
@@ -7997,7 +8227,7 @@
       "id": "news-signal-20260205105313-cc65210b-a6a35a39",
       "fund_id": "",
       "fund_slug": "capza",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Simplifia Strengthens Its European Leadership With The Acquisition Of Nembedem and In Denmark",
       "what_changed": "",
       "source_url": "https://capza.co/news/simplifia-strengthens-its-european-leadership-with-the-acquisition-of-nembedemand-in-denmark/",
@@ -8041,7 +8271,7 @@
           "action": "investment"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "web-signal-00530",
@@ -8362,7 +8592,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.84,
       "title_original": "I fondi Bain, Clessidra Advent escono da Nexi",
-      "enriched_summary": "Bain Capital, Clessidra, and Advent have exited their stakes in Nexi, the Italian paytech specializing in digital payments.",
+      "enriched_summary": "The funds Bain, Clessidra Advent exit Nexi. Bain Capital, Clessidra and Advent have exited their stakes in Nexi, the Italian paytech specializing in digital payments.",
       "enriched_date": "2026-02-17",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:59:27.279926+00:00",
@@ -8730,7 +8960,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.84,
       "title_original": "I fondi Bain, Clessidra Advent escono da Nexi",
-      "enriched_summary": "Bain Capital, Clessidra, and Advent have exited their stakes in Nexi, the Italian paytech specializing in digital payments.",
+      "enriched_summary": "The Bain, Clessidra and Advent funds exit Nexi. Bain Capital, Clessidra and Advent have exited their stakes in Nexi, the Italian paytech specializing in digital payments.",
       "enriched_date": "2026-02-17",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:59:27.310711+00:00",
@@ -9262,7 +9492,7 @@
       "evidence_score": 4,
       "quality_confidence": "high",
       "confidence_score": 0.92,
-      "enriched_summary": "DeA Capital Alternative Funds' \"Sviluppo Sostenibile\" fund completes the sale of its stake in OMB Saleri.",
+      "enriched_summary": "DeA Capital Alternative Funds' \"Sviluppo Sostenibile \" fund completes the sale of its stake in OMB Saleri.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:59:27.359349+00:00",
@@ -9312,7 +9542,7 @@
       "evidence_score": 4,
       "quality_confidence": "high",
       "confidence_score": 0.92,
-      "enriched_summary": "Taste of Italy 2 invests in Fine Food Group, Italy's leading food distributor for tex-mex, American and fusion restaurants.",
+      "enriched_summary": "Taste of Italy 2 invests in Fine Food Group, Italy’s leading food distributor for tex-mex, american and fusion restaurants.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:31:15.175409+00:00",
@@ -9463,7 +9693,7 @@
       "llm_keep_source": "local",
       "llm_keep_version": 3,
       "enriched_at": "2026-02-21T19:59:27.377671+00:00",
-      "enriched_summary": "Green Arrow Capital subscribed a €41.5M project financing structured with Banca Monte dei Paschi di Siena to refinance a 39 MW wind portfolio in Basilicata.",
+      "enriched_summary": "Green Arrow Capital subscribed a €41.5M project financing structured with Banca Monte dei Paschi di Siena to refinance a 39M W wind portfolio in Basilicata.",
       "type": "debt_financing"
     },
     {
@@ -9572,7 +9802,7 @@
       "id": "web-signal-01550",
       "fund_id": "",
       "fund_slug": "sagard",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Bridewell and I-TRACING are entering into a strategic partnership to create the independent European leader in cybersecurity services",
       "what_changed": "",
       "source_url": "https://www.sagard.com/news/",
@@ -9608,14 +9838,14 @@
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.84,
-      "enriched_summary": "Sagard portfolio company I-TRACING and Bridewell are entering into a strategic partnership to create the independent European leader in cybersecurity services.",
+      "enriched_summary": "Bridewell and I-TRACING are entering into a strategic partnership to create the independent European leader in cybersecurity services.",
       "enriched_at": "2026-02-21T19:59:27.405109+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "rss-signal-00066",
@@ -9674,6 +9904,63 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
+      "type": "deal_announced"
+    },
+    {
+      "id": "web-signal-00437",
+      "fund_id": "",
+      "fund_slug": "friulia",
+      "signal_type": "deal_announced",
+      "title": "Pintaudi opens its capital: Friulia joins the shareholder structure and invests €1.2M",
+      "what_changed": "",
+      "source_url": "https://www.friulia.it/it/news/pintaudi-apre-il-capitale-friulia-entra-nella-compagine-societaria-e-investe-1-2-milioni-di-euro",
+      "source_name": "Friulia",
+      "published_at": "2026-01-26",
+      "observed_at": "2026-02-05T17:16:48.079248+00:00",
+      "created_at": "2026-02-05T17:16:48.079248+00:00",
+      "snapshot_id": "snap-20260205171646-4787cb6a",
+      "diff_summary": "New news item detected (dated 2026-01-26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1,
+      "ml_keep_confidence": 1,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1,
+      "ml_type_confident": true,
+      "ml_confidence": 1,
+      "quality_score": 100,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "title_original": "Pintaudi apre il capitale: Friulia entra nella compagine societaria e investe €1.2 M",
+      "enriched_summary": "Friulia invests €1.2M in Pintau di, entering the company's shareholder base.",
+      "enriched_date": "2026-02-05",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-02-21T13:57:47.878172+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "Direct announced investment by Friulia into an Italian company (Pintaudi), relevant deal signal.",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "Pintaudi",
+          "is_direct_investment": true,
+          "action": "investment"
+        }
+      ],
       "type": "deal_announced"
     },
     {
@@ -9971,6 +10258,64 @@
       "type": "deal_announced"
     },
     {
+      "id": "rss-signal-00095",
+      "fund_id": "",
+      "fund_slug": "alkemia-sgr",
+      "signal_type": "deal_announced",
+      "title": "Contents extends its Series B round to €7M of dollars",
+      "what_changed": "Contents, an Italian scaleup offering marketing-execution software that orchestrates AI agents, knowledge and approval workflows, has extended its Series B to $7M. Alkemia Capital participated alongside a Qatari investor. The announced round extension supports growth in B 2 B marketing technology with clear Italian roots.",
+      "source_url": "https://financecommunity.it/contents-estende-il-suo-round-di-serie-b-a-7-milioni-di-dollari/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-02-16T10:30:03+00:00",
+      "observed_at": "2026-02-16T11:22:25.190914+00:00",
+      "created_at": "2026-02-16T11:22:25.190914+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Contents"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "$7M",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1,
+      "ml_keep_confidence": 1,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1,
+      "ml_type_confident": true,
+      "ml_confidence": 1,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1,
+      "title_original": "Contents estende il suo round di serie B a €7 M di dollari",
+      "enriched_summary": "Alkemia Capital joined a Qatari investor to extend Italian scaleup Contents' Series B to $7M.",
+      "enriched_date": "2026-02-16",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-02-21T13:57:51.633502+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "Specific Italy-focused investment: Alkemia Sgr participated in Contents' $7M Series B extension.",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "Contents",
+          "is_direct_investment": true,
+          "action": "investment"
+        }
+      ],
+      "type": "deal_announced"
+    },
+    {
       "id": "rss-signal-00104",
       "fund_id": "",
       "fund_slug": "kairos-partners-sgr",
@@ -10201,7 +10546,7 @@
       "id": "rss-signal-00028",
       "fund_id": "",
       "fund_slug": "fondo-italiano-d-investimento-sgr",
-      "signal_type": "fundraise",
+      "signal_type": "deal_announced",
       "title": "Valori Asset Management invests in Fondo Italiano Consolidamento e Crescita II – FICC II of Fondo Italiano d’Investimento",
       "what_changed": "Valori Asset Management invests in Fondo Italiano Consolidamento e Crescita II (FICC II); the fund has exceeded €€500M of capital raised.",
       "source_url": "https://bebeez.it/private-equity/valori-asset-management-investe-in-fondo-italiano-consolidamento-e-crescita-ii-ficc-ii-di-fondo-italiano-dinvestimento/",
@@ -10257,7 +10602,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "fundraise"
+      "type": "deal_announced"
     },
     {
       "id": "web-signal-01118",
@@ -10572,7 +10917,7 @@
       "evidence_score": 4,
       "quality_confidence": "high",
       "confidence_score": 0.92,
-      "enriched_summary": "Fondo Italiano d'Investimento: FIPEC co-invests in BV Tech, Spindox, and Else Solutions.",
+      "enriched_summary": "Fondo Italiano d’Investimento: FIPEC co-Invests in BV Tech, Spindox, and Else Solutions.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:59:27.488786+00:00",
@@ -10632,7 +10977,7 @@
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.79,
-      "enriched_summary": "Fondo Italiano d'Investimento SGR: New Board of Directors Appointed for the 2025–2028 Term.",
+      "enriched_summary": "Fondo Italiano d’Investimento SGR: New Board of Directors Appointed for the 2025–2028T erm.",
       "enriched_at": "2026-02-21T19:59:27.494870+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
@@ -11280,6 +11625,66 @@
       "type": "deal_announced"
     },
     {
+      "id": "rss-signal-00087",
+      "fund_id": "",
+      "fund_slug": "advent-international",
+      "signal_type": "exit_announced",
+      "title": "Tinexta activates the call on 16,09% of Info Cert and gives the CEO a mandate to set the price. Consob orders the restart of the investigatory deadlines for the Opa",
+      "what_changed": "Tinexta activated the call on a 16.09% stake in Info Cert and tasked its CEO to define the offer price; Consob ordered the restart of procedural deadlines for the OPA. The move concerns Tinexta, an Italian digital-trust and information services group, and reflects a corporate takeover process rather than a private-equity transaction.",
+      "source_url": "https://bebeez.it/private-equity/tinexta-attiva-la-call-sul-1609-di-infocert-e-da-mandato-al-ceo-per-definire-il-prezzo-e-la-consob-dispone-il-riavvio-dei-termini-istruttori-per-lopa/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-11T07:00:41+00:00",
+      "observed_at": "2026-02-13T14:32:40.644764+00:00",
+      "created_at": "2026-02-13T14:32:40.644764+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Tinexta",
+          "InfoCert"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "16.09% stake",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": true,
+      "ml_keep_prob": 0.749,
+      "ml_keep_confidence": 0.749,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.751,
+      "ml_type_confident": false,
+      "ml_confidence": 0.749,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "title_original": "Tinexta attiva la call sul 16,09% di Info Cert e dà mandato al ceo per definire il prezzo. E la Consob dispone il riavvio dei termini istruttori per l’Opa",
+      "enriched_summary": "Tinexta activated a call on a 16.09% stake in Info Cert, tasked its CEO to set the offer price; Consob ordered restart of OPA deadlines.",
+      "enriched_date": "2026-02-13",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-02-21T15:26:45.010361+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "Specific Italy-focused corporate action (OPA) involving Tinexta and InfoCert, relevant to Italian market monitoring.",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "llm_event_type": "exit",
+      "llm_type_confidence": "high",
+      "llm_type_override": true,
+      "target_companies": [
+        {
+          "name": "InfoCert",
+          "is_direct_investment": false,
+          "action": "exit"
+        }
+      ],
+      "type": "exit_announced"
+    },
+    {
       "id": "seed-signal-00031",
       "fund_id": "",
       "fund_slug": "advent-international",
@@ -11608,7 +12013,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.84,
       "title_original": "Evoluzione editoriale per Grazia: da settimanale passa a quindicinale",
-      "enriched_summary": "EQT portfolio company Reworld Media Italia's Grazia will switch from a weekly to a fortnightly publication and reposition as more premium under editor Silvia Grilli.",
+      "enriched_summary": "Reworld Media Italia's Grazia will switch from a weekly to a fortnightly publication and reposition as more premium under editor Silvia Grilli.",
       "enriched_date": "2026-02-01",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:34:23.016981+00:00",
@@ -11918,6 +12323,66 @@
         }
       ],
       "type": "exit_announced"
+    },
+    {
+      "id": "web-signal-01363",
+      "fund_id": "",
+      "fund_slug": "riello-investimenti-sgr",
+      "signal_type": "deal_announced",
+      "title": "Italian Strategy Private Equity acquires 60% of Aprea Mare Yacht",
+      "what_changed": "",
+      "source_url": "https://www.rielloinvestimenti.it/news-apreamare.html",
+      "source_name": "Riello Investimenti SGR",
+      "published_at": "2025-09-08",
+      "observed_at": "2026-02-12T18:00:46.077291+00:00",
+      "created_at": "2026-02-12T18:00:46.077291+00:00",
+      "snapshot_id": "snap-20260212180044-968d984f",
+      "diff_summary": "New news item detected (dated 8 settembre 2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italian)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.999,
+      "ml_type_confident": true,
+      "ml_confidence": 0.999,
+      "quality_score": 100,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "title_original": "ITALIAN STRATEGY PRIVATE EQUITY ACQUISISCE IL 60% DI APREAMARE YACHT",
+      "enriched_summary": "Italian Strategy Private Equity acquires 60% of APREAMARE YACHT.",
+      "enriched_date": "2026-02-12",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-02-21T19:59:27.654281+00:00",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "Apreamare Yacht",
+          "is_direct_investment": true,
+          "action": "investment"
+        }
+      ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
+      "type": "deal_announced"
     },
     {
       "id": "web-signal-01364",
@@ -12407,7 +12872,7 @@
       "id": "web-signal-01300",
       "fund_id": "",
       "fund_slug": "fvs-sgr",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "The Candy Factory Group expands with Italgum Caramelle, historic producer of gummy candies and gelées",
       "what_changed": "THE CANDY FACTORY GROUP EXPANDS WITH ITALGUM CARAMELLE, HISTORIC PRODUCER OF GUMMY CANDIES AND GELÉES. The Group, promoted by FVS and Clessidra Capital Credit, continues with the strategy of aggregating Italian excellences in the confectionery sector. 4 December 2025 – The Candy Factory Group – born in 2022 from the integration of two historic industrial realities “The Candy Factory Group expands with Italgum Caramelle, historic producer of gummy candies and ge",
       "source_url": "https://fvs.nooostaging.com/2025/12/04/il-gruppo-candy-factory-si-espande-con-italgum-caramelle-storica-realta-produttrice-di-caramelle-gommose-e-gelees/",
@@ -12464,7 +12929,7 @@
           "action": "investment"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "web-signal-01301",
@@ -12749,7 +13214,7 @@
       "id": "web-signal-01308",
       "fund_id": "",
       "fund_slug": "fvs-sgr",
-      "signal_type": "exit_announced",
+      "signal_type": "deal_announced",
       "title": "French firm Chequers acquires Gourmet Italian Food. Sellers are Alcedo with the Alcedo IV fund and FVS SGR with the Fondo Sviluppo PMI.",
       "what_changed": "French Chequers acquires Gourmet Italian Food. Sellers are Alcedo SGR with the Alcedo IV fund and FVS SGR with the Fondo Sviluppo PMI. The new shareholder will continue consolidation, including through targeted acquisitions.",
       "source_url": "https://fvs.nooostaging.com/2025/04/11/la-francese-chequers-rileva-gourmet-italian-food-a-vendere-e-alcedo-con-il-fondo-alcedo-iv-e-fvs-sgr-con-il-fondo-sviluppo-pmi/",
@@ -12810,7 +13275,7 @@
       ],
       "title_original": "La francese Chequers rileva Gourmet Italian Food. A vendere è Alcedo con il fondo Alcedo IV e FVS Sgr con il Fondo Sviluppo PMI",
       "what_changed_original": "La francese Chequers rileva Gourmet Italian Food. A vendere è Alcedo con il fondo Alcedo IV e FVS Sgr con il Fondo Sviluppo PMI. A vendere è Alcedo Sgr con il fondo Alcedo IV e FVS Sgr con il fondo Sviluppo Pmi Il nuovo socio proseguirà il consolidamento, anche tramite acquisizioni mirate Il gruppo francese “La francese Chequers rileva Gourmet Italian Food. A vendere è Alcedo con il fondo Alcedo IV e FVS Sgr con il Fondo Sviluppo PMI ”",
-      "type": "exit_announced"
+      "type": "deal_announced"
     },
     {
       "id": "web-signal-01310",
@@ -12995,7 +13460,7 @@
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.84,
-      "enriched_summary": "Gradiente III (Gradiente SGR) makes a new investment in Veneziani & Co. S.r.l.",
+      "enriched_summary": "Gradiente III (Gradiente SGR) has made a new investment in Veneziani & Co. S.r.l.",
       "enrichment_confidence": "high",
       "enriched_date": "2026-02-05",
       "llm_keep": true,
@@ -13096,7 +13561,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": true,
+      "italy_relevant": false,
       "extracted_entities": {
         "companies": [],
         "people": [],
@@ -13793,7 +14258,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [
@@ -14207,7 +14672,7 @@
       "id": "seed-signal-00040",
       "fund_id": "",
       "fund_slug": "bridgepoint",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Bridgepoint's Bee2Link acquires Italian company TWS, establishes Bee2Link group Italia",
       "what_changed": "Bee2Link group (Bridgepoint Development Capital) acquired Italian company Terranova Web Systems (TWS) and formally established Bee2Link group Italia in May 2025. TWS provides SaaS solutions for Italian automotive distribution market. Marks Bridgepoint's Italian operations expansion.",
       "source_url": "https://bebeez.it/private-equity/la-francese-bee2link-bridgepoint-compra-litaliana-tws/",
@@ -14265,7 +14730,7 @@
           "action": "investment"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "seed-signal-00022",
@@ -14445,7 +14910,7 @@
       "id": "seed-signal-00017",
       "fund_id": "",
       "fund_slug": "eurazeo",
-      "signal_type": "other",
+      "signal_type": "people_move",
       "title": "Eurazeo opens Milan office, plans €500M private debt deployment in Italy",
       "what_changed": "Eurazeo opens Milan office at Corso Matteotti 3. Currently raising 7th pan-European Private Debt fund with Italy having leading position, up to €500M to be deployed by the fund.",
       "source_url": "https://www.eurazeo.com/en/newsroom/press-releases/eurazeo-strengthens-its-footprint-italy-new-office-milan-and-expands-its",
@@ -14489,7 +14954,66 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "other"
+      "type": "people_move"
+    },
+    {
+      "id": "rss-signal-00074",
+      "fund_id": "",
+      "fund_slug": "eureka-venture-sgr",
+      "signal_type": "deal_announced",
+      "title": "BeNewtral, the startup that replaces cement in construction, closes a €7M round. Lead investor is CDP Venture Capital.",
+      "what_changed": "BeNewtral closes a €7M round led by CDP Venture Capital; purchased a pilot plant in Pavia for over 25.000 t/anno.",
+      "source_url": "https://startupitalia.eu/startup/benewtral-sostituisce-il-cemento-round/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-02-09T14:50:07+00:00",
+      "observed_at": "2026-02-12T10:54:37.680036+00:00",
+      "created_at": "2026-02-12T10:54:37.680036+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "BeNewtral"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "€7M",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1,
+      "ml_keep_confidence": 1,
+      "ml_keep_confident": true,
+      "ml_type": "fund",
+      "ml_type_prob": 1,
+      "ml_type_confident": true,
+      "ml_confidence": 1,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1,
+      "title_original": "BeNewtral, la startup che sostituisce il cemento nell’edilizia chiude un round da €7 M. Lead investor è CDP Venture Capital",
+      "what_changed_original": "BeNewtral chiude un round da €7 M guidato da CDP Venture Capital; acquistato impianto pilota a Pavia per oltre 25.000 t/anno.",
+      "enriched_summary": "BeNewtral closes a €7M funding round led by CDP Venture Capital and buys a pilot plant in Pavia (>25,000 t/yr capacity).",
+      "enriched_date": "2026-02-12",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-02-21T13:58:25.269314+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "Specific Italy-based deal: startup fundraising with named lead investor and material operational investment in Pavia.",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "BeNewtral",
+          "is_direct_investment": false,
+          "action": "investment"
+        }
+      ],
+      "type": "deal_announced"
     },
     {
       "id": "rss-signal-00070",
@@ -14744,7 +15268,7 @@
       "evidence_score": 3,
       "quality_confidence": "medium",
       "confidence_score": 0.69,
-      "enriched_summary": "Investindustrial agrees to acquire Fatro, an Italian veterinary pharmaceutical company based in Bologna.",
+      "enriched_summary": "Investindustrial agrees to acquire Fatro.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T20:02:32.095442+00:00",
@@ -14844,7 +15368,7 @@
       "evidence_score": 3,
       "quality_confidence": "medium",
       "confidence_score": 0.69,
-      "enriched_summary": "Investindustrial acquires Proveris, a scientific instruments and drug delivery device company.",
+      "enriched_summary": "Investindustrial acquires Proveris.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T20:02:32.560066+00:00",
@@ -14903,7 +15427,7 @@
       "confidence_score": 0.92,
       "what_changed_original": "[Rumor] 21 Invest valuta la cessione della partecipazione in Witor’s e ha incaricato Vitale di gestire il processo.",
       "title_original": "21 Invest valuta la valorizzazione della partecipazione in Witor’s (cioccolata) e dà mandato a Vitale di gestire il processo",
-      "enriched_summary": "21Invest is evaluating the valuation of its stake in Witor's (chocolate) and has mandated Vitale to manage the process.",
+      "enriched_summary": "Invest is evaluating the valuation of its stake in Witor’s (chocolate) and has mandated Vitale to manage the process.",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:59:28.181061+00:00",
@@ -15082,7 +15606,7 @@
       "quality_confidence": "medium",
       "confidence_score": 0.79,
       "title_original": "Progressio investe in spindox a supporto del piano di crescita della societa",
-      "enriched_summary": "Progressio invests in Spindox to support the company's growth plan.",
+      "enriched_summary": "Progressio invests in spindox to support the company's growth plan.",
       "enriched_date": "2026-02-09",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:59:28.200722+00:00",
@@ -15531,7 +16055,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [
@@ -15571,6 +16095,65 @@
       "llm_keep_source": "local",
       "llm_keep_version": 3,
       "type": "deal_announced"
+    },
+    {
+      "id": "rss-signal-00022",
+      "fund_id": "",
+      "fund_slug": "liftt",
+      "signal_type": "deal_announced",
+      "title": "Newcleo raises additional $125M from investors in 12 months",
+      "what_changed": "newcleo announces an additional €$85M, totaling €$125M raised in the last 12 months.",
+      "source_url": "https://bebeez.it/venture-capital/newcleo-incassa-altri-125-mln-dagli-investitori-in-12-mesi/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-04T06:55:49+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "newcleo"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "$125M",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": false,
+      "ml_keep_prob": 0,
+      "ml_keep_confidence": 1,
+      "ml_keep_confident": true,
+      "ml_type": "fund",
+      "ml_type_prob": 0.487,
+      "ml_type_confident": false,
+      "ml_confidence": 0.487,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1,
+      "what_changed_original": "newcleo annuncia 85 mln$ aggiuntivi, totalizzando 125 mln$ raccolti negli ultimi 12 mesi.",
+      "enriched_summary": "Newcleo announced it raised an additional $85M from investors, bringing the total amount raised to $125M over the past 12 months.",
+      "enriched_date": "2026-02-12",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-02-20T09:15:18.696770+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "Fundraising announcement for Italian company Newcleo — relevant market/deal signal for PE/VC monitoring.",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "Newcleo",
+          "is_direct_investment": false,
+          "action": "investment"
+        }
+      ],
+      "type": "deal_announced",
+      "title_original": "newcleo incassa altri €125M $ dagli investitori in 12 mesi"
     },
     {
       "id": "web-signal-00800",
@@ -15644,7 +16227,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [
@@ -15704,7 +16287,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [],
@@ -16062,7 +16645,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [],
@@ -16095,6 +16678,64 @@
         {
           "name": "Polarise",
           "is_direct_investment": true,
+          "action": "investment"
+        }
+      ],
+      "type": "deal_announced"
+    },
+    {
+      "id": "rss-signal-00033",
+      "fund_id": "",
+      "fund_slug": "sviluppo-imprese-centro-italia-sgr",
+      "signal_type": "deal_announced",
+      "title": "Arte Olio (Verteq Capital), capital increase of €3M for the acquisition and development of 110 organic hectares in Tuscany.",
+      "what_changed": "Arte Olio Società Agricola srl, controlled by Verteq Capital, completed a €3M capital increase to acquire and develop 110 hectares of organic olive groves in Tuscany.",
+      "source_url": "https://bebeez.it/venture-capital/arteolio-verteq-capital-aumento-di-capitale-di-3-mln-per-lacquisto-e-lo-sviluppo-di-110-ettari-biologici-in-toscana/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-03T06:47:33+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "ArteOlio Società Agricola srl"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "€3M",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1,
+      "ml_keep_confidence": 1,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.995,
+      "ml_type_confident": true,
+      "ml_confidence": 0.995,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1,
+      "title_original": "Arte Olio (Verteq Capital), aumento di capitale di €3 M per l’acquisto e lo sviluppo di 110 ettari biologici in Toscana",
+      "enriched_summary": "Arte Olio Società Agricola (controlled by Verteq Capital) completed a €3M capital increase to acquire and develop 110 ha of organic olive groves in Tuscany.",
+      "enriched_date": "2026-02-12",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-02-21T13:58:36.245547+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "Specific Italy-based capital increase/deal involving Arte Olio and Verteq Capital; relevant to Italian PE/agribusiness coverage.",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "Arte Olio Società Agricola srl",
+          "is_direct_investment": false,
           "action": "investment"
         }
       ],
@@ -16432,7 +17073,7 @@
       "id": "rss-signal-00059",
       "fund_id": "",
       "fund_slug": "smart-capital",
-      "signal_type": "other",
+      "signal_type": "exit_announced",
       "title": "Merger between Smart4Tech (Smart Capital), Crowd Fund Me and WeAreStarting gets underway. Binding agreements signed",
       "what_changed": "Binding agreements signed for the merger between Smart4Tech (Smart Capital), Crowd Fund Me and WeAreStarting.",
       "source_url": "https://bebeez.it/fintech/al-via-la-fusione-tra-smart4tech-smart-capital-crowdfundme-e-wearestarting-firmati-gli-accordi-vincolanti/",
@@ -16497,7 +17138,7 @@
           "action": "other"
         }
       ],
-      "type": "other"
+      "type": "exit_announced"
     },
     {
       "id": "rss-signal-00061",
@@ -16607,6 +17248,66 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "type": "fund_launch"
+    },
+    {
+      "id": "rss-signal-00067",
+      "fund_id": "",
+      "fund_slug": "como-venture",
+      "signal_type": "exit_announced",
+      "title": "D-Orbit raises €110M from a club deal organized by Azimut. Exit for the fund TT Venture of Indaco Venture Partners SGR, present from the early stages",
+      "what_changed": "D-Orbit raises €110M in a club deal organized by Azimut; exit for the TT Venture fund of Indaco Venture Partners SGR.",
+      "source_url": "https://bebeez.it/venture-capital/d-orbit-raccoglie-110-mln-euro-da-un-club-deal-organizzato-da-azimut-exit-per-il-fondo-tt-venture-di-indaco-venture-partners-sgr-presente-dalle-fasi-iniziali/",
+      "source_name": "BeBeez",
+      "published_at": "2026-01-23T06:50:40+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "D-Orbit"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "€110M",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.42,
+      "ml_type_confident": false,
+      "ml_confidence": 0.42,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1,
+      "title_original": "D-Orbit raccoglie €110 M da un club deal organizzato da Azimut. Exit per il fondo TT Venture di Indaco Venture Partners sgr, presente dalle fasi iniziali",
+      "what_changed_original": "D-Orbit raccoglie €110 M in un club deal organizzato da Azimut; exit per il fondo TT Venture di Indaco Venture Partners sgr.",
+      "enriched_summary": "D-Orbit raises €110M from a club deal organized by Azimut. Exit for the fund TT Venture of Indaco Venture Partners SGR, present from the early stages.",
+      "enriched_date": "2026-02-12",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-02-21T19:59:28.372125+00:00",
+      "llm_event_type": "exit",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "D-Orbit",
+          "is_direct_investment": false,
+          "action": "exit"
+        }
+      ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
+      "type": "exit_announced"
     },
     {
       "id": "web-signal-01177",
@@ -17154,7 +17855,7 @@
       "id": "seed-signal-00005",
       "fund_id": "",
       "fund_slug": "ares-management",
-      "signal_type": "other",
+      "signal_type": "people_move",
       "title": "Ares Management opens Milan office, appoints Head of Italy",
       "what_changed": "Ares establishes its presence in Italy with a Milan office. Has deployed over €1.6B to support Italian businesses across European Direct Lending and Real Estate strategies.",
       "source_url": "https://www.businesswire.com/news/home/20250513935620/en/Ares-Management-Opens-Milan-Office",
@@ -17199,7 +17900,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "other"
+      "type": "people_move"
     },
     {
       "id": "seed-signal-00006",
@@ -17540,7 +18241,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": true,
+      "italy_relevant": false,
       "extracted_entities": {
         "companies": [],
         "people": [
@@ -17745,7 +18446,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.74,
       "title_original": "Omologato il Concordato Preventivo di Heila Cranes. Via al Piano di Rilancio",
-      "enriched_summary": "Heila Cranes' court-supervised creditor arrangement has been approved and the company's relaunch plan is underway.",
+      "enriched_summary": "Heila Cranes' court-supervised creditor arrangement (concordato preventivo) has been approved and the company's relaunch plan is underway.",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
@@ -17819,7 +18520,7 @@
       "id": "web-signal-00550",
       "fund_id": "",
       "fund_slug": "xgen-venture-sgr",
-      "signal_type": "portfolio_update",
+      "signal_type": "people_move",
       "title": "Tes Pharma Announces Formation of AKI Clinical Advisory Board",
       "what_changed": "",
       "source_url": "https://www.tespharma.com/news/tes-pharma-announces-formation-of-aki-clinical-advisory-board/#new_tab",
@@ -17855,7 +18556,7 @@
       "evidence_score": 1,
       "quality_confidence": "high",
       "confidence_score": 0.63,
-      "enriched_summary": "XGen Venture SGR portfolio company Tes Pharma forms an AKI Clinical Advisory Board.",
+      "enriched_summary": "Tes Pharma Announces Formation of AKI Clinical Advisory Board.",
       "enrichment_confidence": "low",
       "enriched_at": "2026-02-21T19:59:28.459177+00:00",
       "llm_keep": true,
@@ -17863,7 +18564,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "portfolio_update"
+      "type": "people_move"
     },
     {
       "id": "web-signal-01038",
@@ -18063,7 +18764,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [
@@ -18393,7 +19094,7 @@
       "quality_confidence": "high",
       "confidence_score": 1,
       "title_original": "Secondo Investimento per Armònia Italy Fund II",
-      "enriched_summary": "Armònia Italy Fund II makes its second investment, in Forge.",
+      "enriched_summary": "Armònia Italy Fund II makes its second investment.",
       "enriched_date": "2025-06-23",
       "enrichment_confidence": "medium",
       "enriched_at": "2026-02-21T19:59:28.479450+00:00",
@@ -18479,7 +19180,7 @@
       "id": "web-signal-00552",
       "fund_id": "",
       "fund_slug": "kyip-capital-sgr",
-      "signal_type": "portfolio_update",
+      "signal_type": "people_move",
       "title": "Marco Bragadin nominato Chief Executive Officer di Datlas Group",
       "what_changed": "",
       "source_url": "https://kyipcapital.com/marco-bragadin-nominato-chief-executive-officer-di-datlas-group/",
@@ -18523,7 +19224,7 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "type": "portfolio_update"
+      "type": "people_move"
     },
     {
       "id": "web-signal-00537",
@@ -18665,7 +19366,7 @@
       "evidence_score": 4,
       "quality_confidence": "high",
       "confidence_score": 0.82,
-      "enriched_summary": "Davies has agreed to acquire SCM Insurance Services, described as Canada's largest claims processing and risk solutions business; BC Partners posted the announcement noting this is Davies' biggest strategic M&A to date.",
+      "enriched_summary": "Davies has agreed to acquire SCM Insurance Services, described as Canada’s largest claims processing and risk solutions business; Bc Partners posted the announcement noting this is Davies’ biggest strategic M&A to date.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-20T12:31:27.197591+00:00",
@@ -18814,7 +19515,7 @@
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.74,
-      "enriched_summary": "BC Partners Real Estate sold a laboratory and R&D campus in Warstein, Germany.",
+      "enriched_summary": "BC Partners Real Estate sold a laboratory and R&D campus in Warste in, Germany.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T20:02:46.625129+00:00",
@@ -19139,7 +19840,7 @@
       "id": "news-signal-20260205111507-934c2dec-95f53995",
       "fund_id": "",
       "fund_slug": "clessidra-sgr",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Candy Factory Group Expands with Italgum Caramelle, Historic Producer of Gummy Candies and Gelées",
       "what_changed": "",
       "source_url": "https://www.clessidragroup.it/il-gruppo-candy-factory-si-espande-con-italgum-caramelle/",
@@ -19183,7 +19884,7 @@
           "action": "investment"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205130620-1b7fbe7a-15689eb8",
@@ -19531,7 +20232,7 @@
       "id": "web-signal-00887",
       "fund_id": "",
       "fund_slug": "alpha-associati",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Marvesting acquires a new company this year, Stellar in the United Kingdom",
       "what_changed": "",
       "source_url": "https://www.alphape.com/news/25",
@@ -19545,7 +20246,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [
@@ -19566,7 +20267,7 @@
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.824,
-      "enriched_summary": "Alpha Associati portfolio company Marvesting acquires Stellar, a UK-based company.",
+      "enriched_summary": "Alpha Associati reports that Marvesting has acquired Stellar, a company in the United Kingdom; the announcement was posted on the fund's website.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-20T09:16:43.069290+00:00",
@@ -19583,7 +20284,7 @@
           "action": "investment"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "seed-signal-00016",
@@ -19790,7 +20491,7 @@
       "id": "web-signal-01682",
       "fund_id": "",
       "fund_slug": "finint-investments-sgr",
-      "signal_type": "deal_announced",
+      "signal_type": "other",
       "title": "Messina: €20M from the Integrated Urban Plans Fund for the construction of the new Zafferia shopping center",
       "what_changed": "",
       "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/20.02 CS Fondo PUI_Centro commerciale Zafferia_Messina.pdf",
@@ -19826,13 +20527,13 @@
       "quality_confidence": "medium",
       "confidence_score": 0.632,
       "title_original": "Messina: €20 M dal Fondo Piani Urbani Integrati per la realizzazione del nuovo Centro commerciale di Zafferia",
-      "enriched_summary": "Finint Investments SGR, via its Fondo Piani Urbani Integrati, invests €20M in the development of the new Zafferia shopping center.",
+      "enriched_summary": "€20M from the Fondo Piani Urbani Integrati for the development of the new Zafferia shopping center.",
       "enriched_at": "2026-02-21T19:31:15.743822+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high quality score",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "type": "deal_announced"
+      "type": "other"
     },
     {
       "id": "web-signal-01681",
@@ -20163,7 +20864,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-5a2d8000",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "deal_announced",
+      "signal_type": "fundraise",
       "title": "Techshop exceeds fundraising target of €50M",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -20197,13 +20898,13 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "fundraise"
     },
     {
       "id": "news-signal-20260205105313-cc65210b-bd611625",
       "fund_id": "",
       "fund_slug": "capza",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Audensiel Acquires A Stake In Cognodata In Spain And Mexico",
       "what_changed": "",
       "source_url": "https://capza.co/news/audensiel-acquires-a-stake-in-cognodata-in-spain-and-mexico/",
@@ -20230,7 +20931,7 @@
       "quality_confidence": "medium",
       "confidence_score": 0.674,
       "enriched_summary": "Audensiel acquires a stake in Cognodata in Spain and Mexico.",
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205105313-cc65210b-1f0e5189",
@@ -20369,7 +21070,7 @@
       "id": "news-signal-20260205130637-eccc9489-d7a224fb",
       "fund_id": "",
       "fund_slug": "ardian",
-      "signal_type": "fund_launch",
+      "signal_type": "deal_announced",
       "title": "Ardian accelerates in the single asset continuation vehicles with a dedicated investment strategy",
       "what_changed": "",
       "source_url": "https://www.ardian.com/news-insights",
@@ -20406,7 +21107,7 @@
       "llm_event_type": "fund",
       "llm_type_confidence": "high",
       "llm_italy_relevant": false,
-      "type": "fund_launch"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205111514-89d1a64a-edfbd148",
@@ -20846,7 +21547,7 @@
       "evidence_score": 2,
       "quality_confidence": "medium",
       "confidence_score": 0.662,
-      "enriched_summary": "CDP Venture Capital invests in Connexa InsTech.",
+      "enriched_summary": "CDP Venture Capital added Connexa InsTech to its portfolio.",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
       "llm_keep": true,
@@ -21008,7 +21709,7 @@
       "evidence_score": 2,
       "quality_confidence": "medium",
       "confidence_score": 0.662,
-      "enriched_summary": "Itago acquired Forno d'Asolo from Green Arrow Capital SGR's portfolio.",
+      "enriched_summary": "Forno d’Asolo exited from Green Arrow Capital SGR portfolio.",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:59:28.673055+00:00",
       "llm_event_type": "exit",
@@ -21257,7 +21958,7 @@
       "evidence_score": 2,
       "quality_confidence": "medium",
       "confidence_score": 0.662,
-      "enriched_summary": "CDP Equity invests in Autostrade per l'Italia S.p.A., Italy's largest motorway operator, adding it to its infrastructure portfolio.",
+      "enriched_summary": "CDP Equity & Real Asset added Autostrade per l'Italia S.p.A. to its infrastructure portfolio.",
       "enriched_date": "2026-02-17",
       "enrichment_confidence": "high",
       "llm_keep": true,
@@ -21316,7 +22017,7 @@
       "evidence_score": 2,
       "quality_confidence": "medium",
       "confidence_score": 0.662,
-      "enriched_summary": "AKSÌA SGR exits its healthcare investment MIR.",
+      "enriched_summary": "MIR exited from AKSÌA SGR portfolio (Healthcare).",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:59:28.687591+00:00",
       "llm_event_type": "exit",
@@ -21562,7 +22263,7 @@
       "evidence_score": 2,
       "quality_confidence": "medium",
       "confidence_score": 0.662,
-      "enriched_summary": "Gradiente SGR invests in Cromoplastica C.M.C. S.r.l., an Italian plastics manufacturing company.",
+      "enriched_summary": "Gradiente SGR added Cromoplastica C.M.C. S.r.l. to its portfolio.",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
       "llm_keep": true,
@@ -21623,7 +22324,7 @@
       "evidence_score": 2,
       "quality_confidence": "medium",
       "confidence_score": 0.662,
-      "enriched_summary": "Gradiente SGR invests in DF Elettronica srl.",
+      "enriched_summary": "Gradiente SGR added DF Elettronica srl to its portfolio.",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
       "llm_keep": true,
@@ -22227,7 +22928,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": true,
+      "italy_relevant": false,
       "extracted_entities": {
         "companies": [],
         "people": [],
@@ -22340,7 +23041,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "enriched_summary": "360 Capital launches \"360 Digitale\", an early-stage fund dedicated to digital transition.",
+      "enriched_summary": "Capital launches \"360 Digitaly \", an early-stage fund dedicated to digital transition.",
       "title_original": "360 Capital lancia \"360 Digitaly \", Fondo early stage dedicato alla transizione digitale",
       "type": "fund_launch"
     },
@@ -22348,7 +23049,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-932937bc",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "deal_announced",
+      "signal_type": "fundraise",
       "title": "Streetbeat raises $15M to strengthen trading with artificial intelligence targeted at wealth managers",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -22381,7 +23082,7 @@
       "llm_keep_reason": "high quality score",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "type": "deal_announced"
+      "type": "fundraise"
     },
     {
       "id": "news-signal-20260205105313-cc65210b-96e12061",
@@ -22986,7 +23687,7 @@
       "id": "rss-signal-00060",
       "fund_id": "",
       "fund_slug": "friulia",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Friulia invests €1.2M in Pintau di, controlled by Polo del Gusto (Illy Group)",
       "what_changed": "Friulia enters the share capital of Pintau di with an investment of €1.2M; Pintaudi is controlled by Polo del Gusto (Gruppo Illy).",
       "source_url": "https://bebeez.it/private-equity/friulia-punta-12-mln-euro-su-pintaudi-controllata-da-polo-del-gusto-gruppo-illy/",
@@ -23023,7 +23724,7 @@
       "confidence_score": 0.81,
       "title_original": "Friulia punta €1.2 M su Pintaudi, controllata da Polo del Gusto (Gruppo Illy)",
       "what_changed_original": "Friulia entra nel capitale di Pintau di con un investimento di €1.2 M; Pintaudi è controllata da Polo del Gusto (Gruppo Illy).",
-      "enriched_summary": "Friulia invests €1.2M in Pintaudi, controlled by Polo del Gusto (Gruppo Illy).",
+      "enriched_summary": "Friulia invests €1.2M in Pintau di, controlled by Polo del Gusto (Gruppo Illy).",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:31:15.827377+00:00",
@@ -23040,7 +23741,7 @@
           "action": "investment"
         }
       ],
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "rss-signal-00084",
@@ -23091,7 +23792,7 @@
       "id": "rss-signal-00014",
       "fund_id": "",
       "fund_slug": "fondo-italiano-d-investimento-sgr",
-      "signal_type": "exit_announced",
+      "signal_type": "deal_announced",
       "title": "Mecaer (Fondo Italiano d’Investimento and Stellex Capital Management), Lazard is handling the sale process. Carlyle and PAI Partners are in the running.",
       "what_changed": "[Rumor] Carlyle and PAI Partners are said to be in the running to acquire Mecaer Aviation Group, controlled by Fondo Italiano d’Investimento and Stellex; Lazard is handling the sale process.",
       "source_url": "https://bebeez.it/private-equity/mecaer-fondo-italiano-dinvestimento-e-stellex-capital-management-lazard-si-occupa-del-processo-di-vendita-carlyle-e-pai-partners-in-lizza/",
@@ -23144,7 +23845,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "exit_announced"
+      "type": "deal_announced"
     },
     {
       "id": "web-signal-01313",
@@ -23568,7 +24269,7 @@
       "id": "web-signal-01005",
       "fund_id": "",
       "fund_slug": "equinox-aifm",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Quid inks an important partnership with Isybank, Intesa Sanpaolo’s digital bank",
       "what_changed": "",
       "source_url": "https://static.equinox-investments.com/Quid_Press_release_19apr24_e1b7413b33.pdf",
@@ -23625,7 +24326,7 @@
           "action": "other"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "web-signal-00486",
@@ -23688,7 +24389,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-aae76da4",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "fund_launch",
+      "signal_type": "other",
       "title": "Terra Next is launched: over €5M for the new accelerator of startups and innovative SMEs in the Bioeconomy sector",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -23722,7 +24423,7 @@
       "llm_keep_version": 3,
       "enriched_at": "2026-02-21T19:59:28.845145+00:00",
       "enriched_summary": "Terra Next is launched: over €5M for the new accelerator of startups and innovative SMEs in the Bioeconomy sector.",
-      "type": "fund_launch"
+      "type": "other"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-2cb163ab",
@@ -23779,7 +24480,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-a56b3c6c",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "deal_announced",
+      "signal_type": "other",
       "title": "Italian Founders Fund (IFF) reaches €90M and boosts its impact on the Italian ecosystem thanks to €35M of Expansion Capital from the Digital Transition Fund of CDP Venture Capital.",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -23813,7 +24514,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "other"
     },
     {
       "id": "web-signal-01319",
@@ -23995,7 +24696,7 @@
       "quality_confidence": "low",
       "confidence_score": 0.53,
       "title_original": "Francesco Maria Giovannini entra nel Consiglio Tecnico-Scientifico del MEF",
-      "enriched_summary": "Green Arrow Capital SGR executive Francesco Maria Giovannini joins the MEF Technical-Scientific Council.",
+      "enriched_summary": "Francesco Maria Giovannini joins the MEF's Technical-Scientific Council.",
       "enriched_at": "2026-02-21T19:59:28.859176+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high quality score",
@@ -24270,6 +24971,79 @@
       "type": "report"
     },
     {
+      "id": "seed-signal-00044",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "bc-partners",
+        "cdp-venture-capital",
+        "eurazeo",
+        "eurizon-real-asset",
+        "nextalia-sgr",
+        "partners-group",
+        "renaissance-partners"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Bending Spoons closes $233M Brightcove acquisition",
+      "what_changed": "Bending Spoons completed the all-cash acquisition of Brightcove for about $233M, adding Brightcove's enterprise video platform to its product portfolio.",
+      "source_url": "https://www.brightcove.com/pressroom/bending-spoons-closes-233-million-acquisition-of-brightcove",
+      "source_name": "Brightcove",
+      "published_at": "2025-02-04",
+      "observed_at": "2026-02-21T19:16:56.716+00:00",
+      "created_at": "2026-02-21T19:16:56.716+00:00",
+      "snapshot_id": "seed-2026-02-21-company-top10-zero-signals",
+      "diff_summary": "Seeded historical signal: Bending Spoons closes $233M Brightcove acquisition",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "extraction_source": "manual_seed",
+      "data_source": "manual",
+      "relevance_score": 1,
+      "relevance_reasons": [
+        "Italian company",
+        "M&A transaction",
+        "Bending Spoons"
+      ],
+      "italy_relevant": true,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Bending Spoons"
+        ],
+        "people": [],
+        "locations": [
+          "Italy"
+        ]
+      },
+      "deal_amount": "$233M",
+      "target_companies": [
+        {
+          "name": "Bending Spoons",
+          "is_direct_investment": true,
+          "action": "investment"
+        }
+      ],
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 100,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1,
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
+      "enriched_at": "2026-02-21T19:59:28.874358+00:00",
+      "enriched_summary": "Bending Spoons completed the all-cash acquisition of Brightcove for about $233M, adding Brightcove's enterprise video platform to its product portfolio.",
+      "type": "deal_announced"
+    },
+    {
       "id": "seed-signal-00045",
       "fund_id": "",
       "fund_slug": "fondo-italiano-d-investimento-sgr",
@@ -24354,7 +25128,7 @@
         "kkr",
         "pillarstone"
       ],
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Vodafone Qatar invests in Sirti Digital Solutions MENA JV and acquires 51% stake",
       "what_changed": "Sirti Digital Solutions announced an investment by Vodafone Qatar in Sirti Digital Solutions MENA, with Vodafone Qatar acquiring a 51% stake.",
       "source_url": "https://www.sirti.it/sirti-digital-solutions-annuncia-linvestimento-di-capitale-da-parte-di-vodafone-qatar-uno-dei-principali-operatori-di-telecomunicazioni-e-fornitori-di-tecnologia-nello-stato-del-qatar-nella-propri/",
@@ -24412,7 +25186,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "seed-signal-00047",
@@ -24564,7 +25338,7 @@
         "three-hills",
         "tikehau-capital"
       ],
-      "signal_type": "portfolio_update",
+      "signal_type": "exit_announced",
       "title": "Dedalus signs agreement to sell AMEA business to ENTOMO",
       "what_changed": "Dedalus signed an agreement to sell its AMEA business to ENTOMO.",
       "source_url": "https://www.dedalus.com/global/en/media/news/dedalus-and-entomo-sign-agreement-for-amea-business-transition/",
@@ -24615,8 +25389,79 @@
       "evidence_score": 5,
       "quality_confidence": "high",
       "confidence_score": 1,
-      "enriched_summary": "Ardian portfolio company Dedalus signs agreement to sell its AMEA business to ENTOMO.",
-      "type": "portfolio_update"
+      "enriched_summary": "Dedalus signs agreement to sell AMEA business to ENTOMO.",
+      "type": "exit_announced"
+    },
+    {
+      "id": "seed-signal-00050",
+      "fund_id": "",
+      "fund_slug": "eurazeo",
+      "related_fund_slugs": [
+        "carlyle",
+        "cvc-capital-partners",
+        "eurazeo",
+        "pai-partners",
+        "progressio-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "LVMH acquires 10% of Double R to support increase in Moncler stake",
+      "what_changed": "LVMH acquired a 10% stake in Double R, the vehicle through which Remo Ruffini controls Moncler, and the parties said this would support increasing Double R's Moncler stake up to 18.5%.",
+      "source_url": "https://www.lvmh.com/en/publications/remo-ruffini-partners-with-lvmh",
+      "source_name": "LVMH",
+      "published_at": "2024-09-27",
+      "observed_at": "2026-02-21T19:16:56.716+00:00",
+      "created_at": "2026-02-21T19:16:56.716+00:00",
+      "snapshot_id": "seed-2026-02-21-company-top10-zero-signals",
+      "diff_summary": "Seeded historical signal: LVMH acquires 10% of Double R to support increase in Moncler stake",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "extraction_source": "manual_seed",
+      "data_source": "manual",
+      "relevance_score": 1,
+      "relevance_reasons": [
+        "Italian company",
+        "Equity transaction",
+        "Control vehicle stake"
+      ],
+      "italy_relevant": true,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Moncler"
+        ],
+        "people": [],
+        "locations": [
+          "Italy"
+        ]
+      },
+      "deal_amount": null,
+      "target_companies": [
+        {
+          "name": "Moncler",
+          "is_direct_investment": false,
+          "action": "investment"
+        }
+      ],
+      "ml_keep": true,
+      "ml_keep_prob": 0.826,
+      "ml_keep_confidence": 0.826,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.923,
+      "ml_type_confident": true,
+      "ml_confidence": 0.826,
+      "quality_score": 100,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1,
+      "enriched_summary": "LVMH acquired a 10% stake in Double R, the vehicle through which Remo Ruffini controls Moncler, and the parties said this would support increasing Double R's Moncler stake up to 18.5%.",
+      "enriched_at": "2026-02-21T19:59:28.899232+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
+      "type": "deal_announced"
     },
     {
       "id": "seed-signal-00051",
@@ -24628,7 +25473,7 @@
         "narval-investimenti",
         "renaissance-partners"
       ],
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Neopharmed Gentili agrees acquisition of ORLADEYO European business for up to $264M",
       "what_changed": "Neopharmed Gentili signed an agreement to acquire BioCryst's ORLADEYO business in Europe for up to $264M, including $250M upfront and milestone payments.",
       "source_url": "https://ir.biocryst.com/news-releases/news-release-details/biocryst-announces-sale-european-orladeyor-berotralstat-business",
@@ -24679,14 +25524,14 @@
       "evidence_score": 5,
       "quality_confidence": "high",
       "confidence_score": 1,
-      "enriched_summary": "Ardian-backed Neopharmed Gentili signed an agreement to acquire BioCryst's ORLADEYO business in Europe for up to $264M.",
+      "enriched_summary": "Neopharmed Gentili signed an agreement to acquire BioCryst's ORLADEYO business in Europe for up to $264M, including $250M upfront and milestone payments.",
       "enrichment_confidence": "low",
       "enriched_at": "2026-02-21T19:31:15.887846+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "seed-signal-00052",
@@ -24698,7 +25543,7 @@
         "hat-sicaf",
         "progressio-sgr"
       ],
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Assist Digital acquires majority stake in Hyntelo",
       "what_changed": "Assist Digital announced the acquisition of a majority stake in Hyntelo.",
       "source_url": "https://assistdigital.com/news/assist-digital-acquires-majority-stake-in-hyntelo-a-new-european-hub-for-artificial-intelligence-and-data-valorization-in-customer-experience",
@@ -24749,17 +25594,88 @@
       "evidence_score": 5,
       "quality_confidence": "high",
       "confidence_score": 1,
-      "enriched_summary": "Ardian-backed Assist Digital announced the acquisition of a majority stake in Hyntelo.",
+      "enriched_summary": "Assist Digital announced the acquisition of a majority stake in Hyntelo.",
       "enriched_at": "2026-02-21T19:59:28.914624+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "portfolio_update"
+      "type": "deal_announced"
+    },
+    {
+      "id": "seed-signal-00053",
+      "fund_id": "",
+      "fund_slug": "renaissance-partners",
+      "related_fund_slugs": [
+        "andera-partners",
+        "green-arrow-capital-sgr",
+        "narval-investimenti",
+        "renaissance-partners"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Arbo acquires 100% of Distribuciones Suner to accelerate Iberian expansion",
+      "what_changed": "Arbo announced the acquisition of 100% of Distribuciones Suner.",
+      "source_url": "https://arbo.it/news/arbo-acquisisce-suner/",
+      "source_name": "Arbo",
+      "published_at": "2025-10-01",
+      "observed_at": "2026-02-21T19:16:56.716+00:00",
+      "created_at": "2026-02-21T19:16:56.716+00:00",
+      "snapshot_id": "seed-2026-02-21-company-top10-zero-signals",
+      "diff_summary": "Seeded historical signal: Arbo acquires 100% of Distribuciones Suner to accelerate Iberian expansion",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "extraction_source": "manual_seed",
+      "data_source": "manual",
+      "relevance_score": 1,
+      "relevance_reasons": [
+        "Italian company",
+        "100% acquisition",
+        "Cross-border expansion"
+      ],
+      "italy_relevant": false,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Arbo"
+        ],
+        "people": [],
+        "locations": [
+          "Italy"
+        ]
+      },
+      "deal_amount": null,
+      "target_companies": [
+        {
+          "name": "Arbo",
+          "is_direct_investment": true,
+          "action": "investment"
+        }
+      ],
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 100,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1,
+      "enriched_summary": "Arbo acquires 100% of Distribuciones Suner to accelerate Iberian expansion.",
+      "enrichment_confidence": "low",
+      "enriched_at": "2026-02-21T19:59:28.918824+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
+      "type": "deal_announced"
     }
   ],
-  "signal_count": 461,
+  "signal_count": 477,
   "filtered_at": "2026-02-21T12:44:40.936787+00:00",
   "filter_stats": {
     "original_count": 1690,
@@ -24796,10 +25712,5 @@
   },
   "enriched_at": "2026-02-21T20:18:24.260977+00:00",
   "pass3_fixed_at": "2026-02-21T20:41:36.686202Z",
-  "pass4_fixed_at": "2026-02-21T20:51:16.950444Z",
-  "pass7_fixed_at": "2026-02-21T21:15:34.512024Z",
-  "pass8_fixed_at": "2026-02-22T09:53:36.288329Z",
-  "pass9_fixed_at": "2026-02-22T10:07:28.764359Z",
-  "pass10_fixed_at": "2026-02-22T10:18:09.494142Z",
-  "pass11_fixed_at": "2026-02-22T10:30:33.587413Z"
+  "pass4_fixed_at": "2026-02-21T20:51:16.950444Z"
 }

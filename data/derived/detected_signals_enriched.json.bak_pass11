@@ -339,7 +339,7 @@
       "id": "web-signal-01651",
       "fund_id": "",
       "fund_slug": "finint-investments-sgr",
-      "signal_type": "deal_announced",
+      "signal_type": "other",
       "title": "Riello Investimenti SGR and Finint Investments together to support ERREBIELLE and expand Made-in-Italy design",
       "what_changed": "",
       "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/2025-06-30 CS_Bond Errebielle_Riello_Finint Investments_final.pdf",
@@ -387,7 +387,7 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "type": "deal_announced"
+      "type": "other"
     },
     {
       "id": "web-signal-01679",
@@ -6389,7 +6389,7 @@
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.84,
-      "enriched_summary": "CDP Venture Capital-backed Shop Circle extends its Series B round to $100M to accelerate M&A and AI development.",
+      "enriched_summary": "CDP Venture Capital reports Shop Circle extends its Series B round to $100M to accelerate M&A and AI development.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "llm_keep": true,
@@ -7638,7 +7638,7 @@
       "id": "news-signal-20260205105313-cc65210b-8677345c",
       "fund_id": "",
       "fund_slug": "capza",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Capza Supports Wifirst In The Acquisition Of Hotsplots",
       "what_changed": "",
       "source_url": "https://capza.co/news/capza-supports-wifirst-in-the-acquisition-of-hotsplots/",
@@ -7682,7 +7682,7 @@
           "action": "investment"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205105313-cc65210b-22d67246",
@@ -7721,7 +7721,7 @@
       "id": "news-signal-20260205105313-cc65210b-89e125d5",
       "fund_id": "",
       "fund_slug": "capza",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Capza Supports Tevah The French Leader In Electronic Security Products Distribution In Its Merger With Onyx Vision",
       "what_changed": "",
       "source_url": "https://capza.co/news/capza-supports-tevah-the-french-leader-in-electronic-security-products-distribution-in-its-merger-with-onyx-vision/",
@@ -7770,7 +7770,7 @@
           "action": "other"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205105313-cc65210b-5181820b",
@@ -7997,7 +7997,7 @@
       "id": "news-signal-20260205105313-cc65210b-a6a35a39",
       "fund_id": "",
       "fund_slug": "capza",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Simplifia Strengthens Its European Leadership With The Acquisition Of Nembedem and In Denmark",
       "what_changed": "",
       "source_url": "https://capza.co/news/simplifia-strengthens-its-european-leadership-with-the-acquisition-of-nembedemand-in-denmark/",
@@ -8041,7 +8041,7 @@
           "action": "investment"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "web-signal-00530",
@@ -12407,7 +12407,7 @@
       "id": "web-signal-01300",
       "fund_id": "",
       "fund_slug": "fvs-sgr",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "The Candy Factory Group expands with Italgum Caramelle, historic producer of gummy candies and gelées",
       "what_changed": "THE CANDY FACTORY GROUP EXPANDS WITH ITALGUM CARAMELLE, HISTORIC PRODUCER OF GUMMY CANDIES AND GELÉES. The Group, promoted by FVS and Clessidra Capital Credit, continues with the strategy of aggregating Italian excellences in the confectionery sector. 4 December 2025 – The Candy Factory Group – born in 2022 from the integration of two historic industrial realities “The Candy Factory Group expands with Italgum Caramelle, historic producer of gummy candies and ge",
       "source_url": "https://fvs.nooostaging.com/2025/12/04/il-gruppo-candy-factory-si-espande-con-italgum-caramelle-storica-realta-produttrice-di-caramelle-gommose-e-gelees/",
@@ -12464,7 +12464,7 @@
           "action": "investment"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "web-signal-01301",
@@ -14207,7 +14207,7 @@
       "id": "seed-signal-00040",
       "fund_id": "",
       "fund_slug": "bridgepoint",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Bridgepoint's Bee2Link acquires Italian company TWS, establishes Bee2Link group Italia",
       "what_changed": "Bee2Link group (Bridgepoint Development Capital) acquired Italian company Terranova Web Systems (TWS) and formally established Bee2Link group Italia in May 2025. TWS provides SaaS solutions for Italian automotive distribution market. Marks Bridgepoint's Italian operations expansion.",
       "source_url": "https://bebeez.it/private-equity/la-francese-bee2link-bridgepoint-compra-litaliana-tws/",
@@ -14265,7 +14265,7 @@
           "action": "investment"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "seed-signal-00022",
@@ -16062,7 +16062,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [],
@@ -18479,7 +18479,7 @@
       "id": "web-signal-00552",
       "fund_id": "",
       "fund_slug": "kyip-capital-sgr",
-      "signal_type": "portfolio_update",
+      "signal_type": "people_move",
       "title": "Marco Bragadin nominato Chief Executive Officer di Datlas Group",
       "what_changed": "",
       "source_url": "https://kyipcapital.com/marco-bragadin-nominato-chief-executive-officer-di-datlas-group/",
@@ -18523,7 +18523,7 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "type": "portfolio_update"
+      "type": "people_move"
     },
     {
       "id": "web-signal-00537",
@@ -19139,7 +19139,7 @@
       "id": "news-signal-20260205111507-934c2dec-95f53995",
       "fund_id": "",
       "fund_slug": "clessidra-sgr",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Candy Factory Group Expands with Italgum Caramelle, Historic Producer of Gummy Candies and Gelées",
       "what_changed": "",
       "source_url": "https://www.clessidragroup.it/il-gruppo-candy-factory-si-espande-con-italgum-caramelle/",
@@ -19183,7 +19183,7 @@
           "action": "investment"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205130620-1b7fbe7a-15689eb8",
@@ -20203,7 +20203,7 @@
       "id": "news-signal-20260205105313-cc65210b-bd611625",
       "fund_id": "",
       "fund_slug": "capza",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Audensiel Acquires A Stake In Cognodata In Spain And Mexico",
       "what_changed": "",
       "source_url": "https://capza.co/news/audensiel-acquires-a-stake-in-cognodata-in-spain-and-mexico/",
@@ -20230,7 +20230,7 @@
       "quality_confidence": "medium",
       "confidence_score": 0.674,
       "enriched_summary": "Audensiel acquires a stake in Cognodata in Spain and Mexico.",
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205105313-cc65210b-1f0e5189",
@@ -23568,7 +23568,7 @@
       "id": "web-signal-01005",
       "fund_id": "",
       "fund_slug": "equinox-aifm",
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Quid inks an important partnership with Isybank, Intesa Sanpaolo’s digital bank",
       "what_changed": "",
       "source_url": "https://static.equinox-investments.com/Quid_Press_release_19apr24_e1b7413b33.pdf",
@@ -23625,7 +23625,7 @@
           "action": "other"
         }
       ],
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "web-signal-00486",
@@ -23688,7 +23688,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-aae76da4",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "fund_launch",
+      "signal_type": "other",
       "title": "Terra Next is launched: over €5M for the new accelerator of startups and innovative SMEs in the Bioeconomy sector",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -23722,7 +23722,7 @@
       "llm_keep_version": 3,
       "enriched_at": "2026-02-21T19:59:28.845145+00:00",
       "enriched_summary": "Terra Next is launched: over €5M for the new accelerator of startups and innovative SMEs in the Bioeconomy sector.",
-      "type": "fund_launch"
+      "type": "other"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-2cb163ab",
@@ -24354,7 +24354,7 @@
         "kkr",
         "pillarstone"
       ],
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Vodafone Qatar invests in Sirti Digital Solutions MENA JV and acquires 51% stake",
       "what_changed": "Sirti Digital Solutions announced an investment by Vodafone Qatar in Sirti Digital Solutions MENA, with Vodafone Qatar acquiring a 51% stake.",
       "source_url": "https://www.sirti.it/sirti-digital-solutions-annuncia-linvestimento-di-capitale-da-parte-di-vodafone-qatar-uno-dei-principali-operatori-di-telecomunicazioni-e-fornitori-di-tecnologia-nello-stato-del-qatar-nella-propri/",
@@ -24412,7 +24412,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "seed-signal-00047",
@@ -24628,7 +24628,7 @@
         "narval-investimenti",
         "renaissance-partners"
       ],
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Neopharmed Gentili agrees acquisition of ORLADEYO European business for up to $264M",
       "what_changed": "Neopharmed Gentili signed an agreement to acquire BioCryst's ORLADEYO business in Europe for up to $264M, including $250M upfront and milestone payments.",
       "source_url": "https://ir.biocryst.com/news-releases/news-release-details/biocryst-announces-sale-european-orladeyor-berotralstat-business",
@@ -24686,7 +24686,7 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "type": "portfolio_update"
+      "type": "deal_announced"
     },
     {
       "id": "seed-signal-00052",
@@ -24698,7 +24698,7 @@
         "hat-sicaf",
         "progressio-sgr"
       ],
-      "signal_type": "portfolio_update",
+      "signal_type": "deal_announced",
       "title": "Assist Digital acquires majority stake in Hyntelo",
       "what_changed": "Assist Digital announced the acquisition of a majority stake in Hyntelo.",
       "source_url": "https://assistdigital.com/news/assist-digital-acquires-majority-stake-in-hyntelo-a-new-european-hub-for-artificial-intelligence-and-data-valorization-in-customer-experience",
@@ -24756,7 +24756,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "portfolio_update"
+      "type": "deal_announced"
     }
   ],
   "signal_count": 461,
@@ -24800,6 +24800,5 @@
   "pass7_fixed_at": "2026-02-21T21:15:34.512024Z",
   "pass8_fixed_at": "2026-02-22T09:53:36.288329Z",
   "pass9_fixed_at": "2026-02-22T10:07:28.764359Z",
-  "pass10_fixed_at": "2026-02-22T10:18:09.494142Z",
-  "pass11_fixed_at": "2026-02-22T10:30:33.587413Z"
+  "pass10_fixed_at": "2026-02-22T10:18:09.494142Z"
 }

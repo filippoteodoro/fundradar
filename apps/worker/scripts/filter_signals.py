@@ -882,13 +882,16 @@ def _reclassify_signal_type(signal: dict, text: str) -> str:
     if current not in {
         "fundraise_announced",
         "fundraise_closed",
+        "fundraise",
         "fund_launch",
         "deal_announced",
         "exit_announced",
         "debt_financing",
+        "portfolio_update",
         "report",
         "people_move",
         "job_posting",
+        "partnership",
         "website_change",
         "other",
         "",
@@ -1036,6 +1039,12 @@ def _reclassify_signal_type(signal: dict, text: str) -> str:
             elif page_category != "PORTFOLIO" and not _RE_HAS_ANY_PE_VERB.search(text_lower):
                 return "other"
 
+        # deal_announced with "portfolio company" subject → portfolio_update
+        # e.g. "CDP VC portfolio company Vite Sicure closes a €2M bridge round"
+        if current == "deal_announced":
+            if re.search(r"\bportfolio\s+compan(?:y|ies)\b", text_lower):
+                return "portfolio_update"
+
         # deal_announced false positives
         if current == "deal_announced":
             # "exited from portfolio" / "uscita dal portafoglio" → exit, not deal
@@ -1107,6 +1116,24 @@ def _reclassify_signal_type(signal: dict, text: str) -> str:
                 text_lower,
             ):
                 return "exit_announced"
+            # Fund's own website posts "Other Entity acquires/completed acquisition of X":
+            # From the fund's perspective, this is an exit (they're the seller).
+            # The fund name must NOT be the subject of the acquisition verb.
+            source_url = (signal.get("source_url") or "").lower()
+            fund_slug = (signal.get("fund_slug") or "")
+            if fund_name and source_url:
+                fund_domain_prefix = fund_slug.split("-")[0]  # e.g. "alcedo" from "alcedo-sgr"
+                if len(fund_domain_prefix) >= 4 and fund_domain_prefix in source_url:
+                    # Signal is from the fund's own domain
+                    title_start = title_lower[:60]
+                    # If title starts with a different entity name + acquisition verb
+                    if re.search(r"^[A-Za-z][\w\s]{2,30}\b(?:has\s+completed|completes?|acquir\w+)\b", (signal.get("title") or ""), re.IGNORECASE):
+                        # Check fund name is NOT the acquirer (first entity in title)
+                        first_entity = re.match(r"^([A-Za-z][\w\s]{2,30}?)\s+(?:has\s+completed|completes?|acquir)", (signal.get("title") or ""), re.IGNORECASE)
+                        if first_entity:
+                            acquirer_name = first_entity.group(1).lower().strip()
+                            if fund_domain_prefix not in acquirer_name and fund_name not in acquirer_name:
+                                return "exit_announced"
 
         # fund_launch false positives: "Xth investimento per Fund N" or "nuovo investimento per il fondo" → deal
         if current == "fund_launch":
@@ -1200,6 +1227,12 @@ def _reclassify_signal_type(signal: dict, text: str) -> str:
             # Thought leadership / editorial content → other
             if _RE_EDITORIAL_STRATEGY.search(text_lower):
                 return "other"
+            # Serialized editorial articles: "Part X of Y" → other (not a deal)
+            if re.search(r"\bPart\s+\d+\s+of\s+\d+\b", text_lower, re.IGNORECASE):
+                return "other"
+            # "could be interested in" / "are rumored to be" = potential deal (not portfolio_update)
+            if current == "portfolio_update" and re.search(r"\bcould\s+be\s+interest|are\s+rumor|potential\s+(?:acquir|buyer)", text_lower):
+                return "deal_announced"
             # Financial results → report
             if _RE_REPORT.search(text_lower):
                 return "report"
@@ -1325,6 +1358,9 @@ def _reclassify_signal_type(signal: dict, text: str) -> str:
 
     # Fundraise signals (require specific fundraise context)
     if _matches_any(FUNDRAISE_CLASSIFY_PATTERNS, text_lower):
+        # Company-level rounds (startup raising money) = deal from fund perspective
+        if _RE_COMPANY_ROUND.search(text_lower) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_lower):
+            return "deal_announced"
         if _RE_FUNDRAISE_CLOSED_VERBS.search(text_lower) or _RE_FUNDRAISE_MILESTONE.search(text_lower):
             return "fundraise_closed"
         return "fundraise_announced"
@@ -1713,7 +1749,7 @@ def _is_misattributed_signal(signal: dict, fund: dict | None = None) -> bool:
     # whole market, not just the fund's own activity).  For these funds, if the
     # fund name does not appear anywhere in title/what_changed, treat it as
     # misattributed ecosystem news.
-    _ECOSYSTEM_NEWSROOM_SLUGS = {"cdp-venture-capital"}
+    _ECOSYSTEM_NEWSROOM_SLUGS = {"cdp-venture-capital", "itago", "faro-value"}
 
     source_url = (signal.get("source_url") or "").lower()
     if fund and source_url:
@@ -2233,6 +2269,39 @@ def _fix_spacing(text: str) -> str:
     cleaned = re.sub(r"\bTGC\s*om\s*24\b", "TGCom24", cleaned, flags=re.IGNORECASE)
     # L Catterton scrape artifact: "LC atterton" → "L Catterton"
     cleaned = re.sub(r"\bLC\s*atterton\b", "L Catterton", cleaned)
+    # "CL ub" → "Club" (Equity Club OCR artifact)
+    cleaned = re.sub(r"\bCL\s+ub\b", "Club", cleaned)
+    # "T erm" → "Term" (also when glued to preceding text like "2028T erm")
+    cleaned = re.sub(r"T\s+erm\b", "Term", cleaned)
+    # "M arch" → "March" (month name split)
+    cleaned = re.sub(r"\bM\s+arch\b", "March", cleaned)
+    # Ordinal splits: "14 th" → "14th", "28 th" → "28th", "1 st" → "1st"
+    cleaned = re.sub(r"\b(\d+)\s+(th|st|nd|rd)\b", r"\1\2", cleaned, flags=re.IGNORECASE)
+    # "Cdp Venture Capital" → "CDP Venture Capital" (LLM sentence-casing acronym)
+    cleaned = re.sub(r"\bCdp\s+Venture\s+Capital\b", "CDP Venture Capital", cleaned)
+    # "2025–2028Term" → "2025–2028 Term" (missing space before Term when glued to year)
+    cleaned = re.sub(r"(\d{4})Term\b", r"\1 Term", cleaned)
+    # "Serie A/B/C" → "Series A/B/C" (Italian funding round notation → English)
+    cleaned = re.sub(r"\b[Ss][Ee][Rr][Ii][Ee]\s+([A-Ga-g])\b", lambda m: f"Series {m.group(1).upper()}", cleaned)
+    # Mojibake: â¬€ / â¬ → € (UTF-8 double-encoding of euro sign)
+    cleaned = cleaned.replace("â¬€", "€").replace("â¬", "€")
+    # Finance jargon: "aucap" → "capital increase"
+    cleaned = re.sub(r"\baucap\b", "capital increase", cleaned, flags=re.IGNORECASE)
+    # "Sgr"/"sgr" → "SGR" in text (LLM sentence-casing Italian legal abbreviation)
+    cleaned = re.sub(r"\b[Ss]gr\b", "SGR", cleaned)
+    cleaned = re.sub(r"\b[Ss]icaf\b", "SICAF", cleaned)
+    # Fund abbreviations that LLM title-cases: "Dif" → "DIF", "Dws" → "DWS"
+    cleaned = re.sub(r"\bDif\b", "DIF", cleaned)
+    cleaned = re.sub(r"\bDws\b", "DWS", cleaned)
+    # Italian thousands in non-monetary context: "15.000 mq" → "15,000 sqm", "1.500 beds"
+    cleaned = re.sub(r"\b(\d{1,3})\.(\d{3})\s+mq\b", lambda m: f"{m.group(1)},{m.group(2)} sqm", cleaned)
+    cleaned = re.sub(r"\b(\d{1,3})\.(\d{3})(?=\s+(?:beds?|employees?|people|square|units?|staff|workers?))", lambda m: f"{m.group(1)},{m.group(2)}", cleaned)
+    # "2 T au" → "Tau" (OCR digit-letter split artifact)
+    cleaned = re.sub(r"\b2\s+T\s+au\b", "Tau", cleaned)
+    # Strip leading numbered list artifacts: "3 T he" → "The", "4 B" → ... (from HTML bullet extraction)
+    cleaned = re.sub(r"^\d+\s+(?=[A-Z])", "", cleaned)
+    # Italian ordinals in text: "4 a" → "4a", "1 o" → "1o" (prevent treating as list prefix)
+    cleaned = re.sub(r"\b(\d+)\s+([ao])\s+", r"\1\2 ", cleaned)
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
     return cleaned.strip()
 
@@ -2605,6 +2674,21 @@ def _normalize_monetary_values(text: str) -> str:
         lambda m: _format_amount(m.group(1), "M", "$") or m.group(0),
         result, flags=re.IGNORECASE,
     )
+    # Descriptive "tens/hundreds of mln/mld" → "tens/hundreds of millions/billions"
+    result = re.sub(r'\b(tens?|hundreds?|dozens?)\s+of\s+mln\b', r'\1 of millions', result, flags=re.IGNORECASE)
+    result = re.sub(r'\b(tens?|hundreds?|dozens?)\s+of\s+mld\b', r'\1 of billions', result, flags=re.IGNORECASE)
+    # Pattern: standalone "X mln" / "X mld" (no following currency word) → €XM / €XB
+    # Default to EUR in Italian PE/VC context. Must come AFTER more specific patterns.
+    result = re.sub(
+        r'\b(\d+(?:[.,]\d+)?)\s+mln\b(?!\s+(?:di\s+)?(?:euro|eur|dollar|sterlina|\$|£))',
+        lambda m: _format_amount(m.group(1), "M") or m.group(0),
+        result, flags=re.IGNORECASE,
+    )
+    result = re.sub(
+        r'\b(\d+(?:[.,]\d+)?)\s+mld\b(?!\s+(?:di\s+)?(?:euro|eur|dollar|sterlina|\$|£))',
+        lambda m: _format_amount(m.group(1), "B") or m.group(0),
+        result, flags=re.IGNORECASE,
+    )
 
     # Safety: monetary normalization can create merged tokens like "€62Mof".
     # Ensure a separator between compact amount tokens and following letters.
@@ -2628,6 +2712,43 @@ def _normalize_monetary_values(text: str) -> str:
         r'\1 ',
         result,
     )
+
+    # "€XM di dollari" / "€XM dollars" / "€XM of dollars" → "$XM" (EUR/USD confusion from translation)
+    result = re.sub(
+        r'€(\d+(?:[.,]\d+)?[MBK])\s+(?:di\s+)?dollar[is]?\b',
+        lambda m: f"${m.group(1)}",
+        result, flags=re.IGNORECASE,
+    )
+    # "X M €" / "X,X M €" → "€XM" (reverse European notation: number then M then €)
+    result = re.sub(
+        r'\b(\d+(?:[.,]\d+)?)\s*M\s*€',
+        lambda m: _format_amount(m.group(1), "M") or m.group(0),
+        result,
+    )
+    # "X mila euro" → "€0.XXM" (mila = thousand in Italian)
+    result = re.sub(
+        r'\b(\d+(?:[.,]\d+)?)\s+mila\s+euro\b',
+        lambda m: _format_amount(str(float(m.group(1).replace(",", ".")) / 1000), "M") if m.group(1).replace(",", ".").replace(".", "", 1).isdigit() else m.group(0),
+        result, flags=re.IGNORECASE,
+    )
+    # Italian full number "1.350.000 euro" → "€1.35M" (multiple dots = thousands separators)
+    result = re.sub(
+        r'\b(\d{1,3}(?:\.\d{3})+)\s+euro\b',
+        lambda m: _format_amount(str(int(m.group(1).replace(".", "")) / 1_000_000), "M") if int(m.group(1).replace(".", "")) >= 100_000 else _format_amount(str(int(m.group(1).replace(".", "")) / 1_000), "K"),
+        result, flags=re.IGNORECASE,
+    )
+
+    # Fix lost Italian thousands separator: €4985M → €4.985M (4,985,000, not 4.985 billion)
+    # When a 4-digit bare number precedes M suffix, re-insert dot as decimal to show correct amount.
+    # E.g., original "€4.985 M" lost the dot → "€4985 M" → normalised to "€4985M" (looks like billions).
+    def _fix_lost_thousands(m):
+        currency = m.group(1) or "€"
+        digits = m.group(2)  # 4-digit number like "4985"
+        return f"{currency}{digits[0]}.{digits[1:]}M"
+    result = re.sub(r'([€$£])(\d{4})\s*M\b', _fix_lost_thousands, result)
+    result = re.sub(r'\b(\d{4})\s*M\s*(?:€|euro)\b',
+        lambda m: f"€{m.group(1)[0]}.{m.group(1)[1:]}M",
+        result, flags=re.IGNORECASE)
 
     result = _repair_attached_connectors(result)
     return re.sub(r"\s{2,}", " ", result).strip()
@@ -2691,6 +2812,9 @@ def _clean_signal_fields(signal: dict) -> dict:
     for key in ("enriched_summary",):
         if signal.get(key):
             signal[key] = re.sub(r"\s*\|?\s*[Pp]ress\s+[Rr]eleases?\.?\s*$", ".", signal[key]).strip()
+    # Normalize deal_amount field to consistent currency format
+    if signal.get("deal_amount"):
+        signal["deal_amount"] = _normalize_monetary_values(signal["deal_amount"])
     return signal
 
 
@@ -2716,13 +2840,22 @@ def _humanize_source_name(name: str) -> str:
     if name in _SOURCE_NAME_OVERRIDES:
         return _SOURCE_NAME_OVERRIDES[name]
     # If it already has spaces AND mixed case, it's probably already human-readable
+    # But fix known acronym capitalization issues first
+    name = re.sub(r"\bCdp\b", "CDP", name)
+    name = re.sub(r"\bFvs\b", "FVS", name)
+    name = re.sub(r"\bIgi\b", "IGI", name)
+    # Fix common legal suffixes with wrong case (e.g. "Sgr" → "SGR")
+    name = re.sub(r"\bSgr\b", "SGR", name)
+    name = re.sub(r"\bSicaf\b", "SICAF", name)
+    name = re.sub(r"\bSim\b", "SIM", name)
+    name = re.sub(r"\bAifm\b", "AIFM", name)
     if " " in name and not name.islower():
         return name
     # If it's a slug (lowercase with hyphens), humanize it
     if "-" in name and name == name.lower():
         parts = name.split("-")
         # Italian suffixes that stay uppercase
-        _UPPER_SUFFIXES = {"sgr", "sicaf", "sim", "spa", "srl", "aifm"}
+        _UPPER_SUFFIXES = {"sgr", "sicaf", "sim", "spa", "srl", "aifm", "cdp", "fvs", "igi"}
         # Re-join "d" + next word with apostrophe (Italian contraction)
         humanized = []
         i = 0
@@ -4434,6 +4567,18 @@ def main():
             fund_first = fund_slug.split()[0] if fund_slug else ""
             # Check if company acquires and fund is in parenthetical/backing role
             if re.search(r"\b(?:backed\s+by|controlled\s+by|owned\s+by|supported\s+by)\b.{0,50}\b(?:acquir\w+|complet\w+\s+acquisition)\b", text_check_pu):
+                signal["signal_type"] = "portfolio_update"
+            # "Fund-backed Company acquires" (hyphenated backed)
+            elif re.search(r"\w+[\-\u2010\u2011\u2012\u2013]backed\s+\w+.*\b(?:acqui\w+|merg\w+|partner\w+|expansion|launch\w*)\b", text_check_pu):
+                signal["signal_type"] = "portfolio_update"
+            # "Fund backs/supports Company in its acquisition/merger"
+            elif re.search(r"\b(?:backs|supports?|sostiene)\s+\w+.*\b(?:acqui\w+|merg\w+|in\s+its)\b", text_check_pu):
+                signal["signal_type"] = "portfolio_update"
+            # "Fund's Company acquires" (possessive: portfolio co doing M&A)
+            elif re.search(r"\b\w+'s\s+\w+.*\b(?:acqui\w+|merg\w+|establish\w+|launch\w*|announc\w+\s+(?:the\s+)?acqui\w+)\b", text_check_pu):
+                signal["signal_type"] = "portfolio_update"
+            # "Promoted/controlled by Fund, Company acquires"
+            elif re.search(r"\b(?:promoted|controllat[oa]|promoss[oa])\s+(?:by|da)\s+\w+.*\b(?:acqui\w+|espand\w+|expand\w+|merg\w+)\b", text_check_pu):
                 signal["signal_type"] = "portfolio_update"
             elif re.search(r"\b(?:acquir\w+|complet\w+\s+(?:the\s+)?acquisition)\b", text_check_pu):
                 # Check if the acquiring entity is NOT the fund (fund appears later in parenthetical)

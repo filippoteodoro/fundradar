@@ -1145,6 +1145,39 @@ def _clean_summary_text(text: str) -> str:
     cleaned = re.sub(r"\bi\s*SPLASH\b", "iSPLASH", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"\bWarste\s+in\b", "Warstein", cleaned)
     cleaned = re.sub(r"\bSeries\s+([ABC])(?=[a-z])", r"Series \1 ", cleaned)
+    # "CL ub" → "Club" (Equity Club OCR artifact)
+    cleaned = re.sub(r"\bCL\s+ub\b", "Club", cleaned)
+    # "T erm" → "Term" (also when glued to preceding text like "2028T erm")
+    cleaned = re.sub(r"T\s+erm\b", "Term", cleaned)
+    # "M arch" → "March" (month name split)
+    cleaned = re.sub(r"\bM\s+arch\b", "March", cleaned)
+    # Ordinal splits: "14 th" → "14th", "28 th" → "28th", "1 st" → "1st"
+    cleaned = re.sub(r"\b(\d+)\s+(th|st|nd|rd)\b", r"\1\2", cleaned, flags=re.IGNORECASE)
+    # "Cdp Venture Capital" → "CDP Venture Capital" (LLM sentence-casing acronym)
+    cleaned = re.sub(r"\bCdp\s+Venture\s+Capital\b", "CDP Venture Capital", cleaned)
+    # "2025–2028Term" → "2025–2028 Term" (missing space before Term when glued to year)
+    cleaned = re.sub(r"(\d{4})Term\b", r"\1 Term", cleaned)
+    # "Serie A/B/C" → "Series A/B/C" (Italian funding round notation → English)
+    cleaned = re.sub(r"\b[Ss][Ee][Rr][Ii][Ee]\s+([A-Ga-g])\b", lambda m: f"Series {m.group(1).upper()}", cleaned)
+    # Mojibake: â¬€ / â¬ → € (UTF-8 double-encoding of euro sign)
+    cleaned = cleaned.replace("â¬€", "€").replace("â¬", "€")
+    # Finance jargon: "aucap" → "capital increase"
+    cleaned = re.sub(r"\baucap\b", "capital increase", cleaned, flags=re.IGNORECASE)
+    # "Sgr"/"sgr" → "SGR" in text (LLM sentence-casing Italian legal abbreviation)
+    cleaned = re.sub(r"\b[Ss]gr\b", "SGR", cleaned)
+    cleaned = re.sub(r"\b[Ss]icaf\b", "SICAF", cleaned)
+    # Fund abbreviations that LLM title-cases: "Dif" → "DIF", "Dws" → "DWS"
+    cleaned = re.sub(r"\bDif\b", "DIF", cleaned)
+    cleaned = re.sub(r"\bDws\b", "DWS", cleaned)
+    # Italian thousands in non-monetary context: "15.000 mq" → "15,000 sqm", "1.500 beds"
+    cleaned = re.sub(r"\b(\d{1,3})\.(\d{3})\s+mq\b", lambda m: f"{m.group(1)},{m.group(2)} sqm", cleaned)
+    cleaned = re.sub(r"\b(\d{1,3})\.(\d{3})(?=\s+(?:beds?|employees?|people|square|units?|staff|workers?))", lambda m: f"{m.group(1)},{m.group(2)}", cleaned)
+    # "2 T au" → "Tau" (OCR digit-letter split artifact)
+    cleaned = re.sub(r"\b2\s+T\s+au\b", "Tau", cleaned)
+    # Strip leading numbered list artifacts: "3 T he" → "The", "4 B" → ... (from HTML bullet extraction)
+    cleaned = re.sub(r"^\d+\s+(?=[A-Z])", "", cleaned)
+    # Italian ordinals in text: "4 a" → "4a", "1 o" → "1o" (prevent treating as list prefix)
+    cleaned = re.sub(r"\b(\d+)\s+([ao])\s+", r"\1\2 ", cleaned)
     # Strip leading list-number artifacts ("1. ", "2. ")
     cleaned = re.sub(r"^\d+\.\s+", "", cleaned)
     # Strip press release dateline: "City (XX), date – "
@@ -1559,10 +1592,18 @@ def _normalize_currency_amounts(text: str) -> str:
         lambda m: f"${_fmt_amount(m.group(1))}M",
         text, flags=re.IGNORECASE,
     )
-    # Standalone "X mln" (when not already caught by euro-specific patterns above)
+    # Standalone "X mln" / "X mld" (when not already caught by euro-specific patterns above)
+    # Descriptive "tens/hundreds of mln/mld" → "tens/hundreds of millions/billions"
+    text = re.sub(r"\b(tens?|hundreds?|dozens?)\s+of\s+mln\b", r"\1 of millions", text, flags=re.IGNORECASE)
+    text = re.sub(r"\b(tens?|hundreds?|dozens?)\s+of\s+mld\b", r"\1 of billions", text, flags=re.IGNORECASE)
     text = re.sub(
         r"\b(\d[\d.,]*)\s+mln\b",
         lambda m: f"€{_fmt_amount(m.group(1))}M",
+        text, flags=re.IGNORECASE,
+    )
+    text = re.sub(
+        r"\b(\d[\d.,]*)\s+mld\b",
+        lambda m: f"€{_fmt_amount(m.group(1))}B",
         text, flags=re.IGNORECASE,
     )
     # "X M€" without leading digit already handled; also catch "X,Y M€"
@@ -1571,10 +1612,38 @@ def _normalize_currency_amounts(text: str) -> str:
     text = re.sub(r"\$(\d[\d.,]*)\s+million\b", lambda m: f"${_fmt_amount(m.group(1))}M", text, flags=re.IGNORECASE)
     text = re.sub(r"€(\d[\d.,]*)\s+billion\b", lambda m: f"€{_fmt_amount(m.group(1))}B", text, flags=re.IGNORECASE)
     text = re.sub(r"\$(\d[\d.,]*)\s+billion\b", lambda m: f"${_fmt_amount(m.group(1))}B", text, flags=re.IGNORECASE)
-    # "€XM of dollars" contradictions → "$XM"
-    text = re.sub(r"€(\d[\d.,]*[MBK])\s+of\s+dollars", lambda m: f"${m.group(1)}", text, flags=re.IGNORECASE)
+    # "€XM of dollars" / "€XM di dollari" contradictions → "$XM" (EUR/USD confusion from translation)
+    text = re.sub(r"€(\d[\d.,]*[MBK])\s+(?:of\s+|di\s+)?dollar[is]?\b", lambda m: f"${m.group(1)}", text, flags=re.IGNORECASE)
+    # "X M €" / "X,X M €" → "€XM" (reverse European notation: number then M then €)
+    text = re.sub(
+        r"\b(\d[\d.,]*)\s*M\s*€",
+        lambda m: f"€{_fmt_amount(m.group(1))}M",
+        text,
+    )
+    # "X mila euro" → "€0.XXM" (mila = thousand in Italian)
+    def _mila_to_m(m):
+        try:
+            val = float(m.group(1).replace(",", ".")) / 1000
+            return f"€{_fmt_amount(str(val))}M"
+        except (ValueError, TypeError):
+            return m.group(0)
+    text = re.sub(r"\b(\d[\d.,]*)\s+mila\s+euro\b", _mila_to_m, text, flags=re.IGNORECASE)
+    # Italian full number "1.350.000 euro" → "€1.35M" (multiple dots = thousands separators)
+    def _full_number_to_compact(m):
+        try:
+            raw = int(m.group(1).replace(".", ""))
+            if raw >= 100_000:
+                return f"€{_fmt_amount(str(raw / 1_000_000))}M"
+            return f"€{_fmt_amount(str(raw / 1_000))}K"
+        except (ValueError, TypeError):
+            return m.group(0)
+    text = re.sub(r"\b(\d{1,3}(?:\.\d{3})+)\s+euro\b", _full_number_to_compact, text, flags=re.IGNORECASE)
     # Clean up spacing: "€ 500M" → "€500M"
     text = re.sub(r"€\s+(\d)", r"€\1", text)
+    # Fix lost Italian thousands separator: €4985M → €4.985M (4,985,000, not 4.985 billion)
+    # When a 4-digit bare number precedes M suffix, re-insert dot as decimal.
+    text = re.sub(r'([€$£])(\d{4})\s*M\b',
+        lambda m: f"{m.group(1)}{m.group(2)[0]}.{m.group(2)[1:]}M", text)
     return text
 
 
@@ -1601,6 +1670,15 @@ def _normalize_token_splits(text: str) -> str:
     text = re.sub(r"\b(Series\s+[A-Z])financing\b", r"\1 financing", text)
     # Italian word split from PDF: "Trasferimen to" → "Trasferimento"
     text = re.sub(r"\bTrasferimen\s+to\b", "Trasferimento", text)
+    # Company/place name splits observed in the wild
+    text = re.sub(r"\bPintau\s+di\b", "Pintaudi", text)          # Pintaudi (company)
+    text = re.sub(r"\bWarste\s+in\b", "Warstein", text)          # Warstein (city, Germany)
+    text = re.sub(r"\bID\s+ea\b", "Idea", text, flags=re.IGNORECASE)  # Idea Taste of Italy (fund)
+    text = re.sub(r"\bAcceler\s+ORA\b", "AccelerORA", text)      # AccelerORA! (CDP program)
+    # Power unit splits: "39M W" → "39MW" (megawatts adjacent to number)
+    text = re.sub(r"\b(\d[\d.,]*)M\s+W\b", r"\1MW", text)
+    # Month name split from PDF: "M arch" → "March" (e.g. "6M arch 2025")
+    text = re.sub(r"\bM\s+arch\b", "March", text)
     return text
 
 
@@ -2442,10 +2520,14 @@ def _translate_italian_signals(signals: list[dict]) -> dict[str, Any]:
     signals_needing_work: set[int] = set()
     for idx, s in enumerate(signals):
         for field, orig_field in TEXT_FIELDS:
-            if s.get(orig_field):
-                continue  # already translated
             text = s.get(field) or ""
-            if text and (_is_italian_text(text) or _is_french_text(text)):
+            if not text:
+                continue
+            # Even if *_original is set, re-check: the current field might still contain
+            # non-English text (e.g., from summary backfill or partial translation).
+            if s.get(orig_field) and not (_is_italian_text(text) or _is_french_text(text)):
+                continue  # already translated and current text looks English
+            if _is_italian_text(text) or _is_french_text(text):
                 to_translate.append((s, field, orig_field, text))
                 signals_needing_work.add(idx)
     stats["italian_fields_detected"] = len(to_translate)
@@ -3262,6 +3344,34 @@ def main(slugs_filter: str | None = None):
     if _type_remapped:
         print(f"  Remapped {_type_remapped} non-canonical signal types to frontend types")
 
+    # Post-enrichment portfolio_update correction.
+    # After LLM enrichment, summaries may say "portfolio company", "Fund-backed X",
+    # "Fund's X acquires", etc.  These are portfolio company news, not new fund deals.
+    # Must run AFTER canonical remap (partnership→deal_announced) and AFTER summary
+    # finalization so we check the final enriched text.
+    _RE_BACKED_ACQUISITION = re.compile(
+        r"\b\w+[\-\u2010\u2011\u2012\u2013]backed\s+\w+.*\b(?:acqui\w+|merg\w+|partner\w+|expansion|launch\w*)\b"
+        r"|\b(?:backs|supports?|sostiene)\s+\w+.*\b(?:acqui\w+|merg\w+|in\s+its)\b"
+        r"|\b\w+'s\s+\w+.*\b(?:acqui\w+|merg\w+|establish\w+|launch\w*|announc\w+\s+(?:the\s+)?acqui\w+)\b"
+        r"|\b(?:promoted|controllat[oa]|promoss[oa])\s+(?:by|da)\s+\w+.*\b(?:acqui\w+|espand\w+|expand\w+|merg\w+)\b",
+        re.IGNORECASE,
+    )
+    _pu_corrected = 0
+    for signal in signals:
+        if signal.get("signal_type") != "deal_announced":
+            continue
+        text = " ".join(filter(None, [
+            signal.get("enriched_summary", ""),
+            signal.get("title", ""),
+        ]))
+        if not text:
+            continue
+        if _RE_PORTFOLIO_UPDATE.search(text) or _RE_BACKED_ACQUISITION.search(text):
+            signal["signal_type"] = "portfolio_update"
+            _pu_corrected += 1
+    if _pu_corrected:
+        print(f"  Post-enrichment: reclassified {_pu_corrected} deal_announced → portfolio_update")
+
     _disambiguate_cross_fund_duplicate_summaries(signals)
 
     # ── Translation pass: Italian → English ────────────────────────────────────
@@ -3292,6 +3402,26 @@ def main(slugs_filter: str | None = None):
                     signal[key] = _normalize_monetary_values(signal[key])
     except ImportError:
         pass  # filter_signals not available, skip normalization
+
+    # Safety net: ensure every signal has `type` and `enriched_summary` populated.
+    # Some signals bypass enrichment (already enriched, or skipped) and may only have `signal_type`.
+    _type_backfill = 0
+    _summary_backfill = 0
+    for signal in signals:
+        # Backfill `type` from `signal_type` if missing
+        if not signal.get("type") and signal.get("signal_type"):
+            signal["type"] = signal["signal_type"]
+            _type_backfill += 1
+        # Backfill `enriched_summary` from title/what_changed if still empty
+        if not (signal.get("enriched_summary") or "").strip():
+            fallback = (signal.get("what_changed") or "").strip() or (signal.get("title") or "").strip()
+            if fallback:
+                signal["enriched_summary"] = _clean_summary_text(fallback)
+                _summary_backfill += 1
+    if _type_backfill:
+        print(f"  Backfilled {_type_backfill} signals with type from signal_type")
+    if _summary_backfill:
+        print(f"  Backfilled {_summary_backfill} signals with summary from title/what_changed")
 
     data["signals"] = _merge_output_signals(signals)
     data["signal_count"] = len(data["signals"])
