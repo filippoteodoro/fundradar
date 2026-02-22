@@ -4568,8 +4568,8 @@ def main():
             # Check if company acquires and fund is in parenthetical/backing role
             if re.search(r"\b(?:backed\s+by|controlled\s+by|owned\s+by|supported\s+by)\b.{0,50}\b(?:acquir\w+|complet\w+\s+acquisition)\b", text_check_pu):
                 signal["signal_type"] = "portfolio_update"
-            # "Fund-backed Company acquires" (hyphenated backed)
-            elif re.search(r"\w+[\-\u2010\u2011\u2012\u2013]backed\s+\w+.*\b(?:acqui\w+|merg\w+|partner\w+|expansion|launch\w*)\b", text_check_pu):
+            # "Fund-backed/controlled/owned Company acquires" (hyphenated)
+            elif re.search(r"\w+[\-\u2010\u2011\u2012\u2013](?:backed|controlled|owned)\s+\w+.*\b(?:acqui\w+|merg\w+|partner\w+|expansion|launch\w*)\b", text_check_pu):
                 signal["signal_type"] = "portfolio_update"
             # "Fund backs/supports Company in its acquisition/merger"
             elif re.search(r"\b(?:backs|supports?|sostiene)\s+\w+.*\b(?:acqui\w+|merg\w+|in\s+its)\b", text_check_pu):
@@ -4578,7 +4578,7 @@ def main():
             elif re.search(r"\b\w+'s\s+\w+.*\b(?:acqui\w+|merg\w+|establish\w+|launch\w*|announc\w+\s+(?:the\s+)?acqui\w+)\b", text_check_pu):
                 signal["signal_type"] = "portfolio_update"
             # "Promoted/controlled by Fund, Company acquires"
-            elif re.search(r"\b(?:promoted|controllat[oa]|promoss[oa])\s+(?:by|da)\s+\w+.*\b(?:acqui\w+|espand\w+|expand\w+|merg\w+)\b", text_check_pu):
+            elif re.search(r"\b(?:promoted|controllat[oa]|promoss[oa]|controlled)\s+(?:by|da)\s+\w+.*\b(?:acqui\w+|espand\w+|expand\w+|merg\w+)\b", text_check_pu):
                 signal["signal_type"] = "portfolio_update"
             elif re.search(r"\b(?:acquir\w+|complet\w+\s+(?:the\s+)?acquisition)\b", text_check_pu):
                 # Check if the acquiring entity is NOT the fund (fund appears later in parenthetical)

@@ -39,9 +39,10 @@ _RE_PORTFOLIO_UPDATE = re.compile(
     r"|\btramite\s+(?:la\s+sua\s+)?(?:partecipata|controllata)\b"
     r"|\bin\s+portafoglio\s+(?:a|di)\b"
     r"|\bsociet[àa]\s+in\s+portafoglio\b"
-    r"|\badd[\-\s]?on\b"
-    r"|\bbolt[\-\s]?on\b"
-    r"|\btuck[\-\s]?in\b",
+    r"|\badd[\-\s]?ons?\b"
+    r"|\bbolt[\-\s]?ons?\b"
+    r"|\btuck[\-\s]?ins?\b"
+    r"|\bcontrolling\s+shareholder\b",
     re.IGNORECASE,
 )
 
@@ -261,7 +262,10 @@ _RE_DEBT_FINANCING_BROAD = re.compile(
     r"|\boperazion[ei]\s+di\s+debito\b"
     r"|\bsenior\s+(?:secured\s+)?(?:loan|debt|facility|notes?)\b"
     r"|\bmezzanine\s+(?:financ\w+|debt|loan)\b"
-    r"|\bunitranche\b",
+    r"|\bunitranche\b"
+    r"|\bprovid(?:es?|ed|ing)\b.{0,30}\bfinanc(?:ing|e)\b"
+    r"|\bfinancing\s+support\b"
+    r"|\breceives?\s+financ(?:ing|e)\s+from\b",
     re.IGNORECASE,
 )
 

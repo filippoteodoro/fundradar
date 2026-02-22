@@ -737,7 +737,7 @@
       "id": "web-signal-01705",
       "fund_id": "",
       "fund_slug": "hat-sicaf",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Safety 21 (HAT Fund 4) acquires Cross Control",
       "what_changed": "",
       "source_url": "https://hat.it/safety21-hat-fund-4-acquires-cross-control/",
@@ -790,7 +790,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "web-signal-01694",
@@ -1088,7 +1088,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [
@@ -3555,7 +3555,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.84,
       "title_original": "SIMEST e CDP Venture Capital SGR: accordo da €200 M per l’internazionalizzazione di startup e PMI innovative italiane attraverso le risorse del Fondo di Venture Capital stanziato dal MAEC",
-      "enriched_summary": "SIMEST and CDP Venture Capital SGR agreed a €200M program to internationalize Italian startups and innovative SMEs using MAEC-allocated venture fund resources.",
+      "enriched_summary": "SIMEST and CDP Venture Capital SGR agreed on a €200M program to internationalize Italian startups and innovative SMEs.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "llm_keep": true,
@@ -6598,7 +6598,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.84,
       "title_original": "AAV antgarde chiude un round di finanziamen to Series B da $143 M per far progredire i propri programmi clinici nelle patologie di Stargardt e nella sindrome di Usher 1 B",
-      "enriched_summary": "CDP Venture Capital backed AAVantgarde's $143M Series B to advance clinical programs in Stargardt disease and Usher 1 B syndrome.",
+      "enriched_summary": "CDP Venture Capital backed AAVantgarde's $143M Series B to advance clinical programs in Stargardt disease and Usher 1B syndrome.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "medium",
       "llm_keep": true,
@@ -7776,7 +7776,7 @@
       "id": "news-signal-20260205105313-cc65210b-5181820b",
       "fund_id": "",
       "fund_slug": "capza",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Capza Supports Neo 2 A Specialist In Process Industry And Infrastructure In Its Merger With Technic Assistance",
       "what_changed": "",
       "source_url": "https://capza.co/news/capza-supports-neo2-a-specialist-in-process-industry-and-infrastructure-in-its-merger-with-technic-assistance/",
@@ -7803,13 +7803,13 @@
       "quality_confidence": "high",
       "confidence_score": 0.74,
       "enriched_summary": "Capza supports Neo 2, a process industry and infrastructure specialist, in its merger with Technic Assistance.",
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "news-signal-20260205105313-cc65210b-63a77c3a",
       "fund_id": "",
       "fund_slug": "capza",
-      "signal_type": "deal_announced",
+      "signal_type": "debt_financing",
       "title": "Cvc Credit And Capza Support The Acquisition Of Ilerna",
       "what_changed": "",
       "source_url": "https://capza.co/news/cvc-credit-and-capza-support-the-acquisition-of-ilerna/",
@@ -7853,13 +7853,13 @@
           "action": "investment"
         }
       ],
-      "type": "deal_announced"
+      "type": "debt_financing"
     },
     {
       "id": "news-signal-20260205105313-cc65210b-be99d753",
       "fund_id": "",
       "fund_slug": "capza",
-      "signal_type": "deal_announced",
+      "signal_type": "debt_financing",
       "title": "Artemid Provides Financing For The Acquisition Of Driescher",
       "what_changed": "",
       "source_url": "https://capza.co/news/artemid-provides-financing-for-the-acquisition-of-driescher/",
@@ -7886,7 +7886,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.74,
       "enriched_summary": "Artemid provides financing for the acquisition of Driescher.",
-      "type": "deal_announced"
+      "type": "debt_financing"
     },
     {
       "id": "news-signal-20260205105313-cc65210b-1d3dc4d4",
@@ -7942,7 +7942,7 @@
       "id": "news-signal-20260205105313-cc65210b-d85ab864",
       "fund_id": "",
       "fund_slug": "capza",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Capza Supports Solutys Groups Acquisitions Of Nedap And Rayonnance",
       "what_changed": "",
       "source_url": "https://capza.co/news/capza-supports-solutys-groups-acquisitions-of-nedap-and-rayonnance/",
@@ -7991,7 +7991,7 @@
           "action": "investment"
         }
       ],
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "news-signal-20260205105313-cc65210b-a6a35a39",
@@ -8505,7 +8505,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "title_original": "Banca Popolare di Sondrio: perfezionata nuova operazione di cartolarizzazione su un portafoglio di crediti deteriorati per circa €200 M (valore lordo contabile)",
-      "enriched_summary": "Banca Popolare di Sondrio completed a new securitization transaction on a portfolio of non-performing loans for ~ €200M (gross book value).",
+      "enriched_summary": "Banca Popolare di Sondrio completed a new securitization transaction on a portfolio of non-performing loans for ~€200M (gross book value).",
       "enriched_at": "2026-02-21T19:31:15.120337+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
@@ -9019,7 +9019,7 @@
       "id": "rss-signal-00117",
       "fund_id": "",
       "fund_slug": "eos-im",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Lexham Power (EOS IM) buys the majority of Innovo Agri",
       "what_changed": "Lexham Power, an IPP controlled by EOS Investment Management Group (EOS IM), has acquired a 51% majority stake in Innovo Agri, an entrepreneurial group focused on development and management of agricultural assets. The deal strengthens EOS IM's renewable/transition portfolio; no financial terms were disclosed.",
       "source_url": "https://financecommunity.it/lexham-power-eos-im-compra-la-maggioranza-di-innovo-agri/",
@@ -9072,7 +9072,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "rss-signal-00093",
@@ -9514,7 +9514,7 @@
       "id": "rss-signal-00092",
       "fund_id": "",
       "fund_slug": "argos-wityu",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Axitea acquires Surveye srl, first m&a since the entry of Argos Wityu, its majority shareholder",
       "what_changed": "Axitea, a leading Italian surveillance and digital security services provider controlled by Argos Wityu, has acquired Surveye srl from founder Diego Corsini, who remains CEO. This is Axitea’s first M&A since Argos Wityu became majority shareholder; financial terms were not disclosed. Sector: security systems and system integration.",
       "source_url": "https://bebeez.it/private-equity/axitea-acquisisce-surveye-srl-prima-ma-dallingresso-di-argos-wityu-suo-socio-di-maggioranza/",
@@ -9566,7 +9566,7 @@
           "action": "investment"
         }
       ],
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "web-signal-01550",
@@ -9621,7 +9621,7 @@
       "id": "rss-signal-00066",
       "fund_id": "",
       "fund_slug": "renaissance-partners",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Uteco Converting receives financing from Cherry Bank and Muzinich & Co., which subscribes capital increase with Renaissance Partners (controlling shareholder)",
       "what_changed": "Uteco Converting receives refinancing and a capital increase from Cherry Bank and Muzinich & Co.; Muzinich subscribes capital increase with Renaissance Partners",
       "source_url": "https://bebeez.it/private-debt/uteco-converting-riceve-finanziamento-da-cherry-bank-e-muzinich-co-che-sottoscrive-aucap-con-renaissance-partners-socio-di-controllo/",
@@ -9674,7 +9674,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "web-signal-00206",
@@ -9856,7 +9856,7 @@
       "id": "web-signal-00226",
       "fund_id": "",
       "fund_slug": "aksia-sgr",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Valsa, backed by Aksìa SGR, acquires Yahm.",
       "what_changed": "",
       "source_url": "https://aksiasgr.com/valsa-backed-by-aksia-sgr-acquires-yahm/",
@@ -9910,7 +9910,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "rss-signal-00106",
@@ -10996,7 +10996,7 @@
       "id": "rss-signal-00069",
       "fund_id": "",
       "fund_slug": "ambienta-sgr",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Frigoveneta (Ambienta) acquires SAIM: the advisors",
       "what_changed": "Frigoveneta (Ambienta) acquires SAIM Impianti and SAIM Service; founding family to remain involved.",
       "source_url": "https://financecommunity.it/frigoveneta-ambienta-acquisisce-saim-gli-advisor/",
@@ -11054,13 +11054,13 @@
           "action": "investment"
         }
       ],
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "rss-signal-00017",
       "fund_id": "",
       "fund_slug": "ambienta-sgr",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Gruppo Spaggiari Parma (Ambienta) carries out two add-ons, acquiring Job 4 U srl and Bitlab srl, to which Prima Scuola reports.",
       "what_changed": "Ambienta SGR's Gruppo Spaggiari Parma completed add‑on acquisitions of Job 4 U srl and Bitlab srl (Prima Scuola).",
       "source_url": "https://bebeez.it/private-equity/gruppo-spaggiari-parma-ambienta-effettua-due-add-on-rilevando-job4u-srl-e-bitlab-srl-cui-fa-capo-prima-scuola/",
@@ -11097,7 +11097,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "title_original": "Gruppo Spaggiari Parma (Ambienta) effettua due add–on rilevando Job 4 U srl e Bitlab srl, cui fa capo Prima Scuola",
-      "enriched_summary": "Gruppo Spaggiari Parma (Ambienta) carries out two add-ons, acquiring Job 4 U srl and Bitlab srl, to which Prima Scuola reports.",
+      "enriched_summary": "Gruppo Spaggiari Parma (Ambienta) carries out two add-ons, acquiring Soluzione Ufficio and Toscana Telematica, as well as Job 4 U srl and Bitlab srl.",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:59:27.541372+00:00",
@@ -11120,7 +11120,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "rss-signal-00055",
@@ -11410,7 +11410,7 @@
       "id": "rss-signal-00020",
       "fund_id": "",
       "fund_slug": "f2i-sgr",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "ReLife (F2i) completes the acquisition of 100% of Domo Living (home organization and garbage bags) from Cuki Cofresco",
       "what_changed": "F2i‑controlled ReLife spa completed acquisition of 100% of Domo Living from Cuki Cofresco.",
       "source_url": "https://bebeez.it/private-equity/relife-spa-f2i-perfeziona-lacquisto-del-100-di-domoliving-organizzazione-spazio-casa-e-sacchi-per-nettezza-da-cuki-cofresco/",
@@ -11464,7 +11464,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "rss-signal-00037",
@@ -11720,7 +11720,7 @@
       "evidence_score": 5,
       "quality_confidence": "high",
       "confidence_score": 1,
-      "enriched_summary": "EQT mandated UBS to sell a significant minority stake in the Italian division of Radius Global Infrastructure, valued at approximately €1.0-1.2 B.",
+      "enriched_summary": "EQT mandated UBS to sell a significant minority stake in the Italian division of Radius Global Infrastructure, valued at approximately €1.0-1.2B.",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T19:59:27.639734+00:00",
@@ -12244,7 +12244,7 @@
       "id": "web-signal-00691",
       "fund_id": "",
       "fund_slug": "portobello-capital",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Serveo strengthens its industrial offering with the acquisition of Tecnolimp",
       "what_changed": "",
       "source_url": "https://www.portobellocapital.es/en/serveo-strengthens-its-industrial-offering-with-the-acquisition-of-tecnolimp/",
@@ -12295,7 +12295,7 @@
           "action": "investment"
         }
       ],
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "web-signal-01311",
@@ -12447,7 +12447,7 @@
       "confidence_score": 0.84,
       "title_original": "Il Gruppo Candy Factory si espande con Italgum Caramelle, storica realtà produttrice di caramelle gommose e gelèes",
       "what_changed_original": "IL GRUPPO CANDY FACTORY SI ESPANDE CON ITALGUM CARAMELLE, STORICA REALTÀ PRODUTTRICE DI CARAMELLE GOMMOSE E GELÉES Il Gruppo, promosso da FVS e Clessidra Capital Credit, prosegue nella strategia di aggregazione delle eccellenze italiane del settore dolciario 4 Dicembre 2025 – Il Gruppo Candy Factory – nato nel 2022 dall’integrazione di due storiche realtà industriali “Il Gruppo Candy Factory si espande con Italgum Caramelle, storica realtà produttrice di caramelle gommose e ge",
-      "enriched_summary": "Il Gruppo Candy Factory, promoted by FVS SGR and Clessidra Capital Credit, expands by acquiring Italgum Caramelle.",
+      "enriched_summary": "The Candy Factory Group, promoted by FVS SGR and Clessidra Capital Credit, expands by acquiring Italgum Caramelle.",
       "enriched_date": "2025-12-04",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-21T12:48:51.294178+00:00",
@@ -12470,7 +12470,7 @@
       "id": "web-signal-01301",
       "fund_id": "",
       "fund_slug": "fvs-sgr",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Alveo Group acquires IT Strategy, a company specialized in Microsoft infrastructure, Cloud and Modern Workplace",
       "what_changed": "Alveo Group: acquired the company IT Strategy, an entity specialized in Microsoft infrastructures, Cloud and Modern Workplace. Milan/Udine, 18 November 2025 – Alveo Group, a reference player on the national and international scene for the digital transformation of large and medium-sized enterprises and of Central and Local Public Administration, announces that its subsidiary PA Expertise, a company of the Group “Alveo Group: acquired the company IT Strategy, an entity specialized in infrastrut",
       "source_url": "https://fvs.nooostaging.com/2025/11/18/alveo-group-acquisita-la-societa-it-strategy-realta-specializzata-in-infrastrutture-microsoft-cloud-e-modern-workplace/",
@@ -12534,7 +12534,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "web-signal-01302",
@@ -12610,7 +12610,7 @@
       "id": "web-signal-01303",
       "fund_id": "",
       "fund_slug": "fvs-sgr",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Alveo Group has acquired the company Connecthub digital, an innovative logistics and digital provider that is part of Lenet Group",
       "what_changed": "Alveo Group: acquisita la società Connect Hub Digital Innovativo provider logistico e digitale che fa capo a Lenet Group Con questa operazione, Alveo Group punta a migliorare le proprie competenze e l’offerta nel settore della digitalizzazione e della BI SAP Milano/Udine, 26 settembre 2025 – Alveo Group, realtà di riferimen to sulla scena nazionale e internazionale per “Alveo Group: acquisita la società Connecthub digital, innovativo provider logistico e digitale che fa capo a L",
       "source_url": "https://fvs.nooostaging.com/2025/09/26/alveo-group-acquisita-la-societa-connecthub-digital-innovativo-provider-logistico-e-digitale-che-capo-a-lenet-group/",
@@ -12673,7 +12673,7 @@
       "llm_keep_source": "local",
       "llm_keep_version": 3,
       "enriched_summary_original": "Alveo Group acquisita la società Connect Hub Digital Innovativo provider logistico e digitale che fa capo a Lenet Group Con questa operazione, Alveo Group punta a migliorare le proprie competenze e l’offerta nel...",
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "web-signal-01306",
@@ -13362,7 +13362,7 @@
       "id": "rss-signal-00021",
       "fund_id": "",
       "fund_slug": "abenex",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "PFC Family Office (Marzotto family) enters the capital of Zato (metal treatment and recovery), which is controlled by Abenex Capital",
       "what_changed": "PFC Family Office invested in Zato spa alongside Abenex Capital.",
       "source_url": "https://bebeez.it/private-equity/pfc-family-office-famiglia-marzotto-entra-nel-capitale-di-zato-spa-trattamento-e-il-recupero-di-metalli-che-fa-capo-ad-abenex-capital/",
@@ -13414,7 +13414,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "web-signal-01001",
@@ -13434,7 +13434,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [],
@@ -14331,7 +14331,7 @@
       "id": "seed-signal-00043",
       "fund_id": "",
       "fund_slug": "eurazeo",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Eurazeo acquires majority of Grifo Group, Italian insurance broker (via Groupe Premium)",
       "what_changed": "Groupe Premium (controlled by Eurazeo) acquired majority stake in Grifo Group, Italian insurance brokerage and financial advisory company (500 advisors, 65,000+ clients, 21 offices, €34M revenue). Founder Bernardo Franchi retained stake. First step in European expansion.",
       "source_url": "https://bebeez.it/private-equity/la-francese-groupe-premium-eurazeo-rileva-la-maggioranza-del-broker-grifo-group-dal-patron-bernardo-franchi/",
@@ -14389,7 +14389,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "rss-signal-00027",
@@ -15338,7 +15338,7 @@
       "id": "rss-signal-00018",
       "fund_id": "",
       "fund_slug": "oakley-capital",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Phenna Group (Oakley Capital) makes its sixth acquisition of an Italian company, acquiring Sigma Tre Lab.",
       "what_changed": "Oakley Capital‑owned Phenna Group acquired a majority stake in Italian laboratory Sigma Tre Lab.",
       "source_url": "https://bebeez.it/private-equity/phenna-group-oakley-capital-effettua-la-sesta-acquisizione-di-unazienda-italiana-rilevando-sigma-tre-lab/",
@@ -15390,7 +15390,7 @@
           "action": "investment"
         }
       ],
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "web-signal-00835",
@@ -15576,7 +15576,7 @@
       "id": "web-signal-00800",
       "fund_id": "",
       "fund_slug": "liftt",
-      "signal_type": "deal_announced",
+      "signal_type": "other",
       "title": "LIFTT joins the prestigious Trusted Investors Network of the European Innovation Council",
       "what_changed": "",
       "source_url": "https://www.liftt.com/liftt-entra-nel-prestigioso-trusted-investors-network-delleuropean-innovation-council/",
@@ -15624,7 +15624,7 @@
       "llm_event_type": "other",
       "llm_type_confidence": "high",
       "llm_italy_relevant": true,
-      "type": "deal_announced"
+      "type": "other"
     },
     {
       "id": "web-signal-00533",
@@ -16048,7 +16048,7 @@
       "id": "web-signal-01209",
       "fund_id": "",
       "fund_slug": "macquarie",
-      "signal_type": "deal_announced",
+      "signal_type": "debt_financing",
       "title": "Polarise and Macquarie announce up to €117M financing deal for European AI ambitions",
       "what_changed": "",
       "source_url": "https://www.macquarie.com/it/en/about/news/2026/polarise-and-macquarie-announce-up-to-117-million-euros-financing-deal-for-european-ai-ambitions.html",
@@ -16098,7 +16098,7 @@
           "action": "investment"
         }
       ],
-      "type": "deal_announced"
+      "type": "debt_financing"
     },
     {
       "id": "rss-signal-00035",
@@ -16432,7 +16432,7 @@
       "id": "rss-signal-00059",
       "fund_id": "",
       "fund_slug": "smart-capital",
-      "signal_type": "other",
+      "signal_type": "portfolio_update",
       "title": "Merger between Smart4Tech (Smart Capital), Crowd Fund Me and WeAreStarting gets underway. Binding agreements signed",
       "what_changed": "Binding agreements signed for the merger between Smart4Tech (Smart Capital), Crowd Fund Me and WeAreStarting.",
       "source_url": "https://bebeez.it/fintech/al-via-la-fusione-tra-smart4tech-smart-capital-crowdfundme-e-wearestarting-firmati-gli-accordi-vincolanti/",
@@ -16497,7 +16497,7 @@
           "action": "other"
         }
       ],
-      "type": "other"
+      "type": "portfolio_update"
     },
     {
       "id": "rss-signal-00061",
@@ -17648,7 +17648,7 @@
       "id": "web-signal-01060",
       "fund_id": "",
       "fund_slug": "ibla-capital",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Seko Industries (Ibla Capital) acquires Kongskilde from CNH and brings production to Italy",
       "what_changed": "",
       "source_url": "https://iblacapital.com/it/seko-industries-ibla-capital-rileva-kongskilde-da-cnh-e-porta-la-produzione-in-italia-il-sole24ore/",
@@ -17705,7 +17705,7 @@
         }
       ],
       "title_original": "Seko Industries (Ibla Capital) rileva Kongskilde da CNH e porta la produzione in Italia",
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "web-signal-01061",
@@ -17725,7 +17725,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [],
@@ -17931,7 +17931,7 @@
       "id": "web-signal-00884",
       "fund_id": "",
       "fund_slug": "alpha-associati",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "AMF Group announces the acquisition of Benelli Ademaro",
       "what_changed": "",
       "source_url": "https://www.alphape.com/news/28",
@@ -17945,7 +17945,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [
@@ -17984,7 +17984,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "web-signal-00870",
@@ -18049,7 +18049,7 @@
       "id": "web-signal-00872",
       "fund_id": "",
       "fund_slug": "triton",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Bluu unit acquires Tech Refrigeration and Air Conditioning and continues European growth",
       "what_changed": "",
       "source_url": "https://www.triton-partners.com/media/news/bluu-unit-acquires-tech-refrigeration-and-air-conditioning-and-continues-european-growth/",
@@ -18103,7 +18103,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "web-signal-00875",
@@ -18639,7 +18639,7 @@
       "id": "news-signal-20260205111521-58302957",
       "fund_id": "",
       "fund_slug": "bc-partners",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Davies inks deal to acquire Canada’s largest claims processing & risk solutions business, SCM Insurance Services, in its biggest strategic M&A to date",
       "what_changed": "",
       "source_url": "https://www.bcpartners.com/news/davies-inks-deal-to-acquire-canadas-largest-claims-processing-risk-solutions-business-scm-insurance-services-in-its-biggest-strategic-ma-to-date/",
@@ -18682,7 +18682,7 @@
           "action": "investment"
         }
       ],
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "news-signal-20260205111521-58302957-415369ac",
@@ -18738,7 +18738,7 @@
       "id": "news-signal-20260205111521-58302957-cc9c5d51",
       "fund_id": "",
       "fund_slug": "bc-partners",
-      "signal_type": "deal_announced",
+      "signal_type": "debt_financing",
       "title": "Context Logic to Acquire US Salt from Emerald Lake in $907.5M Transaction, Creating New Business Ownership Platform in Partnership with Abrams Capital and BC Partners Credit",
       "what_changed": "",
       "source_url": "https://www.bcpartners.com/news/contextlogic-to-acquire-us-salt-from-emerald-lake-in-907-5-million-transaction-creating-new-business-ownership-platform-in-partnership-with-abrams-capital-and-bc-partners-credit/",
@@ -18782,7 +18782,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "debt_financing"
     },
     {
       "id": "news-signal-20260205111521-58302957-d3f92eea",
@@ -19189,7 +19189,7 @@
       "id": "news-signal-20260205130620-1b7fbe7a-15689eb8",
       "fund_id": "",
       "fund_slug": "dea-capital-alternative-funds-sgr",
-      "signal_type": "deal_announced",
+      "signal_type": "other",
       "title": "Green Arrow Capital signs binding agreement to acquire DeA Capital Alternative Funds SGR",
       "what_changed": "",
       "source_url": "https://www.deacapitalaf.com/green-arrow-capital-signs-binding-agreement-to-acquire-dea-capital-alternative-funds-sgr/?lang=en",
@@ -19233,7 +19233,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "other"
     },
     {
       "id": "web-signal-00772",
@@ -19742,7 +19742,7 @@
       "id": "rss-signal-00050",
       "fund_id": "",
       "fund_slug": "apollo",
-      "signal_type": "deal_announced",
+      "signal_type": "other",
       "title": "Cherry Bank enters into a partnership with Apollo and opens up to private markets",
       "what_changed": "Cherry Bank signs a strategic partnership with Apollo Global Management and opens access to private markets for Italian clients",
       "source_url": "https://bebeez.it/private-debt/cherry-bank-stringe-partnership-con-apollo-e-apre-ai-private-markets/",
@@ -19784,7 +19784,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "other"
     },
     {
       "id": "web-signal-01682",
@@ -20163,7 +20163,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-5a2d8000",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Techshop exceeds fundraising target of €50M",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -20197,7 +20197,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "news-signal-20260205105313-cc65210b-bd611625",
@@ -21834,7 +21834,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [],
@@ -21893,7 +21893,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [],
@@ -21951,7 +21951,7 @@
       "page_type": "NEWS",
       "relevance_score": 0,
       "relevance_reasons": [],
-      "italy_relevant": false,
+      "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [],
@@ -22930,7 +22930,7 @@
       "id": "web-signal-00149",
       "fund_id": "",
       "fund_slug": "argos-wityu",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Lavatio, a company supported by Argos, acquires large-scale laundry Witteler & Burkhardt.",
       "what_changed": "",
       "source_url": "https://argos.fund/lavatio-a-company-supported-by-argos-acquires-large-scale-laundry-witteler-burkhardt/",
@@ -22980,7 +22980,7 @@
           "action": "investment"
         }
       ],
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "rss-signal-00060",
@@ -23078,7 +23078,7 @@
       "quality_confidence": "medium",
       "confidence_score": 0.6,
       "title_original": "La insurtech italiana hlpy raggiunge ricavi ricorrenti per circa €60 M nel 2025. Target di oltre 100 mln nei prossimi 24 mesi",
-      "enriched_summary": "The Italian insurtech hlpy reaches recurring revenues of ~ €60M in 2025. Target of over €100M in the next 24 months.",
+      "enriched_summary": "The Italian insurtech hlpy reaches recurring revenues of ~€60M in 2025. Target of over €100M in the next 24 months.",
       "enriched_at": "2026-02-21T19:59:28.793321+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high quality score",
@@ -23271,7 +23271,7 @@
       "id": "rss-signal-00056",
       "fund_id": "",
       "fund_slug": "charme-capital",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Bianalisi (Charme Capital Partners and Columna Capital) acquires Poliambulatorio Oberdan and X-Ray Service from the Bonetti family",
       "what_changed": "Bianalisi, controlled by Charme Capital Partners and Columna Capital, acquires Poliambulatorio Oberdan and X-Ray Service from the Bonetti family.",
       "source_url": "https://bebeez.it/private-equity/bianalisi-charme-capital-partners-e-columna-capital-rileva-il-poliambulatorio-oberdan-e-x-ray-service-dalla-famiglia-bonetti/",
@@ -23331,7 +23331,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "web-signal-00599",
@@ -23390,7 +23390,7 @@
       "id": "rss-signal-00010",
       "fund_id": "",
       "fund_slug": "equinox-aifm",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Mvc Group (Equinox) acquires Wolvenberg NV, its exclusive distributor in the Benelux for the brands Castelli and Sportful.",
       "what_changed": "Mvc Group, part-owned by Equinox, acquires Wolvenberg NV, its exclusive distributor in the Benelux for the brands Castelli and Sportful.",
       "source_url": "https://bebeez.it/private-equity/mvc-group-equinox-acquisisce-wolvenberg-nv-suo-distributore-esclusivo-nel-benelux-per-i-marchi-castelli-e-sportful/",
@@ -23444,7 +23444,7 @@
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "rss-signal-00013",
@@ -23819,7 +23819,7 @@
       "id": "web-signal-01319",
       "fund_id": "",
       "fund_slug": "invitalia",
-      "signal_type": "deal_announced",
+      "signal_type": "other",
       "title": "Waste-to-energy plants, agreement between the Sicilian Region and Invitalia for the management of tenders",
       "what_changed": "",
       "source_url": "https://www.invitalia.it/en/news-media/news/waste-energy-plants-agreement-between-sicilian-region-and-invitalia-management-tenders",
@@ -23865,7 +23865,7 @@
       "llm_event_type": "other",
       "llm_type_confidence": "high",
       "llm_italy_relevant": true,
-      "type": "deal_announced"
+      "type": "other"
     },
     {
       "id": "web-signal-01149",
@@ -24132,7 +24132,7 @@
       "id": "news-signal-20260205111507-934c2dec-d54a9910",
       "fund_id": "",
       "fund_slug": "clessidra-sgr",
-      "signal_type": "deal_announced",
+      "signal_type": "portfolio_update",
       "title": "Human Company: partnership with Hines finalized, supported by Apollo and Clessidra",
       "what_changed": "",
       "source_url": "https://www.clessidragroup.it/human-company-finalizzata-la-partnership-con-hines-affiancata-da-apollo-e-clessidra/",
@@ -24176,7 +24176,7 @@
           "action": "investment"
         }
       ],
-      "type": "deal_announced"
+      "type": "portfolio_update"
     },
     {
       "id": "web-signal-01305",
@@ -24801,5 +24801,9 @@
   "pass8_fixed_at": "2026-02-22T09:53:36.288329Z",
   "pass9_fixed_at": "2026-02-22T10:07:28.764359Z",
   "pass10_fixed_at": "2026-02-22T10:18:09.494142Z",
-  "pass11_fixed_at": "2026-02-22T10:30:33.587413Z"
+  "pass11_fixed_at": "2026-02-22T10:30:33.587413Z",
+  "pass12_fixed_at": "2026-02-22T10:39:25.457246Z",
+  "pass13_fixed_at": "2026-02-22T10:49:14.220727Z",
+  "pass14_fixed_at": "2026-02-22T11:00:20.934199Z",
+  "pass15_fixed_at": "2026-02-22T11:11:01.365427Z"
 }

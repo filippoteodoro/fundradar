@@ -878,6 +878,17 @@ def _apply_post_type_corrections(signal: dict) -> None:
         elif signal.get("signal_type") == "other" and re.search(r"\b(?:ricav\w+|revenue|fatturato)\b.*\b(?:target|milion|mln|€|euro|punta)\b", text_check, re.IGNORECASE):
             signal["signal_type"] = "portfolio_update"
 
+    # "joined/joins network/association" without investment language → other
+    if signal.get("signal_type") == "deal_announced":
+        if re.search(r"\b(?:join(?:s|ed)?)\s+(?:the\s+)?(?:\w+\s+)*?(?:network|association)\b", text_check, re.IGNORECASE):
+            if not re.search(r"\b(?:acquir\w+|invest\w+|stake|close[ds]?)\b", text_check, re.IGNORECASE):
+                signal["signal_type"] = "other"
+
+    # "provides/provided financing" / "financing support" → debt_financing
+    if signal.get("signal_type") == "deal_announced":
+        if _RE_DEBT_FINANCING_BROAD.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
+            signal["signal_type"] = "debt_financing"
+
     # fundraise_announced corrections
     if signal.get("signal_type") == "fundraise_announced":
         # "primo/first/successful closing" = completed closing → fundraise_closed
@@ -3350,10 +3361,10 @@ def main(slugs_filter: str | None = None):
     # Must run AFTER canonical remap (partnership→deal_announced) and AFTER summary
     # finalization so we check the final enriched text.
     _RE_BACKED_ACQUISITION = re.compile(
-        r"\b\w+[\-\u2010\u2011\u2012\u2013]backed\s+\w+.*\b(?:acqui\w+|merg\w+|partner\w+|expansion|launch\w*)\b"
+        r"\b\w+[\-\u2010\u2011\u2012\u2013](?:backed|controlled|owned)\s+\w+.*\b(?:acqui\w+|merg\w+|partner\w+|expansion|launch\w*)\b"
         r"|\b(?:backs|supports?|sostiene)\s+\w+.*\b(?:acqui\w+|merg\w+|in\s+its)\b"
         r"|\b\w+'s\s+\w+.*\b(?:acqui\w+|merg\w+|establish\w+|launch\w*|announc\w+\s+(?:the\s+)?acqui\w+)\b"
-        r"|\b(?:promoted|controllat[oa]|promoss[oa])\s+(?:by|da)\s+\w+.*\b(?:acqui\w+|espand\w+|expand\w+|merg\w+)\b",
+        r"|\b(?:promoted|backed|controllat[oa]|promoss[oa]|controlled|owned|supported)\s+(?:by|da)\s+\w+.*\b(?:acqui\w+|espand\w+|expand\w+|merg\w+)\b",
         re.IGNORECASE,
     )
     _pu_corrected = 0
