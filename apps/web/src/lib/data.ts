@@ -423,6 +423,18 @@ export function getSignalsForFund(fundSlug: string): Signal[] {
       const contextSignal = s.fund_slug === fundSlug ? s : { ...s, fund_slug: fundSlug };
       return !isGarbageSignal(contextSignal, knownFundNames);
     })
+    // Dedup using ORIGINAL text (before display transform) to avoid false positives
+    .filter((s) => {
+      const key = `${s.source_url}::${normalizeSignalText(s.title || '')}::${s.published_at || ''}`;
+      const normWc = normalizeSignalText(s.what_changed || '');
+      const normTitle = normalizeSignalText(s.title || '');
+      const contentKey = `${normTitle}::${normWc || normTitle}::${s.published_at || ''}`;
+      if (seen.has(key)) return false;
+      if (seenContent.has(contentKey)) return false;
+      seen.add(key);
+      seenContent.add(contentKey);
+      return true;
+    })
     .map(s => {
       // For classification: use original Italian text (reclassifier has Italian-specific patterns)
       const cleanedTitle = cleanSignalText(cleanSignalTitle(s.title || ''));
@@ -437,17 +449,6 @@ export function getSignalsForFund(fundSlug: string): Signal[] {
         what_changed: displayText,
         ...(newType ? { signal_type: newType } : {}),
       };
-    })
-    .filter((s) => {
-      const key = `${s.source_url}::${s.title}::${s.published_at || ''}`;
-      const normTitle = normalizeSignalText(s.title || '');
-      const normSummary = normalizeSignalText(s.what_changed || '');
-      const contentKey = `${normTitle}::${normSummary || normTitle}::${s.published_at || ''}`;
-      if (seen.has(key)) return false;
-      if (seenContent.has(contentKey)) return false;
-      seen.add(key);
-      seenContent.add(contentKey);
-      return true;
     });
 }
 

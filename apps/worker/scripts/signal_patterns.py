@@ -347,7 +347,12 @@ _RE_COMPANY_ROUND = re.compile(
     r"|\bround\s+(?:aggiuntivo|addizionale)\b"
     r"|\bincassa\s+(?:altri\s+)?[€$£]?\s*[\d.,]+\s*(?:m\b|mln|milion|k\b|mila)"
     r"|\b\d+(?:[.,]\d+)?\s*(?:milion\w*|mln|mila)\s+di\s+euro\s+di\s+raccolta\b"
-    r"|\bpassa\s+a\s+(?:fondo|fund)\b",
+    r"|\bpassa\s+a\s+(?:fondo|fund)\b"
+    # English patterns for translated startup rounds
+    r"|\b(?:closed?s?|completes?|secures?|raises?)\s+(?:a\s+)?[€$£]?\s*[\d.,]+\s*(?:M|m|mln|million|B|bn|billion)?\s*(?:round|funding)\b"
+    r"|\b[€$£]\s*[\d.,]+\s*(?:M|m|mln|million|B|bn|billion)\s+(?:round|funding)\s+(?:led|backed|from)\b"
+    r"|\bstartup\b.*\b(?:closed?s?|raised?s?|secures?|completes?)\b.*\b(?:round|funding)\b"
+    r"|\b(?:closed?s?|raised?s?|secures?|completes?)\b.*\b(?:round|funding)\b.*\bstartup\b",
     re.IGNORECASE,
 )
 

@@ -172,8 +172,8 @@
         "Technology",
         "Financial Services",
         "Hospitality & Tourism",
-        "Aerospace & Defense",
-        "Professional Services"
+        "Professional Services",
+        "Aerospace & Defense"
       ],
       "description": "Established in 1984 as a spinoff from TA Associates, this global firm pioneered a sector-specialized approach to complex buyouts. Notable Italian transactions include the landmark consolidation of Nexi and the take-private of Tinexta.",
       "geographies": [
@@ -5827,7 +5827,7 @@
         "Real Estate",
         "Automotive",
         "Construction",
-        "Packaging"
+        "Food & Beverage"
       ],
       "description": "Specializes in complex financial restructurings and turnarounds of distressed Italian mid-caps, often partnering with major banks to manage and revitalize credit-intensive industrial assets like Ferroli and Stefanel.",
       "geographies": [
@@ -7200,8 +7200,8 @@
       "sector_tags": [
         "Biotech & Pharma",
         "Healthcare",
-        "Food & Beverage",
         "Environmental Services",
+        "Food & Beverage",
         "Renewable Energy"
       ],
       "description": "Prioritizes research-intensive university spin-offs in life sciences and agri-food, backing ventures like EggPlant and Postbiotica that transform laboratory discoveries into scalable industrial applications.",

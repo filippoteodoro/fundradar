@@ -27,7 +27,7 @@ monitor → rss → translate → normalize_sectors → normalize_portfolio → 
    - Shared modules: imports patterns from `signal_patterns.py`, corrections from `signal_corrections.py`
    - Exit detection uses proper domain matching via `fund.get("website")` from db.json (not slug heuristics)
    - Ecosystem newsrooms flagged via `fund.get("is_ecosystem_newsroom")` in db.json (not hardcoded)
-8. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). Also extracts `target_companies` for deal/exit signals (used by step 9). **DO NOT use ChatGPT 4o** — it hallucinates too frequently. Use `gpt-5-mini` or better. Contains a safety-net translation pass for any Italian that survived step 3 (e.g., LLM-generated Italian summaries).
+8. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). Also extracts `target_companies` for deal/exit signals (used by step 9). **DO NOT use ChatGPT 4o** — it hallucinates too frequently. Use `gpt-5-mini` or better. Contains a safety-net translation pass for any Italian that survived step 3 (e.g., LLM-generated Italian summaries). **enriched_summary coverage is intentionally <100%** — signals where the LLM summary is title-redundant (85%+ word overlap) get `enriched_summary=""` and the frontend falls back to displaying the title. This is correct behavior, not data loss. Progress tracking (`signal_enrichment_progress.json`) still marks them as processed, so re-runs skip them.
 9. **signal_to_portfolio** (`signal_to_portfolio.py`) — Convert deal/exit signals into portfolio entries. **Purely local, zero API calls** — reads `target_companies` pre-extracted by step 8 (OpenAI enrichment). Trust hierarchy: fund press (0.90) > verified news (0.80) > news (0.75) > other (0.70) > rumor (0.60). Progress tracked to avoid re-processing. Also updates exit status for existing entries when exit signals match.
 
 Run all: `pnpm pipeline`
@@ -228,20 +228,22 @@ Normalizes company names for deduplication across sources:
 | **External** | `aifi_scraper.py`, `ingest_pem.py`, `linkedin/` |
 | **Reliability** | `circuit_breaker.py`, `rate_limiter.py`, `health_report.py`, `quality_monitor.py` |
 | **I/O** | `io_utils.py`, `normalizer.py`, `url_utils.py`, `url_generator.py`, `entity_resolver.py` |
-| **Signal Pipeline** | `scripts/signal_patterns.py`, `scripts/signal_corrections.py`, `scripts/filter_signals.py`, `scripts/enrich_signals_openai.py`, `scripts/translate_signals.py` |
+| **Signal Pipeline** | `scripts/signal_patterns.py`, `scripts/signal_corrections.py`, `scripts/signal_text_utils.py`, `scripts/filter_signals.py`, `scripts/enrich_signals_openai.py`, `scripts/translate_signals.py` |
 | **Translation** | `fundradar_worker/translator.py` (shared DeepL→Azure→OpenAI module) |
 
 ### Shared Signal Modules (scripts/)
 
-The signal classification pipeline uses 3 shared modules to prevent pattern drift:
+The signal classification pipeline uses 4 shared modules to prevent pattern drift:
 
 | Module | Purpose | Consumers |
 |--------|---------|-----------|
-| `signal_patterns.py` | **Single source of truth** for ~60 compiled regex patterns, constants, utility functions | `filter_signals.py`, `enrich_signals_openai.py`, `signal_corrections.py` |
+| `signal_patterns.py` | **Single source of truth** for ~60 compiled regex patterns, constants, utility functions | `filter_signals.py`, `enrich_signals_openai.py`, `signal_corrections.py`, `signal_text_utils.py` |
 | `signal_corrections.py` | Shared post-classification corrections (`apply_universal_demotions()`, `apply_type_corrections()`) | `enrich_signals_openai.py` (primary), `filter_signals.py` (has its own broader pattern lists) |
+| `signal_text_utils.py` | Shared text cleaning: `clean_display_text()`, `fix_spacing()`, `normalize_monetary_values()`, `repair_token_splits()`, AUM boilerplate stripping | `filter_signals.py`, `enrich_signals_openai.py` |
 | `translator.py` | Shared translation: language detection, DeepL quota management, Azure fallback, OpenAI fallback | `translate_signals.py` (pipeline step), `enrich_signals_openai.py` (safety net) |
 
 **When adding a new pattern**: add it to `signal_patterns.py`. Both filter and enricher import from it.
+**When adding a new text cleanup rule**: add it to `signal_text_utils.py` inside `clean_display_text()`. Applied uniformly to all text fields (title, what_changed, enriched_summary, diff_summary) in both filter and enricher.
 **When adding a new correction rule**: add it to `signal_corrections.py`. The enricher calls it directly; the filter has its own broader pattern-list-based corrections but should stay in sync for type-specific rules.
 **When adding a new signal type**: update `signal_patterns.py` (CORE_GEO_TYPES/CORE_QUALITY_TYPES), `signal_corrections.py`, `filter_signals.py`, `enrich_signals_openai.py`, `signalProcessing.ts`, `types.ts`, `SignalsFeed.tsx`.
 
@@ -425,6 +427,7 @@ Signal enrichment (`pnpm pipeline:signals` or step 8 of `pnpm pipeline`) makes O
 4. **For debugging/testing fixes**: edit `detected_signals_enriched.json` directly (free) instead of re-running the enricher.
 5. **For testing new classification patterns**: run `pnpm pipeline:signals --slugs specific-fund` (processes one fund's signals only).
 6. **Re-enrichment costs ~$0.05–0.20 per full run** (~10–30 new signals needing LLM, translation via DeepL). Fine for weekly runs. Expensive when run 50× during debugging.
+7. **enriched_summary < 100% is EXPECTED** — the enricher intentionally clears `enriched_summary` when it's title-redundant (two checks: 70% overlap pre-merge, 85% overlap at finalization). These signals show the title in the UI, which is correct. They are still marked as processed in progress — re-running the enricher does NOT re-process them. Typical coverage: 40–60% of signals have a distinct enriched_summary; the rest use the title.
 
 ### Cost breakdown (with DeepL in place)
 - Translation: ~45K chars/run via DeepL ≈ **free** (within 500K/month quota)

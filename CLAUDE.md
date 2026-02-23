@@ -85,6 +85,7 @@ Python writes dicts to JSON with no schema validation. TypeScript types are comp
 - Both share processing via `signalProcessing.ts`
 - Dedup logic in 2 places: Python `filter_signals.py` and `signals_unified.ts` — update both
 - Classification must match in **3 places**: Python `signal_patterns.py` + `signal_corrections.py` (shared by filter + enricher) AND TypeScript `signalProcessing.ts`
+- Text cleaning is shared via `signal_text_utils.py` — `clean_display_text()` is the single entry point for all signal text fields (title, what_changed, enriched_summary, diff_summary). Both filter and enricher import from it.
 
 ### 4. Data Reliability Contract
 Every signal MUST have: `source_url`, `source_name`, `published_at` (if known), `observed_at`. All enrichment must have a verifiable `{field}_source_url`. AI is a data collection aid, not a data source — never store "ai_inferred" as a source.
@@ -132,7 +133,7 @@ Content hashing skips unchanged pages — use `--force-extract` after updating e
 - **Entity resolution**: normalizes company names, fuzzy matching at 90% Jaccard
 - **Atomic writes**: `safe_json_write()` — NEVER use bare `open()/json.dump()`
 - **Signal quality**: defense-in-depth — Python `filter_signals.py` is primary gate, TS `signalProcessing.ts` is safety net
-- **Signal patterns**: `signal_patterns.py` is the single source of truth for all shared regex patterns; `signal_corrections.py` contains shared post-classification corrections — both consumed by filter and enricher
+- **Signal shared modules**: `signal_patterns.py` (regex patterns), `signal_corrections.py` (type corrections), `signal_text_utils.py` (text cleaning via `clean_display_text()`) — all consumed by filter and enricher
 - **Extractor vs pipeline boundary**: extractors handle site-specific HTML parsing/URL routing; pipeline handles universal classification language (e.g. "takes a stake" → deal). Fund-specific metadata (e.g. ecosystem newsrooms) goes in `db.json`, not hardcoded in pipeline code
 - **Fund metadata flags in db.json**: `is_ecosystem_newsroom` (newsroom covers the whole market, not just the fund's own activity — currently: cdp-venture-capital, itago, faro-value)
 
@@ -150,6 +151,7 @@ Content hashing skips unchanged pages — use `--force-extract` after updating e
 | `apps/worker/scripts/filter_signals.py` | Primary quality gate (scoring, geo, dedup, reclassification) |
 | `apps/worker/scripts/signal_patterns.py` | Single source of truth for ~60 shared regex patterns |
 | `apps/worker/scripts/signal_corrections.py` | Shared post-classification corrections (filter + enricher) |
+| `apps/worker/scripts/signal_text_utils.py` | Shared text cleaning: `clean_display_text()`, `fix_spacing()`, `normalize_monetary_values()` |
 | `apps/worker/scripts/signal_to_portfolio.py` | Signal→portfolio conversion (local) |
 | `apps/worker/fundradar_worker/strategies/extractors/` | Fund-specific extractors |
 
@@ -213,7 +215,7 @@ Items covered in detail by sub-project CLAUDE.md files are marked with → refer
 10. **After AIFI scrape** → verify names are brand names (not legal entity names). No `(Italia)`, no `Associati` suffix. `name` must match fund's own website.
 11. **AI is never disclosed in UI** — never say a field is "AI-generated." Reference sources, not AI.
 12. **No "as of" labels** — claim data is current. If stale, update the data instead.
-13. **Never delete enrichment progress/output files** → `signal_enrichment_progress.json` and `detected_signals_enriched.json` prevent costly re-translation and re-enrichment. Deleting either forces full re-run (~$2–5 in OpenAI credits). See `apps/worker/CLAUDE.md` for full cost control rules.
+13. **Never delete enrichment progress/output files** → `signal_enrichment_progress.json` and `detected_signals_enriched.json` prevent costly re-translation and re-enrichment. Deleting either forces full re-run (~$2–5 in OpenAI credits). See `apps/worker/CLAUDE.md` for full cost control rules. **Note**: `enriched_summary` coverage <100% is intentional — title-redundant summaries are deliberately cleared (the frontend shows the title instead). This is NOT data loss.
 14. **Fix signals by editing JSON directly, not re-running enricher** → Direct edits to `detected_signals_enriched.json` are free. Re-running `pnpm pipeline:signals` costs ~$0.30–0.50/run. During debugging, 50 re-runs = $15+.
 15. **NEVER remove or bypass the DeepL translation layer** → DeepL is the primary translation provider (500K chars/month free × 2 keys). Removing it forces all translation through OpenAI at ~$0.10/run just for translation. The `translate` pipeline step (step 3) runs before `filter` — this order is intentional: filter patterns are English-language, translating first improves signal classification quality. See `apps/worker/CLAUDE.md` for the full translation architecture.
 16. **NEVER move translation after the filter step** → The filter (`filter_signals.py`) uses English-language keyword patterns (deal, exit, fundraise, etc.). Italian signals hitting the filter score lower and get misclassified. Translation must run at step 3 (before step 7/filter). The enricher's translation pass is a safety net only, not the primary path.

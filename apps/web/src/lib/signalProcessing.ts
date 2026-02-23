@@ -984,7 +984,11 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
       /\b(?:completa|conclude)\s+(?:un\s+)?(?:round|aumento\s+di\s+capitale)\b/i.test(text) ||
       /\bporta\s+a\s+casa\s+(?:un\s+)?round\b/i.test(text) ||
       /\b(?:chiuso|completato|concluso)\s+(?:il\s+)?(?:round|aumento\s+di\s+capitale)\b/i.test(text) ||
-      /\b\d+(?:[.,]\d+)?\s*(?:milion\w*|mln|mila)\s+di\s+euro\s+di\s+raccolta\b/i.test(text)
+      /\b\d+(?:[.,]\d+)?\s*(?:milion\w*|mln|mila)\s+di\s+euro\s+di\s+raccolta\b/i.test(text) ||
+      // English patterns for translated startup rounds
+      /\b(?:closed?s?|completes?|secures?|raises?)\s+(?:a\s+)?[€$£]?\s*[\d.,]+\s*(?:M|m|mln|million|B|bn|billion)?\s*(?:round|funding)\b/i.test(text) ||
+      /\b[€$£]\s*[\d.,]+\s*(?:M|m|mln|million|B|bn|billion)\s+(?:round|funding)\s+(?:led|backed|from)\b/i.test(text) ||
+      /\bstartup\b.*\b(?:closed?s?|raised?s?|secures?|completes?)\b.*\b(?:round|funding)\b/i.test(text)
     );
     // Exclude fund-level fundraise (the fund itself raising capital from LPs)
     const isFundLevelFundraise = /\b(?:primo|secondo|terzo|final[e]?)\s+closing\s+(?:del|di|per)\s+(?:il\s+)?(?:fondo|fund|veicolo)\b/i.test(text) ||

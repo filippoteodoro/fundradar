@@ -3920,6 +3920,23 @@ def main():
                 removed_strict_gate += 1
                 continue
 
+        def _accept_signal(sig: dict, sc: int) -> None:
+            """Track stats and append a kept signal."""
+            filtered.append(sig)
+            c = sig.get("quality_confidence") or "low"
+            if c in confidence_distribution:
+                confidence_distribution[c] += 1
+            if sc <= 20:
+                score_distribution["0-20"] += 1
+            elif sc <= 40:
+                score_distribution["21-40"] += 1
+            elif sc <= 60:
+                score_distribution["41-60"] += 1
+            elif sc <= 80:
+                score_distribution["61-80"] += 1
+            else:
+                score_distribution["81-100"] += 1
+
         if score == 0:
             removed_garbage += 1
         elif score < MIN_QUALITY_SCORE:
@@ -3927,58 +3944,17 @@ def main():
             # classified as investment events, so we accept slightly lower evidence
             effective_threshold = 75 if signal.get("signal_type") in CORE_QUALITY_TYPES else MIN_QUALITY_SCORE
             if score >= effective_threshold:
-                filtered.append(signal)
-                conf = signal.get("quality_confidence") or "low"
-                if conf in confidence_distribution:
-                    confidence_distribution[conf] += 1
-                if score <= 20:
-                    score_distribution["0-20"] += 1
-                elif score <= 40:
-                    score_distribution["21-40"] += 1
-                elif score <= 60:
-                    score_distribution["41-60"] += 1
-                elif score <= 80:
-                    score_distribution["61-80"] += 1
-                else:
-                    score_distribution["81-100"] += 1
+                _accept_signal(signal, score)
                 continue
             elif _ml_override_keep(signal):
                 kept_ml_override += 1
-                filtered.append(signal)
-                conf = signal.get("quality_confidence") or "low"
-                if conf in confidence_distribution:
-                    confidence_distribution[conf] += 1
-                if score <= 20:
-                    score_distribution["0-20"] += 1
-                elif score <= 40:
-                    score_distribution["21-40"] += 1
-                elif score <= 60:
-                    score_distribution["41-60"] += 1
-                elif score <= 80:
-                    score_distribution["61-80"] += 1
-                else:
-                    score_distribution["81-100"] += 1
+                _accept_signal(signal, score)
                 continue
             else:
                 removed_low_quality += 1
                 continue
         else:
-            filtered.append(signal)
-            conf = signal.get("quality_confidence") or "low"
-            if conf in confidence_distribution:
-                confidence_distribution[conf] += 1
-
-            # Track distribution for kept signals only
-            if score <= 20:
-                score_distribution["0-20"] += 1
-            elif score <= 40:
-                score_distribution["21-40"] += 1
-            elif score <= 60:
-                score_distribution["41-60"] += 1
-            elif score <= 80:
-                score_distribution["61-80"] += 1
-            else:
-                score_distribution["81-100"] += 1
+            _accept_signal(signal, score)
 
     # Semantic dedup: suppress near-duplicate signals about same deal from different sources
     pre_semantic_dedup = len(filtered)

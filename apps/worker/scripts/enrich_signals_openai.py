@@ -1263,8 +1263,11 @@ def _finalize_signal_summary(signal: dict) -> None:
     # Strip "the is dated" malformed artifacts
     summary = re.sub(r"\s+the\s+is\s+dated\s+.{0,30}$", "", summary, flags=re.IGNORECASE).strip()
 
-    # Final cleanup: if summary is still essentially the title after all processing,
-    # clear it — the frontend will show the title directly (no redundant duplicate).
+    # INTENTIONAL CLEARING: if summary is essentially the title after all processing,
+    # set enriched_summary="" — the frontend falls back to displaying the title directly.
+    # This is NOT a bug: ~30-40% of signals have title-redundant summaries because the
+    # LLM had no extra context beyond the title. The progress file still marks them as
+    # processed, so re-running the enricher won't re-process them (correct behavior).
     # Uses strict 85% word overlap regardless of length.
     if title:
         t_words = set(re.findall(r"\w{3,}", title.lower()))
@@ -1918,6 +1921,8 @@ def main(slugs_filter: str | None = None):
         # Only clear when there's extra context (what_changed) available that the LLM can use
         # to generate a better summary. Without what_changed, forcing re-enrichment achieves
         # nothing — the LLM also only has the title and will return the same title-copy summary.
+        # NOTE: This also clears llm_keep so the signal re-enters the LLM queue.
+        # See also _finalize_signal_summary() which does a stricter 85% check at Phase 3.
         _has_what_changed = bool((signal.get("what_changed") or "").strip())
         _es = (signal.get("enriched_summary") or "").strip().rstrip(".")
         _ti = (signal.get("title") or "").strip().rstrip(".")
@@ -2305,22 +2310,18 @@ def main(slugs_filter: str | None = None):
     if _finalize_errors:
         print(f"  Phase 3 summary finalization: {_finalize_errors} errors (skipped, continue)")
 
-    # Remap internal classification types to canonical output types.
-    # "fundraise_closed" / "fundraise_announced" are useful internally for precision
-    # but the frontend only knows "fundraise". "partnership" maps to deal_announced.
-    _CANONICAL_TYPE_MAP = {
-        "fundraise_closed": "fundraise",
-        "fundraise_announced": "fundraise",
-        "partnership": "deal_announced",
-    }
-    _type_remapped = 0
+    # Fix stale bare "fundraise" type: frontend expects fundraise_announced or fundraise_closed.
+    # The old _CANONICAL_TYPE_MAP incorrectly collapsed these — the TS side distinguishes them
+    # (FUND_SIGNAL_TYPES, SIGNAL_TYPE_IMPORTANCE, SIGNAL_TYPE_STYLES all use the full names).
+    _type_fixed = 0
     for signal in signals:
         st = signal.get("signal_type")
-        if st in _CANONICAL_TYPE_MAP:
-            signal["signal_type"] = _CANONICAL_TYPE_MAP[st]
-            _type_remapped += 1
-    if _type_remapped:
-        print(f"  Remapped {_type_remapped} non-canonical signal types to frontend types")
+        if st == "fundraise":
+            # Default to fundraise_announced; closed signals already have fundraise_closed
+            signal["signal_type"] = "fundraise_announced"
+            _type_fixed += 1
+    if _type_fixed:
+        print(f"  Fixed {_type_fixed} bare 'fundraise' → 'fundraise_announced'")
 
     # Post-enrichment portfolio_update correction.
     # After LLM enrichment, summaries may say "portfolio company", "Fund-backed X",
@@ -2459,8 +2460,9 @@ def main(slugs_filter: str | None = None):
     if _truncated:
         print(f"  Truncated {_truncated} enriched_summary fields to {FINAL_MAX_SUMMARY_LEN} chars")
 
-    data["signals"] = _merge_output_signals(signals)
-    data["signal_count"] = len(data["signals"])
+    final_signals = _merge_output_signals(signals)
+    data["signals"] = final_signals
+    data["signal_count"] = len(final_signals)
     if filtered_out_keys or filtered_out_ids:
         data["llm_filter_stats"] = {
             "mode": LLM_FILTER_MODE,
@@ -2472,6 +2474,12 @@ def main(slugs_filter: str | None = None):
     data["enriched_at"] = datetime.now(timezone.utc).isoformat()
     save_json(OUTPUT_FILE, data)
 
+    # Summary coverage stats — enriched_summary is intentionally empty for signals
+    # where the LLM summary was title-redundant (the frontend shows the title directly).
+    # Having <100% coverage is EXPECTED, not a bug. See _finalize_signal_summary().
+    _with_summary = sum(1 for s in final_signals if (s.get("enriched_summary") or "").strip())
+    _without_summary = len(final_signals) - _with_summary
+
     total_elapsed = time.time() - _enricher_start_time
     print(f"\n{'=' * 50}")
     print(f"Enrichment complete! ({total_elapsed:.0f}s / {ENRICHER_DEADLINE_SECONDS}s deadline)")
@@ -2479,6 +2487,10 @@ def main(slugs_filter: str | None = None):
         print(f"  NOTE: Shutdown was requested — some steps may have been skipped")
     print(f"Enriched: {enriched_count} signals")
     print(f"Skipped (already enriched): {skipped_count}")
+    _pct = (100 * _with_summary / len(final_signals)) if final_signals else 0
+    print(f"Summary coverage: {_with_summary}/{len(final_signals)} "
+          f"({_pct:.0f}%) — "
+          f"{_without_summary} title-redundant (expected, not a bug)")
     print(f"Translated (IT→EN): {translated_count}")
     print(f"LLM type overrides: {llm_type_overrides}")
     print(f"LLM API calls: {llm_calls}")

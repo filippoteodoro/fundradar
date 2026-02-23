@@ -689,8 +689,15 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
             )
 
             if can_retry:
-                # Verify output files exist (partial success, not hard crash)
-                outputs_exist = all(p.exists() for p in step["outputs"])
+                # Verify output files exist AND are non-trivial (partial success, not hard crash)
+                def _output_looks_valid(p: Path) -> bool:
+                    if not p.exists():
+                        return False
+                    if p.stat().st_size < 20:
+                        return False  # Too small to be valid JSON
+                    return True
+
+                outputs_exist = all(_output_looks_valid(p) for p in step["outputs"])
                 if outputs_exist:
                     attempt += 1
                     retry_log[step["name"]] = attempt

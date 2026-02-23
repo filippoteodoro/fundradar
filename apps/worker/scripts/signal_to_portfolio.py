@@ -227,9 +227,7 @@ def classify_source(signal: dict, fund_domain: str | None) -> tuple[str, float]:
             return "signal_news_verified", 0.80
         return "signal_news", 0.75
 
-    # Other / RSS
-    if quality_score >= 90:
-        return "signal_other", 0.72
+    # Other / RSS — 0.70 per trust hierarchy
     return "signal_other", 0.70
 
 

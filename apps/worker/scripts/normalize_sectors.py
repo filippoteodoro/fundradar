@@ -6,30 +6,21 @@ Updates both:
   - db.json fund-level sector_tags (AIFI → canonical)
   - portfolio_items.json company-level sectors (free-text → canonical)
 
-Uses keyword mapping first, then OpenAI API for unmapped values.
+Uses deterministic keyword mapping (SECTOR_KEYWORDS dict). No AI calls.
+If new unmapped sectors appear, add keywords to SECTOR_KEYWORDS.
 
 Usage:
-    python apps/worker/scripts/normalize_sectors.py [--dry-run] [--skip-openai]
+    python apps/worker/scripts/normalize_sectors.py [--dry-run]
 """
 
 import argparse
 import json
-import os
 import sys
-import time
 from pathlib import Path
 
-from dotenv import load_dotenv, dotenv_values
 from fundradar_worker.io_utils import safe_json_write
 
-# Load environment variables
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
-ENV_PATH = PROJECT_ROOT / ".env"
-load_dotenv(ENV_PATH, override=False)
-if ENV_PATH.exists() and not os.environ.get("OPENAI_API_KEY"):
-    env_vars = dotenv_values(ENV_PATH)
-    if env_vars.get("OPENAI_API_KEY"):
-        os.environ["OPENAI_API_KEY"] = env_vars["OPENAI_API_KEY"]
 
 DB_FILE = PROJECT_ROOT / "data" / "db.json"
 PORTFOLIO_FILE = PROJECT_ROOT / "data" / "derived" / "portfolio_items.json"
@@ -454,70 +445,9 @@ def normalize_aifi_tags(tags: list[str]) -> list[str]:
     return sorted(canonical)
 
 
-def batch_classify_with_openai(
-    unmapped: list[tuple[str, str]],  # (original_sector, company_name)
-    client,
-) -> dict[str, str | None]:
-    """Use OpenAI to classify unmapped sectors. Returns {original: canonical}."""
-    if not unmapped:
-        return {}
-
-    taxonomy_str = ", ".join(SECTOR_TAXONOMY)
-    results = {}
-
-    # Process in batches of 30
-    batch_size = 30
-    for i in range(0, len(unmapped), batch_size):
-        batch = unmapped[i : i + batch_size]
-
-        items_str = "\n".join(
-            f"  {idx + 1}. sector=\"{orig}\" (company: {comp})"
-            for idx, (orig, comp) in enumerate(batch)
-        )
-
-        prompt = f"""Classify each sector description into EXACTLY one of these canonical sectors. Copy the sector name exactly as written.
-
-Canonical sectors: {taxonomy_str}
-
-If a description doesn't clearly fit any sector, respond with "null".
-
-Items to classify:
-{items_str}
-
-Respond in JSON format: {{"results": [{{"input": "original sector text", "canonical": "Canonical Sector Name"}}]}}"""
-
-        try:
-            response = client.chat.completions.create(
-                model="gpt-5-mini",
-                messages=[{"role": "user", "content": prompt}],
-                response_format={"type": "json_object"},
-                max_completion_tokens=2000,
-            )
-            data = json.loads(response.choices[0].message.content)
-            for item in data.get("results", []):
-                input_sector = item.get("input", "")
-                canonical = item.get("canonical")
-                if canonical == "null" or canonical not in SECTOR_SET:
-                    canonical = None
-                # Match back to original
-                for orig, _comp in batch:
-                    if orig.lower().strip() == input_sector.lower().strip():
-                        results[orig] = canonical
-                        break
-        except Exception as e:
-            print(f"  OpenAI batch error: {e}")
-            for orig, _ in batch:
-                results[orig] = None
-
-        time.sleep(1)  # Rate limit
-
-    return results
-
-
 def main():
     parser = argparse.ArgumentParser(description="Normalize sectors to canonical taxonomy")
     parser.add_argument("--dry-run", action="store_true", help="Don't write changes")
-    parser.add_argument("--skip-openai", action="store_true", help="Skip OpenAI for unmapped sectors")
     args = parser.parse_args()
 
     # ─── 1. Normalize fund-level sector_tags in db.json ─────────────────────
@@ -612,58 +542,13 @@ def main():
     print(f"  Locked entries skipped: {locked_skipped}")
     print(f"  Unmapped unique values: {len(unmapped_unique)}")
 
-    # ─── 3. Use OpenAI for unmapped sectors ─────────────────────────────────
-    openai_mapping = {}
-    if unmapped_unique and not args.skip_openai:
+    # ─── 3. Report unmapped sectors (add to SECTOR_KEYWORDS to fix) ─────────
+    if unmapped_unique:
         print("\n" + "=" * 60)
-        print("STEP 3: Classify unmapped sectors via OpenAI")
+        print("STEP 3: Unmapped sectors — add to SECTOR_KEYWORDS to resolve")
         print("=" * 60)
-
-        try:
-            from openai import OpenAI
-            client = OpenAI()
-
-            # Prepare batch: (sector, sample_company_name)
-            to_classify = [
-                (sector, entries[0][1])
-                for sector, entries in unmapped_unique.items()
-            ]
-            print(f"  Sending {len(to_classify)} unique sectors to OpenAI...")
-            openai_mapping = batch_classify_with_openai(to_classify, client)
-
-            mapped_by_ai = sum(1 for v in openai_mapping.values() if v)
-            null_by_ai = sum(1 for v in openai_mapping.values() if not v)
-            print(f"  Mapped by AI: {mapped_by_ai}")
-            print(f"  Null by AI: {null_by_ai}")
-
-        except ImportError:
-            print("  openai package not installed, skipping")
-        except Exception as e:
-            print(f"  OpenAI error: {e}")
-
-    elif unmapped_unique and args.skip_openai:
-        print(f"\n  Skipping OpenAI ({len(unmapped_unique)} sectors left unmapped)")
-        # Print some for reference
-        for sector, entries in list(unmapped_unique.items())[:20]:
-            print(f"    \"{sector}\" ({len(entries)} entries)")
-
-    # Apply OpenAI results
-    ai_applied = 0
-    ai_null = 0
-    for fund_slug, companies in fund_portfolios.items():
-        for company in companies:
-            sector = company.get("sector")
-            if sector and sector in openai_mapping:
-                canonical = openai_mapping[sector]
-                company["sector"] = canonical
-                if canonical:
-                    ai_applied += 1
-                else:
-                    ai_null += 1
-
-    if openai_mapping:
-        print(f"  Applied AI mapping: {ai_applied} entries")
-        print(f"  Set null by AI: {ai_null} entries")
+        for sector, entries in sorted(unmapped_unique.items()):
+            print(f"    \"{sector}\" ({len(entries)} entries, e.g. {entries[0][1]})")
 
     # ─── 4. Final stats ─────────────────────────────────────────────────────
     print("\n" + "=" * 60)

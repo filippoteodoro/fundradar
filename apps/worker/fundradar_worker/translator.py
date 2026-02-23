@@ -100,17 +100,28 @@ def _language_token_scores(text: str) -> tuple[int, int, int]:
 
 
 def is_italian_text(text: str) -> bool:
-    """Detect if text is predominantly Italian (robust for short finance snippets)."""
+    """Detect if text is predominantly Italian (robust for short finance snippets).
+
+    Tuned for PE/VC signal text which often contains Italian proper nouns (fund names,
+    company names, newspaper names) and accented characters inside otherwise-English text.
+    The accent-only check requires Italian dominance to avoid false positives on names
+    like Demattè, Chloé, Aksìa. Short texts (< 4 tokens) like "Corriere della Sera"
+    require at least 2 Italian markers to avoid triggering on proper noun fragments.
+    """
     if not text:
         return False
     it_score, en_score, token_count = _language_token_scores(text)
     if token_count < 4:
-        return it_score >= 1 and it_score > en_score
+        # Very short text: require stronger evidence (2+ Italian markers, no English)
+        # Prevents false positives on "PM&Partners I", "Corriere della Sera"
+        return it_score >= 2 and en_score == 0
     if it_score >= 2 and it_score > en_score:
         return True
     if it_score >= 3 and en_score == 0:
         return True
-    if re.search(r"[àèéìòù]", text) and it_score >= 1:
+    # Accented characters strengthen Italian detection only when Italian already dominates.
+    # Prevents false positives on English text with accented proper nouns (Demattè, Chloé, Aksìa).
+    if re.search(r"[àèéìòù]", text) and it_score >= 2 and it_score > en_score:
         return True
     return False
 
