@@ -102,22 +102,17 @@ from signal_patterns import (
     _strip_urls,
 )
 
-# Load environment variables from .env
+# Load environment variables from .env files (worker .env has translation keys)
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
-ENV_PATH = PROJECT_ROOT / ".env"
-load_dotenv(ENV_PATH, override=False)
-if ENV_PATH.exists():
-    env_vars = dotenv_values(ENV_PATH)
-    if not os.environ.get("OPENAI_API_KEY") and env_vars.get("OPENAI_API_KEY"):
-        os.environ["OPENAI_API_KEY"] = env_vars["OPENAI_API_KEY"]
-    if not os.environ.get("DEEPL_API_KEY") and env_vars.get("DEEPL_API_KEY"):
-        os.environ["DEEPL_API_KEY"] = env_vars["DEEPL_API_KEY"]
-    if not os.environ.get("DEEPL_API_KEY_2") and env_vars.get("DEEPL_API_KEY_2"):
-        os.environ["DEEPL_API_KEY_2"] = env_vars["DEEPL_API_KEY_2"]
-    if not os.environ.get("AZURE_TRANSLATOR_KEY") and env_vars.get("AZURE_TRANSLATOR_KEY"):
-        os.environ["AZURE_TRANSLATOR_KEY"] = env_vars["AZURE_TRANSLATOR_KEY"]
-    if not os.environ.get("AZURE_TRANSLATOR_REGION") and env_vars.get("AZURE_TRANSLATOR_REGION"):
-        os.environ["AZURE_TRANSLATOR_REGION"] = env_vars["AZURE_TRANSLATOR_REGION"]
+WORKER_DIR = PROJECT_ROOT / "apps" / "worker"
+_TRANSLATION_KEYS = ("OPENAI_API_KEY", "DEEPL_API_KEY", "DEEPL_API_KEY_2", "AZURE_TRANSLATOR_KEY", "AZURE_TRANSLATOR_REGION")
+for _env_path in (PROJECT_ROOT / ".env", WORKER_DIR / ".env"):
+    load_dotenv(_env_path, override=False)
+    if _env_path.exists():
+        _env_vars = dotenv_values(_env_path)
+        for _key in _TRANSLATION_KEYS:
+            if not os.environ.get(_key) and _env_vars.get(_key):
+                os.environ[_key] = _env_vars[_key]
 
 # Paths — reads filtered signals (quality-scored, noise removed) to avoid
 # wasting API calls on garbage.  Falls back to raw if filtered doesn't exist.
@@ -1974,7 +1969,7 @@ def _send_translation_issue_alert(translation_stats: dict[str, Any], slugs_filte
         f"Non-English fields detected: {detected} across {signals_count} signals",
         f"Translated fields: {translated_fields}",
         f"Unresolved fields: {unresolved}",
-        f"Provider: OpenAI key={'yes' if translation_stats.get('openai_configured') else 'no'}",
+        f"Providers: DeepL={'yes' if translation_stats.get('deepl_keys_available') else 'no'}, Azure={'yes' if translation_stats.get('azure_configured') else 'no'}, OpenAI={'yes' if translation_stats.get('openai_configured') else 'no'}",
     ]
     if skip_reason:
         lines.append(f"Reason: {skip_reason}")
@@ -2145,7 +2140,7 @@ def main(slugs_filter: str | None = None):
                 key = _signal_key(s)
                 if key:
                     previous_by_key[key] = s
-                elif s.get("id"):
+                if s.get("id"):
                     previous_by_id[s["id"]] = s
         except Exception:
             pass
@@ -2199,8 +2194,11 @@ def main(slugs_filter: str | None = None):
         signal_key = _signal_key(signal)
 
         # Merge previous enrichment if present
+        # Try key-based lookup first, then always fall back to ID-based.
+        # Key includes the title, which changes after translation (IT→EN),
+        # so ID-based fallback is essential to avoid costly re-enrichment.
         prev = previous_by_key.get(signal_key)
-        if prev is None and not signal_key:
+        if prev is None:
             prev = previous_by_id.get(signal_id)
         if prev:
             prev_source = prev.get("llm_keep_source")
@@ -2672,20 +2670,26 @@ def main(slugs_filter: str | None = None):
         print("  Skipping translation (deadline/shutdown)")
         translation_stats = {"skipped_reason": "deadline_exceeded"}
     else:
-        from concurrent.futures import ThreadPoolExecutor as _TPE
+        from threading import Thread
         _translation_start = time.time()
-        with _TPE(max_workers=1) as _tpool:
-            _tfut = _tpool.submit(_translate_italian_signals, signals, slugs_filter)
+        _translation_result: list[dict[str, Any]] = [{}]  # mutable container for thread result
+
+        def _run_translation():
             try:
-                translation_stats = _tfut.result(timeout=PHASE3_TRANSLATION_TIMEOUT)
-            except TimeoutError:
-                _tfut.cancel()
-                _telapsed = time.time() - _translation_start
-                print(f"  Translation TIMEOUT after {_telapsed:.0f}s (limit: {PHASE3_TRANSLATION_TIMEOUT}s) — continuing without full translation")
-                translation_stats = {"skipped_reason": f"timeout_after_{_telapsed:.0f}s"}
+                _translation_result[0] = _translate_italian_signals(signals, slugs_filter)
             except Exception as _te:
-                print(f"  Translation error: {_te} — continuing")
-                translation_stats = {"skipped_reason": f"error: {str(_te)[:100]}"}
+                _translation_result[0] = {"skipped_reason": f"error: {str(_te)[:100]}"}
+
+        _t = Thread(target=_run_translation, daemon=True)
+        _t.start()
+        _t.join(timeout=PHASE3_TRANSLATION_TIMEOUT)
+        if _t.is_alive():
+            _telapsed = time.time() - _translation_start
+            print(f"  Translation TIMEOUT after {_telapsed:.0f}s (limit: {PHASE3_TRANSLATION_TIMEOUT}s) — abandoning stuck thread")
+            translation_stats = {"skipped_reason": f"timeout_after_{_telapsed:.0f}s"}
+            # Thread is daemon=True so it will be killed when process exits
+        else:
+            translation_stats = _translation_result[0]
         translated_count = int(translation_stats.get("translated_signals") or 0)
     _send_translation_issue_alert(translation_stats, slugs_filter=slugs_filter)
     network_status = _persist_network_status(

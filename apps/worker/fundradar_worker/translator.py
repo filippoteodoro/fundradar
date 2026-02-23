@@ -227,16 +227,31 @@ def mark_deepl_key_exhausted(env_name: str) -> None:
 
 # ── Translation helpers ────────────────────────────────────────────────────────
 
+DEEPL_BATCH_TIMEOUT = 30  # seconds per DeepL batch call
+
+
 def translate_batch_with_deepl(texts: list[str], api_key: str) -> list[str]:
     """Translate a batch of texts to English via DeepL.
 
     Raises deepl.exceptions.QuotaExceededException when monthly quota is hit.
     Raises deepl.exceptions.AuthorizationException on invalid key.
     Raises ImportError if the deepl package is not installed.
+    Raises TimeoutError if the call takes longer than DEEPL_BATCH_TIMEOUT.
     """
     import deepl  # optional dependency
-    translator = deepl.Translator(api_key)
-    results = translator.translate_text(texts, target_lang="EN-US")
+    from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeout
+
+    def _call():
+        translator = deepl.Translator(api_key)
+        return translator.translate_text(texts, target_lang="EN-US")
+
+    with ThreadPoolExecutor(max_workers=1) as pool:
+        future = pool.submit(_call)
+        try:
+            results = future.result(timeout=DEEPL_BATCH_TIMEOUT)
+        except FutureTimeout:
+            future.cancel()
+            raise TimeoutError(f"DeepL batch call timed out after {DEEPL_BATCH_TIMEOUT}s")
     if isinstance(results, list):
         return [r.text for r in results]
     return [results.text]
@@ -421,13 +436,15 @@ def translate_signals_inplace(
     stats["signals_needing_translation"] = len(signals_needing_work)
 
     if not to_translate:
-        print("  No non-English fields to translate")
+        print("  No non-English fields to translate", flush=True)
         return stats
 
     # Determine providers
     deepl_keys = get_available_deepl_keys()
     has_azure = bool(azure_key)
     has_openai = bool(openai_key)
+    stats["deepl_keys_available"] = len(deepl_keys)
+    stats["azure_configured"] = has_azure
 
     if not deepl_keys and not has_azure and not has_openai:
         print(f"  Skipping translation: no provider configured ({len(to_translate)} fields pending)")
@@ -437,7 +454,7 @@ def translate_signals_inplace(
 
     provider_desc = ([f"DeepL ({len(deepl_keys)} key(s))"] if deepl_keys else []) + (["Azure Translator"] if has_azure else []) + (["OpenAI fallback"] if has_openai else [])
     scope = f" [{slugs_filter}]" if slugs_filter else ""
-    print(f"  Translating {len(to_translate)} non-English fields across {len(signals_needing_work)} signals via {', '.join(provider_desc)}{scope}...")
+    print(f"  Translating {len(to_translate)} non-English fields across {len(signals_needing_work)} signals via {', '.join(provider_desc)}{scope}...", flush=True)
 
     openai_client: Any = None
     if has_openai:
@@ -451,10 +468,15 @@ def translate_signals_inplace(
     unresolved: list[tuple[dict, str, str, str]] = []
 
     BATCH_SIZE = 5
+    total_batches = (len(to_translate) + BATCH_SIZE - 1) // BATCH_SIZE
     for i in range(0, len(to_translate), BATCH_SIZE):
+        batch_num = i // BATCH_SIZE + 1
         batch = to_translate[i: i + BATCH_SIZE]
         texts = [item[3] for item in batch]
         translated_texts = None
+
+        if batch_num % 10 == 1 or batch_num == total_batches:
+            print(f"  Batch {batch_num}/{total_batches} ({translated_fields} translated so far)...", flush=True)
 
         # Try DeepL keys in order
         for env_name, deepl_key in list(deepl_keys):
@@ -470,13 +492,16 @@ def translate_signals_inplace(
                 if "QuotaExceeded" in err_name or "quota" in str(e).lower():
                     mark_deepl_key_exhausted(env_name)
                     deepl_keys = [k for k in deepl_keys if k[0] != env_name]
-                    print(f"  DeepL quota exceeded for {env_name} — trying next provider")
+                    print(f"  DeepL quota exceeded for {env_name} — trying next provider", flush=True)
                 elif "Authorization" in err_name or "auth" in str(e).lower():
-                    print(f"  DeepL auth error for {env_name}: {e} — skipping key")
+                    print(f"  DeepL auth error for {env_name}: {e} — skipping key", flush=True)
                     deepl_keys = [k for k in deepl_keys if k[0] != env_name]
+                elif isinstance(e, TimeoutError):
+                    print(f"  DeepL timeout for {env_name} — falling back to next provider", flush=True)
+                    break
                 else:
-                    print(f"  DeepL error ({env_name}): {e} — falling back to OpenAI")
-                    break  # non-quota errors: try OpenAI this batch
+                    print(f"  DeepL error ({env_name}): {e} — falling back to next provider", flush=True)
+                    break  # non-quota errors: try next provider this batch
 
         # Fall back to Azure Translator
         if translated_texts is None and has_azure:
@@ -519,15 +544,46 @@ def translate_signals_inplace(
             translated_fields += 1
         time.sleep(0.2)
 
-    # Retry unresolved fields individually
+    # Retry unresolved fields via Azure (batch), then OpenAI (individual)
+    if unresolved and has_azure:
+        print(f"  Retrying {len(unresolved)} unresolved fields via Azure Translator...", flush=True)
+        azure_unresolved: list[tuple[dict, str, str, str]] = []
+        for ri in range(0, len(unresolved), BATCH_SIZE):
+            azure_batch = unresolved[ri: ri + BATCH_SIZE]
+            azure_texts = [item[3] for item in azure_batch]
+            try:
+                azure_translated = translate_batch_with_azure(azure_texts, azure_key, azure_region)
+            except Exception as e:
+                err_str = str(e).lower()
+                if "401" in err_str or "403" in err_str or "429" in err_str or "quota" in err_str:
+                    print(f"  Azure Translator error: {e} — disabling for this run", flush=True)
+                    has_azure = False
+                    azure_unresolved.extend(azure_batch)
+                    azure_unresolved.extend(unresolved[ri + BATCH_SIZE:])
+                    break
+                else:
+                    print(f"  Azure Translator error: {e}", flush=True)
+                    azure_unresolved.extend(azure_batch)
+                    continue
+            for (s, field, orig_field, original), translated_text in zip(azure_batch, azure_translated):
+                if not translated_text or translated_text == original:
+                    azure_unresolved.append((s, field, orig_field, original))
+                    continue
+                s[orig_field] = original
+                s[field] = translated_text
+                translated_fields += 1
+        azure_resolved = len(unresolved) - len(azure_unresolved)
+        if azure_resolved:
+            print(f"  Azure resolved {azure_resolved}/{len(unresolved)} fields", flush=True)
+        unresolved = azure_unresolved
+
     if unresolved and openai_client:
-        print(f"  Retrying {len(unresolved)} unresolved fields individually...")
+        print(f"  Retrying {len(unresolved)} unresolved fields via OpenAI...", flush=True)
         still_unresolved: list[tuple[dict, str, str, str]] = []
         for s, field, orig_field, original in unresolved:
             try:
                 translated_text = translate_text_with_openai(openai_client, original)
             except Exception as e:
-                print(f"  OpenAI translation error ({s.get('id')}/{field}): {e}")
                 stats["openai_translation_errors"] += 1
                 _record_error(f"OpenAI translation error: {e}")
                 still_unresolved.append((s, field, orig_field, original))
@@ -538,27 +594,10 @@ def translate_signals_inplace(
             s[orig_field] = original
             s[field] = translated_text
             translated_fields += 1
+        openai_resolved = len(unresolved) - len(still_unresolved)
+        if openai_resolved:
+            print(f"  OpenAI resolved {openai_resolved}/{len(unresolved)} fields", flush=True)
         unresolved = still_unresolved
-
-    # Final retry pass with extra delay
-    if unresolved and openai_client:
-        print(f"  Final retry pass for {len(unresolved)} still-unresolved fields...")
-        final_unresolved: list[tuple[dict, str, str, str]] = []
-        for s, field, orig_field, original in unresolved:
-            time.sleep(1.0)
-            try:
-                translated_text = translate_text_with_openai(openai_client, original)
-            except Exception:
-                final_unresolved.append((s, field, orig_field, original))
-                continue
-            if not translated_text or translated_text == original:
-                final_unresolved.append((s, field, orig_field, original))
-                continue
-            s[orig_field] = original
-            s[field] = translated_text
-            translated_fields += 1
-        print(f"  Final retry resolved {len(unresolved) - len(final_unresolved)} of {len(unresolved)} fields")
-        unresolved = final_unresolved
 
     translated_signals = sum(
         1 for s in signals

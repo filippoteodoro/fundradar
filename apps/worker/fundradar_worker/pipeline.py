@@ -71,7 +71,7 @@ STEPS = [
             DATA_DIR / "detected_signals.json",
         ],
         "optional": True,  # skip gracefully if no API keys configured
-        "timeout": 5 * 60,  # 5 min — mostly DeepL API calls (fast), OpenAI fallback for new signals only
+        "timeout": 10 * 60,  # 10 min — script has 8 min internal deadline
     },
     {
         "name": "normalize_sectors",

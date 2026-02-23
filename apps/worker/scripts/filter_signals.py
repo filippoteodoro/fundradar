@@ -2268,9 +2268,12 @@ def _clean_signal_title(title: str) -> str:
     # Italian equivalent: "aggiunto/a al portafoglio di X"
     cleaned = re.sub(r"(.+?)\s+aggiunt[oa]\s+al?\s+portafoglio\s+.+$", r"\1", cleaned, flags=re.IGNORECASE)
 
-    # Strip Italian "Read more" / "Continue reading" link text appended by extractors
+    # Strip "Read more" / "Continue reading" link text appended by extractors (EN + IT)
     cleaned = re.sub(r"\s*Approfondisci\s*$", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"^Continua a leggere\s*[\"'\u201c\u201d]?\s*", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r'^Continue reading\s*["\u201c]?\s*', "", cleaned, flags=re.IGNORECASE)
+    # Strip trailing closing quote left over after stripping "Continue reading" prefix
+    cleaned = re.sub(r'["\u201d]\s*$', "", cleaned)
 
     # Strip "more details" suffix (Investindustrial extractor artifact)
     cleaned = re.sub(r"\s*more\s+details\s*$", "", cleaned, flags=re.IGNORECASE)

@@ -303,7 +303,7 @@
       {
         "name": "Mecaer Aviation",
         "sector": "Aerospace & Defense",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.95,
         "website": null,
         "description": "System integrator supplying equipment, components and services to helicopter and small business aircraft manufacturers",
@@ -17940,6 +17940,34 @@
         "source_url": "https://www.investindustrial.com/publications/news/Investindustrial-agrees-to-acquire-Kiremko--Idaho-Steel-and-Reyco.html",
         "data_source": "signal_fund_press",
         "signal_id": "web-signal-00022"
+      },
+      {
+        "name": "Frulact",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-12",
+        "source_url": "https://bebeez.it/private-debt/nexture-investindustrial-piazza-altri-500-mln-euro-di-bond-per-finanziare-in-parte-le-acquisizioni-di-frulact-e-sipral/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00003"
+      },
+      {
+        "name": "Sipral",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-12",
+        "source_url": "https://bebeez.it/private-debt/nexture-investindustrial-piazza-altri-500-mln-euro-di-bond-per-finanziare-in-parte-le-acquisizioni-di-frulact-e-sipral/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00003"
       }
     ],
     "trilantic-europe": [
@@ -53769,6 +53797,20 @@
         "detail_page_url": null,
         "website": null,
         "investment_date": null
+      },
+      {
+        "name": "Mecaer Aviation Group",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-12",
+        "source_url": "https://bebeez.it/private-equity/mecaer-fondo-italiano-dinvestimento-e-stellex-capital-management-lazard-si-occupa-del-processo-di-vendita-carlyle-e-pai-partners-in-lizza/",
+        "data_source": "signal_rumor",
+        "signal_id": "rss-signal-00013"
       }
     ],
     "wise-equity-sgr": [
@@ -67984,6 +68026,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.936884+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Amarenco",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-21",
+        "source_url": "https://www.eiffel-ig.com/articles/un-financement-strategique-de-300-millions-deuros-deiffel-investment-group-pour-amarenco/",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-01680"
       }
     ],
     "armonia-sgr": [
@@ -79964,6 +80020,20 @@
         "detail_page_url": null,
         "website": null,
         "investment_date": null
+      },
+      {
+        "name": "Mecaer Aviation Group",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-12",
+        "source_url": "https://bebeez.it/private-equity/mecaer-fondo-italiano-dinvestimento-e-stellex-capital-management-lazard-si-occupa-del-processo-di-vendita-carlyle-e-pai-partners-in-lizza/",
+        "data_source": "signal_rumor",
+        "signal_id": "rss-signal-00015"
       }
     ],
     "cdp-venture-capital": [
@@ -83028,6 +83098,34 @@
         "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
         "data_source": "signal_fund_press",
         "signal_id": "news-signal-20260205111509-fb1ed3df-35b8f13d"
+      },
+      {
+        "name": "Acceler ORA!",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-05",
+        "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+        "data_source": "signal_fund_press",
+        "signal_id": "news-signal-20260205111509-fb1ed3df-8abe01cd"
+      },
+      {
+        "name": "UVT-Growth Fund",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-05",
+        "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+        "data_source": "signal_fund_press",
+        "signal_id": "news-signal-20260205111509-fb1ed3df-efb4d3ca"
       }
     ],
     "equiter": [
@@ -84240,6 +84338,20 @@
         "source_url": "https://www.clessidragroup.it/primo-investimento-di-clessidra-capital-partners-green-harvest-acquisita-la-maggioranza-di-laurieri/",
         "data_source": "signal_fund_press",
         "signal_id": "news-signal-20260205111507-934c2dec-552d9766"
+      },
+      {
+        "name": "Health Italia",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-05",
+        "source_url": "https://www.clessidragroup.it/clessidra-capital-credit-accompagna-linvestimento-in-health-italia-di-giovanni-giuliani-e-stefano-pellegrino/",
+        "data_source": "signal_fund_press",
+        "signal_id": "news-signal-20260205111507-934c2dec-7389d3e6"
       }
     ],
     "eurizon-real-asset": [
@@ -87123,6 +87235,20 @@
         "detail_page_url": null,
         "website": null,
         "investment_date": null
+      },
+      {
+        "name": "Eco Eridania S.p.A.",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-12",
+        "source_url": "https://bebeez.it/private-equity/eco-eridania-spa-icon-infrastructure-ardian-macquarie-dif-e-dws-potrebbero-essere-tra-i-grandi-fondi-interessati-ad-investire/",
+        "data_source": "signal_rumor",
+        "signal_id": "rss-signal-00049"
       }
     ],
     "permira": [
