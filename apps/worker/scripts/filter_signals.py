@@ -493,6 +493,8 @@ DEAL_CLASSIFY_PATTERNS = [
         r"\bsecur(?:es?|ing)\b.{0,40}\b(?:investment|funding|financing)\b",
         r"\binvestitore\s+unic\w*\s+al\s+fianco\s+di\b",  # Italian: sole investor backing
         r"\bsole\s+investor\s+(?:backing|alongside)\b",
+        r"\binvest\s+(?:€|\$|£|over\s+|circa\s+)?[\d.,]+\s*[MBmb]\w*\b",  # invest 260M, invest €5.1M
+        r"\b[\d.,]+\s*[Mm]\w*\s+investment\w*\b",  # 20.5M investment from...
     ]
 ]
 
@@ -971,8 +973,11 @@ def _reclassify_signal_type(signal: dict, text: str, fund: dict | None = None) -
         return "other"
 
     # Pure editorial "investment strategy" / "investment approach" content → other
-    if _RE_EDITORIAL_STRATEGY.search(text_lower) and not _matches_any(DEAL_CLASSIFY_PATTERNS, text_lower):
-        return "other"
+    # Allow demotion even when deal patterns match, if there's no monetary amount
+    # (catches "Investire in Innovazione" which matches deal pattern "investire in" but has no amount)
+    if _RE_EDITORIAL_STRATEGY.search(text_lower):
+        if not _matches_any(DEAL_CLASSIFY_PATTERNS, text_lower) or not _has_amount(text_lower):
+            return "other"
 
     # Financial results/annual report/sustainability report → report
     # Must run BEFORE revenue_performance check (which sends to "other")
@@ -2268,8 +2273,9 @@ def _clean_signal_title(title: str) -> str:
     # Italian equivalent: "aggiunto/a al portafoglio di X"
     cleaned = re.sub(r"(.+?)\s+aggiunt[oa]\s+al?\s+portafoglio\s+.+$", r"\1", cleaned, flags=re.IGNORECASE)
 
-    # Strip "Read more" / "Continue reading" link text appended by extractors (EN + IT)
+    # Strip "Read more" / "Continue reading" / "LEGGI TUTTO" link text appended by extractors (EN + IT)
     cleaned = re.sub(r"\s*Approfondisci\s*$", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"^LEGGI\s+TUTTO\s*", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"^Continua a leggere\s*[\"'\u201c\u201d]?\s*", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r'^Continue reading\s*["\u201c]?\s*', "", cleaned, flags=re.IGNORECASE)
     # Strip trailing closing quote left over after stripping "Continue reading" prefix
@@ -2350,6 +2356,17 @@ def _clean_signal_title(title: str) -> str:
     for wrong, correct in CDP_NAME_CORRECTIONS.items():
         cleaned = cleaned.replace(wrong, correct)
 
+    # Normalize currency abbreviations so titles display cleanly
+    # "€3 bn" → "€3B", "€500 mln" → "€500M", "€1.5 miliardi" → "€1.5B"
+    cleaned = re.sub(r"€\s*(\d[\d.,]*)\s*bn\b", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"€\s*(\d[\d.,]*)\s*(?:mln|million)\b", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(\d[\d.,]*)\s*milion[ei]\s+(?:di\s+)?euro", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(\d[\d.,]*)\s*miliard[ei]\s+(?:di\s+)?euro", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(\d[\d.,]*)\s*mln\s+(?:di\s+)?euros?", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(\d[\d.,]*)\s*mld\s+(?:di\s+)?euros?", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\b(\d[\d.,]*)\s+mln\b", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\b(\d[\d.,]*)\s+mld\b", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
+
     # ALL CAPS → title case (preserve known acronyms)
     if len(cleaned) > 20 and re.match(r"^[A-ZÀ-ÖØ-Þ0-9\s.,':;!?()\-–—]+$", cleaned):
         cleaned = cleaned.title()
@@ -2376,7 +2393,11 @@ NEWSPAPER_ONLY_RE = re.compile(
 
 
 def _clean_signal_text(text: str) -> str:
-    """Clean non-title text fields."""
+    """Clean non-title text fields (what_changed, enriched_summary, diff_summary).
+
+    Applies the same display-critical cleanups as _clean_signal_title() so that
+    whichever field the frontend shows via its fallback chain is properly cleaned.
+    """
     if not text:
         return text
     # If entire text is just a newspaper name, clear it
@@ -2384,7 +2405,57 @@ def _clean_signal_text(text: str) -> str:
         return ""
     cleaned = _strip_read_time(text)
     cleaned = _strip_urls(cleaned)
+
+    # --- Display-critical cleanups (shared with _clean_signal_title) ---
+    # "added to X portfolio" suffix
+    cleaned = re.sub(r"(.+?)\s+added to\s+.+?\s+portfolio(?:\s*\(.*?\))?\s*$", r"\1", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(.+?)\s+aggiunt[oa]\s+al?\s+portafoglio\s+.+$", r"\1", cleaned, flags=re.IGNORECASE)
+    # "Read more" / "Continue reading" / "LEGGI TUTTO" / "Approfondisci" link text
+    cleaned = re.sub(r"\s*Approfondisci\s*$", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"^LEGGI\s+TUTTO\s*", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"^Continua a leggere\s*[\"'\u201c\u201d]?\s*", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r'^Continue reading\s*["\u201c]?\s*', "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r'["\u201d]\s*$', "", cleaned)
+    # "more details" suffix
+    cleaned = re.sub(r"\s*more\s+details\s*$", "", cleaned, flags=re.IGNORECASE)
+    # Curly quotes
+    cleaned = re.sub('^[\u201c\u201d"]+\\s*', '', cleaned)
+    cleaned = re.sub('\\s*[\u201c\u201d"]+$', '', cleaned)
+    # Date prefixes
+    cleaned = DATE_PREFIX_NUMERIC_RE.sub("", cleaned)
+    cleaned = DATE_PREFIX_WORD_RE.sub("", cleaned)
+    cleaned = DATE_PREFIX_WORD_RE2.sub("", cleaned)
+    # Press release prefix
+    cleaned = PRESS_RELEASE_PREFIX_RE.sub("", cleaned)
+    # Insert space after concatenated press release/comunicato prefix (mid-text artifact)
+    cleaned = re.sub(r"(?i)\b(press\s*release|comunicato\s*stampa)(?=[A-Z])", r"\1 ", cleaned)
+    # Insert space before ALL-CAPS word concatenated to lowercase (e.g. "aNEVERHACK" → "a NEVERHACK")
+    cleaned = re.sub(r"([a-z])([A-Z]{3,})", r"\1 \2", cleaned)
+    # Date suffixes
+    cleaned = DATE_SUFFIX_NUMERIC_RE.sub("", cleaned)
+    cleaned = DATE_SUFFIX_WORD_RE.sub("", cleaned)
+    cleaned = DATE_SUFFIX_WORD_RE2.sub("", cleaned)
+    # Currency normalization
+    cleaned = re.sub(r"€\s*(\d[\d.,]*)\s*bn\b", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"€\s*(\d[\d.,]*)\s*(?:mln|million)\b", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(\d[\d.,]*)\s*milion[ei]\s+(?:di\s+)?euro", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(\d[\d.,]*)\s*miliard[ei]\s+(?:di\s+)?euro", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(\d[\d.,]*)\s*mln\s+(?:di\s+)?euros?", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(\d[\d.,]*)\s*mld\s+(?:di\s+)?euros?", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\b(\d[\d.,]*)\s+mln\b", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\b(\d[\d.,]*)\s+mld\b", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
+
     cleaned = _fix_spacing(cleaned)
+    # After spacing fix, strip sector+date suffixes (Astorg: "Healthcare 29 October 2025")
+    cleaned = re.sub(
+        r"(?:Healthcare|Tech(?:nology)?|Business\s+Services|Industrials|Financial\s+Services|Consumer|TMT|Energy)\s*\d{1,2}\s+"
+        + MONTHS_PATTERN + r"\s+\d{4}\s*$",
+        "", cleaned, flags=re.IGNORECASE,
+    ).strip()
+    # Re-strip date suffixes exposed by spacing fix
+    cleaned = DATE_SUFFIX_WORD_RE.sub("", cleaned).strip()
+    # Strip orphaned trailing 1-2 digit numbers (leftover day from stripped dates)
+    cleaned = re.sub(r"\s+\d{1,2}\s*$", "", cleaned).strip()
     base = cleaned
     cleaned = _repair_common_splits(cleaned, strip_leading_label=True)
     if len(cleaned.strip()) < 25:
@@ -2398,6 +2469,9 @@ def _clean_signal_text(text: str) -> str:
         cleaned,
         flags=re.IGNORECASE,
     )
+    # Final curly quote strip (may be exposed after other prefix removals)
+    cleaned = re.sub('^[\u201c\u201d"]+\\s*', '', cleaned)
+    cleaned = re.sub('\\s*[\u201c\u201d"]+$', '', cleaned)
     # ALL CAPS → title case (preserve known acronyms)
     if len(cleaned) > 20 and re.match(r"^[A-ZÀ-ÖØ-Þ0-9\s.,':;!?()\-–—]+$", cleaned):
         cleaned = cleaned.title()
@@ -2720,19 +2794,19 @@ def _clean_signal_fields(signal: dict) -> dict:
                 signal[key],
                 company_candidates=company_candidates,
             )
-    # Strip leading list-number artifacts ("1. ", "2. ", "3. ") from titles/summaries
-    for key in ("title", "enriched_summary"):
+    # Strip leading list-number artifacts ("1. ", "2. ", "3. ") from all display fields
+    for key in ("title", "what_changed", "enriched_summary"):
         if signal.get(key):
             signal[key] = re.sub(r"^\d+\.\s+", "", signal[key])
     # Strip press release dateline: "City (XX), date – " or "City, date – "
-    for key in ("enriched_summary",):
+    for key in ("what_changed", "enriched_summary"):
         if signal.get(key):
             signal[key] = re.sub(
                 r"^[A-Z][a-z]+(?:\s+\([A-Z]{2,4}\))?,\s*\d{1,2}\s+\w+\s+\d{4}\s*[-–—]\s*",
                 "", signal[key],
             )
     # Strip navigation breadcrumbs leaked from source (e.g., "andera Acto | Press releases.")
-    for key in ("enriched_summary",):
+    for key in ("what_changed", "enriched_summary"):
         if signal.get(key):
             signal[key] = re.sub(r"\s*\|?\s*[Pp]ress\s+[Rr]eleases?\.?\s*$", ".", signal[key]).strip()
     # Normalize deal_amount field to consistent currency format

@@ -217,6 +217,8 @@ def _load_portfolio_companies() -> dict[str, str]:
         # Consumer brands that appear frequently in fashion/art/sports media
         "valentino", "moncler", "missoni", "pittarosso", "paul & shark",
         "fincantieri", "citterio", "startupitalia", "bending spoons",
+        # Common Italian words that are also portfolio company names
+        "vittoria", "germani", "futura",
     }
     MIN_COMPANY_NAME_LEN = 6
 

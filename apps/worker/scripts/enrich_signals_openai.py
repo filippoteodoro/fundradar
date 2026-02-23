@@ -1434,7 +1434,7 @@ def _compact_leading_label_chain(text: str) -> str:
 
 
 def _dedup_sentences(text: str) -> str:
-    """Drop sentences that repeat earlier content (>70% word overlap).
+    """Drop sentences that repeat earlier content (>60% word overlap).
 
     Also drops Italian/French sentences that appear to be untranslated duplicates
     of preceding English content (detected by high proper-noun overlap + Italian markers).
@@ -1450,7 +1450,7 @@ def _dedup_sentences(text: str) -> str:
             continue
         w_kept = set(re.findall(r"\w{3,}", " ".join(kept).lower()))
         overlap = len(w_sent & w_kept) / len(w_sent) if w_sent else 0
-        if overlap < 0.7:
+        if overlap < 0.6:
             # Check if this sentence is an Italian/French duplicate of the English kept text.
             # Italian sentences share numbers, proper nouns, and amounts with the English
             # version but use different common words — overlap is typically 30-60%.
@@ -1461,6 +1461,15 @@ def _dedup_sentences(text: str) -> str:
 
 
 def _finalize_signal_summary(signal: dict) -> None:
+    # Apply display-critical normalizations to ALL fields the frontend may show.
+    # Frontend fallback chain: enriched_summary || what_changed || title
+    for _field in ("title", "what_changed", "enriched_summary"):
+        _val = signal.get(_field)
+        if _val:
+            _val = _normalize_currency_amounts(_val)
+            _val = _normalize_token_splits(_val)
+            signal[_field] = _val
+
     title = _clean_summary_text(signal.get("title") or "")
     what_changed = _clean_summary_text(signal.get("what_changed") or "")
     summary = _clean_summary_text(signal.get("enriched_summary") or "")
@@ -1592,6 +1601,35 @@ def _finalize_signal_summary(signal: dict) -> None:
     # Strip internal pipeline commentary that leaks from seed signal generation
     # Patterns: "The transaction is a concrete...", "...tracked universe", "...top-ranked company"
     summary = _strip_internal_commentary(summary)
+
+    # Strip date artifacts produced by the enricher itself (e.g., "announced on 2026-01-15.")
+    summary = re.sub(
+        r"[,.]?\s*(?:announced?|published|reported|observed|noted|dated?|as\s+of)\s+(?:on\s+)?\d{4}-\d{2}-\d{2}\s*\.?\s*$",
+        "", summary, flags=re.IGNORECASE,
+    ).strip()
+    summary = re.sub(
+        r"[,.]?\s*(?:announced?|published|reported|observed|noted|dated?|as\s+of)\s+(?:on\s+)?(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s*\d{4}\s*\.?\s*$",
+        "", summary, flags=re.IGNORECASE,
+    ).strip()
+    # Strip orphaned trailing ISO date: "... on 2026-01-15."
+    summary = re.sub(r"\s+on\s+\d{4}-\d{2}-\d{2}\s*\.?\s*$", "", summary, flags=re.IGNORECASE).strip()
+    # Strip mid-text date artifacts: "announced in a dated YYYY-MM-DD; ..."
+    summary = re.sub(r",?\s+announced\s+in\s+a\s+dated\s+\d{4}-\d{2}-\d{2}\b[^.]*\.", ".", summary, flags=re.IGNORECASE)
+    summary = re.sub(r",?\s+in\s+a\s+dated\s+\d{4}-\d{2}-\d{2}\b[^,.]*", "", summary, flags=re.IGNORECASE)
+    # Strip "the is dated" malformed artifacts
+    summary = re.sub(r"\s+the\s+is\s+dated\s+.{0,30}$", "", summary, flags=re.IGNORECASE).strip()
+
+    # Final cleanup: if summary is still essentially the title after all processing,
+    # clear it — the frontend will show the title directly (no redundant duplicate).
+    # Uses strict 85% word overlap regardless of length.
+    if title:
+        t_words = set(re.findall(r"\w{3,}", title.lower()))
+        s_words = set(re.findall(r"\w{3,}", summary.lower()))
+        if t_words and s_words:
+            overlap = len(t_words & s_words) / min(len(t_words), len(s_words))
+            if overlap >= 0.85:
+                signal["enriched_summary"] = ""
+                return
 
     signal["enriched_summary"] = summary
 
@@ -2726,9 +2764,23 @@ def main(slugs_filter: str | None = None):
         if not signal.get("type") and signal.get("signal_type"):
             signal["type"] = signal["signal_type"]
             _type_backfill += 1
-        # Backfill `enriched_summary` from title/what_changed if still empty
+        # Backfill `enriched_summary` from title/what_changed if still empty.
+        # Skip backfill when what_changed is essentially the same as title (no added value).
         if not (signal.get("enriched_summary") or "").strip():
-            fallback = (signal.get("what_changed") or "").strip() or (signal.get("title") or "").strip()
+            title_fb = (signal.get("title") or "").strip()
+            wc_fb = (signal.get("what_changed") or "").strip()
+            # Prefer what_changed if it adds info beyond the title
+            fallback = ""
+            if wc_fb and title_fb:
+                wc_words = set(re.findall(r"\w{3,}", wc_fb.lower()))
+                t_words = set(re.findall(r"\w{3,}", title_fb.lower()))
+                if wc_words and t_words:
+                    overlap = len(wc_words & t_words) / min(len(wc_words), len(t_words))
+                    if overlap < 0.85:
+                        fallback = wc_fb  # what_changed adds value
+            elif wc_fb:
+                fallback = wc_fb
+            # Don't backfill with just the title — the frontend already shows the title
             if fallback:
                 signal["enriched_summary"] = _clean_summary_text(fallback)
                 _summary_backfill += 1

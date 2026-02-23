@@ -1043,6 +1043,7 @@ function buildDigestText(
     process.env.NEXT_PUBLIC_LEGAL_BILLING_PORTAL_URL ||
     'https://billing.stripe.com/p/login/3cIeVcalm8hwfmz6ac57W00';
   const digestUnsubscribeEmail =
+    process.env.SIGNALS_UNSUBSCRIBE_EMAIL ||
     process.env.DIGEST_UNSUBSCRIBE_EMAIL ||
     process.env.NEXT_PUBLIC_LEGAL_DIGEST_UNSUBSCRIBE_EMAIL ||
     process.env.CONTACT_EMAIL ||

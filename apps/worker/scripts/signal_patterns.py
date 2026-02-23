@@ -156,7 +156,9 @@ _RE_EVENT_ATTENDANCE = re.compile(
     r"\b(?:guest|relator[ei]|speaker|panelist|moderator)\b.*\b(?:event[oi]?|congresso|summit|conferenz|forum|webinar|panel)\b"
     r"|\b(?:event[oi]?|congresso|summit|conferenz|forum|webinar|panel)\b.*\b(?:guest|relator[ei]|speaker|panelist|moderator)\b"
     r"|\binterviene\s+(?:a|al)l['\u2019]?\s*(?:event[oi]?|congresso|summit|conferenz\w*|forum|webinar|panel)\b"
-    r"|\b(?:partecipa|interviene|presente)\s+(?:a|al)l['\u2019]?\s*\w+\s*(?:event[oi]?|congresso|summit|conferenz\w*|forum|webinar|panel|convegno)\b",
+    r"|\b(?:partecipa|interviene|presente)\s+(?:a|al)l['\u2019]?\s*\w+\s*(?:event[oi]?|congresso|summit|conferenz\w*|forum|webinar|panel|convegno)\b"
+    r"|\bspeaks?\s+at\s+(?:the\s+)?(?:event|conference|summit|forum|congress|panel|webinar|convegno)\b"
+    r"|\bcontribut\w+\s+(?:to|a|al)l?\b.{0,60}\b(?:event[oi]?|congresso|summit|conferenz\w*|forum|convegno)\b",
     re.IGNORECASE,
 )
 
@@ -443,7 +445,8 @@ _RE_OFFICE_OPENING = re.compile(
 _RE_EDITORIAL_STRATEGY = re.compile(
     r"\binvestment\s+(?:strategy|approach|philosophy|thesis)\b"
     r"|\bstrategia\s+d[i'\u2019]\s*investiment[oi]\b"
-    r"|\bour\s+(?:approach|strategy|investment\s+process)\b", re.IGNORECASE)
+    r"|\bour\s+(?:approach|strategy|investment\s+process)\b"
+    r"|\binvestire\s+in\s+(?:innovazione|crescita|sviluppo|futuro|sostenibilit\w+)\b", re.IGNORECASE)
 
 # Accelerator batch results / graduates (NOT launch of a new accelerator)
 _RE_ACCELERATOR_RESULTS = re.compile(

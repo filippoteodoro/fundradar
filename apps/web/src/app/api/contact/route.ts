@@ -99,7 +99,7 @@ export async function POST(request: NextRequest) {
     if (resendKey && contactEmail) {
       const resend = new Resend(resendKey);
       await resend.emails.send({
-        from: 'Fundradar <onboarding@resend.dev>',
+        from: 'Fundradar <noreply@fundradar.co>',
         to: contactEmail,
         replyTo: sanitizedEmail,
         subject: `Contact form: ${sanitizedName}`,

@@ -193,8 +193,11 @@ def apply_universal_demotions(text_lower: str, title_lower: str) -> Optional[str
         return "job_posting"
 
     # Editorial "investment strategy" content → other
-    if _RE_EDITORIAL_STRATEGY.search(text_lower) and not _matches_deal(text_lower) and not _matches_exit(text_lower) and not _RE_STRONG_DEAL.search(text_lower):
-        return "other"
+    # Allow demotion even when deal patterns match, if there's no monetary amount
+    _has_monetary = bool(re.search(r"€\s*\d|\$\s*\d|\b\d+\s*(?:milion|million|mln|miliard|billion)\b", text_lower, re.IGNORECASE))
+    if _RE_EDITORIAL_STRATEGY.search(text_lower):
+        if (not _matches_deal(text_lower) and not _matches_exit(text_lower) and not _RE_STRONG_DEAL.search(text_lower)) or not _has_monetary:
+            return "other"
 
     # Financial results / annual reports → report (before revenue_performance check)
     if _RE_REPORT.search(text_lower):
