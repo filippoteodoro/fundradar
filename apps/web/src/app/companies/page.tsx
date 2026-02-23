@@ -28,9 +28,6 @@ export default function CompaniesPage() {
       />
       <div style={{ marginBottom: '24px' }}>
         <h1 style={{ margin: '0 0 8px 0', fontSize: '24px' }}>Funds Backed Companies</h1>
-        <p style={{ margin: 0, color: '#666' }}>
-          Companies backed by funds. Click a company to see its investors. Not a complete database.
-        </p>
       </div>
       <CompaniesTable companies={companies} />
     </div>

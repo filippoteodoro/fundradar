@@ -17,6 +17,7 @@ Reads OPENAI_API_KEY from .env file
 import json
 import os
 import re
+import signal as _signal_mod
 import time
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -366,6 +367,36 @@ RESPONSE_FORMAT = {
 REQUESTS_PER_MINUTE = 80
 MAX_CONCURRENT_LLM = 20
 DELAY_BETWEEN_REQUESTS = 60.0 / REQUESTS_PER_MINUTE
+
+# Global deadline: enricher must finish within this wall-clock time (seconds).
+# Pipeline gives us 60 min; we save+exit at 50 min to leave room for graceful cleanup.
+ENRICHER_DEADLINE_SECONDS = int(os.environ.get("ENRICHER_DEADLINE_SECONDS", 50 * 60))
+# Phase 3 translation timeout: cap the safety-net translation pass (seconds).
+PHASE3_TRANSLATION_TIMEOUT = int(os.environ.get("PHASE3_TRANSLATION_TIMEOUT", 5 * 60))
+
+# Global state for graceful shutdown
+_shutdown_requested = False
+_enricher_start_time: float = 0.0
+
+
+def _handle_sigterm(signum, _frame):
+    """Handle SIGTERM/SIGINT by setting shutdown flag (checked at safe points)."""
+    global _shutdown_requested
+    _shutdown_requested = True
+    print(f"\n  SIGNAL {signum} received — will save and exit at next checkpoint")
+
+
+def _is_deadline_exceeded() -> bool:
+    """Check if the global wall-clock deadline has been exceeded."""
+    if _enricher_start_time <= 0:
+        return False
+    elapsed = time.time() - _enricher_start_time
+    return elapsed >= ENRICHER_DEADLINE_SECONDS
+
+
+def _should_stop() -> bool:
+    """Check if enricher should stop (deadline exceeded or shutdown requested)."""
+    return _shutdown_requested or _is_deadline_exceeded()
 
 # Enricher-only patterns (not in signal_patterns.py)
 _RE_HAS_AMOUNT = re.compile(r"€\s*\d+|\d+\s*(?:m|million|milion|mln|m€|bn|billion)", re.IGNORECASE)
@@ -2016,10 +2047,18 @@ def _parse_args() -> argparse.Namespace:
 
 
 def main(slugs_filter: str | None = None):
+    global _enricher_start_time
+    _enricher_start_time = time.time()
+
+    # Install signal handlers for graceful shutdown
+    _signal_mod.signal(_signal_mod.SIGTERM, _handle_sigterm)
+    _signal_mod.signal(_signal_mod.SIGINT, _handle_sigterm)
+
     print("Signal Enrichment with OpenAI")
     print("=" * 50)
     print(f"Model: {MODEL}")
     print(f"Concurrency: {MAX_CONCURRENT_LLM} workers, {REQUESTS_PER_MINUTE} RPM")
+    print(f"Deadline: {ENRICHER_DEADLINE_SECONDS}s ({ENRICHER_DEADLINE_SECONDS // 60}m)")
 
     # Check for API key
     api_key = os.environ.get("OPENAI_API_KEY")
@@ -2392,13 +2431,19 @@ def main(slugs_filter: str | None = None):
         with ThreadPoolExecutor(max_workers=MAX_CONCURRENT_LLM) as pool:
             futures = {}
             for batch_idx, item in enumerate(needs_llm):
+                if _should_stop():
+                    print(f"  Deadline/shutdown — stopping LLM submissions after {batch_idx}/{len(needs_llm)}")
+                    break
                 future = pool.submit(_enrich_one, item)
                 futures[future] = item
                 # Stagger submissions to stay within rate limit
                 if batch_idx < len(needs_llm) - 1:
                     time.sleep(DELAY_BETWEEN_REQUESTS)
 
-            for future in as_completed(futures):
+            # Timeout: max 10 min for all outstanding futures to complete
+            phase2_timeout = min(10 * 60, max(180, len(futures) * 10))
+            try:
+              for future in as_completed(futures, timeout=phase2_timeout):
                 try:
                     idx, signal, enrichment = future.result(timeout=180)
                 except Exception as exc:
@@ -2528,6 +2573,12 @@ def main(slugs_filter: str | None = None):
                     data["signals"] = _merge_output_signals(signals_to_save)
                     data["signal_count"] = len(data["signals"])
                     save_json(OUTPUT_FILE, data)
+            except TimeoutError:
+                timed_out = len(futures) - completed
+                print(f"  Phase 2 TIMEOUT: {timed_out} futures did not complete in {phase2_timeout}s — continuing with {completed} done")
+                # Cancel outstanding futures
+                for f in futures:
+                    f.cancel()
 
         elapsed = time.time() - start_time
         print(f"  LLM phase done in {elapsed:.1f}s ({llm_calls} calls, {llm_calls / max(elapsed, 1) * 60:.0f} RPM effective)")
@@ -2614,8 +2665,28 @@ def main(slugs_filter: str | None = None):
     _disambiguate_cross_fund_duplicate_summaries(signals)
 
     # ── Translation pass: Italian → English ────────────────────────────────────
-    translation_stats = _translate_italian_signals(signals, slugs_filter=slugs_filter)
-    translated_count = int(translation_stats.get("translated_signals") or 0)
+    # Run in a thread with timeout to prevent hanging on stuck API calls
+    translation_stats: dict[str, Any] = {}
+    translated_count = 0
+    if _should_stop():
+        print("  Skipping translation (deadline/shutdown)")
+        translation_stats = {"skipped_reason": "deadline_exceeded"}
+    else:
+        from concurrent.futures import ThreadPoolExecutor as _TPE
+        _translation_start = time.time()
+        with _TPE(max_workers=1) as _tpool:
+            _tfut = _tpool.submit(_translate_italian_signals, signals, slugs_filter)
+            try:
+                translation_stats = _tfut.result(timeout=PHASE3_TRANSLATION_TIMEOUT)
+            except TimeoutError:
+                _tfut.cancel()
+                _telapsed = time.time() - _translation_start
+                print(f"  Translation TIMEOUT after {_telapsed:.0f}s (limit: {PHASE3_TRANSLATION_TIMEOUT}s) — continuing without full translation")
+                translation_stats = {"skipped_reason": f"timeout_after_{_telapsed:.0f}s"}
+            except Exception as _te:
+                print(f"  Translation error: {_te} — continuing")
+                translation_stats = {"skipped_reason": f"error: {str(_te)[:100]}"}
+        translated_count = int(translation_stats.get("translated_signals") or 0)
     _send_translation_issue_alert(translation_stats, slugs_filter=slugs_filter)
     network_status = _persist_network_status(
         slugs_filter=slugs_filter,
@@ -2675,8 +2746,11 @@ def main(slugs_filter: str | None = None):
     data["enriched_at"] = datetime.now(timezone.utc).isoformat()
     save_json(OUTPUT_FILE, data)
 
+    total_elapsed = time.time() - _enricher_start_time
     print(f"\n{'=' * 50}")
-    print(f"Enrichment complete!")
+    print(f"Enrichment complete! ({total_elapsed:.0f}s / {ENRICHER_DEADLINE_SECONDS}s deadline)")
+    if _shutdown_requested:
+        print(f"  NOTE: Shutdown was requested — some steps may have been skipped")
     print(f"Enriched: {enriched_count} signals")
     print(f"Skipped (already enriched): {skipped_count}")
     print(f"Translated (IT→EN): {translated_count}")

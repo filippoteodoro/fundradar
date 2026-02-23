@@ -37,7 +37,7 @@ export default function HomePage() {
       <div style={{ marginBottom: '24px' }}>
         <h1 style={{ margin: '0 0 8px 0', fontSize: '24px' }}>Funds in Italy</h1>
         <p style={{ margin: 0, color: '#666' }}>
-          Tracking funds activity in Italy using publicly available data. Not a complete database.
+          Tracking funds activity in Italy using publicly available data. Click on a fund to see details. Not a complete database.
         </p>
       </div>
 

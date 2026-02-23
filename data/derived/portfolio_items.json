@@ -21195,6 +21195,20 @@
         "source_url": "https://www.ardian.com/news-insights/press-releases/ardian-signs-agreement-acquire-stake-ivb-wellness-lab-fast-growing-and",
         "data_source": "signal_fund_press",
         "signal_id": "web-signal-01155"
+      },
+      {
+        "name": "Eco Eridania S.p.A.",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-12",
+        "source_url": "https://bebeez.it/private-equity/eco-eridania-spa-icon-infrastructure-ardian-macquarie-dif-e-dws-potrebbero-essere-tra-i-grandi-fondi-interessati-ad-investire/",
+        "data_source": "signal_rumor",
+        "signal_id": "rss-signal-00048"
       }
     ],
     "b4-investimenti-sgr": [
@@ -39870,6 +39884,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.960131+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Quido",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-23",
+        "source_url": "https://bebeez.it/venture-capital/quido-startup-che-sviluppa-soluzioni-ai-per-il-private-capital-chiude-un-round-da-16-mln-guidato-da-vertis-sgr/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00136"
       }
     ],
     "wrm-group": [
@@ -40068,6 +40096,20 @@
         "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/CS_Badrutts-Palace_WRM-Group_en.pdf",
         "data_source": "signal_fund_press",
         "signal_id": "web-signal-01666"
+      },
+      {
+        "name": "Mediocredito Italiano",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/CS_Mediocredito_WRM-Group_en.pdf",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-01668"
       }
     ],
     "xgen-venture-sgr": [
@@ -46237,6 +46279,20 @@
         "detail_page_url": null,
         "website": null,
         "investment_date": null
+      },
+      {
+        "name": "US Salt",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-05",
+        "source_url": "https://www.bcpartners.com/news/contextlogic-to-acquire-us-salt-from-emerald-lake-in-907-5-million-transaction-creating-new-business-ownership-platform-in-partnership-with-abrams-capital-and-bc-partners-credit/",
+        "data_source": "signal_fund_press",
+        "signal_id": "news-signal-20260205111521-58302957-cc9c5d51"
       }
     ],
     "bain-capital": [
@@ -68205,6 +68261,34 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.953566+00:00",
         "curation_note": null
+      },
+      {
+        "name": "PSH SpA",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2025-11-14",
+        "source_url": "https://www.armoniasgr.it/uploads/14112025_PSH.pdf",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-00578"
+      },
+      {
+        "name": "Forge",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2025-06-23",
+        "source_url": "https://www.armoniasgr.it/uploads/Arm\u00f2nia_Forge_Comunicato_20250623.pdf",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-00580"
       }
     ],
     "l-catterton": [
@@ -72176,6 +72260,20 @@
         "source_url": "https://www.lcatterton.com/Press.html#!/LC-goodculture",
         "data_source": "signal_fund_press",
         "signal_id": "web-signal-01151"
+      },
+      {
+        "name": "Playlist",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-11",
+        "source_url": "https://www.lcatterton.com/Press.html#!/LC-playlist-egym",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-01150"
       }
     ],
     "itago": [
@@ -78374,6 +78472,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.972215+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Cross Control",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.7,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-20",
+        "source_url": "https://hat.it/safety21-hat-fund-4-acquires-cross-control/",
+        "data_source": "signal_other",
+        "signal_id": "web-signal-01705-74b3f810"
       }
     ],
     "unigrains": [
@@ -82888,6 +83000,34 @@
         "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
         "data_source": "signal_fund_press",
         "signal_id": "news-signal-20260205111509-fb1ed3df-405b1f57"
+      },
+      {
+        "name": "Control",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-05",
+        "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+        "data_source": "signal_fund_press",
+        "signal_id": "news-signal-20260205111509-fb1ed3df-d18f4816"
+      },
+      {
+        "name": "Titan 4",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-05",
+        "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+        "data_source": "signal_fund_press",
+        "signal_id": "news-signal-20260205111509-fb1ed3df-35b8f13d"
       }
     ],
     "equiter": [

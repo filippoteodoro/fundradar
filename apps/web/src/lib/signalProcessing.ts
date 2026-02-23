@@ -189,7 +189,7 @@ export function isGarbageSignal(signal: Signal, knownFundNames?: Set<string>): b
   }
 
   // what_changed is just generic about/marketing text (>100 chars with no news value)
-  if (wcLower.length > 100 && /purpose-driven|global investment organization|leading.*firm/i.test(wcLower)) return true;
+  if (wcLower.length > 100 && /purpose-driven|global investment organization/i.test(wcLower)) return true;
 
   // Non-Italy signals: italy_relevant=false means the relevance scorer found no Italy connection.
   // Only apply this safety net to RAW/unfiltered signals (no quality_score).
