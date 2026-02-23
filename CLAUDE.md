@@ -64,7 +64,7 @@ scripts/                      TS seed/parse utilities
 | `pnpm worker:geocode` | Geocode addresses → `fund_coordinates.json` |
 | `pnpm merge-aifi` | Merge AIFI data into `db.json` |
 | `pnpm aifi:full` | AIFI scrape + merge |
-| `pnpm pipeline` | Full: monitor → rss → normalize_sectors → normalize_portfolio → enrich_portfolio → filter → enrich → signal_to_portfolio |
+| `pnpm pipeline` | Full: monitor → rss → translate → normalize_sectors → normalize_portfolio → enrich_portfolio → filter → enrich → signal_to_portfolio |
 | `pnpm pipeline --force-extract` | Re-extract even if content unchanged |
 | `pnpm pipeline --slugs s1,s2` | Run for specific fund slugs |
 | `pnpm pipeline:signals` | Filter + enrich only (skip fetching) |
@@ -84,7 +84,7 @@ Python writes dicts to JSON with no schema validation. TypeScript types are comp
 - `/funds/[slug]` → `data.ts` → filtered ONLY
 - Both share processing via `signalProcessing.ts`
 - Dedup logic in 2 places: Python `filter_signals.py` and `signals_unified.ts` — update both
-- Classification must match in Python (`filter_signals.py`) AND TypeScript (`signalProcessing.ts`)
+- Classification must match in **3 places**: Python `signal_patterns.py` + `signal_corrections.py` (shared by filter + enricher) AND TypeScript `signalProcessing.ts`
 
 ### 4. Data Reliability Contract
 Every signal MUST have: `source_url`, `source_name`, `published_at` (if known), `observed_at`. All enrichment must have a verifiable `{field}_source_url`. AI is a data collection aid, not a data source — never store "ai_inferred" as a source.
@@ -117,7 +117,7 @@ Italy-only funds. Solo project — keep solutions minimal. Avoid over-engineerin
 | LinkedIn URLs | `linkedin/fund_linkedin_urls.json` | merged at load time |
 | Fund coordinates | `fund_coordinates.json` | merged into `db.json` via `merge-aifi` |
 
-Pipeline: `monitor → rss → translate (DeepL→OpenAI) → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini) → filter (quality scoring) → enrich (AI summaries) → signal_to_portfolio (local)`
+Pipeline: `monitor → rss → translate (DeepL→Azure→OpenAI) → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini) → filter (quality scoring) → enrich (AI summaries) → signal_to_portfolio (local)`
 
 **Translation order is CRITICAL**: `translate` runs at step 3, BEFORE `filter`. The filter uses English keyword patterns — Italian signals reaching it untraduced score lower and get misclassified. See `apps/worker/CLAUDE.md` for the full translation architecture and why removing DeepL cost $15.
 
@@ -132,6 +132,9 @@ Content hashing skips unchanged pages — use `--force-extract` after updating e
 - **Entity resolution**: normalizes company names, fuzzy matching at 90% Jaccard
 - **Atomic writes**: `safe_json_write()` — NEVER use bare `open()/json.dump()`
 - **Signal quality**: defense-in-depth — Python `filter_signals.py` is primary gate, TS `signalProcessing.ts` is safety net
+- **Signal patterns**: `signal_patterns.py` is the single source of truth for all shared regex patterns; `signal_corrections.py` contains shared post-classification corrections — both consumed by filter and enricher
+- **Extractor vs pipeline boundary**: extractors handle site-specific HTML parsing/URL routing; pipeline handles universal classification language (e.g. "takes a stake" → deal). Fund-specific metadata (e.g. ecosystem newsrooms) goes in `db.json`, not hardcoded in pipeline code
+- **Fund metadata flags in db.json**: `is_ecosystem_newsroom` (newsroom covers the whole market, not just the fund's own activity — currently: cdp-venture-capital, itago, faro-value)
 
 ## Key Files
 
@@ -141,9 +144,13 @@ Content hashing skips unchanged pages — use `--force-extract` after updating e
 | `apps/web/src/lib/signals_unified.ts` | Signal loading for `/signals` page |
 | `apps/web/src/lib/signalProcessing.ts` | Shared signal processing (both paths) |
 | `packages/shared/src/types.ts` | Type definitions (Fund, Signal, Deal, DataSource) |
-| `apps/worker/fundradar_worker/pipeline.py` | 8-step orchestration |
+| `apps/worker/fundradar_worker/pipeline.py` | 9-step orchestration |
 | `apps/worker/fundradar_worker/monitor.py` | Main fetch/extract/diff engine + exit detection |
-| `apps/worker/scripts/signal_to_portfolio.py` | Signal→portfolio conversion (Gemini) |
+| `apps/worker/fundradar_worker/translator.py` | Shared translation module (DeepL→Azure→OpenAI) |
+| `apps/worker/scripts/filter_signals.py` | Primary quality gate (scoring, geo, dedup, reclassification) |
+| `apps/worker/scripts/signal_patterns.py` | Single source of truth for ~60 shared regex patterns |
+| `apps/worker/scripts/signal_corrections.py` | Shared post-classification corrections (filter + enricher) |
+| `apps/worker/scripts/signal_to_portfolio.py` | Signal→portfolio conversion (local) |
 | `apps/worker/fundradar_worker/strategies/extractors/` | Fund-specific extractors |
 
 ## Deployment (Vercel)

@@ -72,7 +72,9 @@ _RE_INVEST_VERBS = re.compile(
     r"|\bprende\s+il\s+controllo\b|\bingresso\s+(?:di|in|nel)\b"
     r"|\bentra\s+nel\s+capitale\b|\boperazion[ei]\s+di\s+(?:debito|credito)\b"
     r"|\binvestitore\s+unic\w*\s+al\s+fianco\s+di\b"
-    r"|\bsole\s+investor\s+(?:backing|alongside)\b",
+    r"|\bsole\s+investor\s+(?:backing|alongside)\b"
+    r"|\btakes?\s+(?:a\s+)?(?:stake|quota|partecipazione)\b"
+    r"|\bpreso\s+(?:una?\s+)?(?:quota|partecipazione)\b",
     re.IGNORECASE,
 )
 
@@ -409,6 +411,190 @@ _RE_EVENT_RECAP_ITALIAN = re.compile(
     r"|\brete\s+nazionale\s+accelerator\w+\b",
     re.IGNORECASE,
 )
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Patterns shared between filter and enricher (previously duplicated inline)
+# Moved here Feb 2026 to prevent drift between the two files.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Interviews/editorials without PE content
+_RE_INTERVIEW = re.compile(
+    r"\bintervist\w+\b|\binterview\w*\b|\bevoluzione\s+editoriale\b"
+    r"|\bda\s+settimanale\s+a\b|\bprofile\s+of\b|\bportrait\s+of\b", re.IGNORECASE)
+
+# Portfolio company revenue/performance articles
+_RE_REVENUE_PERFORMANCE = re.compile(
+    r"\bricavi\s+(?:ricorrenti|netti|totali)\b|\brevenue\s+(?:of|growth|reached|exceeds)\b"
+    r"|\braggiunge\s+(?:ricavi|fatturato|vendite)\b|\bfatturato\s+(?:di|pari|a)\b"
+    r"|\bebitda\s+shortfall\b|\bchiude\s+(?:la\s+)?settimana\s+in\s+(?:calo|rialzo)\b"
+    r"|\bal\s+nasdaq\b.*\btitolo\b", re.IGNORECASE)
+
+# Offer/bid language → deal_announced
+_RE_OFFER_BID = re.compile(
+    r"\bofferta\s+(?:da|di|per)\s+\d+|\boffer\s+(?:for|of|to\s+acquire)\b"
+    r"|\bbid\s+(?:for|of|to\s+acquire)\b|\bofferta\s+(?:vincolante|non\s+vincolante|di\s+acquisto)\b", re.IGNORECASE)
+
+# Office opening / footprint expansion
+_RE_OFFICE_OPENING = re.compile(
+    r"\bopens?\s+(?:a\s+|an\s+|new\s+)?(?:\w+\s+){0,3}office\b"
+    r"|\bapre\s+(?:un\s+)?(?:nuovo\s+)?ufficio\b", re.IGNORECASE)
+
+# Editorial "investment strategy/approach/philosophy" content (no real deal)
+_RE_EDITORIAL_STRATEGY = re.compile(
+    r"\binvestment\s+(?:strategy|approach|philosophy|thesis)\b"
+    r"|\bstrategia\s+d[i'\u2019]\s*investiment[oi]\b"
+    r"|\bour\s+(?:approach|strategy|investment\s+process)\b", re.IGNORECASE)
+
+# Accelerator batch results / graduates (NOT launch of a new accelerator)
+_RE_ACCELERATOR_RESULTS = re.compile(
+    r"\b(?:risultati|graduates?|selezionat[ei]|completat[oi]|conclus[oi]|demo\s*day|batch)\b.*\b(?:accelerat\w+|programma)\b"
+    r"|\b(?:accelerat\w+|programma)\b.*\b(?:risultati|graduates?|selezionat[ei]|completat[oi]|conclus[oi]|demo\s*day|batch)\b",
+    re.IGNORECASE)
+
+# Fund launch verbs: explicit "launch/lancia fund/fondo" pattern
+_RE_FUND_LAUNCH_VERBS = re.compile(
+    r"\b(?:launch|lancia|nasce|nascita|lancio)\b.*\b(?:fund|fondo)\b", re.IGNORECASE)
+
+# Broader fund launch verbs (includes "avvia", "al via" — used in enricher's launch detection)
+_RE_LAUNCH_FUND = re.compile(
+    r"\b(?:launch|lancia|nasce|nascita|lancio|avvia|al\s+via)\b.{0,80}\b(?:fund|fondo)\b", re.IGNORECASE)
+
+# Regulatory/internal dealing communications
+_RE_REGULATORY_COMMUNICATION = re.compile(
+    r"\binternal\s+dealing\b"
+    r"|\bcomunicazione\s+(?:internal|interna)\b"
+    r"|\bcomunicazione\s+internal\s+dealing\b"
+    r"|\bsoggetto\s+rilevante\s+mar\b"
+    r"|\bregulatory\s+(?:filing|notice|communication)\b"
+    r"|\bandamento\s+(?:titolo|in\s+borsa)\b"
+    r"|\bprocedura\s+di\s+adempimento\b"
+    r"|\blake\s+bidco\b", re.IGNORECASE)
+
+# Acquisition verbs (deal-side language)
+_RE_ACQUISITION_VERBS = re.compile(
+    r"\b(?:acquir\w+|acquis\w+|acquisizion\w+|investi\w+|rileva"
+    r"|entra\s+(?:nel\s+capitale|in)\b|enters?\s+capital|buys?|compra"
+    r"|tratt[ai]\s+l[''\u2019]acquisto)\b")
+
+# Internship/stage offers → job_posting
+_RE_INTERNSHIP = re.compile(
+    r"\b(?:offerta\s+di\s+stage|tirocini[oa]?|stage\s+curriculare)\b")
+
+# Job posting reclassification (procedura di selezione, etc.)
+_RE_JOB_POSTING_RECLASSIFY = re.compile(
+    r"\b(?:procedura\s+di\s+selezione|ricerca\s+(?:una?\s+)?risors[ae]"
+    r"|selezione\s+per\s+(?:il\s+)?(?:ruolo|responsabile|posizione)"
+    r"|avvia\s+(?:la\s+)?selezione|seeks?\s+a\s+(?:full|part)[\-\s]time)\b")
+
+# Fundraise closing verbs (completed closes)
+_RE_FUNDRAISE_CLOSED_VERBS = re.compile(
+    r"\bfinal close\b|\bhard cap\b|\bclosed\b|\bchiude\b|\bchius[oa]\b|\bcomplet\w+\b"
+    r"|\bclosing\s+(?:del|di|per|of)\s+(?:il\s+)?(?:fondo|fund|veicolo|oversubscribed)\b"
+    r"|\b(?:primo|secondo|terzo|first|second|third|final|successful)\s+clos(?:e|ing)\b")
+
+# Fundraise verbs full (broader than _RE_FUNDRAISE_CLOSING)
+_RE_FUNDRAISE_VERBS_FULL = re.compile(
+    r"\bfirst close\b|\bfinal close\b|\bhard cap\b|\bclosed\b|\bclosing\b"
+    r"|\bfundrais\w+\b|\braccolta\b|\bchiude\b|\bchiusura\b|\braccog\w+\b")
+
+# Fundraise acquisition (deal verbs in fundraise context)
+_RE_FUNDRAISE_ACQUISITION = re.compile(
+    r"\brileva\b|\bentra (?:nel capitale|in)\b|\bacquisizion\w*\b|\bacquisisce\b|\bacquir\w+\b|\bcompra\b")
+
+# Debt restructure context (confirms debt intent)
+_RE_DEBT_RESTRUCTURE_CONTEXT = re.compile(
+    r"\b(?:debt|debito|creditor\w*|creditor[ei]|scadenza\s+del\s+debito|maturity)\b", re.IGNORECASE)
+
+# "raccoglie X milioni/round" patterns
+_RE_RACCOGLIE_ROUND = re.compile(
+    r"\braccog\w+\b.*\b(?:milion|mln|m€|round|seed|serie|series)\b")
+_RE_RACCOGLIE_EXCLUDE = re.compile(
+    r"\bacquis\w*\b|\brileva\b|\bentra nel capitale\b")
+
+# Close verbs (general)
+_RE_CLOSE_VERBS = re.compile(
+    r"\bchiude\b|\bcompleta\b|\bchiusura\b|\bclosed?\b|\bclosing\b", re.IGNORECASE)
+
+# VC round broad detection
+_RE_VC_ROUND_BROAD = re.compile(
+    r"\b(?:round|serie|series|seed|pre[-\s]?seed)\s+(?:a|b|c|d|e|f|di)\b"
+    r"|\bround\s+(?:seed|pre[-\s]?seed)\b"
+    r"|\bround\s+(?:d[i'\u2019]\s*)?(?:investimento|finanziamento)\b"
+    r"|\bround\s+da\s+\d+|\bincassa\s+(?:nuovo\s+)?round\b"
+    r"|\braccog\w+\s+\d+\s*(?:m|mln|milion|k|mila)\b"
+    r"|\b\d+(?:[.,]\d+)?\s*(?:milion\w*|mln|mila)\s+di\s+euro\s+di\s+raccolta\b",
+    re.IGNORECASE)
+
+# Investment round in title
+_RE_ROUND_INVEST = re.compile(
+    r"\bround\s+(?:d[i'\u2019]\s*)?(?:investimento|finanziamento|pre[\-\s]?seed|seed|serie)", re.IGNORECASE)
+
+# Strong deal evidence (acquisition, financing, investment)
+_RE_STRONG_DEAL = re.compile(
+    r"\bacquis\w+|\bcompra\b|\brileva\b|\bentra\s+nel\s+capitale\b"
+    r"|\binvest(?:s|ed|ing)?\s+(?:in|nel)\b"
+    r"|\bround\b|\bseries\s+[a-f]\b"
+    r"|\bfinanziament[oi]\b|\baumento\s+di\s+capitale\b"
+    r"|\bfundrais\w+\b"
+    r"|\bsecures?\s+(?:€|\$|£)?\s*[\d.,]+\s*(?:m\b|mln|million|milion|k\b|bn|billion)?\s*(?:investment|funding|financing)?\b"
+    r"|\bsecur(?:es?|ing)\b.{0,40}\b(?:investment|funding|financing)\b"
+    r"|\binvestitore\s+unic\w*\s+al\s+fianco\s+di\b"
+    r"|\bsole\s+investor\s+(?:backing|alongside)\b",
+    re.IGNORECASE)
+
+# Team strengthening / senior appointments
+_RE_TEAM_STRENGTHENING = re.compile(
+    r"\b(?:rafforzamento|potenziamento|ampliamento)\s+(?:del\s+)?(?:team|staff|organico|management)\b"
+    r"|\bstrengthens?\b.*\bteam\b|\bsenior\s+appointments?\b"
+    r"|\bseries\s+of\s+(?:senior\s+)?appointments?\b", re.IGNORECASE)
+
+# Buyer perspective cues (bidding, interest in acquisition)
+_RE_BUYER_CUES = re.compile(
+    r"\bin\s+lizza\b|\bpotrebbe\s+essere\s+interessat\w*\b"
+    r"|\bpotrebbero\s+essere\s+interessat\w*\b"
+    r"|\bvaluta\s+l['\u2019]acqui\w+\b", re.IGNORECASE)
+
+# Merger/fusion patterns
+_RE_MERGER = re.compile(
+    r"\b(?:fusion[ei]|merger|fonde|si\s+fondono)\b", re.IGNORECASE)
+
+# Agreement/partnership language (used in exit→partnership reclassification)
+_RE_AGREEMENT = re.compile(
+    r"\b(?:agreement|accordo|intesa|convenzione)\b", re.IGNORECASE)
+_RE_AGREEMENT_PARTNERSHIP_CONTEXT = re.compile(
+    r"\b(?:partnership|collaborazione|gestione|manage|management|tenders?|bando)\b", re.IGNORECASE)
+
+# Advisory board formation (not a hire/appointment)
+_RE_ADVISORY_BOARD = re.compile(
+    r"\b(?:advisory\s+board|comitato\s+(?:scientifico|consultivo))\b", re.IGNORECASE)
+
+# Fund compartment becomes operational → fund_launch
+_RE_FUND_COMPARTMENT_OPERATIONAL = re.compile(
+    r"\boperativ[oa]\s+(?:il\s+)?comparto\b|\bcomparto\b.*\boperativ[oa]\b", re.IGNORECASE)
+
+# Fundraise closing in deal context
+_RE_CLOSING_FUND = re.compile(
+    r"\bclosing\s+(?:del|di|per|of)\s+(?:il\s+)?(?:fondo|fund|oversubscribed)\b", re.IGNORECASE)
+
+# Portfolio company backed/partecipata patterns
+_RE_PORTFOLIO_COMPANY_BACKED = re.compile(
+    r"\b(?:partecipata|sostenuta|backed)\b.*\b(?:acquis\w+|complet\w+|espand\w+|expand\w+|rafforz\w+)",
+    re.IGNORECASE)
+
+# Interview patterns (for people_move/partnership reclassification)
+_RE_INTERVIEW_EDITORIAL = re.compile(
+    r"\bintervist\w+\b|\binterview\w*\b|\bsits?\s+down\s+with\b|\breflects?\s+on\b"
+    r"|\bexplains?\b|\bspiega\b|\bracconta\b", re.IGNORECASE)
+
+# People-related language (to confirm people_move signals)
+_RE_PEOPLE_LANGUAGE = re.compile(
+    r"\b(?:nomin\w+|hired?|joins?|joined|promot\w+|assume\s+(?:il\s+)?(?:ruolo|incarico)"
+    r"|entra\s+(?:nel\s+)?(?:team|consiglio|cda)|nuovo\s+(?:ingresso|membro)"
+    r"|new\s+(?:team\s+)?member)\b", re.IGNORECASE)
+
+# Appointment verbs (for advisory board context check)
+_RE_APPOINTMENT_VERBS = re.compile(
+    r"\b(?:appoint\w+|nomin\w+|joins?|entra)\b", re.IGNORECASE)
 
 
 # ─────────────────────────────────────────────────────────────────────────────

@@ -39,7 +39,7 @@ ENV_PATH = WORKER_DIR / ".env"
 load_dotenv(ENV_PATH, override=False)
 if ENV_PATH.exists():
     env_vars = dotenv_values(ENV_PATH)
-    for key in ("OPENAI_API_KEY", "DEEPL_API_KEY", "DEEPL_API_KEY_2"):
+    for key in ("OPENAI_API_KEY", "DEEPL_API_KEY", "DEEPL_API_KEY_2", "AZURE_TRANSLATOR_KEY", "AZURE_TRANSLATOR_REGION"):
         if not os.environ.get(key) and env_vars.get(key):
             os.environ[key] = env_vars[key]
 

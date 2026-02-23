@@ -172,8 +172,8 @@
         "Technology",
         "Financial Services",
         "Hospitality & Tourism",
-        "Professional Services",
-        "Aerospace & Defense"
+        "Aerospace & Defense",
+        "Professional Services"
       ],
       "description": "Established in 1984 as a spinoff from TA Associates, this global firm pioneered a sector-specialized approach to complex buyouts. Notable Italian transactions include the landmark consolidation of Nexi and the take-private of Tinexta.",
       "geographies": [
@@ -2309,8 +2309,8 @@
         "Technology",
         "Industrial Manufacturing",
         "Healthcare",
-        "Biotech & Pharma",
-        "Chemicals"
+        "Retail",
+        "Aerospace & Defense"
       ],
       "description": "Global alternative asset manager specializing in the internationalization of high-end Italian brands, evidenced by its consolidation of luxury design leaders Flos and B&B Italia under the Design Holding umbrella.",
       "geographies": [
@@ -2433,6 +2433,7 @@
       "id": "cdp-venture-capital",
       "slug": "cdp-venture-capital",
       "name": "Cdp Venture Capital",
+      "is_ecosystem_newsroom": true,
       "category": "sovereign",
       "hq_city": "Rome",
       "hq_region": "Italy",
@@ -3928,6 +3929,7 @@
       "id": "faro-value",
       "slug": "faro-value",
       "name": "FARO Value",
+      "is_ecosystem_newsroom": true,
       "category": "vc",
       "hq_city": "Milan",
       "hq_region": "Italy",
@@ -3938,6 +3940,7 @@
         "Expansion"
       ],
       "sector_tags": [
+        "Fashion & Luxury",
         "Professional Services"
       ],
       "description": "Drives consolidation in the professional services sector and scales high-end Italian industrial SMEs across aerospace, luxury nautical, and cosmetics through a buy-and-build approach.",
@@ -4822,6 +4825,7 @@
       "id": "itago",
       "slug": "itago",
       "name": "Itago",
+      "is_ecosystem_newsroom": true,
       "category": "pe",
       "hq_city": "Venice",
       "hq_region": "Italy",
@@ -6060,7 +6064,7 @@
       ],
       "sector_tags": [
         "Technology",
-        "Consumer Goods",
+        "Retail",
         "Financial Services",
         "Healthcare",
         "Biotech & Pharma"
@@ -8113,6 +8117,7 @@
       ],
       "sector_tags": [
         "Financial Services",
+        "Hospitality & Tourism",
         "Telecommunications"
       ],
       "description": "Specializes in complex corporate restructurings and opportunistic turnarounds, notably executing the acquisition of Auchan Retail Italia and leading strategic interventions in listed entities like Banca Carige and Retelit.",

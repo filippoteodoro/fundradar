@@ -22,8 +22,11 @@ monitor → rss → translate → normalize_sectors → normalize_portfolio → 
    - Misattribution detection (signals naming a different fund than tagged)
    - Italy-relevance gate: 3-tier fund classification (`italy_focused` / `europe_wide` / `mixed_or_global`)
    - ML classifier (optional, confidence-gated), event/conference reclassification
-   - Signal types: deal, exit, fundraise, fund_launch, people_move, partnership, report, job_posting
+   - Signal types: deal, exit, fundraise, fund_launch, people_move, partnership, report, job_posting, debt_financing, portfolio_update
    - Title/text cleaning: ALL CAPS→title case, newspaper suffixes, date prefixes
+   - Shared modules: imports patterns from `signal_patterns.py`, corrections from `signal_corrections.py`
+   - Exit detection uses proper domain matching via `fund.get("website")` from db.json (not slug heuristics)
+   - Ecosystem newsrooms flagged via `fund.get("is_ecosystem_newsroom")` in db.json (not hardcoded)
 8. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). Also extracts `target_companies` for deal/exit signals (used by step 9). **DO NOT use ChatGPT 4o** — it hallucinates too frequently. Use `gpt-5-mini` or better. Contains a safety-net translation pass for any Italian that survived step 3 (e.g., LLM-generated Italian summaries).
 9. **signal_to_portfolio** (`signal_to_portfolio.py`) — Convert deal/exit signals into portfolio entries. **Purely local, zero API calls** — reads `target_companies` pre-extracted by step 8 (OpenAI enrichment). Trust hierarchy: fund press (0.90) > verified news (0.80) > news (0.75) > other (0.70) > rumor (0.60). Progress tracked to avoid re-processing. Also updates exit status for existing entries when exit signals match.
 
@@ -225,6 +228,32 @@ Normalizes company names for deduplication across sources:
 | **External** | `aifi_scraper.py`, `ingest_pem.py`, `linkedin/` |
 | **Reliability** | `circuit_breaker.py`, `rate_limiter.py`, `health_report.py`, `quality_monitor.py` |
 | **I/O** | `io_utils.py`, `normalizer.py`, `url_utils.py`, `url_generator.py`, `entity_resolver.py` |
+| **Signal Pipeline** | `scripts/signal_patterns.py`, `scripts/signal_corrections.py`, `scripts/filter_signals.py`, `scripts/enrich_signals_openai.py`, `scripts/translate_signals.py` |
+| **Translation** | `fundradar_worker/translator.py` (shared DeepL→Azure→OpenAI module) |
+
+### Shared Signal Modules (scripts/)
+
+The signal classification pipeline uses 3 shared modules to prevent pattern drift:
+
+| Module | Purpose | Consumers |
+|--------|---------|-----------|
+| `signal_patterns.py` | **Single source of truth** for ~60 compiled regex patterns, constants, utility functions | `filter_signals.py`, `enrich_signals_openai.py`, `signal_corrections.py` |
+| `signal_corrections.py` | Shared post-classification corrections (`apply_universal_demotions()`, `apply_type_corrections()`) | `enrich_signals_openai.py` (primary), `filter_signals.py` (has its own broader pattern lists) |
+| `translator.py` | Shared translation: language detection, DeepL quota management, Azure fallback, OpenAI fallback | `translate_signals.py` (pipeline step), `enrich_signals_openai.py` (safety net) |
+
+**When adding a new pattern**: add it to `signal_patterns.py`. Both filter and enricher import from it.
+**When adding a new correction rule**: add it to `signal_corrections.py`. The enricher calls it directly; the filter has its own broader pattern-list-based corrections but should stay in sync for type-specific rules.
+**When adding a new signal type**: update `signal_patterns.py` (CORE_GEO_TYPES/CORE_QUALITY_TYPES), `signal_corrections.py`, `filter_signals.py`, `enrich_signals_openai.py`, `signalProcessing.ts`, `types.ts`, `SignalsFeed.tsx`.
+
+### Fund Metadata Flags in db.json
+
+Some filter behavior is controlled by fund-level metadata in db.json (not hardcoded in pipeline code):
+
+| Flag | Purpose | Current Funds |
+|------|---------|---------------|
+| `is_ecosystem_newsroom` | Newsroom publishes market-wide news (not just own activity). Filter requires fund name in signal text. | `cdp-venture-capital`, `itago`, `faro-value` |
+
+To add a new ecosystem newsroom: set `"is_ecosystem_newsroom": true` in the fund's db.json entry — no code changes needed.
 
 ### LinkedIn Modules (`linkedin/`)
 `apify_client.py`, `batch_scraper.py`, `people_scraper.py`, `people_stats.py`, `post_classifier.py`, `posts_scraper.py`, `priority_ranker.py`, `profile_classifier.py`
@@ -365,9 +394,10 @@ The filter (`filter_signals.py`) uses **English-language keyword patterns** to c
 ### Translation chain (never change this order)
 1. `DEEPL_API_KEY` — primary key (500K chars/month free)
 2. `DEEPL_API_KEY_2` — secondary key (auto-failover when primary exhausted)
-3. OpenAI `gpt-5-mini` — last resort fallback (paid, ~$0.10/run for all Italian signals)
+3. `AZURE_TRANSLATOR_KEY` — second fallback (2M chars/month free, region: `italynorth`)
+4. OpenAI `gpt-5-mini` — last resort fallback (paid, ~$0.10/run for all Italian signals)
 
-Exhausted keys are auto-skipped via `data/derived/deepl_quota_state.json`. Both keys exhausted → Telegram alert fires. Monthly quota resets on the 1st.
+DeepL exhausted keys are auto-skipped via `data/derived/deepl_quota_state.json`. Both DeepL keys exhausted → Telegram alert fires + Azure takes over. Azure auth/quota errors disable it for the current run and fall through to OpenAI. Monthly quotas reset on the 1st.
 
 ### Idempotency — how re-translation is prevented
 - `translate_signals.py` checks `title_original` / `what_changed_original`: if set and current text looks English → skip

@@ -57,6 +57,7 @@ from signal_patterns import (
     _RE_BOND_ISSUANCE as _RE_BOND,
     _RE_CHIUDE_FONDO,
     _RE_CHIUDE_RACCOLTA,
+    _RE_CLOSE_VERBS,
     _RE_COMPANY_ROUND,
     _RE_CREDIT_FACILITY,
     _RE_DEBT_FINANCING_BROAD,
@@ -77,7 +78,9 @@ from signal_patterns import (
     _RE_INVEST_VERBS,
     _RE_INVESTOR_MEETING,
     _RE_JOB_SELECTION,
+    _RE_LAUNCH_FUND,
     _RE_LP_COMMITMENT,
+    _RE_MERGER,
     _RE_ORDINAL_INVESTMENT,
     _RE_OUTSOURCING,
     _RE_PARTNERSHIP,
@@ -87,8 +90,11 @@ from signal_patterns import (
     _RE_PROJECT_FINANCING,
     _RE_REPORT,
     _RE_RESEARCH,
+    _RE_ROUND_INVEST,
+    _RE_STRONG_DEAL,
     _RE_STRONG_EXIT_VERBS,
     _RE_VALUE_CREATION,
+    _RE_VC_ROUND_BROAD,
     _extract_portfolio_company_name,
     _is_generic_portfolio_name,
     _strip_read_time,
@@ -107,6 +113,10 @@ if ENV_PATH.exists():
         os.environ["DEEPL_API_KEY"] = env_vars["DEEPL_API_KEY"]
     if not os.environ.get("DEEPL_API_KEY_2") and env_vars.get("DEEPL_API_KEY_2"):
         os.environ["DEEPL_API_KEY_2"] = env_vars["DEEPL_API_KEY_2"]
+    if not os.environ.get("AZURE_TRANSLATOR_KEY") and env_vars.get("AZURE_TRANSLATOR_KEY"):
+        os.environ["AZURE_TRANSLATOR_KEY"] = env_vars["AZURE_TRANSLATOR_KEY"]
+    if not os.environ.get("AZURE_TRANSLATOR_REGION") and env_vars.get("AZURE_TRANSLATOR_REGION"):
+        os.environ["AZURE_TRANSLATOR_REGION"] = env_vars["AZURE_TRANSLATOR_REGION"]
 
 # Paths — reads filtered signals (quality-scored, noise removed) to avoid
 # wasting API calls on garbage.  Falls back to raw if filtered doesn't exist.
@@ -357,98 +367,10 @@ REQUESTS_PER_MINUTE = 80
 MAX_CONCURRENT_LLM = 20
 DELAY_BETWEEN_REQUESTS = 60.0 / REQUESTS_PER_MINUTE
 
-# ── Shared patterns imported from signal_patterns ──
-# _RE_ORDINAL_INVESTMENT, _RE_BOARD_APPOINT, _RE_INVEST_VERBS, _RE_CHIUDE_RACCOLTA,
-# _RE_FUNDRAISE_CLOSING, _RE_OUTSOURCING, _RE_JOB_SELECTION, _RE_EXIT_VERBS, _RE_REPORT,
-# _RE_EVENT_ATTENDANCE, _RE_EVENT_TITLE, _RE_EVENT_INSIGHTS, _RE_EVENT_RECAP_ITALIAN,
-# _RE_VALUE_CREATION, _RE_RESEARCH, _RE_INVESTOR_MEETING, _RE_EXITED_FROM_PORTFOLIO,
-# _RE_STRONG_EXIT_VERBS, _RE_EXPLICIT_SELLER, _RE_CHIUDE_FONDO, _RE_PARTNERSHIP,
-# _RE_PARTNERSHIP_EXCLUDE, _RE_FINALIZZAT, _RE_BOND (aliased from _RE_BOND_ISSUANCE),
-# _RE_BOND_EXCLUDE, _RE_PROJECT_FINANCING, _RE_DEBT_RESTRUCTURING, _RE_DEBT_FINANCING_BROAD,
-# _RE_FUNDRAISE_MILESTONE, _RE_CREDIT_FACILITY, _RE_HAS_ANY_PE_VERB, _RE_ACCELERATOR_LAUNCH,
-# _RE_FUND_LAUNCH_STRICT, _RE_LP_COMMITMENT, _RE_PORTFOLIO_UPDATE, _RE_COMPANY_ROUND,
-# _RE_FUND_LEVEL_FUNDRAISE, _RE_SENIOR_PEOPLE (aliased from _RE_PEOPLE_TITLE)
-
-# Enricher-only patterns
-_RE_LAUNCH_FUND = re.compile(r"\b(?:launch|lancia|nasce|nascita|lancio|avvia|al\s+via)\b.{0,80}\b(?:fund|fondo)\b", re.IGNORECASE)
-_RE_ROUND_INVEST = re.compile(r"\bround\s+(?:d[i'\u2019]\s*)?(?:investimento|finanziamento|pre[\-\s]?seed|seed|serie)", re.IGNORECASE)
-_RE_CLOSE_VERBS = re.compile(r"\bchiude\b|\bcompleta\b|\bchiusura\b|\bclosed?\b|\bclosing\b", re.IGNORECASE)
-# Interviews/editorials without PE content
-_RE_INTERVIEW = re.compile(
-    r"\bintervist\w+\b|\binterview\w*\b|\bevoluzione\s+editoriale\b"
-    r"|\bda\s+settimanale\s+a\b|\bprofile\s+of\b|\bportrait\s+of\b", re.IGNORECASE)
-_RE_TRANSACTION_EXECUTION = re.compile(
-    r"\b(?:acquir\w+|acquis\w+|rileva|buys?|compra|invest(?:s|ed|ing)?\b|investe|investono|"
-    r"fundrais\w+|raccolta|round\b|series\s+[a-f]\b|chiude\b|closing\b|closed\b|completa\b|completes?\b|"
-    r"signed?\b|firmato\b|"
-    r"sells?|sold|exit\w*|vendita|cede\b|cession[ei]\b|disinvest\w+|divest\w+)\b",
-    re.IGNORECASE,
-)
-# Revenue/performance articles
-_RE_REVENUE_PERFORMANCE = re.compile(
-    r"\bricavi\s+(?:ricorrenti|netti|totali)\b|\brevenue\s+(?:of|growth|reached|exceeds)\b"
-    r"|\braggiunge\s+(?:ricavi|fatturato|vendite)\b|\bfatturato\s+(?:di|pari|a)\b"
-    r"|\bebitda\s+shortfall\b|\bchiude\s+(?:la\s+)?settimana\s+in\s+(?:calo|rialzo)\b"
-    r"|\bal\s+nasdaq\b.*\btitolo\b", re.IGNORECASE)
-# _RE_BOND (aliased from _RE_BOND_ISSUANCE), _RE_BOND_EXCLUDE — imported from signal_patterns
-# Offer/bid language → deal
-_RE_OFFER_BID = re.compile(
-    r"\bofferta\s+(?:da|di|per)\s+\d+|\boffer\s+(?:for|of|to\s+acquire)\b"
-    r"|\bbid\s+(?:for|of|to\s+acquire)\b|\bofferta\s+(?:vincolante|non\s+vincolante|di\s+acquisto)\b", re.IGNORECASE)
-# _RE_PROJECT_FINANCING, _RE_DEBT_RESTRUCTURING, _RE_DEBT_FINANCING_BROAD,
-# _RE_FUNDRAISE_MILESTONE, _RE_CREDIT_FACILITY — imported from signal_patterns
-# Regulatory/internal dealing
-_RE_REGULATORY = re.compile(
-    r"\binternal\s+dealing\b|\bcomunicazione\s+(?:internal|interna)\b"
-    r"|\bsoggetto\s+rilevante\s+mar\b", re.IGNORECASE)
-# Broad VC round detection
-_RE_VC_ROUND_BROAD = re.compile(
-    r"\b(?:round|serie|series|seed|pre[-\s]?seed)\s+(?:a|b|c|d|e|f|di)\b"
-    r"|\bround\s+(?:seed|pre[-\s]?seed)\b"
-    r"|\bround\s+(?:d[i'\u2019]\s*)?(?:investimento|finanziamento)\b"
-    r"|\bround\s+da\s+\d+|\bincassa\s+(?:nuovo\s+)?round\b"
-    r"|\braccog\w+\s+\d+\s*(?:m|mln|milion|k|mila)\b"
-    r"|\b\d+(?:[.,]\d+)?\s*(?:milion\w*|mln|mila)\s+di\s+euro\s+di\s+raccolta\b",
-    re.IGNORECASE,
-)
-# _RE_HAS_ANY_PE_VERB — imported from signal_patterns
-
-# Editorial "investment strategy" / "investment approach" (no real deal)
-_RE_EDITORIAL_STRATEGY = re.compile(
-    r"\binvestment\s+(?:strategy|approach|philosophy|thesis)\b"
-    r"|\bstrategia\s+d[i'\u2019]\s*investiment[oi]\b"
-    r"|\bour\s+(?:approach|strategy|investment\s+process)\b",
-    re.IGNORECASE,
-)
-# Accelerator batch results / graduates (NOT launch of a new accelerator)
-_RE_ACCELERATOR_RESULTS = re.compile(
-    r"\b(?:risultati|graduates?|selezionat[ei]|completat[oi]|conclus[oi]|demo\s*day|batch)\b.*\b(?:accelerat\w+|programma)\b"
-    r"|\b(?:accelerat\w+|programma)\b.*\b(?:risultati|graduates?|selezionat[ei]|completat[oi]|conclus[oi]|demo\s*day|batch)\b",
-    re.IGNORECASE,
-)
-# _RE_ACCELERATOR_LAUNCH, _RE_FUND_LAUNCH_STRICT, _RE_LP_COMMITMENT, _RE_PORTFOLIO_UPDATE,
-# _RE_COMPANY_ROUND, _RE_FUND_LEVEL_FUNDRAISE — imported from signal_patterns
-# Fund launch verbs (explicit "launch/lancia fund/fondo" pattern) — enricher-only
-_RE_FUND_LAUNCH_VERBS = re.compile(r"\b(?:launch|lancia|nasce|nascita|lancio)\b.*\b(?:fund|fondo)\b", re.IGNORECASE)
-_RE_OFFICE_OPENING = re.compile(r"\bopens?\s+(?:a\s+|an\s+|new\s+)?(?:\w+\s+){0,3}office\b|\bapre\s+(?:un\s+)?(?:nuovo\s+)?ufficio\b", re.IGNORECASE)
-
-# Pre-compiled inline patterns for other functions — enricher-only
-_RE_STRONG_DEAL = re.compile(
-    r"\bacquis\w+|\bcompra\b|\brileva\b|\bentra\s+nel\s+capitale\b"
-    r"|\binvest(?:s|ed|ing)?\s+(?:in|nel)\b"
-    r"|\bround\b|\bseries\s+[a-f]\b"
-    r"|\bfinanziament[oi]\b|\baumento\s+di\s+capitale\b"
-    r"|\bfundrais\w+\b"
-    r"|\bsecures?\s+(?:€|\$|£)?\s*[\d.,]+\s*(?:m\b|mln|million|milion|k\b|bn|billion)?\s*(?:investment|funding|financing)?\b"
-    r"|\bsecur(?:es?|ing)\b.{0,40}\b(?:investment|funding|financing)\b"
-    r"|\binvestitore\s+unic\w*\s+al\s+fianco\s+di\b"
-    r"|\bsole\s+investor\s+(?:backing|alongside)\b",
-    re.IGNORECASE,
-)
+# Enricher-only patterns (not in signal_patterns.py)
 _RE_HAS_AMOUNT = re.compile(r"€\s*\d+|\d+\s*(?:m|million|milion|mln|m€|bn|billion)", re.IGNORECASE)
 _RE_NEW_STRUCTURED = re.compile(r"^new\s+(?:portfolio\s+)?(?:investment|addition|exit|team\s+member)", re.IGNORECASE)
 _RE_NEW_PORTFOLIO_TARGET = re.compile(r"\bnew (?:portfolio )?(?:investment|exit):?\s*(.+)$", re.IGNORECASE)
-# _RE_SENIOR_PEOPLE — imported from signal_patterns (aliased from _RE_PEOPLE_TITLE)
 _RE_COMPANY_SUFFIX = re.compile(r"\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+(?:S\.?r\.?l\.?|S\.?p\.?A\.?|S\.?A\.?|SAS|SARL|Ltd|Inc|LLC|GmbH|AG|AB|BV|NV|SGR)")
 _RE_CAPITALIZED_NAMES = re.compile(r"\b([A-Z][\w''-]+(?:\s+[A-Z][\w''-]+){1,3})\b")
 _RE_SOURCE_ATTR_SUFFIX = re.compile(
@@ -563,199 +485,41 @@ def _should_apply_llm_type_fallback(signal: dict) -> bool:
 
 
 def _apply_post_type_corrections(signal: dict) -> None:
-    """Apply post-classification type corrections (fund_launch/deal_announced misclassifications).
+    """Apply post-classification type corrections.
 
-    Mirrors filter_signals.py reclassification. Must be called after any type assignment
-    (ML, LLM, or type override).
+    Delegates to the shared signal_corrections module (single source of truth),
+    then applies enricher-specific corrections (VC rounds, keyword fallback, etc.).
     """
+    from signal_corrections import (
+        apply_universal_demotions,
+        apply_type_corrections,
+        detect_portfolio_update,
+        correct_fundraise_to_deal_for_company_round,
+    )
+
     text_check = ((signal.get("title") or "") + " " + (signal.get("what_changed") or "")).lower()
     title_lower = (signal.get("title") or "").lower()
+    page_category = (signal.get("page_category") or "").upper()
 
-    # ── Unconditional demotions (before type-specific checks) ──
-
-    # Event/conference attendance → other
-    if _RE_EVENT_ATTENDANCE.search(text_check):
-        signal["signal_type"] = "other"
+    # ── Phase 1: Universal demotions (shared) ──
+    demotion = apply_universal_demotions(text_check, title_lower)
+    if demotion is not None:
+        signal["signal_type"] = demotion
         return
-
-    # Event titles (Congress 2026, PE Forum Milano) → other
-    if _RE_EVENT_TITLE.search(text_check):
-        if not _RE_INVEST_VERBS.search(text_check) and not _RE_EXIT_VERBS.search(text_check):
-            signal["signal_type"] = "other"
-            return
-
-    # Event insights/recaps → other
-    if _RE_EVENT_INSIGHTS.search(text_check) or _RE_EVENT_RECAP_ITALIAN.search(text_check):
-        signal["signal_type"] = "other"
-        return
-
-    # Value creation marketing → other
-    if _RE_VALUE_CREATION.search(text_check):
-        signal["signal_type"] = "other"
-        return
-
-    # Investor/LP meetings → other
-    if _RE_INVESTOR_MEETING.search(text_check):
-        if not _RE_INVEST_VERBS.search(text_check) and not _RE_EXIT_VERBS.search(text_check):
-            signal["signal_type"] = "other"
-            return
-
-    # Interview/editorial without PE verbs → other
-    if _RE_INTERVIEW.search(text_check):
-        if not _RE_TRANSACTION_EXECUTION.search(text_check):
-            signal["signal_type"] = "other"
-            return
-
-    # Revenue/performance articles → other
-    if _RE_REVENUE_PERFORMANCE.search(text_check):
-        if not _RE_INVEST_VERBS.search(text_check) and not _RE_EXIT_VERBS.search(text_check):
-            signal["signal_type"] = "other"
-            return
-
-    # Research/whitepapers → other (unless also a deal/fundraise)
-    if _RE_RESEARCH.search(text_check):
-        if not _RE_INVEST_VERBS.search(text_check) and not _RE_EXIT_VERBS.search(text_check):
-            signal["signal_type"] = "other"
-            return
 
     # Editorial "investment strategy/approach/philosophy" content → other
-    if _RE_EDITORIAL_STRATEGY.search(text_check) and not _RE_INVEST_VERBS.search(text_check) and not _RE_EXIT_VERBS.search(text_check) and not _RE_STRONG_DEAL.search(text_check):
-        signal["signal_type"] = "other"
-        return
+    # ── Phase 2: Type-specific corrections (shared) ──
+    current = signal.get("signal_type", "other")
+    corrected = apply_type_corrections(current, text_check, title_lower, page_category)
+    if corrected != current:
+        signal["signal_type"] = corrected
 
-    # Bond issuance / refinancing → debt_financing (but NOT fund-level fundraise for debt funds)
-    if _RE_BOND.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
-        if not _RE_BOND_EXCLUDE.search(text_check):
-            signal["signal_type"] = "debt_financing"
-            return
+    # ── Phase 3: Enricher-specific corrections ──
 
-    # Revolving credit facility → debt_financing
-    if _RE_CREDIT_FACILITY.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
-        if not _RE_INVEST_VERBS.search(text_check):
-            signal["signal_type"] = "debt_financing"
-            return
-
-    # Project financing → debt_financing (but not equity raises like aucap)
-    if _RE_PROJECT_FINANCING.search(text_check) and not _RE_BOND_EXCLUDE.search(text_check):
-        if not _RE_INVEST_VERBS.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
-            signal["signal_type"] = "debt_financing"
-            return
-
-    # Broader debt financing: private debt, securitization, mezzanine, unitranche
-    # But NOT when a debt fund is raising capital from LPs ("chiude la raccolta del fondo di private debt")
-    if _RE_DEBT_FINANCING_BROAD.search(text_check) and not _RE_BOND_EXCLUDE.search(text_check):
-        if not _RE_INVEST_VERBS.search(text_check) and not _RE_EXIT_VERBS.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
-            signal["signal_type"] = "debt_financing"
-            return
-
-    # Regulatory/internal dealing → other
-    if _RE_REGULATORY.search(text_check):
-        signal["signal_type"] = "other"
-        return
-
-    # ── Type-specific corrections ──
-
-    if signal.get("signal_type") == "fund_launch":
-        # Check fund vehicle language in TITLE only (not full text_check)
-        # Prevents false matches from concatenated title + what_changed repeating
-        has_fund_vehicle = bool(_RE_FUND_LAUNCH_STRICT.search(title_lower))
-        # Merger/fusion → deal_announced (not fund_launch)
-        # e.g. "Al via la fusione tra Smart Capital, Crowd Fund Me..." — "al via" + "Fund" in company name
-        if re.search(r"\b(?:fusion[ei]|merger|fonde|si\s+fondono)\b", text_check):
-            signal["signal_type"] = "deal_announced"
-        # Fund-level raise language takes priority over debt for debt funds.
-        elif _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
-            if _RE_FUNDRAISE_CLOSING.search(text_check) or _RE_CHIUDE_FONDO.search(text_check):
-                signal["signal_type"] = "fundraise_closed"
-            else:
-                signal["signal_type"] = "fundraise_announced"
-        # Accelerator/program launch → other (strategic initiative, not a fund vehicle)
-        elif _RE_ACCELERATOR_LAUNCH.search(text_check) and not has_fund_vehicle:
-            signal["signal_type"] = "other"
-            return
-        # Accelerator batch results / graduates → other (not a fund launch)
-        elif _RE_ACCELERATOR_RESULTS.search(text_check) and not has_fund_vehicle:
-            signal["signal_type"] = "other"
-        # LP commitment to existing fund → fundraise (not fund_launch)
-        elif _RE_LP_COMMITMENT.search(text_check) and not has_fund_vehicle:
-            signal["signal_type"] = "fundraise_announced"
-        # Ordinal/new investment → deal
-        elif _RE_ORDINAL_INVESTMENT.search(text_check):
-            signal["signal_type"] = "deal_announced"
-        # Board/appointment → people_move
-        elif _RE_BOARD_APPOINT.search(text_check) and not _RE_LAUNCH_FUND.search(text_check):
-            signal["signal_type"] = "people_move"
-        # Office opening / footprint expansion → people_move
-        elif _RE_OFFICE_OPENING.search(text_check) and not _RE_INVEST_VERBS.search(text_check):
-            signal["signal_type"] = "people_move"
-        # "offerta da X mln" = acquisition bid → deal
-        elif _RE_OFFER_BID.search(text_check):
-            signal["signal_type"] = "deal_announced"
-        # Bond/debt financing misclassified as fund_launch → debt_financing
-        elif _RE_BOND.search(text_check) and not _RE_BOND_EXCLUDE.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
-            signal["signal_type"] = "debt_financing"
-        elif _RE_CREDIT_FACILITY.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
-            signal["signal_type"] = "debt_financing"
-        # Project financing → debt_financing (but not equity raises)
-        elif _RE_PROJECT_FINANCING.search(text_check) and not _RE_BOND_EXCLUDE.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
-            signal["signal_type"] = "debt_financing"
-        elif _RE_DEBT_FINANCING_BROAD.search(text_check) and not _RE_BOND_EXCLUDE.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
-            signal["signal_type"] = "debt_financing"
-        # Investment verbs or "investimento da/in X" → deal
-        elif _RE_INVEST_VERBS.search(text_check):
-            signal["signal_type"] = "deal_announced"
-        # Company round (startup raises money) → deal
-        elif _RE_COMPANY_ROUND.search(text_check):
-            signal["signal_type"] = "deal_announced"
-        # Startup funding rounds → fundraise
-        elif _RE_ROUND_INVEST.search(title_lower):
-            if _RE_CLOSE_VERBS.search(title_lower):
-                signal["signal_type"] = "fundraise_closed"
-            else:
-                signal["signal_type"] = "fundraise_announced"
-        # "Chiude la raccolta" or "chiude il fondo" → fundraise_closed
-        elif _RE_CHIUDE_FONDO.search(text_check):
-            signal["signal_type"] = "fundraise_closed"
-        # "surpasses X in raised capital" → fundraise
-        elif _RE_FUNDRAISE_MILESTONE.search(text_check):
-            signal["signal_type"] = "fundraise_closed"
-        # Finalized deal → deal_announced
-        elif _RE_FINALIZZAT.search(text_check):
-            signal["signal_type"] = "deal_announced"
-        # Partnership (only if no fund vehicle language — launching a fund via partnership is still fund_launch)
-        elif _RE_PARTNERSHIP.search(text_check) and not has_fund_vehicle:
-            if not _RE_PARTNERSHIP_EXCLUDE.search(text_check):
-                signal["signal_type"] = "partnership"
-            else:
-                signal["signal_type"] = "deal_announced"
-        # Debt restructuring → other
-        elif _RE_DEBT_RESTRUCTURING.search(text_check) and not _RE_INVEST_VERBS.search(text_check):
-            signal["signal_type"] = "other"
-        # Revenue/financial results (no fund vehicle) → other
-        elif re.search(r"\b(?:ricav\w+|fatturato|revenue|risultat\w+\s+finanziar\w+|bilancio)\b", text_check) and not has_fund_vehicle:
-            signal["signal_type"] = "other"
-        # Editorial/analysis content (no fund vehicle) → other
-        elif _RE_EDITORIAL_STRATEGY.search(text_check) and not has_fund_vehicle:
-            signal["signal_type"] = "other"
-        # "launches/lancia + partnership" in title → partnership (not fund_launch)
-        # e.g. "Fund X launches strategic partnership with Y"
-        elif re.search(r"\b(?:launch(?:es|ed)?|lancia|lancio)\b.{0,30}\b(?:partnership|collaborazione|accordo|alleanza)", title_lower):
-            signal["signal_type"] = "partnership"
-        # Historical launch reference ("launched in 2022") → other (article, not current launch)
-        elif re.search(r"\blaunched?\s+in\s+20(?:1\d|2[0-4])\b", text_check):
-            signal["signal_type"] = "other"
-        # Catch-all: fund_launch without fund vehicle language in title → other
-        elif not has_fund_vehicle:
-            signal["signal_type"] = "other"
-
-    # Promote partnership/other/deal back to fund_launch when title has explicit launch verb + fund vehicle
-    # e.g. "Blackstone launches BXEF fund" gets wrongly demoted to partnership from "expanded partnership"
+    # Fund_launch back-promotion: partnership/other/deal → fund_launch when title has launch verb + fund vehicle
     if signal.get("signal_type") in {"partnership", "other", "deal_announced"}:
         title_for_fl = (signal.get("title") or "").lower()
-        # Don't promote mergers/fusions back to fund_launch
-        if not re.search(r"\b(?:fusion[ei]|merger|fonde|si\s+fondono)\b", title_for_fl):
-            # Guard: don't promote if title has deal/exit verbs — "Fund II" in fund name
-            # (e.g. "Armònia Italy Fund II acquisisce PSH") must NOT become fund_launch
+        if not _RE_MERGER.search(title_for_fl):
             if (
                 _RE_FUND_LAUNCH_STRICT.search(title_for_fl)
                 and not _matches_any(DEAL_CLASSIFY_PATTERNS, title_for_fl)
@@ -763,120 +527,13 @@ def _apply_post_type_corrections(signal: dict) -> None:
             ):
                 signal["signal_type"] = "fund_launch"
 
-    # exit_announced corrections: acquisition without exit verbs → deal
-    # Use _RE_STRONG_EXIT_VERBS (includes exits/exited/sale of stake) not _RE_EXIT_VERBS (narrow)
-    if signal.get("signal_type") == "exit_announced":
-        buyer_cues = r"\bin\s+lizza\b|\bpotrebbe\s+essere\s+interessat\w*\b|\bpotrebbero\s+essere\s+interessat\w*\b|\bvaluta\s+l['\u2019]acqui\w+\b"
-        has_explicit_seller = bool(_RE_EXPLICIT_SELLER.search(text_check) or _RE_EXITED_FROM_PORTFOLIO.search(text_check))
-        if _RE_EXITED_FROM_PORTFOLIO.search(text_check):
-            pass  # Confirmed exit, keep as-is
-        # Buyer perspective in TITLE: "acquires X", "in lizza" → deal (even if body has exit verbs)
-        elif re.search(r"\bacquires?\s+\w+", title_lower) and not has_explicit_seller:
-            signal["signal_type"] = "deal_announced"
-        # Buyer perspective: "in lizza" (bidding), "potrebbe essere interessat" → deal
-        elif re.search(buyer_cues, title_lower, re.IGNORECASE):
-            if not has_explicit_seller:
-                signal["signal_type"] = "deal_announced"
-        elif re.search(buyer_cues, text_check, re.IGNORECASE):
-            if not _RE_STRONG_EXIT_VERBS.search(text_check):
-                signal["signal_type"] = "deal_announced"
-        elif _RE_OFFER_BID.search(text_check) and not _RE_STRONG_EXIT_VERBS.search(text_check):
-            signal["signal_type"] = "deal_announced"
-        elif _RE_INVEST_VERBS.search(text_check) and not _RE_STRONG_EXIT_VERBS.search(text_check):
-            signal["signal_type"] = "deal_announced"
-        elif _RE_LAUNCH_FUND.search(text_check):
-            signal["signal_type"] = "fund_launch"
-        elif re.search(r"\b(?:agreement|accordo|intesa|convenzione)\b", text_check) and not _RE_STRONG_EXIT_VERBS.search(text_check) and not _RE_INVEST_VERBS.search(text_check):
-            if re.search(r"\b(?:partnership|collaborazione|gestione|manage|management|tenders?|bando)\b", text_check):
-                signal["signal_type"] = "partnership"
-        # Partnership/agreement without exit verbs → partnership
-        elif _RE_PARTNERSHIP.search(text_check) and not _RE_STRONG_EXIT_VERBS.search(text_check):
-            signal["signal_type"] = "partnership"
-        # Safety net: exit_announced with ZERO PE-related verbs → other
-        elif not _RE_HAS_ANY_PE_VERB.search(text_check):
-            page_cat = (signal.get("page_category") or "").upper()
-            if page_cat != "PORTFOLIO":
-                signal["signal_type"] = "other"
-
-    # Outsourcing/procurement → other (not deal or fund_launch)
-    if signal.get("signal_type") in ("deal_announced", "fund_launch"):
-        if _RE_OUTSOURCING.search(text_check):
-            signal["signal_type"] = "other"
-
-    # Job posting misclassified as exit/fund_launch
-    if signal.get("signal_type") in ("exit_announced", "fund_launch"):
-        if _RE_JOB_SELECTION.search(text_check):
-            signal["signal_type"] = "job_posting"
-
-    if signal.get("signal_type") == "deal_announced":
-        # Portfolio company news is NOT a fund-level deal
-        if _RE_PORTFOLIO_UPDATE.search(text_check):
-            signal["signal_type"] = "portfolio_update"
-        # Accelerator/program launch → fund_launch (new investment program, not a deal)
-        elif _RE_ACCELERATOR_LAUNCH.search(text_check):
-            signal["signal_type"] = "fund_launch"
-        elif _RE_STRONG_EXIT_VERBS.search(text_check) and not _RE_INVEST_VERBS.search(text_check):
-            has_buyer_title = bool(re.search(r"\bin\s+lizza\b|\bpotrebbe\s+essere\s+interessat\w*\b|\bpotrebbero\s+essere\s+interessat\w*\b|\bvaluta\s+l['\u2019]acqui\w+\b", title_lower, re.IGNORECASE))
-            has_explicit_seller = bool(_RE_EXPLICIT_SELLER.search(text_check))
-            if not (has_buyer_title and not has_explicit_seller):
-                signal["signal_type"] = "exit_announced"
-        elif _RE_CHIUDE_RACCOLTA.search(text_check):
-            signal["signal_type"] = "fundraise_closed"
-        # Bond issuance as primary event (piazza/colloca bond) → debt even if text mentions acquisitions
-        elif re.search(r"\b(?:piazza|collocat\w+|emett\w+|emissione)\b.{0,40}\bbond\b|\bbond\b.{0,40}\b(?:piazza|collocat\w+|emett\w+|emissione)\b", text_check, re.IGNORECASE):
-            signal["signal_type"] = "debt_financing"
-        # Bond/debt financing misclassified as deal → debt_financing
-        elif _RE_BOND.search(text_check) and not _RE_BOND_EXCLUDE.search(text_check):
-            signal["signal_type"] = "debt_financing"
-        elif _RE_CREDIT_FACILITY.search(text_check):
-            signal["signal_type"] = "debt_financing"
-        elif _RE_PROJECT_FINANCING.search(text_check) and not _RE_BOND_EXCLUDE.search(text_check):
-            signal["signal_type"] = "debt_financing"
-        elif _RE_DEBT_FINANCING_BROAD.search(text_check) and not _RE_BOND_EXCLUDE.search(text_check):
-            signal["signal_type"] = "debt_financing"
-        # Team strengthening / appointment → people_move
-        elif re.search(r"\b(?:rafforzamento|potenziamento|ampliamento)\s+(?:del\s+)?(?:team|staff|organico|management)\b|\bstrengthens?\b.*\bteam\b|\bsenior\s+appointments?\b|\bseries\s+of\s+(?:senior\s+)?appointments?\b", text_check, re.IGNORECASE):
-            signal["signal_type"] = "people_move"
-        # Partnership/collaboration → partnership
-        elif _RE_PARTNERSHIP.search(text_check) and not _RE_INVEST_VERBS.search(text_check) and not _RE_EXIT_VERBS.search(text_check):
-            if not _RE_PARTNERSHIP_EXCLUDE.search(text_check):
-                signal["signal_type"] = "partnership"
-        # Fundraise closing misclassified as deal
-        elif re.search(r"\bclosing\s+(?:del|di|per|of)\s+(?:il\s+)?(?:fondo|fund|oversubscribed)\b", text_check, re.IGNORECASE):
-            signal["signal_type"] = "fundraise_closed"
-        # Concordato preventivo = restructuring → other (not a deal)
-        elif _RE_DEBT_RESTRUCTURING.search(text_check) and not _RE_INVEST_VERBS.search(text_check):
-            signal["signal_type"] = "other"
-
-    # Accelerator/program launch misclassified as partnership → other (strategic initiative)
-    # Only genuine partnerships (collaboration language without accelerator launch) stay "partnership"
-    if signal.get("signal_type") == "partnership":
-        # Portfolio company news is not fund-level activity
-        if _RE_PORTFOLIO_UPDATE.search(text_check):
-            signal["signal_type"] = "portfolio_update"
-        elif _RE_ACCELERATOR_LAUNCH.search(text_check) and not _RE_FUND_LAUNCH_STRICT.search(text_check):
-            signal["signal_type"] = "other"
-        # Partnership with investment language → deal_announced
-        # Italian "partnership" often means co-investment (aumento di capitale, round da, etc.)
-        # Also catch "invests in", "€X M investment", JV with capital amounts
-        elif re.search(r"\b(?:aumento\s+di\s+capitale|round\s+da|incassa|raccog\w+|investi\w+\s+(?:di|da|per|in)\s+|invests?\s+in\b|co[\-\s]?invest\w+|€\d+\s*[MB]\w*\s+invest\w+|\d+\s*M€?\s+invest\w+)\b", text_check, re.IGNORECASE):
-            signal["signal_type"] = "deal_announced"
-        elif _RE_STRONG_EXIT_VERBS.search(text_check):
-            signal["signal_type"] = "exit_announced"
-        # Interview/editorial about partnership topic → other (not a real partnership)
-        elif re.search(r"\bintervist\w+\b|\binterview\w*\b|\bsits?\s+down\s+with\b|\breflects?\s+on\b|\bexplains?\b|\bspiega\b|\bracconta\b", text_check, re.IGNORECASE):
-            if not re.search(r"\b(?:nomin\w+|appoint\w+|hired?|joins?|joined|firmato|signed|accordo|agreement)\b", text_check, re.IGNORECASE):
-                signal["signal_type"] = "other"
-
-    # Post-ML correction: other with portfolio company evidence → portfolio_update
-    if signal.get("signal_type") in ("other", "deal_announced", "partnership"):
-        if _RE_PORTFOLIO_UPDATE.search(text_check):
-            signal["signal_type"] = "portfolio_update"
-        # "partecipata/sostenuta/backed by FUND ... acquires/expands/completes" = portfolio company news
-        elif re.search(r"\b(?:partecipata|sostenuta|backed)\b.*\b(?:acquis\w+|complet\w+|espand\w+|expand\w+|rafforz\w+)", text_check, re.IGNORECASE):
-            signal["signal_type"] = "portfolio_update"
-        # Company revenue/target news classified as "other" → portfolio_update
-        elif signal.get("signal_type") == "other" and re.search(r"\b(?:ricav\w+|revenue|fatturato)\b.*\b(?:target|milion|mln|€|euro|punta)\b", text_check, re.IGNORECASE):
+    # Portfolio update detection for other/deal/partnership
+    pu = detect_portfolio_update(text_check, signal.get("signal_type", "other"))
+    if pu:
+        signal["signal_type"] = pu
+    # Revenue-based portfolio_update (enricher-specific: promotes "other" → portfolio_update)
+    if signal.get("signal_type") == "other":
+        if re.search(r"\b(?:ricav\w+|revenue|fatturato)\b.*\b(?:target|milion|mln|€|euro|punta)\b", text_check, re.IGNORECASE):
             signal["signal_type"] = "portfolio_update"
 
     # "joined/joins network/association" without investment language → other
@@ -885,45 +542,7 @@ def _apply_post_type_corrections(signal: dict) -> None:
             if not re.search(r"\b(?:acquir\w+|invest\w+|stake|close[ds]?)\b", text_check, re.IGNORECASE):
                 signal["signal_type"] = "other"
 
-    # "provides/provided financing" / "financing support" → debt_financing
-    if signal.get("signal_type") == "deal_announced":
-        if _RE_DEBT_FINANCING_BROAD.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
-            signal["signal_type"] = "debt_financing"
-
-    # fundraise_announced corrections
-    if signal.get("signal_type") == "fundraise_announced":
-        # "primo/first/successful closing" = completed closing → fundraise_closed
-        if re.search(r"\b(?:primo|secondo|terzo|first|second|third|successful)\s+closing\b", text_check, re.IGNORECASE):
-            signal["signal_type"] = "fundraise_closed"
-        # "realizza il suo N closing" = completes its Nth closing
-        elif re.search(r"\brealizza\b.*\bclosing\b", text_check, re.IGNORECASE):
-            signal["signal_type"] = "fundraise_closed"
-        # "closing of oversubscribed fund" / "closing del fondo" → fundraise_closed
-        elif re.search(r"\bclosing\s+(?:del|di|per|of)\s+(?:il\s+)?(?:fondo|fund|oversubscribed)\b", text_check, re.IGNORECASE):
-            signal["signal_type"] = "fundraise_closed"
-        elif _RE_FUNDRAISE_MILESTONE.search(text_check):
-            signal["signal_type"] = "fundraise_closed"
-        # Debt financing misclassified as fundraise → debt_financing
-        elif _RE_BOND.search(text_check) and not _RE_BOND_EXCLUDE.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
-            signal["signal_type"] = "debt_financing"
-        elif _RE_DEBT_FINANCING_BROAD.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
-            signal["signal_type"] = "debt_financing"
-        elif _RE_PROJECT_FINANCING.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check) and not _RE_BOND_EXCLUDE.search(text_check):
-            signal["signal_type"] = "debt_financing"
-        # Thought leadership / editorial content → other
-        elif _RE_EDITORIAL_STRATEGY.search(text_check) and not _RE_INVEST_VERBS.search(text_check):
-            signal["signal_type"] = "other"
-        # Financial results/report → report
-        elif _RE_REPORT.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
-            signal["signal_type"] = "report"
-
-    # report corrections
-    if signal.get("signal_type") == "report":
-        # "operativo il comparto" → fund_launch
-        if re.search(r"\boperativo\s+il\s+comparto\b", text_check, re.IGNORECASE):
-            signal["signal_type"] = "fund_launch"
-
-    # VC fund portfolio company rounds: fundraise → deal_announced
+    # VC fund portfolio company rounds: fundraise → deal_announced (enricher-specific)
     if signal.get("signal_type") in ("fundraise_announced", "fundraise_closed"):
         fund_slug = (signal.get("fund_slug") or "").lower()
         is_vc_fund = any(kw in fund_slug for kw in ("venture", "cdp-venture", "scientifica-vc")) and "cvc" not in fund_slug
@@ -931,45 +550,19 @@ def _apply_post_type_corrections(signal: dict) -> None:
             signal["signal_type"] = "deal_announced"
 
     # Company-level rounds: fundraise → deal_announced
-    # When a fund's portfolio company raises a round, it's the fund's investment (not a fund-level fundraise)
-    if signal.get("signal_type") in ("fundraise_announced", "fundraise_closed"):
-        if _RE_COMPANY_ROUND.search(text_check) and not _RE_FUND_LEVEL_FUNDRAISE.search(text_check):
-            signal["signal_type"] = "deal_announced"
+    result = correct_fundraise_to_deal_for_company_round(text_check)
+    if result and signal.get("signal_type") in ("fundraise_announced", "fundraise_closed"):
+        signal["signal_type"] = result
 
-    # people_move: check if signal is actually an exit/deal/fundraise
-    if signal.get("signal_type") == "people_move":
-        if _RE_STRONG_EXIT_VERBS.search(text_check):
-            signal["signal_type"] = "exit_announced"
-        elif re.search(r"\bstrengthens?\b.*\bteam\b|\bsenior\s+appointments?\b|\bseries\s+of\s+(?:senior\s+)?appointments?\b", text_check, re.IGNORECASE) and not _RE_INVEST_VERBS.search(text_check):
-            signal["signal_type"] = "people_move"
-        elif _RE_REPORT.search(text_check) and not _RE_INVEST_VERBS.search(text_check):
-            signal["signal_type"] = "report"
-        elif _RE_INVEST_VERBS.search(text_check) or _RE_STRONG_DEAL.search(text_check):
-            signal["signal_type"] = "deal_announced"
-        elif _RE_CHIUDE_FONDO.search(text_check) or re.search(r"\bfundrais\w+\b|\braccolta\b", text_check, re.IGNORECASE):
-            signal["signal_type"] = "fundraise_announced"
-        # CEO/CFO interviews and event speeches are NOT personnel changes
-        elif re.search(r"\bintervist\w+\b|\binterview\w*\b|\bsits?\s+down\s+with\b|\breflects?\s+on\b|\bexplains?\b|\bspiega\b|\bracconta\b", text_check, re.IGNORECASE):
-            if not re.search(r"\b(?:nomin\w+|appoint\w+|hired?|joins?|joined|dimission\w+|resign\w+|leaves?)\b", text_check, re.IGNORECASE):
-                signal["signal_type"] = "other"
-        # people_move safety net: people_move with NO people-related language → other
-        elif not _RE_SENIOR_PEOPLE.search(text_check) and not _RE_BOARD_APPOINT.search(text_check):
-            # Check if there's any people-related content at all
-            if not re.search(r"\b(?:nomin\w+|hired?|joins?|joined|promot\w+|assume\s+(?:il\s+)?(?:ruolo|incarico)|entra\s+(?:nel\s+)?(?:team|consiglio|cda)|nuovo\s+(?:ingresso|membro)|new\s+(?:team\s+)?member)\b", text_check, re.IGNORECASE):
-                signal["signal_type"] = "other"
-
-    # Financial results/annual report/sustainability report → report
+    # Report upgrade for other/website_change/news/exit
     if signal.get("signal_type") in ("other", "website_change", "news", "exit_announced"):
         if _RE_REPORT.search(text_check):
             signal["signal_type"] = "report"
 
     # Keyword fallback for "other" signals that ML may have demoted incorrectly
     if signal.get("signal_type") in ("other", "website_change"):
-        # Fund launch patterns (most specific first)
-        if _RE_LAUNCH_FUND.search(text_check):
-            if not _RE_INVEST_VERBS.search(text_check):
-                signal["signal_type"] = "fund_launch"
-        # Fundraise patterns (check before deal — "closing" alone matches both)
+        if _RE_LAUNCH_FUND.search(text_check) and not _RE_INVEST_VERBS.search(text_check):
+            signal["signal_type"] = "fund_launch"
         elif _RE_CHIUDE_RACCOLTA.search(text_check) or re.search(
             r"\bfirst\s+closing\b|\bfinal\s+close\b|\bprimo\s+closing\b|\braccolta\b|\bfundrais\w+\b|\bfirst\s+close\b",
             text_check, re.IGNORECASE
@@ -978,7 +571,6 @@ def _apply_post_type_corrections(signal: dict) -> None:
                 signal["signal_type"] = "fundraise_closed"
             else:
                 signal["signal_type"] = "fundraise_announced"
-        # Debt financing patterns (check before deal — debt is NOT equity)
         elif _RE_BOND.search(text_check) and not _RE_BOND_EXCLUDE.search(text_check):
             signal["signal_type"] = "debt_financing"
         elif _RE_CREDIT_FACILITY.search(text_check):
@@ -987,10 +579,8 @@ def _apply_post_type_corrections(signal: dict) -> None:
             signal["signal_type"] = "debt_financing"
         elif _RE_DEBT_FINANCING_BROAD.search(text_check) and not _RE_BOND_EXCLUDE.search(text_check):
             signal["signal_type"] = "debt_financing"
-        # Deal patterns: "secures X million", investment verbs
         elif _RE_STRONG_DEAL.search(text_check):
             signal["signal_type"] = "deal_announced"
-        # Exit patterns
         elif _RE_EXIT_VERBS.search(text_check):
             signal["signal_type"] = "exit_announced"
 
@@ -2411,60 +2001,6 @@ def _persist_network_status(
     return status
 
 
-def _propagate_translations_to_filtered(enriched_signals: list[dict]) -> None:
-    """Write translated title/what_changed back to the filtered signals file.
-
-    Fund detail pages (/funds/[slug]) read ONLY from detected_signals_filtered.json.
-    Without this step, they never see translations and always display Italian text.
-
-    NOTE: Cannot use _signal_key() for matching because it includes `title`,
-    which has already been translated in the enriched signals but remains
-    Italian in the filtered file.  Uses source_url + fund_slug + date instead.
-    """
-    if not SIGNALS_FILE_FILTERED.exists():
-        return
-
-    def _stable_key(s: dict) -> str:
-        """Key that doesn't change when title is translated."""
-        url = (s.get("source_url") or "").strip()
-        slug = (s.get("fund_slug") or "").strip()
-        date = s.get("published_at") or s.get("observed_at") or s.get("created_at") or ""
-        return f"{url}::{slug}::{date}"
-
-    # Build lookup: stable key → translated fields from enriched
-    TRANSLATE_FIELDS = ["title", "what_changed", "title_original", "what_changed_original"]
-    translations: dict[str, dict] = {}
-    for s in enriched_signals:
-        key = _stable_key(s)
-        if not key:
-            continue
-        updates = {}
-        for field in TRANSLATE_FIELDS:
-            if s.get(field):
-                updates[field] = s[field]
-        if updates:
-            translations[key] = updates
-
-    if not translations:
-        return
-
-    # Load filtered file and apply translations
-    filtered_data = load_json(SIGNALS_FILE_FILTERED)
-    filtered_signals = filtered_data.get("signals", [])
-    updated = 0
-    for s in filtered_signals:
-        key = _stable_key(s)
-        if key and key in translations:
-            for field, value in translations[key].items():
-                if s.get(field) != value:
-                    s[field] = value
-                    updated += 1
-
-    if updated > 0:
-        filtered_data["translations_synced_at"] = datetime.now(timezone.utc).isoformat()
-        save_json(SIGNALS_FILE_FILTERED, filtered_data)
-        print(f"Propagated translations to filtered file: {updated} field updates")
-
 
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -2642,20 +2178,14 @@ def main(slugs_filter: str | None = None):
                 if prev.get(field) is not None and signal.get(field) is None:
                     signal[field] = prev.get(field)
 
-            # Restore previously-translated text fields so the translation step does not
-            # re-translate on every pipeline run.  The filter always re-reads raw signals
-            # (original Italian), so without this restore the translation gate sees Italian
-            # text every time and re-translates — wasting DeepL/OpenAI credits on every run.
-            # Logic: if title_original is set in the enriched file, the title was translated.
-            # Restore both the translated text and the _original marker so the gate skips it.
-            for _tf, _of in (
-                ("title", "title_original"),
-                ("what_changed", "what_changed_original"),
-                ("enriched_summary", "enriched_summary_original"),
-            ):
-                if prev.get(_of):  # was previously translated
-                    signal[_of] = prev[_of]          # restore original-language marker
-                    signal[_tf] = prev.get(_tf, signal.get(_tf))  # restore translated text
+            # Restore enriched_summary translation from previous run.
+            # title_original and what_changed_original are already in detected_signals.json
+            # (set by translate_signals.py at pipeline step 3), so only enriched_summary
+            # needs restoring here — it's generated by the LLM and may have been translated
+            # by the safety-net pass on the previous run.
+            if prev.get("enriched_summary_original"):
+                signal["enriched_summary_original"] = prev["enriched_summary_original"]
+                signal["enriched_summary"] = prev.get("enriched_summary", signal.get("enriched_summary"))
 
         # Clear stale enriched_summary that just restates the title — force LLM re-enrichment.
         # Only clear when there's extra context (what_changed) available that the LLM can use
@@ -3144,12 +2674,6 @@ def main(slugs_filter: str | None = None):
         }
     data["enriched_at"] = datetime.now(timezone.utc).isoformat()
     save_json(OUTPUT_FILE, data)
-
-    # ── Propagate translations back to filtered file ──────────────────────────
-    # Fund detail pages (/funds/[slug]) read from the filtered file ONLY and
-    # never see enriched data.  Write translated title/what_changed back so
-    # those pages also display English text.
-    _propagate_translations_to_filtered(signals)
 
     print(f"\n{'=' * 50}")
     print(f"Enrichment complete!")

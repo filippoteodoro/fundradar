@@ -1949,6 +1949,12 @@
     ],
     "https://www.groupehld.com/en/news/": [
       {
+        "title": "A new stage for Entoria",
+        "date": "2026-02-01",
+        "url": "https://www.groupehld.com/en/news/a-new-stage-for-entoria",
+        "fingerprint": "f2cbe54f0d7a"
+      },
+      {
         "title": "Squared: a strategic milestone for 52 Entertainment",
         "date": "2026-02-01",
         "url": "https://www.groupehld.com/en/news/squared-a-strategic-milestone-for-52-entertainment",
@@ -14365,6 +14371,12 @@
     ],
     "https://www.fondoitaliano.it/comunicati-e-rassegna/": [
       {
+        "title": "FIAF in maggioranza nella piadina Alimenta",
+        "date": "2026-02-23",
+        "url": "https://www.fondoitaliano.it/wp-content/uploads/20260220_LargoConsumo_Alimenta.pdf",
+        "fingerprint": "70ac1f3d6f9c"
+      },
+      {
         "title": "Private capital e filiera agroalimentare: il modello FIAF",
         "date": "2026-02-11",
         "url": "https://www.fondoitaliano.it/wp-content/uploads/MAG_FinanceCommunity_2026-02-11-.pdf",
@@ -14429,12 +14441,6 @@
         "date": "2025-12-30",
         "url": "https://www.fondoitaliano.it/wp-content/uploads/20251230_ItaliaOggi_Isoclima.pdf",
         "fingerprint": "78b957f64717"
-      },
-      {
-        "title": "Isoclima, dentro FII-CDP insieme a Mediobanca",
-        "date": "2025-12-30",
-        "url": "https://www.fondoitaliano.it/wp-content/uploads/20251230_tribunaditreviso_isoclima.pdf",
-        "fingerprint": "faa0376daeae"
       }
     ],
     "https://www.generali-investments.com/it/en/institutional/press-releases/": [
@@ -14599,6 +14605,12 @@
         "fingerprint": "375ade57bd25"
       },
       {
+        "title": "Partners Group announces planned office in Kuwait, expanding its presence in the GCC",
+        "date": null,
+        "url": "https://www.partnersgroup.com/news-and-views/press-releases/corporate-news/detail?news_id=dae28cc7-1a29-48e7-8c00-545722204086",
+        "fingerprint": "225e52a4cecc"
+      },
+      {
         "title": "Partners Group addresses share price falls in listed private markets sector",
         "date": null,
         "url": "https://www.partnersgroup.com/news-and-views/press-releases/corporate-news/detail?news_id=4755dcd7-aecd-446d-95e3-62f87e355b39",
@@ -14711,12 +14723,6 @@
         "date": null,
         "url": "https://www.partnersgroup.com/news-and-views/press-releases/corporate-news/detail?news_id=c86353e9-3e4f-4725-b75c-73fed15aa333",
         "fingerprint": "db8186b77a9b"
-      },
-      {
-        "title": "Partners Group announces results of the 2025 Annual General Meeting of Shareholders",
-        "date": null,
-        "url": "https://www.partnersgroup.com/news-and-views/press-releases/corporate-news/detail?news_id=baa38331-6130-4ded-a96d-32ef778d5f80",
-        "fingerprint": "ecd28378466e"
       }
     ],
     "https://www.partnersgroup.com/en/news-and-views/firm-updates": [
@@ -14746,6 +14752,12 @@
       }
     ],
     "https://www.cinven.com/news-insights/": [
+      {
+        "title": "From uncertainty to resurgence \u2013 Cinven x Master Builders Solutions",
+        "date": null,
+        "url": "https://www.cinven.com/news-insights/from-uncertainty-to-resurgence-cinven-x-master-builders-solutions/",
+        "fingerprint": "ece1857d453b"
+      },
       {
         "title": "Regenity Biosciences receives strategic investment from Cinven, adding new partner alongside Linden Capital Partners",
         "date": null,
@@ -14799,12 +14811,6 @@
         "date": null,
         "url": "https://www.cinven.com/news-insights/cinven-to-acquire-universidad-alfonso-x-el-sabio-group-from-cvc-funds/",
         "fingerprint": "d3d030bbdcd5"
-      },
-      {
-        "title": "Exits to Strategics: How Cinven Is Driving Realisation Momentum",
-        "date": null,
-        "url": "https://www.cinven.com/news-insights/exits-to-strategics/",
-        "fingerprint": "5f010d906ac9"
       }
     ],
     "https://www.ardian.com/news-insights/press-releases": [

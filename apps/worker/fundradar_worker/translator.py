@@ -210,10 +210,11 @@ def mark_deepl_key_exhausted(env_name: str) -> None:
             return
         manager = AlertManager(config)
         manager.add_alert(Alert(
-            title="DeepL quota exhausted — falling back to OpenAI",
+            title="DeepL quota exhausted — falling back to Azure/OpenAI",
             message=(
                 f"Both DeepL keys hit their monthly quota ({current_month}).\n"
-                "Translation will fall back to OpenAI (paid) until next month.\n"
+                "Translation will fall back to Azure Translator (free, 2M chars/month), "
+                "then OpenAI (paid) if Azure also fails.\n"
                 "Add a new key to DEEPL_API_KEY or DEEPL_API_KEY_2 in .env to avoid costs."
             ),
             level="warning",
@@ -239,6 +240,31 @@ def translate_batch_with_deepl(texts: list[str], api_key: str) -> list[str]:
     if isinstance(results, list):
         return [r.text for r in results]
     return [results.text]
+
+
+def translate_batch_with_azure(texts: list[str], api_key: str, region: str | None = None) -> list[str]:
+    """Translate a batch of texts to English via Azure Translator REST API.
+
+    Free tier: 2M chars/month. Uses the global endpoint by default.
+    Raises requests.HTTPError on API errors.
+    """
+    import requests
+
+    url = "https://api.cognitive.microsofttranslator.com/translate"
+    params = {"api-version": "3.0", "to": "en"}
+    headers = {
+        "Ocp-Apim-Subscription-Key": api_key,
+        "Content-Type": "application/json",
+    }
+    if region:
+        headers["Ocp-Apim-Subscription-Region"] = region
+
+    body = [{"Text": t} for t in texts]
+    resp = requests.post(url, params=params, headers=headers, json=body, timeout=30)
+    resp.raise_for_status()
+
+    results = resp.json()
+    return [item["translations"][0]["text"] for item in results]
 
 
 def translate_text_with_openai(client: Any, text: str) -> str:
@@ -330,17 +356,22 @@ _TEXT_FIELDS: list[tuple[str, str]] = [
 def translate_signals_inplace(
     signals: list[dict],
     openai_api_key: str | None = None,
+    azure_translator_key: str | None = None,
+    azure_translator_region: str | None = None,
     slugs_filter: str | None = None,
 ) -> dict[str, Any]:
     """Translate non-English signal text fields to English in-place.
 
-    Uses DeepL (primary, cheap) with automatic OpenAI fallback.
+    Uses DeepL (primary, cheap) → Azure Translator (fallback, 2M chars/month free)
+    → OpenAI (last resort, paid).
     Idempotent: signals whose *_original fields are already set and whose
     current text looks English are skipped to avoid re-translation.
 
     Args:
         signals: list of signal dicts, modified in-place.
         openai_api_key: optional override; falls back to OPENAI_API_KEY env var.
+        azure_translator_key: optional override; falls back to AZURE_TRANSLATOR_KEY env var.
+        azure_translator_region: optional Azure region (not needed for free tier global endpoint).
         slugs_filter: comma-separated fund slugs for partial runs (for logging only).
 
     Returns:
@@ -349,6 +380,8 @@ def translate_signals_inplace(
         skipped_reason, sample_errors.
     """
     openai_key = openai_api_key or os.environ.get("OPENAI_API_KEY", "")
+    azure_key = azure_translator_key or os.environ.get("AZURE_TRANSLATOR_KEY", "")
+    azure_region = azure_translator_region or os.environ.get("AZURE_TRANSLATOR_REGION") or None
     stats: dict[str, Any] = {
         "italian_fields_detected": 0,
         "signals_needing_translation": 0,
@@ -393,15 +426,16 @@ def translate_signals_inplace(
 
     # Determine providers
     deepl_keys = get_available_deepl_keys()
+    has_azure = bool(azure_key)
     has_openai = bool(openai_key)
 
-    if not deepl_keys and not has_openai:
+    if not deepl_keys and not has_azure and not has_openai:
         print(f"  Skipping translation: no provider configured ({len(to_translate)} fields pending)")
         stats["unresolved_fields"] = len(to_translate)
         stats["skipped_reason"] = "no_provider"
         return stats
 
-    provider_desc = ([f"DeepL ({len(deepl_keys)} key(s))"] if deepl_keys else []) + (["OpenAI fallback"] if has_openai else [])
+    provider_desc = ([f"DeepL ({len(deepl_keys)} key(s))"] if deepl_keys else []) + (["Azure Translator"] if has_azure else []) + (["OpenAI fallback"] if has_openai else [])
     scope = f" [{slugs_filter}]" if slugs_filter else ""
     print(f"  Translating {len(to_translate)} non-English fields across {len(signals_needing_work)} signals via {', '.join(provider_desc)}{scope}...")
 
@@ -443,6 +477,22 @@ def translate_signals_inplace(
                 else:
                     print(f"  DeepL error ({env_name}): {e} — falling back to OpenAI")
                     break  # non-quota errors: try OpenAI this batch
+
+        # Fall back to Azure Translator
+        if translated_texts is None and has_azure:
+            try:
+                translated_texts = translate_batch_with_azure(texts, azure_key, azure_region)
+            except Exception as e:
+                err_str = str(e).lower()
+                if "401" in err_str or "403" in err_str:
+                    print(f"  Azure Translator auth error: {e} — disabling for this run")
+                    has_azure = False
+                elif "429" in err_str or "quota" in err_str:
+                    print(f"  Azure Translator quota exceeded — disabling for this run")
+                    has_azure = False
+                else:
+                    print(f"  Azure Translator error: {e} — falling back to OpenAI")
+                _record_error(f"Azure Translator error: {e}")
 
         # Fall back to OpenAI
         if translated_texts is None:

@@ -38,15 +38,20 @@ from signal_patterns import (
     PORTFOLIO_DELTA_EVIDENCE_PATTERNS,
     PORTFOLIO_EXTRACTION_PATTERNS,
     _RE_ACCELERATOR_LAUNCH,
+    _RE_ACCELERATOR_RESULTS,
+    _RE_ACQUISITION_VERBS,
     _RE_BOARD_APPOINT as _RE_BOARD_APPOINTMENT,
     _RE_BOND_EXCLUDE,
     _RE_BOND_ISSUANCE,
     _RE_CHIUDE_FONDO,
     _RE_CHIUDE_RACCOLTA,
+    _RE_CLOSE_VERBS as _RE_ROUND_CLOSED,
     _RE_COMPANY_ROUND,
     _RE_CREDIT_FACILITY,
     _RE_DEBT_FINANCING_BROAD,
+    _RE_DEBT_RESTRUCTURE_CONTEXT,
     _RE_DEBT_RESTRUCTURING,
+    _RE_EDITORIAL_STRATEGY,
     _RE_EVENT_ATTENDANCE,
     _RE_EVENT_INSIGHTS,
     _RE_EVENT_RECAP_ITALIAN,
@@ -56,15 +61,24 @@ from signal_patterns import (
     _RE_EXPLICIT_SELLER,
     _RE_FINALIZZAT,
     _RE_FUND_LAUNCH_STRICT,
+    _RE_FUND_LAUNCH_VERBS,
     _RE_FUND_LEVEL_FUNDRAISE,
+    _RE_FUNDRAISE_ACQUISITION,
+    _RE_FUNDRAISE_CLOSED_VERBS,
     _RE_FUNDRAISE_CLOSING,
     _RE_FUNDRAISE_MILESTONE,
+    _RE_FUNDRAISE_VERBS_FULL,
     _RE_HAS_ANY_PE_VERB,
+    _RE_INTERNSHIP,
+    _RE_INTERVIEW,
     _RE_INVEST_VERBS,
     _RE_INVESTOR_MEETING,
+    _RE_JOB_POSTING_RECLASSIFY,
     _RE_JOINS_EVENT,
     _RE_JOB_SELECTION as _RE_JOB_POSTING_SHORT,
     _RE_LP_COMMITMENT,
+    _RE_OFFER_BID,
+    _RE_OFFICE_OPENING,
     _RE_ORDINAL_INVESTMENT,
     _RE_OUTSOURCING,
     _RE_PARTNERSHIP,
@@ -72,8 +86,13 @@ from signal_patterns import (
     _RE_PEOPLE_TITLE,
     _RE_PORTFOLIO_UPDATE,
     _RE_PROJECT_FINANCING,
+    _RE_RACCOGLIE_EXCLUDE,
+    _RE_RACCOGLIE_ROUND,
+    _RE_REGULATORY_COMMUNICATION,
     _RE_REPORT,
     _RE_RESEARCH,
+    _RE_REVENUE_PERFORMANCE,
+    _RE_ROUND_INVEST as _RE_STARTUP_ROUND,
     _RE_STRONG_EXIT_VERBS,
     _RE_VALUE_CREATION,
     _extract_portfolio_company_name,
@@ -139,23 +158,18 @@ GARBAGE_PATTERNS = [
 # High-value keywords (increase score) — pre-compiled
 HIGH_VALUE_KEYWORDS = [
     (re.compile(p, re.IGNORECASE), score) for p, score in [
-        (r"acquis\w+", 20),           # acquisition
+        (r"acquis\w+", 20),           # acquisition / acquires
         (r"invest\w+ in", 20),        # investment in
-        (r"investe in", 20),          # Italian: invests in
-        (r"acquisisce", 20),          # Italian: acquires
-        (r"completa", 15),            # Italian: completes
-        (r"chiude", 15),              # Italian: closes (deal)
-        (r"ristrutturazion\w+", 12),  # Italian: restructuring
-        (r"concordat\w+", 12),        # Italian: concordato
-        (r"omologa", 10),             # Italian: homologation/approval
-        (r"accordo di ristrutturazione", 12),
-        (r"restructur\w+", 12),       # English: restructuring
+        (r"completa", 15),            # Italian: completes (no English equivalent in list)
+        (r"chiude", 15),              # Italian: closes — used in debt/portfolio contexts beyond "closing"
+        (r"concordat\w+", 12),        # Italian legal procedure — untranslatable, no English equivalent
+        (r"omologa", 10),             # Italian: court approval — no English equivalent
+        (r"restructur\w+", 12),       # restructuring
         (r"€\s*\d+", 15),             # Money amount
         (r"\d+\s*(milion|mln|m€)", 15),  # Millions
-        (r"operazione", 15),          # Italian: operation/deal
+        (r"operazione", 15),          # Italian: operation/deal — no standard English equivalent
         (r"fund\s*(i|ii|iii|iv|v|\d+)", 15),  # Fund numbering
-        (r"fondo\s*(i|ii|iii|iv|v|\d+)", 15),  # Italian fund
-        (r"(?:lancia|lancio|nasce)\s+un?\s+fondo", 12),  # Fund launch
+        (r"(?:lancia|lancio|nasce)\s+un?\s+fondo", 12),  # Italian fund launch — untranslatable phrasing
         (r"portfolio company", 15),
         (r"\bexit\b", 15),
         (r"ipo", 20),
@@ -164,15 +178,13 @@ HIGH_VALUE_KEYWORDS = [
         (r"\bseries\s+[a-e]\b", 12),
         (r"\bseed\b|\bpre[-\s]?seed\b", 10),
         (r"\bfinal\s+close\b|\bfirst\s+close\b|\bclosing\b", 12),
-        (r"\baumento di capitale\b", 12),
-        (r"\bfinanziamento\b", 12),
-        (r"\binvestimento\b", 12),
+        (r"\baumento di capitale\b", 12),  # Italian: capital increase — often left untranslated
+        (r"\bfinanziamento\b", 12),        # Italian: financing — survives partial translation
+        (r"\binvestimento\b", 12),         # Italian: investment noun — survives in mixed text
         (r"new partner", 15),
         (r"appoints?", 15),
-        (r"nomin\w+", 15),            # Italian: nominates
         (r"join(s|ed)?", 10),
         (r"press release", 10),
-        (r"comunicato stampa", 10),   # Italian: press release
     ]
 ]
 
@@ -874,7 +886,7 @@ def _is_team_extraction_only(signal: dict) -> bool:
     return True
 
 
-def _reclassify_signal_type(signal: dict, text: str) -> str:
+def _reclassify_signal_type(signal: dict, text: str, fund: dict | None = None) -> str:
     """Reclassify generic signals into more useful categories."""
     current = signal.get("signal_type") or ""
     if current in {"news", "announcement", "press_release", "press"}:
@@ -1120,20 +1132,20 @@ def _reclassify_signal_type(signal: dict, text: str) -> str:
             # From the fund's perspective, this is an exit (they're the seller).
             # The fund name must NOT be the subject of the acquisition verb.
             source_url = (signal.get("source_url") or "").lower()
-            fund_slug = (signal.get("fund_slug") or "")
-            if fund_name and source_url:
-                fund_domain_prefix = fund_slug.split("-")[0]  # e.g. "alcedo" from "alcedo-sgr"
-                if len(fund_domain_prefix) >= 4 and fund_domain_prefix in source_url:
-                    # Signal is from the fund's own domain
-                    title_start = title_lower[:60]
-                    # If title starts with a different entity name + acquisition verb
-                    if re.search(r"^[A-Za-z][\w\s]{2,30}\b(?:has\s+completed|completes?|acquir\w+)\b", (signal.get("title") or ""), re.IGNORECASE):
-                        # Check fund name is NOT the acquirer (first entity in title)
-                        first_entity = re.match(r"^([A-Za-z][\w\s]{2,30}?)\s+(?:has\s+completed|completes?|acquir)", (signal.get("title") or ""), re.IGNORECASE)
-                        if first_entity:
-                            acquirer_name = first_entity.group(1).lower().strip()
-                            if fund_domain_prefix not in acquirer_name and fund_name not in acquirer_name:
-                                return "exit_announced"
+            if fund_name and source_url and fund:
+                from urllib.parse import urlparse
+                fund_website = (fund.get("website") or "").lower()
+                if fund_website:
+                    fund_domain = urlparse(fund_website).netloc.replace("www.", "") or fund_website.split("//")[-1].split("/")[0].replace("www.", "")
+                    source_domain = urlparse(source_url).netloc.replace("www.", "") or ""
+                    if fund_domain and source_domain and fund_domain == source_domain:
+                        # Signal is from the fund's own domain
+                        if re.search(r"^[A-Za-z][\w\s]{2,30}\b(?:has\s+completed|completes?|acquir\w+)\b", (signal.get("title") or ""), re.IGNORECASE):
+                            first_entity = re.match(r"^([A-Za-z][\w\s]{2,30}?)\s+(?:has\s+completed|completes?|acquir)", (signal.get("title") or ""), re.IGNORECASE)
+                            if first_entity:
+                                acquirer_name = first_entity.group(1).lower().strip()
+                                if fund_name not in acquirer_name:
+                                    return "exit_announced"
 
         # fund_launch false positives: "Xth investimento per Fund N" or "nuovo investimento per il fondo" → deal
         if current == "fund_launch":
@@ -1519,117 +1531,16 @@ NON_EU_TEXT_PATTERNS = [
     re.compile(r"\bKorea\b", re.IGNORECASE),
 ]
 
-# READ_TIME_PATTERNS — now in signal_patterns (used by imported _strip_read_time)
+# ── All regex patterns now imported from signal_patterns ──
+# Shared patterns: _RE_INTERVIEW, _RE_REVENUE_PERFORMANCE, _RE_OFFER_BID,
+# _RE_REGULATORY_COMMUNICATION, _RE_JOB_POSTING_RECLASSIFY, _RE_ACQUISITION_VERBS,
+# _RE_INTERNSHIP, _RE_OFFICE_OPENING, _RE_FUNDRAISE_ACQUISITION, _RE_RACCOGLIE_ROUND,
+# _RE_RACCOGLIE_EXCLUDE, _RE_FUNDRAISE_VERBS_FULL, _RE_FUNDRAISE_CLOSED_VERBS,
+# _RE_DEBT_RESTRUCTURE_CONTEXT, _RE_EDITORIAL_STRATEGY, _RE_ACCELERATOR_RESULTS,
+# _RE_FUND_LAUNCH_VERBS, _RE_STARTUP_ROUND (aliased from _RE_ROUND_INVEST),
+# _RE_ROUND_CLOSED (aliased from _RE_CLOSE_VERBS)
 
-# ── Shared patterns imported from signal_patterns ──
-# _RE_PEOPLE_TITLE, _RE_EVENT_ATTENDANCE, _RE_EVENT_TITLE, _RE_JOINS_EVENT,
-# _RE_EVENT_INSIGHTS, _RE_EVENT_RECAP_ITALIAN, _RE_VALUE_CREATION,
-# _RE_INVESTOR_MEETING, _RE_PORTFOLIO_UPDATE — imported from signal_patterns
-
-# Interviews/editorials without PE content (filter-only)
-_RE_INTERVIEW = re.compile(
-    r"\bintervist\w+\b"
-    r"|\binterview\w*\b"
-    r"|\bevoluzione\s+editoriale\b"
-    r"|\bda\s+settimanale\s+a\b"
-    r"|\bprofile\s+of\b"
-    r"|\bportrait\s+of\b",
-    re.IGNORECASE,
-)
-# Portfolio company revenue/performance articles (filter-only)
-_RE_REVENUE_PERFORMANCE = re.compile(
-    r"\bricavi\s+(?:ricorrenti|netti|totali)\b"
-    r"|\brevenue\s+(?:of|growth|reached|exceeds)\b"
-    r"|\braggiunge\s+(?:ricavi|fatturato|vendite)\b"
-    r"|\bfatturato\s+(?:di|pari|a)\b"
-    r"|\bebitda\s+shortfall\b"
-    r"|\bchiude\s+(?:la\s+)?settimana\s+in\s+(?:calo|rialzo)\b"
-    r"|\bal\s+nasdaq\b.*\btitolo\b",
-    re.IGNORECASE,
-)
-# Offer/bid language → deal_announced (filter-only)
-_RE_OFFER_BID = re.compile(
-    r"\bofferta\s+(?:da|di|per)\s+\d+"
-    r"|\boffer\s+(?:for|of|to\s+acquire)\b"
-    r"|\bbid\s+(?:for|of|to\s+acquire)\b"
-    r"|\bofferta\s+(?:vincolante|non\s+vincolante|di\s+acquisto)\b",
-    re.IGNORECASE,
-)
-# _RE_PROJECT_FINANCING — imported from signal_patterns
-# _RE_DEBT_RESTRUCTURING — imported from signal_patterns
-# _RE_FUNDRAISE_MILESTONE — imported from signal_patterns
-# _RE_CREDIT_FACILITY — imported from signal_patterns
-# Regulatory/internal dealing communications (filter-only, broader than enricher's _RE_REGULATORY)
-_RE_REGULATORY_COMMUNICATION = re.compile(
-    r"\binternal\s+dealing\b"
-    r"|\bcomunicazione\s+(?:internal|interna)\b"
-    r"|\bcomunicazione\s+internal\s+dealing\b"
-    r"|\bsoggetto\s+rilevante\s+mar\b"
-    r"|\bregulatory\s+(?:filing|notice|communication)\b"
-    r"|\bandamento\s+(?:titolo|in\s+borsa)\b"
-    r"|\bprocedura\s+di\s+adempimento\b"
-    r"|\blake\s+bidco\b",
-    re.IGNORECASE,
-)
-# _RE_PORTFOLIO_UPDATE — imported from signal_patterns
-# _RE_COMPANY_ROUND — imported from signal_patterns
-# _RE_FUND_LEVEL_FUNDRAISE — imported from signal_patterns
-# _RE_HAS_ANY_PE_VERB — imported from signal_patterns
-# _RE_REPORT — imported from signal_patterns
-# _RE_BOND_ISSUANCE — imported from signal_patterns
-# _RE_BOND_EXCLUDE — imported from signal_patterns
-# _RE_DEBT_FINANCING_BROAD — imported from signal_patterns
-# _RE_RESEARCH — imported from signal_patterns
-_RE_JOB_POSTING_RECLASSIFY = re.compile(r"\b(?:procedura\s+di\s+selezione|ricerca\s+(?:una?\s+)?risors[ae]|selezione\s+per\s+(?:il\s+)?(?:ruolo|responsabile|posizione)|avvia\s+(?:la\s+)?selezione|seeks?\s+a\s+(?:full|part)[\-\s]time)\b")
-_RE_ACQUISITION_VERBS = re.compile(r"\b(?:acquir\w+|acquis\w+|acquisizion\w+|investi\w+|rileva|entra\s+(?:nel\s+capitale|in)\b|enters?\s+capital|buys?|compra|tratt[ai]\s+l[''\u2019]acquisto)\b")
-# _RE_EXIT_VERBS — imported from signal_patterns
-# _RE_EXITED_FROM_PORTFOLIO — imported from signal_patterns
-# _RE_OUTSOURCING — imported from signal_patterns
-_RE_INTERNSHIP = re.compile(r"\b(?:offerta\s+di\s+stage|tirocini[oa]?|stage\s+curriculare)\b")
-# _RE_JOB_POSTING_SHORT — imported from signal_patterns (as _RE_JOB_SELECTION)
-# _RE_ORDINAL_INVESTMENT — imported from signal_patterns
-# _RE_BOARD_APPOINTMENT — imported from signal_patterns (as _RE_BOARD_APPOINT)
-_RE_OFFICE_OPENING = re.compile(r"\bopens?\s+(?:a\s+|an\s+|new\s+)?(?:\w+\s+){0,3}office\b|\bapre\s+(?:un\s+)?(?:nuovo\s+)?ufficio\b", re.IGNORECASE)
-_RE_FUNDRAISE_ACQUISITION = re.compile(r"\brileva\b|\bentra (?:nel capitale|in)\b|\bacquisizion\w*\b|\bacquisisce\b|\bacquir\w+\b|\bcompra\b")
-# _RE_FUNDRAISE_CLOSING — imported from signal_patterns
-# _RE_CHIUDE_RACCOLTA — imported from signal_patterns
-_RE_RACCOGLIE_ROUND = re.compile(r"\braccog\w+\b.*\b(?:milion|mln|m€|round|seed|serie|series)\b")
-_RE_RACCOGLIE_EXCLUDE = re.compile(r"\bacquis\w*\b|\brileva\b|\bentra nel capitale\b")
-_RE_FUNDRAISE_VERBS_FULL = re.compile(r"\bfirst close\b|\bfinal close\b|\bhard cap\b|\bclosed\b|\bclosing\b|\bfundrais\w+\b|\braccolta\b|\bchiude\b|\bchiusura\b|\braccog\w+\b")
-_RE_FUNDRAISE_CLOSED_VERBS = re.compile(r"\bfinal close\b|\bhard cap\b|\bclosed\b|\bchiude\b|\bchius[oa]\b|\bcomplet\w+\b|\bclosing\s+(?:del|di|per|of)\s+(?:il\s+)?(?:fondo|fund|veicolo|oversubscribed)\b|\b(?:primo|secondo|terzo|first|second|third|final|successful)\s+clos(?:e|ing)\b")
-_RE_VC_ROUND = re.compile(r"\b(?:round|serie|series|seed|pre[-\s]?seed)\s+(?:a|b|c|d|e|f|di)\b")
-_RE_DEBT_RESTRUCTURE_CONTEXT = re.compile(
-    r"\b(?:debt|debito|creditor\w*|creditor[ei]|scadenza\s+del\s+debito|maturity)\b",
-    re.IGNORECASE,
-)
-# _RE_STRONG_EXIT_VERBS — imported from signal_patterns
-# _RE_INVEST_VERBS — imported from signal_patterns
-# _RE_INVESTOR_MEETING — imported from signal_patterns
-# Editorial "investment strategy" / "investment approach" (no real deal) — filter-only
-_RE_EDITORIAL_STRATEGY = re.compile(
-    r"\binvestment\s+(?:strategy|approach|philosophy|thesis)\b"
-    r"|\bstrategia\s+d[i'\u2019]\s*investiment[oi]\b"
-    r"|\bour\s+(?:approach|strategy|investment\s+process)\b",
-    re.IGNORECASE,
-)
-# Accelerator batch results / graduates (NOT launch of a new accelerator) — filter-only
-_RE_ACCELERATOR_RESULTS = re.compile(
-    r"\b(?:risultati|graduates?|selezionat[ei]|completat[oi]|conclus[oi]|demo\s*day|batch)\b.*\b(?:accelerat\w+|programma)\b"
-    r"|\b(?:accelerat\w+|programma)\b.*\b(?:risultati|graduates?|selezionat[ei]|completat[oi]|conclus[oi]|demo\s*day|batch)\b",
-    re.IGNORECASE,
-)
-# _RE_EXPLICIT_SELLER — imported from signal_patterns
-# _RE_LP_COMMITMENT — imported from signal_patterns
-_RE_STARTUP_ROUND = re.compile(r"\bround\s+(?:d[i'\u2019]\s*)?(?:investimento|finanziamento|pre[\-\s]?seed|seed|serie)")
-_RE_ROUND_CLOSED = re.compile(r"\bchiude\b|\bcompleta\b|\bchiusura\b|\bclosed?\b|\bclosing\b")
-# _RE_CHIUDE_FONDO — imported from signal_patterns
-# _RE_FINALIZZAT — imported from signal_patterns
-# _RE_PARTNERSHIP — imported from signal_patterns
-# _RE_PARTNERSHIP_EXCLUDE — imported from signal_patterns
-_RE_FUND_LAUNCH_VERBS = re.compile(r"\b(?:launch|lancia|nasce|nascita|lancio)\b.*\b(?:fund|fondo)\b")
-# _RE_ACCELERATOR_LAUNCH — imported from signal_patterns
-# _RE_FUND_LAUNCH_STRICT — imported from signal_patterns
-_RE_BOARD_SHORT = re.compile(r"\b(?:board|consiglio|nomin(?:a|at\w+|e)|appointed|eletto|responsabile)\b")
+# Filter-specific patterns (not in signal_patterns)
 _RE_INVESTIMENTI_PORTFOLIO = re.compile(r"\binvestimenti\s+portfolio\b")
 _RE_HAS_AMOUNT = re.compile(r"€\s*\d+(?:[.,]\d+)?|\$\s*\d+(?:[.,]\d+)?|\b\d+(\.\d+)?\s*(milion|million|mln|m€|bn|billion|miliardi|milioni)\b", re.IGNORECASE)
 _RE_HAS_DEAL_KEYWORD = re.compile(r"\bacquis\w+|\binvest\w+|\bexit\b|\bipo\b|\bfundrais\w+|\bclosing\b|\bround\b|\bseries\b|\bmerg\w+|\bsell\b|\bsold\b|\bsale\b|\bdivest\w+|\baumento di capitale\b|\bfinanziamento\b|\bentra nel capitale\b|\bentra in\b|\brileva\b|\bristrutturazion\w+|\bconcordat\w+|\bomologa\b|\brestructur\w+|\baccordo di ristrutturazione\b|\bcarve[\-\s]?out\b|\bjoint\s+venture\b|\bm&a\b|\btakeover\b|\bbuyout\b|\blbo\b|\boperazione\b|\bvendita\b|\bcessione\b|\boversubscribed\b|\bcapital\s+raise\b|\bquotazion\w+\b|\badd-on\b|\bbolt[\-\s]?on\b", re.IGNORECASE)
@@ -1748,8 +1659,8 @@ def _is_misattributed_signal(signal: dict, fund: dict | None = None) -> bool:
     # UNLESS the fund's newsroom is a known ecosystem aggregator (covers the
     # whole market, not just the fund's own activity).  For these funds, if the
     # fund name does not appear anywhere in title/what_changed, treat it as
-    # misattributed ecosystem news.
-    _ECOSYSTEM_NEWSROOM_SLUGS = {"cdp-venture-capital", "itago", "faro-value"}
+    # misattributed ecosystem news.  Ecosystem funds are flagged via
+    # "is_ecosystem_newsroom": true in db.json.
 
     source_url = (signal.get("source_url") or "").lower()
     if fund and source_url:
@@ -1759,7 +1670,7 @@ def _is_misattributed_signal(signal: dict, fund: dict | None = None) -> bool:
             fund_domain = urlparse(fund_website).netloc or fund_website.split("//")[-1].split("/")[0]
             source_domain = urlparse(source_url).netloc or ""
             if fund_domain and source_domain and fund_domain.replace("www.", "") == source_domain.replace("www.", ""):
-                if fund_slug in _ECOSYSTEM_NEWSROOM_SLUGS:
+                if fund.get("is_ecosystem_newsroom"):
                     # Ecosystem newsroom — require fund name in title/what_changed
                     combined_text = (
                         (signal.get("title") or "") + " " + (signal.get("what_changed") or "")
@@ -4102,6 +4013,9 @@ def main():
             orphan_slugs.add(fund_slug)
             continue
 
+        # Look up fund object from db.json (used by reclassifier + misattribution)
+        fund = funds_by_slug.get(fund_slug) if fund_slug else None
+
         # Preserve raw text for scoring before we clean labels/spacing
         raw_title = (signal.get("title") or "").strip()
         raw_summary = (
@@ -4113,7 +4027,7 @@ def main():
         raw_text = f"{raw_title} {raw_summary}".lower().strip()
 
         # Reclassify generic signals into useful categories (use raw text)
-        signal["signal_type"] = _reclassify_signal_type(signal, f"{raw_title} {raw_summary}")
+        signal["signal_type"] = _reclassify_signal_type(signal, f"{raw_title} {raw_summary}", fund=fund)
 
         # Clean read-time artifacts and other low-signal noise
         signal = _clean_signal_fields(signal)
@@ -4147,7 +4061,6 @@ def main():
             resolved_duplicate_ids += 1
 
         # Reject misattributed signals (title names a different fund)
-        fund = funds_by_slug.get(fund_slug) if fund_slug else None
         if _is_misattributed_signal(signal, fund=fund):
             removed_misattributed += 1
             continue
@@ -4373,7 +4286,7 @@ def main():
             elif _RE_ORDINAL_INVESTMENT.search(post_ml_text2):
                 signal["signal_type"] = "deal_announced"
             # Board/appointment → people_move (unless also fund launch)
-            elif _RE_BOARD_SHORT.search(post_ml_text2) and not _RE_FUND_LAUNCH_VERBS.search(post_ml_text2):
+            elif _RE_BOARD_APPOINTMENT.search(post_ml_text2) and not _RE_FUND_LAUNCH_VERBS.search(post_ml_text2):
                 signal["signal_type"] = "people_move"
             # Office opening / footprint expansion → people_move
             elif _RE_OFFICE_OPENING.search(post_ml_text2) and not _matches_any(DEAL_CLASSIFY_PATTERNS, post_ml_text2):
@@ -4423,7 +4336,7 @@ def main():
                 signal["signal_type"] = "other"
             # Catch-all: fund_launch without any fund vehicle language → re-run reclassifier
             elif not has_fund_vehicle:
-                reclassified = _reclassify_signal_type(signal, raw_title + " " + raw_summary)
+                reclassified = _reclassify_signal_type(signal, raw_title + " " + raw_summary, fund=fund)
                 if reclassified != "fund_launch":
                     signal["signal_type"] = reclassified
                 else:
@@ -4627,7 +4540,7 @@ def main():
         # Post-ML correction: re-run full reclassifier for "other" signals.
         # ML often overrides the reclassifier's correct decision — trust pattern matches.
         if signal.get("signal_type") == "other" and not demoted_to_other_by_editorial:
-            reclassified = _reclassify_signal_type(signal, raw_title + " " + raw_summary)
+            reclassified = _reclassify_signal_type(signal, raw_title + " " + raw_summary, fund=fund)
             if reclassified and reclassified != "other":
                 # Guard: don't promote to fund_launch unless TITLE has fund vehicle language.
                 # The reclassifier uses full text which can match "launched...fondo" in what_changed,

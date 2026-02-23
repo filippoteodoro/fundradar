@@ -109,7 +109,8 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
                 filename = src.split("/")[-1].split(".")[0]
                 # Clean up common patterns
                 name = filename.replace("-", " ").replace("_", " ")
-                name = re.sub(r'\b(OK|ok|logo|Logo|LOGO)\b', '', name).strip()
+                name = re.sub(r'\b(OK|ok|logo|Logo|LOGO|Logotipo|logotipo)\b', '', name).strip()
+                name = re.sub(r'\b\d{2,4}\s*[xX]\s*\d{2,4}\b', '', name).strip()  # Remove image dimensions (e.g. 480 X 480)
                 name = re.sub(r'e\d+$', '', name).strip()  # Remove e1234567 suffixes
                 name = name.title()
 

@@ -44175,8 +44175,201 @@
         ],
         "locations": []
       }
+    },
+    {
+      "id": "web-signal-01702",
+      "fund_id": "",
+      "fund_slug": "cinven",
+      "signal_type": "other",
+      "title": "From uncertainty to resurgence \u2013 Cinven x Master Builders Solutions",
+      "what_changed": "New announcement: From uncertainty to resurgence \u2013 Cinven x Master Builders Solutions",
+      "source_url": "https://www.cinven.com/news-insights/from-uncertainty-to-resurgence-cinven-x-master-builders-solutions/",
+      "source_name": "Cinven",
+      "published_at": null,
+      "observed_at": "2026-02-23T10:19:45.056131+00:00",
+      "created_at": "2026-02-23T10:19:45.056131+00:00",
+      "snapshot_id": "snap-20260223101944-6217b1a0",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Master Builders Solutions"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01703",
+      "fund_id": "",
+      "fund_slug": "fondo-italiano-d-investimento-sgr",
+      "signal_type": "other",
+      "title": "FIAF in maggioranza nella piadina Alimenta",
+      "what_changed": "New announcement: FIAF in maggioranza nella piadina Alimenta",
+      "source_url": "https://www.fondoitaliano.it/wp-content/uploads/20260220_LargoConsumo_Alimenta.pdf",
+      "source_name": "Fondo Italiano d\u2019Investimento SGR",
+      "published_at": "2026-02-23",
+      "observed_at": "2026-02-23T10:20:09.801588+00:00",
+      "created_at": "2026-02-23T10:20:09.801588+00:00",
+      "snapshot_id": "snap-20260223102009-e09eb0c6",
+      "diff_summary": "New news item detected (dated 2026-02-23)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01704",
+      "fund_id": "",
+      "fund_slug": "hld",
+      "signal_type": "other",
+      "title": "A new stage for Entoria",
+      "what_changed": "New announcement: A new stage for Entoria",
+      "source_url": "https://www.groupehld.com/en/news/a-new-stage-for-entoria",
+      "source_name": "HLD",
+      "published_at": "2026-02-01",
+      "observed_at": "2026-02-23T10:20:18.852437+00:00",
+      "created_at": "2026-02-23T10:20:18.852437+00:00",
+      "snapshot_id": "snap-20260223102015-d139a796",
+      "diff_summary": "New news item detected (dated 2026-02-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01705",
+      "fund_id": "",
+      "fund_slug": "oxy-capital",
+      "signal_type": "deal_announced",
+      "title": "Kaffa Capsula Cafe Portuguesa added to Oxy Capital portfolio",
+      "what_changed": "Kaffa Capsula Cafe Portuguesa added to Oxy Capital portfolio",
+      "source_url": "https://oxycapital.com/private-equity-and-mezzanine-debt/",
+      "source_name": "Oxy Capital",
+      "published_at": null,
+      "observed_at": "2026-02-23T10:21:05.025903+00:00",
+      "created_at": "2026-02-23T10:21:05.025903+00:00",
+      "snapshot_id": "snap-20260223102100-9c416e0a",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Kaffa Capsula Cafe Portuguesa"
+        ],
+        "people": [
+          "Kaffa Capsula Cafe"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01706",
+      "fund_id": "",
+      "fund_slug": "partners-group",
+      "signal_type": "other",
+      "title": "Partners Group announces planned office in Kuwait, expanding its presence in the GCC",
+      "what_changed": "New announcement: Partners Group announces planned office in Kuwait, expanding its presence in the GCC",
+      "source_url": "https://www.partnersgroup.com/news-and-views/press-releases/corporate-news/detail?news_id=dae28cc7-1a29-48e7-8c00-545722204086",
+      "source_name": "Partners Group",
+      "published_at": null,
+      "observed_at": "2026-02-23T10:21:08.914185+00:00",
+      "created_at": "2026-02-23T10:21:08.914185+00:00",
+      "snapshot_id": "snap-20260223102108-b7711bcf",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Partners Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00136",
+      "fund_id": "",
+      "fund_slug": "vertis-sgr",
+      "related_fund_slugs": [
+        "vertis-sgr"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "Quido, startup che sviluppa soluzioni AI per il private capital, chiude un round da 1,6 mln guidato da Vertis sgr",
+      "what_changed": "Quido, an Italian startup building AI tools for private capital, closed a \u20ac1.6 million round led by Vertis sgr (through Vertis Venture 6 Digital Sud). The funding will support product development and expansion of AI-driven solutions for private market investors.",
+      "source_url": "https://bebeez.it/venture-capital/quido-startup-che-sviluppa-soluzioni-ai-per-il-private-capital-chiude-un-round-da-16-mln-guidato-da-vertis-sgr/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-23T06:35:00+00:00",
+      "observed_at": "2026-02-23T10:23:09.347284+00:00",
+      "created_at": "2026-02-23T10:23:09.347284+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Quido"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac1.6 million"
+    },
+    {
+      "id": "rss-signal-00137",
+      "fund_id": "",
+      "fund_slug": "merito-sgr",
+      "related_fund_slugs": [
+        "merito-sgr"
+      ],
+      "signal_type": "other",
+      "title": "Firmato il protocollo d\u2019intesa 2026 tra Confindustria Moda e il Mim",
+      "what_changed": "The Ministry of Education and Merit (Mim) and Confindustria Moda, together with Confindustria Accessori Moda, signed a renewed 2026 protocol to strengthen links between education and the Italian fashion supply chain. The agreement, signed in the presence of Minister Valditara, broadens the 2021 framework without any deal amount.",
+      "source_url": "https://www.pambianconews.com/2026/02/23/firmato-il-protocollo-dintesa-2026-tra-confindustria-moda-e-il-mim-475143/",
+      "source_name": "Pambianco News",
+      "published_at": "2026-02-23T09:20:35+00:00",
+      "observed_at": "2026-02-23T10:23:21.236443+00:00",
+      "created_at": "2026-02-23T10:23:21.236443+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Ministero dell'Istruzione e del Merito (Mim)",
+          "Confindustria Moda",
+          "Confindustria Accessori Moda"
+        ],
+        "people": [],
+        "locations": []
+      }
     }
   ],
-  "signal_count": 1701,
-  "translated_at": "2026-02-22T19:41:32.288140+00:00"
+  "signal_count": 1706
 }
