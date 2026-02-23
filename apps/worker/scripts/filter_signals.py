@@ -101,6 +101,15 @@ from signal_patterns import (
     _strip_urls,
 )
 
+from signal_text_utils import (
+    clean_display_text,
+    fix_spacing,
+    normalize_monetary_values,
+    normalize_monetary_values as _normalize_monetary_values,  # backward compat for tests
+    repair_attached_connectors,
+    repair_attached_connectors as _repair_attached_connectors,  # backward compat
+)
+
 # Paths
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
 DATA_DIR = PROJECT_ROOT / "data" / "derived"
@@ -1555,36 +1564,8 @@ _RE_WEBSITE_UPDATE_PAGE = re.compile(r"website update.*(?:home|team.?list)\s*pag
 _RE_HISTORICAL_DEAL_KEYWORDS = re.compile(r"acquis|invest|exit|ipo|fundrais|chiude|completa|€|\d+\s*mil", re.IGNORECASE)
 _RE_NAMED_PEOPLE = re.compile(r"\b[A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ]+(?:\s+[A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ]+){1,2}\b")
 
-MONTHS = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December",
-    "Jan", "Feb", "Mar", "Apr", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-    "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
-    "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre",
-]
-
-MONTHS_PATTERN = "(?:" + "|".join(MONTHS) + ")"
-DATE_PREFIX_NUMERIC_RE = re.compile(r"^\s*\d{1,2}\s*[-/]\s*\d{1,2}\s*[-/]\s*\d{2,4}\s*", re.IGNORECASE)
-DATE_PREFIX_WORD_RE = re.compile(r"^\s*\d{1,2}\s+" + MONTHS_PATTERN + r"\s+\d{4}\s*", re.IGNORECASE)
-DATE_PREFIX_WORD_RE2 = re.compile(r"^\s*" + MONTHS_PATTERN + r"\s+\d{1,2},?\s*\d{4}\s*", re.IGNORECASE)
-DATE_SUFFIX_NUMERIC_RE = re.compile(r"\s*\d{1,2}\s*[-/]\s*\d{1,2}\s*[-/]\s*\d{2,4}\s*$", re.IGNORECASE)
-DATE_SUFFIX_WORD_RE = re.compile(r"\s*\d{1,2}\s+" + MONTHS_PATTERN + r"\s+\d{4}\s*$", re.IGNORECASE)
-DATE_SUFFIX_WORD_RE2 = re.compile(r"\s*" + MONTHS_PATTERN + r"\s+\d{1,2},?\s*\d{4}\s*$", re.IGNORECASE)
-
-PRESS_RELEASE_PREFIX_RE = re.compile(r"^(?:press\s*release|comunicato\s*stampa)\s*[-:]?\s*", re.IGNORECASE)
-# URL_RE — now in signal_patterns (used by imported _strip_urls)
-LEADING_LABEL_RE = re.compile(
-    r"^\s*(?:news|update|announcement|new announcement|team update|fundraising update|fund close|press release|comunicato stampa|news release)\b\s*(?:[:\-–]|\s+\d|\d)\s*",
-    re.IGNORECASE,
-)
-
-FRAGMENTED_PHRASES = [
-    "continua a leggere",
-    "read more",
-    "leggi di piu",
-    "leggi di più",
-    "approfondisci",
-]
+# MONTHS, MONTHS_PATTERN, DATE_*_RE, PRESS_RELEASE_PREFIX_RE, LEADING_LABEL_RE,
+# FRAGMENTED_PHRASES, NEWSPAPER_ONLY_RE — now imported from signal_text_utils
 
 # Maximum people in a single signal before we consider it a bulk team-page scrape
 MAX_PEOPLE_PER_SIGNAL = 100
@@ -1982,40 +1963,18 @@ def _mentions_non_eu_geo(text: str) -> bool:
     return any(pat.search(text) for pat in NON_EU_TEXT_PATTERNS)
 
 # _strip_read_time, _strip_urls — imported from signal_patterns
-
-_ATTACHED_CONNECTORS = (
-    "dello", "della", "degli", "delle", "dall", "dell", "allo", "alla", "agli", "alle",
-    "nelle", "negli", "nello", "sullo", "sulla", "sugli", "sulle",
-    "with", "from", "into", "through", "between",
-    "dei", "del", "con", "per", "for", "and", "the", "to", "of", "in",
-    "nel", "nei", "gli", "all", "sul", "sui",
-    "di", "da", "al", "ai", "il", "la", "le", "lo", "su", "un", "una", "uno",
-)
-_ATTACHED_CONNECTOR_RE = "|".join(sorted(set(_ATTACHED_CONNECTORS), key=len, reverse=True))
-_ATTACHED_PREFIX_CONNECTOR_RE = (
-    "di|da|del|della|dello|dei|degli|delle|con|for|of|in|with|to|al|alla|allo|ai|agli|alle"
-)
-_ATTACHED_SUFFIX_CONNECTOR_RE = (
-    "per|con|di|da|del|della|dello|dei|degli|delle|for|of|in|with|to|and"
-)
+# _ATTACHED_CONNECTORS, _repair_attached_connectors, _iter_company_compacts,
+# _fix_spacing, _repair_common_splits, _clean_signal_title, _clean_signal_text,
+# _normalize_monetary_values, NEWSPAPER_ONLY_RE — now in signal_text_utils
 
 
-def _iter_company_compacts(company_candidates: list[str] | None) -> list[str]:
-    """Return unique compact company identifiers suitable for glue-token repairs."""
-    if not company_candidates:
-        return []
-    compacts: list[str] = []
-    seen: set[str] = set()
-    for raw in company_candidates:
-        compact = re.sub(r"[^A-Za-z0-9À-ÖØ-öø-ÿ]+", "", str(raw or ""))
-        if len(compact) < 5:
-            continue
-        key = compact.lower()
-        if key in seen:
-            continue
-        seen.add(key)
-        compacts.append(compact)
-    return compacts
+def _normalize_for_compare(text: str) -> str:
+    if not text:
+        return ""
+    cleaned = text.lower()
+    cleaned = re.sub(r"[^a-z0-9à-öø-ÿ]+", " ", cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned)
+    return cleaned.strip()
 
 
 def _company_candidates_from_signal(signal: dict) -> list[str]:
@@ -2039,726 +1998,26 @@ def _company_candidates_from_signal(signal: dict) -> list[str]:
     return companies
 
 
-def _repair_attached_connectors(text: str, company_candidates: list[str] | None = None) -> str:
-    """Repair words glued to prepositions/articles around company names and deal nouns."""
-    if not text:
-        return text
-    cleaned = text
-
-    # Prefix connector stuck to a capitalized token: "diMarullo" → "di Marullo".
-    cleaned = re.sub(
-        rf"\b({_ATTACHED_CONNECTOR_RE})(?=[A-ZÀ-ÖØ-Þ])",
-        r"\1 ",
-        cleaned,
-    )
-
-    # Context-aware fallback for unknown company names:
-    # "di Marulloper" → "di Marullo per".
-    cleaned = re.sub(
-        rf"\b({_ATTACHED_PREFIX_CONNECTOR_RE})\s+([A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ]{{4,}})({_ATTACHED_SUFFIX_CONNECTOR_RE})\b",
-        r"\1 \2 \3",
-        cleaned,
-        flags=re.IGNORECASE,
-    )
-
-    # Entity-aware repairs around known company names:
-    # "conTechNova" / "TechNovaper" → "con TechNova" / "TechNova per".
-    for raw_company in company_candidates or []:
-        value = str(raw_company or "").strip()
-        if not value or " " in value:
-            continue
-        spaced_value = re.sub(r"(?<=[a-zà-öø-ÿ])(?=[A-ZÀ-ÖØ-Þ])", " ", value)
-        if spaced_value != value:
-            cleaned = re.sub(
-                rf"\b{re.escape(spaced_value)}\b",
-                value,
-                cleaned,
-            )
-
-    for compact in _iter_company_compacts(company_candidates):
-        spaced_compact_pattern = re.sub(
-            r"(?<=[a-zà-öø-ÿ])(?=[A-ZÀ-ÖØ-Þ])",
-            r"\\s*",
-            re.escape(compact),
-        )
-        cleaned = re.sub(
-            rf"(?i)\b({_ATTACHED_CONNECTOR_RE})({spaced_compact_pattern})(?=\b|[A-Za-zÀ-ÖØ-öø-ÿ])",
-            lambda m, c=compact: f"{m.group(1)} {c}",
-            cleaned,
-        )
-        cleaned = re.sub(
-            rf"(?i)\b({spaced_compact_pattern})({_ATTACHED_CONNECTOR_RE})(?=\b|[A-Za-zÀ-ÖØ-öø-ÿ])",
-            lambda m, c=compact: f"{c} {m.group(2)}",
-            cleaned,
-        )
-
-    # English/Italian deal nouns frequently glued to connectors.
-    # Examples: "agreementfor", "partnershipwith", "investimentoper".
-    cleaned = re.sub(
-        r"\b([A-Za-z]{5,}(?:ment|tion|sion|ship|ness))(for|with|of|in|to|per|con|di)\b",
-        r"\1 \2",
-        cleaned,
-        flags=re.IGNORECASE,
-    )
-
-    return re.sub(r"\s{2,}", " ", cleaned).strip()
-
-
-def _fix_spacing(text: str) -> str:
-    """Fix missing spaces caused by HTML extraction (e.g., 'diAlba', 'eCasa')."""
-    if not text:
-        return text
-    cleaned = text
-    # Insert space between digits and letters (e.g., "2025Comunicato")
-    cleaned = re.sub(r"(?<=\d)(?=[A-Za-zÀ-ÖØ-öø-ÿ])", " ", cleaned)
-    cleaned = re.sub(r"(?<=[A-Za-zÀ-ÖØ-öø-ÿ])(?=\d)", " ", cleaned)
-    # Insert space between uppercase acronym and lowercase word (e.g., "NTCsostenuta")
-    cleaned = re.sub(r"(?<=[A-ZÀ-ÖØ-Þ]{2})(?=[a-zà-öø-ÿ])", " ", cleaned)
-    # Insert space between lowercase word and uppercase acronym (e.g., "tedescaKBC")
-    cleaned = re.sub(r"(?<=[a-zà-öø-ÿ]{3})(?=[A-ZÀ-ÖØ-Þ]{2,})", " ", cleaned)
-    # Insert space after punctuation if missing
-    cleaned = re.sub(r"([,;:])(?=[A-Za-zÀ-ÖØ-öø-ÿ])", r"\1 ", cleaned)
-    cleaned = re.sub(r"(?<=\d),\s+(?=\d)", ",", cleaned)
-    # Insert space after common Italian prepositions/conjunctions when followed by uppercase
-    # Case-sensitive: only match lowercase prepositions (e.g., "diAlba" → "di Alba")
-    # Avoids breaking ALL_CAPS words (e.g., "CONCORDATO" should NOT become "CON CORDATO")
-    cleaned = re.sub(
-        r"\b(?:di|da|del|dello|della|dei|degli|delle|de|e|ed|la|il|lo|gli|le|al|allo|alla|ai|agli|alle|nel|nello|nella|nei|negli|nelle|sul|sullo|sulla|sui|sugli|sulle|per|con|su|in)(?=[A-ZÀ-ÖØ-Þ])",
-        r"\g<0> ",
-        cleaned,
-    )
-    # Insert space between long lowercase word and following CamelCase word
-    cleaned = re.sub(r"(?<=[a-zà-öø-ÿ]{3})(?=[A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ])", " ", cleaned)
-    # Insert space before common Italian verbs/adverbs concatenated to proper nouns
-    # Safety net for HTML extraction bugs (e.g., "Flangesacquisisce" → "Flanges acquisisce")
-    cleaned = re.sub(
-        r"(?<=[a-zà-öø-ÿA-ZÀ-ÖØ-Þ]{4})(acquis\w+|annunci\w+|insieme|accompagn\w+)\b",
-        r" \1",
-        cleaned,
-    )
-    # Space before opening quotes if attached
-    cleaned = re.sub(r"(?<=[A-Za-zÀ-ÖØ-öø-ÿ])(?=[\"“])", " ", cleaned)
-    # Restore known names/acronyms broken by digit-letter spacing
-    cleaned = re.sub(r"\bF\s+2\s+i\b", "F2i", cleaned)
-    cleaned = re.sub(r"\bB\s+4\s+i\b", "B4i", cleaned)
-    cleaned = re.sub(r"\bCO\s+2\b", "CO2", cleaned)
-    cleaned = re.sub(r"\b3\s+i\b", "3i", cleaned)
-    cleaned = re.sub(r"\bK\s+3\s*R\s*X\b", "K3RX", cleaned)
-    cleaned = re.sub(r"\bE\s+4\s+G\b", "E4G", cleaned)
-    cleaned = re.sub(r"\bP\s+101\b", "P101", cleaned)
-    cleaned = re.sub(r"\bT\s+2\s+Y\b", "T2Y", cleaned)
-    cleaned = re.sub(r"\bB\s+2\s+O\b", "B2O", cleaned)
-    cleaned = re.sub(r"\b3\s+D\s+AI\b", "3D AI", cleaned)
-    cleaned = re.sub(r"\bSME\s+s\b", "SMEs", cleaned)
-    # Quarter/half notation: "Q 1 2026" → "Q1 2026", "1 Q 2025" → "Q1 2025", "H 1" → "H1"
-    cleaned = re.sub(r"\b([QH])\s+(\d)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\b(\d)\s+([QH])\s+(\d{4})\b", r"\2\1 \3", cleaned)
-    # Units: "39 M W" → "39MW"
-    cleaned = re.sub(r"\b(\d+)\s+M\s*W\b", r"\1MW", cleaned)
-    # Brand name OCR artifacts
-    cleaned = re.sub(r"\bMi\s*CROTEC\b", "MiCROTEC", cleaned)
-    cleaned = re.sub(r"\bAAV\s*antgarde\b", "AAVantgarde", cleaned)
-    cleaned = re.sub(r"\bLV\s*enture\b", "LVenture", cleaned)
-    cleaned = re.sub(r"\bWS\s*ense\b", "WSense", cleaned)
-    cleaned = re.sub(r"\bNano\s+Phoria\b", "NanoPhoria", cleaned)
-    cleaned = re.sub(r"\bPintau\s+di\b", "Pintaudi", cleaned)
-    cleaned = re.sub(r"\bUV\s*T[\s-]*Growth\b", "UVT-Growth", cleaned)
-    cleaned = re.sub(r"\b[Bb]ee\s*2\s*[Ll]ink\b", "Bee2Link", cleaned)
-    cleaned = re.sub(r"\bSmart\s*4\s*T\s*ech\b", "Smart4Tech", cleaned)
-    cleaned = re.sub(r"\bID\s*e\s*A\b", "IDea", cleaned)
-    cleaned = re.sub(r"\bGT\s*x\b", "GTx", cleaned)
-    cleaned = re.sub(r"\bFounta\s*in\s*Vest\b", "FountainVest", cleaned)
-    # Italian word splits from OCR/PDF: "-mento" suffix splits
-    cleaned = re.sub(r"\b([Tt]rasferimen)\s+(to)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\b([Ff]inanziamen)\s+(to)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\b([Dd]eposi)\s+(to)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\b([Ss]tabilimen)\s+(to)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\b([Pp]otenziamen)\s+(to)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\b([Ii]nvestimen)\s+(to)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\b([Rr]iferimen)\s+(to)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\bi\s*SPLASH\b", "iSPLASH", cleaned, flags=re.IGNORECASE)
-    # "Warste in" → "Warstein"
-    cleaned = re.sub(r"\bWarste\s+in\b", "Warstein", cleaned)
-    # "Series Cfinancing" → "Series C financing" (missing space after letter)
-    cleaned = re.sub(r"\bSeries\s+([ABC])(?=[a-z])", r"Series \1 ", cleaned)
-    # Media brand token can be split by acronym/lowercase + digit spacing rules.
-    cleaned = re.sub(r"\bTGC\s*om\s*24\b", "TGCom24", cleaned, flags=re.IGNORECASE)
-    # L Catterton scrape artifact: "LC atterton" → "L Catterton"
-    cleaned = re.sub(r"\bLC\s*atterton\b", "L Catterton", cleaned)
-    # "CL ub" → "Club" (Equity Club OCR artifact)
-    cleaned = re.sub(r"\bCL\s+ub\b", "Club", cleaned)
-    # "T erm" → "Term" (also when glued to preceding text like "2028T erm")
-    cleaned = re.sub(r"T\s+erm\b", "Term", cleaned)
-    # "M arch" → "March" (month name split)
-    cleaned = re.sub(r"\bM\s+arch\b", "March", cleaned)
-    # Ordinal splits: "14 th" → "14th", "28 th" → "28th", "1 st" → "1st"
-    cleaned = re.sub(r"\b(\d+)\s+(th|st|nd|rd)\b", r"\1\2", cleaned, flags=re.IGNORECASE)
-    # "Cdp Venture Capital" → "CDP Venture Capital" (LLM sentence-casing acronym)
-    cleaned = re.sub(r"\bCdp\s+Venture\s+Capital\b", "CDP Venture Capital", cleaned)
-    # "2025–2028Term" → "2025–2028 Term" (missing space before Term when glued to year)
-    cleaned = re.sub(r"(\d{4})Term\b", r"\1 Term", cleaned)
-    # "Serie A/B/C" → "Series A/B/C" (Italian funding round notation → English)
-    cleaned = re.sub(r"\b[Ss][Ee][Rr][Ii][Ee]\s+([A-Ga-g])\b", lambda m: f"Series {m.group(1).upper()}", cleaned)
-    # Mojibake: â¬€ / â¬ → € (UTF-8 double-encoding of euro sign)
-    cleaned = cleaned.replace("â¬€", "€").replace("â¬", "€")
-    # Finance jargon: "aucap" → "capital increase"
-    cleaned = re.sub(r"\baucap\b", "capital increase", cleaned, flags=re.IGNORECASE)
-    # "Sgr"/"sgr" → "SGR" in text (LLM sentence-casing Italian legal abbreviation)
-    cleaned = re.sub(r"\b[Ss]gr\b", "SGR", cleaned)
-    cleaned = re.sub(r"\b[Ss]icaf\b", "SICAF", cleaned)
-    # Fund abbreviations that LLM title-cases: "Dif" → "DIF", "Dws" → "DWS"
-    cleaned = re.sub(r"\bDif\b", "DIF", cleaned)
-    cleaned = re.sub(r"\bDws\b", "DWS", cleaned)
-    # Italian thousands in non-monetary context: "15.000 mq" → "15,000 sqm", "1.500 beds"
-    cleaned = re.sub(r"\b(\d{1,3})\.(\d{3})\s+mq\b", lambda m: f"{m.group(1)},{m.group(2)} sqm", cleaned)
-    cleaned = re.sub(r"\b(\d{1,3})\.(\d{3})(?=\s+(?:beds?|employees?|people|square|units?|staff|workers?))", lambda m: f"{m.group(1)},{m.group(2)}", cleaned)
-    # "2 T au" → "Tau" (OCR digit-letter split artifact)
-    cleaned = re.sub(r"\b2\s+T\s+au\b", "Tau", cleaned)
-    # Strip leading numbered list artifacts: "3 T he" → "The", "4 B" → ... (from HTML bullet extraction)
-    cleaned = re.sub(r"^\d+\s+(?=[A-Z])", "", cleaned)
-    # Italian ordinals in text: "4 a" → "4a", "1 o" → "1o" (prevent treating as list prefix)
-    cleaned = re.sub(r"\b(\d+)\s+([ao])\s+", r"\1\2 ", cleaned)
-    cleaned = re.sub(r"\s{2,}", " ", cleaned)
-    # Re-compact currency amount suffixes split by digit-letter spacing above.
-    # "€62 M" → "€62M", "€200 M" → "€200M" (normalisation produced these, spacing split them)
-    cleaned = re.sub(r'([€$£]\d+(?:[.,]\d+)?)\s+([KMBT])\b', r'\1\2', cleaned)
-    return cleaned.strip()
-
-
-def _repair_common_splits(text: str, strip_leading_label: bool = True) -> str:
-    if not text:
-        return text
-    cleaned = text
-    for phrase in FRAGMENTED_PHRASES:
-        pattern = r"".join(re.escape(ch) + r"\s*" for ch in phrase)
-        cleaned = re.sub(pattern, "", cleaned, flags=re.IGNORECASE)
-    if strip_leading_label:
-        cleaned = LEADING_LABEL_RE.sub("", cleaned)
-    cleaned = re.sub(r"\bde\s+l\b", "del", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bdi\s+l\b", "del", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bi\s+l\b", "il", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bsu\s+l\b", "sul", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bdel\s+la\b", "della", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bdel\s+le\b", "delle", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bdel\s+lo\b", "dello", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bdel\s+i\b", "dei", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bdel\s+gli\b", "degli", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bal\s+la\b", "alla", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bal\s+lo\b", "allo", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bal\s+le\b", "alle", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bal\s+gli\b", "agli", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(
-        r"\b([A-Za-zÀ-ÖØ-öø-ÿ]{2,})\s([ECIPSV])\s+([a-zà-öø-ÿ]{2,})",
-        r"\1 \2\3",
-        cleaned,
-    )
-    cleaned = re.sub(
-        r"\b([Ii])\s+nvest",
-        lambda m: ("I" if m.group(1).isupper() else "i") + "nvest",
-        cleaned,
-    )
-    cleaned = re.sub(r"\s{2,}", " ", cleaned)
-    return cleaned.strip()
-
-
-def _clean_signal_title(title: str) -> str:
-    """Clean concatenation artifacts and boilerplate from titles."""
-    if not title:
-        return title
-    cleaned = _strip_read_time(title)
-    cleaned = _strip_urls(cleaned)
-
-    # Strip "added to X portfolio" suffix: "NPO Torino added to Fund SGR portfolio (ICT)" → "NPO Torino"
-    cleaned = re.sub(r"(.+?)\s+added to\s+.+?\s+portfolio(?:\s*\(.*?\))?\s*$", r"\1", cleaned, flags=re.IGNORECASE)
-    # Italian equivalent: "aggiunto/a al portafoglio di X"
-    cleaned = re.sub(r"(.+?)\s+aggiunt[oa]\s+al?\s+portafoglio\s+.+$", r"\1", cleaned, flags=re.IGNORECASE)
-
-    # Strip "Read more" / "Continue reading" / "LEGGI TUTTO" link text appended by extractors (EN + IT)
-    cleaned = re.sub(r"\s*Approfondisci\s*$", "", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"^LEGGI\s+TUTTO\s*", "", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"^Continua a leggere\s*[\"'\u201c\u201d]?\s*", "", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r'^Continue reading\s*["\u201c]?\s*', "", cleaned, flags=re.IGNORECASE)
-    # Strip trailing closing quote left over after stripping "Continue reading" prefix
-    cleaned = re.sub(r'["\u201d]\s*$', "", cleaned)
-
-    # Strip "more details" suffix (Investindustrial extractor artifact)
-    cleaned = re.sub(r"\s*more\s+details\s*$", "", cleaned, flags=re.IGNORECASE)
-
-    # Insert space before ALL-CAPS word concatenated to lowercase (e.g. "aNEVERHACK" → "a NEVERHACK")
-    cleaned = re.sub(r"([a-z])([A-Z]{3,})", r"\1 \2", cleaned)
-
-    # Strip leading/trailing curly quotes (common in Italian news sites)
-    # Note: NOT raw strings — \u201c \u201d must be interpreted as Unicode chars
-    cleaned = re.sub('^[\u201c\u201d"]+\\s*', '', cleaned)
-    cleaned = re.sub('\\s*[\u201c\u201d"]+$', '', cleaned)
-
-    # Insert missing space after common prefixes if concatenated
-    cleaned = re.sub(r"(?i)\b(press\s*release|comunicato\s*stampa)(?=[A-Z])", r"\1 ", cleaned)
-    # Insert space between year and following word if concatenated
-    cleaned = re.sub(r"(\d{4})(?=[A-Za-z])", r"\1 ", cleaned)
-
-    # Remove date prefixes
-    cleaned = DATE_PREFIX_NUMERIC_RE.sub("", cleaned)
-    cleaned = DATE_PREFIX_WORD_RE.sub("", cleaned)
-    cleaned = DATE_PREFIX_WORD_RE2.sub("", cleaned)
-
-    # Remove press release / comunicato stampa prefix
-    cleaned = PRESS_RELEASE_PREFIX_RE.sub("", cleaned)
-
-    # Remove date suffixes
-    cleaned = DATE_SUFFIX_NUMERIC_RE.sub("", cleaned)
-    cleaned = DATE_SUFFIX_WORD_RE.sub("", cleaned)
-    cleaned = DATE_SUFFIX_WORD_RE2.sub("", cleaned)
-
-    cleaned = _fix_spacing(cleaned)
-    # After spacing fix, strip sector+date suffixes (Astorg: "Healthcare 29 October 2025")
-    cleaned = re.sub(
-        r"(?:Healthcare|Tech(?:nology)?|Business\s+Services|Industrials|Financial\s+Services|Consumer|TMT|Energy)\s*\d{1,2}\s+"
-        + MONTHS_PATTERN + r"\s+\d{4}\s*$",
-        "", cleaned, flags=re.IGNORECASE,
-    ).strip()
-    # Re-strip date suffixes exposed by spacing fix ("...Benelux 25 June 2025")
-    cleaned = DATE_SUFFIX_WORD_RE.sub("", cleaned).strip()
-    # Strip orphaned trailing 1-2 digit numbers (leftover day from stripped dates)
-    cleaned = re.sub(r"\s+\d{1,2}\s*$", "", cleaned).strip()
-    base = cleaned
-    cleaned = _repair_common_splits(cleaned, strip_leading_label=True)
-    if len(cleaned.strip()) < 18:
-        cleaned = _repair_common_splits(base, strip_leading_label=False)
-    cleaned = re.sub(r"\s{2,}", " ", cleaned)
-    cleaned = cleaned.strip(" -|")
-    # Strip newspaper attribution suffix ("-- IL SOLE 24 ORE", "-- CORRIERE ECONOMIA", etc.)
-    cleaned = re.sub(
-        r"\s*[\u2013\u2014\-]+\s*(?:IL SOLE 24 ORE|CORRIERE\s+\w+|BEBEEZ|FORBES|BLOOMBERG|REUTERS|FINANCIAL TIMES|MILANO FINANZA|MF[\s\-]MILANO FINANZA|LA REPUBBLICA|ITALIA OGGI|MF NEWSWIRES|STARTUPITALIA)\s*$",
-        "",
-        cleaned,
-        flags=re.IGNORECASE,
-    )
-    # Final curly quote strip (may be exposed after other prefix removals)
-    cleaned = re.sub('^[\u201c\u201d"]+\\s*', '', cleaned)
-    cleaned = re.sub('\\s*[\u201c\u201d"]+$', '', cleaned)
-    # Known name corrections (from CDP VC extractor spacing artifacts)
-    CDP_NAME_CORRECTIONS = {
-        "WS ense": "WSense",
-        "3 DN extech": "3DNextech",
-        "T 2 Y Capital": "T2Y Capital",
-        "Visio Ning": "VisiONing",
-        "CAPC orp": "CAPCorp",
-        "job Tech": "jobTech",
-        "Serie Cdi": "Serie C di",
-        "ID e A": "IDeA",
-        "AI 3 D": "AI3D",
-        "Icelake S Acquisition": "Icelakes Acquisition",
-        "De A Capital": "DeA Capital",
-        "B 4 Investimenti": "B4 Investimenti",
-        "Ne Xt RE": "NeXt RE",
-    }
-    for wrong, correct in CDP_NAME_CORRECTIONS.items():
-        cleaned = cleaned.replace(wrong, correct)
-
-    # Normalize currency abbreviations so titles display cleanly
-    # "€3 bn" → "€3B", "€500 mln" → "€500M", "€1.5 miliardi" → "€1.5B"
-    cleaned = re.sub(r"€\s*(\d[\d.,]*)\s*bn\b", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"€\s*(\d[\d.,]*)\s*(?:mln|million)\b", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"(\d[\d.,]*)\s*milion[ei]\s+(?:di\s+)?euro", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"(\d[\d.,]*)\s*miliard[ei]\s+(?:di\s+)?euro", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"(\d[\d.,]*)\s*mln\s+(?:di\s+)?euros?", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"(\d[\d.,]*)\s*mld\s+(?:di\s+)?euros?", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\b(\d[\d.,]*)\s+mln\b", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\b(\d[\d.,]*)\s+mld\b", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
-
-    # ALL CAPS → title case (preserve known acronyms)
-    if len(cleaned) > 20 and re.match(r"^[A-ZÀ-ÖØ-Þ0-9\s.,':;!?()\-–—]+$", cleaned):
-        cleaned = cleaned.title()
-        # Restore common acronyms that title() lowercased
-        for acr in ["Sgr", "Spa", "Srl", "Sas", "Eur", "Ceo", "Cfo", "Coo", "Cio", "Ipo", "Esg", "Aifi", "Pem", "S.P.A.", "S.R.L."]:
-            cleaned = re.sub(r"\b" + re.escape(acr) + r"\b", acr.upper(), cleaned)
-        # Lowercase Italian prepositions/articles (not at start of string)
-        for prep in ["Di", "Da", "Del", "Dello", "Della", "Dei", "Degli", "Delle", "De",
-                      "Il", "Lo", "La", "Le", "Gli", "Un", "Una", "Uno",
-                      "Al", "Allo", "Alla", "Ai", "Agli", "Alle",
-                      "Nel", "Nello", "Nella", "Nei", "Negli", "Nelle",
-                      "Sul", "Sullo", "Sulla", "Sui", "Sugli", "Sulle",
-                      "Per", "Con", "Tra", "Fra", "Ed", "In"]:
-            cleaned = re.sub(r"(?<=\s)" + re.escape(prep) + r"(?=\s)", prep.lower(), cleaned)
-    return cleaned.strip()
-
-
-NEWSPAPER_ONLY_RE = re.compile(
-    r"^\s*(?:Il Sole 24 Ore|Corriere\s+\w+|BeBeez|Forbes|Bloomberg|Reuters|Financial Times|"
-    r"Milano Finanza|MF[\s\-]Milano Finanza|La Repubblica|Italia Oggi|MF Newswires|StartupItalia|"
-    r"Corriere della Sera)\s*$",
-    re.IGNORECASE,
-)
-
-
-def _clean_signal_text(text: str) -> str:
-    """Clean non-title text fields (what_changed, enriched_summary, diff_summary).
-
-    Applies the same display-critical cleanups as _clean_signal_title() so that
-    whichever field the frontend shows via its fallback chain is properly cleaned.
-    """
-    if not text:
-        return text
-    # If entire text is just a newspaper name, clear it
-    if NEWSPAPER_ONLY_RE.match(text):
-        return ""
-    cleaned = _strip_read_time(text)
-    cleaned = _strip_urls(cleaned)
-
-    # --- Display-critical cleanups (shared with _clean_signal_title) ---
-    # "added to X portfolio" suffix
-    cleaned = re.sub(r"(.+?)\s+added to\s+.+?\s+portfolio(?:\s*\(.*?\))?\s*$", r"\1", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"(.+?)\s+aggiunt[oa]\s+al?\s+portafoglio\s+.+$", r"\1", cleaned, flags=re.IGNORECASE)
-    # "Read more" / "Continue reading" / "LEGGI TUTTO" / "Approfondisci" link text
-    cleaned = re.sub(r"\s*Approfondisci\s*$", "", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"^LEGGI\s+TUTTO\s*", "", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"^Continua a leggere\s*[\"'\u201c\u201d]?\s*", "", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r'^Continue reading\s*["\u201c]?\s*', "", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r'["\u201d]\s*$', "", cleaned)
-    # "more details" suffix
-    cleaned = re.sub(r"\s*more\s+details\s*$", "", cleaned, flags=re.IGNORECASE)
-    # Curly quotes
-    cleaned = re.sub('^[\u201c\u201d"]+\\s*', '', cleaned)
-    cleaned = re.sub('\\s*[\u201c\u201d"]+$', '', cleaned)
-    # Date prefixes
-    cleaned = DATE_PREFIX_NUMERIC_RE.sub("", cleaned)
-    cleaned = DATE_PREFIX_WORD_RE.sub("", cleaned)
-    cleaned = DATE_PREFIX_WORD_RE2.sub("", cleaned)
-    # Press release prefix
-    cleaned = PRESS_RELEASE_PREFIX_RE.sub("", cleaned)
-    # Insert space after concatenated press release/comunicato prefix (mid-text artifact)
-    cleaned = re.sub(r"(?i)\b(press\s*release|comunicato\s*stampa)(?=[A-Z])", r"\1 ", cleaned)
-    # Insert space before ALL-CAPS word concatenated to lowercase (e.g. "aNEVERHACK" → "a NEVERHACK")
-    cleaned = re.sub(r"([a-z])([A-Z]{3,})", r"\1 \2", cleaned)
-    # Date suffixes
-    cleaned = DATE_SUFFIX_NUMERIC_RE.sub("", cleaned)
-    cleaned = DATE_SUFFIX_WORD_RE.sub("", cleaned)
-    cleaned = DATE_SUFFIX_WORD_RE2.sub("", cleaned)
-    # Currency normalization
-    cleaned = re.sub(r"€\s*(\d[\d.,]*)\s*bn\b", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"€\s*(\d[\d.,]*)\s*(?:mln|million)\b", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"(\d[\d.,]*)\s*milion[ei]\s+(?:di\s+)?euro", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"(\d[\d.,]*)\s*miliard[ei]\s+(?:di\s+)?euro", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"(\d[\d.,]*)\s*mln\s+(?:di\s+)?euros?", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"(\d[\d.,]*)\s*mld\s+(?:di\s+)?euros?", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\b(\d[\d.,]*)\s+mln\b", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\b(\d[\d.,]*)\s+mld\b", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
-
-    cleaned = _fix_spacing(cleaned)
-    # After spacing fix, strip sector+date suffixes (Astorg: "Healthcare 29 October 2025")
-    cleaned = re.sub(
-        r"(?:Healthcare|Tech(?:nology)?|Business\s+Services|Industrials|Financial\s+Services|Consumer|TMT|Energy)\s*\d{1,2}\s+"
-        + MONTHS_PATTERN + r"\s+\d{4}\s*$",
-        "", cleaned, flags=re.IGNORECASE,
-    ).strip()
-    # Re-strip date suffixes exposed by spacing fix
-    cleaned = DATE_SUFFIX_WORD_RE.sub("", cleaned).strip()
-    # Strip orphaned trailing 1-2 digit numbers (leftover day from stripped dates)
-    cleaned = re.sub(r"\s+\d{1,2}\s*$", "", cleaned).strip()
-    base = cleaned
-    cleaned = _repair_common_splits(cleaned, strip_leading_label=True)
-    if len(cleaned.strip()) < 25:
-        cleaned = _repair_common_splits(base, strip_leading_label=False)
-    cleaned = re.sub(r"\s{2,}", " ", cleaned)
-    cleaned = cleaned.strip(" -|")
-    # Strip newspaper attribution suffix ("-- IL SOLE 24 ORE", "-- CORRIERE ECONOMIA", etc.)
-    cleaned = re.sub(
-        r"\s*[\u2013\u2014\-]+\s*(?:IL SOLE 24 ORE|CORRIERE\s+\w+|BEBEEZ|FORBES|BLOOMBERG|REUTERS|FINANCIAL TIMES|MILANO FINANZA|MF[\s\-]MILANO FINANZA|LA REPUBBLICA|ITALIA OGGI|MF NEWSWIRES|STARTUPITALIA)\s*$",
-        "",
-        cleaned,
-        flags=re.IGNORECASE,
-    )
-    # Final curly quote strip (may be exposed after other prefix removals)
-    cleaned = re.sub('^[\u201c\u201d"]+\\s*', '', cleaned)
-    cleaned = re.sub('\\s*[\u201c\u201d"]+$', '', cleaned)
-    # ALL CAPS → title case (preserve known acronyms)
-    if len(cleaned) > 20 and re.match(r"^[A-ZÀ-ÖØ-Þ0-9\s.,':;!?()\-–—]+$", cleaned):
-        cleaned = cleaned.title()
-        for acr in ["Sgr", "Spa", "Srl", "Sas", "Eur", "Ceo", "Cfo", "Coo", "Cio", "Ipo", "Esg", "Aifi", "Pem", "S.P.A.", "S.R.L."]:
-            cleaned = re.sub(r"\b" + re.escape(acr) + r"\b", acr.upper(), cleaned)
-        for prep in ["Di", "Da", "Del", "Dello", "Della", "Dei", "Degli", "Delle", "De",
-                      "Il", "Lo", "La", "Le", "Gli", "Un", "Una", "Uno",
-                      "Al", "Allo", "Alla", "Ai", "Agli", "Alle",
-                      "Nel", "Nello", "Nella", "Nei", "Negli", "Nelle",
-                      "Sul", "Sullo", "Sulla", "Sui", "Sugli", "Sulle",
-                      "Per", "Con", "Tra", "Fra", "Ed", "In"]:
-            cleaned = re.sub(r"(?<=\s)" + re.escape(prep) + r"(?=\s)", prep.lower(), cleaned)
-    return cleaned.strip()
-
-
-def _normalize_for_compare(text: str) -> str:
-    if not text:
-        return ""
-    cleaned = text.lower()
-    cleaned = re.sub(r"[^a-z0-9à-öø-ÿ]+", " ", cleaned)
-    cleaned = re.sub(r"\s+", " ", cleaned)
-    return cleaned.strip()
-
-
-def _normalize_monetary_values(text: str) -> str:
-    """Normalize monetary values to consistent €X.XM / €X.XB format.
-
-    Handles Italian (milioni, miliardi, mln) and English (million, billion, bn) formats.
-    Preserves USD/GBP prefix when present. Defaults to EUR (€) for unspecified currencies.
-    """
-    if not text:
-        return text
-
-    def _format_amount(number_str: str, multiplier: str, currency: str = "€") -> str:
-        """Format a number with multiplier suffix."""
-        # Clean number: handle both comma and dot as decimal separators
-        num = number_str.strip().rstrip(".")
-        # Italian uses comma as decimal: "5,8" → "5.8"
-        # But "1,200" is thousands separator — distinguish by digits after separator
-        if "," in num and "." not in num:
-            parts = num.split(",")
-            if len(parts) == 2 and len(parts[1]) <= 2:
-                num = num.replace(",", ".")  # Decimal separator: "5,8" → "5.8"
-            else:
-                num = num.replace(",", "")  # Thousands separator: "1,200" → "1200"
-        elif "." in num and "," not in num:
-            # "1.200" with exactly 3 digits after dot = Italian thousands separator
-            parts = num.split(".")
-            if len(parts) == 2 and len(parts[1]) == 3:
-                num = num.replace(".", "")  # "1.200" → "1200"
-            # else "1.5" stays as decimal
-        elif "," in num and "." in num:
-            # "1,200.5" or "1.200,5" — figure out which is decimal
-            if num.index(",") < num.index("."):
-                num = num.replace(",", "")  # "1,200.5" → "1200.5"
-            else:
-                num = num.replace(".", "").replace(",", ".")  # "1.200,5" → "1200.5"
-        try:
-            val = float(num)
-        except ValueError:
-            return None
-        # Format with up to 1 decimal, strip trailing .0
-        if val == int(val):
-            formatted = str(int(val))
-        else:
-            formatted = f"{val:.1f}"
-        return f"{currency}{formatted}{multiplier}"
-
-    result = text
-
-    # Pattern: "X million(i/e) (di) euro/EUR" → €XM
-    result = re.sub(
-        r'(?:€\s*)?(\d+(?:[.,]\d+)?)\s*(?:milion[ie]?\s+(?:di\s+)?(?:euro|eur)|million\s+(?:euro|eur)|mln\s+(?:di\s+)?(?:euro|eur))\b',
-        lambda m: _format_amount(m.group(1), "M") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "X miliard(i/o) (di) euro/EUR" → €XB
-    result = re.sub(
-        r'(?:€\s*)?(\d+(?:[.,]\d+)?)\s*(?:miliard[io]?\s+(?:di\s+)?(?:euro|eur)|billion\s+(?:euro|eur)|bn\s+(?:di\s+)?(?:euro|eur))\b',
-        lambda m: _format_amount(m.group(1), "B") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "EUR/E X million/mln/m" → €XM
-    result = re.sub(
-        r'\b(?:EUR|E)\s+(\d+(?:[.,]\d+)?)\s*(?:million|mln|m)\b',
-        lambda m: _format_amount(m.group(1), "M") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "EUR/E X billion/bn/b" → €XB
-    result = re.sub(
-        r'\b(?:EUR|E)\s+(\d+(?:[.,]\d+)?)\s*(?:billion|bn|b)\b',
-        lambda m: _format_amount(m.group(1), "B") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "€X million/mln" or "€X m" → €XM (already has € prefix)
-    result = re.sub(
-        r'€\s*(\d+(?:[.,]\d+)?)\s*(?:million|milion[ie]?|mln)\b',
-        lambda m: _format_amount(m.group(1), "M") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "€X billion/miliard*" → €XB
-    result = re.sub(
-        r'€\s*(\d+(?:[.,]\d+)?)\s*(?:billion|miliard[io]?|bn)\b',
-        lambda m: _format_amount(m.group(1), "B") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "$X million/mln/m" → $XM (preserve USD)
-    result = re.sub(
-        r'\$\s*(\d+(?:[.,]\d+)?)\s*(?:million|mln|m)\b',
-        lambda m: _format_amount(m.group(1), "M", "$") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "$X billion/bn/b" → $XB
-    result = re.sub(
-        r'\$\s*(\d+(?:[.,]\d+)?)\s*(?:billion|bn|b)\b',
-        lambda m: _format_amount(m.group(1), "B", "$") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "£X million" → £XM
-    result = re.sub(
-        r'£\s*(\d+(?:[.,]\d+)?)\s*(?:million|mln|m)\b',
-        lambda m: _format_amount(m.group(1), "M", "£") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: standalone "X milioni" / "X miliardi" (optional currency symbol)
-    # Preserve the original currency when present, otherwise default to EUR.
-    result = re.sub(
-        r'(?:(€|\$|£)\s*)?(\d+(?:[.,]\d+)?)\s+milion[ie]\b',
-        lambda m: _format_amount(m.group(2), "M", m.group(1) or "€") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    result = re.sub(
-        r'(?:(€|\$|£)\s*)?(\d+(?:[.,]\d+)?)\s+miliard[io]\b',
-        lambda m: _format_amount(m.group(2), "B", m.group(1) or "€") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "X million/billion euros/euro/eur" → €XM/€XB
-    result = re.sub(
-        r'\b(\d+(?:[.,]\d+)?)\s+million\s+euro[s]?\b',
-        lambda m: _format_amount(m.group(1), "M") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    result = re.sub(
-        r'\b(\d+(?:[.,]\d+)?)\s+(?:billion|bn)\s+euro[s]?\b',
-        lambda m: _format_amount(m.group(1), "B") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "euro X million/billion" → €XM/€XB
-    result = re.sub(
-        r'\beuro\s+(\d+(?:[.,]\d+)?)\s+(?:million|mln)\b',
-        lambda m: _format_amount(m.group(1), "M") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    result = re.sub(
-        r'\beuro\s+(\d+(?:[.,]\d+)?)\s+(?:billion|bn)\b',
-        lambda m: _format_amount(m.group(1), "B") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "USD X million/billion" → $XM/$XB
-    result = re.sub(
-        r'\bUSD\s+(\d+(?:[.,]\d+)?)\s+(?:million|mln)\b',
-        lambda m: _format_amount(m.group(1), "M", "$") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    result = re.sub(
-        r'\bUSD\s+(\d+(?:[.,]\d+)?)\s+(?:billion|bn)\b',
-        lambda m: _format_amount(m.group(1), "B", "$") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "€1,65 M", "$2.0 B", "£570 K euro" → "€1.65M", "$2B", "£570K"
-    result = re.sub(
-        r'([€$£])\s*(\d+(?:[.,]\d+)?)\s*([KMBT])\s*(?:euro|eur)?\b',
-        lambda m: _format_amount(m.group(2), m.group(3).upper(), m.group(1)) or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "1,65 M euro" / "570 K EUR" (no symbol) → "€1.65M" / "€570K"
-    result = re.sub(
-        r'\b(\d+(?:[.,]\d+)?)\s*([KMBT])\s*(?:euro|eur)\b',
-        lambda m: _format_amount(m.group(1), m.group(2).upper()) or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "X M€" / "X,X M€" → "€XM" (European shorthand: number then M€)
-    result = re.sub(
-        r'\b(\d+(?:[.,]\d+)?)\s*M€',
-        lambda m: _format_amount(m.group(1), "M") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Pattern: "X M$" → "$XM"
-    result = re.sub(
-        r'\b(\d+(?:[.,]\d+)?)\s*M\$',
-        lambda m: _format_amount(m.group(1), "M", "$") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Descriptive "tens/hundreds of mln/mld" → "tens/hundreds of millions/billions"
-    result = re.sub(r'\b(tens?|hundreds?|dozens?)\s+of\s+mln\b', r'\1 of millions', result, flags=re.IGNORECASE)
-    result = re.sub(r'\b(tens?|hundreds?|dozens?)\s+of\s+mld\b', r'\1 of billions', result, flags=re.IGNORECASE)
-    # Pattern: standalone "X mln" / "X mld" (no following currency word) → €XM / €XB
-    # Default to EUR in Italian PE/VC context. Must come AFTER more specific patterns.
-    result = re.sub(
-        r'\b(\d+(?:[.,]\d+)?)\s+mln\b(?!\s+(?:di\s+)?(?:euro|eur|dollar|sterlina|\$|£))',
-        lambda m: _format_amount(m.group(1), "M") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    result = re.sub(
-        r'\b(\d+(?:[.,]\d+)?)\s+mld\b(?!\s+(?:di\s+)?(?:euro|eur|dollar|sterlina|\$|£))',
-        lambda m: _format_amount(m.group(1), "B") or m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-
-    # Safety: monetary normalization can create merged tokens like "€62Mof".
-    # Ensure a separator between compact amount tokens and following letters.
-    result = re.sub(
-        r'([€$£]\d+(?:[.,]\d+)?)\s*([KMBT])(?=[A-Za-zÀ-ÖØ-öø-ÿ])',
-        r'\1\2 ',
-        result,
-    )
-    result = re.sub(
-        r'(\b\d+(?:[.,]\d+)?)\s*([KMBT])(?=[A-Za-zÀ-ÖØ-öø-ÿ])',
-        r'\1\2 ',
-        result,
-    )
-    result = re.sub(
-        r'([€$£]\d+(?:[.,]\d+)?[KMBT])(?=[A-Za-zÀ-ÖØ-öø-ÿ])',
-        r'\1 ',
-        result,
-    )
-    result = re.sub(
-        r'(\b\d+(?:[.,]\d+)?[KMBT])(?=[A-Za-zÀ-ÖØ-öø-ÿ])',
-        r'\1 ',
-        result,
-    )
-
-    # "€XM di dollari" / "€XM dollars" / "€XM of dollars" → "$XM" (EUR/USD confusion from translation)
-    result = re.sub(
-        r'€(\d+(?:[.,]\d+)?[MBK])\s+(?:di\s+)?dollar[is]?\b',
-        lambda m: f"${m.group(1)}",
-        result, flags=re.IGNORECASE,
-    )
-    # "X M €" / "X,X M €" → "€XM" (reverse European notation: number then M then €)
-    result = re.sub(
-        r'\b(\d+(?:[.,]\d+)?)\s*M\s*€',
-        lambda m: _format_amount(m.group(1), "M") or m.group(0),
-        result,
-    )
-    # "X mila euro" → "€0.XXM" (mila = thousand in Italian)
-    result = re.sub(
-        r'\b(\d+(?:[.,]\d+)?)\s+mila\s+euro\b',
-        lambda m: _format_amount(str(float(m.group(1).replace(",", ".")) / 1000), "M") if m.group(1).replace(",", ".").replace(".", "", 1).isdigit() else m.group(0),
-        result, flags=re.IGNORECASE,
-    )
-    # Italian full number "1.350.000 euro" → "€1.35M" (multiple dots = thousands separators)
-    result = re.sub(
-        r'\b(\d{1,3}(?:\.\d{3})+)\s+euro\b',
-        lambda m: _format_amount(str(int(m.group(1).replace(".", "")) / 1_000_000), "M") if int(m.group(1).replace(".", "")) >= 100_000 else _format_amount(str(int(m.group(1).replace(".", "")) / 1_000), "K"),
-        result, flags=re.IGNORECASE,
-    )
-
-    # Fix lost Italian thousands separator: €4985M → €4.985M (4,985,000, not 4.985 billion)
-    # When a 4-digit bare number precedes M suffix, re-insert dot as decimal to show correct amount.
-    # E.g., original "€4.985 M" lost the dot → "€4985 M" → normalised to "€4985M" (looks like billions).
-    def _fix_lost_thousands(m):
-        currency = m.group(1) or "€"
-        digits = m.group(2)  # 4-digit number like "4985"
-        return f"{currency}{digits[0]}.{digits[1:]}M"
-    result = re.sub(r'([€$£])(\d{4})\s*M\b', _fix_lost_thousands, result)
-    result = re.sub(r'\b(\d{4})\s*M\s*(?:€|euro)\b',
-        lambda m: f"€{m.group(1)[0]}.{m.group(1)[1:]}M",
-        result, flags=re.IGNORECASE)
-
-    result = _repair_attached_connectors(result)
-    return re.sub(r"\s{2,}", " ", result).strip()
-
-
 def _clean_signal_fields(signal: dict) -> dict:
-    """Strip read-time noise and concatenation artifacts from text fields."""
+    """Strip read-time noise and concatenation artifacts from text fields.
+
+    Uses shared clean_display_text() from signal_text_utils for uniform cleaning
+    of all text fields (title, what_changed, diff_summary, enriched_summary).
+    """
     if not signal:
         return signal
     signal = dict(signal)
     company_candidates = _company_candidates_from_signal(signal)
+    # Unified display cleaning for all text fields
     if signal.get("title"):
-        signal["title"] = _clean_signal_title(signal["title"])
+        signal["title"] = clean_display_text(signal["title"], is_title=True)
     for key in ("what_changed", "diff_summary", "enriched_summary"):
         if signal.get(key):
-            signal[key] = _clean_signal_text(signal[key])
+            signal[key] = clean_display_text(signal[key])
+    # Entity-aware connector repairs (need company_candidates from this signal)
     for key in ("title", "what_changed", "diff_summary", "enriched_summary"):
         if signal.get(key):
-            signal[key] = _repair_attached_connectors(
+            signal[key] = repair_attached_connectors(
                 signal[key],
                 company_candidates=company_candidates,
             )
@@ -2770,8 +2029,8 @@ def _clean_signal_fields(signal: dict) -> dict:
     # Normalize monetary values to consistent format (€XM, €XB, $XM, etc.)
     for key in ("title", "what_changed", "diff_summary", "enriched_summary"):
         if signal.get(key):
-            signal[key] = _normalize_monetary_values(signal[key])
-            signal[key] = _repair_attached_connectors(
+            signal[key] = normalize_monetary_values(signal[key])
+            signal[key] = repair_attached_connectors(
                 signal[key],
                 company_candidates=company_candidates,
             )
@@ -2784,34 +2043,9 @@ def _clean_signal_fields(signal: dict) -> dict:
                 signal[date_key] = normalized
     # Humanize source_name: convert slug-format names to display names
     signal["source_name"] = _humanize_source_name(signal.get("source_name", ""))
-    # Fix word splits in all text fields (OCR/PDF artifacts)
-    for key in ("title", "what_changed", "diff_summary", "enriched_summary"):
-        if signal.get(key):
-            signal[key] = _fix_spacing(signal[key])
-            # Re-apply entity-aware repairs: _fix_spacing may have split camelCase company
-            # tokens (e.g. "TechNova" → "Tech Nova"). Re-running restores the original form.
-            signal[key] = _repair_attached_connectors(
-                signal[key],
-                company_candidates=company_candidates,
-            )
-    # Strip leading list-number artifacts ("1. ", "2. ", "3. ") from all display fields
-    for key in ("title", "what_changed", "enriched_summary"):
-        if signal.get(key):
-            signal[key] = re.sub(r"^\d+\.\s+", "", signal[key])
-    # Strip press release dateline: "City (XX), date – " or "City, date – "
-    for key in ("what_changed", "enriched_summary"):
-        if signal.get(key):
-            signal[key] = re.sub(
-                r"^[A-Z][a-z]+(?:\s+\([A-Z]{2,4}\))?,\s*\d{1,2}\s+\w+\s+\d{4}\s*[-–—]\s*",
-                "", signal[key],
-            )
-    # Strip navigation breadcrumbs leaked from source (e.g., "andera Acto | Press releases.")
-    for key in ("what_changed", "enriched_summary"):
-        if signal.get(key):
-            signal[key] = re.sub(r"\s*\|?\s*[Pp]ress\s+[Rr]eleases?\.?\s*$", ".", signal[key]).strip()
     # Normalize deal_amount field to consistent currency format
     if signal.get("deal_amount"):
-        signal["deal_amount"] = _normalize_monetary_values(signal["deal_amount"])
+        signal["deal_amount"] = normalize_monetary_values(signal["deal_amount"])
     return signal
 
 

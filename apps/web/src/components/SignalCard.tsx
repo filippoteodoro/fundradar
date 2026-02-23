@@ -74,7 +74,7 @@ export function SignalCard({ signal, showFundLink = false }: SignalCardProps) {
               {idx > 0 && <span style={{ color: '#999' }}>•</span>}
               <a
                 href={`/funds/${fund.slug}`}
-                style={{ color: '#0066cc', textDecoration: 'none', fontWeight: 500 }}
+                style={{ color: '#1976d2', textDecoration: 'none', fontWeight: 500 }}
               >
                 {fund.name}
               </a>
@@ -112,7 +112,7 @@ export function SignalCard({ signal, showFundLink = false }: SignalCardProps) {
             href={signal.source_url}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: '#0066cc' }}
+            style={{ color: '#1976d2' }}
           >
             {getSourceDisplayName(signal.source_url, signal.source_name)}
           </a>

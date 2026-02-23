@@ -102,6 +102,12 @@ from signal_patterns import (
     _strip_urls,
 )
 
+from signal_text_utils import (
+    clean_display_text,
+    normalize_monetary_values,
+    repair_token_splits as _shared_repair_token_splits,
+)
+
 # Load environment variables from .env files (worker .env has translation keys)
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
 WORKER_DIR = PROJECT_ROOT / "apps" / "worker"
@@ -294,24 +300,8 @@ SENIOR_TITLE_KEYWORDS = [re.compile(p, re.IGNORECASE) for p in [
 # Pre-computed combined pattern list (avoids concatenation on every call)
 DEAL_OR_PEOPLE_KEYWORDS = DEAL_KEYWORDS + PEOPLE_KEYWORDS + FUND_LAUNCH_KEYWORDS
 
-MONTHS = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December",
-    "Jan", "Feb", "Mar", "Apr", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-    "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
-    "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre",
-]
-
-MONTHS_PATTERN = "(?:" + "|".join(MONTHS) + ")"
-DATE_PREFIX_NUMERIC_RE = re.compile(r"^\s*\d{1,2}\s*[-/]\s*\d{1,2}\s*[-/]\s*\d{2,4}\s*", re.IGNORECASE)
-DATE_PREFIX_WORD_RE = re.compile(r"^\s*\d{1,2}\s+" + MONTHS_PATTERN + r"\s+\d{4}\s*", re.IGNORECASE)
-DATE_PREFIX_WORD_RE2 = re.compile(r"^\s*" + MONTHS_PATTERN + r"\s+\d{1,2},?\s*\d{4}\s*", re.IGNORECASE)
-PRESS_RELEASE_PREFIX_RE = re.compile(r"^(?:press\s*release|comunicato\s*stampa)\s*[-:]?\s*", re.IGNORECASE)
-# URL_RE — now in signal_patterns (used by imported _strip_urls)
-LEADING_LABEL_RE = re.compile(
-    r"^\s*(?:news|update|announcement|new announcement|team update|fundraising update|fund close|press release|comunicato stampa|news release)\b\s*(?:[:\-–]|\s+\d|\d)\s*",
-    re.IGNORECASE,
-)
+# MONTHS, MONTHS_PATTERN, DATE_PREFIX_*_RE, PRESS_RELEASE_PREFIX_RE,
+# LEADING_LABEL_RE — now in signal_text_utils (imported via clean_display_text)
 
 RESPONSE_SCHEMA = {
     "type": "object",
@@ -629,192 +619,22 @@ def _signal_key(signal: dict) -> str:
 
 
 # _strip_read_time, _strip_urls — imported from signal_patterns
-
-
-def _strip_date_prefix(text: str) -> str:
-    if not text:
-        return text
-    cleaned = DATE_PREFIX_NUMERIC_RE.sub("", text)
-    cleaned = DATE_PREFIX_WORD_RE.sub("", cleaned)
-    cleaned = DATE_PREFIX_WORD_RE2.sub("", cleaned)
-    return cleaned.strip()
-
-
-def _strip_press_release_prefix(text: str) -> str:
-    if not text:
-        return text
-    return PRESS_RELEASE_PREFIX_RE.sub("", text).strip()
-
-
-def _strip_fragmented_phrases(text: str) -> str:
-    if not text:
-        return text
-    phrases = [
-        "continua a leggere",
-        "read more",
-        "leggi di piu",
-        "leggi di più",
-        "approfondisci",
-    ]
-    cleaned = text
-    for phrase in phrases:
-        pattern = r"".join(re.escape(ch) + r"\s*" for ch in phrase)
-        cleaned = re.sub(pattern, "", cleaned, flags=re.IGNORECASE)
-    return cleaned
-
-
-def _normalize_spacing(text: str) -> str:
-    """Fix missing spaces caused by HTML extraction (e.g., 'diAlba', 'eCasa')."""
-    if not text:
-        return text
-    cleaned = text
-    # Insert space between digits and letters (e.g., "2025Comunicato")
-    cleaned = re.sub(r"(?<=\d)(?=[A-Za-zÀ-ÖØ-öø-ÿ])", " ", cleaned)
-    cleaned = re.sub(r"(?<=[A-Za-zÀ-ÖØ-öø-ÿ])(?=\d)", " ", cleaned)
-    # Insert space between uppercase acronym and lowercase word (e.g., "NTCsostenuta")
-    cleaned = re.sub(r"(?<=[A-ZÀ-ÖØ-Þ]{2})(?=[a-zà-öø-ÿ])", " ", cleaned)
-    # Insert space between lowercase word and uppercase acronym (e.g., "tedescaKBC")
-    cleaned = re.sub(r"(?<=[a-zà-öø-ÿ]{3})(?=[A-ZÀ-ÖØ-Þ]{2,})", " ", cleaned)
-    # Insert space after punctuation if missing (avoid decimal commas)
-    cleaned = re.sub(r"([,;:])(?=[A-Za-zÀ-ÖØ-öø-ÿ])", r"\1 ", cleaned)
-    cleaned = re.sub(r"(?<=\d),\s+(?=\d)", ",", cleaned)
-    # Insert space after common Italian prepositions/conjunctions when followed by uppercase
-    # Case-sensitive: only match lowercase prepositions (e.g., "diAlba" → "di Alba")
-    # Avoids breaking ALL_CAPS words (e.g., "CONCORDATO" should NOT become "CON CORDATO")
-    cleaned = re.sub(
-        r"\b(?:di|da|del|dello|della|dei|degli|delle|de|e|ed|la|il|lo|gli|le|al|allo|alla|ai|agli|alle|nel|nello|nella|nei|negli|nelle|sul|sullo|sulla|sui|sugli|sulle|per|con|su|in)(?=[A-ZÀ-ÖØ-Þ])",
-        r"\g<0> ",
-        cleaned,
-    )
-    # Insert space between long lowercase word and following CamelCase word
-    cleaned = re.sub(r"(?<=[a-zà-öø-ÿ]{3})(?=[A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ])", " ", cleaned)
-    # Space before opening quotes if attached
-    cleaned = re.sub(r'(?<=[A-Za-zÀ-ÖØ-öø-ÿ])(?=["\u201c\u201d])', " ", cleaned)
-    # Restore known names/acronyms broken by digit-letter spacing
-    cleaned = re.sub(r"\bF\s+2\s+i\b", "F2i", cleaned)
-    cleaned = re.sub(r"\bB\s+4\s+i\b", "B4i", cleaned)
-    cleaned = re.sub(r"\bCO\s+2\b", "CO2", cleaned)
-    cleaned = re.sub(r"\b3\s+i\b", "3i", cleaned)
-    cleaned = re.sub(r"\s{2,}", " ", cleaned)
-    return cleaned.strip()
+# _strip_date_prefix, _strip_press_release_prefix, _strip_fragmented_phrases,
+# _normalize_spacing — now in signal_text_utils (via clean_display_text)
 
 
 def _clean_summary_text(text: str) -> str:
+    """Shared display cleaning + enricher-specific post-processing.
+
+    Uses clean_display_text() from signal_text_utils for the common pipeline,
+    then applies enricher-specific cleanup (source attribution, speculation
+    tails, date artifacts, slug prefixes, dangling connectors, etc.).
+    """
     if not text:
         return text
-    cleaned = _strip_read_time(text)
-    cleaned = _strip_urls(cleaned)
-    cleaned = _strip_date_prefix(cleaned)
-    cleaned = _strip_press_release_prefix(cleaned)
-    cleaned = _normalize_spacing(cleaned)
-    cleaned = _strip_fragmented_phrases(cleaned)
-    # Strip "more details" suffix (Investindustrial extractor artifact)
-    cleaned = re.sub(r"\s*more\s+details\s*$", "", cleaned, flags=re.IGNORECASE)
-    # Insert space before ALL-CAPS word concatenated to lowercase (e.g. "aNEVERHACK" → "a NEVERHACK")
-    cleaned = re.sub(r"([a-z])([A-Z]{3,})", r"\1 \2", cleaned)
-    cleaned = LEADING_LABEL_RE.sub("", cleaned)
-    # Repair common split prepositions/articles from earlier runs
-    cleaned = re.sub(r"\bde\s+l\b", "del", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bdi\s+l\b", "del", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bi\s+l\b", "il", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bsu\s+l\b", "sul", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bdel\s+la\b", "della", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bdel\s+le\b", "delle", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bdel\s+lo\b", "dello", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bdel\s+i\b", "dei", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bdel\s+gli\b", "degli", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bal\s+la\b", "alla", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bal\s+lo\b", "allo", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bal\s+le\b", "alle", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bal\s+gli\b", "agli", cleaned, flags=re.IGNORECASE)
-    # Merge single-letter uppercase fragments (Equity/Invest/Capital/etc.) when not at sentence start
-    cleaned = re.sub(
-        r"\b([A-Za-zÀ-ÖØ-öø-ÿ]{2,})\s([ECIPSV])\s+([a-zà-öø-ÿ]{2,})",
-        r"\1 \2\3",
-        cleaned,
-    )
-    # Fix common investment splits (I nvestimento -> Investimento)
-    cleaned = re.sub(
-        r"\b([Ii])\s+nvest",
-        lambda m: ("I" if m.group(1).isupper() else "i") + "nvest",
-        cleaned,
-    )
-    cleaned = re.sub(r"(?i)\b(?:press\s*release|comunicato\s*stampa)\b\s*[-:]?\s*", "", cleaned)
-    # Fix brand name OCR/PDF artifacts (must mirror filter_signals.py _fix_spacing)
-    cleaned = re.sub(r"\bK\s+3\s*R\s*X\b", "K3RX", cleaned)
-    cleaned = re.sub(r"\bE\s+4\s+G\b", "E4G", cleaned)
-    cleaned = re.sub(r"\bP\s+101\b", "P101", cleaned)
-    cleaned = re.sub(r"\bT\s+2\s+Y\b", "T2Y", cleaned)
-    cleaned = re.sub(r"\bB\s+2\s+O\b", "B2O", cleaned)
-    cleaned = re.sub(r"\b3\s+D\s+AI\b", "3D AI", cleaned)
-    cleaned = re.sub(r"\bSME\s+s\b", "SMEs", cleaned)
-    cleaned = re.sub(r"\b([QH])\s+(\d)\b", r"\1\2", cleaned)  # "Q 1" → "Q1"
-    cleaned = re.sub(r"\b(\d)\s+([QH])\s+(\d{4})\b", r"\2\1 \3", cleaned)  # "1 Q 2025" → "Q1 2025"
-    cleaned = re.sub(r"\b(\d+)\s+M\s*W\b", r"\1MW", cleaned)
-    cleaned = re.sub(r"\bMi\s*CROTEC\b", "MiCROTEC", cleaned)
-    cleaned = re.sub(r"\bAAV\s*antgarde\b", "AAVantgarde", cleaned)
-    cleaned = re.sub(r"\bLV\s*enture\b", "LVenture", cleaned)
-    cleaned = re.sub(r"\bWS\s*ense\b", "WSense", cleaned)
-    cleaned = re.sub(r"\bNano\s+Phoria\b", "NanoPhoria", cleaned)
-    cleaned = re.sub(r"\bPintau\s+di\b", "Pintaudi", cleaned)
-    cleaned = re.sub(r"\bUV\s*T[\s-]*Growth\b", "UVT-Growth", cleaned)
-    cleaned = re.sub(r"\b[Bb]ee\s*2\s*[Ll]ink\b", "Bee2Link", cleaned)
-    cleaned = re.sub(r"\bSmart\s*4\s*T\s*ech\b", "Smart4Tech", cleaned)
-    cleaned = re.sub(r"\bID\s*e\s*A\b", "IDea", cleaned)
-    cleaned = re.sub(r"\bGT\s*x\b", "GTx", cleaned)
-    cleaned = re.sub(r"\bFounta\s*in\s*Vest\b", "FountainVest", cleaned)
-    cleaned = re.sub(r"\b([Tt]rasferimen)\s+(to)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\b([Ff]inanziamen)\s+(to)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\b([Dd]eposi)\s+(to)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\b([Ss]tabilimen)\s+(to)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\b([Pp]otenziamen)\s+(to)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\b([Ii]nvestimen)\s+(to)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\b([Rr]iferimen)\s+(to)\b", r"\1\2", cleaned)
-    cleaned = re.sub(r"\bi\s*SPLASH\b", "iSPLASH", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\bWarste\s+in\b", "Warstein", cleaned)
-    cleaned = re.sub(r"\bSeries\s+([ABC])(?=[a-z])", r"Series \1 ", cleaned)
-    # "CL ub" → "Club" (Equity Club OCR artifact)
-    cleaned = re.sub(r"\bCL\s+ub\b", "Club", cleaned)
-    # "T erm" → "Term" (also when glued to preceding text like "2028T erm")
-    cleaned = re.sub(r"T\s+erm\b", "Term", cleaned)
-    # "M arch" → "March" (month name split)
-    cleaned = re.sub(r"\bM\s+arch\b", "March", cleaned)
-    # Ordinal splits: "14 th" → "14th", "28 th" → "28th", "1 st" → "1st"
-    cleaned = re.sub(r"\b(\d+)\s+(th|st|nd|rd)\b", r"\1\2", cleaned, flags=re.IGNORECASE)
-    # "Cdp Venture Capital" → "CDP Venture Capital" (LLM sentence-casing acronym)
-    cleaned = re.sub(r"\bCdp\s+Venture\s+Capital\b", "CDP Venture Capital", cleaned)
-    # "2025–2028Term" → "2025–2028 Term" (missing space before Term when glued to year)
-    cleaned = re.sub(r"(\d{4})Term\b", r"\1 Term", cleaned)
-    # "Serie A/B/C" → "Series A/B/C" (Italian funding round notation → English)
-    cleaned = re.sub(r"\b[Ss][Ee][Rr][Ii][Ee]\s+([A-Ga-g])\b", lambda m: f"Series {m.group(1).upper()}", cleaned)
-    # Mojibake: â¬€ / â¬ → € (UTF-8 double-encoding of euro sign)
-    cleaned = cleaned.replace("â¬€", "€").replace("â¬", "€")
-    # Finance jargon: "aucap" → "capital increase"
-    cleaned = re.sub(r"\baucap\b", "capital increase", cleaned, flags=re.IGNORECASE)
-    # "Sgr"/"sgr" → "SGR" in text (LLM sentence-casing Italian legal abbreviation)
-    cleaned = re.sub(r"\b[Ss]gr\b", "SGR", cleaned)
-    cleaned = re.sub(r"\b[Ss]icaf\b", "SICAF", cleaned)
-    # Fund abbreviations that LLM title-cases: "Dif" → "DIF", "Dws" → "DWS"
-    cleaned = re.sub(r"\bDif\b", "DIF", cleaned)
-    cleaned = re.sub(r"\bDws\b", "DWS", cleaned)
-    # Italian thousands in non-monetary context: "15.000 mq" → "15,000 sqm", "1.500 beds"
-    cleaned = re.sub(r"\b(\d{1,3})\.(\d{3})\s+mq\b", lambda m: f"{m.group(1)},{m.group(2)} sqm", cleaned)
-    cleaned = re.sub(r"\b(\d{1,3})\.(\d{3})(?=\s+(?:beds?|employees?|people|square|units?|staff|workers?))", lambda m: f"{m.group(1)},{m.group(2)}", cleaned)
-    # "2 T au" → "Tau" (OCR digit-letter split artifact)
-    cleaned = re.sub(r"\b2\s+T\s+au\b", "Tau", cleaned)
-    # Strip leading numbered list artifacts: "3 T he" → "The", "4 B" → ... (from HTML bullet extraction)
-    cleaned = re.sub(r"^\d+\s+(?=[A-Z])", "", cleaned)
-    # Italian ordinals in text: "4 a" → "4a", "1 o" → "1o" (prevent treating as list prefix)
-    cleaned = re.sub(r"\b(\d+)\s+([ao])\s+", r"\1\2 ", cleaned)
-    # Strip leading list-number artifacts ("1. ", "2. ")
-    cleaned = re.sub(r"^\d+\.\s+", "", cleaned)
-    # Strip press release dateline: "City (XX), date – "
-    cleaned = re.sub(
-        r"^[A-Z][a-z]+(?:\s+\([A-Z]{2,4}\))?,\s*\d{1,2}\s+\w+\s+\d{4}\s*[-–—]\s*",
-        "", cleaned,
-    )
-    # Strip navigation breadcrumbs: "... | Press releases."
-    cleaned = re.sub(r"\s*\|?\s*[Pp]ress\s+[Rr]eleases?\.?\s*$", ".", cleaned).strip()
+    # --- Shared display cleaning (replaces ~150 lines of duplicated logic) ---
+    cleaned = clean_display_text(text)
+    # --- Enricher-specific cleanup below (NOT in filter) ---
     # Strip trailing newspaper/source attribution noise.
     cleaned = _RE_SOURCE_ATTR_SUFFIX.sub("", cleaned)
     # Strip leading source labels (e.g., "Il Sole 24 Ore: ...").
@@ -855,7 +675,6 @@ def _clean_summary_text(text: str) -> str:
         flags=re.IGNORECASE,
     )
     # Strip date context artifacts appended by LLM enricher (audit C1: 96 signals)
-    # Pattern: "...announced on 2026-01-15." or "...as of January 15, 2026."
     cleaned = re.sub(
         r"[,.]?\s*(?:announced?|published|reported|observed|noted|dated?|as\s+of)\s+(?:on\s+)?\d{4}-\d{2}-\d{2}\s*\.?\s*$",
         "",
@@ -868,7 +687,7 @@ def _clean_summary_text(text: str) -> str:
         cleaned,
         flags=re.IGNORECASE,
     )
-    # Strip orphaned trailing ISO date: " on 2026-01-15." or " 2026-01-15"
+    # Strip orphaned trailing ISO date
     cleaned = re.sub(r"\s+on\s+\d{4}-\d{2}-\d{2}\s*\.?\s*$", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"\s+\d{4}-\d{2}-\d{2}\s*\.?\s*$", "", cleaned)
     # Strip malformed "the is dated" / "in a dated" artifacts
@@ -894,10 +713,10 @@ def _clean_summary_text(text: str) -> str:
         cleaned,
         flags=re.IGNORECASE,
     )
-    # Strip "Featured News Press Review" header artifact (audit H1/MED-5)
+    # Strip "Featured News Press Review" header artifact
     cleaned = re.sub(r"\s*\.?\s*Featured\s+News\s+Press\s+Review\s*\.?\s*$", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"^Featured\s+News\s+Press\s+Review\s*[:\-–]?\s*", "", cleaned, flags=re.IGNORECASE)
-    # Strip press release dateline at start: "MILAN – November 25,2025 –" or "ROME, January 15 2026 –"
+    # Strip press release dateline at start: "MILAN – November 25,2025 –"
     cleaned = re.sub(
         r"^[A-Z][A-Z\s,]+[–\-—]+\s*(?:January|February|March|April|May|June|July|August|September|October|November|December|\d{1,2})\s+\d{1,2},?\s*\d{4}\s*[–\-—]+\s*",
         "",
@@ -908,7 +727,7 @@ def _clean_summary_text(text: str) -> str:
     if _RE_DANGLING_END.search(cleaned):
         cleaned = re.sub(r"\s+\S+\s*$", "", cleaned).strip()
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
-    # Normalize multiple consecutive periods (.. or ...) to single period
+    # Normalize multiple consecutive periods
     cleaned = re.sub(r'\.{2,}', '.', cleaned)
     return cleaned.strip(" -|").strip()
 
@@ -1154,160 +973,8 @@ def _trim_summary_length(text: str, limit: int = LOCAL_MAX_SUMMARY_LEN) -> str:
     return trimmed.rstrip(" ,;:-") + "..."
 
 
-def _normalize_currency_amounts(text: str) -> str:
-    """Normalize Italian/mixed currency expressions to €XM/€XB format.
-
-    Examples:
-        "1,65 milioni di euro" → "€1.65M"
-        "oltre 2 milioni di euro" → "over €2M"
-        "500 mln euro" → "€500M"
-        "3 miliardi di euro" → "€3B"
-        "10 mln euros" → "€10M"
-    """
-    if not text:
-        return text
-    # Italian "oltre" → "over"
-    text = re.sub(r"\boltre\b", "over", text, flags=re.IGNORECASE)
-    # "circa" → "approximately" / "~"
-    text = re.sub(r"\bcirca\b", "~", text, flags=re.IGNORECASE)
-
-    def _fmt_amount(num_str: str) -> str:
-        """Parse Italian number format (1,65 or 1.65) to float string."""
-        # Italian uses comma as decimal: 1,65 = 1.65
-        if "," in num_str and "." not in num_str:
-            num_str = num_str.replace(",", ".")
-        return num_str.rstrip(".")
-
-    # "X,XX milioni di euro" / "X milioni di euro" / "X milioni euro"
-    text = re.sub(
-        r"(\d[\d.,]*)\s*milion[ei]\s+(?:di\s+)?euro",
-        lambda m: f"€{_fmt_amount(m.group(1))}M",
-        text, flags=re.IGNORECASE,
-    )
-    # "X,XX miliardi di euro" / "X miliardi euro"
-    text = re.sub(
-        r"(\d[\d.,]*)\s*miliard[ei]\s+(?:di\s+)?euro",
-        lambda m: f"€{_fmt_amount(m.group(1))}B",
-        text, flags=re.IGNORECASE,
-    )
-    # "X mln euro(s)" / "X mln di euro"
-    text = re.sub(
-        r"(\d[\d.,]*)\s*mln\s+(?:di\s+)?euros?",
-        lambda m: f"€{_fmt_amount(m.group(1))}M",
-        text, flags=re.IGNORECASE,
-    )
-    # "X mld euro(s)" / "X mld di euro"
-    text = re.sub(
-        r"(\d[\d.,]*)\s*mld\s+(?:di\s+)?euros?",
-        lambda m: f"€{_fmt_amount(m.group(1))}B",
-        text, flags=re.IGNORECASE,
-    )
-    # "X bn" (billions, English shorthand already in some summaries)
-    text = re.sub(
-        r"€\s*(\d[\d.,]*)\s*bn\b",
-        lambda m: f"€{_fmt_amount(m.group(1))}B",
-        text, flags=re.IGNORECASE,
-    )
-    # "X M€" / "X,X M€" → "€XM" (European shorthand: number then M€)
-    text = re.sub(
-        r"(\d[\d.,]*)\s*M€",
-        lambda m: f"€{_fmt_amount(m.group(1))}M",
-        text, flags=re.IGNORECASE,
-    )
-    # "X M$" → "$XM"
-    text = re.sub(
-        r"(\d[\d.,]*)\s*M\$",
-        lambda m: f"${_fmt_amount(m.group(1))}M",
-        text, flags=re.IGNORECASE,
-    )
-    # Standalone "X mln" / "X mld" (when not already caught by euro-specific patterns above)
-    # Descriptive "tens/hundreds of mln/mld" → "tens/hundreds of millions/billions"
-    text = re.sub(r"\b(tens?|hundreds?|dozens?)\s+of\s+mln\b", r"\1 of millions", text, flags=re.IGNORECASE)
-    text = re.sub(r"\b(tens?|hundreds?|dozens?)\s+of\s+mld\b", r"\1 of billions", text, flags=re.IGNORECASE)
-    text = re.sub(
-        r"\b(\d[\d.,]*)\s+mln\b",
-        lambda m: f"€{_fmt_amount(m.group(1))}M",
-        text, flags=re.IGNORECASE,
-    )
-    text = re.sub(
-        r"\b(\d[\d.,]*)\s+mld\b",
-        lambda m: f"€{_fmt_amount(m.group(1))}B",
-        text, flags=re.IGNORECASE,
-    )
-    # "X M€" without leading digit already handled; also catch "X,Y M€"
-    # "€X million" / "$X million" → "€XM" / "$XM"
-    text = re.sub(r"€(\d[\d.,]*)\s+million\b", lambda m: f"€{_fmt_amount(m.group(1))}M", text, flags=re.IGNORECASE)
-    text = re.sub(r"\$(\d[\d.,]*)\s+million\b", lambda m: f"${_fmt_amount(m.group(1))}M", text, flags=re.IGNORECASE)
-    text = re.sub(r"€(\d[\d.,]*)\s+billion\b", lambda m: f"€{_fmt_amount(m.group(1))}B", text, flags=re.IGNORECASE)
-    text = re.sub(r"\$(\d[\d.,]*)\s+billion\b", lambda m: f"${_fmt_amount(m.group(1))}B", text, flags=re.IGNORECASE)
-    # "€XM of dollars" / "€XM di dollari" contradictions → "$XM" (EUR/USD confusion from translation)
-    text = re.sub(r"€(\d[\d.,]*[MBK])\s+(?:of\s+|di\s+)?dollar[is]?\b", lambda m: f"${m.group(1)}", text, flags=re.IGNORECASE)
-    # "X M €" / "X,X M €" → "€XM" (reverse European notation: number then M then €)
-    text = re.sub(
-        r"\b(\d[\d.,]*)\s*M\s*€",
-        lambda m: f"€{_fmt_amount(m.group(1))}M",
-        text,
-    )
-    # "X mila euro" → "€0.XXM" (mila = thousand in Italian)
-    def _mila_to_m(m):
-        try:
-            val = float(m.group(1).replace(",", ".")) / 1000
-            return f"€{_fmt_amount(str(val))}M"
-        except (ValueError, TypeError):
-            return m.group(0)
-    text = re.sub(r"\b(\d[\d.,]*)\s+mila\s+euro\b", _mila_to_m, text, flags=re.IGNORECASE)
-    # Italian full number "1.350.000 euro" → "€1.35M" (multiple dots = thousands separators)
-    def _full_number_to_compact(m):
-        try:
-            raw = int(m.group(1).replace(".", ""))
-            if raw >= 100_000:
-                return f"€{_fmt_amount(str(raw / 1_000_000))}M"
-            return f"€{_fmt_amount(str(raw / 1_000))}K"
-        except (ValueError, TypeError):
-            return m.group(0)
-    text = re.sub(r"\b(\d{1,3}(?:\.\d{3})+)\s+euro\b", _full_number_to_compact, text, flags=re.IGNORECASE)
-    # Clean up spacing: "€ 500M" → "€500M"
-    text = re.sub(r"€\s+(\d)", r"€\1", text)
-    # Fix lost Italian thousands separator: €4985M → €4.985M (4,985,000, not 4.985 billion)
-    # When a 4-digit bare number precedes M suffix, re-insert dot as decimal.
-    text = re.sub(r'([€$£])(\d{4})\s*M\b',
-        lambda m: f"{m.group(1)}{m.group(2)[0]}.{m.group(2)[1:]}M", text)
-    return text
-
-
-def _normalize_token_splits(text: str) -> str:
-    """Fix common word/token splits introduced by OCR or PDF extraction artifacts.
-
-    Handles patterns like "SME s" → "SMEs", "29 th" → "29th", "Q 1" → "Q1".
-    Called from _finalize_signal_summary so fixes apply to every enricher run.
-    """
-    if not text:
-        return text
-    # Ordinal suffixes split from number: "29 th" → "29th", "1 st" → "1st"
-    text = re.sub(r"\b(\d+)\s+(th|st|nd|rd)\b", r"\1\2", text, flags=re.IGNORECASE)
-    # Quarter abbreviations: "Q 1" → "Q1", "1 Q" → "Q1"
-    text = re.sub(r"\bQ\s+([1-4])\b", r"Q\1", text)
-    text = re.sub(r"\b([1-4])\s+Q\b", r"Q\1", text)
-    # Half-year: "H 1" → "H1", "H 2" → "H2"
-    text = re.sub(r"\bH\s+([12])\b", r"H\1", text)
-    # SMEs (very common split from tokenizer)
-    text = re.sub(r"\bSME\s+s\b", "SMEs", text)
-    # Italian round types in English context: "Serie A/B/C" → "Series A/B/C"
-    text = re.sub(r"\bSerie\s+([ABC])\b", r"Series \1", text)
-    # "Series Cfinancing" → "Series C financing" (missing space)
-    text = re.sub(r"\b(Series\s+[A-Z])financing\b", r"\1 financing", text)
-    # Italian word split from PDF: "Trasferimen to" → "Trasferimento"
-    text = re.sub(r"\bTrasferimen\s+to\b", "Trasferimento", text)
-    # Company/place name splits observed in the wild
-    text = re.sub(r"\bPintau\s+di\b", "Pintaudi", text)          # Pintaudi (company)
-    text = re.sub(r"\bWarste\s+in\b", "Warstein", text)          # Warstein (city, Germany)
-    text = re.sub(r"\bID\s+ea\b", "Idea", text, flags=re.IGNORECASE)  # Idea Taste of Italy (fund)
-    text = re.sub(r"\bAcceler\s+ORA\b", "AccelerORA", text)      # AccelerORA! (CDP program)
-    # Power unit splits: "39M W" → "39MW" (megawatts adjacent to number)
-    text = re.sub(r"\b(\d[\d.,]*)M\s+W\b", r"\1MW", text)
-    # Month name split from PDF: "M arch" → "March" (e.g. "6M arch 2025")
-    text = re.sub(r"\bM\s+arch\b", "March", text)
-    return text
+# _normalize_currency_amounts, _normalize_token_splits — now in signal_text_utils
+# (normalize_monetary_values, repair_token_splits)
 
 
 _RE_INTERNAL_COMMENTARY = re.compile(
@@ -1466,8 +1133,8 @@ def _finalize_signal_summary(signal: dict) -> None:
     for _field in ("title", "what_changed", "enriched_summary"):
         _val = signal.get(_field)
         if _val:
-            _val = _normalize_currency_amounts(_val)
-            _val = _normalize_token_splits(_val)
+            _val = normalize_monetary_values(_val)
+            _val = _shared_repair_token_splits(_val)
             signal[_field] = _val
 
     title = _clean_summary_text(signal.get("title") or "")
@@ -1554,8 +1221,8 @@ def _finalize_signal_summary(signal: dict) -> None:
             break
 
     summary = _clean_summary_text(summary)
-    summary = _normalize_currency_amounts(summary)
-    summary = _normalize_token_splits(summary)
+    summary = normalize_monetary_values(summary)
+    summary = _shared_repair_token_splits(summary)
     summary = _compact_leading_label_chain(summary)
     # Fix double articles ("the The", "a A")
     summary = re.sub(r"\b(the|a|an)\s+\1\b", r"\1", summary, flags=re.IGNORECASE)
@@ -1878,7 +1545,7 @@ Rules:
             text = text.strip()
 
             result = json.loads(text)
-            summary = _normalize_spacing(result.get("summary"))
+            summary = clean_display_text(result.get("summary") or "")
             enrichment = {
                 "enriched_summary": summary,
                 "enriched_date": result.get("event_date"),

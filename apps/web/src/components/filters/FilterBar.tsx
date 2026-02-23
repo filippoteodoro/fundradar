@@ -83,7 +83,7 @@ export function FilterBar({
               padding: '8px 16px',
               border: 'none',
               background: 'none',
-              color: '#0066cc',
+              color: '#1565c0',
               cursor: 'pointer',
               fontSize: '14px',
             }}

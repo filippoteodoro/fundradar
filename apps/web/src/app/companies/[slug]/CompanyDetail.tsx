@@ -202,9 +202,9 @@ export function CompanyDetail({ company, signals = [] }: CompanyDetailProps) {
       {signals.length > 0 && (
         <>
           <h2 style={{ margin: '24px 0 16px 0', fontSize: '18px' }}>
-            Recent Signals ({signals.length})
+            Signals ({signals.length})
           </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {visibleSignals.map((signal) => (
               <SignalCard
                 key={signal.id}

@@ -148,7 +148,7 @@ function CompactPortfolioSection({ companies }: PortfolioSectionProps) {
 
   return (
     <>
-      <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>
+      <h2 style={{ marginTop: '32px', marginBottom: '16px', fontSize: '18px' }}>
         Assets ({filteredCompanies.length}{hasActiveFilter ? ` of ${sortedCompanies.length}` : ''})
       </h2>
 
@@ -162,7 +162,7 @@ function CompactPortfolioSection({ companies }: PortfolioSectionProps) {
           <button
             onClick={() => { setRegionFilter('all'); setPage(0); }}
             style={{
-              padding: '5px 14px',
+              padding: '6px 14px',
               borderRadius: '20px',
               border: regionFilter === 'all' ? '1px solid #1976d2' : '1px solid #ddd',
               fontSize: '13px',
@@ -177,7 +177,7 @@ function CompactPortfolioSection({ companies }: PortfolioSectionProps) {
           <button
             onClick={() => { setRegionFilter(regionFilter === 'italy' ? 'all' : 'italy'); setPage(0); }}
             style={{
-              padding: '5px 14px',
+              padding: '6px 14px',
               borderRadius: '20px',
               border: regionFilter === 'italy' ? '1px solid #1976d2' : '1px solid #ddd',
               fontSize: '13px',
@@ -451,7 +451,7 @@ function FullPortfolioSection({ companies }: PortfolioSectionProps) {
 
   return (
     <>
-      <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>
+      <h2 style={{ marginTop: '32px', marginBottom: '16px', fontSize: '18px' }}>
         Assets ({filteredCompanies.length}{hasActiveFilters ? ` of ${companies.length}` : ''})
       </h2>
 
@@ -493,7 +493,7 @@ function FullPortfolioSection({ companies }: PortfolioSectionProps) {
             <button
               onClick={() => setRegionFilter(regionFilter === 'italy' ? 'all' : 'italy')}
               style={{
-                padding: '5px 14px',
+                padding: '6px 14px',
                 borderRadius: '20px',
                 border: regionFilter === 'italy' ? '1px solid #1976d2' : '1px solid #ddd',
                 fontSize: '13px',
@@ -595,17 +595,17 @@ export function PortfolioSection({ companies, compact = false, emptyNote }: Port
   if (companies.length === 0) {
     return (
       <>
-        <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>
+        <h2 style={{ marginTop: '32px', marginBottom: '16px', fontSize: '18px' }}>
           Assets (0)
         </h2>
         {emptyNote ? (
           <div style={{
-            background: '#f8f9fa',
+            background: '#f9f9f9',
             padding: '24px',
             borderRadius: '12px',
-            border: '1px solid #e9ecef',
+            border: '1px solid #eee',
           }}>
-            <p style={{ margin: 0, color: '#6c757d', fontSize: '14px', lineHeight: 1.6 }}>{emptyNote}</p>
+            <p style={{ margin: 0, color: '#888', fontSize: '14px', lineHeight: 1.6 }}>{emptyNote}</p>
           </div>
         ) : (
           <p style={{ color: '#888', fontStyle: 'italic' }}>No portfolio companies recorded yet.</p>

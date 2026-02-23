@@ -22,12 +22,12 @@ export default function AboutPage() {
         </p>
         <p style={{ lineHeight: 1.6, color: '#444' }}>
           All fund data, portfolios, and signals are freely accessible — no account required.{' '}
-          <a href="/subscribe" style={{ color: '#0066cc', textDecoration: 'none' }}>Subscribe</a> to receive weekly email digests of new signals directly in your inbox.
+          <a href="/subscribe" style={{ color: '#1976d2', textDecoration: 'none' }}>Subscribe</a> to receive weekly email digests of new signals directly in your inbox.
         </p>
       </section>
 
       <section style={{ ...CARD_STYLE, padding: CARD_PADDING, marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '18px', marginBottom: '12px' }}>Reliability Contract</h2>
+        <h2 style={{ fontSize: '18px', margin: '0 0 12px 0' }}>Reliability Contract</h2>
         <p style={{ lineHeight: 1.6, color: '#444', marginBottom: '12px' }}>
           We follow a strict reliability contract:
         </p>
@@ -41,7 +41,7 @@ export default function AboutPage() {
       </section>
 
       <section style={{ ...CARD_STYLE, padding: CARD_PADDING, marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '18px', marginBottom: '12px' }}>Data Sources</h2>
+        <h2 style={{ fontSize: '18px', margin: '0 0 12px 0' }}>Data Sources</h2>
         <p style={{ lineHeight: 1.6, color: '#444', marginBottom: '12px' }}>
           Current data sources include:
         </p>
@@ -67,7 +67,7 @@ export default function AboutPage() {
       </section>
 
       <section id="contact" style={{ ...CARD_STYLE, padding: CARD_PADDING, marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '18px', marginBottom: '12px' }}>Contact</h2>
+        <h2 style={{ fontSize: '18px', margin: '0 0 12px 0' }}>Contact</h2>
         <p style={{ lineHeight: 1.6, color: '#444', marginBottom: '16px' }}>
           For questions, data corrections, or partnership inquiries, please use the form below.
           We also very much welcome feedback on how to improve the site — whether it&apos;s a missing fund,

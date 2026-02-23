@@ -199,7 +199,7 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <a href="/" style={{ color: '#0066cc', textDecoration: 'none', fontSize: '14px' }}>
+      <a href="/" style={{ color: '#1976d2', textDecoration: 'none', fontSize: '14px' }}>
         ← Back to all funds
       </a>
 
@@ -211,7 +211,7 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-          <h1 style={{ margin: 0 }}>{fund.name}</h1>
+          <h1 style={{ margin: 0, fontSize: '24px' }}>{fund.name}</h1>
           <a
             href="/about#contact"
             style={{ color: '#888', textDecoration: 'none', fontSize: '13px', whiteSpace: 'nowrap', marginTop: '6px' }}
@@ -238,7 +238,7 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
                   href={fund.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: '#0066cc', textDecoration: 'none', fontSize: '14px' }}
+                  style={{ color: '#1976d2', textDecoration: 'none', fontSize: '14px' }}
                 >
                   {formatSourceLabel(fund.website)}
                 </a>
@@ -251,7 +251,7 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
                   target="_blank"
                   rel="noopener noreferrer"
                   title="LinkedIn"
-                  style={{ color: '#0a66c2', textDecoration: 'none', fontSize: '14px', display: 'inline-flex', alignItems: 'center' }}
+                  style={{ color: '#1976d2', textDecoration: 'none', fontSize: '14px', display: 'inline-flex', alignItems: 'center' }}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -282,9 +282,9 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
                       <span style={{
                         background: '#e3f2fd',
                         color: '#1565c0',
-                        padding: '1px 6px',
+                        padding: '2px 6px',
                         borderRadius: '4px',
-                        fontSize: '11px',
+                        fontSize: '12px',
                         fontWeight: 600,
                       }}>
                         HQ
@@ -318,7 +318,7 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
                   <span style={{ color: '#333' }}>{contactName}</span>
                 )}
                 {contactEmail && (
-                  <a href={`mailto:${contactEmail}`} style={{ color: '#0066cc' }}>{contactEmail}</a>
+                  <a href={`mailto:${contactEmail}`} style={{ color: '#1976d2' }}>{contactEmail}</a>
                 )}
                 {contactPhone && (
                   <span style={{ color: '#333' }}>{contactPhone}</span>
@@ -333,9 +333,9 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
             style={{
               background: CATEGORY_COLORS[fund.category].bg,
               color: CATEGORY_COLORS[fund.category].text,
-              padding: '4px 12px',
+              padding: '2px 8px',
               borderRadius: '4px',
-              fontSize: '14px',
+              fontSize: '12px',
               fontWeight: 500,
             }}
           >
@@ -352,9 +352,9 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
                     style={{
                       background: color.bg,
                       color: color.text,
-                      padding: '4px 12px',
+                      padding: '2px 8px',
                       borderRadius: '4px',
-                      fontSize: '14px',
+                      fontSize: '12px',
                     }}
                   >
                     {groupName}
@@ -392,7 +392,7 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
             )}
             {fund.num_funds && (
               <div style={{ textAlign: 'center' }}>
-                <p style={{ margin: 0, fontSize: '24px', fontWeight: 600, color: '#0f4c81' }}>
+                <p style={{ margin: 0, fontSize: '24px', fontWeight: 600, color: '#1a1a2e' }}>
                   {fund.num_funds}
                 </p>
                 <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: '#666' }}>Funds</p>
@@ -400,7 +400,7 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
             )}
             {fund.num_executives && (
               <div style={{ textAlign: 'center' }}>
-                <p style={{ margin: 0, fontSize: '24px', fontWeight: 600, color: '#1976d2' }}>
+                <p style={{ margin: 0, fontSize: '24px', fontWeight: 600, color: '#1a1a2e' }}>
                   {fund.num_executives}
                 </p>
                 <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: '#666' }}>Executives</p>
@@ -408,7 +408,7 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
             )}
             {fund.num_sfdr_article_8 != null && fund.num_sfdr_article_8 > 0 && (
               <div style={{ textAlign: 'center' }} title="SFDR Article 8 compliant funds promoting environmental/social characteristics">
-                <p style={{ margin: 0, fontSize: '24px', fontWeight: 600, color: '#42a5f5' }}>
+                <p style={{ margin: 0, fontSize: '24px', fontWeight: 600, color: '#1a1a2e' }}>
                   {fund.num_sfdr_article_8}
                 </p>
                 <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: '#666' }}>Green Funds</p>
@@ -419,7 +419,7 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
 
         {/* AIFI Extended Info */}
         <div style={{ marginTop: '24px', paddingTop: '24px', borderTop: '1px solid #eee' }}>
-          <h3 style={{ margin: '0 0 16px 0', fontSize: '16px', color: '#333' }}>Investment Profile</h3>
+          <p style={{ margin: '0 0 12px 0', fontSize: '12px', color: '#888', fontWeight: 600 }}>Investment Profile</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
             {(fund.investment_min_eur || fund.investment_max_eur) && (
               <div>
@@ -477,7 +477,7 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
       {/* Team Analytics Section — only shown when real data exists and sample is meaningful */}
       {teamAnalytics && teamAnalytics.total_profiles >= 5 && (
         <>
-          <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>
+          <h2 style={{ marginTop: '32px', marginBottom: '16px', fontSize: '18px' }}>
             People Analytics
             <span style={{ fontSize: '14px', fontWeight: 400, color: '#999', marginLeft: '10px' }}>
               n={teamAnalytics.total_profiles}
@@ -495,7 +495,7 @@ export default async function FundPage({ params }: { params: Promise<{ slug: str
       {/* Signals Section */}
       {signals.length > 0 && (
         <>
-          <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>Signals ({signals.length})</h2>
+          <h2 style={{ marginTop: '32px', marginBottom: '16px', fontSize: '18px' }}>Signals ({signals.length})</h2>
           <SignalsCompact signals={signals} />
         </>
       )}
