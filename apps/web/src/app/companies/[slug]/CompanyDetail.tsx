@@ -221,7 +221,7 @@ export function CompanyDetail({ company, signals = [] }: CompanyDetailProps) {
                 padding: '8px 16px',
                 background: 'none',
                 border: '1px solid #ddd',
-                borderRadius: '6px',
+                borderRadius: '8px',
                 color: '#1976d2',
                 cursor: 'pointer',
                 fontSize: '14px',

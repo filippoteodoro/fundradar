@@ -353,9 +353,9 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
       </div>
 
       {/* Pagination */}
-      <div style={{ marginTop: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <p style={{ fontSize: '13px', color: '#888', margin: 0 }}>
-          Showing {sortedCompanies.length > 0 ? pageIndex * pageSize + 1 : 0}-{Math.min((pageIndex + 1) * pageSize, sortedCompanies.length)} of {sortedCompanies.length}
+          Showing {sortedCompanies.length > 0 ? pageIndex * pageSize + 1 : 0}–{Math.min((pageIndex + 1) * pageSize, sortedCompanies.length)} of {sortedCompanies.length}
         </p>
         {totalPages > 1 && (
           <div style={{ display: 'flex', gap: '8px' }}>

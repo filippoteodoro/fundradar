@@ -2014,19 +2014,12 @@ def _clean_signal_fields(signal: dict) -> dict:
     for key in ("what_changed", "diff_summary", "enriched_summary"):
         if signal.get(key):
             signal[key] = clean_display_text(signal[key])
-    # Entity-aware connector repairs (need company_candidates from this signal)
-    for key in ("title", "what_changed", "diff_summary", "enriched_summary"):
-        if signal.get(key):
-            signal[key] = repair_attached_connectors(
-                signal[key],
-                company_candidates=company_candidates,
-            )
     # Remove duplicate summary when it matches title
     title_norm = _normalize_for_compare(signal.get("title", ""))
     what_norm = _normalize_for_compare(signal.get("what_changed", ""))
     if title_norm and title_norm == what_norm:
         signal["what_changed"] = ""
-    # Normalize monetary values to consistent format (€XM, €XB, $XM, etc.)
+    # Normalize monetary values then do a single entity-aware connector repair pass
     for key in ("title", "what_changed", "diff_summary", "enriched_summary"):
         if signal.get(key):
             signal[key] = normalize_monetary_values(signal[key])

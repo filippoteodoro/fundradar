@@ -615,6 +615,13 @@ export function cleanSignalText(text: string): string {
  * Returns corrected signal_type or null to keep original.
  */
 export function reclassifySignalType(signal: Signal): SignalType | null {
+  // If the enricher ML model confidently overrode the type, trust it — don't re-classify.
+  // The enricher applies both universal_demotions and type_corrections before setting this flag.
+  const sigAny = signal as any;
+  if (sigAny.llm_type_override === true && sigAny.enrichment_confidence === 'high') {
+    return null;  // null = keep current type
+  }
+
   const text = ((signal.title || '') + ' ' + (signal.what_changed || '')).toLowerCase();
   const titleText = (signal.title || '').toLowerCase();
   const pageCategory = (signal.page_category || '').toUpperCase();

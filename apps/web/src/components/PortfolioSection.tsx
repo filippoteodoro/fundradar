@@ -326,14 +326,14 @@ function CompactPortfolioSection({ companies }: PortfolioSectionProps) {
 
       <div
         style={{
-          marginTop: '12px',
+          marginTop: '16px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
         }}
       >
         <p style={{ fontSize: '13px', color: '#888', margin: 0 }}>
-          Showing {filteredCompanies.length > 0 ? pageIndex * pageSize + 1 : 0}-{Math.min((pageIndex + 1) * pageSize, filteredCompanies.length)} of {filteredCompanies.length} assets
+          Showing {filteredCompanies.length > 0 ? pageIndex * pageSize + 1 : 0}–{Math.min((pageIndex + 1) * pageSize, filteredCompanies.length)} of {filteredCompanies.length} assets
         </p>
         {totalPages > 1 && (
           <div style={{ display: 'flex', gap: '8px' }}>

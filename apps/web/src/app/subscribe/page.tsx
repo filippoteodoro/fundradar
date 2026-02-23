@@ -41,20 +41,35 @@ function isCompellingSignal(s: UnifiedSignal): boolean {
   return true;
 }
 
+/** Strip AUM boilerplate so fund self-description figures aren't scored as deal amounts. */
+function stripAumBoilerplate(text: string): string {
+  if (!text) return text;
+  let t = text;
+  // Full appositive: ", a leading firm with $70B of capital under management,"
+  t = t.replace(/,\s+(?:a|one\s+of\s+the|the|which)[\w\s,()'"\.\-\u2013\u2014]{5,150}?(?:under\s+management|AuM|AUM)\s*,/gi, ',');
+  // Standalone: "with $70B of capital under management"
+  t = t.replace(/(?:with|has|having|manages?|managing)\s+(?:over\s+|approximately\s+|more\s+than\s+|about\s+|circa\s+|nearly\s+|~\s*)?[€$£]?\s*\d[\d.,]*\s*(?:billion|trillion|million|bn|tn|mln|mld|[BTM])\s+(?:of\s+|in\s+)?(?:capital|assets?|funds?|investments?)\s+(?:under\s+management|AuM|AUM)/gi, '');
+  // Bare: "$70B AUM", "~$70B AUM", "70 billion AUM"
+  t = t.replace(/~?\s*[€$£]?\s*\d[\d.,]*\s*(?:billion|trillion|million|bn|tn|mln|mld|[BTM])\s+(?:of\s+|in\s+)?(?:AuM|AUM)\b/gi, '');
+  return t;
+}
+
 /** Extract monetary value from signal text in millions of euros. */
 function extractAmountMillions(text: string): number {
   if (!text) return 0;
+  // Strip AUM boilerplate first — fund AUM is not a deal amount
+  const cleaned = stripAumBoilerplate(text);
   let maxAmount = 0;
   const p1 = /[€$£]\s*(\d+(?:[.,]\d+)?)\s*(?:m(?:illion|ln|io)?|b(?:illion|n|rd)?)\b/gi;
   let match;
-  while ((match = p1.exec(text)) !== null) {
+  while ((match = p1.exec(cleaned)) !== null) {
     const num = parseFloat(match[1].replace(',', '.'));
     if (isNaN(num) || num <= 0) continue;
     const isBillion = /b(?:illion|n|rd)?/i.test(match[0]);
     maxAmount = Math.max(maxAmount, isBillion ? num * 1000 : num);
   }
   const p2 = /(\d+(?:[.,]\d+)?)\s+(?:m(?:illion|ln|io)|b(?:illion|n|rd))\w*\s*(?:[€$£]|eur(?:o|os)?|usd|gbp)/gi;
-  while ((match = p2.exec(text)) !== null) {
+  while ((match = p2.exec(cleaned)) !== null) {
     const num = parseFloat(match[1].replace(',', '.'));
     if (isNaN(num) || num <= 0) continue;
     const isBillion = /b(?:illion|n|rd)/i.test(match[0]);
@@ -76,7 +91,8 @@ function getSampleScore(s: UnifiedSignal): number {
   const recencyScore = 30 * Math.exp(-daysSince / 14);
 
   // Deal size bonus — log-scaled: €10M→10, €100M→20, €1B→30
-  const text = s.what_changed || s.title || '';
+  // Prefer enriched_summary (LLM-cleaned, no AUM boilerplate) over raw what_changed
+  const text = sa.enriched_summary || s.what_changed || s.title || '';
   const amountM = extractAmountMillions(text);
   const amountBonus = amountM > 0 ? Math.max(0, Math.log10(amountM)) * 10 : 0;
 

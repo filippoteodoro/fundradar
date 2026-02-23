@@ -74,6 +74,42 @@ NEWSPAPER_ONLY_RE = re.compile(
 )
 
 # Newspaper attribution suffix pattern
+_RE_DANGLING_END = re.compile(
+    r"\b(?:and|or|for|with|in|of|to|the|a|an|di|del|della|con|per|che|un|una|al|alla|alle|ai|agli|nel|nella|nelle|sul|sulla|co-in)\s*$",
+    re.IGNORECASE,
+)
+
+# AUM boilerplate patterns — fund self-descriptions, NOT deal amounts.
+# Monetary amounts in these patterns should never be extracted as deal sizes.
+_MONETARY_MAGNITUDE = r"(?:billion|trillion|million|bn|tn|mln|mld|B|T|M)"
+_MONETARY_AMOUNT = r"[€$£]?\s*\d[\d.,]*\s*" + _MONETARY_MAGNITUDE
+
+# Full appositive clause: ", a leading global firm with $70B of capital under management,"
+_RE_AUM_APPOSITIVE = re.compile(
+    r",\s+"
+    r"(?:a|one\s+of\s+the|the|which)"
+    r"[\w\s,()'\".\-\u2013\u2014€$£~#%&/]{5,150}?"
+    r"(?:under\s+management|AuM|AUM)"
+    r"\s*,",
+    re.IGNORECASE,
+)
+# Standalone clause: "with [over] $70B [of] capital under management"
+_RE_AUM_STANDALONE = re.compile(
+    r"(?:with|has|having|manages?|managing)\s+"
+    r"(?:over\s+|approximately\s+|more\s+than\s+|about\s+|circa\s+|nearly\s+|~\s*)?"
+    + _MONETARY_AMOUNT +
+    r"\s+(?:of\s+|in\s+)?"
+    r"(?:capital|assets?|funds?|investments?)\s+"
+    r"(?:under\s+management|AuM|AUM)",
+    re.IGNORECASE,
+)
+# Bare AUM: "$70B AUM" / "€50B of AUM" / "$1.2T in AUM"
+_RE_AUM_BARE = re.compile(
+    _MONETARY_AMOUNT +
+    r"\s+(?:of\s+|in\s+)?(?:AuM|AUM)\b",
+    re.IGNORECASE,
+)
+
 _NEWSPAPER_ATTR_SUFFIX_RE = re.compile(
     r"\s*[\u2013\u2014\-]+\s*(?:IL SOLE 24 ORE|CORRIERE\s+\w+|BEBEEZ|FORBES|"
     r"BLOOMBERG|REUTERS|FINANCIAL TIMES|MILANO FINANZA|MF[\s\-]MILANO FINANZA|"
@@ -611,7 +647,6 @@ def normalize_monetary_values(text: str) -> str:
     # Clean up spacing: "€ 500M" → "€500M"
     result = re.sub(r"€\s+(\d)", r"€\1", result)
 
-    result = repair_attached_connectors(result)
     return re.sub(r"\s{2,}", " ", result).strip()
 
 
@@ -745,6 +780,16 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     cleaned = _strip_read_time(text)
     cleaned = _strip_urls(cleaned)
 
+    # Strip AUM boilerplate — fund self-description, not deal amounts.
+    # Full appositive clause: ", a leading firm with $70B of capital under management,"
+    cleaned = _RE_AUM_APPOSITIVE.sub(",", cleaned)
+    # Standalone AUM phrase: "with $70B of capital under management"
+    cleaned = _RE_AUM_STANDALONE.sub("", cleaned)
+    # Bare AUM figure: "$70B AUM" / "€50B of AUM"
+    cleaned = _RE_AUM_BARE.sub("", cleaned)
+    # Fix double commas / comma-space-comma left by appositive stripping
+    cleaned = re.sub(r",\s*,", ",", cleaned)
+
     # Strip "added to X portfolio" suffix
     cleaned = re.sub(r"(.+?)\s+added to\s+.+?\s+portfolio(?:\s*\(.*?\))?\s*$", r"\1", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"(.+?)\s+aggiunt[oa]\s+al?\s+portafoglio\s+.+$", r"\1", cleaned, flags=re.IGNORECASE)
@@ -818,6 +863,11 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     cleaned = re.sub('^[\u201c\u201d"]+\\s*', '', cleaned)
     cleaned = re.sub('\\s*[\u201c\u201d"]+$', '', cleaned)
 
+    # Strip dangling connectors at end of text (not titles — filter handles
+    # truncated titles separately via what_changed fallback)
+    if not is_title and _RE_DANGLING_END.search(cleaned):
+        cleaned = re.sub(r"\s+\S+\s*$", "", cleaned).strip()
+
     # Known name corrections
     for wrong, correct in CDP_NAME_CORRECTIONS.items():
         cleaned = cleaned.replace(wrong, correct)
@@ -833,6 +883,17 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
         r"^[A-Z][a-z]+(?:\s+\([A-Z]{2,4}\))?,\s*\d{1,2}\s+\w+\s+\d{4}\s*[-–—]\s*",
         "", cleaned,
     )
+    # Strip ALL-CAPS city dateline: "MILAN – November 25,2025 –"
+    cleaned = re.sub(
+        r"^[A-Z][A-Z\s,]+[–\-—]+\s*(?:January|February|March|April|May|June|July|August|September|October|November|December|\d{1,2})\s+\d{1,2},?\s*\d{4}\s*[–\-—]+\s*",
+        "",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+
+    # Strip "Featured News Press Review" header artifact
+    cleaned = re.sub(r"\s*\.?\s*Featured\s+News\s+Press\s+Review\s*\.?\s*$", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"^Featured\s+News\s+Press\s+Review\s*[:\-–]?\s*", "", cleaned, flags=re.IGNORECASE)
 
     # Strip navigation breadcrumbs: "... | Press releases."
     cleaned = re.sub(r"\s*\|?\s*[Pp]ress\s+[Rr]eleases?\.?\s*$", ".", cleaned).strip()

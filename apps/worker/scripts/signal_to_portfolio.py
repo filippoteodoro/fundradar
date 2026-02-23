@@ -569,7 +569,10 @@ def main():
     if pruned > 0:
         print(f"  Pruned {pruned} stale IDs from progress file")
 
-    # Filter to deal/exit signals with minimum quality
+    # Filter to deal/exit signals with minimum quality.
+    # Threshold 60 is intentionally lower than filter's 80 — portfolio conversion
+    # should be more lenient since deal/exit signals have high intrinsic value
+    # even when their text quality is moderate.
     deal_signals = [
         s for s in all_signals
         if s.get("signal_type") in DEAL_TYPES

@@ -105,7 +105,6 @@ from signal_patterns import (
 from signal_text_utils import (
     clean_display_text,
     normalize_monetary_values,
-    repair_token_splits as _shared_repair_token_splits,
 )
 
 # Load environment variables from .env files (worker .env has translation keys)
@@ -391,10 +390,6 @@ _RE_COMPANY_SUFFIX = re.compile(r"\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+(?:S\.?r\.?
 _RE_CAPITALIZED_NAMES = re.compile(r"\b([A-Z][\w''-]+(?:\s+[A-Z][\w''-]+){1,3})\b")
 _RE_SOURCE_ATTR_SUFFIX = re.compile(
     r"\s*(?:[-–—]{1,2}\s*)?(?:il\s+sole\s*24\s*ore|sole\s*24\s*ore|corriere\s+della\s+sera|la\s+repubblica|financial\s+times|ft|bebeez|startup\s+italia)\s*$",
-    re.IGNORECASE,
-)
-_RE_DANGLING_END = re.compile(
-    r"\b(?:and|or|for|with|in|of|to|the|a|an|di|del|della|con|per|che|un|una|al|alla|alle|ai|agli|nel|nella|nelle|sul|sulla|co-in)\s*$",
     re.IGNORECASE,
 )
 
@@ -713,19 +708,6 @@ def _clean_summary_text(text: str) -> str:
         cleaned,
         flags=re.IGNORECASE,
     )
-    # Strip "Featured News Press Review" header artifact
-    cleaned = re.sub(r"\s*\.?\s*Featured\s+News\s+Press\s+Review\s*\.?\s*$", "", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"^Featured\s+News\s+Press\s+Review\s*[:\-–]?\s*", "", cleaned, flags=re.IGNORECASE)
-    # Strip press release dateline at start: "MILAN – November 25,2025 –"
-    cleaned = re.sub(
-        r"^[A-Z][A-Z\s,]+[–\-—]+\s*(?:January|February|March|April|May|June|July|August|September|October|November|December|\d{1,2})\s+\d{1,2},?\s*\d{4}\s*[–\-—]+\s*",
-        "",
-        cleaned,
-        flags=re.IGNORECASE,
-    )
-    # Avoid summaries ending on dangling connectors.
-    if _RE_DANGLING_END.search(cleaned):
-        cleaned = re.sub(r"\s+\S+\s*$", "", cleaned).strip()
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
     # Normalize multiple consecutive periods
     cleaned = re.sub(r'\.{2,}', '.', cleaned)
@@ -738,7 +720,9 @@ def _clean_signal_fields(signal: dict) -> dict:
     for key in ("title", "what_changed", "diff_summary", "enriched_summary"):
         val = signal.get(key)
         if isinstance(val, str) and val:
-            signal[key] = _clean_summary_text(val)
+            val = _clean_summary_text(val)
+            val = normalize_monetary_values(val)
+            signal[key] = val
     return signal
 
 
@@ -1128,15 +1112,9 @@ def _dedup_sentences(text: str) -> str:
 
 
 def _finalize_signal_summary(signal: dict) -> None:
-    # Apply display-critical normalizations to ALL fields the frontend may show.
-    # Frontend fallback chain: enriched_summary || what_changed || title
-    for _field in ("title", "what_changed", "enriched_summary"):
-        _val = signal.get(_field)
-        if _val:
-            _val = normalize_monetary_values(_val)
-            _val = _shared_repair_token_splits(_val)
-            signal[_field] = _val
-
+    # Clean all frontend-visible fields once. _clean_summary_text calls
+    # clean_display_text() which already runs repair_token_splits() and
+    # inline currency normalization — no separate pre-pass needed.
     title = _clean_summary_text(signal.get("title") or "")
     what_changed = _clean_summary_text(signal.get("what_changed") or "")
     summary = _clean_summary_text(signal.get("enriched_summary") or "")
@@ -1222,7 +1200,6 @@ def _finalize_signal_summary(signal: dict) -> None:
 
     summary = _clean_summary_text(summary)
     summary = normalize_monetary_values(summary)
-    summary = _shared_repair_token_splits(summary)
     summary = _compact_leading_label_chain(summary)
     # Fix double articles ("the The", "a A")
     summary = re.sub(r"\b(the|a|an)\s+\1\b", r"\1", summary, flags=re.IGNORECASE)
@@ -1766,11 +1743,19 @@ def main(slugs_filter: str | None = None):
         print("\nError: OPENAI_API_KEY not found in environment or .env file")
         raise SystemExit(1)
 
-    # Load signals — prefer filtered (less noise, fewer API calls)
+    # Load signals — require filtered input (quality gates must run first)
     if SIGNALS_FILE_FILTERED.exists():
         signals_path = SIGNALS_FILE_FILTERED
     elif SIGNALS_FILE_RAW.exists():
-        signals_path = SIGNALS_FILE_RAW
+        allow_raw = os.environ.get("ENRICH_ALLOW_RAW", "").strip().lower() in ("1", "true", "yes")
+        if allow_raw:
+            print("WARNING: Using RAW signals (unfiltered) — quality gates bypassed!")
+            print("  Set ENRICH_ALLOW_RAW=0 or run filter_signals.py first for production use.")
+            signals_path = SIGNALS_FILE_RAW
+        else:
+            print("Error: Filtered signal file not found. Run filter_signals.py first.")
+            print("  (Set ENRICH_ALLOW_RAW=1 to bypass this check)")
+            return
     else:
         print("Error: No signal file found")
         return
@@ -2412,15 +2397,12 @@ def main(slugs_filter: str | None = None):
             if cleaned != es:
                 signal["enriched_summary"] = _ensure_terminal_punctuation(cleaned)
 
-    # Normalize monetary values in all text fields to consistent format (€XM, €XB, etc.)
-    try:
-        from filter_signals import _normalize_monetary_values
-        for signal in signals:
-            for key in ("title", "enriched_summary", "what_changed", "diff_summary"):
-                if signal.get(key):
-                    signal[key] = _normalize_monetary_values(signal[key])
-    except ImportError:
-        pass  # filter_signals not available, skip normalization
+    # Post-translation monetary normalization: translation may introduce English
+    # monetary patterns (e.g., "milioni" → "million") that need normalizing.
+    for signal in signals:
+        for key in ("title", "enriched_summary", "what_changed", "diff_summary"):
+            if signal.get(key):
+                signal[key] = normalize_monetary_values(signal[key])
 
     # Safety net: ensure every signal has `type` and `enriched_summary` populated.
     # Some signals bypass enrichment (already enriched, or skipped) and may only have `signal_type`.
@@ -2455,6 +2437,27 @@ def main(slugs_filter: str | None = None):
         print(f"  Backfilled {_type_backfill} signals with type from signal_type")
     if _summary_backfill:
         print(f"  Backfilled {_summary_backfill} signals with summary from title/what_changed")
+
+    # Enforce max length on enriched_summary before final save.
+    _truncated = 0
+    for signal in signals:
+        es = signal.get("enriched_summary") or ""
+        if len(es) > FINAL_MAX_SUMMARY_LEN:
+            # Truncate at last sentence boundary within limit, else at last word boundary
+            truncated = es[:FINAL_MAX_SUMMARY_LEN]
+            last_period = truncated.rfind(".")
+            if last_period > FINAL_MAX_SUMMARY_LEN // 2:
+                truncated = truncated[: last_period + 1]
+            else:
+                last_space = truncated.rfind(" ")
+                if last_space > 0:
+                    truncated = truncated[:last_space] + "..."
+                else:
+                    truncated = truncated + "..."
+            signal["enriched_summary"] = truncated.strip()
+            _truncated += 1
+    if _truncated:
+        print(f"  Truncated {_truncated} enriched_summary fields to {FINAL_MAX_SUMMARY_LEN} chars")
 
     data["signals"] = _merge_output_signals(signals)
     data["signal_count"] = len(data["signals"])
