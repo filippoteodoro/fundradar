@@ -1,6 +1,73 @@
-# Fundradar
+import { getAllFunds, getAllPortfolioCompanyNames } from '@/lib/data';
+import { loadUnifiedSignals } from '@/lib/signals_unified';
 
-> Free, source-cited directory of 162 private equity and venture capital funds active in Italy, with real-time signal monitoring. No account required.
+export const dynamic = 'force-static';
+export const revalidate = false;
+
+function getStats() {
+  const funds = getAllFunds();
+  const totalFunds = funds.length;
+
+  const categories: Record<string, number> = {};
+  for (const f of funds) {
+    const cat = (f as any).category || 'unknown';
+    categories[cat] = (categories[cat] || 0) + 1;
+  }
+
+  const { signals } = loadUnifiedSignals();
+  const totalSignals = signals.length;
+  const fundsWithSignals = new Set(signals.map((s) => s.fund_slug)).size;
+
+  const signalTypes: Record<string, number> = {};
+  for (const s of signals) {
+    const t = s.signal_type || 'unknown';
+    signalTypes[t] = (signalTypes[t] || 0) + 1;
+  }
+
+  const portfolioNames = getAllPortfolioCompanyNames();
+  const totalPortfolioCompanies = Object.values(portfolioNames).reduce((sum, names) => sum + names.length, 0);
+
+  return { totalFunds, categories, totalSignals, fundsWithSignals, totalPortfolioCompanies, signalTypes };
+}
+
+const CAT_LABELS: Record<string, [string, string]> = {
+  pe: ['PE (Private Equity)', 'Traditional buyout and control investments'],
+  vc: ['VC (Venture Capital)', 'Early and growth stage startup investing'],
+  infra: ['Infrastructure', 'Infrastructure and real assets'],
+  debt: ['Private Debt', 'Credit, mezzanine, direct lending'],
+  multi_strategy: ['Multi-Strategy', 'Multiple strategies across asset classes'],
+  growth: ['Growth Equity', 'Growth capital without full control'],
+  sovereign: ['Sovereign', 'Sovereign or state-backed investment vehicles'],
+};
+
+function catLine(categories: Record<string, number>): string {
+  const labels: Record<string, string> = {
+    pe: 'PE', vc: 'VC', infra: 'infrastructure', debt: 'debt',
+    multi_strategy: 'multi-strategy', growth: 'growth', sovereign: 'sovereign',
+  };
+  return Object.entries(categories)
+    .sort((a, b) => b[1] - a[1])
+    .map(([k, v]) => `${v} ${labels[k] || k}`)
+    .join(', ');
+}
+
+function catTable(categories: Record<string, number>): string {
+  return Object.entries(categories)
+    .sort((a, b) => b[1] - a[1])
+    .map(([k, v]) => {
+      const [label, desc] = CAT_LABELS[k] || [k, ''];
+      return `| ${label} | ${v} | ${desc} |`;
+    })
+    .join('\n');
+}
+
+export async function GET() {
+  const { totalFunds, categories, totalSignals, fundsWithSignals, totalPortfolioCompanies } = getStats();
+  const portfolioRounded = Math.floor(totalPortfolioCompanies / 100) * 100;
+
+  const body = `# Fundradar
+
+> Free, source-cited directory of ${totalFunds} private equity and venture capital funds active in Italy, with real-time signal monitoring. No account required.
 
 Fundradar tracks investment funds operating in Italy — PE, VC, growth equity, infrastructure, and private debt — and monitors their publicly observable activity: deals, exits, fundraises, hires, partnerships, and more. Every data point links back to its original source.
 
@@ -12,7 +79,7 @@ Built and maintained almost entirely by AI agents — from website monitoring an
 
 URL: https://fundradar.co
 
-The home page is a searchable, filterable table of all 162 tracked funds. Users can filter by:
+The home page is a searchable, filterable table of all ${totalFunds} tracked funds. Users can filter by:
 
 - **Category**: Private Equity, Venture Capital, Infrastructure, Private Debt, Growth Equity, Multi-Strategy, Sovereign
 - **Strategy**: Buyout, Growth, Early Stage, Late Stage, Mezzanine, Distressed, Secondaries, etc.
@@ -27,13 +94,7 @@ Each row shows fund name, category, AUM, investment range, number of portfolio c
 
 | Category | Count | Description |
 |----------|-------|-------------|
-| PE (Private Equity) | 85 | Traditional buyout and control investments |
-| VC (Venture Capital) | 29 | Early and growth stage startup investing |
-| Infrastructure | 21 | Infrastructure and real assets |
-| Private Debt | 15 | Credit, mezzanine, direct lending |
-| Multi-Strategy | 6 | Multiple strategies across asset classes |
-| Growth Equity | 4 | Growth capital without full control |
-| Sovereign | 2 | Sovereign or state-backed investment vehicles |
+${catTable(categories)}
 
 ---
 
@@ -83,7 +144,7 @@ Only signals scoring above the quality threshold (75-80) are displayed. Raw sign
 
 URL pattern: https://fundradar.co/funds/{slug}
 
-Each of the 162 funds has a dedicated profile page with multiple tabs:
+Each of the ${totalFunds} funds has a dedicated profile page with multiple tabs:
 
 ### Overview Tab
 
@@ -120,7 +181,7 @@ Each of the 162 funds has a dedicated profile page with multiple tabs:
 
 URL: https://fundradar.co/companies
 
-A searchable directory of 6,200+ portfolio companies across all tracked funds. Each company page shows:
+A searchable directory of ${portfolioRounded.toLocaleString()}+ portfolio companies across all tracked funds. Each company page shows:
 
 - Company name, sector, and headquarters
 - Which fund(s) invested and current status
@@ -148,7 +209,7 @@ The Italian industry association for PE/VC. Provides the authoritative member di
 An academic research initiative by LIUC Business School that tracks PE deal activity in Italy. Provides historical deal data including company names, deal years, sectors, and deal types.
 
 **Fund Websites**
-162 fund websites are monitored for changes. Custom extractors parse portfolio pages, team pages, and news sections. Content changes are detected via diffing, generating signals for new investments, exits, hires, and other activity.
+${totalFunds} fund websites are monitored for changes. Custom extractors parse portfolio pages, team pages, and news sections. Content changes are detected via diffing, generating signals for new investments, exits, hires, and other activity.
 
 **Italian Financial Press**
 RSS feeds from BeBeez, Il Sole 24 Ore, Milano Finanza, FinanceCommunity, and other Italian financial publications. Articles are matched to funds and processed as signals.
@@ -196,7 +257,7 @@ Traditional PE/VC databases (Preqin, PitchBook, Mergermarket, Dealogic) charge t
 - **Free** — no account, no paywall, no freemium
 - **Italy-specialized** — deeper coverage of the Italian market
 - **Source-cited** — every data point links to the original source
-- **Real-time** — signals updated weekly from 162 monitored sources
+- **Real-time** — signals updated weekly from ${totalFunds} monitored sources
 - **Open** — all data accessible without registration
 
 ### Limitations
@@ -223,3 +284,9 @@ Traditional PE/VC databases (Preqin, PitchBook, Mergermarket, Dealogic) charge t
 ## Contact
 
 For questions, corrections, or data inquiries, use the contact form at [fundradar.co/about](https://fundradar.co/about).
+`;
+
+  return new Response(body, {
+    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+  });
+}
