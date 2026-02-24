@@ -48110,8 +48110,2014 @@
         "locations": []
       },
       "title_original": "Gli advisor di MCP e Miura Partners nella cessione della maggioranza del gruppo Italcer a Wienerberger"
+    },
+    {
+      "id": "web-signal-01789",
+      "fund_id": "",
+      "fund_slug": "bic-capital",
+      "signal_type": "deal_announced",
+      "title": "Members Area added to BIC Capital portfolio",
+      "what_changed": "Members Area added to BIC Capital portfolio",
+      "source_url": "https://bic-capital.com/track-record/",
+      "source_name": "BIC Capital",
+      "published_at": null,
+      "observed_at": "2026-02-24T15:56:49.100483+00:00",
+      "created_at": "2026-02-24T15:56:49.100483+00:00",
+      "snapshot_id": "snap-20260224155648-e174e6a1",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Members Area"
+        ],
+        "people": [
+          "Members Area"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01790",
+      "fund_id": "",
+      "fund_slug": "bic-capital",
+      "signal_type": "deal_announced",
+      "title": "SanJorge added to BIC Capital portfolio",
+      "what_changed": "SanJorge added to BIC Capital portfolio",
+      "source_url": "https://bic-capital.com/track-record/",
+      "source_name": "BIC Capital",
+      "published_at": null,
+      "observed_at": "2026-02-24T15:56:49.100483+00:00",
+      "created_at": "2026-02-24T15:56:49.100483+00:00",
+      "snapshot_id": "snap-20260224155648-e174e6a1",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "SanJorge"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01791",
+      "fund_id": "",
+      "fund_slug": "bic-capital",
+      "signal_type": "deal_announced",
+      "title": "OTK Kart Group added to BIC Capital portfolio",
+      "what_changed": "OTK Kart Group added to BIC Capital portfolio",
+      "source_url": "https://bic-capital.com/track-record/",
+      "source_name": "BIC Capital",
+      "published_at": null,
+      "observed_at": "2026-02-24T15:56:49.100483+00:00",
+      "created_at": "2026-02-24T15:56:49.100483+00:00",
+      "snapshot_id": "snap-20260224155648-e174e6a1",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "OTK Kart Group"
+        ],
+        "people": [
+          "Kart Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01792",
+      "fund_id": "",
+      "fund_slug": "bic-capital",
+      "signal_type": "deal_announced",
+      "title": "Nashi Argan added to BIC Capital portfolio",
+      "what_changed": "Nashi Argan added to BIC Capital portfolio",
+      "source_url": "https://bic-capital.com/track-record/",
+      "source_name": "BIC Capital",
+      "published_at": null,
+      "observed_at": "2026-02-24T15:56:49.100483+00:00",
+      "created_at": "2026-02-24T15:56:49.100483+00:00",
+      "snapshot_id": "snap-20260224155648-e174e6a1",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Nashi Argan"
+        ],
+        "people": [
+          "Nashi Argan"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01793",
+      "fund_id": "",
+      "fund_slug": "bic-capital",
+      "signal_type": "deal_announced",
+      "title": "Bomaki added to BIC Capital portfolio",
+      "what_changed": "Bomaki added to BIC Capital portfolio",
+      "source_url": "https://bic-capital.com/track-record/",
+      "source_name": "BIC Capital",
+      "published_at": null,
+      "observed_at": "2026-02-24T15:56:49.100483+00:00",
+      "created_at": "2026-02-24T15:56:49.100483+00:00",
+      "snapshot_id": "snap-20260224155648-e174e6a1",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Bomaki"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00142",
+      "fund_id": "",
+      "fund_slug": "h-i-g-capital",
+      "related_fund_slugs": [
+        "h-i-g-capital"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Berardi Bullonerie (H.I.G. Capital) acquisisce Fastpoint. Tutti gli advisor",
+      "what_changed": "H.I.G. Capital-controlled Berardi Bullonerie has completed the acquisition of Fastpoint, a primary distributor of plastic fasteners and electronic components for industrial customers. Deal amount not disclosed. The transaction concerns the industrial components/distribution sector and reinforces H.I.G.'s involvement in the Italian industrial supply chain.",
+      "source_url": "https://financecommunity.it/berardi-bullonerie-h-i-g-capital-acquisisce-fastpoint-tutti-gli-advisor/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-02-24T15:53:51+00:00",
+      "observed_at": "2026-02-24T15:58:55.218613+00:00",
+      "created_at": "2026-02-24T15:58:55.218613+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Berardi Bullonerie",
+          "Fastpoint"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01794",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "other",
+      "title": "Accelerating our global growth: Waymo raises $16 billion investment round",
+      "what_changed": "New announcement: Accelerating our global growth: Waymo raises $16 billion investment round",
+      "source_url": "https://www.silverlake.com/accelerating-our-global-growth-waymo-raises-16-billion-investment-round/",
+      "source_name": "Silver Lake",
+      "published_at": "2026-02-02",
+      "observed_at": "2026-02-24T18:07:19.978577+00:00",
+      "created_at": "2026-02-24T18:07:19.978577+00:00",
+      "snapshot_id": "snap-20260224180719-b1356b8e",
+      "diff_summary": "New news item detected (dated 2026-02-02T15:09:00+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01795",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "people_move",
+      "title": "TikTok USDS Joint Venture LLC Established in Compliance with U.S. Regulatory Requirements",
+      "what_changed": "New announcement: TikTok USDS Joint Venture LLC Established in Compliance with U.S. Regulatory Requirements",
+      "source_url": "https://www.silverlake.com/tiktok-usds-joint-venture-llc-established-in-compliance-with-u-s-regulatory-requirements/",
+      "source_name": "Silver Lake",
+      "published_at": "2026-01-22",
+      "observed_at": "2026-02-24T18:07:19.978577+00:00",
+      "created_at": "2026-02-24T18:07:19.978577+00:00",
+      "snapshot_id": "snap-20260224180719-b1356b8e",
+      "diff_summary": "New news item detected (dated 2026-01-22T19:01:00+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Regulatory Requirements",
+          "Joint Venture"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01796",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "deal_announced",
+      "title": "EA Announces Agreement to be Acquired by PIF, Silver Lake, and Affinity Partners for $55 Billion",
+      "what_changed": "New announcement: EA Announces Agreement to be Acquired by PIF, Silver Lake, and Affinity Partners for $55 Billion",
+      "source_url": "https://www.silverlake.com/ea-announces-agreement-to-be-acquired-by-pif-silver-lake-and-affinity-partners-for-55-billion/",
+      "source_name": "Silver Lake",
+      "published_at": "2025-09-29",
+      "observed_at": "2026-02-24T18:07:19.978577+00:00",
+      "created_at": "2026-02-24T18:07:19.978577+00:00",
+      "snapshot_id": "snap-20260224180719-b1356b8e",
+      "diff_summary": "New news item detected (dated 2025-09-29T11:33:00+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Silver Lake",
+          "Affinity Partners",
+          "Announces Agreement"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01797",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "fundraise_announced",
+      "title": "Altera Closes Silver Lake Investment to Become World\u2019s Largest Pure-play FPGA Solutions Provider",
+      "what_changed": "New announcement: Altera Closes Silver Lake Investment to Become World\u2019s Largest Pure-play FPGA Solutions Provider",
+      "source_url": "https://www.silverlake.com/altera-closes-silver-lake-investment-to-become-worlds-largest-pure-play-fpga-solutions-provider/",
+      "source_name": "Silver Lake",
+      "published_at": "2025-09-15",
+      "observed_at": "2026-02-24T18:07:19.978577+00:00",
+      "created_at": "2026-02-24T18:07:19.978577+00:00",
+      "snapshot_id": "snap-20260224180719-b1356b8e",
+      "diff_summary": "New news item detected (dated 2025-09-15T08:00:00+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Largest Pure",
+          "Solutions Provider",
+          "Altera Closes Silver",
+          "Lake Investment",
+          "Become World"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01798",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "other",
+      "title": "Silver Lake Launches $400 Million Digital Infrastructure Platform with Adam Fisher and Peter Rumbold",
+      "what_changed": "New announcement: Silver Lake Launches $400 Million Digital Infrastructure Platform with Adam Fisher and Peter Rumbold",
+      "source_url": "https://www.silverlake.com/silver-lake-launches-400-million-digital-infrastructure-platform-with-adam-fisher-and-peter-rumbold/",
+      "source_name": "Silver Lake",
+      "published_at": "2025-08-08",
+      "observed_at": "2026-02-24T18:07:19.978577+00:00",
+      "created_at": "2026-02-24T18:07:19.978577+00:00",
+      "snapshot_id": "snap-20260224180719-b1356b8e",
+      "diff_summary": "New news item detected (dated 2025-08-08T12:00:00+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Adam Fisher",
+          "Silver Lake Launches",
+          "Million Digital Infrastructure",
+          "Peter Rumbold"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01799",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "other",
+      "title": "Silver Lake Enhances Executive Leadership Team",
+      "what_changed": "New announcement: Silver Lake Enhances Executive Leadership Team",
+      "source_url": "https://www.silverlake.com/silver-lake-enhances-executive-leadership-team/",
+      "source_name": "Silver Lake",
+      "published_at": "2025-04-17",
+      "observed_at": "2026-02-24T18:07:19.978577+00:00",
+      "created_at": "2026-02-24T18:07:19.978577+00:00",
+      "snapshot_id": "snap-20260224180719-b1356b8e",
+      "diff_summary": "New news item detected (dated 2025-04-17T16:24:31+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Silver Lake Enhances",
+          "Executive Leadership Team"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01800",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "other",
+      "title": "Intel Announces Strategic Investment by Silver Lake in Altera",
+      "what_changed": "New announcement: Intel Announces Strategic Investment by Silver Lake in Altera",
+      "source_url": "https://www.silverlake.com/intel-announces-strategic-investment-by-silver-lake-in-altera/",
+      "source_name": "Silver Lake",
+      "published_at": "2025-04-14",
+      "observed_at": "2026-02-24T18:07:19.978577+00:00",
+      "created_at": "2026-02-24T18:07:19.978577+00:00",
+      "snapshot_id": "snap-20260224180719-b1356b8e",
+      "diff_summary": "New news item detected (dated 2025-04-14T12:30:00+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Silver Lake",
+          "Intel Announces Strategic"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01801",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "deal_announced",
+      "title": "Endeavor Announces Completion of Acquisition by Silver Lake",
+      "what_changed": "New announcement: Endeavor Announces Completion of Acquisition by Silver Lake",
+      "source_url": "https://www.silverlake.com/endeavor-announces-completion-of-acquisition-by-silver-lake/",
+      "source_name": "Silver Lake",
+      "published_at": "2025-03-24",
+      "observed_at": "2026-02-24T18:07:19.978577+00:00",
+      "created_at": "2026-02-24T18:07:19.978577+00:00",
+      "snapshot_id": "snap-20260224180719-b1356b8e",
+      "diff_summary": "New news item detected (dated 2025-03-24T13:35:32+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Silver Lake",
+          "Endeavor Announces Completion"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01802",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "deal_announced",
+      "title": "Silver Lake and GIC Complete Acquisition of Zuora",
+      "what_changed": "New announcement: Silver Lake and GIC Complete Acquisition of Zuora",
+      "source_url": "https://www.silverlake.com/silver-lake-and-gic-complete-acquisition-of-zuora/",
+      "source_name": "Silver Lake",
+      "published_at": "2025-02-14",
+      "observed_at": "2026-02-24T18:07:19.978577+00:00",
+      "created_at": "2026-02-24T18:07:19.978577+00:00",
+      "snapshot_id": "snap-20260224180719-b1356b8e",
+      "diff_summary": "New news item detected (dated 2025-02-14T17:49:00+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Silver Lake",
+          "Complete Acquisition"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01803",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "other",
+      "title": "Investing to bring the Waymo Driver to more riders",
+      "what_changed": "New announcement: Investing to bring the Waymo Driver to more riders",
+      "source_url": "https://www.silverlake.com/investing-to-bring-the-waymo-driver-to-more-riders/",
+      "source_name": "Silver Lake",
+      "published_at": "2024-10-25",
+      "observed_at": "2026-02-24T18:07:19.978577+00:00",
+      "created_at": "2026-02-24T18:07:19.978577+00:00",
+      "snapshot_id": "snap-20260224180719-b1356b8e",
+      "diff_summary": "New news item detected (dated 2024-10-25T15:10:00+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Waymo Driver"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01804",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "deal_announced",
+      "title": "Zuora Enters into Definitive Agreement to be Acquired by Silver Lake and GIC For $1.7 Billion",
+      "what_changed": "New announcement: Zuora Enters into Definitive Agreement to be Acquired by Silver Lake and GIC For $1.7 Billion",
+      "source_url": "https://www.silverlake.com/zuora-enters-into-definitive-agreement-to-be-acquired-by-silver-lake-and-gic-for-1-7-billion/",
+      "source_name": "Silver Lake",
+      "published_at": "2024-10-17",
+      "observed_at": "2026-02-24T18:07:19.978577+00:00",
+      "created_at": "2026-02-24T18:07:19.978577+00:00",
+      "snapshot_id": "snap-20260224180719-b1356b8e",
+      "diff_summary": "New news item detected (dated 2024-10-17T13:40:00+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Silver Lake",
+          "Definitive Agreement",
+          "Zuora Enters"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01805",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "other",
+      "title": "Vantage Data Centers Completes $9.2 Billion Equity Investment Led by DigitalBridge and Silver Lake",
+      "what_changed": "New announcement: Vantage Data Centers Completes $9.2 Billion Equity Investment Led by DigitalBridge and Silver Lake",
+      "source_url": "https://www.silverlake.com/vantage-data-centers-completes-9-2-billion-equity-investment-led-by-digitalbridge-and-silver-lake/",
+      "source_name": "Silver Lake",
+      "published_at": "2024-06-13",
+      "observed_at": "2026-02-24T18:07:19.978577+00:00",
+      "created_at": "2026-02-24T18:07:19.978577+00:00",
+      "snapshot_id": "snap-20260224180719-b1356b8e",
+      "diff_summary": "New news item detected (dated 2024-06-13T15:26:00+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Silver Lake",
+          "Billion Equity Investment",
+          "Vantage Data Centers"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01806",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "signal_type": "deal_announced",
+      "title": "Recommended Cash and Share Acquisition of Allfunds Group plc by Deutsche B\u00f6rse AG",
+      "what_changed": "January 21st, 2026",
+      "source_url": "https://allfunds.com/en/investors/financial/deutsche-borse-group-offer",
+      "source_name": "Hellman & Friedman",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:20.051004+00:00",
+      "created_at": "2026-02-24T18:07:20.051004+00:00",
+      "snapshot_id": "snap-20260224180719-2839c2f4",
+      "diff_summary": "New news item detected (dated January 21st, 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Share Acquisition",
+          "Allfunds Group",
+          "Recommended Cash"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01807",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "signal_type": "other",
+      "title": "Medline announces pricing of upsized initial public offering",
+      "what_changed": "December 19th, 2025",
+      "source_url": "https://hf.com/portfolio/medline/",
+      "source_name": "Hellman & Friedman",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:20.051004+00:00",
+      "created_at": "2026-02-24T18:07:20.051004+00:00",
+      "snapshot_id": "snap-20260224180719-2839c2f4",
+      "diff_summary": "New news item detected (dated December 19th, 2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01808",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "signal_type": "deal_announced",
+      "title": "Vantage Group Holdings to be acquired by Howard Hughes Holdings",
+      "what_changed": "December 18th, 2025",
+      "source_url": "https://hf.com/portfolio/vantage-group-holdings-ltd/",
+      "source_name": "Hellman & Friedman",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:20.051004+00:00",
+      "created_at": "2026-02-24T18:07:20.051004+00:00",
+      "snapshot_id": "snap-20260224180719-2839c2f4",
+      "diff_summary": "New news item detected (dated December 18th, 2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Vantage Group Holdings",
+          "Howard Hughes Holdings"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01809",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "signal_type": "fundraise_announced",
+      "title": "SimpliSafe Announces Closing of Sale to GTCR and Appointment of CEO and President",
+      "what_changed": "November 10th, 2025",
+      "source_url": "https://hf.com/portfolio/simplisafe/",
+      "source_name": "Hellman & Friedman",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:20.051004+00:00",
+      "created_at": "2026-02-24T18:07:20.051004+00:00",
+      "snapshot_id": "snap-20260224180719-2839c2f4",
+      "diff_summary": "New news item detected (dated November 10th, 2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Announces Closing",
+          "President November"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01810",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "signal_type": "deal_announced",
+      "title": "SimpliSafe Signs Definitive Agreement to be Acquired by GTCR",
+      "what_changed": "September 15th, 2025",
+      "source_url": "https://hf.com/portfolio/simplisafe/",
+      "source_name": "Hellman & Friedman",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:20.051004+00:00",
+      "created_at": "2026-02-24T18:07:20.051004+00:00",
+      "snapshot_id": "snap-20260224180719-2839c2f4",
+      "diff_summary": "New news item detected (dated September 15th, 2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Signs Definitive Agreement"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01811",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "signal_type": "deal_announced",
+      "title": "Blackstone Announces Agreement to Acquire Enverus",
+      "what_changed": "August 6th, 2025",
+      "source_url": "https://hf.com/portfolio/enverus/",
+      "source_name": "Hellman & Friedman",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:20.051004+00:00",
+      "created_at": "2026-02-24T18:07:20.051004+00:00",
+      "snapshot_id": "snap-20260224180719-2839c2f4",
+      "diff_summary": "New news item detected (dated August 6th, 2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Blackstone Announces Agreement",
+          "Acquire Enverus August"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01812",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "signal_type": "other",
+      "title": "Genesys Announces $1.5 Billion Investment by Salesforce and ServiceNow",
+      "what_changed": "July 31st, 2025",
+      "source_url": "https://hf.com/portfolio/genesys/",
+      "source_name": "Hellman & Friedman",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:20.051004+00:00",
+      "created_at": "2026-02-24T18:07:20.051004+00:00",
+      "snapshot_id": "snap-20260224180719-2839c2f4",
+      "diff_summary": "New news item detected (dated July 31st, 2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Billion Investment",
+          "Genesys Announces"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01813",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "signal_type": "other",
+      "title": "Libraesva and Cyber Guru Announce Strategic Combination to Create a Leading European Human-Centric Cybersecurity Provider",
+      "what_changed": "New announcement: Libraesva and Cyber Guru Announce Strategic Combination to Create a Leading European Human-Centric Cybersecurity Provider",
+      "source_url": "https://p101.it/news-press/latest-news/",
+      "source_name": "P101 SGR",
+      "published_at": "2026-01-27",
+      "observed_at": "2026-02-24T18:07:27.231190+00:00",
+      "created_at": "2026-02-24T18:07:27.231190+00:00",
+      "snapshot_id": "snap-20260224180727-607d7c6d",
+      "diff_summary": "New news item detected (dated 2026-01-27T16:20:47+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Cyber Guru Announce",
+          "Leading European Human",
+          "Strategic Combination",
+          "Centric Cybersecurity Provider"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01814",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "signal_type": "other",
+      "title": "Why the Future of HealthTech lies in Integrated (and Hybrid) Primary Care",
+      "what_changed": "New announcement: Why the Future of HealthTech lies in Integrated (and Hybrid) Primary Care",
+      "source_url": "https://p101.it/news-press/latest-news/",
+      "source_name": "P101 SGR",
+      "published_at": "2026-01-15",
+      "observed_at": "2026-02-24T18:07:27.231190+00:00",
+      "created_at": "2026-02-24T18:07:27.231190+00:00",
+      "snapshot_id": "snap-20260224180727-607d7c6d",
+      "diff_summary": "New news item detected (dated 2026-01-15T10:45:46+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Primary Care"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01815",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "signal_type": "exit_announced",
+      "title": "P101 SGR Announces Exit from Civitfun",
+      "what_changed": "New announcement: P101 SGR Announces Exit from Civitfun",
+      "source_url": "https://p101.it/news-press/latest-news/",
+      "source_name": "P101 SGR",
+      "published_at": "2025-05-14",
+      "observed_at": "2026-02-24T18:07:27.231190+00:00",
+      "created_at": "2026-02-24T18:07:27.231190+00:00",
+      "snapshot_id": "snap-20260224180727-607d7c6d",
+      "diff_summary": "New news item detected (dated 2025-05-14T20:39:37+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Announces Exit"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01816",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "signal_type": "other",
+      "title": "Hotiday raises \u20ac5.5M in a funding round led by P101 SGR to create the first decentralised global hotel",
+      "what_changed": "New announcement: Hotiday raises \u20ac5.5M in a funding round led by P101 SGR to create the first decentralised global hotel",
+      "source_url": "https://p101.it/news-press/latest-news/",
+      "source_name": "P101 SGR",
+      "published_at": "2025-05-06",
+      "observed_at": "2026-02-24T18:07:27.231190+00:00",
+      "created_at": "2026-02-24T18:07:27.231190+00:00",
+      "snapshot_id": "snap-20260224180727-607d7c6d",
+      "diff_summary": "New news item detected (dated 2025-05-06T12:56:17+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01817",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "signal_type": "fundraise_announced",
+      "title": "P101 SGR Announces the Final Closing of the \u201cProgramma 103\u201d Fund at \u20ac250 Million",
+      "what_changed": "New announcement: P101 SGR Announces the Final Closing of the \u201cProgramma 103\u201d Fund at \u20ac250 Million",
+      "source_url": "https://p101.it/news-press/latest-news/",
+      "source_name": "P101 SGR",
+      "published_at": "2025-04-22",
+      "observed_at": "2026-02-24T18:07:27.231190+00:00",
+      "created_at": "2026-02-24T18:07:27.231190+00:00",
+      "snapshot_id": "snap-20260224180727-607d7c6d",
+      "diff_summary": "New news item detected (dated 2025-04-22T07:00:00+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Final Closing"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01818",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "signal_type": "other",
+      "title": "Big Data and AI: Transforming Industries Through Innovation",
+      "what_changed": "New announcement: Big Data and AI: Transforming Industries Through Innovation",
+      "source_url": "https://p101.it/news-press/latest-news/",
+      "source_name": "P101 SGR",
+      "published_at": "2025-04-09",
+      "observed_at": "2026-02-24T18:07:27.231190+00:00",
+      "created_at": "2026-02-24T18:07:27.231190+00:00",
+      "snapshot_id": "snap-20260224180727-607d7c6d",
+      "diff_summary": "New news item detected (dated 2025-04-09T11:34:48+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Transforming Industries Through",
+          "Big Data"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01819",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "signal_type": "other",
+      "title": "The role of corporates in VC ecosystem: an opportunity for scaling",
+      "what_changed": "New announcement: The role of corporates in VC ecosystem: an opportunity for scaling",
+      "source_url": "https://p101.it/news-press/latest-news/",
+      "source_name": "P101 SGR",
+      "published_at": "2025-04-03",
+      "observed_at": "2026-02-24T18:07:27.231190+00:00",
+      "created_at": "2026-02-24T18:07:27.231190+00:00",
+      "snapshot_id": "snap-20260224180727-607d7c6d",
+      "diff_summary": "New news item detected (dated 2025-04-03T08:00:00+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01820",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "signal_type": "people_move",
+      "title": "Cyber Guru and Mantra Join Forces to Redefine the Cybersecurity Awareness Landscape",
+      "what_changed": "New announcement: Cyber Guru and Mantra Join Forces to Redefine the Cybersecurity Awareness Landscape",
+      "source_url": "https://p101.it/news-press/latest-news/",
+      "source_name": "P101 SGR",
+      "published_at": "2025-03-14",
+      "observed_at": "2026-02-24T18:07:27.231190+00:00",
+      "created_at": "2026-02-24T18:07:27.231190+00:00",
+      "snapshot_id": "snap-20260224180727-607d7c6d",
+      "diff_summary": "New news item detected (dated 2025-03-14T10:09:19+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Cyber Guru",
+          "Cybersecurity Awareness Landscape",
+          "Mantra Join Forces"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01821",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "other",
+      "title": "TPG Peppertree and Telecom Infrastructure Industry Veteran Bernard Borghei Announce Billion Dollar Investment Partnership",
+      "what_changed": "New announcement: TPG Peppertree and Telecom Infrastructure Industry Veteran Bernard Borghei Announce Billion Dollar Investment Partnership",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-peppertree-and-telecom-infrastructure-industry-veteran-bernard-borghei-announce-billion-dollar-investment-partnership",
+      "source_name": "TPG",
+      "published_at": "2026-02-17",
+      "observed_at": "2026-02-24T18:07:28.431473+00:00",
+      "created_at": "2026-02-24T18:07:28.431473+00:00",
+      "snapshot_id": "snap-20260224180728-c8b13c68",
+      "diff_summary": "New news item detected (dated 2026-02-17T15:48:58)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Veteran Bernard Borghei",
+          "Announce Billion Dollar",
+          "Investment Partnership",
+          "Telecom Infrastructure Industry"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01822",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "deal_announced",
+      "title": "TPG to Acquire Majority Stake in Sabre Industries from Blackstone Energy Transition Partners",
+      "what_changed": "New announcement: TPG to Acquire Majority Stake in Sabre Industries from Blackstone Energy Transition Partners",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-to-acquire-majority-stake-in-sabre-industries-from-blackstone-energy-transition-partners",
+      "source_name": "TPG",
+      "published_at": "2026-02-06",
+      "observed_at": "2026-02-24T18:07:28.431473+00:00",
+      "created_at": "2026-02-24T18:07:28.431473+00:00",
+      "snapshot_id": "snap-20260224180728-c8b13c68",
+      "diff_summary": "New news item detected (dated 2026-02-06T14:01:02)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Blackstone Energy Transition",
+          "Sabre Industries",
+          "Acquire Majority Stake"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01823",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "other",
+      "title": "TPG Reports Fourth Quarter and Full Year 2025 Results",
+      "what_changed": "New announcement: TPG Reports Fourth Quarter and Full Year 2025 Results",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-reports-fourth-quarter-and-full-year-2025-results",
+      "source_name": "TPG",
+      "published_at": "2026-02-05",
+      "observed_at": "2026-02-24T18:07:28.431473+00:00",
+      "created_at": "2026-02-24T18:07:28.431473+00:00",
+      "snapshot_id": "snap-20260224180728-c8b13c68",
+      "diff_summary": "New news item detected (dated 2026-02-05T13:00:23)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Full Year",
+          "Reports Fourth Quarter"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01824",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "other",
+      "title": "TPG Recapitalizes Large Office Portfolio in Dallas\u2019 Harwood District",
+      "what_changed": "New announcement: TPG Recapitalizes Large Office Portfolio in Dallas\u2019 Harwood District",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-recapitalizes-large-office-portfolio-in-dallas-harwood-district",
+      "source_name": "TPG",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:28.431473+00:00",
+      "created_at": "2026-02-24T18:07:28.431473+00:00",
+      "snapshot_id": "snap-20260224180728-c8b13c68",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Harwood District",
+          "Recapitalizes Large Office"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01825",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "other",
+      "title": "TPG Launches New Retail Insurance Brokerage Platform Third Wave Insurance with Inaugural Partnership with Palmer & Cay",
+      "what_changed": "New announcement: TPG Launches New Retail Insurance Brokerage Platform Third Wave Insurance with Inaugural Partnership with Palmer & Cay",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-launches-new-retail-insurance-brokerage-platform-third-wave-insurance-with-inaugural-partnership-with-palmer-cay",
+      "source_name": "TPG",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:28.431473+00:00",
+      "created_at": "2026-02-24T18:07:28.431473+00:00",
+      "snapshot_id": "snap-20260224180728-c8b13c68",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Insurance Brokerage Platform",
+          "Third Wave Insurance",
+          "Inaugural Partnership",
+          "Launches New Retail"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01826",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "fundraise_announced",
+      "title": "Thrive Financial Announces $1 Billion Asset Purchase Facility Commitment With TPG",
+      "what_changed": "New announcement: Thrive Financial Announces $1 Billion Asset Purchase Facility Commitment With TPG",
+      "source_url": "https://www.tpg.com/news-and-insights/thrive-financial-announces-1-billion-asset-purchase-facility-commitment-with-tpg",
+      "source_name": "TPG",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:28.431473+00:00",
+      "created_at": "2026-02-24T18:07:28.431473+00:00",
+      "snapshot_id": "snap-20260224180728-c8b13c68",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Billion Asset Purchase",
+          "Facility Commitment With",
+          "Thrive Financial Announces"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01827",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "other",
+      "title": "OneMain Financial and TPG Extend and Expand Forward Flow Agreement to Invest in Consumer and Auto Loans",
+      "what_changed": "New announcement: OneMain Financial and TPG Extend and Expand Forward Flow Agreement to Invest in Consumer and Auto Loans",
+      "source_url": "https://www.tpg.com/news-and-insights/onemain-financial-and-tpg-extend-and-expand-forward-flow-agreement-to-invest-in-consumer-and-auto-loans",
+      "source_name": "TPG",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:28.431473+00:00",
+      "created_at": "2026-02-24T18:07:28.431473+00:00",
+      "snapshot_id": "snap-20260224180728-c8b13c68",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Auto Loans",
+          "Expand Forward Flow"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01828",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "other",
+      "title": "Elevex Capital Announces $1 Billion Forward Flow Agreement With TPG",
+      "what_changed": "New announcement: Elevex Capital Announces $1 Billion Forward Flow Agreement With TPG",
+      "source_url": "https://www.tpg.com/news-and-insights/elevex-capital-announces-1-billion-forward-flow-agreement-with-tpg",
+      "source_name": "TPG",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:28.431473+00:00",
+      "created_at": "2026-02-24T18:07:28.431473+00:00",
+      "snapshot_id": "snap-20260224180728-c8b13c68",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Billion Forward Flow",
+          "Elevex Capital Announces",
+          "Agreement With"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01829",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "other",
+      "title": "TPG and Lennar Announce Strategic Partnership to Recapitalize Quarterra",
+      "what_changed": "New announcement: TPG and Lennar Announce Strategic Partnership to Recapitalize Quarterra",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-and-lennar-announce-strategic-partnership-to-recapitalize-quarterra",
+      "source_name": "TPG",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:28.431473+00:00",
+      "created_at": "2026-02-24T18:07:28.431473+00:00",
+      "snapshot_id": "snap-20260224180728-c8b13c68",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Recapitalize Quarterra",
+          "Lennar Announce Strategic"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01830",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "other",
+      "title": "TPG and Jackson Financial Inc. Announce Strategic Partnership to Accelerate Growth",
+      "what_changed": "New announcement: TPG and Jackson Financial Inc. Announce Strategic Partnership to Accelerate Growth",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-and-jackson-financial-inc-announce-strategic-partnership-to-accelerate-growth",
+      "source_name": "TPG",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:28.431473+00:00",
+      "created_at": "2026-02-24T18:07:28.431473+00:00",
+      "snapshot_id": "snap-20260224180728-c8b13c68",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Accelerate Growth",
+          "Jackson Financial Inc",
+          "Announce Strategic Partnership"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01831",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "other",
+      "title": "TPG Makes Significant Investment in Trustwell, a Market Leader in Supply Chain Software for the Food Industry",
+      "what_changed": "New announcement: TPG Makes Significant Investment in Trustwell, a Market Leader in Supply Chain Software for the Food Industry",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-makes-significant-investment-in-trustwell-a-market-leader-in-supply-chain-software-for-the-food-industry",
+      "source_name": "TPG",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:28.431473+00:00",
+      "created_at": "2026-02-24T18:07:28.431473+00:00",
+      "snapshot_id": "snap-20260224180728-c8b13c68",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Food Industry",
+          "Supply Chain Software",
+          "Makes Significant Investment",
+          "Market Leader"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01832",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "deal_announced",
+      "title": "TPG to Acquire Majority Stake in Conservice",
+      "what_changed": "New announcement: TPG to Acquire Majority Stake in Conservice",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-to-acquire-majority-stake-in-conservice",
+      "source_name": "TPG",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:28.431473+00:00",
+      "created_at": "2026-02-24T18:07:28.431473+00:00",
+      "snapshot_id": "snap-20260224180728-c8b13c68",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Acquire Majority Stake"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01833",
+      "fund_id": "",
+      "fund_slug": "tamburi-investment-partners",
+      "signal_type": "other",
+      "title": "Share capital and dividends",
+      "what_changed": "New announcement: Share capital and dividends",
+      "source_url": "https://www.tipspa.it/en/page/5d24b682bac35e0a5a5eb2b8",
+      "source_name": "Tamburi Investment Partners",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:43.228489+00:00",
+      "created_at": "2026-02-24T18:07:43.228489+00:00",
+      "snapshot_id": "snap-20260224180743-08a8cd2b",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01834",
+      "fund_id": "",
+      "fund_slug": "tamburi-investment-partners",
+      "signal_type": "other",
+      "title": "Annual and quarterly reports",
+      "what_changed": "New announcement: Annual and quarterly reports",
+      "source_url": "https://www.tipspa.it/en/page/5d24b682bac35e0a5a5eb2a1",
+      "source_name": "Tamburi Investment Partners",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:43.228489+00:00",
+      "created_at": "2026-02-24T18:07:43.228489+00:00",
+      "snapshot_id": "snap-20260224180743-08a8cd2b",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01835",
+      "fund_id": "",
+      "fund_slug": "tamburi-investment-partners",
+      "signal_type": "other",
+      "title": "Warrant TIP 2015-2020",
+      "what_changed": "New announcement: Warrant TIP 2015-2020",
+      "source_url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25a",
+      "source_name": "Tamburi Investment Partners",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:43.228489+00:00",
+      "created_at": "2026-02-24T18:07:43.228489+00:00",
+      "snapshot_id": "snap-20260224180743-08a8cd2b",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01836",
+      "fund_id": "",
+      "fund_slug": "platinum-equity",
+      "signal_type": "deal_announced",
+      "title": "Read More PlayPower to Acquire BCI Burke Deal aims to combine companies committed to creating legendary play experiences. Read More",
+      "what_changed": "Deal aims to combine companies committed to creating legendary play experiences.",
+      "source_url": "https://www.platinumequity.com/news/playpower-to-acquire-bci-burke/",
+      "source_name": "Platinum Equity",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:47.777831+00:00",
+      "created_at": "2026-02-24T18:07:47.777831+00:00",
+      "snapshot_id": "snap-20260224180744-6bb5def5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Burke Deal",
+          "Read More Deal",
+          "Read More"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01837",
+      "fund_id": "",
+      "fund_slug": "platinum-equity",
+      "signal_type": "deal_announced",
+      "title": "PlayPower to Acquire BCI Burke",
+      "what_changed": "New announcement: PlayPower to Acquire BCI Burke",
+      "source_url": "https://www.platinumequity.com/news/playpower-to-acquire-bci-burke/",
+      "source_name": "Platinum Equity",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:47.777831+00:00",
+      "created_at": "2026-02-24T18:07:47.777831+00:00",
+      "snapshot_id": "snap-20260224180744-6bb5def5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01838",
+      "fund_id": "",
+      "fund_slug": "platinum-equity",
+      "signal_type": "other",
+      "title": "Platinum Equity to Sell Global Environmental Services Business Urbaser to Blackstone and EQT for $6.6 Billion",
+      "what_changed": "New announcement: Platinum Equity to Sell Global Environmental Services Business Urbaser to Blackstone and EQT for $6.6 Billion",
+      "source_url": "https://www.platinumequity.com/news/platinum-equity-to-sell-global-environmental-services-business-urbaser-to-blackstone-and-eqt-for-6-6-billion/",
+      "source_name": "Platinum Equity",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:47.777831+00:00",
+      "created_at": "2026-02-24T18:07:47.777831+00:00",
+      "snapshot_id": "snap-20260224180744-6bb5def5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Sell Global Environmental",
+          "Services Business Urbaser",
+          "Platinum Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01839",
+      "fund_id": "",
+      "fund_slug": "platinum-equity",
+      "signal_type": "deal_announced",
+      "title": "Platinum Equity Announces Acquisition of Family-Owned Czarnowski Collective",
+      "what_changed": "New announcement: Platinum Equity Announces Acquisition of Family-Owned Czarnowski Collective",
+      "source_url": "https://www.platinumequity.com/news/platinum-equity-acquires-czarnowski-collective/",
+      "source_name": "Platinum Equity",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:47.777831+00:00",
+      "created_at": "2026-02-24T18:07:47.777831+00:00",
+      "snapshot_id": "snap-20260224180744-6bb5def5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Platinum Equity Announces",
+          "Owned Czarnowski Collective"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01840",
+      "fund_id": "",
+      "fund_slug": "platinum-equity",
+      "signal_type": "deal_announced",
+      "title": "Platinum Equity Invests in Founder-Owned Tongrun International",
+      "what_changed": "New investment involving Founder",
+      "source_url": "https://www.platinumequity.com/news/platinum-equity-invests-in-tongrun-international/",
+      "source_name": "Platinum Equity",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:47.777831+00:00",
+      "created_at": "2026-02-24T18:07:47.777831+00:00",
+      "snapshot_id": "snap-20260224180744-6bb5def5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Founder"
+        ],
+        "people": [
+          "Owned Tongrun International",
+          "Platinum Equity Invests"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01841",
+      "fund_id": "",
+      "fund_slug": "platinum-equity",
+      "signal_type": "deal_announced",
+      "title": "Platinum Equity Announces \u2018Significant\u2019 Investment in Norton Packaging",
+      "what_changed": "New investment involving Norton Packaging",
+      "source_url": "https://www.platinumequity.com/news/platinum-equity-invests-in-norton-packaging/",
+      "source_name": "Platinum Equity",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:47.777831+00:00",
+      "created_at": "2026-02-24T18:07:47.777831+00:00",
+      "snapshot_id": "snap-20260224180744-6bb5def5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Norton Packaging"
+        ],
+        "people": [
+          "Norton Packaging",
+          "Platinum Equity Announces"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01842",
+      "fund_id": "",
+      "fund_slug": "platinum-equity",
+      "signal_type": "deal_announced",
+      "title": "Platinum Equity Completes Acquisition of Owens & Minor Products & Healthcare Services Business",
+      "what_changed": "New announcement: Platinum Equity Completes Acquisition of Owens & Minor Products & Healthcare Services Business",
+      "source_url": "https://www.platinumequity.com/news/platinum-equity-completes-acquisition-of-owens-minor-products-healthcare-services-business/",
+      "source_name": "Platinum Equity",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:47.777831+00:00",
+      "created_at": "2026-02-24T18:07:47.777831+00:00",
+      "snapshot_id": "snap-20260224180744-6bb5def5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Minor Products",
+          "Healthcare Services Business",
+          "Platinum Equity Completes"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01843",
+      "fund_id": "",
+      "fund_slug": "platinum-equity",
+      "signal_type": "other",
+      "title": "Platinum Equity Founder Tom Gores Donates $350,000 to SAY Detroit",
+      "what_changed": "New announcement: Platinum Equity Founder Tom Gores Donates $350,000 to SAY Detroit",
+      "source_url": "https://www.platinumequity.com/news/platinum-equity-founder-tom-gores-donates-350000-to-say-detroit/",
+      "source_name": "Platinum Equity",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:47.777831+00:00",
+      "created_at": "2026-02-24T18:07:47.777831+00:00",
+      "snapshot_id": "snap-20260224180744-6bb5def5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Tom Gores Donates",
+          "Platinum Equity Founder"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01844",
+      "fund_id": "",
+      "fund_slug": "platinum-equity",
+      "signal_type": "other",
+      "title": "Inside the Husky-CompoSecure Merger: A Conversation with Platinum Equity's Louis Samson and Delara Zarrabi",
+      "what_changed": "New announcement: Inside the Husky-CompoSecure Merger: A Conversation with Platinum Equity's Louis Samson and Delara Zarrabi",
+      "source_url": "https://www.platinumequity.com/news/inside-the-husky-composecure-merger-a-conversation-with-platinum-equitys-louis-samson-and-delara-zarrabi/",
+      "source_name": "Platinum Equity",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:47.777831+00:00",
+      "created_at": "2026-02-24T18:07:47.777831+00:00",
+      "snapshot_id": "snap-20260224180744-6bb5def5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Delara Zarrabi",
+          "Louis Samson",
+          "Platinum Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01845",
+      "fund_id": "",
+      "fund_slug": "platinum-equity",
+      "signal_type": "deal_announced",
+      "title": "Platinum Equity: Acquisition - Organic Dairy",
+      "what_changed": "New acquisition involving Organic Dairy",
+      "source_url": "https://www.platinumequity.com/news/horizon-family-brands-announces-acquisition-of-maple-hill-creamery-to-strengthen-leadership-in-organic-dairy/",
+      "source_name": "Platinum Equity",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:47.777831+00:00",
+      "created_at": "2026-02-24T18:07:47.777831+00:00",
+      "snapshot_id": "snap-20260224180744-6bb5def5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Organic Dairy"
+        ],
+        "people": [
+          "Strengthen Leadership",
+          "Announces Acquisition",
+          "Horizon Family Brands",
+          "Maple Hill Creamery",
+          "Organic Dairy"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01846",
+      "fund_id": "",
+      "fund_slug": "platinum-equity",
+      "signal_type": "other",
+      "title": "Platinum Equity Co-President Louis Samson on PE Hub Podcast: Creativity, Cultivating Relationships Key to Success in Current M&A Environment",
+      "what_changed": "New None involving Current M&A Environment",
+      "source_url": "https://www.platinumequity.com/news/co-president-louis-samson-on-pe-hubs-private-equity-spotlight-podcast/",
+      "source_name": "Platinum Equity",
+      "published_at": null,
+      "observed_at": "2026-02-24T18:07:47.777831+00:00",
+      "created_at": "2026-02-24T18:07:47.777831+00:00",
+      "snapshot_id": "snap-20260224180744-6bb5def5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Current M&A Environment"
+        ],
+        "people": [
+          "Hub Podcast",
+          "Platinum Equity Co",
+          "President Louis Samson",
+          "Cultivating Relationships Key"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01847",
+      "fund_id": "",
+      "fund_slug": "azzurra-capital",
+      "signal_type": "fundraise_announced",
+      "title": "Azzurra Capital and SIIC complete first close of Asia Environmental Technology Fund",
+      "what_changed": "back Download Press Release Azzurra Capital has completed the first closing of the Asia Environmental Technology Fund (\u201cAETF\u201d), a joint venture established with Shanghai Industrial Investment (Holdings) Co., Ltd. (\u201cSIIC\u201d). Hong Kong, February 2026 \u2013 The Fund has raised initial...",
+      "source_url": "https://www.azzurracapital.com/azzurra-capital-and-siic-complete-first-close-of-asia-environmental-technology-fund/",
+      "source_name": "Azzurra Capital",
+      "published_at": "2026-02-20",
+      "observed_at": "2026-02-24T18:07:50.130275+00:00",
+      "created_at": "2026-02-24T18:07:50.130275+00:00",
+      "snapshot_id": "snap-20260224180749-f98697df",
+      "diff_summary": "New news item detected (dated 20/02/2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "The Fund",
+          "Azzurra Capital",
+          "Download Press Release",
+          "Asia Environmental Technology",
+          "Hong Kong",
+          "Shanghai Industrial Investment"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01848",
+      "fund_id": "",
+      "fund_slug": "azzurra-capital",
+      "signal_type": "deal_announced",
+      "title": "Lucart acquires a strategic stake in Cartindustria Eurocarta",
+      "what_changed": "New announcement: Lucart acquires a strategic stake in Cartindustria Eurocarta",
+      "source_url": "https://www.azzurracapital.com/lucart-acquires-a-strategic-stake-in-cartindustria-eurocarta/",
+      "source_name": "Azzurra Capital",
+      "published_at": "2025-10-10",
+      "observed_at": "2026-02-24T18:07:50.130275+00:00",
+      "created_at": "2026-02-24T18:07:50.130275+00:00",
+      "snapshot_id": "snap-20260224180749-f98697df",
+      "diff_summary": "New news item detected (dated 10/10/2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Cartindustria Eurocarta"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01849",
+      "fund_id": "",
+      "fund_slug": "azzurra-capital",
+      "signal_type": "deal_announced",
+      "title": "Azzurra Capital acquires a minority stake in Proger",
+      "what_changed": "New announcement: Azzurra Capital acquires a minority stake in Proger",
+      "source_url": "https://www.azzurracapital.com/azzurra-capital-acquires-a-minority-stake-in-proger/",
+      "source_name": "Azzurra Capital",
+      "published_at": "2025-09-16",
+      "observed_at": "2026-02-24T18:07:50.130275+00:00",
+      "created_at": "2026-02-24T18:07:50.130275+00:00",
+      "snapshot_id": "snap-20260224180749-f98697df",
+      "diff_summary": "New news item detected (dated 16/09/2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Azzurra Capital"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01850",
+      "fund_id": "",
+      "fund_slug": "azzurra-capital",
+      "signal_type": "deal_announced",
+      "title": "Azzurra Capital and The Club Dealers acquire 100% of Domixtar Pharmaceutical",
+      "what_changed": "New announcement: Azzurra Capital and The Club Dealers acquire 100% of Domixtar Pharmaceutical",
+      "source_url": "https://www.azzurracapital.com/azzurra-capital-and-the-club-dealers-acquire-100-of-domixtar-pharmaceutical/",
+      "source_name": "Azzurra Capital",
+      "published_at": "2025-08-07",
+      "observed_at": "2026-02-24T18:07:50.130275+00:00",
+      "created_at": "2026-02-24T18:07:50.130275+00:00",
+      "snapshot_id": "snap-20260224180749-f98697df",
+      "diff_summary": "New news item detected (dated 07/08/2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Azzurra Capital",
+          "Domixtar Pharmaceutical",
+          "The Club Dealers"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01851",
+      "fund_id": "",
+      "fund_slug": "azzurra-capital",
+      "signal_type": "deal_announced",
+      "title": "Azzurra Capital Signs an agreement to acquire a strategic stake in Nextchem",
+      "what_changed": "New announcement: Azzurra Capital Signs an agreement to acquire a strategic stake in Nextchem",
+      "source_url": "https://www.azzurracapital.com/azzurra-capital-signs-an-agreement-to-acquire-a-strategic-stake-in-nextchem/",
+      "source_name": "Azzurra Capital",
+      "published_at": "2025-03-04",
+      "observed_at": "2026-02-24T18:07:50.130275+00:00",
+      "created_at": "2026-02-24T18:07:50.130275+00:00",
+      "snapshot_id": "snap-20260224180749-f98697df",
+      "diff_summary": "New news item detected (dated 04/03/2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Azzurra Capital Signs"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01852",
+      "fund_id": "",
+      "fund_slug": "azzurra-capital",
+      "signal_type": "deal_announced",
+      "title": "Azzurra Capital acquires a majority stake in Marval",
+      "what_changed": "New announcement: Azzurra Capital acquires a majority stake in Marval",
+      "source_url": "https://www.azzurracapital.com/azzurra-capital-acquires-a-majority-stake-in-marval/",
+      "source_name": "Azzurra Capital",
+      "published_at": "2024-08-14",
+      "observed_at": "2026-02-24T18:07:50.130275+00:00",
+      "created_at": "2026-02-24T18:07:50.130275+00:00",
+      "snapshot_id": "snap-20260224180749-f98697df",
+      "diff_summary": "New news item detected (dated 14/08/2024)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Azzurra Capital"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00143",
+      "fund_id": "",
+      "fund_slug": "furstenberg-sgr",
+      "related_fund_slugs": [
+        "furstenberg-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Banca Ifis: F\u00fcrstenberg sgr rileva la maggioranza di Noberasco. Gli advisor",
+      "what_changed": "The illimity Credit & Corporate Turnaround Fund, managed by F\u00fcrstenberg sgr (Banca Ifis group), has acquired a majority stake in Noberasco, the historic Italian dried and soft-fruit operator. Deal value not disclosed. Transaction aims to support Noberasco's turnaround and growth in the food sector; acquisition is confirmed.",
+      "source_url": "https://financecommunity.it/banca-ifis-furstenberg-sgr-rileva-la-maggioranza-di-noberasco-gli-advisor/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-02-24T17:05:46+00:00",
+      "observed_at": "2026-02-24T18:09:10.180749+00:00",
+      "created_at": "2026-02-24T18:09:10.180749+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Noberasco"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01853",
+      "fund_id": "",
+      "fund_slug": "azzurra-capital",
+      "signal_type": "deal_announced",
+      "title": "Nextchem added to Azzurra Capital portfolio",
+      "what_changed": "Nextchem added to Azzurra Capital portfolio",
+      "source_url": "https://www.azzurracapital.com/portfolio/",
+      "source_name": "Azzurra Capital",
+      "published_at": null,
+      "observed_at": "2026-02-24T20:37:44.773693+00:00",
+      "created_at": "2026-02-24T20:37:44.773693+00:00",
+      "snapshot_id": "snap-20260224203742-88450c9a",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Nextchem"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01854",
+      "fund_id": "",
+      "fund_slug": "azzurra-capital",
+      "signal_type": "deal_announced",
+      "title": "DMX Pharma added to Azzurra Capital portfolio",
+      "what_changed": "DMX Pharma added to Azzurra Capital portfolio",
+      "source_url": "https://www.azzurracapital.com/portfolio/",
+      "source_name": "Azzurra Capital",
+      "published_at": null,
+      "observed_at": "2026-02-24T20:37:44.773693+00:00",
+      "created_at": "2026-02-24T20:37:44.773693+00:00",
+      "snapshot_id": "snap-20260224203742-88450c9a",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "DMX Pharma"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01855",
+      "fund_id": "",
+      "fund_slug": "azzurra-capital",
+      "signal_type": "deal_announced",
+      "title": "Marval added to Azzurra Capital portfolio",
+      "what_changed": "Marval added to Azzurra Capital portfolio",
+      "source_url": "https://www.azzurracapital.com/portfolio/",
+      "source_name": "Azzurra Capital",
+      "published_at": null,
+      "observed_at": "2026-02-24T20:37:44.773693+00:00",
+      "created_at": "2026-02-24T20:37:44.773693+00:00",
+      "snapshot_id": "snap-20260224203742-88450c9a",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Marval"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01856",
+      "fund_id": "",
+      "fund_slug": "azzurra-capital",
+      "signal_type": "deal_announced",
+      "title": "Lucart Group added to Azzurra Capital portfolio",
+      "what_changed": "Lucart Group added to Azzurra Capital portfolio",
+      "source_url": "https://www.azzurracapital.com/portfolio/",
+      "source_name": "Azzurra Capital",
+      "published_at": null,
+      "observed_at": "2026-02-24T20:37:44.773693+00:00",
+      "created_at": "2026-02-24T20:37:44.773693+00:00",
+      "snapshot_id": "snap-20260224203742-88450c9a",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Lucart Group"
+        ],
+        "people": [
+          "Lucart Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01857",
+      "fund_id": "",
+      "fund_slug": "azzurra-capital",
+      "signal_type": "deal_announced",
+      "title": "Gruppo Desa added to Azzurra Capital portfolio",
+      "what_changed": "Gruppo Desa added to Azzurra Capital portfolio",
+      "source_url": "https://www.azzurracapital.com/portfolio/",
+      "source_name": "Azzurra Capital",
+      "published_at": null,
+      "observed_at": "2026-02-24T20:37:44.773693+00:00",
+      "created_at": "2026-02-24T20:37:44.773693+00:00",
+      "snapshot_id": "snap-20260224203742-88450c9a",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Gruppo Desa"
+        ],
+        "people": [
+          "Gruppo Desa"
+        ],
+        "locations": []
+      }
     }
   ],
-  "signal_count": 1788,
-  "translated_at": "2026-02-24T14:49:48.212090+00:00"
+  "signal_count": 1857
 }

@@ -162,6 +162,33 @@ const SECTOR_TAG_ALIASES: Record<string, string> = {
   'aviation mro': 'Transportation & Logistics',
   'digital enabler': 'Technology',
   'industry 4 0': 'Industrial Manufacturing',
+  // Italian sector labels from AIFI / portfolio data
+  'altri settori': 'Professional Services',
+  'beni e serv di consumo': 'Consumer Goods',
+  'cartotecnica': 'Packaging',
+  'dermocosmesi e nutraceutica': 'Healthcare',
+  'estensione di assistenza': 'Professional Services',
+  'fonderie': 'Industrial Manufacturing',
+  'nautica': 'Consumer Goods',
+  'nutraceutica': 'Healthcare',
+  'safety e prevenzione incendi': 'Industrial Manufacturing',
+  'scaffalature': 'Industrial Manufacturing',
+  // Niche subsectors
+  'distribution networks': 'Transportation & Logistics',
+  'embedded pc': 'Technology',
+  'green space management': 'Environmental Services',
+  'led lighting': 'Industrial Manufacturing',
+  'mission critical components for aluminium extrusion process': 'Industrial Manufacturing',
+  'premium sneakers': 'Fashion & Luxury',
+  'tmt': 'Technology',
+  // Investment strategy labels (sometimes used as sector in Italian data)
+  'artemid senior loans': 'Financial Services',
+  'augment knowledge resources': 'Professional Services',
+  'elevate quality of life': 'Healthcare',
+  'flex equity': 'Financial Services',
+  'flex equity mid market': 'Financial Services',
+  'growth': 'Financial Services',
+  'impact investing': 'Financial Services',
 };
 
 function includesAny(text: string, words: string[]): boolean {

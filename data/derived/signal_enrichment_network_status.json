@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-02-24T15:39:54.329122+00:00",
-  "scope": "all funds",
+  "checked_at": "2026-02-24T18:26:27.696269+00:00",
+  "scope": "tpg,hellman-friedman,icg,silver-lake,lone-star-funds,warburg-pincus,ta-associates,investcorp,platinum-equity,charterhouse-capital-partners,tamburi-investment-partners,white-bridge-investments,azzurra-capital,p101-sgr,united-ventures,vam-investments,varde-partners",
   "strict_network_mode": true,
   "llm_connection_fallbacks": 0,
   "translation_network_errors": 0,

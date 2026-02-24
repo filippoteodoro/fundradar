@@ -3083,7 +3083,286 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-02-24T13:49:05.599874+00:00",
+      "last_checked_at": "2026-02-24T18:07:44.125685+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://bic-capital.com/track-record/": {
+      "url": "https://bic-capital.com/track-record/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T16:34:44.352779+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://bic-capital.com/team/": {
+      "url": "https://bic-capital.com/team/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T16:34:45.494740+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.augenscapital.com/portfolio/": {
+      "url": "https://www.augenscapital.com/portfolio/",
+      "status": "timeout",
+      "status_code": 0,
+      "error_message": "Timeout",
+      "last_checked_at": "2026-02-24T15:57:21.533071+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-24T16:02:21.533071+00:00"
+    },
+    "https://www.augenscapital.com/team/": {
+      "url": "https://www.augenscapital.com/team/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T15:57:58.022423+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.investcorp.com/category/news/": {
+      "url": "https://www.investcorp.com/category/news/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T18:07:14.658720+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://p101.it/portfolio/": {
+      "url": "https://p101.it/portfolio/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:41.522429+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.silverlake.com/portfolio/": {
+      "url": "https://www.silverlake.com/portfolio/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T18:07:16.308866+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://hf.com/portfolio/": {
+      "url": "https://hf.com/portfolio/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:39.749420+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.silverlake.com/news/": {
+      "url": "https://www.silverlake.com/news/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T18:07:19.890491+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://hf.com/news/": {
+      "url": "https://hf.com/news/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:43.948898+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://p101.it/about/team/": {
+      "url": "https://p101.it/about/team/",
+      "status": "404",
+      "status_code": 404,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:46.640993+00:00",
+      "consecutive_failures": 2,
+      "next_check_after": "2026-02-24T20:52:46.640993+00:00"
+    },
+    "https://p101.it/news-press/latest-news/": {
+      "url": "https://p101.it/news-press/latest-news/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:52.517111+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.ta.com/portfolio/investments/": {
+      "url": "https://www.ta.com/portfolio/investments/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T18:07:27.460470+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.tpg.com/news-and-insights/news": {
+      "url": "https://www.tpg.com/news-and-insights/news",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T18:07:28.320688+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.ta.com/news/": {
+      "url": "https://www.ta.com/news/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T18:07:41.522708+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c": {
+      "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T18:07:43.039267+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.icgam.com/news-insights-analysis/": {
+      "url": "https://www.icgam.com/news-insights-analysis/",
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.icgam.com', port=443): Max retries exceeded with url: /news-insights-analysis/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.icgam.com', port=443): Failed to resolve 'www.icgam.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-24T18:07:43.688523+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-24T18:12:43.688523+00:00"
+    },
+    "https://www.azzurracapital.com/portfolio/": {
+      "url": "https://www.azzurracapital.com/portfolio/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:42.686090+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.charterhouse.co.uk/portfolio": {
+      "url": "https://www.charterhouse.co.uk/portfolio",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:39.860539+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.lonestarfunds.com/news/": {
+      "url": "https://www.lonestarfunds.com/news/",
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.lonestarfunds.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.lonestarfunds.com', port=443): Failed to resolve 'www.lonestarfunds.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-24T18:07:43.692938+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-24T18:12:43.692938+00:00"
+    },
+    "https://www.platinumequity.com/our-companies/": {
+      "url": "https://www.platinumequity.com/our-companies/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:40.043396+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.charterhouse.co.uk/news": {
+      "url": "https://www.charterhouse.co.uk/news",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:44.947940+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.platinumequity.com/our-news/": {
+      "url": "https://www.platinumequity.com/our-news/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:43.425178+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.azzurracapital.com/team/": {
+      "url": "https://www.azzurracapital.com/team/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:45.783828+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://warburgpincus.com/investments/": {
+      "url": "https://warburgpincus.com/investments/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T18:07:48.326719+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.azzurracapital.com/media/": {
+      "url": "https://www.azzurracapital.com/media/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:54.689463+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.vaminvestments.com/en/portfolio-en/": {
+      "url": "https://www.vaminvestments.com/en/portfolio-en/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:57.762307+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.vaminvestments.com/en/team-en/": {
+      "url": "https://www.vaminvestments.com/en/team-en/",
+      "status": "404",
+      "status_code": 404,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:59.790298+00:00",
+      "consecutive_failures": 2,
+      "next_check_after": "2026-02-24T20:52:59.790298+00:00"
+    },
+    "https://warburgpincus.com/news/": {
+      "url": "https://warburgpincus.com/news/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T18:07:57.481168+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://unitedventures.com/portfolio/": {
+      "url": "https://unitedventures.com/portfolio/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:37:59.795907+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://unitedventures.com/team/": {
+      "url": "https://unitedventures.com/team/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T20:38:00.789889+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     }

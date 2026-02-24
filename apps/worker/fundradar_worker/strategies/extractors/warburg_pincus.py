@@ -1,0 +1,115 @@
+"""Site-specific extractors for warburgpincus.com (Warburg Pincus).
+
+Warburg Pincus is a global growth equity firm (~$87B AUM, HQ New York).
+Investments page at /investments/, news at /news/.
+"""
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+
+DOMAIN = "warburgpincus.com"
+
+URLS = {
+    "portfolio": "/investments/",
+    "team": None,
+    "news": "/news/",
+}
+
+
+def extract_portfolio(html: str, base_url: str) -> list[dict]:
+    """Extract portfolio companies from Warburg Pincus investments page."""
+    soup = BeautifulSoup(html, "html.parser")
+    companies = []
+    seen = set()
+
+    for item in soup.select(
+        "article, .portfolio-item, .investment, .card, .company, "
+        "[class*='portfolio'], [class*='investment'], [class*='company']"
+    ):
+        heading = item.select_one("h2, h3, h4, .name, .title")
+        if not heading:
+            continue
+
+        name = heading.get_text(strip=True)
+        if not name or len(name) < 2 or name.lower() in seen:
+            continue
+        if name.lower() in (
+            "investments", "portfolio", "back", "view all",
+            "warburg pincus", "our investments",
+        ):
+            continue
+        seen.add(name.lower())
+
+        website = None
+        link = item.select_one("a[href^='http']")
+        if link and "warburgpincus.com" not in link.get("href", ""):
+            website = link.get("href")
+
+        description = None
+        desc_el = item.select_one("p, .description, .excerpt")
+        if desc_el and desc_el != heading:
+            text = desc_el.get_text(strip=True)
+            if len(text) > 15:
+                description = text[:500]
+
+        sector = None
+        sector_el = item.select_one(".sector, .industry, .category, .tag")
+        if sector_el:
+            sector = sector_el.get_text(strip=True)
+
+        companies.append({
+            "name": name,
+            "sector": sector,
+            "website": website,
+            "description": description,
+            "status": "current",
+            "confidence": 0.85,
+        })
+
+    return companies
+
+
+def extract_news(html: str, base_url: str) -> list[dict]:
+    """Extract news from Warburg Pincus news page."""
+    soup = BeautifulSoup(html, "html.parser")
+    news = []
+    seen = set()
+
+    for article in soup.select("article, .post, .news-item, .card"):
+        title_el = article.select_one("h2, h3, h4, .title")
+        if not title_el:
+            continue
+        title = title_el.get_text(strip=True)
+        if not title or len(title) < 10 or title.lower() in seen:
+            continue
+        seen.add(title.lower())
+
+        url = None
+        link = article.select_one("a[href]")
+        if link:
+            url = urljoin(base_url, link.get("href", ""))
+
+        date = None
+        date_el = article.select_one("time, .date, [datetime]")
+        if date_el:
+            date = date_el.get("datetime") or date_el.get_text(strip=True)
+
+        summary = None
+        summary_el = article.select_one("p, .excerpt, .summary")
+        if summary_el and summary_el != title_el:
+            summary = summary_el.get_text(strip=True)[:300]
+
+        news.append({
+            "title": title,
+            "url": url,
+            "date": date,
+            "summary": summary,
+            "confidence": 0.85,
+        })
+
+    return news
+
+
+EXTRACTORS = {
+    "portfolio": extract_portfolio,
+    "news": extract_news,
+}
