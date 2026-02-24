@@ -2649,6 +2649,60 @@
       "description_source": "gemini"
     },
     {
+      "id": "cherry-bay-capital",
+      "slug": "cherry-bay-capital",
+      "name": "Cherry Bay Capital",
+      "category": "pe",
+      "hq_city": "Milan",
+      "hq_region": "Italy",
+      "website": "https://cherrybaycapital.com",
+      "strategy_tags": [
+        "Growth",
+        "Minority Expansion"
+      ],
+      "sector_tags": [
+        "Aerospace & Defence",
+        "Automotive",
+        "Healthcare",
+        "Software",
+        "Fintech",
+        "Digital",
+        "Biotech"
+      ],
+      "description": "Independent boutique operating at the intersection of private capital and wealth advisory, providing minority expansion and growth equity investments to Italian excellence, with a focus on connecting family assets to exclusive investment opportunities.",
+      "geographies": [
+        "Italy",
+        "Europe"
+      ],
+      "average_investment": [],
+      "asset_class": [
+        "Private equity"
+      ],
+      "contact_name": "Mattia Rossi",
+      "contact_email": null,
+      "contact_phone": null,
+      "created_at": "2026-02-24T00:00:00.000Z",
+      "updated_at": "2026-02-24T00:00:00.000Z",
+      "aum_eur": null,
+      "offices": [
+        {
+          "city": "Monaco",
+          "country": "Monaco",
+          "is_hq": false
+        },
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "is_hq": true
+        },
+        {
+          "city": "Luxembourg",
+          "country": "Luxembourg",
+          "is_hq": false
+        }
+      ]
+    },
+    {
       "id": "cinven",
       "slug": "cinven",
       "name": "Cinven",

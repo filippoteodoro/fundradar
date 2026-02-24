@@ -483,7 +483,8 @@ function fixSignalSpacing(text: string): string {
   cleaned = cleaned.replace(/(?<=[a-zà-öø-ÿ]{3})(?=[A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ])/g, ' ');
   cleaned = cleaned.replace(/\b([A-Za-zÀ-ÖØ-öø-ÿ]{2,})\s([ECIPSV])\s+([a-zà-öø-ÿ]{2,})/g, '$1 $2$3');
   // Restore known names/acronyms broken by digit-letter spacing
-  cleaned = cleaned.replace(/\bF\s+2\s+i\b/g, 'F2i');
+  cleaned = cleaned.replace(/\bF\s+2\s+[iI]\b/g, 'F2i');
+  cleaned = cleaned.replace(/\bF2I\b/g, 'F2i');
   cleaned = cleaned.replace(/\bB\s+4\s+i\b/g, 'B4i');
   cleaned = cleaned.replace(/\bCO\s+2\b/g, 'CO2');
   cleaned = cleaned.replace(/\b3\s+i\b/g, '3i');

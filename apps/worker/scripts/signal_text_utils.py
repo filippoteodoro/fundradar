@@ -286,6 +286,7 @@ def fix_spacing(text: str) -> str:
     cleaned = re.sub(r'(?<=[A-Za-zÀ-ÖØ-öø-ÿ])(?=["\u201c\u201d])', " ", cleaned)
     # Restore known names/acronyms broken by digit-letter spacing
     cleaned = re.sub(r"\bF\s+2\s+[iI]\b", "F2i", cleaned)
+    cleaned = re.sub(r"\bF2I\b", "F2i", cleaned)
     cleaned = re.sub(r"\bB\s+4\s+[iI]\b", "B4i", cleaned)
     cleaned = re.sub(r"\bCO\s+2\b", "CO2", cleaned)
     cleaned = re.sub(r"\b3\s+i\b", "3i", cleaned)
