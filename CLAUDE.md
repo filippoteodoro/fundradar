@@ -145,11 +145,11 @@ Content hashing skips unchanged pages — use `--force-extract` after updating e
 | `apps/web/src/lib/signals_unified.ts` | Signal loading for `/signals` page |
 | `apps/web/src/lib/signalProcessing.ts` | Shared signal processing (both paths) |
 | `packages/shared/src/types.ts` | Type definitions (Fund, Signal, Deal, DataSource) |
-| `apps/worker/fundradar_worker/pipeline.py` | 9-step orchestration |
+| `apps/worker/fundradar_worker/pipeline.py` | Pipeline orchestration |
 | `apps/worker/fundradar_worker/monitor.py` | Main fetch/extract/diff engine + exit detection |
 | `apps/worker/fundradar_worker/translator.py` | Shared translation module (DeepL→Azure→OpenAI) |
 | `apps/worker/scripts/filter_signals.py` | Primary quality gate (scoring, geo, dedup, reclassification) |
-| `apps/worker/scripts/signal_patterns.py` | Single source of truth for ~60 shared regex patterns |
+| `apps/worker/scripts/signal_patterns.py` | Single source of truth for shared regex patterns |
 | `apps/worker/scripts/signal_corrections.py` | Shared post-classification corrections (filter + enricher) |
 | `apps/worker/scripts/signal_text_utils.py` | Shared text cleaning: `clean_display_text()`, `fix_spacing()`, `normalize_monetary_values()` |
 | `apps/worker/scripts/signal_to_portfolio.py` | Signal→portfolio conversion (local) |
@@ -162,7 +162,7 @@ Content hashing skips unchanged pages — use `--force-extract` after updating e
 - **Repo**: `filippoteodoro/fundradar` on GitHub
 - **Vercel Root Directory**: `apps/web` (set in Vercel dashboard)
 - **Config**: `apps/web/vercel.json` — install and build commands navigate up to repo root
-- **Static generation**: All 162 fund pages pre-rendered at build time via `generateStaticParams()`
+- **Static generation**: All fund pages pre-rendered at build time via `generateStaticParams()`
 - **Dynamic OG image**: `opengraph-image.tsx` generates a 1200x630 PNG at the edge
 - **Readonly mode**: `IS_READONLY` guard in `auth.ts`, `watchlist.ts`, `subscribers.ts` prevents filesystem writes
 - **Auth API routes**: Return 503 on Vercel (no user accounts)

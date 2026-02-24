@@ -13,7 +13,6 @@ declare global {
 }
 
 export default function ContactForm() {
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [honeypot, setHoneypot] = useState(''); // Anti-spam: hidden field
@@ -35,7 +34,7 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setErrorMessage('');
 
-    if (!name.trim() || !email.trim() || !message.trim()) {
+    if (!email.trim() || !message.trim()) {
       setErrorMessage('Please fill in all fields.');
       setIsSubmitting(false);
       return;
@@ -72,7 +71,6 @@ export default function ContactForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: name.trim(),
           email: email.trim(),
           message: message.trim(),
           honeypot,
@@ -88,7 +86,6 @@ export default function ContactForm() {
       }
 
       setSubmitStatus('success');
-      setName('');
       setEmail('');
       setMessage('');
       setFormStartTime(Date.now());
@@ -158,27 +155,6 @@ export default function ContactForm() {
           onChange={(e) => setHoneypot(e.target.value)}
           tabIndex={-1}
           autoComplete="off"
-        />
-      </div>
-
-      <div style={{ marginBottom: '16px' }}>
-        <label htmlFor="name" style={{ display: 'block', marginBottom: '4px', fontWeight: 500 }}>
-          Name
-        </label>
-        <input
-          type="text"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          style={{
-            width: '100%',
-            padding: '10px 12px',
-            border: '1px solid #ccc',
-            borderRadius: '8px',
-            fontSize: '14px',
-            boxSizing: 'border-box',
-          }}
         />
       </div>
 

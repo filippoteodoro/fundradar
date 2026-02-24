@@ -41,9 +41,9 @@ monitor (fetch + extract + diff) → filter (quality scoring) → enrich (AI sum
 | Module | Purpose |
 |--------|---------|
 | `monitor.py` | Main fetch/extract/diff engine |
-| `pipeline.py` | 3-step orchestration |
+| `pipeline.py` | Pipeline orchestration |
 | `strategy_orchestrator.py` | Extraction strategy selection |
-| `strategies/extractors/` | 160+ fund-specific extractors |
+| `strategies/extractors/` | Fund-specific extractors |
 | `fetcher.py` | HTTP fetching with rate limiting |
 | `playwright_fetcher.py` | JS-heavy site fetching |
 | `differ.py` | Change detection between page versions |

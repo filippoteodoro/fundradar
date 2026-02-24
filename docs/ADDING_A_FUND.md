@@ -1,0 +1,1075 @@
+# Adding a New Fund to Fundradar — Complete Guide
+
+This is the definitive, step-by-step guide to correctly adding a new fund to Fundradar, from initial research through to production deployment.
+
+> **Canonical references**: For pipeline internals see `apps/worker/CLAUDE.md`. For web app caching and data loading see `apps/web/CLAUDE.md`. For project-wide rules see root `CLAUDE.md`. This guide focuses on the **workflow** of adding a fund and references those docs for deep dives.
+
+---
+
+## Table of Contents
+
+1. [Prerequisites & Eligibility](#1-prerequisites--eligibility)
+2. [Research the Fund](#2-research-the-fund)
+3. [Add the Fund Entry to db.json](#3-add-the-fund-entry-to-dbjson)
+4. [Build the Custom Extractor](#4-build-the-custom-extractor)
+5. [Test the Extractor](#5-test-the-extractor)
+6. [Run the Pipeline](#6-run-the-pipeline)
+7. [Enrich Portfolio Data with Gemini](#7-enrich-portfolio-data-with-gemini)
+8. [Generate Fund Description (Optional)](#8-generate-fund-description-optional)
+9. [Enrich Signals with OpenAI](#9-enrich-signals-with-openai)
+10. [AIFI Data Merge (Optional)](#10-aifi-data-merge-optional)
+11. [Geocoding & Map (Optional)](#11-geocoding--map-optional)
+12. [Verify Frontend Display](#12-verify-frontend-display)
+13. [Sitemap & llms.txt (Automatic)](#13-sitemap--llmstxt-automatic)
+14. [Assets & OG Images (Automatic)](#14-assets--og-images-automatic)
+15. [Commit & Deploy](#15-commit--deploy)
+16. [Post-Deployment Checklist](#16-post-deployment-checklist)
+17. [Reference: db.json Field Catalog](#reference-dbjson-field-catalog)
+18. [Reference: Extractor Template & Patterns](#reference-extractor-template--patterns)
+19. [Reference: Common Pitfalls](#reference-common-pitfalls)
+
+---
+
+## 1. Prerequisites & Eligibility
+
+### What belongs in Fundradar
+
+Only **Private Equity, Venture Capital, and Growth Equity** funds with Italian operations belong in `db.json`.
+
+### What does NOT belong
+
+| Entity Type | Example | Why Not |
+|---|---|---|
+| Asset managers | Generali Investments, Amundi, BlackRock | Diversified portfolios, not PE/VC |
+| Banks | Banca Generali, BancoBPM Invest | Deposit-taking institutions |
+| Regional agencies | Trentino Sviluppo, Lazio Innova, Finlombarda | Public development agencies |
+| Credit-only vehicles | Clessidra Capital Credit SGR | Private debt, not equity |
+
+**Quick test**: Check the entity's website. If it says "asset management", "wealth management", "banking", or "credit" — it's not PE/VC. If it says "private equity", "venture capital", "growth equity", "buyout", or "infrastructure investments" — it belongs.
+
+Excluded entities are blocked via `invalid_slugs` in `data/derived/fund_aliases.json` and `EXCLUDED_SLUGS` in `scripts/merge-aifi-metrics.ts`.
+
+### Before you start
+
+1. **Check if the fund already exists** in `db.json`:
+   ```bash
+   python3 -c "import json; [print(f['slug'], f['name']) for f in json.load(open('data/db.json'))['funds'] if 'SEARCH_TERM' in f.get('name','').lower()]"
+   ```
+2. **Check `fund_aliases.json`** for variant names that might canonicalize to an existing fund. Structure:
+   ```json
+   {
+     "aliases": { "legacy-slug": "canonical-slug" },
+     "invalid_slugs": ["bank-slug", "asset-manager-slug"],
+     "domain_aliases": { "old-domain.com": "current-domain.com" }
+   }
+   ```
+   - If a variant slug maps to an existing fund, use the canonical slug — don't create a new entry.
+   - If the fund was previously added under a different legal name (common after AIFI scrapes), add an alias mapping to `fund_aliases.json` instead of creating a duplicate.
+3. **Check `invalid_slugs`** in `data/derived/fund_aliases.json` — the fund might be explicitly blocked.
+
+---
+
+## 2. Research the Fund
+
+Before writing any code, gather this information:
+
+### 2.1 — Visit the fund's website
+
+Open the fund's official website and locate:
+
+| Page | What to look for | Example paths |
+|---|---|---|
+| **Portfolio page** | List of current/past investments | `/portfolio/`, `/investimenti/`, `/our-companies/`, `/portafoglio/` |
+| **Team page** | People, leadership | `/team/`, `/chi-siamo/`, `/about/`, `/persone/` |
+| **News/Press page** | Press releases, news | `/news/`, `/newsroom/`, `/media/`, `/press/` |
+
+**Record the exact URL paths.** Do NOT guess — open each page in a browser and confirm it loads with relevant content.
+
+### 2.2 — Check AIFI
+
+If the fund is an AIFI member, check `data/AIFI/all.csv` for authoritative data:
+```bash
+grep -i "FUND_NAME" data/AIFI/all.csv
+```
+
+AIFI provides: official website URL, AUM, contact info, investment ranges, geographies. **AIFI website URLs are authoritative** — verify your `website` field in `db.json` matches.
+
+> **AIFI name cleaning**: AIFI registers members by legal entity name (e.g., "Example Partners SGR S.p.A. - Italian Branch"), not brand name. The `clean_fund_name()` function in `aifi_scraper.py` automatically strips branch suffixes, parenthesized legal info, and trailing "Italy"/"Italia". If the cleaned name still doesn't match the fund's actual brand name (check their homepage), add an override to `AIFI_NAME_OVERRIDES` dict in `aifi_scraper.py`.
+
+### 2.3 — Determine the fund's scope
+
+| Scope | Meaning | Example |
+|---|---|---|
+| `italy_focused` | HQ in Italy + invests primarily in Italy | 21 Invest, Clessidra |
+| `europe_wide` | European fund with Italian operations | Ardian, Permira |
+| `mixed_or_global` | Global mega-fund with some Italian deals | Blackstone, KKR |
+
+This affects how the signal filter's geo gate treats the fund's signals. See `apps/worker/CLAUDE.md` for the full 3-tier gate logic.
+
+### 2.4 — Check if the website blocks scraping
+
+Some fund websites block headless browsers entirely or require JavaScript rendering. Signs:
+- **403 Forbidden** when fetched programmatically
+- **Blank page** that only renders with JavaScript (React/Vue/Angular/Next.js SPAs)
+- **Cloudflare/Akamai challenge pages**
+
+The system handles this via `data/derived/domain_policies.json`, which tracks per-domain settings:
+- `requires_headless: true` — site needs Playwright (auto-detected for JS-heavy sites)
+- Custom timeouts, rate limits, SSL settings
+
+Known problem domains (as of last update):
+- **Bridgepoint** — requires headless browser (AEM/Adobe Experience Manager site, JavaScript-rendered). The extractor works but needs `requires_headless: true` in domain policies.
+- **EnTrust Global** — blocks ALL automated access (ShieldPRO anti-bot). Manual portfolio entries are the only option. The extractor exists but has all URLS set to `None`.
+
+Check `apps/worker/CLAUDE.md` and `data/derived/domain_policies.json` for the current list of domains requiring special handling.
+
+---
+
+## 3. Add the Fund Entry to db.json
+
+### 3.1 — Generate the slug
+
+Rules for slug generation:
+- **Lowercase** everything
+- **Hyphens** for spaces: `"Bain Capital"` → `bain-capital`
+- **Strip legal suffixes**: SGR, S.p.A., S.r.l., etc.
+- **No special characters**: strip accents, apostrophes
+- **Must be unique** in db.json
+
+### 3.2 — Add the entry
+
+Open `data/db.json` and add a new object to the `funds` array. Here's a minimal entry:
+
+```json
+{
+  "id": "example-fund",
+  "slug": "example-fund",
+  "name": "Example Fund",
+  "category": "pe",
+  "hq_city": "Milan",
+  "hq_region": "Italy",
+  "website": "https://www.example-fund.com",
+  "strategy_tags": ["Buy-Out"],
+  "sector_tags": ["Technology", "Healthcare"],
+  "description": "Example Fund is a private equity firm focused on mid-market buyouts in Italy.",
+  "geographies": ["Italy"],
+  "aum_eur": null,
+  "created_at": "2026-02-24T00:00:00.000Z",
+  "updated_at": "2026-02-24T00:00:00.000Z"
+}
+```
+
+### 3.3 — Category values
+
+The full list of valid categories is the `FundCategory` type in `packages/shared/src/types.ts`. The most common ones for new funds:
+
+| Category | Slug | When to use |
+|---|---|---|
+| Private Equity | `pe` | Traditional buyout/control |
+| Venture Capital | `vc` | Early/growth stage startups |
+| Growth Equity | `growth` | Growth capital without full control |
+| Infrastructure | `infra` | Infrastructure and real assets |
+| Private Debt | `debt` | Credit, mezzanine, direct lending |
+| Multi-Strategy | `multi_strategy` | Multiple strategies across asset classes |
+| Holdings | `holdings` | Holding companies |
+| Fund of Funds | `fund_of_funds` | Invests in other PE/VC funds |
+| Sovereign | `sovereign` | State-backed investment vehicles |
+| Real Estate | `real_estate` | Real estate investment |
+
+> **Source of truth**: Always check `FundCategory` in `packages/shared/src/types.ts` for the authoritative list — categories may have been added since this doc was last updated.
+
+### 3.4 — Optional flags
+
+| Flag | Type | When to set |
+|---|---|---|
+| `is_ecosystem_newsroom` | `boolean` | Fund's news page covers the ENTIRE market, not just its own activity. Rare — search `db.json` for `is_ecosystem_newsroom` to see current list. |
+| `aum_eur` | `number` | AUM in EUR (**NOT `aum`** — the field name is `aum_eur`) |
+| `investment_min_eur` | `number` | Minimum ticket size (**NOT `investment_min`**) |
+| `investment_max_eur` | `number` | Maximum ticket size (**NOT `investment_max`**) |
+
+See the [full field catalog](#reference-dbjson-field-catalog) at the end of this document.
+
+---
+
+## 4. Build the Custom Extractor
+
+### 4.1 — Create the file
+
+```bash
+cp apps/worker/fundradar_worker/strategies/extractors/_template.py \
+   apps/worker/fundradar_worker/strategies/extractors/{fund_slug}.py
+```
+
+**Naming**: Use the fund slug with underscores instead of hyphens (Python module naming). Example: `bain_capital.py` for slug `bain-capital`.
+
+> **Note**: The filename doesn't affect URL routing — only the `DOMAIN` constant inside the file matters. But convention is to match the slug. Some historical exceptions exist (e.g., `ottoapiu.py` → slug `8a-investimenti-sgr`).
+
+### 4.2 — Set the three required exports
+
+Every extractor **must** export exactly three things:
+
+#### 1. `DOMAIN` — The exact domain
+
+```python
+DOMAIN = "www.example-fund.com"  # Must match db.json website domain exactly
+```
+
+**This is how the system routes fetched HTML to your extractor.** If `DOMAIN` doesn't exactly match the domain in `db.json`'s `website` field, the extractor will never be called. This is the #1 cause of "my extractor doesn't run" issues.
+
+#### 2. `URLS` — The page paths to fetch
+
+```python
+URLS = {
+    "portfolio": "/portfolio/",           # Required if portfolio exists
+    "team": "/team/",                     # Optional — set to None if no team page
+    "news": "/news/",                     # Optional — set to None if no news page
+}
+```
+
+**CRITICAL RULES for URLS:**
+- **Every path MUST be verified against the live website** — open it in a browser, confirm it returns 200 and has relevant content.
+- **NEVER use generic template paths** like `/investments`, `/management` — these are placeholders that rarely exist on real websites.
+- **Single-page sites**: Use `"/"` for the homepage if portfolio/team data is on the main page.
+- **Multiple pages**: Use a list — for example, when current and exited portfolios are on separate pages:
+  ```python
+  "portfolio": ["/current-investments/", "/past-investments/"]
+  ```
+  The monitor fetches each URL separately and calls `extract_portfolio()` on each. Your function receives one page at a time and returns companies from that page. The monitor merges results from all pages.
+- **WordPress REST API**: Can use JSON API endpoints:
+  ```python
+  "news": "/wp-json/wp/v2/posts?per_page=20&_fields=id,title,date,link,excerpt"
+  ```
+  Your `extract_news()` function should try `json.loads(html)` first, with HTML parsing as fallback. See `abenex.py` for a production example.
+- **Set to `None`** for page types that don't exist on this fund's website.
+
+> **Legacy note**: `data/monitor-urls.md` is a legacy file with base domain URLs only. Do NOT add entries there — URLs are auto-discovered from extractor `URLS` dicts.
+
+#### 3. `EXTRACTORS` — The extraction functions
+
+```python
+EXTRACTORS = {
+    "portfolio": extract_portfolio,   # Required if URLS has portfolio
+    "team": extract_team,             # Optional
+    "news": extract_news,             # Optional
+}
+```
+
+Only include functions you actually implemented. **Never include a function that doesn't exist.**
+
+#### Optional: `ALWAYS_EXTRACT` flag
+
+```python
+ALWAYS_EXTRACT = True  # Bypass content hash check — always run extraction
+```
+
+Set this when the site fetches data from an API (e.g., WordPress REST API, JSON endpoints) where the HTML shell stays the same but the data changes. Without this flag, the monitor's content hash optimization sees "same HTML" and skips extraction even when API data has changed. See `merito_sgr.py` for an example.
+
+### 4.3 — Implement `extract_portfolio()`
+
+This is the most important function. It receives the raw HTML of the portfolio page and must return a list of company dicts.
+
+```python
+def extract_portfolio(html: str, base_url: str) -> list[dict]:
+    soup = BeautifulSoup(html, "html.parser")
+    companies = []
+    seen_names = set()
+
+    for item in soup.select("div.portfolio-item"):  # ← Adapt to actual HTML structure
+        name_el = item.select_one("h3.company-name")  # ← Adapt
+        if not name_el:
+            continue
+
+        name = name_el.get_text(strip=True)
+        if not name or len(name) < 2:
+            continue
+
+        # Dedup
+        name_lower = name.lower()
+        if name_lower in seen_names:
+            continue
+        seen_names.add(name_lower)
+
+        # Sector
+        sector = None
+        sector_el = item.select_one(".sector")
+        if sector_el:
+            sector = sector_el.get_text(strip=True)
+
+        # Website
+        website = None
+        link_el = item.select_one("a[href]")
+        if link_el and link_el.get("href", "").startswith("http"):
+            website = link_el["href"]
+
+        # Description
+        description = None
+        desc_el = item.select_one("p.description")
+        if desc_el:
+            description = desc_el.get_text(strip=True)[:500]
+
+        companies.append({
+            "name": name,
+            "sector": sector,
+            "website": website,
+            "description": description,
+            "status": "current",    # See status detection rules below
+            "confidence": 0.90,
+        })
+
+    return companies
+```
+
+#### Company name quality — what the frontend rejects
+
+The web app's `isValidPortfolioEntry()` in `data.ts` silently rejects entries matching `NAV_PATTERNS` (navigation text like "Back to top", "Read more", "Cookie policy", fund's own name, names < 2 chars, URLs, file paths). `cleanPortfolioName()` also strips " logo" suffixes and pipe-delimited promotional text.
+
+**Test your names**: If `extract_portfolio()` returns names that look like nav text, they'll silently disappear from the frontend with no error. Always visually inspect the first few results.
+
+#### Status detection rules (CRITICAL)
+
+| Page type | Default status | Example |
+|---|---|---|
+| Single portfolio page (`/portfolio/`) | `"current"` | Only shows active holdings |
+| Dedicated exits page (`/realized/`, `/prior-investments/`) | `"exited"` | Only shows past investments |
+| Multi-section page (tabs, filters) | Detect from structure | Use labeled fields, section headers, data attributes |
+| Mixed/unclear page | `None` | Don't guess — incorrect status is worse than unknown |
+
+**Safe detection patterns (priority order):**
+
+1. **Data attributes** (best): `data-status="exited"`, `data-statut="cedute"`
+2. **URL path**: The page path itself indicates status (`/current-portfolio/` vs `/prior-investments/`)
+3. **Parent element class/ID**: `#invest-cedute`, `.realised-portfolio`
+4. **Section headers**: Track h2/h3 headings like "Current" vs "Realised" in document order
+5. **Labeled field values**: Check for a `Status:` label FIRST, then match the value (may be in Italian: "ceduto", "attivo")
+
+**NEVER do this:**
+```python
+# BAD — matches "exit" anywhere in text, causes false positives
+if "exit" in description.lower():
+    status = "exited"
+```
+
+#### Confidence scores — when to use which value
+
+| Confidence | When to use |
+|---|---|
+| 0.95 | Explicit data attributes, very clear structure, zero ambiguity |
+| 0.90 | Clean selector-based extraction, one-to-one mapping |
+| 0.85 | Default for well-structured sites |
+| 0.80 | Some fuzzy matching or regex involved |
+| 0.70 | Minimum recommended for extractors |
+| < 0.3 | Filtered out by strategy orchestrator — never use this low |
+
+### 4.4 — Implement `extract_team()` (optional)
+
+```python
+def extract_team(html: str, base_url: str) -> list[dict]:
+    soup = BeautifulSoup(html, "html.parser")
+    members = []
+
+    for item in soup.select("div.team-member"):
+        name_el = item.select_one("h3")
+        if not name_el:
+            continue
+        name = name_el.get_text(strip=True)
+        if not name or len(name) < 3:
+            continue
+
+        title = None
+        title_el = item.select_one(".title, .position")
+        if title_el:
+            title = title_el.get_text(strip=True)
+
+        linkedin = None
+        for link in item.select("a[href*='linkedin']"):
+            linkedin = link.get("href")
+            break
+
+        photo_url = None
+        img = item.select_one("img")
+        if img:
+            src = img.get("src") or img.get("data-src")
+            if src:
+                photo_url = urljoin(base_url, src)
+
+        members.append({
+            "name": name,
+            "title": title,
+            "role": None,
+            "linkedin": linkedin,
+            "email": None,
+            "photo_url": photo_url,
+            "confidence": 0.85,
+        })
+
+    return members
+```
+
+### 4.5 — Implement `extract_news()` (optional)
+
+```python
+def extract_news(html: str, base_url: str) -> list[dict]:
+    soup = BeautifulSoup(html, "html.parser")
+    news = []
+
+    for article in soup.select("article.post"):
+        title_el = article.select_one("h2 a, h3 a")
+        if not title_el:
+            continue
+        title = title_el.get_text(strip=True)
+        if not title or len(title) < 5:
+            continue
+
+        url = None
+        link = article.select_one("a[href]")
+        if link:
+            url = urljoin(base_url, link.get("href", ""))
+
+        date = None
+        date_el = article.select_one("time, .date, [datetime]")
+        if date_el:
+            date = date_el.get("datetime") or date_el.get_text(strip=True)
+
+        summary = None
+        summary_el = article.select_one(".excerpt, .summary, p")
+        if summary_el:
+            summary = summary_el.get_text(strip=True)[:300]
+
+        news.append({
+            "title": title,
+            "url": url,
+            "date": date,
+            "summary": summary,
+            "confidence": 0.85,
+        })
+
+    return news
+```
+
+### 4.6 — How the extractor is auto-discovered
+
+You do **not** need to register the extractor anywhere. The system auto-discovers it:
+
+1. `extractors/__init__.py` uses `pkgutil.iter_modules()` to find all `.py` files in the extractors directory
+2. Each module is imported. If it has `DOMAIN` and `EXTRACTORS` attributes, it's registered in `ALL_EXTRACTORS[domain]`
+3. If it also has `URLS`, those are registered in `ALL_URLS[domain]`
+4. `url_generator.py` reads `ALL_URLS` to build the list of URLs to fetch
+5. `strategy_orchestrator.py` reads `ALL_EXTRACTORS` to route fetched HTML to the correct extractor
+
+**When a site-specific extractor returns results, all generic strategies are skipped** for that domain. This prevents garbage from generic HTML parsing contaminating the results.
+
+### 4.7 — When scraping is not possible: manual portfolio entries
+
+If a fund's website blocks scraping entirely (Bridgepoint, EnTrust Global, or others), you can add portfolio entries directly to `portfolio_items.json`:
+
+```json
+{
+  "fund_portfolios": {
+    "fund-slug": [
+      {
+        "name": "Company Name",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.9,
+        "website": "https://company.com",
+        "description": "Brief description.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": "2024-01-01"
+      }
+    ]
+  }
+}
+```
+
+**Rules for manual entries:**
+- Source from fund websites, press releases, AIFI data — never guess
+- Set `confidence: 0.9` or higher (verified from public sources)
+- Use names that will normalize to match PEM deal names (check with `normalizeCompanyName()` in `data.ts`)
+- If the fund DOES have a working extractor, manual entries will be **overwritten** on next monitor run — fix the extractor instead
+- If the fund has NO extractor, manual entries persist across pipeline runs
+
+See `apps/web/CLAUDE.md` "Manual Portfolio Entries" section for full details.
+
+---
+
+## 5. Test the Extractor
+
+### 5.1 — Verify it loads
+
+```bash
+cd apps/worker
+python -c "
+from fundradar_worker.strategies.extractors.{fund_slug} import DOMAIN, URLS, EXTRACTORS
+print('DOMAIN:', DOMAIN)
+print('URLS:', URLS)
+print('EXTRACTORS:', list(EXTRACTORS.keys()))
+"
+```
+
+Expected: No import errors, correct domain, URLS paths, and extractor function names.
+
+### 5.2 — Run the monitor for this fund only
+
+```bash
+pnpm worker:monitor --limit 1 --slugs {fund-slug}
+```
+
+This fetches the fund's website, runs your extractor, and writes output to `data/derived/portfolio_items.json`.
+
+### 5.3 — Check the output
+
+```bash
+# Count extracted companies
+python3 -c "
+import json
+d = json.load(open('data/derived/portfolio_items.json'))
+companies = d.get('portfolios', {}).get('{fund-slug}', [])
+print(f'Companies: {len(companies)}')
+for c in companies[:5]:
+    print(f\"  - {c['name']} ({c.get('status', 'unknown')}) [{c.get('sector', 'no sector')}]\")
+"
+```
+
+### 5.4 — Extractor validation checklist
+
+- [ ] `DOMAIN` matches the domain in `db.json` `website` field **exactly**
+- [ ] Every URLS path verified against the live website (returns 200, has content)
+- [ ] No template paths like `/investments` or `/management`
+- [ ] `extract_portfolio()` returns at least 1 company (for funds with portfolio pages)
+- [ ] Company names are real company names (not navigation text, not "Read more", not "Back to top")
+- [ ] Company names won't be rejected by `isValidPortfolioEntry()` (see Section 4.3)
+- [ ] `status` field is set correctly (`"current"`, `"exited"`, or `None`)
+- [ ] Relative URLs resolved with `urljoin(base_url, href)`
+- [ ] Confidence scores in range 0.7–0.95
+- [ ] Deduplication via `seen_names` set
+- [ ] No hardcoded fund names or fund-specific logic that belongs in `db.json` metadata
+- [ ] If site uses API/JSON responses: set `ALWAYS_EXTRACT = True`
+
+### 5.5 — Run unit tests
+
+```bash
+cd apps/worker && pytest
+```
+
+Ensure your new extractor doesn't break existing tests. Test files are in `apps/worker/tests/`. While there's no mandatory test template for new extractors, the test suite includes `test_blocked_fund_extractors.py` which verifies all extractors load correctly.
+
+---
+
+## 6. Run the Pipeline
+
+### 6.1 — Full pipeline for this fund
+
+```bash
+pnpm pipeline --slugs {fund-slug}
+```
+
+This runs all pipeline steps. The canonical step list and ordering is defined in the `STEPS` list in `apps/worker/fundradar_worker/pipeline.py`. Current steps:
+
+| Step | Script | What it does | Idempotent? |
+|---|---|---|---|
+| 1. monitor | `monitor.py` | Fetch website, extract portfolio/team/news, detect signals | Yes (content hash) |
+| 2. rss | `rss_monitor.py` | Fetch Italian PE/VC RSS feeds, match articles to fund | Yes (state tracking) |
+| 3. translate | `translate_signals.py` | Translate Italian/French → English (DeepL → Azure → OpenAI) | Yes (checks `*_original` fields) |
+| 4. normalize_sectors | `normalize_sectors.py` | Normalize sectors to canonical taxonomy | Yes |
+| 5. normalize_portfolio | `normalize_portfolio_cross_fund.py` | Deduplicate companies across funds | Yes |
+| 6. enrich_portfolio | `enrich_portfolio_gemini_full.py` | Fill missing sector/HQ/description (Gemini, optional) | Yes |
+| 7. filter | `filter_signals.py` | Quality scoring, geo gate, noise removal, dedup | Yes |
+| 8. enrich | `enrich_signals_openai.py` | AI summaries, target_company extraction (OpenAI) | Yes (progress file) |
+| 9. signal_to_portfolio | `signal_to_portfolio.py` | Convert deal/exit signals → portfolio entries | Yes (progress file) |
+
+> **RSS signals start automatically**: When you add a fund, RSS signals matching the fund name start appearing automatically at step 2. Italian financial press (BeBeez, Il Sole 24 Ore, Milano Finanza, etc.) articles are matched to funds via text matching and LLM classification. No extractor is needed for RSS — it's entirely automatic.
+
+### 6.2 — If you only updated extractor code
+
+After modifying an existing extractor, you **must** use `--force-extract`:
+```bash
+pnpm pipeline --slugs {fund-slug} --force-extract
+```
+
+Without this flag, the monitor's content hash optimization skips pages whose HTML hasn't changed — meaning your updated extractor code won't run. **Example**: if you fix status detection from `"current"` to `"exited"`, use `--force-extract` even if the HTML was fetched yesterday.
+
+### 6.3 — Run individual steps
+
+```bash
+# Filter + enrich only (skip fetching)
+pnpm pipeline:signals
+
+# Signal-to-portfolio conversion only
+pnpm pipeline:signals-to-portfolio
+
+# Specific step only
+pnpm pipeline --step filter
+```
+
+---
+
+## 7. Enrich Portfolio Data with Gemini
+
+### What it does
+
+Step 6 (`enrich_portfolio_gemini_full.py`) uses **Gemini** with Google Search grounding to fill missing **portfolio company** data:
+- Missing sector
+- Missing HQ location
+- Missing description
+
+> **This enriches PORTFOLIO COMPANY descriptions, NOT the fund itself.** For fund-level descriptions, see [Section 8](#8-generate-fund-description-optional).
+
+### Configuration
+
+Configuration values are defined as constants at the top of `apps/worker/scripts/enrich_portfolio_gemini_full.py`. Key settings:
+
+| Setting | Where defined |
+|---|---|
+| Model | `MODEL` constant in `enrich_portfolio_gemini_full.py` (currently `gemini-3-flash-preview` — NEVER use any `gemini-2.x`) |
+| API Key | `GEMINI_API_KEY` env var |
+| Package | `google-genai>=1.0.0` (`from google import genai`) |
+| Batch size | `BATCH_SIZE` constant in the script |
+| Pipeline cap | `--pipeline` flag default limit |
+| Timeout | Defined in `pipeline.py` `STEPS` list |
+
+### When it runs
+
+- **Automatically** as step 6 of `pnpm pipeline`
+- **Optional** — auto-skips if `GEMINI_API_KEY` is not set
+- Runs AFTER portfolio normalization but BEFORE signal filtering
+
+### Verify the enrichment
+
+```bash
+python3 -c "
+import json
+d = json.load(open('data/derived/portfolio_items.json'))
+companies = d.get('portfolios', {}).get('{fund-slug}', [])
+enriched = [c for c in companies if c.get('sector') and c.get('description')]
+print(f'Total: {len(companies)}, With sector+description: {len(enriched)}')
+"
+```
+
+---
+
+## 8. Generate Fund Description (Optional)
+
+If the new fund has no `description` in `db.json` (or it's poor quality), you can generate one via Gemini:
+
+```bash
+# Script is at the repo ROOT scripts/ directory, not apps/worker/scripts/
+python3 scripts/generate-fund-descriptions-gemini.py --slugs {fund-slug}
+```
+
+This:
+- Uses Gemini with Google Search grounding to research the fund
+- Generates an English description based on publicly available information
+- Sets `description_source: "gemini"` to track provenance
+- Writes the description back to `db.json`
+
+> **This is a fund-level description** (appears in the fund's overview tab), separate from portfolio company descriptions enriched in Step 7.
+
+---
+
+## 9. Enrich Signals with OpenAI
+
+### What it does
+
+Step 8 (`enrich_signals_openai.py`) uses **OpenAI** to:
+- Generate English AI summaries (`enriched_summary`) for each signal
+- Extract `target_companies` from deal/exit signals (used by step 9)
+- Apply safety-net translation for any Italian that survived step 3
+
+### Configuration
+
+Configuration values are defined as constants in `apps/worker/scripts/enrich_signals_openai.py`:
+
+| Setting | Where defined |
+|---|---|
+| Model | `MODEL` constant (currently `gpt-5-mini` — NEVER use ChatGPT 4o, it hallucinates) |
+| Concurrent requests | `MAX_CONCURRENT_LLM` constant |
+| Rate limit | `REQUESTS_PER_MINUTE` constant |
+| Progress file | `signal_enrichment_progress.json` |
+
+### Cost control (CRITICAL)
+
+- **NEVER delete `signal_enrichment_progress.json`** — forces full re-enrichment (several dollars in API costs)
+- **NEVER delete `detected_signals_enriched.json`** — forces re-translation of all Italian signals
+- For debugging: edit `detected_signals_enriched.json` directly (free) instead of re-running the enricher
+- See `apps/worker/CLAUDE.md` "OpenAI Cost Control" section for full rules and current cost estimates
+
+### enriched_summary coverage
+
+**~40-60% of signals will have `enriched_summary=""`** — this is intentional, NOT a bug. When the LLM summary is 85%+ word overlap with the title, it's cleared. The frontend falls back to displaying the title — this is correct behavior, not data loss.
+
+---
+
+## 10. AIFI Data Merge (Optional)
+
+If the fund is an AIFI member and you want to pull in AIFI metadata (AUM, investment ranges, contact info, geocoded offices):
+
+```bash
+# Step 1: Scrape latest AIFI data (optional — skip if AIFI data is already fresh)
+pnpm worker:aifi
+
+# Step 2: Merge AIFI data into db.json
+pnpm merge-aifi
+```
+
+`merge-aifi` (`scripts/merge-aifi-metrics.ts`) merges into `db.json`:
+- `aum_eur`, `num_funds`, `num_portfolio_companies`
+- `investment_min_eur`, `investment_max_eur`
+- `contact_name`, `contact_email`, `contact_phone`
+- `aifi_url`
+- Office locations and coordinates (if geocoded)
+
+**Shortcut**: `pnpm aifi:full` runs both scrape + merge in sequence.
+
+> **Warning**: AIFI scraper sets wrong HQ for global funds — the Italian branch gets written as HQ. After ANY AIFI merge, cross-check `offices[]` `is_hq` entries against top-level `hq_*` fields. Preserve the Italian office in `offices[]` when fixing the global HQ.
+
+---
+
+## 11. Geocoding & Map (Optional)
+
+Without geocoded coordinates, the fund **won't appear on the `/map` page**. To add coordinates:
+
+```bash
+# Step 1: Geocode addresses (uses Nominatim/OpenStreetMap — free, 1 req/sec)
+pnpm worker:geocode
+
+# Step 2: Merge coordinates into db.json
+pnpm merge-aifi
+```
+
+This populates `hq_lat`, `hq_lng`, and `hq_address` in `db.json`. The map page resolves coordinates in this priority:
+1. `offices[]` array (prefers Italian office → HQ → any office with lat/lng)
+2. `hq_lat` / `hq_lng` fields
+3. `cityCoordinates.ts` fallback (~59 entries covering Italian and European cities, matched by `hq_city` name)
+
+---
+
+## 12. Verify Frontend Display
+
+### 12.1 — Restart the dev server
+
+The web app caches all JSON data in memory with **NO TTL, NO invalidation**. After any worker run:
+
+```bash
+pnpm dev
+```
+
+### 12.2 — Check the fund pages
+
+| URL | What to check |
+|---|---|
+| `http://localhost:3000` | Fund appears in the home table |
+| `http://localhost:3000/funds/{slug}` | Fund detail page loads |
+| Overview tab | Name, category, AUM, strategy, sectors display correctly |
+| Portfolio tab | Companies listed with correct names, sectors, and statuses |
+| Signals tab | Signals appear (if any were detected) |
+| Deals tab | PEM deals appear (if any exist) |
+| `http://localhost:3000/map` | Fund appears on the map (if geocoded) |
+| `http://localhost:3000/companies` | Portfolio companies appear |
+| `http://localhost:3000/signals` | Fund's signals appear in the global feed |
+
+### 12.3 — Data loading architecture
+
+Understanding how data reaches the UI (verify against `apps/web/src/lib/data.ts` if this seems outdated):
+
+```
+db.json ──────────────→ data.ts:loadDatabase() ──→ Fund list, fund detail overview
+portfolio_items.json ──→ data.ts:getPortfolioForFund() ──→ Portfolio tab (merges website + PEM)
+pem_deals.json ────────→ data.ts:getDealsForFund() ──→ Deals tab
+detected_signals_filtered.json → data.ts:getSignalsForFund() ──→ Fund detail signals tab
+detected_signals_enriched.json → signals_unified.ts:loadUnifiedSignals() ──→ /signals feed page
+```
+
+**Static generation**: Fund pages are pre-rendered at build time via `generateStaticParams()`. The fund's slug is automatically included because `generateStaticParams()` reads all slugs from `db.json`.
+
+---
+
+## 13. Sitemap & llms.txt (Automatic)
+
+### Sitemap
+
+**File**: `apps/web/src/app/sitemap.ts`
+
+The sitemap is **generated automatically** at build time. It reads all fund slugs from `db.json` and all company slugs. No manual action needed — your new fund is automatically included.
+
+### llms.txt
+
+**Files**: `apps/web/src/app/llms.txt/route.ts` and `apps/web/src/app/llms-full.txt/route.ts`
+
+These are dynamic route handlers that generate the `/llms.txt` and `/llms-full.txt` endpoints at request time. They read live stats (fund count, signal count, portfolio company count) from `data.ts` and `signals_unified.ts`.
+
+**No manual action needed** — the stats automatically update to include your new fund and its signals/portfolio companies. The llms.txt files inform AI models about the site's content and when to recommend Fundradar.
+
+---
+
+## 14. Assets & OG Images (Automatic)
+
+### OG Images
+
+**File**: `apps/web/src/app/opengraph-image.tsx`
+
+A site-level OG image (1200x630 PNG) is generated at the edge. There is no per-fund OG image — all fund pages share the same site-level OG image. **No manual action needed.**
+
+### Logos
+
+There is no centralized logo storage. Fund logos are referenced from the fund's own website during extraction (if available). The system does not host or manage fund logos separately.
+
+---
+
+## 15. Commit & Deploy
+
+### 15.1 — What to commit
+
+```bash
+# Stage the new/modified files
+git add data/db.json
+git add apps/worker/fundradar_worker/strategies/extractors/{fund_slug}.py
+git add data/derived/portfolio_items.json
+git add data/derived/detected_signals_filtered.json
+git add data/derived/detected_signals_enriched.json
+```
+
+**Do NOT commit:**
+- `signal_enrichment_progress.json` (progress tracker, not data)
+- `signal_to_portfolio_progress.json` (progress tracker, not data)
+- `url_status.json` (transient state)
+- `deepl_quota_state.json` (transient state)
+- `rss_state.json` (transient state)
+
+### 15.2 — Commit message
+
+```
+Add {Fund Name} fund and extractor
+
+- Domain: {domain}
+- Portfolio page: {path}
+- {N} companies extracted
+- News monitoring: {enabled/disabled}
+```
+
+### 15.3 — Deploy
+
+Fundradar auto-deploys from `main` on Vercel:
+
+1. Push to `main`
+2. Vercel builds the Next.js app from `apps/web/`
+3. `generateStaticParams()` pre-renders the new fund page
+4. Live at `fundradar.co/funds/{slug}` within ~2 minutes
+
+---
+
+## 16. Post-Deployment Checklist
+
+- [ ] Fund appears on `fundradar.co`
+- [ ] Fund detail page loads at `fundradar.co/funds/{slug}`
+- [ ] Portfolio tab shows companies
+- [ ] Signals tab shows signals (if any)
+- [ ] Fund appears on `/map` (if geocoded — see [Section 11](#11-geocoding--map-optional))
+- [ ] Fund's companies appear on `/companies`
+- [ ] Page renders correctly when shared on social media (site-level OG image is automatic)
+- [ ] Run `pnpm audit:quality` to check the fund's data quality grade
+- [ ] Weekly digest will automatically include signals from this fund (no action needed)
+- [ ] RSS feeds will automatically match articles mentioning this fund (no action needed)
+
+---
+
+## Reference: db.json Field Catalog
+
+### Required Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | `string` | Unique identifier (usually same as slug) |
+| `slug` | `string` | URL-safe identifier (lowercase, hyphens) |
+| `name` | `string` | Display name (brand name, NOT legal entity name) |
+| `category` | `string` | Fund category (see `FundCategory` in `packages/shared/src/types.ts`) |
+| `hq_city` | `string \| null` | Headquarters city |
+| `hq_region` | `string \| null` | Headquarters region/country |
+| `website` | `string \| null` | Official website URL |
+| `strategy_tags` | `string[]` | Investment strategies (e.g., `["Buy-Out", "Growth"]`) |
+| `sector_tags` | `string[]` | Sector focus areas (e.g., `["Technology", "Healthcare"]`) |
+| `description` | `string \| null` | Fund description |
+| `created_at` | `string` | ISO timestamp of creation |
+| `updated_at` | `string` | ISO timestamp of last update |
+
+### Common Optional Fields
+
+| Field | Type | Description | Common mistake |
+|---|---|---|---|
+| `geographies` | `string[]` | Target geographies (e.g., `["Europe", "Italy"]`) | |
+| `average_investment` | `string[]` | Investment size ranges (e.g., `["€50-100m"]`) | |
+| `asset_class` | `string[]` | Asset classes (e.g., `["Private equity"]`) | |
+| `aum_eur` | `number \| null` | AUM in EUR | NOT `aum` |
+| `num_funds` | `number \| null` | Number of funds managed | |
+| `num_portfolio_companies` | `number \| null` | Number of portfolio companies | |
+| `investment_min_eur` | `number \| null` | Minimum ticket size in EUR | NOT `investment_min` |
+| `investment_max_eur` | `number \| null` | Maximum ticket size in EUR | NOT `investment_max` |
+| `contact_name` | `string \| null` | Primary contact person | |
+| `contact_email` | `string \| null` | Contact email | |
+| `contact_phone` | `string \| null` | Contact phone | |
+| `linkedin_url` | `string \| null` | Fund's LinkedIn page | |
+
+### Metadata Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `data_source` | `string` | Data provenance (`"aifi_scraped"`, `"pem_extracted"`, `"manual"`) |
+| `data_confidence` | `string` | Confidence level (`"high"`, `"medium"`, `"low"`) |
+| `description_source` | `string` | Where description came from (`"gemini"`, `"manual"`) |
+| `is_ecosystem_newsroom` | `boolean` | News page covers the whole market (rare — search db.json for current list) |
+| `offices` | `Office[]` | Array of office locations with coordinates |
+| `aliases` | `string[]` | Alternative names |
+| `aifi_url` | `string` | AIFI member page URL |
+
+### Geocoding Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `hq_lat` | `number \| null` | Latitude |
+| `hq_lng` | `number \| null` | Longitude |
+| `hq_address` | `string \| null` | Full address |
+
+These are populated by `pnpm worker:geocode && pnpm merge-aifi`. Without them, the fund won't appear on the map.
+
+---
+
+## Reference: Extractor Template & Patterns
+
+### Template
+
+The full template is at `apps/worker/fundradar_worker/strategies/extractors/_template.py`. Copy it and customize:
+
+```bash
+cp apps/worker/fundradar_worker/strategies/extractors/_template.py \
+   apps/worker/fundradar_worker/strategies/extractors/{fund_slug}.py
+```
+
+Key imports you'll need:
+```python
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+import json  # If parsing JSON API responses
+import re    # If using regex for cleanup
+```
+
+### Example: Real extractor (Abenex)
+
+See `apps/worker/fundradar_worker/strategies/extractors/abenex.py` for a production example with:
+- Portfolio extraction using `data-statut` attribute for status detection (Italian values — use whatever the site uses)
+- Team extraction with role classification
+- News extraction from WordPress REST API with HTML fallback (try `json.loads()` first)
+- Deduplication via `seen_names` set
+- Real estate filtering via strategy keywords
+
+### Pattern: WordPress REST API news
+
+Many fund websites use WordPress. Instead of parsing HTML, fetch the JSON API:
+
+```python
+URLS = {
+    "news": "/wp-json/wp/v2/posts?per_page=20&_fields=id,title,date,link,excerpt",
+}
+
+ALWAYS_EXTRACT = True  # API data changes even when HTML shell doesn't
+
+def extract_news(html: str, base_url: str) -> list[dict]:
+    news = []
+    try:
+        posts = json.loads(html)
+        if isinstance(posts, list):
+            for post in posts:
+                title = post.get("title", {}).get("rendered", "")
+                # ... parse structured JSON
+                news.append({...})
+            return news
+    except (json.JSONDecodeError, TypeError):
+        pass
+
+    # Fallback: HTML parsing
+    soup = BeautifulSoup(html, "html.parser")
+    # ...
+```
+
+### Pattern: Multiple portfolio pages (current + exited)
+
+```python
+URLS = {
+    "portfolio": ["/portfolio/current/", "/portfolio/realized/"],
+}
+
+def extract_portfolio(html: str, base_url: str) -> list[dict]:
+    # Determine status from URL or page content
+    # The monitor calls this function once per URL in the list
+    # Use page structure to determine if this is current or exited page
+    ...
+```
+
+---
+
+## Reference: Common Pitfalls
+
+### During extractor development
+
+| Pitfall | Solution |
+|---|---|
+| Using template paths (`/investments`, `/management`) | Always verify paths against the live website |
+| `DOMAIN` doesn't match `db.json` website | Copy the exact domain from `db.json` — this is the #1 "extractor doesn't run" cause |
+| Keyword-based status detection (`"exit" in text`) | Use structural detection (data attributes, section headers) |
+| Forgetting `urljoin()` for relative URLs | Always use `urljoin(base_url, href)` for any relative link |
+| Extracting nav text as company names | Use specific selectors; frontend's `isValidPortfolioEntry()` silently rejects these |
+| Hardcoding fund-specific logic in pipeline code | Put fund metadata flags in `db.json` (e.g., `is_ecosystem_newsroom`) |
+| API-based site doesn't refresh | Set `ALWAYS_EXTRACT = True` to bypass content hash check |
+| Website blocks automated access (403/blank page) | Check `domain_policies.json`; if site needs JS rendering set `requires_headless`; if site blocks all bots (ShieldPRO, etc.) use manual portfolio entries |
+
+### During pipeline execution
+
+| Pitfall | Solution |
+|---|---|
+| Updated extractor code doesn't run | Use `--force-extract` to bypass content hash caching |
+| Signals are in Italian after filtering | Translation (step 3) must run BEFORE filter (step 7) — never change this order |
+| Deleting progress files | NEVER delete `signal_enrichment_progress.json` or `detected_signals_enriched.json` — causes expensive re-runs. See `apps/worker/CLAUDE.md` for full cost details. |
+| UI doesn't show new data | Restart `pnpm dev` — the web app caches with no invalidation |
+| Portfolio entries show as garbage | Check `isValidPortfolioEntry()` in `data.ts` — NAV_PATTERNS reject navigation text |
+
+### During deployment
+
+| Pitfall | Solution |
+|---|---|
+| `pnpm seed` overwrites curated db.json | Use `--force` flag only intentionally — seed has a safety guard |
+| AIFI scraper sets wrong HQ for global funds | Cross-check `offices[]` after any AIFI merge |
+| Fund doesn't appear on map | Run `pnpm worker:geocode && pnpm merge-aifi` to populate coordinates |
+| AI mentioned in UI | Never disclose AI in user-facing text — reference sources, not tools |
+| AIFI creates duplicate fund under legal name | Add alias in `fund_aliases.json` mapping legal-name slug to canonical slug |
+
+### Cost traps
+
+> **Note**: Cost estimates are approximate. See `apps/worker/CLAUDE.md` for current API pricing and cost analysis.
+
+| Action | Impact | Prevention |
+|---|---|---|
+| Deleting `signal_enrichment_progress.json` | Full re-enrichment (several dollars) | Never delete it |
+| Running enricher repeatedly during debugging | Adds up fast | Edit `detected_signals_enriched.json` directly instead |
+| Removing DeepL translation layer | Increases per-run cost | Keep DeepL as primary translator |
+| Running LinkedIn scraper for testing | Wastes limited monthly runs | Never test — runs are capped. See `apps/worker/CLAUDE.md` for limits. |
+
+---
+
+## Quick Reference: Commands
+
+| What | Command |
+|---|---|
+| Look up fund slug | `python3 -c "import json; [print(f['slug'], f['name']) for f in json.load(open('data/db.json'))['funds'] if 'TERM' in f.get('name','').lower()]"` |
+| Test extractor loads | `cd apps/worker && python -c "from fundradar_worker.strategies.extractors.{slug} import *; print(EXTRACTORS)"` |
+| Monitor single fund | `pnpm worker:monitor --limit 1 --slugs {slug}` |
+| Full pipeline for fund | `pnpm pipeline --slugs {slug}` |
+| Force re-extraction | `pnpm pipeline --slugs {slug} --force-extract` |
+| Filter + enrich only | `pnpm pipeline:signals` |
+| Check portfolio output | `python3 -c "import json; d=json.load(open('data/derived/portfolio_items.json')); print(len(d.get('portfolios',{}).get('{slug}',[])))"` |
+| Check enrichment progress | `python3 -c "import json; d=json.load(open('data/derived/signal_enrichment_progress.json')); print(len(d.get('processed_ids',[])),'processed')"` |
+| Generate fund description | `python3 scripts/generate-fund-descriptions-gemini.py --slugs {slug}` (from repo root) |
+| Audit data quality | `pnpm audit:quality` |
+| AIFI scrape + merge | `pnpm aifi:full` |
+| Geocode addresses | `pnpm worker:geocode && pnpm merge-aifi` |
+| URL coverage stats | `cd apps/worker && python -m fundradar_worker.url_generator` |
+| Start dev server | `pnpm dev` |
+| Build for production | `pnpm build` |

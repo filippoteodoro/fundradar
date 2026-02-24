@@ -3077,6 +3077,15 @@
       "last_checked_at": "2026-02-23T21:53:29.311922+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
+    },
+    "https://varde.com/news/": {
+      "url": "https://varde.com/news/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-24T13:49:05.599874+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     }
   }
 }

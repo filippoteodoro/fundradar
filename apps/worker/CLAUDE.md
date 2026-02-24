@@ -128,7 +128,7 @@ Confidence scoring filters low-quality results (minimum 0.3).
 `team_cards`, `h3_with_title`, `json_ld_person`
 
 ### Fund-Specific Extractors
-~155 custom extractors in `strategies/extractors/`. Each is a Python module that must export:
+Custom extractors in `strategies/extractors/`. Each is a Python module that must export:
 - `DOMAIN`: str — the domain this extractor handles (e.g., "www.permira.com")
 - `URLS`: dict — paths to fetch for each page type: `{"portfolio": "/investments", "team": "/team", "news": None}`
 - `EXTRACTORS`: dict — mapping of data_type to extractor function
@@ -237,7 +237,7 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 
 | Module | Purpose | Consumers |
 |--------|---------|-----------|
-| `signal_patterns.py` | **Single source of truth** for ~60 compiled regex patterns, constants, utility functions | `filter_signals.py`, `enrich_signals_openai.py`, `signal_corrections.py`, `signal_text_utils.py` |
+| `signal_patterns.py` | **Single source of truth** for compiled regex patterns, constants, utility functions | `filter_signals.py`, `enrich_signals_openai.py`, `signal_corrections.py`, `signal_text_utils.py` |
 | `signal_corrections.py` | Shared post-classification corrections (`apply_universal_demotions()`, `apply_type_corrections()`) | `filter_signals.py` (primary, runs after `_reclassify_signal_type()`), `enrich_signals_openai.py` (defense-in-depth) |
 | `signal_text_utils.py` | Shared text cleaning: `clean_display_text()`, `fix_spacing()`, `normalize_monetary_values()`, `repair_token_splits()`, AUM boilerplate stripping | `filter_signals.py`, `enrich_signals_openai.py` |
 | `translator.py` | Shared translation: language detection, DeepL quota management, Azure fallback, OpenAI fallback | `translate_signals.py` (pipeline step), `enrich_signals_openai.py` (safety net) |
@@ -314,8 +314,8 @@ The scraped LinkedIn data in `data/derived/linkedin/raw/` is **irreplaceable** w
 
 | File Pattern | Count | Contents | Protection |
 |-------------|-------|----------|------------|
-| `raw/*_employees.json` | 91 | **Full profiles** from HarvestAPI: education, experience, skills | **NEVER overwrite** |
-| `raw/*_enriched_profiles.json` | 9 | Full career history (Apify supreme_coder profile scraper) | **NEVER overwrite** |
+| `raw/*_employees.json` | ~90+ | **Full profiles** from HarvestAPI: education, experience, skills | **NEVER overwrite** |
+| `raw/*_enriched_profiles.json` | ~10 | Full career history (Apify supreme_coder profile scraper) | **NEVER overwrite** |
 | `manual_profiles.json` | 1 | Manually curated mega-fund profiles | **NEVER overwrite** |
 
 **IMPORTANT — HarvestAPI employee files are RICH data.** They contain full education (schoolName, degree, fieldOfStudy), full experience (position, companyName, startDate, endDate), skills, languages, etc. They are NOT headline-only. Always parse them with `harvestapi_to_profile()` from `people_stats.py` — NEVER create synthetic single-experience profiles from them.
@@ -435,7 +435,7 @@ DeepL was removed thinking "OpenAI is a better translator". What actually happen
 Signal enrichment (`pnpm pipeline:signals` or step 8 of `pnpm pipeline`) makes OpenAI API calls. Misuse can cost $10–$20 in a single debugging session.
 
 ### Rules
-1. **NEVER delete `data/derived/signal_enrichment_progress.json`** — it tracks which signals have been LLM-enriched. Deleting it forces full re-enrichment of all ~400 signals (~$2–5).
+1. **NEVER delete `data/derived/signal_enrichment_progress.json`** — it tracks which signals have been LLM-enriched. Deleting it forces full re-enrichment of all filtered signals (~$2–5).
 2. **NEVER delete `data/derived/detected_signals_enriched.json`** — it carries `*_original` translation fields. Deleting it forces re-translation of all Italian signals on the next run.
 3. **Before any `pnpm pipeline:signals` run**, check how many signals would be affected: `python3 -c "import json; d=json.load(open('data/derived/signal_enrichment_progress.json')); print(len(d.get('processed_ids',[])),'already processed')"`.
 4. **For debugging/testing fixes**: edit `detected_signals_enriched.json` directly (free) instead of re-running the enricher.

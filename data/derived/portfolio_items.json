@@ -89158,6 +89158,47 @@
         "curation_applied_at": "2026-02-14T11:52:31.949550+00:00",
         "curation_note": null
       }
+    ],
+    "varde-partners": [
+      {
+        "name": "Guber Banca",
+        "sector": "Financial Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": "https://www.guberbanca.it",
+        "description": "Italian NPL servicer and special situations bank. Varde holds a 33.3% stake since 2018.",
+        "detail_page_url": null,
+        "headquarters": "Brescia, Italy",
+        "investment_date": "2018",
+        "source_url": null,
+        "data_source": "manual"
+      },
+      {
+        "name": "Borio Mangiarotti",
+        "sector": "Real Estate",
+        "status": "current",
+        "confidence": 0.9,
+        "website": "https://www.boriomangiarotti.it",
+        "description": "Milan-based real estate developer. Varde holds a 20% stake since 2024, partnering on the SEIMILANO urban regeneration project.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": "2024",
+        "source_url": null,
+        "data_source": "manual"
+      },
+      {
+        "name": "Boscolo Hotels / Dedica Anthology",
+        "sector": "Hospitality & Tourism",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Italian luxury hotel portfolio acquired in 2017 and sold to Covivio in 2021 for approximately EUR 573M.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": "2017",
+        "source_url": null,
+        "data_source": "manual"
+      }
     ]
   },
   "fund_source_urls": {

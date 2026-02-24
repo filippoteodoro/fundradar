@@ -46311,8 +46311,152 @@
       },
       "what_changed_original": "New announcement: Unigrains renouvelle son engagement aupr\u00e8s de Ma\u00eetre Prunille",
       "title_original": "Unigrains renouvelle son engagement aupr\u00e8s de Ma\u00eetre Prunille"
+    },
+    {
+      "id": "web-signal-01734",
+      "fund_id": "",
+      "fund_slug": "varde-partners",
+      "signal_type": "people_move",
+      "title": "Insights\u2013 9/09/2025Bloomberg FICC Focus Podcast: A Primer on Property Lending with V\u00e4rde\u2019s Jim DunbarV\u00e4rde\u2019s Head of Real Estate Lending, Jim Dunbar, joined Bloomberg\u2019s FICC Focus podcast for a",
+      "what_changed": "V\u00e4rde\u2019s Head of Real Estate Lending, Jim Dunbar, joined Bloomberg\u2019s FICC Focus podcast for a conversation on the dynamics shaping U.S. commercial real estate, including the trends driving supply/demand across regions and property types. He offers his perspective on how to think about real estate exp",
+      "source_url": "https://varde.com/bloomberg-ficc-focus-podcast-a-primer-on-property-lending-with-vardes-jim-dunbar/",
+      "source_name": "Varde Partners",
+      "published_at": null,
+      "observed_at": "2026-02-24T13:49:05.655975+00:00",
+      "created_at": "2026-02-24T13:49:05.655975+00:00",
+      "snapshot_id": "snap-20260224134905-fff1d4cf",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Focus Podcast",
+          "Property Lending",
+          "Real Estate Lending",
+          "Jim Dunbar"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01735",
+      "fund_id": "",
+      "fund_slug": "varde-partners",
+      "signal_type": "other",
+      "title": "Announcements\u2013 6/17/2025V\u00e4rde Launches Fund Finance PlatformNEW YORK \u2013 V\u00e4rde Partners, a leading global alternative investment firm specializing in credit and credit-related assets, today announced",
+      "what_changed": "NEW YORK \u2013 V\u00e4rde Partners, a leading global alternative investment firm specializing in credit and credit-related assets, today announced the launch of its fund finance platform. Building on V\u00e4rde\u2019s broader asset-based finance strategy, the platform is an extension of V\u00e4rde\u2019s capabilities designed t",
+      "source_url": "https://varde.com/varde-launches-fund-finance-platform/",
+      "source_name": "Varde Partners",
+      "published_at": null,
+      "observed_at": "2026-02-24T13:49:05.655975+00:00",
+      "created_at": "2026-02-24T13:49:05.655975+00:00",
+      "snapshot_id": "snap-20260224134905-fff1d4cf",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Launches Fund Finance"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00138",
+      "fund_id": "",
+      "fund_slug": "investindustrial",
+      "related_fund_slugs": [
+        "investindustrial"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Guala Closures (Investindustrial) acquisisce da Vinventions (L-GAM) uno stabilimento. L\u2019M&A generer\u00e0 circa 64 mln di ricavi e 15 di ebitda nel Q1 2026",
+      "what_changed": "Guala Closures, controlled by Investindustrial, has acquired Vinventions\u2019 screw-cap production operations in Rosarito, Mexico from Vinventions (owned by L\u2011GAM). The confirmed deal will add about \u20ac64 million of revenues and \u20ac15 million of EBITDA in Q1 2026. Sector: closures/packaging; buyer is Italian-controlled Guala.",
+      "source_url": "https://bebeez.it/private-equity/guala-closures-investindustrial-acquisisce-da-vinventions-l-gam-uno-stabilimento-lma-generera-circa-64-mln-di-ricavi-e-15-di-ebitda-nel-q1-2026/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-24T06:51:37+00:00",
+      "observed_at": "2026-02-24T13:50:32.260139+00:00",
+      "created_at": "2026-02-24T13:50:32.260139+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Guala Closures",
+          "Vinventions"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00139",
+      "fund_id": "",
+      "fund_slug": "f2i-sgr",
+      "related_fund_slugs": [
+        "f2i-sgr"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "F2i annuncia il primo closing a 460 mln del suo secondo fondo di credito infrastrutturale, che ha un target di raccolta a 750 mln",
+      "what_changed": "F2i sgr announced a first closing of \u20ac460 million for F2i Infrastructure Credit Fund II (ICF2), equal to 62% of its \u20ac750 million target. The milestone is a fundraise closed for an Italian infrastructure credit fund targeting credit/infrastructure investments; the manager is F2i sgr.",
+      "source_url": "https://bebeez.it/private-debt/f2i-annuncia-il-primo-closing-a-460-mln-del-suo-secondo-fondo-di-credito-infrastrutturale-che-ha-un-target-di-raccolta-a-750-mln/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-24T06:48:16+00:00",
+      "observed_at": "2026-02-24T13:50:32.260139+00:00",
+      "created_at": "2026-02-24T13:50:32.260139+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac460 million"
+    },
+    {
+      "id": "rss-signal-00140",
+      "fund_id": "",
+      "fund_slug": "kyip-capital-sgr",
+      "related_fund_slugs": [
+        "kyip-capital-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Kyip Capital entra con il 36% nel gruppo di diagnostica Chiron",
+      "what_changed": "Kyip Capital, through its Impact Mission fund focused on health and wellbeing, has acquired a 36% stake in Chiron Group via a capital increase. The confirmed minority investment targets diagnostics, specialist medicine, surgery and rehabilitation services; Chiron is an Italian diagnostics and outpatient healthcare group.",
+      "source_url": "https://bebeez.it/private-equity/kyip-capital-entra-con-il-36-nel-gruppo-di-diagnostica-chiron/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-24T06:48:03+00:00",
+      "observed_at": "2026-02-24T13:50:32.260139+00:00",
+      "created_at": "2026-02-24T13:50:32.260139+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Chiron Group"
+        ],
+        "people": [],
+        "locations": []
+      }
     }
   ],
-  "signal_count": 1733,
-  "translated_at": "2026-02-23T22:47:30.680767+00:00"
+  "signal_count": 1735,
+  "translated_at": "2026-02-24T13:51:28.840277+00:00"
 }

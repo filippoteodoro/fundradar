@@ -103,6 +103,7 @@ from signal_patterns import (
 )
 
 from signal_text_utils import (
+    capitalize_entities,
     clean_display_text,
     is_garbage_summary,
     normalize_monetary_values,

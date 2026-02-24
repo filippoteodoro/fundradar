@@ -78,7 +78,7 @@ The site auto-deploys to Vercel on push to `main`.
 - **Build**: `cd ../.. && pnpm -F @fundradar/shared build && pnpm -F web build`
 - **Install**: `cd ../.. && pnpm install`
 
-All 162 fund pages are statically generated at build time. Data refreshes on each deploy.
+All fund pages are statically generated at build time via `generateStaticParams()`. Data refreshes on each deploy.
 
 ### Deployment workflow
 

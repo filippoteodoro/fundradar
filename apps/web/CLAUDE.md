@@ -252,7 +252,7 @@ The map page (`/map`) renders fund locations via `MapView.tsx` → `LeafletMap.t
 
 1. **`offices[]`** array — prefers Italian office → HQ → any office with lat/lng
 2. **`hq_lat` / `hq_lng`** fields — direct coordinate fields on the fund object
-3. **`cityCoordinates.ts`** — hardcoded fallback for 51 Italian cities, matched by `hq_city`
+3. **`cityCoordinates.ts`** — hardcoded fallback for Italian cities, matched by `hq_city`
 
 Authoritative coordinates come from Nominatim geocoding → `fund_coordinates.json` → merged into `db.json` via `merge-aifi-metrics.ts`. The `cityCoordinates.ts` fallback is static and only covers cities, not exact addresses.
 
@@ -265,7 +265,7 @@ Authoritative coordinates come from Nominatim geocoding → `fund_coordinates.js
 | `src/components/filters/DualRangeSlider.tsx` | Shared dual-thumb range slider UI |
 | `src/app/map/MapView.tsx` | Filtering, coordinate resolution, data prep |
 | `src/app/map/LeafletMap.tsx` | Leaflet rendering (client component) |
-| `src/app/map/cityCoordinates.ts` | Static fallback coordinates (51 cities) |
+| `src/app/map/cityCoordinates.ts` | Static fallback coordinates for Italian cities |
 
 ### Do NOT
 
