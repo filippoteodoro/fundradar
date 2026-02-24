@@ -285,7 +285,7 @@ export default async function SubscribePage() {
                 padding: '16px',
               }}
             >
-              <p style={{ margin: '0 0 12px 0', fontSize: '14px', color: '#333', lineHeight: 1.6 }}>
+              <p style={{ margin: '0 0 12px 0', fontSize: '14px', color: '#333', lineHeight: 1.6, fontStyle: 'italic' }}>
                 &ldquo;{review.quote}&rdquo;
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>

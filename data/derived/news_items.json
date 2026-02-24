@@ -10058,6 +10058,12 @@
         "fingerprint": "fdfd22ead0e9"
       },
       {
+        "title": "Advent to sell Prisma and Newpay to Visa",
+        "date": null,
+        "url": "https://www.adventinternational.com/news/advent-to-sell-prisma-and-newpay-to-visa/",
+        "fingerprint": "838f9708ab42"
+      },
+      {
         "title": "Aditya Birla Housing Finance Raises Rs. 2,750 Crore of Growth Capital from Advent International",
         "date": null,
         "url": "https://www.adventinternational.com/news/aditya-birla-housing-finance-raises-rs-2750-crore-of-growth-capital-from-advent-international/",
@@ -10104,15 +10110,15 @@
         "date": null,
         "url": "https://www.adventinternational.com/news/advent-backs-automic-as-cloud-native-disruptor-of-global-registry-services/",
         "fingerprint": "053cbace930b"
-      },
-      {
-        "title": "Advent-owned Rubix completes acquisition of ERIKS UK & Ireland, strengthening the UK as an industrial leader",
-        "date": null,
-        "url": "https://www.adventinternational.com/news/advent-owned-rubix-completes-acquisition-of-eriks-uk-ireland-strengthening-the-uk-as-an-industrial-leader/",
-        "fingerprint": "ef51aaad93e5"
       }
     ],
     "https://www.apollo.com/insights-news/pressreleases": [
+      {
+        "title": "Apollo Provides $1 Billion Hybrid Capital Solution to Aldar",
+        "date": null,
+        "url": "https://www.apollo.com/insights-news/pressreleases/2026/02/apollo-provides-1-billion-hybrid-capital-solution-to-aldar-3241678",
+        "fingerprint": "81f98044dc47"
+      },
       {
         "title": "Apollo Sent the Following Letter to Clients and Partners",
         "date": null,
@@ -10166,12 +10172,6 @@
         "date": null,
         "url": "https://www.apollo.com/insights-news/pressreleases/2026/01/apollo-backs-5-4-billion-valor-and-xai-data-center-compute-infrastructure-transaction-with-3-5-billion-capital-solution-3214463",
         "fingerprint": "6fc211246679"
-      },
-      {
-        "title": "Apollo to Announce Fourth Quarter and Full Year 2025 Financial Results on February 9, 2026",
-        "date": "2026-02-09",
-        "url": "https://www.apollo.com/insights-news/pressreleases/2026/01/apollo-to-announce-fourth-quarter-and-full-year-2025-financial-results-on-february-9-2026-3213542",
-        "fingerprint": "cc491a020ca4"
       }
     ],
     "https://www.ardian.com/news-insights": [
@@ -10341,12 +10341,6 @@
         "date": "2025-05-26",
         "url": "https://www.f2isgr.it/en/media/press-releases/nasce-per-iniziativa-di-f2i-fhp-group-il-principale-operatore-italiano-di-logistica-integrata-marittima-terrestre-nel-settore-dry-bulk-e-break-bulk.html",
         "fingerprint": "e61f1792e36e"
-      },
-      {
-        "title": "F2i and the Jetex sign agreement for the development and management of general aviation in Naples and Salerno",
-        "date": "2025-02-24",
-        "url": "https://www.f2isgr.it/en/media/press-releases/f2i-e-jetex-siglano-un-accordo-per-lo-sviluppo-e-la-gestione-dell-aviazione-generale-a-napoli-e-salerno.html",
-        "fingerprint": "d00f1e5863d5"
       }
     ],
     "https://www.ersel.it/news": [
@@ -14185,6 +14179,12 @@
     ],
     "https://www.alcedo.it/stampa-news/": [
       {
+        "title": "Alcedo investe in EDG, eccellenza nel design, nella progettazione e nella distribuzione di articoli decorativi di alta qualit\u00e0",
+        "date": "2026-02-24",
+        "url": "https://www.alcedo.it/wp-content/uploads/2026/02/77.Alcedo-EDG-final-2.pdf",
+        "fingerprint": "ea0d9b7114d3"
+      },
+      {
         "title": "Chequers Capital ha perfezionato l\u2019acquisizione di Gourmet Italian Food, gruppo italiano leader nel settore dei ready meals",
         "date": "2025-04-02",
         "url": "https://www.alcedo.it/wp-content/uploads/2025/04/74.-GIF_Press_ITA.pdf",
@@ -14231,12 +14231,6 @@
         "date": "2023-02-20",
         "url": "https://www.alcedo.it/wp-content/uploads/2023/02/Persefone-Comunicato-Stampa-DEF-1.pdf",
         "fingerprint": "8a32147de9ba"
-      },
-      {
-        "title": "Nethive acquisice il 70% di Xech e rafforza il business dei software in ambito cybersecurity",
-        "date": "2023-02-08",
-        "url": "https://www.alcedo.it/wp-content/uploads/2023/02/64_Alcedo-SGR-Comunicato-stampa-Nethive-Xech-ITA.pdf",
-        "fingerprint": "c8e75e535d00"
       }
     ],
     "https://www.apax.com/news-views/": [
@@ -14371,6 +14365,12 @@
     ],
     "https://www.fondoitaliano.it/comunicati-e-rassegna/": [
       {
+        "title": "Fondo Italiano sostiene la crescita di Alimenta Produzioni",
+        "date": "2026-02-24",
+        "url": "https://www.fondoitaliano.it/wp-content/uploads/20260224_Alimenta.pdf",
+        "fingerprint": "b79490247568"
+      },
+      {
         "title": "FIAF in maggioranza nella piadina Alimenta",
         "date": "2026-02-23",
         "url": "https://www.fondoitaliano.it/wp-content/uploads/20260220_LargoConsumo_Alimenta.pdf",
@@ -14435,12 +14435,6 @@
         "date": "2025-12-30",
         "url": "https://www.fondoitaliano.it/wp-content/uploads/20251230_ilgazzettino_Isoclima.pdf",
         "fingerprint": "109f3a97eb42"
-      },
-      {
-        "title": "FII e The Equity Club acquistano Isoclima",
-        "date": "2025-12-30",
-        "url": "https://www.fondoitaliano.it/wp-content/uploads/20251230_ItaliaOggi_Isoclima.pdf",
-        "fingerprint": "78b957f64717"
       }
     ],
     "https://www.generali-investments.com/it/en/institutional/press-releases/": [
@@ -14977,6 +14971,12 @@
         "fingerprint": "5242bc039c44"
       },
       {
+        "title": "Blackstone Life Sciences Announces a Co-funding Agreement for Acute Myeloid Leukemia",
+        "date": "2026-02-23",
+        "url": "https://www.blackstone.com/news/press/blackstone-life-sciences-announces-a-co-funding-agreement-for-acute-myeloid-leukemia/",
+        "fingerprint": "5654b160a570"
+      },
+      {
         "title": "Blackstone Announces Agreement to Acquire Champions Group",
         "date": "2026-02-17",
         "url": "https://www.blackstone.com/news/press/blackstone-announces-agreement-to-acquire-champions-group/",
@@ -15041,12 +15041,6 @@
         "date": "2026-01-05",
         "url": "https://www.blackstone.com/news/press/willis-lease-finance-corporation-announces-aircraft-engine-leasing-partnership-with-blackstone-credit-insurance/",
         "fingerprint": "d8a0d3e1b236"
-      },
-      {
-        "title": "Blackstone Announces Agreement to Acquire a Landmark Japan Logistics Asset, Marking the Largest Logistics Transaction in the Country This Year",
-        "date": "2025-12-25",
-        "url": "https://www.blackstone.com/news/press/blackstone-announces-agreement-to-acquire-a-landmark-japan-logistics-asset-marking-the-largest-logistics-transaction-in-the-country-this-year/",
-        "fingerprint": "55d4a4da5890"
       }
     ],
     "https://www.blackstone.com/en/news": [
@@ -16609,6 +16603,12 @@
     ],
     "https://www.carlyle.com/media-room/news-release-archive": [
       {
+        "title": "Carlyle provides a structured capital solution to Peloton Computer Enterprises to support growth",
+        "date": "2026-02-23",
+        "url": "https://www.carlyle.com/media-room/news-release-archive/carlyle-provides-structured-capital-solution-peloton-computer",
+        "fingerprint": "cd196d77ec0b"
+      },
+      {
         "title": "Edelweiss to Bring in Carlyle as Strategic Majority Investor for its Housing Finance Business",
         "date": "2026-02-10",
         "url": "https://www.carlyle.com/media-room/news-release-archive/edelweiss-bring-carlyle-strategic-majority-investor-its-housing",
@@ -16637,12 +16637,6 @@
         "date": "2026-01-22",
         "url": "https://www.carlyle.com/media-room/news-release-archive/eldridge-and-carlyle-alpinvest-partner-launch-eldridge-diversified",
         "fingerprint": "df52b056ae59"
-      },
-      {
-        "title": "Lovell Minnick Announces Successful Close of Single Asset Continuation Vehicle for SRS Acquiom",
-        "date": "2026-01-21",
-        "url": "https://www.carlyle.com/media-room/news-release-archive/lovell-minnick-announces-successful-close-single-asset-continuation",
-        "fingerprint": "169fc744b108"
       }
     ],
     "https://news.google.com/rss/search?q=site%3Aalgebris.com+Algebris+when%3A30d&hl=en-US&gl=US&ceid=US:en": [
@@ -16651,6 +16645,12 @@
         "date": "2026-02-16",
         "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNYVA4dnA5T0FncVFZTjk1ZFlNSU0xeDRoS0RuU3FIbEtESzg5VnVzalNCczJQc3p0R2s4TldoTU9vTW1kVkZyRVdGcnhFZFdrUmZBbVdCd3VrOE9fT2V4RzlvREpTTlYzUFE5bllFc3RtZWdRajh2d05sTDA5YkNsaFRkVmxvNWJSU3Vmbg?oc=5",
         "fingerprint": "b739cbdd9a80"
+      },
+      {
+        "title": "GLOBAL CREDIT BULLETS | Monday, 23 February 2026 - Algebris Investments",
+        "date": "2026-02-23",
+        "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNdVZBWUJsTUkxS05YQkx0U2VxSEstbl8tQ2dMSEZGdVZNLW56T3l1UmNjMGpZWDlueFRmS2ltSUd4amFWQkZTakhmcG9GRGdiQ0FRV2lUMkpPbVh0d3RGd2VCYkk2NTdiMHBENXpYVnJaNXpJd21Qd0ZiMzZVRmxaQnBrNi15bUVLc0c5aQ?oc=5",
+        "fingerprint": "788656ee339c"
       },
       {
         "title": "GLOBAL CREDIT BULLETS | Monday, 9 February 2026 - Algebris Investments",
@@ -16669,15 +16669,15 @@
         "date": "2026-01-28",
         "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNMXRBdUQ5dkltcGZweXBDVm5HRFEzOTdZeE1nNXhHbzhKUzBDTXlsem9vMEtFaEdXVTB5N0JtaTV1Z2tJcXM4SGNzVUg2dkdYVWNmNXRGZnBHZndFbk16OWxoNWhReFhIZGRxMEliUzBVMjF6NEdQUzdQdkNBaUxnd2Y1TWFIRXZaT1BVWHA5MA?oc=5",
         "fingerprint": "dd86fd820a0c"
-      },
-      {
-        "title": "GLOBAL CREDIT BULLETS | Monday, 2 February 2026 - Algebris Investments",
-        "date": "2026-02-02",
-        "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNOWhWbWd4SmhfNmMyT0JGb2RIM3prS1NHYUxEY19KQkxIREE1Y1ptekJiQldqV3F2c2t6dkZPcFVUMlVkbzZsaGRDbWpSSHlVM19PcXlMc1BQa2lfcWpJTm1yWXFNWHNQNXc0b2g5cktCNmxCdXBRVTN5TUMyaF9IMmVvSW5ZOFF0OEJF?oc=5",
-        "fingerprint": "0726966ffc28"
       }
     ],
     "https://news.google.com/rss/search?q=site%3Acapdyn.com+%22Capital+Dynamics%22+when%3A30d&hl=en-US&gl=US&ceid=US:en": [
+      {
+        "title": "3rd Annual LPGP Coonnect CFO / COO Private Markets Switzerland 3/25/2026 - Capital Dynamics",
+        "date": "2026-02-11",
+        "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPYU5LMTRvTmxBZHgyZlRZZUoxYzEtT3RJZkpNa09OcTMxRFB2dmFUdk0tbFdJb1lyX2EtXzBuMGQ1MjZJVVFZMXZxb1BuMm52V0lRSEJvVWVTRWtRRkY4R0hDX19KT3lrRWVodVlsYkpfYmZHNEFFQjRYSHE0amhwYzhnb0l5cC1saHVmY1FjR1BRSEU?oc=5",
+        "fingerprint": "ecc84b912bfc"
+      },
       {
         "title": "Photovoltaics in Italy: Record installations ahead \u2013 and continued investor confidence - Capital Dynamics",
         "date": "2026-02-16",
@@ -17901,6 +17901,12 @@
     ],
     "https://www.fieesgr.com/press/": [
       {
+        "title": "Rassegna Stampa: elperiodicodelaenergia.com \u2013 Javier Infante (FIEE): \u201cEl biometano es hoy una de las pocas soluciones reales para descarbonizar la industria\u201d",
+        "date": "2026-02-23T00:00:00",
+        "url": "https://www.fieesgr.com/2026/02/23/rassegna-stampa-elperiodicodelaenergia-com-javier-infante-fiee-el-biometano-es-hoy-una-de-las-pocas-soluciones-reales-para-descarbonizar-la-industria/",
+        "fingerprint": "9efc5b5f9511"
+      },
+      {
         "title": "FIEE \u2013 Naturmet: cosa dicono le maggiori testate giornalistiche",
         "date": "2026-02-02T00:00:00",
         "url": "https://www.fieesgr.com/2026/02/02/fiee-naturmet-cosa-dicono-le-maggiori-testate-giornalistiche/",
@@ -18001,12 +18007,6 @@
         "date": "2025-10-29T00:00:00",
         "url": "https://www.fieesgr.com/2025/10/29/rassegna-stampa-bebeez-it-city-green-light-igneo-infrastructure-partners-ne-rileva-il-100-da-fondo-italiano-per-lefficienza-energetica-e-marguerite/",
         "fingerprint": "9c3f5b9c3e93"
-      },
-      {
-        "title": "Rassegna Stampa: veneziepost.it \u2013 Igneo acquisisce City Green Light da Marguerite e Fiee",
-        "date": "2025-10-29T00:00:00",
-        "url": "https://www.fieesgr.com/2025/10/29/rassegna-stampa-veneziepost-it-igneo-acquisisce-city-green-light-da-marguerite-e-fiee/",
-        "fingerprint": "38467885028a"
       }
     ],
     "https://www.unigrains.fr/fr/actualites": [
@@ -19091,6 +19091,82 @@
         "date": null,
         "url": "https://varde.com/varde-launches-fund-finance-platform/",
         "fingerprint": "76889789e041"
+      }
+    ],
+    "https://www.spacecapital.it/it/news/index.html": [
+      {
+        "title": "Perfezionamento dell\u2019investimento in Unifarco S.p.A. da parte di Arca Space Capital",
+        "date": "2025-12-16T15:52:00",
+        "url": null,
+        "fingerprint": "dec497973764"
+      },
+      {
+        "title": "Space Orion completa la cessione della propria partecipazione in Adler Ortho",
+        "date": "2025-10-23T15:52:00",
+        "url": null,
+        "fingerprint": "b3064ef390d5"
+      },
+      {
+        "title": "Perfezionamento dell'acquisizione di Eurosirel da parte di Alto Capital V e Arca Space Capital",
+        "date": "2024-07-01T15:52:00",
+        "url": null,
+        "fingerprint": "540f9676955e"
+      },
+      {
+        "title": "Perfezionamento dell'operazione Mosaiq Group da parte di Arca Space Capital",
+        "date": "2024-06-25T15:52:00",
+        "url": null,
+        "fingerprint": "8ec6440d2f21"
+      },
+      {
+        "title": "Primo investimento per Arca Space Capital in RINA S.p.A.",
+        "date": "2023-08-04T05:24:00",
+        "url": null,
+        "fingerprint": "ba4d65411b8d"
+      },
+      {
+        "title": "Al via il primo Fondo di Private Equity di Arca Fondi SGR: \u201cArca Space Capital\"",
+        "date": "2023-08-03T15:52:00",
+        "url": null,
+        "fingerprint": "d634d704f8dc"
+      }
+    ],
+    "https://www.spacecapital.it/en/news/index.html": [
+      {
+        "title": "Arca Space Capital invests in Unifarco S.p.A. to accelerate its growth",
+        "date": "2025-12-16T15:52:00",
+        "url": null,
+        "fingerprint": "ae753499b4d0"
+      },
+      {
+        "title": "Space Orion completes the sale of its stake in Adler Ortho",
+        "date": "2025-10-23T15:52:00",
+        "url": null,
+        "fingerprint": "22249c529951"
+      },
+      {
+        "title": "Alto Capital V and Arca Space Capital complete the acquisition of Eurosirel",
+        "date": "2024-07-01T15:52:00",
+        "url": null,
+        "fingerprint": "b68fc9028761"
+      },
+      {
+        "title": "Completion of Mosaiq Group transaction by Arca Space Capital",
+        "date": "2024-06-25T15:52:00",
+        "url": null,
+        "fingerprint": "f1b8a553c89d"
+      },
+      {
+        "title": "Primo investimento per Arca Space Capital in RINA S.p.A.",
+        "date": "2023-08-04T05:24:00",
+        "url": null,
+        "fingerprint": "ba4d65411b8d"
+      },
+      {
+        "title": "Launch of Arca Fondi SGR\u2019s first Private Equity fund: \u201cArca Space Capital\u201d",
+        "date": "2023-08-03T15:52:00",
+        "url": null,
+        "fingerprint": "be5164b15197"
       }
     ]
   }

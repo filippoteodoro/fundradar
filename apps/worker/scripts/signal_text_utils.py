@@ -285,8 +285,8 @@ def fix_spacing(text: str) -> str:
     # Space before opening quotes if attached (enricher's broader pattern merged in)
     cleaned = re.sub(r'(?<=[A-Za-zÀ-ÖØ-öø-ÿ])(?=["\u201c\u201d])', " ", cleaned)
     # Restore known names/acronyms broken by digit-letter spacing
-    cleaned = re.sub(r"\bF\s+2\s+i\b", "F2i", cleaned)
-    cleaned = re.sub(r"\bB\s+4\s+i\b", "B4i", cleaned)
+    cleaned = re.sub(r"\bF\s+2\s+[iI]\b", "F2i", cleaned)
+    cleaned = re.sub(r"\bB\s+4\s+[iI]\b", "B4i", cleaned)
     cleaned = re.sub(r"\bCO\s+2\b", "CO2", cleaned)
     cleaned = re.sub(r"\b3\s+i\b", "3i", cleaned)
     cleaned = re.sub(r"\bK\s+3\s*R\s*X\b", "K3RX", cleaned)
@@ -1019,6 +1019,42 @@ _FUSED_WORD_PAIRS = [
     (r"incominghead", "incoming head"),
     (r"theprocess", "the process"),
     (r"forthe(\d)", r"for the \1"),
+    # LLM token-merge artifacts — prepositions/articles fused to adjacent words
+    (r"appointedas\b", "appointed as"),
+    (r"managingdirector", "managing director"),
+    (r"ofthe\b", "of the"),
+    (r"inthe\b", "in the"),
+    (r"tothe\b", "to the"),
+    (r"bythe\b", "by the"),
+    (r"onthe\b", "on the"),
+    (r"atthe\b", "at the"),
+    (r"andthe\b", "and the"),
+    (r"withthe\b", "with the"),
+    (r"fromthe\b", "from the"),
+    (r"forthe\b", "for the"),
+    (r"asthe\b", "as the"),
+    (r"launchesthe\b", "launches the"),
+    (r"announcesthe\b", "announces the"),
+    (r"completesthe\b", "completes the"),
+    (r"closedthe\b", "closed the"),
+    (r"signsthe\b", "signs the"),
+    (r"entersthe\b", "enters the"),
+    (r"exitsthe\b", "exits the"),
+    (r"joinsthe\b", "joins the"),
+    (r"sellsthe\b", "sells the"),
+    (r"acquiredby\b", "acquired by"),
+    (r"managedby\b", "managed by"),
+    (r"investedin\b", "invested in"),
+    (r"partnerswith\b", "partners with"),
+    # Fused title/role words
+    (r"managingpartner", "managing partner"),
+    (r"seniorpartner", "senior partner"),
+    (r"senioradvisor", "senior advisor"),
+    (r"chiefoperatingofficer", "chief operating officer"),
+    (r"chieffinancialofficer", "chief financial officer"),
+    (r"chiefinvestmentofficer", "chief investment officer"),
+    (r"vicepresident", "vice president"),
+    (r"deputychief", "deputy chief"),
 ]
 
 
@@ -1383,6 +1419,10 @@ def is_garbage_summary(summary: str) -> bool:
 
     # Contains pipe characters (navigation boilerplate)
     if "|" in text:
+        return True
+
+    # Placeholder summaries (scraper artifacts)
+    if text.lower() in ("historical", "n/a", "none", "no data", "no summary"):
         return True
 
     # Very short — likely bare name with no context

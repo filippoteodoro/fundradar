@@ -1668,10 +1668,25 @@ def _is_misattributed_signal(signal: dict, fund: dict | None = None) -> bool:
                     return True  # ecosystem news not about this fund
             return False
 
-    # Build a set of words from the fund name for matching
-    fund_words = set(fund_name_lower.split()) - {"sgr", "sicaf", "sim", "spa", "srl", "capital", "partners", "group"}
+    # Build a set of words from the fund name for matching.
+    # Exclude generic Italian/English words that appear in many fund names and are
+    # therefore not distinctive enough to confirm that the tagged fund is mentioned.
+    # Example: "fondo" and "italiano" appear in both "Fondo Italiano d'Investimento"
+    # and "Fondo Italiano per l'Efficienza Energetica (FIEE)" — using them as
+    # co-investment evidence causes false negatives in misattribution detection.
+    _NON_DISTINCTIVE = {
+        "sgr", "sicaf", "sim", "spa", "srl", "capital", "partners", "group",
+        # Common Italian words that appear in multiple fund names
+        "fondo", "italiano", "italiana", "italiane", "italiani",
+        "fondi", "investimento", "investimenti",
+    }
+    fund_words = set(fund_name_lower.split()) - _NON_DISTINCTIVE
 
     combined = title_lower + " " + (signal.get("what_changed") or "").lower()
+
+    def _tagged_fund_distinctly_mentioned(text: str) -> bool:
+        """Return True only if a DISTINCTIVE word from the tagged fund name appears in text."""
+        return any(fw in text for fw in fund_words if len(fw) >= 4)
 
     # Check if title starts with a different known fund name
     for known in KNOWN_FUND_NAMES:
@@ -1679,8 +1694,10 @@ def _is_misattributed_signal(signal: dict, fund: dict | None = None) -> bool:
             known_norm = known.replace(" ", "-").replace("&", "")
             fund_first = fund_name_lower.split()[0] if fund_name_lower else ""
             if known_norm.replace("-", " ") not in fund_name_lower and fund_first not in known_norm.replace("-", " "):
-                # Before flagging: check if the tagged fund is ALSO mentioned (co-investment)
-                if any(fw in title_lower for fw in fund_words if len(fw) >= 3):
+                # Before flagging: check if the tagged fund is ALSO mentioned (co-investment).
+                # Require a DISTINCTIVE word (len >= 4, not a common Italian placeholder)
+                # to avoid false co-investment guards on shared vocabulary like "fondo"/"italiano".
+                if _tagged_fund_distinctly_mentioned(title_lower):
                     continue  # tagged fund mentioned too — co-investment, not misattribution
                 return True
 
@@ -1696,7 +1713,7 @@ def _is_misattributed_signal(signal: dict, fund: dict | None = None) -> bool:
                 fund_first = fund_name_lower.split()[0] if fund_name_lower else ""
                 if known_norm.replace("-", " ") in fund_name_lower or (fund_first and fund_first in known_norm.replace("-", " ")):
                     continue
-                if any(fw in combined for fw in fund_words if len(fw) >= 3):
+                if _tagged_fund_distinctly_mentioned(combined):
                     continue  # tagged fund also mentioned — co-investment
                 return True
 
@@ -1721,7 +1738,7 @@ def _is_misattributed_signal(signal: dict, fund: dict | None = None) -> bool:
         )
         if not mentioned_matches_fund:
             # Different SGR mentioned — but check if tagged fund is also mentioned (co-investment)
-            if any(fw in combined for fw in fund_words if len(fw) >= 3):
+            if _tagged_fund_distinctly_mentioned(combined):
                 continue  # tagged fund also mentioned — co-investment
             return True
 

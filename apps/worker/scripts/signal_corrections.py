@@ -320,6 +320,11 @@ def apply_universal_demotions(text_lower: str, title_lower: str) -> Optional[str
         if not _matches_deal(text_lower) and not _matches_fundraise(text_lower):
             return "other"
 
+    # "NOTICE:" / "AVVISO:" title prefix → other (regulatory filings, not PE activity)
+    if re.search(r"^(?:notice|avviso)\s*:", title_lower):
+        if not _matches_deal(text_lower) and not _matches_exit(text_lower) and not _matches_fundraise(text_lower):
+            return "other"
+
     return None
 
 
@@ -415,6 +420,11 @@ def correct_deal(text_lower: str, title_lower: str, diff_summary_lower: str = ""
     if "new portfolio company detected" in diff_summary_lower:
         if not _matches_deal(text_lower) and not _matches_exit(text_lower):
             return "portfolio_update"
+
+    # "announces the sale of" / "completes the sale of" / "agreement to sell" → exit
+    # These are seller-side language even though they contain deal verbs
+    if re.search(r"\b(?:announc\w+\s+the\s+sale|completes?\s+(?:the\s+)?sale|agreement\s+to\s+sell|puts?\s+up\s+for\s+sale)\b", text_lower):
+        return "exit_announced"
 
     # "the sellers are [fund]" / "seller is [fund]" → exit (the fund is selling)
     if re.search(r"\b(?:sellers?\s+(?:are|is|include)\b)", text_lower):

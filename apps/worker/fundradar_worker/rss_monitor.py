@@ -251,6 +251,9 @@ def build_fund_name_index(funds: list[dict]) -> dict[str, str]:
     Returns: dict mapping lowercase search term -> canonical slug.
     """
     index: dict[str, str] = {}
+    # Track which keys were added as "short prefix" keys (vs full/legal names).
+    # Used in post-processing to prune ambiguous prefix keys.
+    short_keys: set[str] = set()
 
     for fund in funds:
         slug = fund.get("slug", "")
@@ -279,6 +282,17 @@ def build_fund_name_index(funds: list[dict]) -> dict[str, str]:
         if clean and clean.lower() != name.lower() and len(clean) >= 4:
             index[clean.lower()] = slug
 
+        # Legal name without legal suffixes
+        if legal_name:
+            clean_legal = re.sub(
+                r"\s*(S\.?p\.?A\.?|S\.?r\.?l\.?|SGR|SICAF|SIM|S\.?A\.?|Ltd\.?|Inc\.?|GmbH|LLP|LP)\s*$",
+                "",
+                legal_name,
+                flags=re.IGNORECASE,
+            ).strip()
+            if clean_legal and clean_legal.lower() != legal_name.lower() and len(clean_legal) >= 4:
+                index[clean_legal.lower()] = slug
+
         # Handle common patterns:
         # "Fondo Italiano d'Investimento SGR" -> also match "Fondo Italiano"
         # But only if the shortened version is unique enough (>= 8 chars)
@@ -290,6 +304,33 @@ def build_fund_name_index(funds: list[dict]) -> dict[str, str]:
                 generic = {"private equity", "capital partners", "asset management", "venture capital"}
                 if short.lower() not in generic:
                     index.setdefault(short.lower(), slug)
+                    short_keys.add(short.lower())
+
+    # Post-processing: remove ambiguous short-prefix keys.
+    #
+    # A 2-word short key is ambiguous when it is a strict prefix of another fund's
+    # full registered key (for a different fund slug).  Example: "fondo italiano"
+    # maps to fondo-italiano-d-investimento-sgr, but "fondo italiano per
+    # l'efficienza energetica" maps to fiee-sgr.  Any article that starts with
+    # FIEE's full legal name will also match "fondo italiano", incorrectly tagging
+    # FII.  Removing the short key prevents the false match; FII articles still
+    # match via their longer, unambiguous key ("fondo italiano d'investimento").
+    ambiguous: set[str] = set()
+    for short_key in short_keys:
+        short_slug = index.get(short_key)
+        for long_key, long_slug in index.items():
+            if long_key == short_key:
+                continue
+            if long_key.startswith(short_key + " ") and long_slug != short_slug:
+                # short_key is a prefix of a different fund's name — ambiguous
+                ambiguous.add(short_key)
+                break
+    for key in ambiguous:
+        logger.debug(
+            "Removed ambiguous fund-name prefix key %r (conflicts with longer key for a different fund)",
+            key,
+        )
+        del index[key]
 
     return index
 
