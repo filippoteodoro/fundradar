@@ -124,14 +124,23 @@ class AlertManager:
         self._pending_alerts.clear()
         logger.info(f"Sent {sent} alert(s)")
 
+    @staticmethod
+    def _escape_markdown(text: str) -> str:
+        """Escape Markdown special characters for Telegram."""
+        for char in ('_', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!'):
+            text = text.replace(char, f'\\{char}')
+        # Escape unbalanced asterisks (but preserve *bold* pairs)
+        text = text.replace('*', '\\*')
+        return text
+
     def _send_telegram(self, alert: Alert):
         """Send alert via Telegram Bot API."""
         try:
-            # Escape markdown special chars for Telegram
             icon = {"info": "ℹ️", "warning": "⚠️", "error": "🔴", "critical": "🚨"}.get(
                 alert.level, "📢"
             )
-            text = f"{icon} *{alert.title}*\n\n{alert.message}"
+            # Use plain text (no parse_mode) to avoid Markdown escaping issues
+            text = f"{icon} {alert.title}\n\n{alert.message}"
 
             # Truncate to Telegram's 4096 char limit
             if len(text) > 4000:
@@ -145,7 +154,6 @@ class AlertManager:
                 {
                     "chat_id": self.config.telegram_chat_id,
                     "text": text,
-                    "parse_mode": "Markdown",
                     "disable_web_page_preview": True,
                 }
             ).encode("utf-8")
@@ -175,9 +183,29 @@ class AlertManager:
             logger.error(f"Failed to send webhook alert: {e}")
 
 
+def _get_active_monitored_urls() -> set[str]:
+    """Get the set of URLs currently monitored by active extractors."""
+    try:
+        from .url_generator import generate_all_monitored_urls
+        all_urls = set()
+        for domain, types in generate_all_monitored_urls().items():
+            for page_type, url_list in types.items():
+                if isinstance(url_list, list):
+                    all_urls.update(url_list)
+                elif isinstance(url_list, str):
+                    all_urls.add(url_list)
+        return all_urls
+    except Exception as e:
+        logger.warning(f"Could not load active URLs from extractors: {e}")
+        return set()  # Empty = don't filter (fall back to old behavior)
+
+
 def send_url_failure_alerts(data_dir: Path, failure_threshold: int = 3):
     """
     Scan url_status.json for URLs with persistent failures and send alerts.
+
+    Only counts failures for URLs that are currently monitored by active
+    extractors — stale/orphan entries from old configurations are ignored.
 
     Called at the end of a monitor run. Groups failures by fund/domain
     to avoid spamming individual URL alerts.
@@ -200,9 +228,15 @@ def send_url_failure_alerts(data_dir: Path, failure_threshold: int = 3):
 
     statuses = data.get("statuses", {})
 
+    # Only alert on URLs from active extractors (ignore stale entries)
+    active_urls = _get_active_monitored_urls()
+
     # Collect URLs with persistent failures
     failing: list[dict] = []
     for url, record in statuses.items():
+        # Skip stale URLs not in any active extractor
+        if active_urls and url not in active_urls:
+            continue
         failures = record.get("consecutive_failures", 0)
         if failures >= failure_threshold:
             failing.append({
@@ -244,3 +278,37 @@ def send_url_failure_alerts(data_dir: Path, failure_threshold: int = 3):
         )
     )
     manager.send_pending_alerts()
+
+
+def prune_stale_url_statuses(data_dir: Path) -> int:
+    """
+    Remove entries from url_status.json that are not in any active extractor.
+
+    Returns the number of stale entries removed.
+    """
+    status_path = data_dir / "url_status.json"
+    if not status_path.exists():
+        return 0
+
+    active_urls = _get_active_monitored_urls()
+    if not active_urls:
+        logger.info("No active URLs loaded — skipping url_status.json pruning")
+        return 0
+
+    with open(status_path) as f:
+        data = json.load(f)
+
+    statuses = data.get("statuses", {})
+    original_count = len(statuses)
+
+    # Keep only entries for active URLs
+    pruned = {url: record for url, record in statuses.items() if url in active_urls}
+    removed = original_count - len(pruned)
+
+    if removed > 0:
+        data["statuses"] = pruned
+        from .io_utils import safe_json_write
+        safe_json_write(status_path, data)
+        logger.info(f"Pruned {removed} stale entries from url_status.json ({len(pruned)} remaining)")
+
+    return removed

@@ -196,3 +196,63 @@ def sanitize_url(url: str | None) -> str | None:
         return None
 
     return url
+
+
+# ---------------------------------------------------------------------------
+# Fund data loading
+# ---------------------------------------------------------------------------
+
+
+def load_progress_file(path: Path | str, default: dict | None = None) -> dict:
+    """
+    Load a JSON progress-tracking file, returning a default dict if missing or corrupt.
+
+    This is the SINGLE source of truth for progress file loading across the pipeline.
+    All progress files (enrichment, portfolio enrichment, signal-to-portfolio) should
+    use this instead of rolling their own load-with-fallback logic.
+
+    Args:
+        path: Path to the progress JSON file.
+        default: Default dict to return if file is missing/corrupt. If None, returns {}.
+
+    Returns:
+        Parsed dict from the file, or the default.
+    """
+    path = Path(path)
+    if not path.exists():
+        return default if default is not None else {}
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except Exception:
+        logger.warning(f"Failed to load progress file {path}, using default")
+        return default if default is not None else {}
+
+
+def load_funds_by_slug(db_path: Path | str) -> dict[str, dict]:
+    """
+    Load fund records from db.json indexed by slug.
+
+    This is the SINGLE source of truth for slug→fund lookup across the pipeline.
+    Handles missing files and parse errors gracefully (returns empty dict).
+
+    Args:
+        db_path: Path to db.json.
+
+    Returns:
+        Dict mapping slug → fund dict.
+    """
+    db_path = Path(db_path)
+    if not db_path.exists():
+        return {}
+    try:
+        with open(db_path) as f:
+            db_data = json.load(f)
+        return {
+            fund["slug"]: fund
+            for fund in db_data.get("funds", []) or []
+            if fund.get("slug")
+        }
+    except Exception:
+        logger.warning(f"Failed to load funds from {db_path}")
+        return {}

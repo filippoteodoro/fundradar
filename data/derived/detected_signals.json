@@ -1612,8 +1612,8 @@
       "fund_id": "",
       "fund_slug": "fondo-italiano-d-investimento-sgr",
       "signal_type": "fundraise_announced",
-      "title": "Fondo Italiano d'Investimento acquires stake in Vetraco",
-      "what_changed": "Nuovo annuncio: Fondo Italiano d\u2019Investimento acquisisce una partecipazione in Vetraco",
+      "title": "Fondo Italiano d'Investimento acquires a stake in Vetraco",
+      "what_changed": "New announcement: Fondo Italiano d\u2019Investimento acquires a stake in Vetraco",
       "source_url": "https://www.fondoitaliano.it/fondo-italiano-dinvestimento-entra-nel-capitale-di-vetraco/",
       "source_name": "Fondo Italiano\nd'Investimento SGR",
       "published_at": "2026-01-21",
@@ -1635,8 +1635,8 @@
         ],
         "locations": []
       },
-      "what_changed_original": "New announcement: Fondo Italiano d\u2019Investimento acquires stake in Vetraco",
-      "title_original": "Fondo Italiano d\u2019Investimento acquires stake in Vetraco"
+      "what_changed_original": "Nuovo annuncio: Fondo Italiano d\u2019Investimento acquisisce una partecipazione in Vetraco",
+      "title_original": "Fondo Italiano d'Investimento acquires stake in Vetraco"
     },
     {
       "id": "web-signal-00168",
@@ -4850,7 +4850,7 @@
       "fund_slug": "fondo-italiano-d-investimento-sgr",
       "signal_type": "news",
       "title": "Fondo Italiano d'Investimento acquires stake in Vetraco",
-      "what_changed": "Fondo Italiano d\u2019Investimento acquires stake in Vetraco",
+      "what_changed": "Fondo Italiano d'Investimento acquires stake in Vetraco",
       "source_url": "https://www.fondoitaliano.it/en/fondo-italiano-dinvestimento-enters-vetracos-share-capital/",
       "source_name": "fondo-italiano-d-investimento-sgr",
       "published_at": "2026-01-21",
@@ -4862,7 +4862,7 @@
       "page_type": "NEWS",
       "quality_score": 75,
       "title_original": "Fondo Italiano d\u2019Investimento acquires stake in Vetraco",
-      "what_changed_original": "Fondo Italiano d\u2019Investimento enters Vetraco\u2019s share capital"
+      "what_changed_original": "Fondo Italiano d\u2019Investimento acquires stake in Vetraco"
     },
     {
       "id": "news-signal-20260205105259-8b419cb6",
@@ -4981,7 +4981,7 @@
       "fund_id": "",
       "fund_slug": "fondo-italiano-d-investimento-sgr",
       "signal_type": "news",
-      "title": "Fondo Italiano d'Investimento Acquires Stake in Santangelo Group",
+      "title": "Fondo Italiano d'Investimento acquires stake in Santangelo Group",
       "what_changed": "News: Italian Investment Fund Acquires Stake in Santangelo Group",
       "source_url": "https://www.fondoitaliano.it/en/fondo-italiano-dinvestimento-acquires-stake-in-santangelo-group/",
       "source_name": "fondo-italiano-d-investimento-sgr",
@@ -4994,7 +4994,7 @@
       "page_type": "NEWS",
       "quality_score": 75,
       "what_changed_original": "News: Fondo Italiano d\u2019Investimento Acquires Stake in\u00a0Santangelo Group",
-      "title_original": "Fondo Italiano d\u2019Investimento Acquires Stake in Santangelo Group"
+      "title_original": "Fondo Italiano d'Investimento Acquires Stake in Santangelo Group"
     },
     {
       "id": "news-signal-20260205105259-8b419cb6",
@@ -24285,8 +24285,8 @@
       "fund_id": "",
       "fund_slug": "fondo-italiano-d-investimento-sgr",
       "signal_type": "deal_announced",
-      "title": "NPO Torino added to Fondo Italiano d\u2019Investimento SGR portfolio (ICT)",
-      "what_changed": "NPO Torino added to Fondo Italiano d\u2019Investimento SGR portfolio (ICT)",
+      "title": "NPO Torino added to the Fondo Italiano d\u2019Investimento SGR portfolio (ICT)",
+      "what_changed": "NPO Torino added to the portfolio of Fondo Italiano d\u2019Investimento SGR (ICT)",
       "source_url": "https://www.fondoitaliano.it/investimenti-diretti/",
       "source_name": "Fondo Italiano d\u2019Investimento SGR",
       "published_at": null,
@@ -24309,7 +24309,9 @@
         "locations": [
           "Torino"
         ]
-      }
+      },
+      "what_changed_original": "NPO Torino added to Fondo Italiano d\u2019Investimento SGR's portfolio (ICT)",
+      "title_original": "NPO Torino added to Fondo Italiano d\u2019Investimento SGR portfolio (ICT)"
     },
     {
       "id": "web-signal-01115",
@@ -34491,7 +34493,7 @@
       "fund_slug": "riello-investimenti-sgr",
       "signal_type": "deal_announced",
       "title": "ITALIAN STRATEGY PRIVATE EQUITY ACQUIRES 60% OF APREAMARE YACHT",
-      "what_changed": "New announcement: ITALIAN STRATEGY PRIVATE EQUITY ACQUISISCE IL 60% DI APREAMARE YACHT",
+      "what_changed": "New announcement: Italian Strategy Private Equity acquires 60% of Apreamare Yacht",
       "source_url": "https://www.rielloinvestimenti.it/news-apreamare.html",
       "source_name": "Riello Investimenti SGR",
       "published_at": "2025-09-08",
@@ -34511,7 +34513,8 @@
         "people": [],
         "locations": []
       },
-      "title_original": "ITALIAN STRATEGY PRIVATE EQUITY ACQUISISCE IL 60% DI APREAMARE YACHT"
+      "title_original": "ITALIAN STRATEGY PRIVATE EQUITY ACQUISISCE IL 60% DI APREAMARE YACHT",
+      "what_changed_original": "New announcement: ITALIAN STRATEGY PRIVATE EQUITY ACQUISISCE IL 60% DI APREAMARE YACHT"
     },
     {
       "id": "web-signal-01364",
@@ -45252,8 +45255,1064 @@
         "locations": []
       },
       "title_original": "Firmato il protocollo d\u2019intesa 2026 tra Confindustria Moda e il Mim"
+    },
+    {
+      "id": "web-signal-01698",
+      "fund_id": "",
+      "fund_slug": "canova-sgr",
+      "signal_type": "other",
+      "title": "\u201cStories from the future: the role and responsibilities of innovation and the centrality of the Northeast.\u201d The conference organized by Canova at TAD \u2013 Treviso Art District",
+      "what_changed": "New announcement: \u201cStories from the future: the role and responsibilities of innovation and the centrality of the Northeast.\u201d The conference organized by Canova at TAD \u2013 Treviso Art District",
+      "source_url": "https://canovasgr.it/2024/07/09/canova-conferenza-innovazione/",
+      "source_name": "Canova SGR",
+      "published_at": "2024-07-09",
+      "observed_at": "2026-02-23T21:53:02.990138+00:00",
+      "created_at": "2026-02-23T21:53:02.990138+00:00",
+      "snapshot_id": "snap-20260223215302-bc877d46",
+      "diff_summary": "New news item detected (dated 9 Luglio 2024)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.25,
+      "relevance_reasons": [
+        "Italian cities: Treviso"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Treviso Art District",
+          "Nord Est"
+        ],
+        "locations": [
+          "Treviso"
+        ]
+      },
+      "what_changed_original": "New announcement: \u201cStorie dal futuro: il ruolo, le responsabilit\u00e0 dell\u2019innovazione e la centralit\u00e0 del Nord Est\u201d. La conferenza organizzata da Canova al TAD \u2013 Treviso Art District",
+      "title_original": "\u201cStorie dal futuro: il ruolo, le responsabilit\u00e0 dell\u2019innovazione e la centralit\u00e0 del Nord Est\u201d. La conferenza organizzata da Canova al TAD \u2013 Treviso Art District"
+    },
+    {
+      "id": "web-signal-01699",
+      "fund_id": "",
+      "fund_slug": "canova-sgr",
+      "signal_type": "other",
+      "title": "Capitani di Ventura: new business routes in Veneto. The 2025 conference organized by Canova at TAD \u2013 Treviso Art District",
+      "what_changed": "New announcement: Capitani di Ventura: new business routes in Veneto. The 2025 conference organized by Canova at TAD \u2013 Treviso Art District",
+      "source_url": "https://canovasgr.it/2025/10/05/capitani-di-ventura-nuove-rotte-di-impresa-in-veneto/",
+      "source_name": "Canova SGR",
+      "published_at": "2025-10-05",
+      "observed_at": "2026-02-23T21:53:02.990138+00:00",
+      "created_at": "2026-02-23T21:53:02.990138+00:00",
+      "snapshot_id": "snap-20260223215302-bc877d46",
+      "diff_summary": "New news item detected (dated 5 Ottobre 2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.45,
+      "relevance_reasons": [
+        "Italian cities: Treviso",
+        "Italian regions: Veneto"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Treviso Art District"
+        ],
+        "locations": [
+          "Treviso",
+          "Veneto"
+        ]
+      },
+      "what_changed_original": "New announcement: Capitani di Ventura: nuove rotte di impresa in Veneto. La conferenza 2025 organizzata da Canova al TAD \u2013 Treviso Art District",
+      "title_original": "Capitani di Ventura: nuove rotte di impresa in Veneto. La conferenza 2025 organizzata da Canova al TAD \u2013 Treviso Art District"
+    },
+    {
+      "id": "web-signal-01700",
+      "fund_id": "",
+      "fund_slug": "canova-sgr",
+      "signal_type": "other",
+      "title": "Investire in Innovazione \u2013 Dalla Startup alla Grande Impresa",
+      "what_changed": "New announcement: Investire in Innovazione \u2013 Dalla Startup alla Grande Impresa",
+      "source_url": "https://canovasgr.it/2024/12/05/investire-in-innovazione/",
+      "source_name": "Canova SGR",
+      "published_at": "2024-12-05",
+      "observed_at": "2026-02-23T21:53:02.990138+00:00",
+      "created_at": "2026-02-23T21:53:02.990138+00:00",
+      "snapshot_id": "snap-20260223215302-bc877d46",
+      "diff_summary": "New news item detected (dated 5 Dicembre 2024)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Dalla Startup",
+          "Grande Impresa"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01701",
+      "fund_id": "",
+      "fund_slug": "canova-sgr",
+      "signal_type": "other",
+      "title": "Canova and VeniSIA announce a strategic partnership to develop innovation in the region",
+      "what_changed": "New announcement: Canova and VeniSIA announce a strategic partnership to develop innovation in the region",
+      "source_url": "https://canovasgr.it/2024/04/08/canova-e-venisia-annunciano-una-collaborazione-strategica/",
+      "source_name": "Canova SGR",
+      "published_at": "2024-04-08",
+      "observed_at": "2026-02-23T21:53:02.990138+00:00",
+      "created_at": "2026-02-23T21:53:02.990138+00:00",
+      "snapshot_id": "snap-20260223215302-bc877d46",
+      "diff_summary": "New news item detected (dated 8 Aprile 2024)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Canova e VeniSIA annunciano una collaborazione strategica per sviluppare l\u2019innovazione nel territorio",
+      "title_original": "Canova e VeniSIA annunciano una collaborazione strategica per sviluppare l\u2019innovazione nel territorio"
+    },
+    {
+      "id": "web-signal-01702",
+      "fund_id": "",
+      "fund_slug": "canova-sgr",
+      "signal_type": "other",
+      "title": "Canova SGR announces the establishment of the \"Nova 1\" venture capital fund to support innovation and the development of Italian start-ups.",
+      "what_changed": "New announcement: Canova SGR announces the establishment of the \"Nova 1\" venture capital fund to support innovation and the development of Italian start-ups.",
+      "source_url": "https://canovasgr.it/2023/08/03/canova-nova-1-lancia-fondo-vc-startup/",
+      "source_name": "Canova SGR",
+      "published_at": "2023-08-03",
+      "observed_at": "2026-02-23T21:53:02.990138+00:00",
+      "created_at": "2026-02-23T21:53:02.990138+00:00",
+      "snapshot_id": "snap-20260223215302-bc877d46",
+      "diff_summary": "New news item detected (dated 3 Agosto 2023)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Venture Capital"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Canova SGR annuncia l\u2019istituzione del fondo di Venture Capital \u201cNova 1\u201d per sostenere l\u2019innovazione e lo sviluppo delle start-up italiane.",
+      "title_original": "Canova SGR annuncia l\u2019istituzione del fondo di Venture Capital \u201cNova 1\u201d per sostenere l\u2019innovazione e lo sviluppo delle start-up italiane."
+    },
+    {
+      "id": "web-signal-01703",
+      "fund_id": "",
+      "fund_slug": "canova-sgr",
+      "signal_type": "other",
+      "title": "Canova SGR, a new asset management company based in Veneto, is established",
+      "what_changed": "New announcement: Canova SGR, a new Veneto-based asset management company, is born",
+      "source_url": "https://canovasgr.it/2023/06/14/nasce-canova-societa-gestione-risparmio-veneta/",
+      "source_name": "Canova SGR",
+      "published_at": "2023-06-14",
+      "observed_at": "2026-02-23T21:53:02.990138+00:00",
+      "created_at": "2026-02-23T21:53:02.990138+00:00",
+      "snapshot_id": "snap-20260223215302-bc877d46",
+      "diff_summary": "New news item detected (dated 14 Giugno 2023)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "veneta di gestione del ri"
+        ],
+        "people": [
+          "Nasce Canova"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Nasce Canova SGR nuova societ\u00e0 veneta di gestione del risparmio",
+      "title_original": "Nasce Canova SGR nuova societ\u00e0 veneta di gestione del risparmio"
+    },
+    {
+      "id": "web-signal-01704",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "FIEE \u2013 Naturmet: cosa dicono le maggiori testate giornalistiche",
+      "what_changed": "New announcement: FIEE \u2013 Naturmet: cosa dicono le maggiori testate giornalistiche",
+      "source_url": "https://www.fieesgr.com/2026/02/02/fiee-naturmet-cosa-dicono-le-maggiori-testate-giornalistiche/",
+      "source_name": "FIEE SGR",
+      "published_at": "2026-02-02",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2026-02-02T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01705",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "Press Review: dirittoeaffari.it \u2013 Ashurst and GOP advise on SACE-guaranteed financing of up to \u20ac83 million for Clever Servizi Energetici S.p.A.",
+      "what_changed": "New announcement: Press review: dirittoeaffari.it \u2013 Ashurst and GOP advise on SACE-guaranteed financing of up to \u20ac83 million for Clever Servizi Energetici S.p.A.",
+      "source_url": "https://www.fieesgr.com/2026/01/19/rassegna-stampa-dirittoeaffari-it-ashurst-e-gop-nel-finanziamento-con-garanzia-sace-fino-a-83-milioni-per-clever-servizi-energetici-s-p-a/",
+      "source_name": "FIEE SGR",
+      "published_at": "2026-01-19",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2026-01-19T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SPA"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "milioni per Clever Servizi Energetici"
+        ],
+        "people": [
+          "Clever Servizi Energetici",
+          "Rassegna Stampa"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Rassegna Stampa: dirittoeaffari.it \u2013 Ashurst e GOP nel finanziamento con garanzia SACE fino a 83 milioni per Clever Servizi Energetici S.p.A.",
+      "title_original": "Rassegna Stampa: dirittoeaffari.it \u2013 Ashurst e GOP nel finanziamento con garanzia SACE fino a 83 milioni per Clever Servizi Energetici S.p.A."
+    },
+    {
+      "id": "web-signal-01706",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "Press Review: monitorimmobiliare.it \u2013 Ashurst and GOP in SACE financing of up to \u20ac83 million for Clever Servizi Energetici",
+      "what_changed": "New announcement: Press review: monitorimmobiliare.it \u2013 Ashurst and GOP in SACE financing of up to \u20ac83 million for Clever Servizi Energetici",
+      "source_url": "https://www.fieesgr.com/2026/01/19/rassegna-stampa-monitorimmobiliare-it-ashurst-e-gop-nel-finanziamento-sace-fino-a-83-milioni-per-clever-servizi-energetici/",
+      "source_name": "FIEE SGR",
+      "published_at": "2026-01-19",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2026-01-19T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Clever Servizi Energetici",
+          "Rassegna Stampa"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Rassegna Stampa: monitorimmobiliare.it \u2013 Ashurst e GOP nel finanziamento SACE fino a 83 milioni per Clever Servizi Energetici",
+      "title_original": "Rassegna Stampa: monitorimmobiliare.it \u2013 Ashurst e GOP nel finanziamento SACE fino a 83 milioni per Clever Servizi Energetici"
+    },
+    {
+      "id": "web-signal-01707",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "Press review: legalcommunity.it \u2013 Ashurst and GOP in financing with SACE guarantee of up to \u20ac83 million for Clever Servizi Energetici",
+      "what_changed": "New announcement: Press review: legalcommunity.it \u2013 Ashurst and GOP in SACE-guaranteed financing of up to \u20ac83 million for Clever Servizi Energetici",
+      "source_url": "https://www.fieesgr.com/2026/01/19/rassegna-stampa-legalcommunity-it-ashurst-e-gop-nel-finanziamento-con-garanzia-sace-fino-a-83-milioni-per-clever-servizi-energetici/",
+      "source_name": "FIEE SGR",
+      "published_at": "2026-01-19",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2026-01-19T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Clever Servizi Energetici",
+          "Rassegna Stampa"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Rassegna Stampa: legalcommunity.it \u2013 Ashurst e GOP nel finanziamento con garanzia SACE fino a 83 milioni per Clever Servizi Energetici",
+      "title_original": "Rassegna Stampa: legalcommunity.it \u2013 Ashurst e GOP nel finanziamento con garanzia SACE fino a 83 milioni per Clever Servizi Energetici"
+    },
+    {
+      "id": "web-signal-01708",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "Press Review: Il Sole 24Ore \u2013 Clever raises \u20ac80 million with UniCredit, CDP, and MCC",
+      "what_changed": "New announcement: Press review: Il Sole 24Ore \u2013 Clever obtains \u20ac80 million from UniCredit, CDP, and MCC",
+      "source_url": "https://www.fieesgr.com/2025/12/23/rassegna-stampa-il-sole-24ore-clever-ottiene-80-milioni-con-unicredit-cdp-e-mcc/",
+      "source_name": "FIEE SGR",
+      "published_at": "2025-12-23",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2025-12-23T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.25,
+      "relevance_reasons": [
+        "Italian business context: Cdp"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Il Sole",
+          "Rassegna Stampa"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Rassegna Stampa: Il Sole 24Ore \u2013 Clever ottiene 80 milioni con UniCredit, Cdp e Mcc",
+      "title_original": "Rassegna Stampa: Il Sole 24Ore \u2013 Clever ottiene 80 milioni con UniCredit, Cdp e Mcc"
+    },
+    {
+      "id": "web-signal-01709",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "Press Review: ESGNews.it \u2013 Infrastructure: a strategic investment choice thanks to energy transition and digitalization",
+      "what_changed": "New announcement: Press Review: ESGNews.it \u2013 Infrastructure: a strategic investment choice thanks to energy transition and digitalization",
+      "source_url": "https://www.fieesgr.com/2025/12/22/rassegna-stampa-esgnews-it-infrastrutture-scelta-strategica-di-investimento-grazie-a-transizione-energetica-e-digitalizzazione/",
+      "source_name": "FIEE SGR",
+      "published_at": "2025-12-22",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2025-12-22T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Rassegna Stampa"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Rassegna Stampa: ESGNews.it \u2013 Infrastrutture: scelta strategica di investimento grazie a transizione energetica e digitalizzazione",
+      "title_original": "Rassegna Stampa: ESGNews.it \u2013 Infrastrutture: scelta strategica di investimento grazie a transizione energetica e digitalizzazione"
+    },
+    {
+      "id": "web-signal-01710",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "Press Review: La Repubblica / Business & Finance \u2013 Storage systems useful for the transition",
+      "what_changed": "New announcement: Press Review: La Repubblica / Business & Finance \u2013 Storage systems useful for the transition",
+      "source_url": "https://www.fieesgr.com/2025/12/01/rassegna-stampa-la-repubblica-affari-finanza-i-sistemi-di-accumulo-utili-per-la-transizione/",
+      "source_name": "FIEE SGR",
+      "published_at": "2025-12-01",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2025-12-01T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Rassegna Stampa",
+          "La Repubblica"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Rassegna Stampa: La Repubblica / Affari & Finanza \u2013 I sistemi di accumulo utili per la transizione",
+      "title_original": "Rassegna Stampa: La Repubblica / Affari & Finanza \u2013 I sistemi di accumulo utili per la transizione"
+    },
+    {
+      "id": "web-signal-01711",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "Press Review: byinnovation.eu \u2013 Infrastructure investment strategies",
+      "what_changed": "New announcement: Press Review: byinnovation.eu \u2013 Infrastructure investment strategies",
+      "source_url": "https://www.fieesgr.com/2025/11/20/rassegna-stampa-byinnovation-eu-strategie-di-investimento-nelle-infrastrutture/",
+      "source_name": "FIEE SGR",
+      "published_at": "2025-11-20",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2025-11-20T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Rassegna Stampa"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Rassegna Stampa: byinnovation.eu \u2013 Strategie di investimento nelle infrastrutture",
+      "title_original": "Rassegna Stampa: byinnovation.eu \u2013 Strategie di investimento nelle infrastrutture"
+    },
+    {
+      "id": "web-signal-01712",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "Press Review: itinerariprevidenziali.it \u2013 Infrastructure: strategic investment choice thanks to energy transition and digitalization",
+      "what_changed": "New announcement: Press review: itinerariprevidenziali.it \u2013 Infrastructure: strategic investment choice thanks to energy transition and digitalization",
+      "source_url": "https://www.fieesgr.com/2025/11/18/rassegna-stampa-itinerariprevidenziali-it-infrastrutture-scelta-strategica-di-investimento-grazie-a-transizione-energetica-e-digitalizzazione/",
+      "source_name": "FIEE SGR",
+      "published_at": "2025-11-18",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2025-11-18T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Rassegna Stampa"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Rassegna Stampa: itinerariprevidenziali.it \u2013 Infrastrutture: scelta strategica di investimento grazie a transizione energetica e digitalizzazione",
+      "title_original": "Rassegna Stampa: itinerariprevidenziali.it \u2013 Infrastrutture: scelta strategica di investimento grazie a transizione energetica e digitalizzazione"
+    },
+    {
+      "id": "web-signal-01713",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "Rassegna Stampa: energiamercato.it \u2013 In provincia di Terni, un innovativo impianto fotovoltaico ad alta efficienza",
+      "what_changed": "New announcement: Rassegna Stampa: energiamercato.it \u2013 In provincia di Terni, un innovativo impianto fotovoltaico ad alta efficienza",
+      "source_url": "https://www.fieesgr.com/2025/11/04/rassegna-stampa-energiamercato-it-in-provincia-di-terni-un-innovativo-impianto-fotovoltaico-ad-alta-efficienza/",
+      "source_name": "FIEE SGR",
+      "published_at": "2025-11-04",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2025-11-04T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Rassegna Stampa"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01714",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "Rassegna Stampa: rinnovabili.it \u2013 Partnership tra BTicino Comunita Energetiche: impianto fotovoltaico ad alte prestazioni in provincia di Terni",
+      "what_changed": "New announcement: Rassegna Stampa: rinnovabili.it \u2013 Partnership tra BTicino Comunita Energetiche: impianto fotovoltaico ad alte prestazioni in provincia di Terni",
+      "source_url": "https://www.fieesgr.com/2025/11/04/rassegna-stampa-rinnovabili-it-partnership-tra-bticino-comunita-energetiche-impianto-fotovoltaico-ad-alte-prestazioni-in-provincia-di-terni/",
+      "source_name": "FIEE SGR",
+      "published_at": "2025-11-04",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2025-11-04T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Comunita Energetiche",
+          "Rassegna Stampa"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01715",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "Press Review: Solar B2B \u2013 Over 2.9 MWP serving the national energy system",
+      "what_changed": "New announcement: Press Review: Solar B2B \u2013 Over 2.9 MWP serving the national energy system",
+      "source_url": "https://www.fieesgr.com/2025/11/04/rassegna-stampa-solare-b2b-oltre-29-mwp-al-servizio-del-sistema-energetico-nazionale/",
+      "source_name": "FIEE SGR",
+      "published_at": "2025-11-04",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2025-11-04T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Rassegna Stampa"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Rassegna Stampa: Solare B2B \u2013 Oltre 2,9 MWP al servizio del sistema energetico nazionale",
+      "title_original": "Rassegna Stampa: Solare B2B \u2013 Oltre 2,9 MWP al servizio del sistema energetico nazionale"
+    },
+    {
+      "id": "web-signal-01716",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "Rassegna Stampa: bebeez.it \u2013 Italy\u2019s private equity weekly roundup. News from BeBeez, Di Luccia & Partners, Bending Spoons, AOL, Yahoo, and more",
+      "what_changed": "New announcement: Rassegna Stampa: bebeez.it \u2013 Italy\u2019s private equity weekly roundup. News from BeBeez, Di Luccia & Partners, Bending Spoons, AOL, Yahoo, and more",
+      "source_url": "https://www.fieesgr.com/2025/11/04/rassegna-stampa-bebeez-it-italys-private-equity-weekly-roundup-news-from-bebeez-di-luccia-partners-bending-spoons-aol-yahoo-and-more/",
+      "source_name": "FIEE SGR",
+      "published_at": "2025-11-04",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2025-11-04T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italy)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Rassegna Stampa",
+          "Bending Spoons",
+          "Di Luccia"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01717",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "Press Review: toptrade.it \u2013 BTicino partners with Comunit\u00e0 Energetiche to build a high-performance photovoltaic plant in the province of Terni",
+      "what_changed": "New announcement: Press Review: toptrade.it \u2013 BTicino partners with Comunit\u00e0 Energetiche to build a high-performance photovoltaic plant in the province of Terni",
+      "source_url": "https://www.fieesgr.com/2025/11/04/rassegna-stampa-toptrade-it-bticino-partner-di-comunita-energetiche-per-la-realizzazione-di-un-impianto-fotovoltaico-ad-alte-prestazioni-in-provincia-di-terni/",
+      "source_name": "FIEE SGR",
+      "published_at": "2025-11-04",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2025-11-04T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Rassegna Stampa"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Rassegna Stampa: toptrade.it \u2013 BTicino partner di Comunit\u00e0 Energetiche per la realizzazione di un impianto fotovoltaico ad alte prestazioni in provincia di Terni",
+      "title_original": "Rassegna Stampa: toptrade.it \u2013 BTicino partner di Comunit\u00e0 Energetiche per la realizzazione di un impianto fotovoltaico ad alte prestazioni in provincia di Terni"
+    },
+    {
+      "id": "web-signal-01718",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "other",
+      "title": "Press Review: ntplusdiritto.ilsole24ore.com \u2013 Parola Associati, PwC TLS, Legance, De Lorenzi Micciche Scalera Spada, and Chiomenti advise on the largest European transaction ever in the sector",
+      "what_changed": "New announcement: Press review: ntplusdiritto.ilsole24ore.com \u2013 Parola Associati, PwC TLS, Legance, De Lorenzi Micciche Scalera Spada, and Chiomenti advisors in the largest European transaction ever in the public lighting sector",
+      "source_url": "https://www.fieesgr.com/2025/11/03/rassegna-stampa-ntplusdiritto-ilsole24ore-com-parola-associati-pwc-tls-legance-de-lorenzi-micciche-scalera-spada-e-chiomenti-advisor-nella-piu-grande-operazione-europea-di-sempre-nel-settore-del/",
+      "source_name": "FIEE SGR",
+      "published_at": "2025-11-03",
+      "observed_at": "2026-02-23T21:53:03.273589+00:00",
+      "created_at": "2026-02-23T21:53:03.273589+00:00",
+      "snapshot_id": "snap-20260223215302-988cdb3f",
+      "diff_summary": "New news item detected (dated 2025-11-03T00:00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "De Lorenzi Micciche Scalera"
+        ],
+        "people": [
+          "De Lorenzi Micciche",
+          "Rassegna Stampa",
+          "Scalera Spada",
+          "Parola Associati"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Rassegna Stampa: ntplusdiritto.ilsole24ore.com \u2013 Parola Associati, PwC TLS, Legance, De Lorenzi Micciche Scalera Spada e Chiomenti advisor nella piu grande operazione europea di sempre nel settore dell\u2019illuminazione pubblica",
+      "title_original": "Rassegna Stampa: ntplusdiritto.ilsole24ore.com \u2013 Parola Associati, PwC TLS, Legance, De Lorenzi Micciche Scalera Spada e Chiomenti advisor nella piu grande operazione europea di sempre nel settore"
+    },
+    {
+      "id": "web-signal-01719",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "IAA 80: the indicator of listed agri-food values \u2013 2025 review & 2026 outlook",
+      "what_changed": "New announcement: IAA 80: the indicator of listed agri-food values \u2013 2025 review & 2026 outlook",
+      "source_url": "https://www.unigrains.fr/fr/actualites/iaa-80-lindicateur-des-valeurs-cotees-de-lagroalimentaire-bilan-2025-perspectives-2026#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: IAA 80 : l\u2019indicateur des valeurs cot\u00e9es de l\u2019agroalimentaire \u2013 Bilan 2025 & Perspectives 2026",
+      "title_original": "IAA 80 : l\u2019indicateur des valeurs cot\u00e9es de l\u2019agroalimentaire \u2013 Bilan 2025 & Perspectives 2026"
+    },
+    {
+      "id": "web-signal-01720",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "Bilan Annuel Unigrains 2025 : 264 M\u20ac d\u2019investissements",
+      "what_changed": "New announcement: Bilan Annuel Unigrains 2025 : 264 M\u20ac d\u2019investissements",
+      "source_url": "https://www.unigrains.fr/fr/actualites/bilan-annuel-unigrains-2025-264-meur-dinvestissements#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Bilan Annuel Unigrains"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01721",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "Italy: 8th external growth operation for VIVALDI GROUP",
+      "what_changed": "New announcement: Italy: 8th external growth operation for VIVALDI GROUP",
+      "source_url": "https://www.unigrains.fr/fr/actualites/italie-8eme-operation-de-croissance-externe-pour-vivaldi-group#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Italie : 8\u00e8me op\u00e9ration de croissance externe pour VIVALDI GROUP",
+      "title_original": "Italie : 8\u00e8me op\u00e9ration de croissance externe pour VIVALDI GROUP"
+    },
+    {
+      "id": "web-signal-01722",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "LIM Group welcomes Unigrains as a shareholder",
+      "what_changed": "New announcement: LIM Group welcomes Unigrains as a shareholder",
+      "source_url": "https://www.unigrains.fr/fr/actualites/lim-group-accueille-unigrains-dans-son-capital#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: LIM Group accueille Unigrains dans son capital",
+      "title_original": "LIM Group accueille Unigrains dans son capital"
+    },
+    {
+      "id": "web-signal-01723",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "Unilis Agtech supports the development of Agreenculture",
+      "what_changed": "New announcement: Unilis Agtech supports the development of Agreenculture",
+      "source_url": "https://www.unigrains.fr/fr/actualites/unilis-agtech-accompagne-le-developpement-dagreenculture#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Unilis Agtech"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Unilis Agtech accompagne le d\u00e9veloppement d'Agreenculture",
+      "title_original": "Unilis Agtech accompagne le d\u00e9veloppement d'Agreenculture"
+    },
+    {
+      "id": "web-signal-01724",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "\"Agricultural Resilience\" study: towards a sovereign, profitable, and sustainable French agricultural sector by 2050",
+      "what_changed": "New announcement: \"Agricultural Resilience\" study: towards a sovereign, profitable, and sustainable French agriculture by 2050",
+      "source_url": "https://www.unigrains.fr/fr/actualites/etude-resilience-agricole-vers-une-agriculture-francaise-souveraine-rentable-et-durable-a-horizon-2050#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Etude \u00ab R\u00e9silience Agricole \u00bb : vers une agriculture fran\u00e7aise souveraine, rentable et durable \u00e0 horizon 2050",
+      "title_original": "Etude \u00ab R\u00e9silience Agricole \u00bb : vers une agriculture fran\u00e7aise souveraine, rentable et durable \u00e0 horizon 2050"
+    },
+    {
+      "id": "web-signal-01725",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "L'Albero del Pane (German) opens its capital to Unigrains Italia",
+      "what_changed": "New announcement: L'Albero del Pane (German) opens its capital to Unigrains Italia",
+      "source_url": "https://www.unigrains.fr/fr/actualites/lalbero-del-pane-tedesco-ouvre-son-capital-a-unigrains-italia#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italia)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Unigrains Italia"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: L'Albero del Pane (Tedesco) ouvre son capital \u00e0 Unigrains Italia",
+      "title_original": "L'Albero del Pane (Tedesco) ouvre son capital \u00e0 Unigrains Italia"
+    },
+    {
+      "id": "web-signal-01726",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "Unigrains Studies: The paradox of nutritional recommendations in the United States",
+      "what_changed": "New announcement: Unigrains Studies: The paradox of nutritional recommendations in the United States",
+      "source_url": "https://www.unigrains.fr/fr/actualites/etudes-unigrains-la-paradoxe-des-recommandations-nutritionnelles-aux-etats-unis#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Etudes Unigrains"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Etudes Unigrains : Le paradoxe des recommandations nutritionnelles aux Etats-Unis",
+      "title_original": "Etudes Unigrains : Le paradoxe des recommandations nutritionnelles aux Etats-Unis"
+    },
+    {
+      "id": "web-signal-01727",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "IAA 80: the indicator of listed agri-food values \u2013 Q3 2025",
+      "what_changed": "New announcement: IAA 80: the indicator of listed agri-food values \u2013 Q3 2025",
+      "source_url": "https://www.unigrains.fr/fr/actualites/iaa-80-lindicateur-des-valeurs-cotees-de-lagroalimentaire-t3-2025#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: IAA 80 : l\u2019indicateur des valeurs cot\u00e9es de l\u2019agroalimentaire \u2013 T3 2025",
+      "title_original": "IAA 80 : l\u2019indicateur des valeurs cot\u00e9es de l\u2019agroalimentaire \u2013 T3 2025"
+    },
+    {
+      "id": "web-signal-01728",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "Unigrains renews its commitment to La Compagnie Fruiti\u00e8re",
+      "what_changed": "New announcement: Unigrains renews its commitment to La Compagnie Fruiti\u00e8re",
+      "source_url": "https://www.unigrains.fr/fr/actualites/unigrains-renouvelle-son-engagement-aupres-de-la-compagnie-fruitiere#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "La Compagnie"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Unigrains renouvelle son engagement aupr\u00e8s de La Compagnie Fruiti\u00e8re",
+      "title_original": "Unigrains renouvelle son engagement aupr\u00e8s de La Compagnie Fruiti\u00e8re"
+    },
+    {
+      "id": "web-signal-01729",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "Analysis: The impact of social media on agricultural commodities",
+      "what_changed": "New announcement: Analysis: The impact of social media on agricultural commodities",
+      "source_url": "https://www.unigrains.fr/fr/actualites/analyse-de-limpact-des-reseaux-sociaux-sur-les-matieres-premieres-agricoles#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Analyse : De l'impact des r\u00e9seaux sociaux sur les mati\u00e8res premi\u00e8res agricoles",
+      "title_original": "Analyse : De l'impact des r\u00e9seaux sociaux sur les mati\u00e8res premi\u00e8res agricoles"
+    },
+    {
+      "id": "web-signal-01730",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "Unigrains publishes its 2025 CSR Barometer for agri-food companies",
+      "what_changed": "New announcement: Unigrains publishes its 2025 CSR Barometer for agri-food companies",
+      "source_url": "https://www.unigrains.fr/fr/actualites/unigrains-publie-son-barometre-rse-2025-des-entreprises-de-lagri-agroalimentaire#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Unigrains publie son Barom\u00e8tre RSE 2025 des entreprises de l'agri-agroalimentaire",
+      "title_original": "Unigrains publie son Barom\u00e8tre RSE 2025 des entreprises de l'agri-agroalimentaire"
+    },
+    {
+      "id": "web-signal-01731",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "Unigrains Italia: La Prensa Etichette acquires Casalini e Viscardi",
+      "what_changed": "New announcement: Unigrains Italia: La Prensa Etichette acquires Casalini and Viscardi",
+      "source_url": "https://www.unigrains.fr/fr/actualites/unigrains-italia-la-prensa-etichette-rachete-casalini-e-viscardi#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italia)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "La Prensa Etichette",
+          "Unigrains Italia"
+        ],
+        "locations": []
+      },
+      "title_original": "Unigrains Italia : La Prensa Etichette rach\u00e8te Casalini e Viscardi",
+      "what_changed_original": "New announcement: Unigrains Italia : La Prensa Etichette rach\u00e8te Casalini e Viscardi"
+    },
+    {
+      "id": "web-signal-01732",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "deal_announced",
+      "title": "IRRIFRANCE Group completes acquisition of France Pivots with support from Unigrains",
+      "what_changed": "New announcement: IRRIFRANCE Group completes acquisition of France Pivots with support from Unigrains",
+      "source_url": "https://www.unigrains.fr/fr/actualites/irrifrance-groupe-finalise-lacquisition-de-france-pivots-avec-le-soutien-dunigrains#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "France Pivots"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: IRRIFRANCE Groupe finalise l\u2019acquisition de France Pivots avec le soutien d\u2019Unigrains",
+      "title_original": "IRRIFRANCE Groupe finalise l\u2019acquisition de France Pivots avec le soutien d\u2019Unigrains"
+    },
+    {
+      "id": "web-signal-01733",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "Unigrains renews its commitment to Ma\u00eetre Prunille",
+      "what_changed": "New announcement: Unigrains renews its commitment to Ma\u00eetre Prunille",
+      "source_url": "https://www.unigrains.fr/fr/actualites/unigrains-renouvelle-son-engagement-aupres-de-maitre-prunille#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-02-23T21:53:30.949076+00:00",
+      "created_at": "2026-02-23T21:53:30.949076+00:00",
+      "snapshot_id": "snap-20260223215329-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Unigrains renouvelle son engagement aupr\u00e8s de Ma\u00eetre Prunille",
+      "title_original": "Unigrains renouvelle son engagement aupr\u00e8s de Ma\u00eetre Prunille"
     }
   ],
-  "signal_count": 1697,
-  "translated_at": "2026-02-23T17:13:12.995709+00:00"
+  "signal_count": 1733,
+  "translated_at": "2026-02-23T22:47:30.680767+00:00"
 }

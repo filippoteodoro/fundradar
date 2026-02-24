@@ -238,14 +238,28 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 | Module | Purpose | Consumers |
 |--------|---------|-----------|
 | `signal_patterns.py` | **Single source of truth** for ~60 compiled regex patterns, constants, utility functions | `filter_signals.py`, `enrich_signals_openai.py`, `signal_corrections.py`, `signal_text_utils.py` |
-| `signal_corrections.py` | Shared post-classification corrections (`apply_universal_demotions()`, `apply_type_corrections()`) | `enrich_signals_openai.py` (primary), `filter_signals.py` (has its own broader pattern lists) |
+| `signal_corrections.py` | Shared post-classification corrections (`apply_universal_demotions()`, `apply_type_corrections()`) | `filter_signals.py` (primary, runs after `_reclassify_signal_type()`), `enrich_signals_openai.py` (defense-in-depth) |
 | `signal_text_utils.py` | Shared text cleaning: `clean_display_text()`, `fix_spacing()`, `normalize_monetary_values()`, `repair_token_splits()`, AUM boilerplate stripping | `filter_signals.py`, `enrich_signals_openai.py` |
 | `translator.py` | Shared translation: language detection, DeepL quota management, Azure fallback, OpenAI fallback | `translate_signals.py` (pipeline step), `enrich_signals_openai.py` (safety net) |
 
 **When adding a new pattern**: add it to `signal_patterns.py`. Both filter and enricher import from it.
 **When adding a new text cleanup rule**: add it to `signal_text_utils.py` inside `clean_display_text()`. Applied uniformly to all text fields (title, what_changed, enriched_summary, diff_summary) in both filter and enricher.
-**When adding a new correction rule**: add it to `signal_corrections.py`. The enricher calls it directly; the filter has its own broader pattern-list-based corrections but should stay in sync for type-specific rules.
+**When adding a new correction rule**: add it to `signal_corrections.py`. Both filter and enricher import and call it directly. Do NOT add inline correction patterns to `_reclassify_signal_type()` in `filter_signals.py` — they won't be shared with the enricher.
 **When adding a new signal type**: update `signal_patterns.py` (CORE_GEO_TYPES/CORE_QUALITY_TYPES), `signal_corrections.py`, `filter_signals.py`, `enrich_signals_openai.py`, `signalProcessing.ts`, `types.ts`, `SignalsFeed.tsx`.
+
+### Shared Utility Functions — NEVER Re-implement Inline
+
+These utilities exist in `fundradar_worker/` and MUST be used instead of inline reimplementations:
+
+| Utility | Module | Purpose | NEVER do this instead |
+|---------|--------|---------|----------------------|
+| `safe_json_write()` | `io_utils.py` | Atomic JSON write (tempfile + os.replace) | `tempfile.mkstemp()` + `os.replace()` inline |
+| `load_progress_file()` | `io_utils.py` | Load progress JSON with default fallback | `if path.exists(): json.load()` + `except` inline |
+| `load_funds_by_slug()` | `io_utils.py` | Load db.json indexed by slug | Custom db.json loading per-script |
+| `extract_domain()` | `url_utils.py` | Extract domain from URL (strips www by default) | `urlparse().netloc.replace("www.", "")` inline |
+| `is_same_domain()` | `url_utils.py` | Compare two URLs/domains (ignoring www) | Inline domain extraction + `==` comparison |
+
+The enricher uses `_apply_final_type_and_overrides()` as a single entry point for all post-classification corrections across its 3 code paths. NEVER duplicate correction + safety override logic inline.
 
 ### Fund Metadata Flags in db.json
 

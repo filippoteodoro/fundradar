@@ -69,7 +69,10 @@ FRAGMENTED_PHRASES = [
 NEWSPAPER_ONLY_RE = re.compile(
     r"^\s*(?:Il Sole 24 Ore|Corriere\s+\w+|BeBeez|Forbes|Bloomberg|Reuters|"
     r"Financial Times|Milano Finanza|MF[\s\-]Milano Finanza|La Repubblica|"
-    r"Italia Oggi|MF Newswires|StartupItalia|Corriere della Sera)\s*$",
+    r"Italia Oggi|MF Newswires|StartupItalia|Corriere della Sera|"
+    r"The Messenger|Il Messaggero|Verona Courier|Il Giornale|"
+    r"Avvenire|Quotidiano Nazionale|Il Giorno|Il Mattino|La Stampa|"
+    r"L[''\u2019]Arena|Gazzetta di Mantova)\s*$",
     re.IGNORECASE,
 )
 
@@ -223,6 +226,9 @@ def fix_spacing(text: str) -> str:
     # Insert space between digits and letters (e.g., "2025Comunicato")
     cleaned = re.sub(r"(?<=\d)(?=[A-Za-zÀ-ÖØ-öø-ÿ])", " ", cleaned)
     cleaned = re.sub(r"(?<=[A-Za-zÀ-ÖØ-öø-ÿ])(?=\d)", " ", cleaned)
+    # Re-attach monetary magnitude letter to currency amount after digit-letter split
+    # "€200 Magreementfor" → "€200M agreementfor" (M = millions, split from word)
+    cleaned = re.sub(r"([€$£]\d+(?:[.,]\d+)?)\s([KMBT])([a-zà-öø-ÿ])", r"\1\2 \3", cleaned)
     # Insert space between uppercase acronym and lowercase word (e.g., "NTCsostenuta")
     cleaned = re.sub(r"(?<=[A-ZÀ-ÖØ-Þ]{2})(?=[a-zà-öø-ÿ])", " ", cleaned)
     # Insert space between lowercase word and uppercase acronym (e.g., "tedescaKBC")
@@ -276,6 +282,7 @@ def fix_spacing(text: str) -> str:
     cleaned = re.sub(r"\bID\s*e\s*A\b", "IDea", cleaned)
     cleaned = re.sub(r"\bGT\s*x\b", "GTx", cleaned)
     cleaned = re.sub(r"\bFounta\s*in\s*Vest\b", "FountainVest", cleaned)
+    cleaned = re.sub(r"\bXG\s+en\b", "XGen", cleaned)
     # Italian word splits from OCR/PDF
     cleaned = re.sub(r"\b([Tt]rasferimen)\s+(to)\b", r"\1\2", cleaned)
     cleaned = re.sub(r"\b([Ff]inanziamen)\s+(to)\b", r"\1\2", cleaned)
@@ -303,12 +310,28 @@ def fix_spacing(text: str) -> str:
     cleaned = re.sub(r"\b(\d+)\s+(th|st|nd|rd)\b", r"\1\2", cleaned, flags=re.IGNORECASE)
     # "Cdp Venture Capital" → "CDP Venture Capital"
     cleaned = re.sub(r"\bCdp\s+Venture\s+Capital\b", "CDP Venture Capital", cleaned)
+    # "financ ING" → "financing" (ING bank name splits the word)
+    cleaned = re.sub(r"\bfinanc\s+ING\b", "financing", cleaned)
     # "2025–2028Term" → "2025–2028 Term"
     cleaned = re.sub(r"(\d{4})Term\b", r"\1 Term", cleaned)
     # "Serie A/B/C" → "Series A/B/C"
     cleaned = re.sub(r"\b[Ss][Ee][Rr][Ii][Ee]\s+([A-Ga-g])\b", lambda m: f"Series {m.group(1).upper()}", cleaned)
     # Mojibake: â¬€ / â¬ → €
     cleaned = cleaned.replace("â¬€", "€").replace("â¬", "€")
+    # Fix newspaper domain split: "ilsole 24 ore" → "ilsole24ore"
+    cleaned = re.sub(r"\bilsole\s+24\s+ore\b", "ilsole24ore", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\bsole\s+24\s+ore\b", "sole24ore", cleaned, flags=re.IGNORECASE)
+    # Italian appointment phrases → English (common untranslated pattern)
+    cleaned = re.sub(r"\bnominat[oa]\s+", "appointed ", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\bamministratore\s+delegato\b", "CEO", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\bdirettore\s+generale\b", "general manager", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\bresponsabile\s+del?\b", "head of", cleaned, flags=re.IGNORECASE)
+    # Italian connectives in otherwise English text: "e" → "and", "di" → "of"
+    # Only replace when surrounded by English context (capitalized words / roles)
+    cleaned = re.sub(r"\b([A-Z]\w+)\s+e\s+([A-Z]\w+)", r"\1 and \2", cleaned)
+    cleaned = re.sub(r"\bCEO\s+e\s+", "CEO and ", cleaned)
+    cleaned = re.sub(r"\b(officer|manager|director)\s+di\s+", r"\1 of ", cleaned, flags=re.IGNORECASE)
+
     # Finance jargon: "aucap" → "capital increase"
     cleaned = re.sub(r"\baucap\b", "capital increase", cleaned, flags=re.IGNORECASE)
     # Italian legal abbreviations
@@ -322,6 +345,12 @@ def fix_spacing(text: str) -> str:
     cleaned = re.sub(r"\b(\d{1,3})\.(\d{3})(?=\s+(?:beds?|employees?|people|square|units?|staff|workers?))", lambda m: f"{m.group(1)},{m.group(2)}", cleaned)
     # "2 T au" → "Tau"
     cleaned = re.sub(r"\b2\s+T\s+au\b", "Tau", cleaned)
+    # "XI talia" → "XItalia" (OCR artifact from CDP newsroom)
+    cleaned = re.sub(r"\bXI\s+talia\b", "XItalia", cleaned)
+    # "Ifund" → "I Fund" (font/encoding artifact)
+    cleaned = re.sub(r"\bIfund\b", "I Fund", cleaned)
+    # "Travelso" → "Travelsoft" (common truncation)
+    cleaned = re.sub(r"\bTravelso\b", "Travelsoft", cleaned)
     # Strip leading numbered list artifacts
     cleaned = re.sub(r"^\d+\s+(?=[A-Z])", "", cleaned)
     # Italian ordinals in text
@@ -444,6 +473,36 @@ def normalize_monetary_values(text: str) -> str:
     # Italian quantity words (from enricher)
     result = re.sub(r"\boltre\b", "over", result, flags=re.IGNORECASE)
     result = re.sub(r"\bcirca\b", "~", result, flags=re.IGNORECASE)
+
+    # Verbal amounts: "two/three/... million euros" → €2M/€3M
+    _VERBAL_NUMBERS = {
+        "one": "1", "two": "2", "three": "3", "four": "4", "five": "5",
+        "six": "6", "seven": "7", "eight": "8", "nine": "9", "ten": "10",
+    }
+    for word, digit in _VERBAL_NUMBERS.items():
+        result = re.sub(
+            rf"\b{word}\s+(?:million|milion[ei]?)\s+(?:di\s+)?euro[s]?\b",
+            f"€{digit}M",
+            result, flags=re.IGNORECASE,
+        )
+        result = re.sub(
+            rf"\b{word}\s+(?:billion|miliard[io]?)\s+(?:di\s+)?euro[s]?\b",
+            f"€{digit}B",
+            result, flags=re.IGNORECASE,
+        )
+
+    # Fix "approximately of X millions euros" → "approximately €XM"
+    result = re.sub(
+        r"\bapproximately\s+of\s+(\d+)\s+millions?\s+euros?\b",
+        lambda m: f"approximately €{m.group(1)}M",
+        result, flags=re.IGNORECASE,
+    )
+    # Fix "X millions euros" → "€XM"
+    result = re.sub(
+        r"\b(\d+)\s+millions?\s+(?:di\s+)?euros?\b",
+        lambda m: f"€{m.group(1)}M",
+        result, flags=re.IGNORECASE,
+    )
 
     # "X million(i/e) (di) euro/EUR" → €XM
     result = re.sub(
@@ -644,6 +703,28 @@ def normalize_monetary_values(text: str) -> str:
         lambda m: f"€{m.group(1)[0]}.{m.group(1)[1:]}M",
         result, flags=re.IGNORECASE)
 
+    # "X+ mln €" / "X mln $" (reversed currency) → €XM / $XM
+    result = re.sub(
+        r'\b(\d+(?:[.,]\d+)?)\+?\s+mln\s+€',
+        lambda m: _format_amount(m.group(1), "M") or m.group(0),
+        result, flags=re.IGNORECASE,
+    )
+    result = re.sub(
+        r'\b(\d+(?:[.,]\d+)?)\+?\s+mln\s+\$',
+        lambda m: _format_amount(m.group(1), "M", "$") or m.group(0),
+        result, flags=re.IGNORECASE,
+    )
+    result = re.sub(
+        r'\b(\d+(?:[.,]\d+)?)\+?\s+mld\s+€',
+        lambda m: _format_amount(m.group(1), "B") or m.group(0),
+        result, flags=re.IGNORECASE,
+    )
+
+    # Italian descriptive amounts in deal_amount: "decine di mln" → "tens of millions"
+    result = re.sub(r'\bdecine\s+di\s+mln\b', 'tens of millions', result, flags=re.IGNORECASE)
+    result = re.sub(r'\bcentinaia\s+di\s+mln\b', 'hundreds of millions', result, flags=re.IGNORECASE)
+    result = re.sub(r'\bdecine\s+di\s+milioni\b', 'tens of millions', result, flags=re.IGNORECASE)
+
     # Clean up spacing: "€ 500M" → "€500M"
     result = re.sub(r"€\s+(\d)", r"€\1", result)
 
@@ -744,7 +825,7 @@ def caps_to_title_case(text: str) -> str:
         return text
     if len(text) <= 20:
         return text
-    if not re.match(r"^[A-ZÀ-ÖØ-Þ0-9\s.,':;!?()\-–—]+$", text):
+    if not re.match(r"^[A-ZÀ-ÖØ-Þ0-9\s.,':;!?()\-–—€$£%/&]+$", text):
         return text
 
     cleaned = text.title()
@@ -755,6 +836,117 @@ def caps_to_title_case(text: str) -> str:
     for prep in _TITLE_CASE_PREPS:
         cleaned = re.sub(r"(?<=\s)" + re.escape(prep) + r"(?=\s)", prep.lower(), cleaned)
     return cleaned
+
+
+# Words that should stay lowercase in sentence case (English articles/preps/conjunctions)
+_SENTENCE_CASE_LOWERCASE = {
+    "a", "an", "the", "and", "but", "or", "nor", "for", "yet", "so",
+    "in", "on", "at", "to", "by", "of", "up", "as", "if", "is",
+    "with", "from", "into", "over", "after", "before", "between",
+    "through", "during", "without", "within", "about", "its",
+}
+
+# Words that should ALWAYS stay uppercase (acronyms, fund names)
+_SENTENCE_CASE_ALWAYS_UPPER = {
+    "sgr", "spa", "srl", "sas", "ceo", "cfo", "coo", "cio", "cto",
+    "ipo", "esg", "ai", "vc", "pe", "lp", "gp", "aum", "eu", "uk", "us",
+    "kkr", "eqt", "dif", "dws", "clm",
+}
+
+
+def _is_title_cased(text: str) -> bool:
+    """Detect if text has Every Word Capitalized (title case).
+
+    Returns True if >60% of words (with 3+ chars) start uppercase,
+    which indicates title-case text that should be normalized to
+    sentence case.
+    """
+    words = text.split()
+    if len(words) < 4:
+        return False
+    long_words = [w for w in words if len(w) >= 3 and w[0].isalpha()]
+    if len(long_words) < 3:
+        return False
+    capitalized = sum(1 for w in long_words if w[0].isupper())
+    # Also check it's NOT all caps (already handled by caps_to_title_case)
+    all_caps_count = sum(1 for w in long_words if w.isupper())
+    if all_caps_count > len(long_words) * 0.5:
+        return False
+    return capitalized / len(long_words) > 0.65
+
+
+def title_case_to_sentence_case(text: str) -> str:
+    """Convert Title Case text to sentence case.
+
+    'Capza Invests In Travelsoft' → 'Capza invests in Travelsoft'
+
+    Preserves:
+    - First word capitalization
+    - Proper nouns (heuristic: words not in common lowercase set)
+    - Known acronyms
+    - Words after sentence-ending punctuation
+    """
+    if not text or not _is_title_cased(text):
+        return text
+
+    words = text.split()
+    result = []
+    after_sentence_end = True  # First word starts capitalized
+
+    for i, word in enumerate(words):
+        # Strip leading punctuation for analysis, preserve it
+        stripped = word.lstrip("(\"'")
+        prefix = word[:len(word) - len(stripped)]
+        core = stripped
+
+        if not core or not core[0].isalpha():
+            result.append(word)
+            after_sentence_end = word.endswith((".", "!", "?", ":"))
+            continue
+
+        core_lower = core.lower()
+
+        # Always uppercase acronyms
+        if core_lower in _SENTENCE_CASE_ALWAYS_UPPER:
+            result.append(prefix + core.upper())
+            after_sentence_end = False
+            continue
+
+        # Keep first word / word after sentence break capitalized
+        if after_sentence_end:
+            result.append(word)
+            after_sentence_end = False
+            continue
+
+        # Lowercase common articles/prepositions/conjunctions
+        if core_lower in _SENTENCE_CASE_LOWERCASE:
+            result.append(prefix + core_lower)
+            after_sentence_end = False
+            continue
+
+        # For remaining words: lowercase them UNLESS they look like proper nouns.
+        # Heuristic: words with mixed case (e.g. "MacQuarie") or all-caps ≥2 chars
+        # are likely proper nouns / acronyms — keep as-is.
+        if core.isupper() and len(core) >= 2:
+            # Acronym — keep uppercase
+            result.append(word)
+        elif len(core) >= 2 and core[0].isupper() and any(c.isupper() for c in core[1:]):
+            # Mixed case like "iPhone", "McKinsey" — keep as-is
+            result.append(word)
+        else:
+            # Regular title-cased word — lowercase it
+            result.append(prefix + core[0].lower() + core[1:])
+
+        after_sentence_end = word.endswith((".", "!", "?", ":"))
+
+    # Re-capitalize the very first alpha character
+    final = " ".join(result)
+    for i, ch in enumerate(final):
+        if ch.isalpha():
+            final = final[:i] + ch.upper() + final[i+1:]
+            break
+
+    return final
 
 
 # ---------------------------------------------------------------------------
@@ -777,8 +969,28 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     if not is_title and NEWSPAPER_ONLY_RE.match(text):
         return ""
 
-    cleaned = _strip_read_time(text)
+    # Strip "Logo X" prefix (image caption artifacts)
+    cleaned = re.sub(r"^Logo\s+", "", text, flags=re.IGNORECASE).strip()
+    if not cleaned:
+        cleaned = text
+
+    # Strip duplicate label prefixes: "News: News ..." → "News ..."
+    cleaned = re.sub(r"^(News|Update|Announcement)\s*:\s*\1\b\s*", r"\1 ", cleaned, flags=re.IGNORECASE)
+    # Strip bare "News:" / "News -" prefix
+    cleaned = re.sub(r"^News\s*[:\-–]\s*", "", cleaned, flags=re.IGNORECASE)
+
+    # Strip leading Italian articles when they precede a proper noun (display artifact)
+    # "Il Fondo Italiano ..." → "Fondo Italiano ..."  but NOT "Il sole 24 ore" (newspaper)
+    cleaned = re.sub(r"^(?:Il|La|Lo|Le|Gli|I)\s+(?=[A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ])", "", cleaned)
+
+    cleaned = _strip_read_time(cleaned)
     cleaned = _strip_urls(cleaned)
+
+    # Strip boilerplate "New X involving Y" templates (scraping artifacts)
+    cleaned = re.sub(
+        r"^New\s+(?:investment|announcement|fundraise|deal|exit|partnership)\s+involving\s+",
+        "", cleaned, flags=re.IGNORECASE,
+    )
 
     # Strip AUM boilerplate — fund self-description, not deal amounts.
     # Full appositive clause: ", a leading firm with $70B of capital under management,"
@@ -790,6 +1002,17 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     # Fix double commas / comma-space-comma left by appositive stripping
     cleaned = re.sub(r",\s*,", ",", cleaned)
 
+    # Rewrite "X exited from Y portfolio (description)" → "Y exits X"
+    # Machine-generated template from portfolio page scrapers
+    _exited_match = re.match(
+        r"^(.+?)\s+exited\s+from\s+(.+?)\s+portfolio(?:\s*\(.*?\))?\s*$",
+        cleaned, flags=re.IGNORECASE
+    )
+    if _exited_match:
+        _company = _exited_match.group(1).strip()
+        _fund = _exited_match.group(2).strip()
+        cleaned = f"{_fund} exits {_company}"
+
     # Strip "added to X portfolio" suffix
     cleaned = re.sub(r"(.+?)\s+added to\s+.+?\s+portfolio(?:\s*\(.*?\))?\s*$", r"\1", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"(.+?)\s+aggiunt[oa]\s+al?\s+portafoglio\s+.+$", r"\1", cleaned, flags=re.IGNORECASE)
@@ -799,6 +1022,9 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     cleaned = re.sub(r"^LEGGI\s+TUTTO\s*", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"^Continua a leggere\s*[\"'\u201c\u201d]?\s*", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r'^Continue reading\s*["\u201c]?\s*', "", cleaned, flags=re.IGNORECASE)
+    # Strip "Continue reading" at END of text (WordPress blog excerpt artifact)
+    cleaned = re.sub(r'\s*Continue reading\s*["\u201c\u201d]?.*$', "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r'\s*Continua a leggere\s*["\u201c\u201d]?.*$', "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r'["\u201d]\s*$', "", cleaned)
 
     # Strip "more details" suffix
@@ -875,6 +1101,39 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     # ALL CAPS → title case
     cleaned = caps_to_title_case(cleaned)
 
+    # Title Case → sentence case (Every Word Capitalized → normal sentence)
+    cleaned = title_case_to_sentence_case(cleaned)
+
+    # Capitalize person names after appointment verbs
+    # "appointed claudia pingue" → "appointed Claudia Pingue"
+    # "names diego de giorgi as" → "names Diego De Giorgi as"
+    def _capitalize_person_after_verb(m: re.Match) -> str:
+        verb = m.group(1)
+        name_part = m.group(2)
+        # Capitalize each word in the name part (up to 4 words before "as"/"to"/"di"/role)
+        words = name_part.split()
+        capitalized = []
+        for w in words:
+            if w.lower() in ("as", "to", "di", "del", "della", "come", "quale"):
+                capitalized.append(w)
+                break
+            if len(w) >= 2 and w[0].islower():
+                capitalized.append(w[0].upper() + w[1:])
+            else:
+                capitalized.append(w)
+        # Add remaining words unchanged
+        remaining_start = len(capitalized)
+        capitalized.extend(words[remaining_start:])
+        return verb + " " + " ".join(capitalized)
+
+    cleaned = re.sub(
+        r"\b(appointed|appoints|names|named|elects|elected|hires|hired|nominat[oa])\s+"
+        r"((?:[a-zà-öø-ÿ]+\s+){1,4})",
+        _capitalize_person_after_verb,
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+
     # Strip leading list-number artifacts ("1. ", "2. ")
     cleaned = re.sub(r"^\d+\.\s+", "", cleaned)
 
@@ -898,4 +1157,205 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     # Strip navigation breadcrumbs: "... | Press releases."
     cleaned = re.sub(r"\s*\|?\s*[Pp]ress\s+[Rr]eleases?\.?\s*$", ".", cleaned).strip()
 
+    # Fix "Series Efinancing" → "Series E financing" (letter concatenated to word)
+    cleaned = re.sub(r"\bSeries\s+([A-G])([a-z]{3,})", r"Series \1 \2", cleaned)
+
+    # Strip pipe-separated boilerplate fragments (e.g., "andera Acto | Press release s")
+    if "|" in cleaned:
+        parts = [p.strip() for p in cleaned.split("|")]
+        # If any part looks like navigation/boilerplate, strip it
+        real_parts = [
+            p for p in parts
+            if len(p) > 3
+            and not re.match(r"^(?:press\s+release|news|home|about|portfolio|team|contact)\w*\s*$", p, re.IGNORECASE)
+        ]
+        if real_parts:
+            cleaned = " ".join(real_parts)
+
+    # Strip trailing truncated words (single lowercase letter at end, e.g., "release s")
+    cleaned = re.sub(r"\s+[a-z]\s*$", "", cleaned)
+
+    # Strip trailing colon (interview byline artifact: "Giuseppe Santangelo (Space Industries):")
+    cleaned = re.sub(r"\s*:\s*$", "", cleaned)
+
+    # ── Geographic proper noun capitalization ──
+    # Country/region names that should always be capitalized
+    _GEO_PROPER_NOUNS = [
+        "italy", "italian", "spain", "spanish", "france", "french",
+        "germany", "german", "europe", "european", "benelux", "nordic",
+        "belgium", "netherlands", "portugal", "austria", "switzerland",
+        "london", "paris", "milan", "rome", "madrid", "berlin",
+        "americas", "emea", "asia", "uk", "us", "usa",
+    ]
+    for geo in _GEO_PROPER_NOUNS:
+        cleaned = re.sub(
+            r"\b" + re.escape(geo) + r"\b",
+            geo.upper() if len(geo) <= 4 else geo.title(),
+            cleaned,
+            flags=re.IGNORECASE,
+        )
+
+    # ── Word-merge repair: split fused camelCase/run-on words ──
+    # Step 1: Split known fused role/preposition words (all-lowercase run-ons)
+    # E.g. "chiefexecutiveofficerand" → "chief executive officer and"
+    _FUSED_WORDS = [
+        (r"chiefexecutiveofficer", "chief executive officer"),
+        (r"chiefexecutive", "chief executive"),
+        (r"generalmanager", "general manager"),
+        (r"headof", "head of"),
+        (r"officerand", "officer and"),
+        (r"officeror", "officer or"),
+        (r"officerof", "officer of"),
+        (r"managerof", "manager of"),
+        (r"directorof", "director of"),
+        (r"partnerof", "partner of"),
+        (r"presidentof", "president of"),
+        (r"chairmanof", "chairman of"),
+        (r"ashead", "as head"),
+        (r"aschief", "as chief"),
+        (r"asdirector", "as director"),
+        (r"asmanaging", "as managing"),
+        (r"aspartner", "as partner"),
+        (r"asadvisors?", "as advisor"),
+        (r"asincoming", "as incoming"),
+        (r"oftheboardof", "of the board of"),
+        (r"oftheboard", "of the board"),
+        (r"boardof", "board of"),
+        (r"tomanagethe", "to manage the"),
+        (r"tomanage", "to manage"),
+        (r"incominghead", "incoming head"),
+        (r"theprocess", "the process"),
+        (r"forthe(\d)", r"for the \1"),
+    ]
+    for pattern, replacement in _FUSED_WORDS:
+        cleaned = re.sub(pattern, replacement, cleaned, flags=re.IGNORECASE)
+    # Step 2: camelCase boundary (lowercase→uppercase)
+    # E.g. "appointedHead" → "appointed Head", "namedCandyFactory" → "named Candy Factory"
+    cleaned = re.sub(r"([a-z])([A-Z])", r"\1 \2", cleaned)
+    # Step 3: uppercase acronym (2+ chars) fused with lowercase word
+    # E.g. "CEOand" → "CEO and", "SGRinvests" → "SGR invests"
+    cleaned = re.sub(r"([A-Z]{2,})([a-z])", r"\1 \2", cleaned)
+    # Collapse any double spaces introduced
+    cleaned = re.sub(r"\s{2,}", " ", cleaned)
+
+    # Ensure title starts with uppercase (fix scraper artifacts)
+    if is_title and cleaned and cleaned[0].islower():
+        cleaned = cleaned[0].upper() + cleaned[1:]
+
     return cleaned.strip()
+
+
+# ---------------------------------------------------------------------------
+# is_garbage_summary — detect summaries that should be cleared
+# ---------------------------------------------------------------------------
+
+def is_garbage_summary(summary: str) -> bool:
+    """Detect enriched_summary values that are garbage and should be cleared.
+
+    Called by enrich_signals_openai.py after LLM generates a summary.
+    When True, the enricher clears enriched_summary="" so the frontend
+    falls back to the title. This prevents displaying nonsense to users.
+
+    Patterns caught:
+    - Contains pipe characters (navigation artifacts)
+    - Just a proper noun with no verb (bare company/fund/newspaper name)
+    - Starts lowercase (LLM formatting error)
+    - Raw press release lede cut off mid-sentence
+    - Boilerplate template with no specifics
+    """
+    if not summary or not summary.strip():
+        return True
+
+    text = summary.strip()
+
+    # Contains pipe characters (navigation boilerplate)
+    if "|" in text:
+        return True
+
+    # Very short (< 15 chars) — likely bare name with no context
+    if len(text) < 15:
+        return True
+
+    # Starts with lowercase (LLM error — proper summaries start capitalized)
+    if text[0].islower():
+        return True
+
+    # Boilerplate "New X involving Y" template (scraping artifact)
+    if re.match(r"^New\s+(?:investment|announcement|fundraise|deal|exit)\s+involving\s+", text, re.IGNORECASE):
+        return True
+
+    # Brand name mistranslation artifacts (e.g., "Harmony" for "Armònia")
+    # and LLM hallucination: "integers" used as verb instead of "acquires"
+    if re.search(r"\bintegers?\b", text):
+        return True
+
+    # Fused-word detection: all-lowercase run-on tokens (≥20 chars with no spaces)
+    # E.g. "appointedClaudiaPingueasheadoffondotechnologytransfer"
+    # These are scraper/LLM artifacts that look extremely unprofessional
+    _longest_token = max((len(w) for w in text.split()), default=0)
+    if _longest_token >= 25:
+        return True
+
+    # Italian-language summary detection: if summary contains multiple Italian stop words,
+    # it's untranslated and should be cleared
+    _italian_stops = len(re.findall(r"\b(?:della|nella|degli|alle|sono|anche|questo|quella|stato|dopo|prima|verso|ogni|essere|avere|fatto|anno|presentata?|girata?)\b", text, re.IGNORECASE))
+    if _italian_stops >= 3:
+        return True
+
+    # No verb — just a noun phrase (bare company/fund name)
+    # Check for at least one common English verb form
+    has_verb = bool(re.search(
+        r"\b(?:is|are|was|were|has|have|had|will|would|could|should|may|might"
+        r"|acquir\w*|invest\w*|announc\w*|complet\w*|launch\w*|rais\w*|clos\w*"
+        r"|appoint\w*|join\w*|sign\w*|enter\w*|exit\w*|sell\w*|sold|bought"
+        r"|expand\w*|open\w*|secur\w*|report\w*|form\w*|partner\w*|back\w*"
+        r"|fund\w*|lead\w*|manag\w*|reach\w*|plan\w*|target\w*|seek\w*"
+        r"|negoti\w*|bid\w*|offer\w*|receiv\w*|win\w*|won|lost|creat\w*"
+        r"|publish\w*|refinanc\w*|provid\w*|support\w*|build\w*|develop\w*"
+        r"|consolidat\w*|strengthen\w*|present\w*|shift\w*|transition\w*"
+        r"|convened?|hired?|named?|elect\w*|promot\w*|resign\w*|retir\w*)\b",
+        text, re.IGNORECASE
+    ))
+    if not has_verb and len(text) < 80:
+        return True
+
+    return False
+
+
+# ---------------------------------------------------------------------------
+# capitalize_entities — restore proper-noun capitalization using NER data
+# ---------------------------------------------------------------------------
+
+def capitalize_entities(text: str, entity_names: list[str] | None) -> str:
+    """Re-capitalize known entity names (companies, people, funds) in text.
+
+    After sentence-case normalization, proper nouns like "audiotonix" or
+    "burger king" may be lowercased. This function restores their correct
+    capitalization using the extracted_entities list as ground truth.
+
+    Preserves all-caps tokens (acronyms like KKR, EQT, CVC) — if the text
+    already has the entity in all-caps and the replacement would downcase it,
+    skip that match.
+    """
+    if not text or not entity_names:
+        return text
+    result = text
+    for name in entity_names:
+        if not name or len(name) < 2:
+            continue
+        # Build case-insensitive pattern for this entity name
+        pattern = re.escape(name)
+
+        def _preserve_acronyms(m: re.Match) -> str:
+            matched = m.group(0)
+            # If the matched text is already all-uppercase (2+ chars), it's a
+            # correct acronym — don't replace with a title-cased version
+            if len(matched) >= 2 and matched.isupper() and not name.isupper():
+                return matched
+            # If the matched text already equals the replacement, skip
+            if matched == name:
+                return matched
+            return name
+
+        result = re.sub(pattern, _preserve_acronyms, result, flags=re.IGNORECASE)
+    return result

@@ -58,7 +58,7 @@ _FR_STRONG_RE = re.compile(
     re.IGNORECASE,
 )
 _EN_STRONG_RE = re.compile(
-    r"\b(?:announced|announces|closed|closing|raised|acquired|acquisition|sold|sale|invested"
+    r"\b(?:announced|announces|closed|closing|raised|acquired|acquires|acquisition|sold|sale|invested"
     r"|investment|appointed|appointment|agreement|partnership|million|debt|financing|launched|launch)\b",
     re.IGNORECASE,
 )
@@ -617,5 +617,14 @@ def translate_signals_inplace(
     stats["translated_fields"] = translated_fields
     stats["translated_signals"] = translated_signals
     stats["unresolved_fields"] = len(unresolved)
+    # Include details of unresolved signals for actionable alerting
+    stats["unresolved_details"] = [
+        {
+            "fund_slug": s.get("fund_slug", "?"),
+            "field": field,
+            "text": original[:120],
+        }
+        for s, field, orig_field, original in unresolved
+    ]
     print(f"  Translated {translated_fields} fields across {len(signals_needing_work)} signals")
     return stats

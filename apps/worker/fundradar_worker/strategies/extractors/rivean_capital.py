@@ -6,10 +6,10 @@ DOMAIN = "riveancapital.com"
 
 
 
-# URL paths for monitoring (verified against live site)
+# URL paths for monitoring — verified 2026-02-23
 URLS = {
     "portfolio": "/investments",
-    "team": "/professionals",
+    "team": "/all-professionals/",
     "news": "/news",
 }
 def extract_news(html: str, base_url: str) -> list[dict]:

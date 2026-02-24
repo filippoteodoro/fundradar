@@ -18,10 +18,12 @@ import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 from fundradar_worker.entity_resolver import normalize_company_name
-from fundradar_worker.io_utils import safe_json_write
+from fundradar_worker.io_utils import safe_json_write, load_funds_by_slug as _load_funds_by_slug_shared
 from fundradar_worker.slug_normalizer import get_slug_normalizer
+from fundradar_worker.url_utils import extract_domain, is_same_domain
 
 try:
     from fundradar_worker.signal_classifier import get_signal_classifier, map_type_to_signal_type
@@ -101,7 +103,12 @@ from signal_patterns import (
     _strip_urls,
 )
 
+from signal_corrections import (
+    apply_universal_demotions,
+    apply_type_corrections,
+)
 from signal_text_utils import (
+    capitalize_entities,
     clean_display_text,
     fix_spacing,
     normalize_monetary_values,
@@ -110,13 +117,8 @@ from signal_text_utils import (
     repair_attached_connectors as _repair_attached_connectors,  # backward compat
 )
 
-# Paths
-PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
-DATA_DIR = PROJECT_ROOT / "data" / "derived"
-# Filter reads RAW signals (runs before enrich in pipeline)
-INPUT_FILE = DATA_DIR / "detected_signals.json"
-OUTPUT_FILE = DATA_DIR / "detected_signals_filtered.json"
-DB_FILE = PROJECT_ROOT / "data" / "db.json"
+# Paths (shared)
+from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH as DB_FILE, SIGNALS_FILE as INPUT_FILE, FILTERED_SIGNALS_FILE as OUTPUT_FILE
 
 # Minimum quality score to keep (0-100)
 MIN_QUALITY_SCORE = int(os.environ.get("SIGNAL_MIN_QUALITY", "80"))
@@ -1147,12 +1149,8 @@ def _reclassify_signal_type(signal: dict, text: str, fund: dict | None = None) -
             # The fund name must NOT be the subject of the acquisition verb.
             source_url = (signal.get("source_url") or "").lower()
             if fund_name and source_url and fund:
-                from urllib.parse import urlparse
                 fund_website = (fund.get("website") or "").lower()
-                if fund_website:
-                    fund_domain = urlparse(fund_website).netloc.replace("www.", "") or fund_website.split("//")[-1].split("/")[0].replace("www.", "")
-                    source_domain = urlparse(source_url).netloc.replace("www.", "") or ""
-                    if fund_domain and source_domain and fund_domain == source_domain:
+                if fund_website and is_same_domain(fund_website, source_url):
                         # Signal is from the fund's own domain
                         if re.search(r"^[A-Za-z][\w\s]{2,30}\b(?:has\s+completed|completes?|acquir\w+)\b", (signal.get("title") or ""), re.IGNORECASE):
                             first_entity = re.match(r"^([A-Za-z][\w\s]{2,30}?)\s+(?:has\s+completed|completes?|acquir)", (signal.get("title") or ""), re.IGNORECASE)
@@ -1605,6 +1603,11 @@ SUPPORT_ROLE_PATTERNS = [
 _EXTERNAL_COUNTERPARTY_NAMES = [
     "tpg", "johnson & johnson", "j&j", "warburg", "cinven",
     "deep ocean", "p 101", "360 capital", "xenon", "mandarin",
+    # Common external PE/VC firms not in db.json that appear in Italian deal flow
+    "orienta capital partners", "orienta capital", "kharis capital",
+    "sphere group", "bc partners", "montagu", "bridgepoint",
+    "cerberus", "oaktree", "adia", "mubadala", "coller capital",
+    "hamilton lane", "tikehau", "intermediate capital", "icg",
 ]
 
 # Populated at startup by _build_known_fund_names() from db.json + external list.
@@ -1651,23 +1654,19 @@ def _is_misattributed_signal(signal: dict, fund: dict | None = None) -> bool:
     source_url = (signal.get("source_url") or "").lower()
     if fund and source_url:
         fund_website = (fund.get("website") or "").lower().rstrip("/")
-        if fund_website:
-            from urllib.parse import urlparse
-            fund_domain = urlparse(fund_website).netloc or fund_website.split("//")[-1].split("/")[0]
-            source_domain = urlparse(source_url).netloc or ""
-            if fund_domain and source_domain and fund_domain.replace("www.", "") == source_domain.replace("www.", ""):
-                if fund.get("is_ecosystem_newsroom"):
-                    # Ecosystem newsroom — require fund name in title/what_changed
-                    combined_text = (
-                        (signal.get("title") or "") + " " + (signal.get("what_changed") or "")
-                    ).lower()
-                    # Extract meaningful words from slug (e.g. "cdp-venture-capital" → ["cdp"])
-                    slug_keywords = [w for w in fund_slug.split("-") if len(w) >= 3 and w not in ("sgr", "sicaf", "sim", "spa", "srl", "capital", "partners", "group", "venture")]
-                    if not slug_keywords:
-                        slug_keywords = [fund_slug.split("-")[0]]
-                    if not any(kw in combined_text for kw in slug_keywords):
-                        return True  # ecosystem news not about this fund
-                return False
+        if fund_website and is_same_domain(fund_website, source_url):
+            if fund.get("is_ecosystem_newsroom"):
+                # Ecosystem newsroom — require fund name in title/what_changed
+                combined_text = (
+                    (signal.get("title") or "") + " " + (signal.get("what_changed") or "")
+                ).lower()
+                # Extract meaningful words from slug (e.g. "cdp-venture-capital" → ["cdp"])
+                slug_keywords = [w for w in fund_slug.split("-") if len(w) >= 3 and w not in ("sgr", "sicaf", "sim", "spa", "srl", "capital", "partners", "group", "venture")]
+                if not slug_keywords:
+                    slug_keywords = [fund_slug.split("-")[0]]
+                if not any(kw in combined_text for kw in slug_keywords):
+                    return True  # ecosystem news not about this fund
+            return False
 
     # Build a set of words from the fund name for matching
     fund_words = set(fund_name_lower.split()) - {"sgr", "sicaf", "sim", "spa", "srl", "capital", "partners", "group"}
@@ -2027,6 +2026,24 @@ def _clean_signal_fields(signal: dict) -> dict:
                 signal[key],
                 company_candidates=company_candidates,
             )
+    # Re-capitalize known entity names (companies, people, funds)
+    # After sentence-case normalization, proper nouns may be lowercased
+    entities = signal.get("extracted_entities") or {}
+    entity_names = list(entities.get("companies") or []) + list(entities.get("people") or [])
+    # Also add fund name from slug as a capitalization source
+    fund_slug = signal.get("fund_slug") or ""
+    if fund_slug:
+        # Smart slug-to-display: short tokens (≤4 chars) are likely acronyms (KKR, EQT, CVC)
+        # Exception: common English words that happen to be ≤4 chars should be title-cased
+        _NOT_ACRONYMS = {"bain", "real", "blue", "next", "tree", "open", "true", "fair", "iron", "wise", "gold", "star"}
+        parts = fund_slug.split("-")
+        display_parts = [p.upper() if len(p) <= 4 and p.lower() not in _NOT_ACRONYMS else p.title() for p in parts]
+        fund_display = " ".join(display_parts)
+        entity_names.append(fund_display)
+    if entity_names:
+        for key in ("title", "what_changed", "enriched_summary"):
+            if signal.get(key):
+                signal[key] = capitalize_entities(signal[key], entity_names)
     # Normalize date fields to ISO format
     for date_key in ("published_at", "enriched_date"):
         raw_date = signal.get(date_key)
@@ -2256,13 +2273,35 @@ def _is_geo_relevant_signal(signal: dict, fund_geo_scope: str, fund: dict | None
             return False
         return True
 
-    # Europe-wide funds: core types always pass; non-core need Europe evidence
+    # Europe-wide funds: two sub-tiers based on whether Italy is in their geographies.
+    #
+    # Funds WITH 'Italy' in geos (Investindustrial, Ibla Capital, Charme Capital, etc.):
+    #   core types pass (like italy_focused), non-core need Europe evidence.
+    #   These are Italian-active PE firms classified europe_wide only because they
+    #   also have 'Europe' in geos without SGR/SICAF suffix.
+    #
+    # Funds WITHOUT 'Italy' in geos (L Catterton, BC Partners, Oakley Capital, etc.):
+    #   ALL types require Italy mention or pan-European context in the text.
+    #   A French PE deal by CAPZA (no Italy in geos) is not relevant.
     if fund_geo_scope == "europe_wide":
-        if signal_type in CORE_GEO_TYPES:
+        fund_geos = (fund.get("geographies") or []) if fund else []
+        fund_has_italy_geo = "Italy" in fund_geos
+
+        if _mentions_italy(text):
             return True
-        if signal_type == "people_move" and _mentions_europe(text):
+
+        if fund_has_italy_geo:
+            # Italy-geo funds: core types pass; non-core need Europe evidence
+            if signal_type in CORE_GEO_TYPES:
+                return True
+            if _mentions_europe(text):
+                return True
+            return False
+
+        # Non-Italy-geo funds: require pan-European context (not single-country)
+        if re.search(r"\b(?:europe(?:an)?|pan[\-\s]?european|emea|cross[\-\s]?border|multi[\-\s]?country)\b", text, re.IGNORECASE):
             return True
-        if signal.get("italy_relevant") is not False and _mentions_europe(text):
+        if signal_type == "people_move" and _has_italian_name(text):
             return True
         return False
 
@@ -3025,20 +3064,7 @@ def calculate_quality_score(
 
 def _load_funds_by_slug() -> dict:
     """Load fund records from db.json keyed by slug."""
-    funds_by_slug: dict[str, dict] = {}
-
-    if DB_FILE.exists():
-        try:
-            with open(DB_FILE) as f:
-                db_data = json.load(f)
-            for fund in db_data.get("funds", []) or []:
-                slug = fund.get("slug")
-                if slug and slug not in funds_by_slug:
-                    funds_by_slug[slug] = fund
-        except Exception:
-            pass
-
-    return funds_by_slug
+    return _load_funds_by_slug_shared(DB_FILE)
 
 
 # Cross-language equivalence for common PE terms (Italian → English canonical)
@@ -3270,6 +3296,7 @@ def main():
     removed_junior_non_italy = 0
     removed_geo_irrelevant = 0
     removed_misattributed = 0
+    removed_too_old = 0
     removed_orphan_fund = 0
     removed_strict_gate = 0
     removed_invalid_fund = 0
@@ -3333,6 +3360,22 @@ def main():
         # Reclassify generic signals into useful categories (use raw text)
         signal["signal_type"] = _reclassify_signal_type(signal, f"{raw_title} {raw_summary}", fund=fund)
 
+        # Apply shared corrections (fashion campaigns, editorial format, outsourcing,
+        # restructuring, "sells stake" → exit, etc.) — single source of truth
+        _corr_text = f"{raw_title} {raw_summary}".lower()
+        _corr_title = raw_title.lower()
+        _corr_demotion = apply_universal_demotions(_corr_text, _corr_title)
+        if _corr_demotion is not None:
+            signal["signal_type"] = _corr_demotion
+        else:
+            _corr_type = apply_type_corrections(
+                signal["signal_type"], _corr_text, _corr_title,
+                (signal.get("page_category") or "").upper(),
+                (signal.get("diff_summary") or "").lower(),
+            )
+            if _corr_type != signal["signal_type"]:
+                signal["signal_type"] = _corr_type
+
         # Clean read-time artifacts and other low-signal noise
         signal = _clean_signal_fields(signal)
 
@@ -3347,7 +3390,6 @@ def main():
         # Only for article-like URLs — skip listing pages where many signals share one URL
         source_url = (signal.get("source_url") or "").strip().rstrip("/")
         if source_url and fund_slug:
-            from urllib.parse import urlparse
             url_path = urlparse(source_url).path.strip("/")
             last_segment = url_path.rsplit("/", 1)[-1].lower() if url_path else ""
             listing_pages = {"news", "newsroom", "newsroom.page", "news-insights", "portfolio",
@@ -3368,6 +3410,20 @@ def main():
         if _is_misattributed_signal(signal, fund=fund):
             removed_misattributed += 1
             continue
+
+        # Reject signals older than 6 months (stale data)
+        signal_date_str = signal.get("published_at") or signal.get("observed_at") or ""
+        if signal_date_str:
+            try:
+                signal_date = datetime.fromisoformat(signal_date_str.replace("Z", "+00:00"))
+                if signal_date.tzinfo is None:
+                    signal_date = signal_date.replace(tzinfo=timezone.utc)
+                age_days = (datetime.now(timezone.utc) - signal_date).days
+                if age_days > 180:
+                    removed_too_old += 1
+                    continue
+            except (ValueError, TypeError):
+                pass
 
         # Reject signals with titles too short to be useful
         clean_title = (signal.get("title") or "").strip()
@@ -3988,6 +4044,7 @@ def main():
         "removed_junior_non_italy": removed_junior_non_italy,
         "removed_geo_irrelevant": removed_geo_irrelevant,
         "removed_misattributed": removed_misattributed,
+        "removed_too_old": removed_too_old,
         "removed_orphan_fund": removed_orphan_fund,
         "removed_ml": removed_ml,
         "removed_cross_page": removed_cross_page,
@@ -4024,6 +4081,7 @@ def main():
     print(f"  Removed (junior non-Italy): {removed_junior_non_italy}")
     print(f"  Removed (non Europe/Italy): {removed_geo_irrelevant}")
     print(f"  Removed (misattributed): {removed_misattributed}")
+    print(f"  Removed (older than 180 days): {removed_too_old}")
     print(f"  Kept (ML override): {kept_ml_override}")
     print(f"  ML type overrides: {ml_type_overrides}")
     print(f"  Kept: {len(filtered)}")

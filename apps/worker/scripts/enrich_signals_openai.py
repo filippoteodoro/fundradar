@@ -104,28 +104,29 @@ from signal_patterns import (
 
 from signal_text_utils import (
     clean_display_text,
+    is_garbage_summary,
     normalize_monetary_values,
 )
 
+# Paths (shared)
+from fundradar_worker.paths import (
+    PROJECT_ROOT, DATA_DIR, WORKER_DIR,
+    SIGNALS_FILE as SIGNALS_FILE_RAW,
+    FILTERED_SIGNALS_FILE as SIGNALS_FILE_FILTERED,
+    ENRICHED_SIGNALS_FILE as OUTPUT_FILE,
+    ROOT_ENV_PATH, WORKER_ENV_PATH,
+)
+PROGRESS_FILE = DATA_DIR / "signal_enrichment_progress.json"
+
 # Load environment variables from .env files (worker .env has translation keys)
-PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
-WORKER_DIR = PROJECT_ROOT / "apps" / "worker"
 _TRANSLATION_KEYS = ("OPENAI_API_KEY", "DEEPL_API_KEY", "DEEPL_API_KEY_2", "AZURE_TRANSLATOR_KEY", "AZURE_TRANSLATOR_REGION")
-for _env_path in (PROJECT_ROOT / ".env", WORKER_DIR / ".env"):
+for _env_path in (ROOT_ENV_PATH, WORKER_ENV_PATH):
     load_dotenv(_env_path, override=False)
     if _env_path.exists():
         _env_vars = dotenv_values(_env_path)
         for _key in _TRANSLATION_KEYS:
             if not os.environ.get(_key) and _env_vars.get(_key):
                 os.environ[_key] = _env_vars[_key]
-
-# Paths — reads filtered signals (quality-scored, noise removed) to avoid
-# wasting API calls on garbage.  Falls back to raw if filtered doesn't exist.
-DATA_DIR = PROJECT_ROOT / "data" / "derived"
-SIGNALS_FILE_FILTERED = DATA_DIR / "detected_signals_filtered.json"
-SIGNALS_FILE_RAW = DATA_DIR / "detected_signals.json"
-OUTPUT_FILE = DATA_DIR / "detected_signals_enriched.json"
-PROGRESS_FILE = DATA_DIR / "signal_enrichment_progress.json"
 # Model to use - GPT-5 mini: faster/cheaper GPT-5 variant for well-defined tasks
 MODEL = "gpt-5-mini"
 
@@ -352,35 +353,17 @@ REQUESTS_PER_MINUTE = 80
 MAX_CONCURRENT_LLM = 20
 DELAY_BETWEEN_REQUESTS = 60.0 / REQUESTS_PER_MINUTE
 
-# Global deadline: enricher must finish within this wall-clock time (seconds).
-# Pipeline gives us 60 min; we save+exit at 50 min to leave room for graceful cleanup.
-ENRICHER_DEADLINE_SECONDS = int(os.environ.get("ENRICHER_DEADLINE_SECONDS", 50 * 60))
 # Phase 3 translation timeout: cap the safety-net translation pass (seconds).
 PHASE3_TRANSLATION_TIMEOUT = int(os.environ.get("PHASE3_TRANSLATION_TIMEOUT", 5 * 60))
 
-# Global state for graceful shutdown
-_shutdown_requested = False
-_enricher_start_time: float = 0.0
+# Graceful shutdown + deadline (shared implementation)
+from fundradar_worker.graceful_deadline import GracefulDeadline
+_deadline = GracefulDeadline(deadline_seconds=50 * 60, env_var="ENRICHER_DEADLINE_SECONDS")
+ENRICHER_DEADLINE_SECONDS = _deadline.deadline_seconds
 
-
-def _handle_sigterm(signum, _frame):
-    """Handle SIGTERM/SIGINT by setting shutdown flag (checked at safe points)."""
-    global _shutdown_requested
-    _shutdown_requested = True
-    print(f"\n  SIGNAL {signum} received — will save and exit at next checkpoint")
-
-
-def _is_deadline_exceeded() -> bool:
-    """Check if the global wall-clock deadline has been exceeded."""
-    if _enricher_start_time <= 0:
-        return False
-    elapsed = time.time() - _enricher_start_time
-    return elapsed >= ENRICHER_DEADLINE_SECONDS
-
-
+# Backward-compatible aliases used throughout this file
 def _should_stop() -> bool:
-    """Check if enricher should stop (deadline exceeded or shutdown requested)."""
-    return _shutdown_requested or _is_deadline_exceeded()
+    return _deadline.should_stop()
 
 # Enricher-only patterns (not in signal_patterns.py)
 _RE_HAS_AMOUNT = re.compile(r"€\s*\d+|\d+\s*(?:m|million|milion|mln|m€|bn|billion)", re.IGNORECASE)
@@ -401,27 +384,16 @@ def load_json(path: Path) -> dict:
 
 
 def save_json(path: Path, data: dict):
-    """Save JSON file atomically (temp file + os.replace)."""
-    import tempfile
-    tmp_fd, tmp_path = tempfile.mkstemp(dir=str(path.parent), suffix=".json")
-    try:
-        with os.fdopen(tmp_fd, "w") as f:
-            json.dump(data, f, indent=2)
-        os.replace(tmp_path, str(path))
-    except Exception:
-        try:
-            os.unlink(tmp_path)
-        except OSError:
-            pass
-        raise
+    """Save JSON file atomically. Delegates to shared safe_json_write()."""
+    from fundradar_worker.io_utils import safe_json_write
+    safe_json_write(path, data)
 
 
 def load_progress() -> tuple[set, set]:
     """Load sets of already processed signal IDs and content keys."""
-    if PROGRESS_FILE.exists():
-        data = load_json(PROGRESS_FILE)
-        return set(data.get("processed_ids", [])), set(data.get("processed_keys", []))
-    return set(), set()
+    from fundradar_worker.io_utils import load_progress_file
+    data = load_progress_file(PROGRESS_FILE)
+    return set(data.get("processed_ids", [])), set(data.get("processed_keys", []))
 
 
 def save_progress(processed_ids: set, processed_keys: set):
@@ -495,11 +467,46 @@ def _should_apply_llm_type_fallback(signal: dict) -> bool:
     return True
 
 
-def _apply_post_type_corrections(signal: dict) -> None:
-    """Apply post-classification type corrections.
+def _apply_final_type_and_overrides(signal: dict, filtered_signal_type: str | None) -> None:
+    """Single entry point for ALL post-classification corrections + safety overrides.
 
-    Delegates to the shared signal_corrections module (single source of truth),
-    then applies enricher-specific corrections (VC rounds, keyword fallback, etc.).
+    Called from every enricher code path (primary LLM, skip-LLM, async callback).
+    Consolidates logic that was previously duplicated in 3 places — NEVER duplicate
+    this logic inline. If you need to change post-classification behavior, change it HERE.
+
+    Steps:
+      1. Shared corrections (universal demotions + type-specific fixes)
+      2. Enricher-specific corrections (VC rounds, fund_launch back-promotion, etc.)
+      3. Safety override: only revert fund_launch→deal_announced promotions,
+         DO respect "other" demotions from apply_universal_demotions()
+      4. Portfolio update override (portfolio company news)
+      5. Job posting override
+    """
+    # Steps 1-2: shared + enricher-specific corrections
+    _apply_post_type_corrections(signal)
+
+    # Step 3: Filter is authoritative for promotions — don't let enricher
+    # incorrectly promote deal_announced→fund_launch.
+    # But DO respect "other" demotions from apply_universal_demotions()
+    # (fashion campaigns, editorial format, outsourcing RFPs, etc.)
+    if filtered_signal_type and filtered_signal_type != "other":
+        if signal.get("signal_type") == "fund_launch" and filtered_signal_type == "deal_announced":
+            signal["signal_type"] = filtered_signal_type
+
+    # Step 4: Portfolio company news is NOT a fund-level signal
+    _pc_text = ((signal.get("title") or "") + " " + (signal.get("what_changed") or "")).lower()
+    if _RE_PORTFOLIO_UPDATE.search(_pc_text):
+        signal["signal_type"] = "portfolio_update"
+    # Step 5: Job postings override any other classification
+    elif _RE_JOB_SELECTION.search(_pc_text):
+        signal["signal_type"] = "job_posting"
+
+
+def _apply_post_type_corrections(signal: dict) -> None:
+    """Apply shared + enricher-specific type corrections (internal helper).
+
+    Do NOT call this directly from processing paths — use
+    _apply_final_type_and_overrides() instead, which adds safety overrides.
     """
     from signal_corrections import (
         apply_universal_demotions,
@@ -521,7 +528,8 @@ def _apply_post_type_corrections(signal: dict) -> None:
     # Editorial "investment strategy/approach/philosophy" content → other
     # ── Phase 2: Type-specific corrections (shared) ──
     current = signal.get("signal_type", "other")
-    corrected = apply_type_corrections(current, text_check, title_lower, page_category)
+    diff_summary_lower = (signal.get("diff_summary") or "").lower()
+    corrected = apply_type_corrections(current, text_check, title_lower, page_category, diff_summary_lower)
     if corrected != current:
         signal["signal_type"] = corrected
 
@@ -1278,6 +1286,20 @@ def _finalize_signal_summary(signal: dict) -> None:
                 signal["enriched_summary"] = ""
                 return
 
+    # Apply NER capitalization to the summary (entities from the filter step)
+    entities = signal.get("extracted_entities") or {}
+    entity_names = list(entities.get("companies") or []) + list(entities.get("people") or [])
+    # Add fund name from slug
+    fund_slug = signal.get("fund_slug") or ""
+    if fund_slug:
+        _NOT_ACRONYMS = {"bain", "real", "blue", "next", "tree", "open", "true", "fair", "iron", "wise", "gold", "star"}
+        parts = fund_slug.split("-")
+        display_parts = [p.upper() if len(p) <= 4 and p.lower() not in _NOT_ACRONYMS else p.title() for p in parts]
+        fund_display = " ".join(display_parts)
+        entity_names.append(fund_display)
+    if entity_names:
+        summary = capitalize_entities(summary, entity_names)
+
     signal["enriched_summary"] = summary
 
 
@@ -1348,6 +1370,24 @@ def _local_keep_decision(signal: dict) -> tuple[bool | None, str, str]:
         if any(p.search(text) for p in GENERIC_UPDATE_PATTERNS):
             return False, "generic website update", "medium"
 
+    # Pre-check: run universal demotions on the text to catch signals that the
+    # enricher will later demote to "other". This prevents the local fast-path
+    # from auto-keeping signals that will be demoted (editorial, procurement, etc.)
+    text_lower = text.lower()
+    title_lower = title.lower()
+    from signal_corrections import apply_universal_demotions
+    _would_demote = apply_universal_demotions(text_lower, title_lower)
+    _effective_type = _would_demote if _would_demote is not None else signal_type
+
+    # For type="other" signals (demoted by universal demotions: editorial, procurement,
+    # press review, etc.), NEVER auto-keep on quality alone — force LLM evaluation.
+    # High quality_score means well-formed text, not PE relevance.
+    if _effective_type == "other":
+        if _has_deal_or_people_keywords(text):
+            # Has PE keywords despite "other" type — could be misclassified, let LLM decide
+            return None, "", ""
+        return False, "type=other (demoted by filter/demotion)", "high"
+
     if quality_conf == "high":
         return True, "high evidence confidence", "high"
 
@@ -1371,7 +1411,22 @@ def _local_keep_decision(signal: dict) -> tuple[bool | None, str, str]:
 
 
 def _should_override_llm_drop(signal: dict) -> bool:
-    """Keep high-evidence signals even if LLM says drop."""
+    """Keep high-evidence signals even if LLM says drop.
+
+    Does NOT override for 'other' type — if both filter (type=other) and LLM
+    (keep=False) agree the signal is not PE activity, respect that decision.
+    High quality_score means well-formed text, not relevant signal.
+    """
+    # Never override for signals already classified as non-core by the filter
+    if signal.get("signal_type") == "other":
+        return False
+    # Also check if universal demotions WOULD classify this as "other"
+    # (signal_type may not be "other" yet — demotions run later in the pipeline)
+    from signal_corrections import apply_universal_demotions
+    _text = ((signal.get("title") or "") + " " + (signal.get("what_changed") or "")).lower()
+    _title_lower = (signal.get("title") or "").lower()
+    if apply_universal_demotions(_text, _title_lower) == "other":
+        return False
     quality = signal.get("quality_score") or 0
     evidence_score = signal.get("evidence_score") or 0
     quality_conf = signal.get("quality_confidence")
@@ -1546,16 +1601,18 @@ Rules:
             llm_italy_relevant = result.get("italy_relevant")
             if isinstance(llm_italy_relevant, bool):
                 enrichment["llm_italy_relevant"] = llm_italy_relevant
-            # Include target company extraction for deal/exit signals
+            # Include target company extraction for deal/exit signals.
+            # Set [] (not None) when LLM found no companies — distinguishes
+            # "attempted, none found" from "never attempted".
             target_companies = result.get("target_companies")
             if target_companies and isinstance(target_companies, list):
-                # Validate each entry has required fields
                 valid = [
                     tc for tc in target_companies
                     if isinstance(tc, dict) and tc.get("name") and tc.get("action")
                 ]
-                if valid:
-                    enrichment["target_companies"] = valid
+                enrichment["target_companies"] = valid if valid else []
+            else:
+                enrichment["target_companies"] = []
             return enrichment
         except json.JSONDecodeError as e:
             if attempt < max_retries:
@@ -1622,16 +1679,40 @@ def _translate_italian_signals(signals: list[dict], slugs_filter: str | None = N
 
 
 def _send_translation_issue_alert(translation_stats: dict[str, Any], slugs_filter: str | None = None) -> None:
-    """Send Telegram alert when translation had unresolved Italian fields."""
+    """Send Telegram alert when translation had real problems.
+
+    Suppresses alerts for small numbers of unresolved fields (≤5) since
+    these are typically language-detector edge cases, not actionable errors.
+    Always alerts for: provider outages, API errors, network failures.
+    """
     if not SIGNAL_TRANSLATION_ALERTS:
         return
 
     detected = int(translation_stats.get("italian_fields_detected") or 0)
     unresolved = int(translation_stats.get("unresolved_fields") or 0)
     skip_reason = (translation_stats.get("skipped_reason") or "").strip()
+    openai_errors = int(translation_stats.get("openai_translation_errors") or 0)
+    network_errors = int(translation_stats.get("network_error_count") or 0)
+
     if detected <= 0:
         return
-    if unresolved <= 0 and not skip_reason:
+
+    # Determine if this is a real problem or just edge cases
+    has_api_errors = openai_errors > 0 or network_errors > 0
+    has_provider_outage = bool(skip_reason)
+
+    # Suppress alert for small numbers of unresolved fields with no API errors
+    # (these are language-detector false positives, not actionable)
+    if unresolved <= 5 and not has_api_errors and not has_provider_outage:
+        if unresolved > 0:
+            details = translation_stats.get("unresolved_details") or []
+            detail_strs = [f"  {d['fund_slug']}/{d['field']}: {d['text'][:60]}" for d in details[:5]]
+            print(f"  Translation: {unresolved} unresolved fields (below alert threshold):")
+            for ds in detail_strs:
+                print(ds)
+        return
+
+    if unresolved <= 0 and not skip_reason and not has_api_errors:
         return
 
     try:
@@ -1645,33 +1726,47 @@ def _send_translation_issue_alert(translation_stats: dict[str, Any], slugs_filte
 
     translated_fields = int(translation_stats.get("translated_fields") or 0)
     signals_count = int(translation_stats.get("signals_needing_translation") or 0)
-    openai_errors = int(translation_stats.get("openai_translation_errors") or 0)
-    network_errors = int(translation_stats.get("network_error_count") or 0)
 
     scope = slugs_filter or "all funds"
-    lines = [
-        f"Scope: {scope}",
-        f"Non-English fields detected: {detected} across {signals_count} signals",
-        f"Translated fields: {translated_fields}",
-        f"Unresolved fields: {unresolved}",
-        f"Providers: DeepL={'yes' if translation_stats.get('deepl_keys_available') else 'no'}, Azure={'yes' if translation_stats.get('azure_configured') else 'no'}, OpenAI={'yes' if translation_stats.get('openai_configured') else 'no'}",
-    ]
-    if skip_reason:
-        lines.append(f"Reason: {skip_reason}")
-    if openai_errors:
-        lines.append(f"Errors: OpenAI fields={openai_errors}")
-    if network_errors:
-        lines.append(f"Network/DNS-like API errors: {network_errors}")
-    sample_errors = translation_stats.get("sample_errors") or []
-    if sample_errors:
-        lines.append(f"Sample error: {sample_errors[0]}")
+    lines = [f"Scope: {scope}"]
 
-    if unresolved == detected:
+    if has_provider_outage:
+        lines.append(f"Provider issue: {skip_reason}")
+    if has_api_errors:
+        if openai_errors:
+            lines.append(f"OpenAI errors: {openai_errors}")
+        if network_errors:
+            lines.append(f"Network errors: {network_errors}")
+        sample_errors = translation_stats.get("sample_errors") or []
+        if sample_errors:
+            lines.append(f"Error: {sample_errors[0][:200]}")
+
+    lines.append(f"Detected: {detected} fields across {signals_count} signals")
+    lines.append(f"Translated: {translated_fields} | Unresolved: {unresolved}")
+
+    # Show which specific signals are affected
+    details = translation_stats.get("unresolved_details") or []
+    if details:
+        lines.append("")
+        lines.append("Unresolved signals:")
+        for d in details[:8]:
+            lines.append(f"  {d['fund_slug']}/{d['field']}: {d['text'][:80]}")
+        if len(details) > 8:
+            lines.append(f"  ... +{len(details) - 8} more")
+
+    # Set severity based on what went wrong
+    if has_provider_outage:
         level = "error"
-        title = f"Signal translation blocked ({unresolved}/{detected})"
+        title = f"Translation providers down"
+    elif has_api_errors:
+        level = "error"
+        title = f"Translation errors ({openai_errors + network_errors} API failures)"
+    elif unresolved > 20:
+        level = "error"
+        title = f"Translation: {unresolved} fields unresolved"
     else:
         level = "warning"
-        title = f"Signal translation partial ({unresolved}/{detected} unresolved)"
+        title = f"Translation: {unresolved} fields unresolved"
 
     manager = AlertManager(config)
     manager.add_alert(
@@ -1727,12 +1822,8 @@ def _parse_args() -> argparse.Namespace:
 
 
 def main(slugs_filter: str | None = None):
-    global _enricher_start_time
-    _enricher_start_time = time.time()
-
-    # Install signal handlers for graceful shutdown
-    _signal_mod.signal(_signal_mod.SIGTERM, _handle_sigterm)
-    _signal_mod.signal(_signal_mod.SIGINT, _handle_sigterm)
+    _deadline.install_signals()
+    _deadline.start()
 
     print("Signal Enrichment with OpenAI")
     print("=" * 50)
@@ -1973,21 +2064,7 @@ def main(slugs_filter: str | None = None):
                         signal.get("signal_type") or "",
                     )
 
-                _apply_post_type_corrections(signal)
-                # Filter is authoritative: don't let enricher demote to "other" or
-                # incorrectly promote deal_announced→fund_launch
-                if _filtered_signal_type and _filtered_signal_type != "other" and (
-                    signal.get("signal_type") == "other"
-                    or (signal.get("signal_type") == "fund_launch" and _filtered_signal_type == "deal_announced")
-                ):
-                    signal["signal_type"] = _filtered_signal_type
-                # Portfolio company news is NOT a fund-level signal
-                _pc_text = ((signal.get("title") or "") + " " + (signal.get("what_changed") or "")).lower()
-                if _RE_PORTFOLIO_UPDATE.search(_pc_text):
-                    signal["signal_type"] = "portfolio_update"
-                # Job postings override any other classification
-                elif _RE_JOB_SELECTION.search(_pc_text):
-                    signal["signal_type"] = "job_posting"
+                _apply_final_type_and_overrides(signal, _filtered_signal_type)
 
                 if ML_USE_KEEP and ml_result.keep_confident:
                     signal["llm_keep"] = ml_result.keep
@@ -1998,28 +2075,163 @@ def main(slugs_filter: str | None = None):
                     signal["llm_keep_source"] = "ml"
                     signal["llm_keep_version"] = ML_KEEP_VERSION
 
+        # Deal/exit signals without target_companies need re-enrichment to extract them.
+        # None = never attempted; [] = attempted, none found (don't retry).
+        _is_deal_signal = signal.get("signal_type") in {"deal_announced", "exit_announced", "exit"}
+        _needs_company_extraction = _is_deal_signal and signal.get("target_companies") is None
+
+        # If the LLM already processed this signal (enriched_at is set) but
+        # target_companies is still None, that's a legacy value from before the
+        # None→[] fix. The LLM already had its chance — set to [] (attempted,
+        # none found) and don't re-queue.
+        if _needs_company_extraction and signal.get("enriched_at") and signal.get("llm_keep") is not None:
+            signal["target_companies"] = []
+            _needs_company_extraction = False
+
         if signal.get("llm_keep") is not None:
-            if signal_key:
-                processed_keys.add(signal_key)
-            if signal_id:
-                processed_ids.add(signal_id)
+            _hard_blocked = False
+
+            # Hard block: press review/clipping/newspaper signals — never keep
+            _title_check = (signal.get("title") or "").lower()
+            if re.search(r"^(?:press\s+review|rassegna\s+stampa|corriere\s+l['\u2019]economia)\s*:", _title_check):
+                signal["llm_keep"] = False
+                signal["llm_keep_reason"] = "hard block: press review/newspaper digest"
+                _hard_blocked = True
+
+            # Hard block: "Historical" placeholder signals — scraper artifact from FVS SGR
+            # These have what_changed == "Historical" with no real content
+            _wc_raw = (signal.get("what_changed") or "").strip()
+            if not _hard_blocked and _wc_raw.lower() == "historical":
+                signal["llm_keep"] = False
+                signal["llm_keep_reason"] = "hard block: historical placeholder (no real content)"
+                _hard_blocked = True
+
+            # Hard block: Italian-language titles that have an English enriched_summary
+            # Use the enriched_summary as display text and drop the Italian title
+            if not _hard_blocked:
+                _it_title = (signal.get("title") or "").lower()
+                _has_italian_verb = bool(re.search(
+                    r"\bvende\b|\bavvia\b|\bacquista\b|\bentra\b|\besce\b|\bchiude\b|\blancia\b"
+                    r"|\brifinanzia\b|\bincassa\b|\bdagli\b|\bin\s+maggioranza\s+nella?\b"
+                    r"|\bpiazza\b|\braccogli[ea]\b|\binveste\b|\bsottoscrive\b|\bfirma\b"
+                    r"|^creazione\s+del\b|^costituzione\s+del\b",
+                    _it_title
+                ))
+                if _has_italian_verb:
+                    _es = (signal.get("enriched_summary") or "").strip()
+                    if _es and not is_garbage_summary(_es):
+                        # Replace Italian title with English summary
+                        signal["title"] = _es
+                        signal["what_changed"] = _es
+                    else:
+                        # No good English summary — drop the signal
+                        signal["llm_keep"] = False
+                        signal["llm_keep_reason"] = "hard block: Italian title with no English summary"
+                        _hard_blocked = True
+
+            # Hard block: bare company name titles — no verb, no event context
+            # These come from portfolio page scrapers (e.g., "BIO 4 DREAMS S.P.A.", "Bluwater S.p.A.")
+            _title_raw = (signal.get("title") or "").strip()
+            if _title_raw and not _hard_blocked:
+                _title_stripped = re.sub(
+                    r"\s*(?:S\.?p\.?A\.?|S\.?r\.?l\.?|S\.?a\.?s\.?|S\.?R\.?L\.?|S\.?P\.?A\.?|Ltd\.?|Inc\.?|GmbH|Group|Holding)\s*$",
+                    "", _title_raw, flags=re.IGNORECASE
+                ).strip()
+                # If after stripping legal suffix the remaining text is ≤40 chars
+                # and has NO verb (all proper nouns / entity name), it's bare
+                if _title_stripped and len(_title_stripped) <= 40:
+                    _has_verb = bool(re.search(
+                        r"\b(?:acquir|invest|announc|complet|launch|rais|clos|exit|sell|sold|bought"
+                        r"|expand|open|secur|report|form|partner|back|fund|manag|reach|plan|join"
+                        r"|appoint|nomin|enter|sign|present|support|build|negoti|bid|offer"
+                        r"|exited|vende|acquis|lancia|rafforz|investe|chiude|entra|esce"
+                        r"|strengthens?|bolsters?|closes?|raises?|targets?|weighs?|explores?)\w*\b",
+                        _title_stripped, re.IGNORECASE
+                    ))
+                    if not _has_verb:
+                        signal["llm_keep"] = False
+                        signal["llm_keep_reason"] = "hard block: bare company name with no event context"
+                        _hard_blocked = True
+
+            # Hard block: bare portfolio page signals with no content
+            # Title <35 chars + empty what_changed + page_type=PORTFOLIO → drop
+            if not _hard_blocked:
+                _page_type = (signal.get("page_type") or "").upper()
+                _ds = (signal.get("diff_summary") or "").lower()
+                _wc_check = (signal.get("what_changed") or "").strip()
+                if _page_type == "PORTFOLIO" or "new portfolio company detected" in _ds:
+                    if len(_title_raw) < 35 and not _wc_check:
+                        signal["llm_keep"] = False
+                        signal["llm_keep_reason"] = "hard block: bare portfolio page signal (no event content)"
+                        _hard_blocked = True
+
+            # Retroactive fix: type="other" signals kept by local fast-path
+            # These were demoted by filter but auto-kept by old quality score logic.
+            if (not _hard_blocked
+                    and signal.get("llm_keep") is True
+                    and signal.get("signal_type") == "other"
+                    and signal.get("llm_keep_source") == "local"):
+                _lr = (signal.get("llm_keep_reason") or "").lower()
+                # Only flip if kept for quality/evidence reasons (not PE keywords)
+                if "quality" in _lr or "evidence" in _lr or "self-describing" in _lr:
+                    signal["llm_keep"] = False
+                    signal["llm_keep_reason"] = "retroactive: type=other demoted by filter"
+                    _hard_blocked = True
+
+            # Retroactive fix: signals that were incorrectly kept despite LLM/local
+            # identifying them as non-PE. The "override:" prefix means the original
+            # decision was drop, but _should_override_llm_drop flipped it. Now that
+            # we no longer override for type="other", fix cached signals too.
+            _keep_reason = signal.get("llm_keep_reason") or ""
+            if signal.get("llm_keep") is True and _keep_reason.startswith("override:"):
+                _override_detail = _keep_reason[len("override:"):].strip().lower()
+                # Drop signals where the override reason confirms non-PE content
+                _is_non_pe_override = (
+                    signal.get("signal_type") == "other"
+                    or "navigation" in _override_detail
+                    or "legal content" in _override_detail
+                    or "not a pe" in _override_detail
+                    or "not pe" in _override_detail
+                    or "marketing campaign" in _override_detail
+                    or "editorial" in _override_detail
+                    or "no actionable" in _override_detail
+                    or "no fundraise" in _override_detail
+                    or "no deal" in _override_detail
+                    or "third-party news" in _override_detail
+                    or "thought leadership" in _override_detail
+                    or "opinion piece" in _override_detail
+                    or "no specific" in _override_detail
+                    or "not relevant" in _override_detail
+                    or "generic content" in _override_detail
+                    or "no investment" in _override_detail
+                    or "blog post" in _override_detail
+                    or "no concrete" in _override_detail
+                )
+                if _is_non_pe_override:
+                    signal["llm_keep"] = False
+                    signal["llm_keep_reason"] = _keep_reason.replace("override: ", "", 1)
+                    _hard_blocked = True  # Prevent re-override
+
             if LLM_FILTER_MODE == "hard" and signal.get("llm_keep") is False:
-                if not _should_override_llm_drop(signal):
+                if _hard_blocked or not _should_override_llm_drop(signal):
                     _mark_filtered_out(signal_id, signal_key)
                 else:
                     signal["llm_keep"] = True
                     signal["llm_keep_reason"] = f"override: {signal.get('llm_keep_reason', 'high evidence')}"
                     signal["llm_keep_confidence"] = "high"
+            # Only mark as processed if enrichment is complete
+            # (don't mark if deal/exit is missing target_companies — needs retry)
+            if not _needs_company_extraction:
+                if signal_key:
+                    processed_keys.add(signal_key)
+                if signal_id:
+                    processed_ids.add(signal_id)
 
         local_keep, local_reason, local_conf = _local_keep_decision(signal)
         local_summary = _local_summary(signal)
         if local_summary and not signal.get("enriched_summary"):
             signal["enriched_summary"] = local_summary
             signal["enrichment_confidence"] = signal.get("enrichment_confidence") or "low"
-
-        # Deal/exit signals without target_companies need re-enrichment to extract them
-        _is_deal_signal = signal.get("signal_type") in {"deal_announced", "exit_announced"}
-        _needs_company_extraction = _is_deal_signal and not signal.get("target_companies")
 
         # Already has a keep/drop decision — skip LLM (unless missing target_companies)
         if signal.get("llm_keep") is not None and not _needs_company_extraction:
@@ -2034,21 +2246,7 @@ def main(slugs_filter: str | None = None):
                     signal["signal_type"] = new_type
                     signal["llm_type_override"] = True
                     llm_type_overrides += 1
-            _apply_post_type_corrections(signal)
-            # Filter is authoritative — don't let enricher demote to "other" or
-            # incorrectly promote deal_announced→fund_launch
-            if _filtered_signal_type and _filtered_signal_type != "other" and (
-                signal.get("signal_type") == "other"
-                or (signal.get("signal_type") == "fund_launch" and _filtered_signal_type == "deal_announced")
-            ):
-                signal["signal_type"] = _filtered_signal_type
-            # Portfolio company news is NOT a fund-level signal
-            _pc_text_skip = ((signal.get("title") or "") + " " + (signal.get("what_changed") or "")).lower()
-            if _RE_PORTFOLIO_UPDATE.search(_pc_text_skip):
-                signal["signal_type"] = "portfolio_update"
-            # Job postings override any other classification
-            elif _RE_JOB_SELECTION.search(_pc_text_skip):
-                signal["signal_type"] = "job_posting"
+            _apply_final_type_and_overrides(signal, _filtered_signal_type)
             continue
 
         # Local decision is confident — no LLM needed
@@ -2104,6 +2302,11 @@ def main(slugs_filter: str | None = None):
     print(f"  Skipped (already enriched): {skipped_count}")
     print(f"  Resolved locally: {enriched_count}")
     print(f"  Need LLM enrichment: {len(needs_llm)}")
+
+    # Prioritize: signals with no decision yet (llm_keep is None) come first,
+    # then company extraction retries. This ensures truly new signals are
+    # processed before the deadline, not cut off by retry backlog.
+    needs_llm.sort(key=lambda item: (0 if item[1].get("llm_keep") is None else 1))
 
     # ══════════════════════════════════════════════════════════════════════════
     # PHASE 2: Concurrent LLM enrichment
@@ -2202,6 +2405,9 @@ def main(slugs_filter: str | None = None):
                 # Successful LLM enrichment
                 if enrichment and enrichment.get("enriched_summary"):
                     enrichment["enriched_summary"] = _clean_summary_text(enrichment.get("enriched_summary"))
+                    # Reject garbage summaries (pipe artifacts, bare names, lowercase starts)
+                    if is_garbage_summary(enrichment["enriched_summary"]):
+                        enrichment["enriched_summary"] = ""
                     signal.update(enrichment)
                     if enrichment.get("enriched_date") and not signal.get("published_at"):
                         signal["published_at"] = enrichment["enriched_date"]
@@ -2219,18 +2425,7 @@ def main(slugs_filter: str | None = None):
                             signal["llm_type_override"] = True
                             llm_type_overrides += 1
 
-                    _apply_post_type_corrections(signal)
-                    # Filter is authoritative — don't let enricher demote to "other" or
-                    # incorrectly promote deal_announced→fund_launch
-                    if _filtered_signal_type and _filtered_signal_type != "other" and (
-                        signal.get("signal_type") == "other"
-                        or (signal.get("signal_type") == "fund_launch" and _filtered_signal_type == "deal_announced")
-                    ):
-                        signal["signal_type"] = _filtered_signal_type
-                    # Portfolio company news is NOT a fund-level signal
-                    _pc_text_llm = ((signal.get("title") or "") + " " + (signal.get("what_changed") or "")).lower()
-                    if _RE_PORTFOLIO_UPDATE.search(_pc_text_llm):
-                        signal["signal_type"] = "portfolio_update"
+                    _apply_final_type_and_overrides(signal, _filtered_signal_type)
 
                     # Hard filtering
                     keep = enrichment.get("llm_keep", True)
@@ -2285,7 +2480,128 @@ def main(slugs_filter: str | None = None):
     # PHASE 3: Final save
     # ══════════════════════════════════════════════════════════════════════════
     print(f"\n--- Phase 3: Final save ---")
+
+    # Self-healing: un-mark signals from progress if enrichment is incomplete.
+    # This ensures failed/partial enrichments are automatically retried next run.
+    _unmark_count = 0
+    for signal in signals:
+        sid = signal.get("id", "")
+        skey = _signal_key(signal)
+        if not sid:
+            continue
+        # Deal/exit where target_companies was never attempted (None, not [])
+        if signal.get("signal_type") in {"deal_announced", "exit_announced", "exit"} \
+                and signal.get("target_companies") is None \
+                and sid in processed_ids:
+            processed_ids.discard(sid)
+            if skey:
+                processed_keys.discard(skey)
+            _unmark_count += 1
+        # No keep/drop decision at all — enrichment didn't complete
+        elif signal.get("llm_keep") is None and sid in processed_ids:
+            processed_ids.discard(sid)
+            if skey:
+                processed_keys.discard(skey)
+            _unmark_count += 1
+    if _unmark_count:
+        print(f"  Self-healing: {_unmark_count} incomplete signals unmarked for retry next run")
+
     save_progress(processed_ids, processed_keys)
+
+    # ── Phase 3 safety net: drop ALL type=other signals ──────────────────
+    # After _apply_final_type_and_overrides has run on every signal, some
+    # signals that started as people_move/deal_announced may have been
+    # demoted to "other" by apply_universal_demotions().  The LLM may have
+    # already decided to keep them (src=llm).  This safety net ensures
+    # type=other never reaches the final output regardless of LLM decision.
+    _other_dropped = 0
+    _historical_dropped = 0
+    _stale_dropped = 0
+    _italian_fixed = 0
+    for signal in signals:
+        if signal.get("llm_keep") is not True:
+            continue
+
+        # Drop type=other regardless of LLM decision
+        if signal.get("signal_type") == "other":
+            signal["llm_keep"] = False
+            signal["llm_keep_reason"] = "phase3: type=other safety net (dropped after final type corrections)"
+            _other_dropped += 1
+            continue
+
+        # Drop "Historical" placeholder signals
+        _wc = (signal.get("what_changed") or "").strip()
+        if _wc.lower() == "historical":
+            signal["llm_keep"] = False
+            signal["llm_keep_reason"] = "phase3: historical placeholder (no real content)"
+            _historical_dropped += 1
+            continue
+
+        # Drop stale signals: diff_summary mentions "dated YYYY" where YYYY is >24 months old
+        _diff = (signal.get("diff_summary") or "").lower()
+        _stale_match = re.search(r"dated\s+(\d{4})", _diff)
+        if _stale_match:
+            try:
+                _stale_year = int(_stale_match.group(1))
+                _cutoff_year = datetime.now().year - 2
+                if _stale_year < _cutoff_year:
+                    signal["llm_keep"] = False
+                    signal["llm_keep_reason"] = f"phase3: stale signal (dated {_stale_year}, >24 months old)"
+                    _stale_dropped += 1
+                    continue
+            except (ValueError, TypeError):
+                pass
+
+        # Drop signals with published_at >24 months old
+        _pub = signal.get("published_at") or ""
+        if _pub:
+            _pub_match = re.match(r"(\d{4})-", _pub)
+            if _pub_match:
+                try:
+                    _pub_year = int(_pub_match.group(1))
+                    _cutoff_year = datetime.now().year - 2
+                    if _pub_year < _cutoff_year:
+                        signal["llm_keep"] = False
+                        signal["llm_keep_reason"] = f"phase3: stale signal (published {_pub[:10]}, >24 months old)"
+                        _stale_dropped += 1
+                        continue
+                except (ValueError, TypeError):
+                    pass
+
+        # Fix Italian titles when English enriched_summary is available
+        _title = (signal.get("title") or "").lower()
+        if re.search(
+            r"\bvende\b|\bavvia\b|\bacquista\b|\bentra\b|\besce\b|\bchiude\b|\blancia\b"
+            r"|\brifinanzia\b|\bincassa\b|\bdagli\b|\bin\s+maggioranza\s+nella?\b"
+            r"|\bpiazza\b|\braccogli[ea]\b|\binveste\b|\bsottoscrive\b|\bfirma\b"
+            r"|\btratta\s+l['\u2019]acquisto\b|\bacquisisce\b|\bcompleta\b"
+            r"|^creazione\s+del\b|^costituzione\s+del\b",
+            _title,
+        ):
+            _es = (signal.get("enriched_summary") or "").strip()
+            if _es and not is_garbage_summary(_es):
+                signal["title"] = _es
+                signal["what_changed"] = _es
+                _italian_fixed += 1
+            else:
+                signal["llm_keep"] = False
+                signal["llm_keep_reason"] = "phase3: Italian title with no English summary"
+                _other_dropped += 1
+                continue
+
+    _total_phase3 = _other_dropped + _historical_dropped + _stale_dropped
+    if _total_phase3 or _italian_fixed:
+        parts = []
+        if _other_dropped:
+            parts.append(f"{_other_dropped} type=other/Italian")
+        if _historical_dropped:
+            parts.append(f"{_historical_dropped} historical")
+        if _stale_dropped:
+            parts.append(f"{_stale_dropped} stale (>24mo)")
+        if _italian_fixed:
+            parts.append(f"{_italian_fixed} Italian titles→English")
+        print(f"  Phase 3 safety net: {', '.join(parts)}")
+
     def _is_filtered_out(signal: dict) -> bool:
         signal_key = _signal_key(signal)
         if signal_key and signal_key in filtered_out_keys:
@@ -2480,10 +2796,10 @@ def main(slugs_filter: str | None = None):
     _with_summary = sum(1 for s in final_signals if (s.get("enriched_summary") or "").strip())
     _without_summary = len(final_signals) - _with_summary
 
-    total_elapsed = time.time() - _enricher_start_time
+    total_elapsed = _deadline.elapsed()
     print(f"\n{'=' * 50}")
     print(f"Enrichment complete! ({total_elapsed:.0f}s / {ENRICHER_DEADLINE_SECONDS}s deadline)")
-    if _shutdown_requested:
+    if _deadline.shutdown_requested:
         print(f"  NOTE: Shutdown was requested — some steps may have been skipped")
     print(f"Enriched: {enriched_count} signals")
     print(f"Skipped (already enriched): {skipped_count}")

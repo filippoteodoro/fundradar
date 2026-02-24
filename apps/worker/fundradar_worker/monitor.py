@@ -381,7 +381,8 @@ class UrlStatusStore:
                 status_type = "dns_error"
             else:
                 status_type = "other_error"
-        elif status_code == 200:
+        elif status_code in (200, 304):
+            # 304 Not Modified is a successful response (content unchanged)
             status_type = "ok"
         elif status_code == 404:
             status_type = "404"
@@ -1139,17 +1140,22 @@ class WebsiteMonitor:
         Fetch a URL using Playwright headless browser.
 
         Configures fetch options based on page type.
-        Uses site config pagination settings when available (e.g., click-to-load).
+        Uses domain policy timeout for navigation.
         Enforces PER_URL_TIMEOUT to prevent stalls from scrolling/network-idle waits.
         """
         import asyncio as _asyncio
 
         fetcher = fetcher or await self._get_playwright_fetcher()
 
+        # Use domain policy timeout for navigation (default 30s, Ares=45s, etc.)
+        policy = self.domain_policies.get_policy(url) if self.domain_policies else None
+        nav_timeout_ms = (policy.timeout * 1000) if policy else 30000
+
         # Configure options based on page type
         options = FetchOptions(
             wait_for_network_idle=True,
             dismiss_consent=True,
+            network_idle_timeout=nav_timeout_ms,
         )
 
         if page_type in ("portfolio", "investments"):
@@ -2302,7 +2308,7 @@ class WebsiteMonitor:
         # --- Step 2: Group URLs by domain ---
         domain_groups: dict[str, list[MonitoredUrl]] = defaultdict(list)
         for url in urls:
-            domain = extract_domain(url.url)
+            domain = extract_domain(url.url, strip_www=False)
             domain_groups[domain].append(url)
         print(f"  Grouped into {len(domain_groups)} domains (max {MAX_WORKERS} parallel workers)")
 
@@ -2954,10 +2960,13 @@ def run_monitor(
             except Exception as e:
                 print(f"\nWarning: snapshot pruning failed: {e}")
 
-        # Send Telegram alerts for URLs with persistent failures
+        # Prune stale URL entries and send Telegram alerts for real failures
         if not monitor.is_shutting_down():
             try:
-                from .alerting import send_url_failure_alerts
+                from .alerting import prune_stale_url_statuses, send_url_failure_alerts
+                pruned = prune_stale_url_statuses(data_dir)
+                if pruned > 0:
+                    print(f"\nURL status cleanup: removed {pruned} stale entries")
                 send_url_failure_alerts(data_dir)
             except Exception as e:
                 print(f"\nWarning: URL failure alerting failed: {e}")

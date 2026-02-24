@@ -13,10 +13,11 @@ from urllib.parse import urljoin
 DOMAIN = "www.apeironmgmt.com"
 
 
-# URL paths for monitoring — verified against live site
+# URL paths for monitoring — verified 2026-02-23
+# Note: /team/ returns 404 on both domains (site's own nav links to it but page is broken)
 URLS = {
-    "portfolio": None,  # No public portfolio listing
-    "team": "/team/",
+    "portfolio": None,
+    "team": None,
     "news": None,
 }
 def extract_team(html: str, base_url: str) -> list[dict]:

@@ -33,21 +33,16 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urlparse
-
 from dotenv import load_dotenv
 
-PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
-ENV_PATH = PROJECT_ROOT / ".env"
-load_dotenv(ENV_PATH, override=False)
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
-sys.path.insert(0, str(PROJECT_ROOT / "apps" / "worker"))
+from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, ENRICHED_SIGNALS_FILE, PORTFOLIO_FILE, ROOT_ENV_PATH
+from fundradar_worker.url_utils import extract_domain, is_same_domain
 
-DATA_DIR = PROJECT_ROOT / "data" / "derived"
-ENRICHED_SIGNALS_FILE = DATA_DIR / "detected_signals_enriched.json"
-PORTFOLIO_FILE = DATA_DIR / "portfolio_items.json"
+load_dotenv(ROOT_ENV_PATH, override=False)
+
 PROGRESS_FILE = DATA_DIR / "signal_to_portfolio_progress.json"
-DB_PATH = PROJECT_ROOT / "data" / "db.json"
 
 # Signal types to process
 DEAL_TYPES = {"deal_announced", "exit_announced"}
@@ -76,34 +71,8 @@ NEWS_DOMAINS = {
     "mergermarket.com", "pitchbook.com",
 }
 
-# ─── Company name normalization (mirrors entity_resolver.py + data.ts) ─────
-
-LEGAL_SUFFIXES_RE = re.compile(
-    r"(?:\s+|,\s*)(?:"
-    r"\bS\.?p\.?A\.?|\bS\.?r\.?l\.?|\bS\.?a\.?s\.?|\bS\.?n\.?c\.?"
-    r"|\bLtd\.?|\bLLC\.?|\bInc\.?|\bGmbH\.?|\bAG\.?|\bB\.?V\.?"
-    r"|\bN\.?V\.?|\bPLC\.?|\bCorp\.?|\bCorporation|\bCompany"
-    r"|\bGroup|\bGruppo|\bHolding|\bHoldings|\bPartecipazioni"
-    r")\s*$",
-    re.IGNORECASE,
-)
-
-
-def normalize_company_name(name: str) -> str:
-    """Normalize company name for dedup matching."""
-    if not name:
-        return ""
-    n = name.lower().strip()
-    n = re.sub(r"\s*\(.*\)", "", n)  # strip parenthetical
-    n = re.sub(r"\s*logo\s*$", "", n, flags=re.IGNORECASE)
-    for _ in range(3):
-        cleaned = LEGAL_SUFFIXES_RE.sub("", n).strip()
-        if cleaned == n:
-            break
-        n = cleaned
-    n = re.sub(r"\s+technologies\s*$", "", n)
-    n = re.sub(r"[^a-z0-9]+", " ", n).strip()
-    return n
+# Company name normalization — delegates to entity_resolver (single source of truth)
+from fundradar_worker.entity_resolver import normalize_company_name
 
 
 def _token_overlap(a: str, b: str) -> float:
@@ -173,32 +142,11 @@ def _matches_existing(
 # ─── Source classification & confidence ────────────────────────────────────
 
 def _get_fund_domain(fund_slug: str, funds_by_slug: dict) -> str | None:
-    """Get the website domain for a fund."""
+    """Get the website domain for a fund (delegates to shared extract_domain)."""
     fund = funds_by_slug.get(fund_slug)
     if not fund or not fund.get("website"):
         return None
-    try:
-        parsed = urlparse(fund["website"])
-        domain = parsed.netloc.lower()
-        if domain.startswith("www."):
-            domain = domain[4:]
-        return domain
-    except Exception:
-        return None
-
-
-def _extract_domain(url: str) -> str | None:
-    """Extract bare domain from URL."""
-    if not url:
-        return None
-    try:
-        parsed = urlparse(url)
-        domain = parsed.netloc.lower()
-        if domain.startswith("www."):
-            domain = domain[4:]
-        return domain or None
-    except Exception:
-        return None
+    return extract_domain(fund["website"]) or None
 
 
 def classify_source(signal: dict, fund_domain: str | None) -> tuple[str, float]:
@@ -215,7 +163,7 @@ def classify_source(signal: dict, fund_domain: str | None) -> tuple[str, float]:
     if is_rumor:
         return "signal_rumor", 0.60
 
-    source_domain = _extract_domain(source_url) if source_url else None
+    source_domain = extract_domain(source_url) if source_url else None
 
     # Fund's own website → press release (highest trust for signals)
     if fund_domain and source_domain and source_domain == fund_domain:
@@ -235,13 +183,8 @@ def classify_source(signal: dict, fund_domain: str | None) -> tuple[str, float]:
 
 def load_progress() -> dict:
     """Load progress tracking file."""
-    if PROGRESS_FILE.exists():
-        try:
-            with open(PROGRESS_FILE) as f:
-                return json.load(f)
-        except Exception:
-            pass
-    return {"processed_signal_ids": [], "last_run": None, "stats": {}}
+    from fundradar_worker.io_utils import load_progress_file
+    return load_progress_file(PROGRESS_FILE, default={"processed_signal_ids": [], "last_run": None, "stats": {}})
 
 
 def save_progress(progress: dict):
@@ -254,9 +197,8 @@ def save_progress(progress: dict):
 
 def load_funds_by_slug() -> dict:
     """Load db.json and return funds indexed by slug."""
-    with open(DB_PATH) as f:
-        data = json.load(f)
-    return {f["slug"]: f for f in data.get("funds", []) if f.get("slug")}
+    from fundradar_worker.io_utils import load_funds_by_slug as _shared
+    return _shared(DB_PATH)
 
 
 def load_enriched_signals() -> list[dict]:
@@ -383,10 +325,15 @@ def process_fund_signals(
         sid = s["id"]
         target_companies = s.get("target_companies")
 
+        if target_companies is None:
+            stats["skipped_no_company"] += 1
+            # None = never attempted extraction — needs enrichment by step 7
+            continue
+
         if not target_companies or not isinstance(target_companies, list):
             stats["skipped_no_company"] += 1
-            # Do NOT mark as processed — signal needs re-enrichment by step 7
-            # to get target_companies. Will be retried on next run.
+            # [] = LLM tried but found no extractable company name — mark as processed
+            processed_ids.append(sid)
             continue
 
         for tc in target_companies:
@@ -580,10 +527,12 @@ def main():
     ]
     print(f"  Total deal/exit signals (quality>=60): {len(deal_signals)}")
 
-    # Count how many have target_companies extraction
+    # Count extraction status: None = never attempted, [] = attempted/none found, [...] = extracted
     with_extraction = sum(1 for s in deal_signals if s.get("target_companies"))
-    without_extraction = len(deal_signals) - with_extraction
-    print(f"  With target_companies: {with_extraction}, without: {without_extraction}")
+    never_attempted = sum(1 for s in deal_signals if s.get("target_companies") is None)
+    attempted_empty = sum(1 for s in deal_signals if isinstance(s.get("target_companies"), list) and not s.get("target_companies"))
+    without_extraction = never_attempted  # Only count truly missing ones
+    print(f"  With target_companies: {with_extraction}, no company found: {attempted_empty}, never attempted: {never_attempted}")
 
     # Filter by slugs FIRST (before progress filter and early-exit)
     if args.slugs:

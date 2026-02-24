@@ -234,6 +234,8 @@ Intentional tradeoffs — don't "fix" without explicit request:
 - **Dedup logic in 2 places** — Python filter and signals_unified.ts independently
 - **Team analytics is dummy data** — waiting for real LinkedIn data; team scoring disabled in `fundQuality.ts`
 - **PEM deal status needs verification** — reliable for deal existence, not current status
+- **Signal importance is computed at runtime** — `SignalsFeed.tsx:getImportanceScore()` computes from quality_score + evidence_score + type bonus + fund priority + Italy bonus. NOT stored in JSON. Also computed in `build-weekly-digest.ts`. Don't add an `importance` field to the pipeline output — it's by design.
+- **enriched_summary is intentionally <100%** — title-redundant summaries are cleared (85% word overlap check). Frontend falls back to title. NOT data loss.
 
 ## Fund Slug Reference — Top 25 by AUM
 

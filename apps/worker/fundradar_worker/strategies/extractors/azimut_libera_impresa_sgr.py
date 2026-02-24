@@ -11,10 +11,10 @@ DOMAIN = "www.azimutliberaimpresa.it"
 
 
 
-# URL paths for monitoring (auto-generated from fund_urls.json)
+# URL paths for monitoring — verified 2026-02-23
 URLS = {
     "portfolio": None,
-    "team": "/management",
+    "team": "/team",
     "news": None,
 }
 def extract_portfolio(html: str, base_url: str) -> list[dict]:

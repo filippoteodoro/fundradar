@@ -32,20 +32,17 @@ from pathlib import Path
 
 from dotenv import load_dotenv, dotenv_values
 
-PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
-ENV_PATH = PROJECT_ROOT / ".env"
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, PORTFOLIO_FILE, ROOT_ENV_PATH as ENV_PATH
+
 load_dotenv(ENV_PATH, override=False)
 if ENV_PATH.exists() and not os.environ.get("GEMINI_API_KEY"):
     env_vars = dotenv_values(ENV_PATH)
     if env_vars.get("GEMINI_API_KEY"):
         os.environ["GEMINI_API_KEY"] = env_vars["GEMINI_API_KEY"]
 
-sys.path.insert(0, str(PROJECT_ROOT / "apps" / "worker"))
-
-DATA_DIR = PROJECT_ROOT / "data" / "derived"
-PORTFOLIO_FILE = DATA_DIR / "portfolio_items.json"
 PROGRESS_FILE = DATA_DIR / "enrichment_portfolio_full_progress.json"
-DB_PATH = PROJECT_ROOT / "data" / "db.json"
 
 MODEL = "gemini-3-flash-preview"
 BATCH_SIZE = 25  # 25 companies per call — safe for Gemini free tier
@@ -369,25 +366,13 @@ def enrich_batch(client, companies: list[dict], fund_name: str) -> tuple:
 # ─── Progress ──────────────────────────────────────────────────────────────
 
 def load_progress() -> dict:
-    if PROGRESS_FILE.exists():
-        with open(PROGRESS_FILE) as f:
-            return json.load(f)
-    return {"done": {}}
+    from fundradar_worker.io_utils import load_progress_file
+    return load_progress_file(PROGRESS_FILE, default={"done": {}})
 
 
 def save_progress(progress: dict):
-    import tempfile
-    tmp_fd, tmp_path = tempfile.mkstemp(dir=str(DATA_DIR), suffix=".json")
-    try:
-        with os.fdopen(tmp_fd, "w") as f:
-            json.dump(progress, f)
-        os.replace(tmp_path, str(PROGRESS_FILE))
-    except Exception:
-        try:
-            os.unlink(tmp_path)
-        except OSError:
-            pass
-        raise
+    from fundradar_worker.io_utils import safe_json_write
+    safe_json_write(PROGRESS_FILE, progress)
 
 
 # ─── Merge-safe save ──────────────────────────────────────────────────────

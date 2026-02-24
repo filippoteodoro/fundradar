@@ -10,12 +10,12 @@ from urllib.parse import urljoin
 DOMAIN = "www.eiffel-ig.com"
 
 
-# URL paths — verified against live site patterns.
-# Eiffel uses a Frontity/SSR app with embedded state; route both FR/EN pages.
+# URL paths — verified 2026-02-23.
+# Eiffel uses a Frontity/SSR app; /en/ paths return 404, use French paths only.
 URLS = {
     "portfolio": None,
-    "team": ["/en/group/team/", "/groupe/equipe/"],
-    "news": ["/en/news/", "/actualites/"],
+    "team": "/groupe/equipe/",
+    "news": "/actualites/",
 }
 
 _PUBLIC_DOMAINS = ("https://www.eiffel-ig.com", "https://eiffel-ig.com")

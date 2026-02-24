@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import re
 
-DOMAIN = "www.quattrorsgr.it"
+DOMAIN = "quattror.com"
 
 
 

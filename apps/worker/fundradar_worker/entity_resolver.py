@@ -12,7 +12,8 @@ from pathlib import Path
 from typing import Literal
 
 
-# Legal suffixes to normalize
+# Legal suffixes to normalize — single source of truth for company name matching.
+# Used by entity_resolver AND signal_to_portfolio (via import).
 LEGAL_SUFFIXES = [
     r"\bS\.?p\.?A\.?",
     r"\bS\.?r\.?l\.?",
@@ -31,8 +32,10 @@ LEGAL_SUFFIXES = [
     r"\bCorporation",
     r"\bCompany",
     r"\bGroup",
+    r"\bGruppo",
     r"\bHolding",
     r"\bHoldings",
+    r"\bPartecipazioni",
 ]
 
 # Pattern for matching
@@ -74,8 +77,11 @@ def normalize_company_name(name: str) -> str:
     in apps/web/src/lib/data.ts — both are used for PEM↔website portfolio
     matching. If they diverge, duplicate entries appear on fund pages.
 
+    This is the SINGLE source of truth for company name normalization across
+    the pipeline. signal_to_portfolio.py imports this — do NOT create local copies.
+
     Steps: lowercase → strip parenthetical → strip "logo" → strip legal
-    suffixes → strip "Group" → strip "Technologies" → non-alphanumeric
+    suffixes (multi-pass) → strip "Technologies" → non-alphanumeric
     to space → collapse spaces.
     """
     if not name:
@@ -88,19 +94,20 @@ def normalize_company_name(name: str) -> str:
     normalized = re.sub(r"\s*\(.*\)", "", normalized)
 
     # Strip trailing "logo" from image alt text
-    normalized = re.sub(r"\s+logo$", "", normalized)
+    normalized = re.sub(r"\s*logo\s*$", "", normalized, flags=re.IGNORECASE)
 
-    # Remove legal suffixes
-    normalized = SUFFIX_PATTERN.sub("", normalized)
+    # Remove legal suffixes (multi-pass: handles "Company Holdings S.r.l.")
+    for _ in range(3):
+        cleaned = SUFFIX_PATTERN.sub("", normalized).strip()
+        if cleaned == normalized:
+            break
+        normalized = cleaned
 
     # Strip trailing "Technologies"
-    normalized = re.sub(r"\s+technologies$", "", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\s+technologies\s*$", "", normalized, flags=re.IGNORECASE)
 
     # Non-alphanumeric → space (handles hyphens: "SF-Filter" → "sf filter")
-    normalized = re.sub(r"[^a-z0-9]", " ", normalized)
-
-    # Normalize whitespace
-    normalized = re.sub(r"\s+", " ", normalized).strip()
+    normalized = re.sub(r"[^a-z0-9]+", " ", normalized).strip()
 
     return normalized
 

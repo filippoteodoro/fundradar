@@ -7,10 +7,10 @@ DOMAIN = "zestgroup.vc"
 
 
 
-# URL paths for monitoring (verified against live site)
+# URL paths for monitoring — verified 2026-02-23
 URLS = {
     "portfolio": "/investments",
-    "team": "/management",
+    "team": "/en/people",
     "news": "/en/news",
 }
 _SKIP_LOWER = {

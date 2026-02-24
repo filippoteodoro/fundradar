@@ -148,18 +148,52 @@ def canonical_url_variants(url: str) -> list[str]:
     return variants
 
 
-def extract_domain(url: str) -> str:
+def extract_domain(url: str, *, strip_www: bool = True) -> str:
     """
-    Extract the domain from a URL.
+    Extract the domain from a URL, normalized for comparison.
+
+    Handles edge cases: bare domains without scheme, www. prefix, empty URLs.
+    This is the SINGLE source of truth for domain extraction across the pipeline.
 
     Args:
-        url: The URL to extract domain from
+        url: The URL to extract domain from.
+        strip_www: If True (default), strip leading "www." for matching.
 
     Returns:
-        Domain string (lowercase)
+        Domain string (lowercase, www-stripped by default). Empty string if invalid.
     """
-    parsed = urlparse(url)
-    return (parsed.hostname or "").lower()
+    if not url:
+        return ""
+    # Handle bare domains without scheme
+    if not url.startswith(("http://", "https://", "//")):
+        url = "https://" + url
+    try:
+        parsed = urlparse(url)
+        domain = (parsed.hostname or "").lower()
+        if strip_www and domain.startswith("www."):
+            domain = domain[4:]
+        return domain
+    except Exception:
+        return ""
+
+
+def is_same_domain(url1: str, url2: str) -> bool:
+    """
+    Check if two URLs point to the same domain (ignoring www. prefix).
+
+    This is the SINGLE source of truth for domain comparison across the pipeline.
+    Use this instead of inline domain extraction + comparison.
+
+    Args:
+        url1: First URL (or domain).
+        url2: Second URL (or domain).
+
+    Returns:
+        True if both resolve to the same domain.
+    """
+    d1 = extract_domain(url1)
+    d2 = extract_domain(url2)
+    return bool(d1 and d2 and d1 == d2)
 
 
 def urls_match(url1: str, url2: str) -> bool:

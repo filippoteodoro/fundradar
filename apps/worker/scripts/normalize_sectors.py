@@ -19,11 +19,7 @@ import sys
 from pathlib import Path
 
 from fundradar_worker.io_utils import safe_json_write
-
-PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
-
-DB_FILE = PROJECT_ROOT / "data" / "db.json"
-PORTFOLIO_FILE = PROJECT_ROOT / "data" / "derived" / "portfolio_items.json"
+from fundradar_worker.paths import DB_PATH as DB_FILE, PORTFOLIO_FILE
 
 # ─── Canonical 30-sector taxonomy ──────────────────────────────────────────
 

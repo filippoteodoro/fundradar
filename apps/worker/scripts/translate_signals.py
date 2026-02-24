@@ -19,9 +19,7 @@ Usage:
 import argparse
 import json
 import os
-import signal as _signal_mod
 import sys
-import tempfile
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -32,34 +30,19 @@ from dotenv import load_dotenv, dotenv_values
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
 
-PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
-DATA_DIR = PROJECT_ROOT / "data" / "derived"
-WORKER_DIR = PROJECT_ROOT / "apps" / "worker"
-SIGNALS_FILE = DATA_DIR / "detected_signals.json"
+WORKER_DIR = Path(__file__).parent.parent
+sys.path.insert(0, str(WORKER_DIR))
+
+from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, SIGNALS_FILE, WORKER_ENV_PATH as ENV_PATH
 
 # ── Timeout ────────────────────────────────────────────────────────────────────
 
-TRANSLATE_DEADLINE_SECONDS = int(os.environ.get("TRANSLATE_DEADLINE_SECONDS", 8 * 60))  # 8 min
-
-_shutdown_requested = False
-_translate_start_time: float = 0.0
-
-
-def _handle_sigterm(signum, _frame):
-    global _shutdown_requested
-    _shutdown_requested = True
-    print(f"\n  SIGNAL {signum} received — will save and exit", flush=True)
-
-
-def _is_deadline_exceeded() -> bool:
-    if _translate_start_time <= 0:
-        return False
-    return (time.time() - _translate_start_time) >= TRANSLATE_DEADLINE_SECONDS
+from fundradar_worker.graceful_deadline import GracefulDeadline
+_deadline = GracefulDeadline(deadline_seconds=8 * 60, env_var="TRANSLATE_DEADLINE_SECONDS")
+TRANSLATE_DEADLINE_SECONDS = _deadline.deadline_seconds
 
 
 # ── Environment ────────────────────────────────────────────────────────────────
-
-ENV_PATH = WORKER_DIR / ".env"
 load_dotenv(ENV_PATH, override=False)
 if ENV_PATH.exists():
     env_vars = dotenv_values(ENV_PATH)
@@ -82,26 +65,13 @@ def _load_signals() -> dict:
 
 
 def _save_signals(data: dict) -> None:
-    tmp_fd, tmp_path = tempfile.mkstemp(dir=str(DATA_DIR), suffix=".json")
-    try:
-        with os.fdopen(tmp_fd, "w") as f:
-            json.dump(data, f, indent=2)
-        os.replace(tmp_path, str(SIGNALS_FILE))
-    except Exception:
-        try:
-            os.unlink(tmp_path)
-        except Exception:
-            pass
-        raise
+    from fundradar_worker.io_utils import safe_json_write
+    safe_json_write(SIGNALS_FILE, data)
 
 
 def main() -> None:
-    global _translate_start_time
-    _translate_start_time = time.time()
-
-    # Install signal handlers for graceful shutdown
-    _signal_mod.signal(_signal_mod.SIGTERM, _handle_sigterm)
-    _signal_mod.signal(_signal_mod.SIGINT, _handle_sigterm)
+    _deadline.install_signals()
+    _deadline.start()
 
     parser = argparse.ArgumentParser(description="Translate non-English signals to English")
     parser.add_argument(
@@ -158,7 +128,7 @@ def main() -> None:
     t.join(timeout=TRANSLATE_DEADLINE_SECONDS)
 
     if t.is_alive():
-        elapsed = time.time() - _translate_start_time
+        elapsed = _deadline.elapsed()
         print(f"\n  Translation TIMEOUT after {elapsed:.0f}s (limit: {TRANSLATE_DEADLINE_SECONDS}s)", flush=True)
         print("  Saving partially translated signals...", flush=True)
         stats = {"skipped_reason": f"timeout_after_{elapsed:.0f}s"}
@@ -175,7 +145,7 @@ def main() -> None:
     unresolved = stats.get("unresolved_fields", 0)
     skip_reason = stats.get("skipped_reason", "")
 
-    elapsed = time.time() - _translate_start_time
+    elapsed = _deadline.elapsed()
     print(f"\n  Results ({elapsed:.0f}s):", flush=True)
     print(f"    Non-English fields detected: {detected}", flush=True)
     print(f"    Translated fields:           {translated}", flush=True)

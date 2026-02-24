@@ -17,6 +17,7 @@ logger = logging.getLogger(__name__)
 
 # Check if Playwright is available
 PLAYWRIGHT_AVAILABLE = False
+STEALTH_AVAILABLE = False
 try:
     from playwright.async_api import async_playwright, Browser, BrowserContext, Page, Playwright
     PLAYWRIGHT_AVAILABLE = True
@@ -26,6 +27,12 @@ except ImportError:
     BrowserContext = None
     Page = None
     Playwright = None
+
+try:
+    from playwright_stealth import Stealth
+    STEALTH_AVAILABLE = True
+except ImportError:
+    Stealth = None
 
 
 @dataclass
@@ -40,7 +47,7 @@ class PoolConfig:
     slow_mo: int = 0  # Milliseconds to slow down operations (for debugging)
 
     # Stealth settings
-    user_agent: str = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    user_agent: str = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
     viewport_width: int = 1920
     viewport_height: int = 1080
     locale: str = "en-US,it-IT"
@@ -189,18 +196,21 @@ class PlaywrightPool:
             },
         )
 
-        # Add stealth scripts to evade detection
-        await context.add_init_script("""
-            // Mask navigator.webdriver
-            Object.defineProperty(navigator, 'webdriver', {
-                get: () => undefined,
-            });
-
-            // Mask automation markers
-            delete window.cdc_adoQpoasnfa76pfcZLmcfl_Array;
-            delete window.cdc_adoQpoasnfa76pfcZLmcfl_Promise;
-            delete window.cdc_adoQpoasnfa76pfcZLmcfl_Symbol;
-        """)
+        # Use playwright-stealth for comprehensive bot evasion (webdriver,
+        # chrome.runtime, permissions, plugins, languages, WebGL, etc.)
+        if STEALTH_AVAILABLE and Stealth is not None:
+            stealth = Stealth()
+            await stealth.apply_stealth_async(context)
+        else:
+            # Fallback: basic stealth scripts
+            await context.add_init_script("""
+                Object.defineProperty(navigator, 'webdriver', {
+                    get: () => undefined,
+                });
+                delete window.cdc_adoQpoasnfa76pfcZLmcfl_Array;
+                delete window.cdc_adoQpoasnfa76pfcZLmcfl_Promise;
+                delete window.cdc_adoQpoasnfa76pfcZLmcfl_Symbol;
+            """)
 
         return context
 

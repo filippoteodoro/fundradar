@@ -89,8 +89,10 @@ _RE_BOARD_APPOINT = re.compile(
 
 # Ordinal investment: "primo investimento", "secondo investimento", etc.
 _RE_ORDINAL_INVESTMENT = re.compile(
-    r"\b(?:nuovo|nuov[oa]|primo|secondo|terz[oa]|quart[oa]|quint[oa]|\d+[°ºª]?)"
-    r"\s+(?:investiment[oi]|operazione)\b",
+    r"\b(?:nuovo|nuov[oa]|primo|secondo|terz[oa]|quart[oa]|quint[oa]"
+    r"|first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth"
+    r"|\d+[°ºª]?(?:st|nd|rd|th)?)"
+    r"\s+(?:investiment[oi]|operazione|investment|deal|operation)\b",
     re.IGNORECASE,
 )
 
@@ -121,11 +123,42 @@ _RE_FUNDRAISE_MILESTONE = re.compile(
     re.IGNORECASE,
 )
 
-# Outsourcing/procurement patterns
+# Outsourcing/procurement patterns (including RFPs and expressions of interest)
 _RE_OUTSOURCING = re.compile(
     r"\b(?:outsourcing|affidamento\s+in\s+outsourcing|indagine\s+esplorativa"
     r"|manifestazion[ei]\s+di\s+interesse|procedura\s+comparativa"
-    r"|gara\s+d[i'\u2019]\s*appalto|bando\s+di\s+gara)\b",
+    r"|gara\s+d[i'\u2019]\s*appalto|bando\s+di\s+gara"
+    r"|soliciting\s+expressions?\s+of\s+interest"
+    r"|full[\-\s]?outsourcing\s+provider"
+    r"|request\s+for\s+(?:proposal|quote|information)s?"
+    r"|RFP\s+for\b)\b",
+    re.IGNORECASE,
+)
+
+# Fashion/marketing/PR campaign — portfolio company marketing, not PE activity
+_RE_FASHION_CAMPAIGN = re.compile(
+    r"\b(?:spring[\s/]+summer|fall[\s/]+winter|autumn[\s/]+winter|SS\s*\d{2,4}|FW\s*\d{2,4}|AW\s*\d{2,4})\b"
+    r".*\b(?:campaign|collection|lookbook|runway|fashion\s+show|capsule)\b"
+    r"|\b(?:campaign|collection|lookbook|runway|fashion\s+show|capsule)\b"
+    r".*\b(?:spring[\s/]+summer|fall[\s/]+winter|autumn[\s/]+winter|SS\s*\d{2,4}|FW\s*\d{2,4}|AW\s*\d{2,4})\b"
+    r"|\b(?:shot\s+on\b|directed\s+by\b|photographed\s+by\b|creative\s+director\b).*\b(?:campaign|collection)\b"
+    r"|\bpresents?\s+(?:its?\s+)?(?:new\s+)?(?:spring|fall|winter|summer|SS|FW|AW)\b",
+    re.IGNORECASE,
+)
+
+# Boilerplate template signals — no real content
+_RE_BOILERPLATE_TEMPLATE = re.compile(
+    r"^new\s+(?:investment|deal|fundraise)\s+involving\s+[\w\s]+$"
+    r"|^new\s+(?:investment|deal)\s+in\s+[\w\s]+$"
+    r"|^the\s+messenger$",
+    re.IGNORECASE,
+)
+
+# Magazine/editorial format changes — not PE activity
+_RE_EDITORIAL_FORMAT = re.compile(
+    r"\b(?:shift|switch|transition)\w*\s+(?:from|to)\s+(?:weekly|fortnightly|monthly|biweekly|daily)\b"
+    r"|\b(?:weekly|fortnightly|monthly|biweekly)\s+(?:to|issues?)\b.*\b(?:premium|positioning|format)\b"
+    r"|\b(?:editorial|magazine)\s+(?:format|strategy|relaunch|rebrand)\b",
     re.IGNORECASE,
 )
 
@@ -153,12 +186,12 @@ _RE_REPORT = re.compile(
 
 # Event attendance — not a transaction
 _RE_EVENT_ATTENDANCE = re.compile(
-    r"\b(?:guest|relator[ei]|speaker|panelist|moderator)\b.*\b(?:event[oi]?|congresso|summit|conferenz|forum|webinar|panel)\b"
-    r"|\b(?:event[oi]?|congresso|summit|conferenz|forum|webinar|panel)\b.*\b(?:guest|relator[ei]|speaker|panelist|moderator)\b"
-    r"|\binterviene\s+(?:a|al)l['\u2019]?\s*(?:event[oi]?|congresso|summit|conferenz\w*|forum|webinar|panel)\b"
-    r"|\b(?:partecipa|interviene|presente)\s+(?:a|al)l['\u2019]?\s*\w+\s*(?:event[oi]?|congresso|summit|conferenz\w*|forum|webinar|panel|convegno)\b"
+    r"\b(?:guest|relator[ei]|speaker|panelist|moderator)\b.*\b(?:event[oi]?|congress[oi]?|summit|conferenz\w*|forum|webinar|panel|convegno)\b"
+    r"|\b(?:event[oi]?|congress[oi]?|summit|conferenz\w*|forum|webinar|panel|convegno)\b.*\b(?:guest|relator[ei]|speaker|panelist|moderator)\b"
+    r"|\binterviene\s+(?:a|al)l['\u2019]?\s*(?:event[oi]?|congress[oi]?|summit|conferenz\w*|forum|webinar|panel)\b"
+    r"|\b(?:partecipa|interviene|presente)\s+(?:a|al)l['\u2019]?\s*\w+\s*(?:event[oi]?|congress[oi]?|summit|conferenz\w*|forum|webinar|panel|convegno)\b"
     r"|\bspeaks?\s+at\s+(?:the\s+)?(?:event|conference|summit|forum|congress|panel|webinar|convegno)\b"
-    r"|\bcontribut\w+\s+(?:to|a|al)l?\b.{0,60}\b(?:event[oi]?|congresso|summit|conferenz\w*|forum|convegno)\b",
+    r"|\bcontribut\w+\s+(?:to|a|al)l?\b.{0,60}\b(?:event[oi]?|congress[oi]?|summit|conferenz\w*|forum|convegno)\b",
     re.IGNORECASE,
 )
 
@@ -448,10 +481,11 @@ _RE_OFFICE_OPENING = re.compile(
 
 # Editorial "investment strategy/approach/philosophy" content (no real deal)
 _RE_EDITORIAL_STRATEGY = re.compile(
-    r"\binvestment\s+(?:strategy|approach|philosophy|thesis)\b"
+    r"\binvestment\s+(?:strategy|approach|philosophy|thesis|era|landscape)\b"
     r"|\bstrategia\s+d[i'\u2019]\s*investiment[oi]\b"
     r"|\bour\s+(?:approach|strategy|investment\s+process)\b"
-    r"|\binvestire\s+in\s+(?:innovazione|crescita|sviluppo|futuro|sostenibilit\w+)\b", re.IGNORECASE)
+    r"|\binvestire\s+in\s+(?:innovazione|crescita|sviluppo|futuro|sostenibilit\w+)\b"
+    r"|\b(?:key\s+player|game\s+changer|new\s+era|outlook|perspectives?|trends?)\s+(?:in|for|of)\s+(?:the\s+)?(?:\w+\s+)?(?:investment|market|sector|industry)\b", re.IGNORECASE)
 
 # Accelerator batch results / graduates (NOT launch of a new accelerator)
 _RE_ACCELERATOR_RESULTS = re.compile(

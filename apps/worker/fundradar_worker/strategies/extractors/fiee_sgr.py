@@ -8,11 +8,11 @@ DOMAIN = "www.fieesgr.com"
 
 
 
-# URL paths for monitoring - verified against live site
+# URL paths for monitoring — verified 2026-02-23
 URLS = {
     "portfolio": "/en/investments/",
     "team": None,
-    "news": "/en/news/",
+    "news": "/press/",
 }
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """

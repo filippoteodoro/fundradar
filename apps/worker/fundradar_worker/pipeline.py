@@ -34,6 +34,15 @@ from .alerting import AlertConfig, AlertManager, Alert
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
 DATA_DIR = PROJECT_ROOT / "data" / "derived"
 WORKER_DIR = PROJECT_ROOT / "apps" / "worker"
+
+# Load .env so Telegram credentials are available for pipeline alerts
+try:
+    from dotenv import load_dotenv
+    _env_path = WORKER_DIR / ".env"
+    if _env_path.exists():
+        load_dotenv(_env_path, override=False)
+except ImportError:
+    pass
 SUMMARY_REPORT_PATH = DATA_DIR / "signal_summary_report.json"
 DB_PATH = PROJECT_ROOT / "data" / "db.json"
 
@@ -469,17 +478,19 @@ def _send_pipeline_alert(
     # Determine overall status
     has_issues = bool(failed_steps or retried_steps or skipped_steps)
 
-    # Check remaining enrichment work
+    # Check remaining enrichment work — use minimum thresholds to suppress noise
+    # from small residual counts that are expected (bot-blocked sites, signals with
+    # no extractable company, etc.)
     remaining_work: list[str] = []
     portfolio_status = _portfolio_enrichment_status()
-    if portfolio_status and portfolio_status["remaining_entries"] > 0:
+    if portfolio_status and portfolio_status["remaining_entries"] > 10:
         remaining_work.append(
             f"Portfolio enrichment: {portfolio_status['remaining_entries']} entries remaining"
         )
 
     # Check signal-to-portfolio remaining work
     stp_status = _signal_to_portfolio_status()
-    if stp_status and stp_status["remaining"] > 0:
+    if stp_status and stp_status["remaining"] > 10:
         remaining_work.append(
             f"Signal→Portfolio: {stp_status['remaining']} signals remaining "
             f"({stp_status['processed']}/{stp_status['total_signals']} done)"
@@ -489,7 +500,7 @@ def _send_pipeline_alert(
         enriched = report.get("enriched", {})
         llm_counts = enriched.get("llm_keep_counts") or {}
         none_count = llm_counts.get("none", 0)
-        if none_count > 0:
+        if none_count > 5:
             remaining_work.append(
                 f"Signal enrichment: {none_count} signals without decision"
             )

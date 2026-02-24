@@ -7,11 +7,11 @@ DOMAIN = "canovasgr.it"
 
 
 
-# URL paths for monitoring (auto-generated from fund_urls.json)
+# URL paths for monitoring — verified 2026-02-23
 URLS = {
     "portfolio": None,
-    "team": "/team/",
-    "news": "/blog/",
+    "team": "/il-team-di-canova/",
+    "news": "/blog-canova/",
 }
 def extract_team(html: str, base_url: str) -> list[dict]:
     """Extract team members from Canova SGR team page (Elementor-based)."""

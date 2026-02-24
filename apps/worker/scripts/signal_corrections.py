@@ -31,6 +31,7 @@ from signal_patterns import (
     _RE_AGREEMENT_PARTNERSHIP_CONTEXT,
     _RE_APPOINTMENT_VERBS,
     _RE_BOARD_APPOINT,
+    _RE_BOILERPLATE_TEMPLATE,
     _RE_BOND_EXCLUDE,
     _RE_BOND_ISSUANCE,
     _RE_BUYER_CUES,
@@ -43,6 +44,7 @@ from signal_patterns import (
     _RE_DEBT_FINANCING_BROAD,
     _RE_DEBT_RESTRUCTURE_CONTEXT,
     _RE_DEBT_RESTRUCTURING,
+    _RE_EDITORIAL_FORMAT,
     _RE_EDITORIAL_STRATEGY,
     _RE_EVENT_ATTENDANCE,
     _RE_EVENT_INSIGHTS,
@@ -51,6 +53,7 @@ from signal_patterns import (
     _RE_EXIT_VERBS,
     _RE_EXITED_FROM_PORTFOLIO,
     _RE_EXPLICIT_SELLER,
+    _RE_FASHION_CAMPAIGN,
     _RE_FINALIZZAT,
     _RE_FUND_COMPARTMENT_OPERATIONAL,
     _RE_FUND_LAUNCH_STRICT,
@@ -154,13 +157,68 @@ def apply_universal_demotions(text_lower: str, title_lower: str) -> Optional[str
     Returns the corrected type if a demotion applies, or None if no demotion.
     These run BEFORE type-specific corrections in both filter and enricher.
     """
+    # Press review / rassegna stampa → other (aggregated press clippings, not PE signals)
+    # Also catch "Press Review:" prefix pattern from FIEE-SGR extractor
+    if re.search(r"\b(?:rassegna\s+stampa|press\s+review)\b", text_lower):
+        return "other"
+    if re.search(r"^(?:press\s+review|rassegna\s+stampa)\s*:", title_lower):
+        return "other"
+
+    # Podcast/talk/webinar series (e.g., "#innoistalk", "webinar series") → other
+    if re.search(r"(?:#\w+talk\b|\bpodcast\s+(?:series|episode|ep\.?)|\bwebinar\s+series)\b", text_lower):
+        if not _matches_deal(text_lower) and not _matches_fundraise(text_lower):
+            return "other"
+
+    # Call for applications / accelerator open call → other
+    if re.search(r"\bcall\s+for\s+(?:applications?|proposals?|startups?)\b", text_lower):
+        if not _matches_deal(text_lower) and not _matches_fundraise(text_lower):
+            return "other"
+
+    # Exploratory survey / procurement RFP → other
+    if re.search(r"\b(?:exploratory|indagine\s+di\s+mercato)\s+(?:survey|sondaggio)\b", text_lower):
+        return "other"
+    # Broader outsourcing/procurement RFP patterns
+    if re.search(r"\boutsourcing\s+of\s+(?:internal\s+)?(?:audit|compliance|risk)\b", text_lower):
+        return "other"
+
+    # Investor meeting / LP event → other
+    if re.search(r"\binvestor\s+(?:meeting|day|conference|summit)\b", text_lower):
+        if not _matches_deal(text_lower) and not _matches_fundraise(text_lower):
+            return "other"
+
+    # Research summary / report aggregate → other (not a specific PE transaction)
+    if re.search(r"\bsummary\s+of\s+research\s+conducted\b", text_lower):
+        return "other"
+
     # Strong exit verbs override everything (unless acquisition verbs also present)
     if _RE_STRONG_EXIT_VERBS.search(text_lower) and not _RE_ACQUISITION_VERBS.search(text_lower):
         return "exit_announced"
 
+    # Fashion/marketing campaign → other (portfolio co PR, not PE activity)
+    if _RE_FASHION_CAMPAIGN.search(text_lower):
+        return "other"
+
+    # Editorial format changes (magazine weekly→fortnightly etc.) → other
+    if _RE_EDITORIAL_FORMAT.search(text_lower):
+        return "other"
+
+    # Boilerplate template signals with zero information → other
+    if _RE_BOILERPLATE_TEMPLATE.search(text_lower):
+        return "other"
+
+    # Outsourcing/procurement RFP → other (not PE activity)
+    if _RE_OUTSOURCING.search(text_lower):
+        if not _matches_deal(text_lower) and not _matches_exit(text_lower):
+            return "other"
+
     # Event/conference attendance → other
     if _RE_EVENT_ATTENDANCE.search(text_lower):
         return "other"
+
+    # Event/talk/webinar series launch → other (not PE activity)
+    if re.search(r"\b(?:series|ciclo|rassegna)\b.*\b(?:dedicated|dedicat[oa]|kicks?\s+off|al\s+via)\b", text_lower):
+        if not _matches_deal(text_lower) and not _matches_fundraise(text_lower):
+            return "other"
 
     # Pure event title (no deal content) → other
     if _RE_EVENT_TITLE.search(text_lower) and not _matches_deal(text_lower) and not _matches_fundraise(text_lower):
@@ -177,6 +235,37 @@ def apply_universal_demotions(text_lower: str, title_lower: str) -> Optional[str
 
     # Interview/editorial without PE verbs → other
     if _RE_INTERVIEW.search(text_lower):
+        if not _matches_deal(text_lower) and not _matches_exit(text_lower) and not _matches_fundraise(text_lower):
+            return "other"
+
+    # Opinion/analysis articles without concrete PE transactions → other
+    if re.search(r"\b(?:opinion|analysis|commentary|point\s+of\s+view|outlook|forecast|perspectives?|riflessioni)\b", text_lower):
+        if not _matches_deal(text_lower) and not _matches_exit(text_lower) and not _matches_fundraise(text_lower):
+            return "other"
+
+    # Blog post / thought-leadership titles with no PE event → other
+    # e.g., "Beyond Capital: What it really takes to scale tech in Europe"
+    if re.search(r"\b(?:what\s+it\s+(?:really\s+)?takes|how\s+to\s+|why\s+we\s+(?:don.?t|believe|think)|lessons?\s+(?:from|learned))\b", text_lower):
+        if not _matches_deal(text_lower) and not _matches_exit(text_lower) and not _matches_fundraise(text_lower):
+            return "other"
+
+    # Private matching / media partnership events → other
+    if re.search(r"\bprivate\s+matching\b", text_lower):
+        if not _matches_deal(text_lower):
+            return "other"
+
+    # CEO interview / "That's why we..." opinion pattern → other
+    if re.search(r"\bthat.?s\s+why\s+we\b", text_lower):
+        if not _matches_deal(text_lower) and not _matches_exit(text_lower) and not _matches_fundraise(text_lower):
+            return "other"
+
+    # Industry coalition/trade group formation → other (not PE activity)
+    if re.search(r"\bcoalition\s+(?:launched|formed|created|established)\b", text_lower):
+        if not _matches_deal(text_lower) and not _matches_fundraise(text_lower):
+            return "other"
+
+    # Generic article headlines with no PE content (e.g., "The deep sea: a crossroads of...")
+    if re.search(r"\bcrossroads?\s+of\b|\bfrontier\s+of\b", text_lower):
         if not _matches_deal(text_lower) and not _matches_exit(text_lower) and not _matches_fundraise(text_lower):
             return "other"
 
@@ -243,9 +332,33 @@ def correct_exit(text_lower: str, title_lower: str, page_category: str = "") -> 
     if _RE_JOB_POSTING_RECLASSIFY.search(text_lower):
         return "job_posting"
 
+    # Outsourcing/procurement RFP misclassified as exit
+    if _RE_OUTSOURCING.search(text_lower):
+        return "other"
+
+    # Fashion/campaign misclassified as exit
+    if _RE_FASHION_CAMPAIGN.search(text_lower):
+        return "other"
+
+    # Editorial format change misclassified as exit
+    if _RE_EDITORIAL_FORMAT.search(text_lower):
+        return "other"
+
+    # "Evaluating sale" / "considering sale" / "exploring sale" — process initiation, not completed exit
+    # Keep as deal_announced (potential transaction) rather than exit_announced (completed)
+    if re.search(r"\b(?:evaluat|consider|explor|weigh|assess)\w*\s+(?:the\s+)?(?:sale|disposal|divestiture|exit)\b", text_lower):
+        if not _RE_EXITED_FROM_PORTFOLIO.search(text_lower) and not _RE_STRONG_EXIT_VERBS.search(text_lower):
+            return "deal_announced"
+
     # Confirmed exit patterns — keep
     if _RE_EXITED_FROM_PORTFOLIO.search(text_lower):
         return "exit_announced"
+
+    # Service contract / mandate selection → partnership (not an exit)
+    if re.search(r"\b(?:select(?:s|ed)?|chosen|appoint(?:s|ed)?|retain(?:s|ed)?|win(?:s)?|award(?:s|ed)?)\b", text_lower):
+        if re.search(r"\b(?:manag(?:e|es|ement)|administer|oversee|mandate|advisory)\b", text_lower):
+            if not _RE_EXIT_VERBS.search(text_lower) and not _RE_STRONG_EXIT_VERBS.search(text_lower):
+                return "partnership"
 
     # Partnership/agreement without exit/deal verbs → partnership
     if _RE_AGREEMENT.search(text_lower) and not _RE_EXIT_VERBS.search(text_lower) and not _RE_ACQUISITION_VERBS.search(text_lower):
@@ -295,11 +408,33 @@ def correct_exit(text_lower: str, title_lower: str, page_category: str = "") -> 
     return "exit_announced"
 
 
-def correct_deal(text_lower: str, title_lower: str) -> str:
+def correct_deal(text_lower: str, title_lower: str, diff_summary_lower: str = "") -> str:
     """Correct deal_announced signals. Returns corrected type."""
-    # Portfolio company news → portfolio_update
+    # Portfolio extraction without deal evidence → portfolio_update
+    # "New portfolio company detected via extraction" with no deal verbs = just a listing
+    if "new portfolio company detected" in diff_summary_lower:
+        if not _matches_deal(text_lower) and not _matches_exit(text_lower):
+            return "portfolio_update"
+
+    # "the sellers are [fund]" / "seller is [fund]" → exit (the fund is selling)
+    if re.search(r"\b(?:sellers?\s+(?:are|is|include)\b)", text_lower):
+        return "exit_announced"
+
+    # "obtains €X in financing/credit/loan" → debt_financing (not a deal)
+    if re.search(r"\bobtains?\s+[€$£]?\s*\d+.*?\b(?:financ\w+|credit|loan|facility)\b", text_lower):
+        return "debt_financing"
+
+    # Fund sells/sold/divests stake → exit (explicit divestment)
+    if re.search(r"\b(?:sells?|sold|divests?|divested|cede|ceduto)\s+(?:(?:\w+|[\d.]+%?)\s+)?(?:stake|position|shares?|interest|partecipazione|quota)\b", text_lower):
+        return "exit_announced"
+
+    # Portfolio company news → portfolio_update (but NOT if deal verbs present)
+    # Check BOTH title and body: portfolio co acquiring another company = deal, not update
     if _RE_PORTFOLIO_UPDATE.search(text_lower):
-        return "portfolio_update"
+        _has_deal_in_title = bool(_RE_ACQUISITION_VERBS.search(title_lower) or _RE_INVEST_VERBS.search(title_lower))
+        _has_deal_in_body = bool(_RE_ACQUISITION_VERBS.search(text_lower) or _RE_STRONG_DEAL.search(text_lower))
+        if not _has_deal_in_title and not _has_deal_in_body:
+            return "portfolio_update"
 
     # "exited from portfolio" → exit
     if _RE_EXITED_FROM_PORTFOLIO.search(text_lower):
@@ -340,12 +475,18 @@ def correct_deal(text_lower: str, title_lower: str) -> str:
     if re.search(r"\b(?:acquisition|acquisizione)\s+(?:by|da\s+parte\s+di)\b", text_lower):
         return "other"
 
+    # Insolvency / composition with creditors / liquidation → other (not a PE deal)
+    if re.search(
+        r"\b(?:composition\s+with\s+creditors?|compulsory\s+(?:administrative\s+)?liquidation|insolvency\s+proceedings?|concordato\s+preventivo)\b",
+        text_lower,
+    ):
+        return "other"
+
     # Debt restructuring → other or debt_financing
     if _RE_DEBT_RESTRUCTURING.search(text_lower):
         if _RE_DEBT_RESTRUCTURE_CONTEXT.search(text_lower):
             return "debt_financing"
-        if not _matches_deal(text_lower) or re.search(r"\bconcordato\b", text_lower):
-            return "other"
+        return "other"
 
     # Bond/debt financing
     if _RE_BOND_ISSUANCE.search(text_lower) and not _RE_BOND_EXCLUDE.search(text_lower):
@@ -356,6 +497,11 @@ def correct_deal(text_lower: str, title_lower: str) -> str:
         return "debt_financing"
     if _RE_DEBT_FINANCING_BROAD.search(text_lower) and not _RE_BOND_EXCLUDE.search(text_lower):
         return "debt_financing"
+
+    # "provides/announces financing" → debt_financing (fund acting as lender)
+    if re.search(r"\b(?:provid\w+|announc\w+|secur\w+)\s+(?:up\s+to\s+)?[€$£]?\s*\d+.*?\b(?:financ\w+|loan|credit)\b", text_lower):
+        if not _RE_INVEST_VERBS.search(text_lower):
+            return "debt_financing"
 
     # Fundraise closing misclassified as deal
     if _RE_CLOSING_FUND.search(text_lower):
@@ -487,6 +633,14 @@ def correct_fund_launch(text_lower: str, title_lower: str) -> str:
 
 def correct_fundraise(text_lower: str, title_lower: str) -> str:
     """Correct fundraise_announced signals. Returns corrected type."""
+    # "obtains financing/loan from [bank]" → debt_financing (project financing, not fund raise)
+    if re.search(r"\bobtains?\b.*\b(?:financ\w+|credit|loan|facility)\b.*\bfrom\b", text_lower):
+        return "debt_financing"
+
+    # Ordinal investment → deal (e.g., "Fifth investment for Fund II")
+    if _RE_ORDINAL_INVESTMENT.search(text_lower):
+        return "deal_announced"
+
     # Acquisition verbs → deal
     if _RE_FUNDRAISE_ACQUISITION.search(text_lower):
         return "deal_announced"
@@ -524,6 +678,33 @@ def correct_fundraise(text_lower: str, title_lower: str) -> str:
 
 def correct_people_move(text_lower: str, title_lower: str) -> str:
     """Correct people_move signals. Returns corrected type."""
+    # "join forces" / "join forces to promote" → partnership (not a person move)
+    if re.search(r"\bjoin\s+forces\b", text_lower):
+        return "partnership"
+
+    # "joins the [council/committee/board] of [government body]" → other
+    # Advisory/government body participation is not a PE fund signal
+    if re.search(r"\bjoins?\s+(?:the\s+)?(?:technical|scientific|advisory)[\s\-]+(?:council|committee|board)\b", text_lower):
+        if not re.search(r"\b(?:appoint\w*|nomin\w*|hired?)\b", text_lower):
+            return "other"
+
+    # Fund "joins" a company with investment/growth language → deal_announced
+    # e.g., "Friulia joins Quin and supports the Group's multi-year growth plan"
+    if re.search(r"\b(?:joins?|aderisce|entra\s+in)\b", text_lower):
+        if re.search(r"\b(?:support\w*\s+(?:the\s+)?(?:group|company|growth)|growth\s+plan|multi-year|piano\s+di\s+crescita|investe|invest\w+\s+in)\b", text_lower):
+            _has_hire = bool(re.search(r"\b(?:appoint\w*|nomin\w*|hired?|as\s+(?:managing|director|partner|head|chief|ceo|cfo|coo|cto))\b", text_lower))
+            if not _has_hire:
+                return "deal_announced"
+
+    # Company/org "joins" a program/hub/fund → partnership (not people hire)
+    # e.g. "SNAM joins Tech 4 Planet hub", "Newlat Food joins Corporate Partners"
+    # Guard: only if no explicit hire/appointment language (appointed/named/hired/as + role)
+    if re.search(r"\b(?:joins?|aderisce|entra\s+in)\b", text_lower):
+        if re.search(r"\b(?:hub|program|partner|fund|fondo|initiative|corporate|accelerat|platform)\b", text_lower):
+            _has_hire = bool(re.search(r"\b(?:appoint\w*|nomin\w*|hired?|as\s+(?:managing|director|partner|head|chief|ceo|cfo|coo|cto))\b", text_lower))
+            if not _has_hire and not _RE_BOARD_APPOINT.search(text_lower):
+                return "partnership"
+
     # Advisory board formation (without appointment verbs) → other
     if _RE_ADVISORY_BOARD.search(text_lower) and not _RE_APPOINTMENT_VERBS.search(text_lower):
         return "other"
@@ -592,6 +773,11 @@ def correct_report(text_lower: str, title_lower: str) -> str:
 
 def correct_partnership(text_lower: str, title_lower: str) -> str:
     """Correct partnership signals. Returns corrected type."""
+    # Acquisition/majority stake → deal (not partnership)
+    # e.g., "Eurazeo acquires majority of Grifo Group"
+    if _RE_ACQUISITION_VERBS.search(text_lower):
+        return "deal_announced"
+
     # Portfolio company news → portfolio_update
     if _RE_PORTFOLIO_UPDATE.search(text_lower):
         return "portfolio_update"
@@ -662,6 +848,7 @@ def apply_type_corrections(
     text_lower: str,
     title_lower: str,
     page_category: str = "",
+    diff_summary_lower: str = "",
 ) -> str:
     """Apply type-specific corrections to a classified signal.
 
@@ -673,6 +860,7 @@ def apply_type_corrections(
         text_lower: Lowercased combined text (title + what_changed or similar)
         title_lower: Lowercased title only
         page_category: Page category (e.g. "PORTFOLIO", "NEWS", "CAREERS")
+        diff_summary_lower: Lowercased diff_summary (for portfolio extraction detection)
 
     Returns:
         Corrected signal type.
@@ -681,7 +869,7 @@ def apply_type_corrections(
         return correct_exit(text_lower, title_lower, page_category)
 
     if current_type == "deal_announced":
-        return correct_deal(text_lower, title_lower)
+        return correct_deal(text_lower, title_lower, diff_summary_lower)
 
     if current_type == "fund_launch":
         return correct_fund_launch(text_lower, title_lower)
@@ -698,11 +886,35 @@ def apply_type_corrections(
     if current_type == "partnership":
         return correct_partnership(text_lower, title_lower)
 
+    # Portfolio update with strong deal language in title → deal
+    if current_type == "portfolio_update":
+        if _RE_ACQUISITION_VERBS.search(title_lower) or _RE_INVEST_VERBS.search(title_lower):
+            return "deal_announced"
+        if _RE_STRONG_EXIT_VERBS.search(text_lower):
+            return "exit_announced"
+        # "announces the sale" / "agreement to sell" → exit
+        if re.search(r"\b(?:announc\w+\s+the\s+sale|agreement\s+to\s+sell|completes?\s+(?:the\s+)?sale)\b", text_lower):
+            return "exit_announced"
+        return current_type
+
     # For fundraise_closed, check company round and chiude_raccolta
     if current_type == "fundraise_closed":
         result = correct_fundraise_to_deal_for_company_round(text_lower)
         if result:
             return result
         return current_type
+
+    # Rescue "other" signals that have clear type indicators
+    # These were demoted but may have been over-demoted
+    if current_type == "other":
+        # "names X as [role]" / "appoints X as [role]" → people_move
+        if re.search(r"\b(?:names?|appoints?|appointed|hired?)\b.*\b(?:head|director|partner|managing|chief|ceo|cfo|coo|cto|president|chairman)\b", text_lower):
+            return "people_move"
+        # "offers €XXM for" / "bids for" → deal_announced
+        if _RE_OFFER_BID.search(text_lower) and re.search(r"[€$£]\s*\d+", text_lower):
+            return "deal_announced"
+        # Strong deal verbs with monetary amounts → deal_announced
+        if _RE_ACQUISITION_VERBS.search(text_lower) and re.search(r"[€$£]\s*\d+", text_lower):
+            return "deal_announced"
 
     return current_type

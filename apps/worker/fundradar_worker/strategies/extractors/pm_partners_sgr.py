@@ -7,11 +7,11 @@ DOMAIN = "pm-partners.it"
 
 
 
-# URL paths for monitoring - verified against live site
+# URL paths for monitoring — verified 2026-02-23
 URLS = {
     "portfolio": "/investimenti/",
     "team": "/chi-siamo/",
-    "news": "/news/",
+    "news": None,  # Site has no news page
 }
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """

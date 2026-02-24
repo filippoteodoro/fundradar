@@ -6,10 +6,10 @@ DOMAIN = "eosimgroup.com"
 
 
 
-# URL paths for monitoring (verified against live site)
+# URL paths for monitoring — verified 2026-02-23
 URLS = {
     "portfolio": "/investments",
-    "team": "/management",
+    "team": "/about-us/management-team",
     "news": None,
 }
 def extract_team(html: str, base_url: str) -> list[dict]:

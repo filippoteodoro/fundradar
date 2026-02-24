@@ -1179,8 +1179,8 @@
         "Technology",
         "Energy",
         "Food & Beverage",
-        "Aerospace & Defense",
-        "Biotech & Pharma"
+        "Industrial Manufacturing",
+        "Aerospace & Defense"
       ],
       "description": "Spun off from AXA in 2013, this employee-owned firm manages a diverse portfolio ranging from global infrastructure like Heathrow to Italian digital transformation leaders such as Jakala.",
       "geographies": [
@@ -1397,8 +1397,8 @@
         "Fashion & Luxury",
         "Food & Beverage",
         "Industrial Manufacturing",
-        "Healthcare",
-        "Insurance"
+        "Professional Services",
+        "Healthcare"
       ],
       "description": "Independent private equity firm founded by seasoned Italian financiers to partner with family-owned SMEs, focusing on succession-led buyouts for iconic brands like Aspesi and specialized leaders like Quick Group.",
       "geographies": [
@@ -1914,7 +1914,7 @@
         "Technology",
         "Industrial Manufacturing",
         "Professional Services",
-        "Retail"
+        "Food & Beverage"
       ],
       "description": "Established in 1986 as a spinoff from Baring Brothers, this pioneer of the European buyout market executes large-cap transactions across an integrated platform, including landmark deals like PetSmart and Springer Nature.",
       "geographies": [
@@ -4533,10 +4533,10 @@
       ],
       "sector_tags": [
         "Technology",
-        "Industrial Manufacturing",
-        "Healthcare",
         "Software",
-        "Automotive"
+        "Healthcare",
+        "Financial Services",
+        "Retail"
       ],
       "description": "Pioneered the Sicaf investment model in Italy to drive digital transformation within traditional SMEs, executing buyouts and expansion rounds in the healthcare and industrial manufacturing sectors.",
       "geographies": [
@@ -4886,7 +4886,8 @@
       "sector_tags": [
         "Healthcare",
         "Technology",
-        "Energy"
+        "Energy",
+        "Hospitality & Tourism"
       ],
       "description": "Leverages the asset management expertise of the Kairos Group to target ESG-compliant startups in deep tech and healthcare, with high-profile investments in nuclear energy pioneer Newcleo and fintech firm Viceversa.",
       "geographies": [
@@ -5876,7 +5877,7 @@
         "Healthcare",
         "Hospitality & Tourism",
         "Professional Services",
-        "Construction"
+        "Aerospace & Defense"
       ],
       "description": "Tracing its roots to the investment arm of Paribas, this manager specializes in complex pan-European buyouts and operates major global platforms like the Nestl\u00e9-partnered ice cream giant Froneri.",
       "geographies": [
@@ -6064,10 +6065,10 @@
       ],
       "sector_tags": [
         "Technology",
-        "Retail",
         "Financial Services",
         "Healthcare",
-        "Biotech & Pharma"
+        "Biotech & Pharma",
+        "Fashion & Luxury"
       ],
       "description": "Tracing its roots back to Schroder Ventures in 1985, this global buyout specialist is renowned for transforming premium consumer brands like Valentino and Golden Goose into international powerhouses.",
       "geographies": [
@@ -6531,7 +6532,7 @@
       "category": "growth",
       "hq_city": "Milan",
       "hq_region": "Italy",
-      "website": "https://www.quattrorsgr.it",
+      "website": "https://quattror.com",
       "strategy_tags": [
         "Expansion",
         "Replacement"
@@ -8403,8 +8404,8 @@
         "Technology",
         "Healthcare",
         "Industrial Manufacturing",
-        "Retail",
-        "Professional Services"
+        "Professional Services",
+        "Water & Utilities"
       ],
       "description": "Founded in 1976 as a pioneer of the leveraged buyout model, this global firm executed the historic RJR Nabisco takeover and recently completed the landmark \u20ac22 billion acquisition of Telecom Italia\u2019s fixed-line network.",
       "created_at": "2026-01-26T15:27:27.990306+00:00",
@@ -8786,8 +8787,8 @@
       ],
       "sector_tags": [
         "Industrial Manufacturing",
-        "Healthcare",
         "Food & Beverage",
+        "Healthcare",
         "Retail",
         "Technology"
       ],

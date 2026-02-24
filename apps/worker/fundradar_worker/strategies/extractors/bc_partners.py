@@ -7,11 +7,11 @@ DOMAIN = "www.bcpartners.com"
 
 
 
-# URL paths for monitoring - verified against live site
+# URL paths for monitoring — verified 2026-02-23
 URLS = {
     "portfolio": "/portfolio/",
     "team": "/people/",
-    "news": "/news/",
+    "news": "/news-insights/",
 }
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """

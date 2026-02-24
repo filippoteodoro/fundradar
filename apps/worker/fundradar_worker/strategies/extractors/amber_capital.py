@@ -6,10 +6,11 @@ DOMAIN = "www.ambercapital.com"
 
 
 
-# URL paths for monitoring (auto-generated from fund_urls.json)
+# URL paths for monitoring — verified 2026-02-23
+# Single-page site: team is at /#team-sec (hash navigation, extracted from /)
 URLS = {
     "portfolio": None,
-    "team": "/management",
+    "team": "/",
     "news": None,
 }
 def extract_portfolio(html: str, base_url: str) -> list[dict]:

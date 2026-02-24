@@ -6,11 +6,12 @@ DOMAIN = "www.unigrains.fr"
 
 
 
-# URL paths for monitoring (auto-generated from fund_urls.json)
+# URL paths for monitoring — verified 2026-02-23
+# Site uses /fr/ prefix for French (primary). /en/fr/ was a malformed double-prefix.
 URLS = {
     "portfolio": None,
-    "team": "/en/fr/equipe",
-    "news": "/en/fr/actualites",
+    "team": "/fr/equipe",
+    "news": "/fr/actualites",
 }
 def extract_news(html: str, base_url: str) -> list[dict]:
     """

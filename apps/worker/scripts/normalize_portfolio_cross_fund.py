@@ -21,14 +21,12 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from urllib.parse import urlparse
 
-PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
-DATA_DIR = PROJECT_ROOT / "data" / "derived"
-DB_PATH = PROJECT_ROOT / "data" / "db.json"
-PORTFOLIO_PATH = DATA_DIR / "portfolio_items.json"
-
-# Add parent so we can import io_utils
+# Add parent so we can import fundradar_worker
 sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, PORTFOLIO_FILE as PORTFOLIO_PATH
 from fundradar_worker.io_utils import safe_json_write, backup_before_write
+from fundradar_worker.url_utils import extract_domain
 
 # ─── Configuration ────────────────────────────────────────────────────────────
 
@@ -105,10 +103,7 @@ def _load_fund_domains() -> set[str]:
         for fund in data.get("funds", []):
             website = fund.get("website", "")
             if website:
-                if not website.startswith(("http://", "https://")):
-                    website = "https://" + website
-                parsed = urlparse(website)
-                domain = parsed.netloc.replace("www.", "").lower()
+                domain = extract_domain(website)
                 if domain:
                     domains.add(domain)
     except Exception:
@@ -120,14 +115,8 @@ def _is_fund_page_url(url: str, fund_domains: set[str]) -> bool:
     """Check if a URL points to a fund's website (not the company's own site)."""
     if not url:
         return False
-    try:
-        if not url.startswith(("http://", "https://")):
-            url = "https://" + url
-        parsed = urlparse(url)
-        domain = parsed.netloc.replace("www.", "").lower()
-        return domain in fund_domains
-    except Exception:
-        return False
+    domain = extract_domain(url)
+    return domain in fund_domains
 
 
 # ─── Best value selection ────────────────────────────────────────────────────
