@@ -10,16 +10,6 @@ const nextConfig = {
       ],
     },
   },
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'fundradar.vercel.app' }],
-        destination: 'https://fundradar.co/:path*',
-        permanent: true,
-      },
-    ];
-  },
   async headers() {
     return [
       {
