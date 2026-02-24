@@ -16,17 +16,19 @@ This is the definitive, step-by-step guide to correctly adding a new fund to Fun
 6. [Run the Pipeline](#6-run-the-pipeline)
 7. [Enrich Portfolio Data with Gemini](#7-enrich-portfolio-data-with-gemini)
 8. [Generate Fund Description (Optional)](#8-generate-fund-description-optional)
-9. [Enrich Signals with OpenAI](#9-enrich-signals-with-openai)
-10. [AIFI Data Merge (Optional)](#10-aifi-data-merge-optional)
-11. [Geocoding & Map (Optional)](#11-geocoding--map-optional)
-12. [Verify Frontend Display](#12-verify-frontend-display)
-13. [Sitemap & llms.txt (Automatic)](#13-sitemap--llmstxt-automatic)
-14. [Assets & OG Images (Automatic)](#14-assets--og-images-automatic)
-15. [Commit & Deploy](#15-commit--deploy)
-16. [Post-Deployment Checklist](#16-post-deployment-checklist)
-17. [Reference: db.json Field Catalog](#reference-dbjson-field-catalog)
-18. [Reference: Extractor Template & Patterns](#reference-extractor-template--patterns)
-19. [Reference: Common Pitfalls](#reference-common-pitfalls)
+9. [Audit Portfolio Assets with Gemini](#9-audit-portfolio-assets-with-gemini)
+10. [Enrich Fund Metadata with Gemini](#10-enrich-fund-metadata-with-gemini)
+11. [Enrich Signals with OpenAI](#11-enrich-signals-with-openai)
+12. [AIFI Data Merge (Optional)](#12-aifi-data-merge-optional)
+13. [Geocoding & Map (Optional)](#13-geocoding--map-optional)
+14. [Verify Frontend Display](#14-verify-frontend-display)
+15. [Sitemap & llms.txt (Automatic)](#15-sitemap--llmstxt-automatic)
+16. [Assets & OG Images (Automatic)](#16-assets--og-images-automatic)
+17. [Commit & Deploy](#17-commit--deploy)
+18. [Post-Deployment Checklist](#18-post-deployment-checklist)
+19. [Reference: db.json Field Catalog](#reference-dbjson-field-catalog)
+20. [Reference: Extractor Template & Patterns](#reference-extractor-template--patterns)
+21. [Reference: Common Pitfalls](#reference-common-pitfalls)
 
 ---
 
@@ -667,7 +669,119 @@ This:
 
 ---
 
-## 9. Enrich Signals with OpenAI
+## 9. Audit Portfolio Assets with Gemini
+
+After the pipeline has populated portfolio data and the fund description is generated, run the **Gemini asset audit** to verify and improve data quality. This is the same audit that was run on the original 163 funds.
+
+### What it does
+
+`scripts/audit-fund-assets-gemini.py` uses Gemini 3 Flash to:
+- **Verify existing portfolio entries** — detect wrong entries, wrong fields (status, sector, HQ, description)
+- **Find missing Italian assets** — identify portfolio companies the fund holds in Italy that weren't extracted
+- **Suggest fund metadata corrections** — HQ city, description, website fixes
+
+### Run the audit
+
+```bash
+# Single fund
+python3 scripts/audit-fund-assets-gemini.py --slugs {fund-slug}
+
+# Multiple funds
+python3 scripts/audit-fund-assets-gemini.py --slugs fund-a,fund-b,fund-c
+
+# Dry run (preview, no API calls)
+python3 scripts/audit-fund-assets-gemini.py --slugs {fund-slug} --dry-run
+```
+
+### Apply audit findings
+
+After the audit completes, review the output in `data/derived/gemini_fund_asset_audit.json`, then apply confirmed findings:
+
+```bash
+python3 scripts/apply-gemini-missing-assets.py --slugs {fund-slug}
+```
+
+This:
+- Reads the audit results from `gemini_fund_asset_audit.json`
+- Inserts missing companies into `portfolio_items.json`
+- Marks inserted entries as `curation_locked` (prevents future overwrite)
+- Respects manual review decisions (reject/ready)
+
+### Optional: Verify Gemini-enriched entries
+
+For entries added via Gemini (not from website extraction), verify them against Google Search:
+
+```bash
+python3 scripts/verify-portfolio-gemini.py --slugs {fund-slug}
+```
+
+### Output files
+
+| File | Purpose |
+|---|---|
+| `data/derived/gemini_fund_asset_audit.json` | Audit results per fund |
+| `data/derived/gemini_fund_asset_audit_progress.json` | Progress tracking (resume support) |
+
+> **Cost**: ~1-3 Gemini API calls per fund (free tier handles this). The script paces calls at 3s intervals with retry/backoff.
+
+---
+
+## 10. Enrich Fund Metadata with Gemini
+
+### What it does
+
+Uses **Gemini 3 Flash** with Google Search grounding to fill missing metadata fields in `db.json`:
+
+- **`aum_eur`** — Assets Under Management in EUR
+- **`investment_min_eur`** — Minimum ticket size in EUR
+- **`investment_max_eur`** — Maximum ticket size in EUR
+
+The script only updates fields that are currently `null` — it never overwrites existing values.
+
+### Running the script
+
+```bash
+# Enrich a specific fund (after adding it):
+python3 scripts/enrich-fund-metadata-gemini.py --slugs cherry-bay-capital
+
+# Enrich all funds missing AUM:
+python3 scripts/enrich-fund-metadata-gemini.py --missing-aum
+
+# Enrich all funds missing investment ranges:
+python3 scripts/enrich-fund-metadata-gemini.py --missing-ranges
+
+# Dry run (show what would be updated):
+python3 scripts/enrich-fund-metadata-gemini.py --slugs cherry-bay-capital --dry-run
+```
+
+### How it works
+
+1. Queries Gemini with Google Search grounding for each fund
+2. Validates responses: AUM range €1M–€2T, investment range €10K–€10B
+3. Returns `null` for unverifiable data (no hallucinated figures)
+4. Writes directly to `db.json` (atomic via `safe_json_write()`)
+
+### Output files
+
+| File | Purpose |
+|---|---|
+| `data/db.json` | Updated with AUM and investment range fields |
+| `data/derived/fund_metadata_enrichment_progress.json` | Progress tracking (resume support) |
+
+### Validation
+
+After running, spot-check a few values against the source URLs logged in the output:
+
+```bash
+# Check AUM coverage:
+python3 -c "import json; funds=json.load(open('data/db.json'))['funds']; print(f'Missing AUM: {len([f for f in funds if not f.get(\"aum_eur\")])}/{len(funds)}')"
+```
+
+> **Cost**: 1 Gemini API call per fund (free tier). The script paces calls at 3s intervals with retry/backoff. Temperature is set to 0.2 for factual accuracy.
+
+---
+
+## 11. Enrich Signals with OpenAI
 
 ### What it does
 
@@ -700,7 +814,7 @@ Configuration values are defined as constants in `apps/worker/scripts/enrich_sig
 
 ---
 
-## 10. AIFI Data Merge (Optional)
+## 12. AIFI Data Merge (Optional)
 
 If the fund is an AIFI member and you want to pull in AIFI metadata (AUM, investment ranges, contact info, geocoded offices):
 
@@ -725,7 +839,7 @@ pnpm merge-aifi
 
 ---
 
-## 11. Geocoding & Map (Optional)
+## 13. Geocoding & Map (Optional)
 
 Without geocoded coordinates, the fund **won't appear on the `/map` page**. To add coordinates:
 
@@ -744,7 +858,7 @@ This populates `hq_lat`, `hq_lng`, and `hq_address` in `db.json`. The map page r
 
 ---
 
-## 12. Verify Frontend Display
+## 14. Verify Frontend Display
 
 ### 12.1 — Restart the dev server
 
@@ -784,7 +898,7 @@ detected_signals_enriched.json → signals_unified.ts:loadUnifiedSignals() ─�
 
 ---
 
-## 13. Sitemap & llms.txt (Automatic)
+## 15. Sitemap & llms.txt (Automatic)
 
 ### Sitemap
 
@@ -802,7 +916,7 @@ These are dynamic route handlers that generate the `/llms.txt` and `/llms-full.t
 
 ---
 
-## 14. Assets & OG Images (Automatic)
+## 16. Assets & OG Images (Automatic)
 
 ### OG Images
 
@@ -816,7 +930,7 @@ There is no centralized logo storage. Fund logos are referenced from the fund's 
 
 ---
 
-## 15. Commit & Deploy
+## 17. Commit & Deploy
 
 ### 15.1 — What to commit
 
@@ -858,13 +972,13 @@ Fundradar auto-deploys from `main` on Vercel:
 
 ---
 
-## 16. Post-Deployment Checklist
+## 18. Post-Deployment Checklist
 
 - [ ] Fund appears on `fundradar.co`
 - [ ] Fund detail page loads at `fundradar.co/funds/{slug}`
 - [ ] Portfolio tab shows companies
 - [ ] Signals tab shows signals (if any)
-- [ ] Fund appears on `/map` (if geocoded — see [Section 11](#11-geocoding--map-optional))
+- [ ] Fund appears on `/map` (if geocoded — see [Section 12](#12-geocoding--map-optional))
 - [ ] Fund's companies appear on `/companies`
 - [ ] Page renders correctly when shared on social media (site-level OG image is automatic)
 - [ ] Run `pnpm audit:quality` to check the fund's data quality grade
