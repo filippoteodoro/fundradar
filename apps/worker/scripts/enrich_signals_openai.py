@@ -1120,6 +1120,15 @@ def _dedup_sentences(text: str) -> str:
 
 
 def _finalize_signal_summary(signal: dict) -> None:
+    """Clean and finalize all frontend-visible text fields on a signal.
+
+    Runs after LLM enrichment (or skip-LLM path). Applies:
+    1. Text cleaning via clean_display_text() on title, what_changed, enriched_summary
+    2. Monetary normalization on enriched_summary
+    3. Garbage summary detection (clears bad summaries → frontend falls back to title)
+    4. Title-redundancy check (85% word overlap → clear summary, display title instead)
+    5. NER-based entity capitalization using extracted_entities + fund slug
+    """
     # Clean all frontend-visible fields once. _clean_summary_text calls
     # clean_display_text() which already runs repair_token_splits() and
     # inline currency normalization — no separate pre-pass needed.
@@ -1323,6 +1332,17 @@ def _disambiguate_cross_fund_duplicate_summaries(signals: list[dict]) -> None:
 
 
 def _local_keep_decision(signal: dict) -> tuple[bool | None, str, str]:
+    """Decide locally whether to keep/discard a signal without calling the LLM.
+
+    Returns:
+        (keep, reason, confidence) where:
+        - keep=True: keep signal, skip LLM (self-describing structured data)
+        - keep=False: discard signal, skip LLM (nav/legal/garbage/duplicate)
+        - keep=None: undecided, send to LLM for enrichment
+
+    This is the Phase 1 triage — signals that can be decided locally save
+    LLM API costs. Only truly ambiguous signals (keep=None) proceed to Phase 2.
+    """
     title = signal.get("title", "")
     what_changed = signal.get("what_changed", "")
     page_category = (signal.get("page_category") or "").upper()

@@ -14,6 +14,38 @@ import re
 from signal_patterns import _strip_read_time, _strip_urls
 
 # ---------------------------------------------------------------------------
+# Thresholds and tuning constants
+# ---------------------------------------------------------------------------
+
+# Minimum text length after label-repair — if cleaning produces text shorter
+# than this, we re-try without stripping the leading label. Titles are shorter
+# than body text, so they get a lower threshold.
+MIN_CLEANED_TITLE_LEN = 18
+MIN_CLEANED_TEXT_LEN = 25
+
+# Fraction of 3+ char words that must start uppercase to trigger title-case
+# detection. 0.65 = titles like "Apollo Invests In Italian Company" (5/6 = 83%)
+# while "Apollo invests in Italian company" (2/6 = 33%) stays as-is.
+TITLE_CASE_DETECTION_THRESHOLD = 0.65
+
+# Maximum single-token length in a summary. Tokens longer than this are
+# fused-word artifacts (e.g. "appointedClaudiaPingueasheadoffondo") that make
+# the summary look unprofessional.
+MAX_SUMMARY_TOKEN_LEN = 25
+
+# Minimum summary length (chars). Below this, a summary is just a bare name
+# with no context — cleared so the frontend falls back to the title.
+MIN_SUMMARY_LEN = 15
+
+# Number of Italian stop words that trigger "untranslated" detection.
+# 3+ means the text is clearly Italian, not just a borrowed word.
+ITALIAN_STOP_WORD_THRESHOLD = 3
+
+# Maximum text length for the "no verb" garbage check. Longer texts may
+# legitimately lack a verb (long noun-phrase headlines).
+NO_VERB_MAX_LEN = 80
+
+# ---------------------------------------------------------------------------
 # Constants (previously duplicated in filter + enricher)
 # ---------------------------------------------------------------------------
 
@@ -872,7 +904,7 @@ def _is_title_cased(text: str) -> bool:
     all_caps_count = sum(1 for w in long_words if w.isupper())
     if all_caps_count > len(long_words) * 0.5:
         return False
-    return capitalized / len(long_words) > 0.65
+    return capitalized / len(long_words) > TITLE_CASE_DETECTION_THRESHOLD
 
 
 def title_case_to_sentence_case(text: str) -> str:
@@ -949,39 +981,71 @@ def title_case_to_sentence_case(text: str) -> str:
     return final
 
 
+
+# Module-level constants for pipeline stages
+_GEO_PROPER_NOUNS = [
+    "italy", "italian", "spain", "spanish", "france", "french",
+    "germany", "german", "europe", "european", "benelux", "nordic",
+    "belgium", "netherlands", "portugal", "austria", "switzerland",
+    "london", "paris", "milan", "rome", "madrid", "berlin",
+    "americas", "emea", "asia", "uk", "us", "usa",
+]
+
+_FUSED_WORD_PAIRS = [
+    (r"chiefexecutiveofficer", "chief executive officer"),
+    (r"chiefexecutive", "chief executive"),
+    (r"generalmanager", "general manager"),
+    (r"headof", "head of"),
+    (r"officerand", "officer and"),
+    (r"officeror", "officer or"),
+    (r"officerof", "officer of"),
+    (r"managerof", "manager of"),
+    (r"directorof", "director of"),
+    (r"partnerof", "partner of"),
+    (r"presidentof", "president of"),
+    (r"chairmanof", "chairman of"),
+    (r"ashead", "as head"),
+    (r"aschief", "as chief"),
+    (r"asdirector", "as director"),
+    (r"asmanaging", "as managing"),
+    (r"aspartner", "as partner"),
+    (r"asadvisors?", "as advisor"),
+    (r"asincoming", "as incoming"),
+    (r"oftheboardof", "of the board of"),
+    (r"oftheboard", "of the board"),
+    (r"boardof", "board of"),
+    (r"tomanagethe", "to manage the"),
+    (r"tomanage", "to manage"),
+    (r"incominghead", "incoming head"),
+    (r"theprocess", "the process"),
+    (r"forthe(\d)", r"for the \1"),
+]
+
+
 # ---------------------------------------------------------------------------
-# clean_display_text — THE key function replacing both _clean_signal_title
-#                      and _clean_signal_text
+# clean_display_text — composable pipeline stages
 # ---------------------------------------------------------------------------
 
-def clean_display_text(text: str, is_title: bool = False) -> str:
-    """Clean a signal text field for user-facing display.
 
-    Applied uniformly to title, what_changed, enriched_summary, diff_summary.
-    The is_title flag controls two minor behavioral differences:
-    - Newspaper-only text is cleared for non-title fields
-    - Label-repair minimum length: 18 chars for titles, 25 for text
+def _cdt_strip_boilerplate(text: str, is_title: bool) -> str:
+    """Strip scraping artifacts, boilerplate templates, and AUM self-descriptions.
+
+    Handles: Logo prefix, duplicate labels, News prefix, Italian articles,
+    read time, URLs, 'New X involving Y' templates, AUM self-descriptions,
+    portfolio template rewrites, 'Read more' link text.
     """
-    if not text:
-        return text
-
-    # For non-title fields, clear text that is just a newspaper name
-    if not is_title and NEWSPAPER_ONLY_RE.match(text):
-        return ""
-
     # Strip "Logo X" prefix (image caption artifacts)
     cleaned = re.sub(r"^Logo\s+", "", text, flags=re.IGNORECASE).strip()
     if not cleaned:
         cleaned = text
 
-    # Strip duplicate label prefixes: "News: News ..." → "News ..."
+    # Strip duplicate label prefixes: "News: News ..." -> "News ..."
     cleaned = re.sub(r"^(News|Update|Announcement)\s*:\s*\1\b\s*", r"\1 ", cleaned, flags=re.IGNORECASE)
     # Strip bare "News:" / "News -" prefix
-    cleaned = re.sub(r"^News\s*[:\-–]\s*", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"^News\s*[:\-\u2013]\s*", "", cleaned, flags=re.IGNORECASE)
 
-    # Strip leading Italian articles when they precede a proper noun (display artifact)
-    # "Il Fondo Italiano ..." → "Fondo Italiano ..."  but NOT "Il sole 24 ore" (newspaper)
-    cleaned = re.sub(r"^(?:Il|La|Lo|Le|Gli|I)\s+(?=[A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ])", "", cleaned)
+    # Strip leading Italian articles before proper nouns (display artifact)
+    cleaned = re.sub(r"^(?:Il|La|Lo|Le|Gli|I)\s+(?=[A-Z\u00C0-\u00D6\u00D8-\u00DE][a-z\u00E0-\u00F6\u00F8-\u00FF])", "", cleaned)
 
     cleaned = _strip_read_time(cleaned)
     cleaned = _strip_urls(cleaned)
@@ -992,18 +1056,13 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
         "", cleaned, flags=re.IGNORECASE,
     )
 
-    # Strip AUM boilerplate — fund self-description, not deal amounts.
-    # Full appositive clause: ", a leading firm with $70B of capital under management,"
+    # AUM boilerplate — fund self-descriptions, not deal amounts
     cleaned = _RE_AUM_APPOSITIVE.sub(",", cleaned)
-    # Standalone AUM phrase: "with $70B of capital under management"
     cleaned = _RE_AUM_STANDALONE.sub("", cleaned)
-    # Bare AUM figure: "$70B AUM" / "€50B of AUM"
     cleaned = _RE_AUM_BARE.sub("", cleaned)
-    # Fix double commas / comma-space-comma left by appositive stripping
     cleaned = re.sub(r",\s*,", ",", cleaned)
 
-    # Rewrite "X exited from Y portfolio (description)" → "Y exits X"
-    # Machine-generated template from portfolio page scrapers
+    # Rewrite "X exited from Y portfolio (description)" -> "Y exits X"
     _exited_match = re.match(
         r"^(.+?)\s+exited\s+from\s+(.+?)\s+portfolio(?:\s*\(.*?\))?\s*$",
         cleaned, flags=re.IGNORECASE
@@ -1030,6 +1089,18 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     # Strip "more details" suffix
     cleaned = re.sub(r"\s*more\s+details\s*$", "", cleaned, flags=re.IGNORECASE)
 
+    return cleaned
+
+
+def _cdt_normalize_spacing_and_dates(text: str) -> str:
+    """Fix spacing issues, strip dates, and normalize inline currencies.
+
+    Handles: ALL-CAPS/lowercase concatenation, curly quotes, prefix/year
+    concatenation, date prefixes/suffixes, press release prefix, inline
+    currency normalization, fix_spacing(), sector+date suffixes.
+    """
+    cleaned = text
+
     # Insert space before ALL-CAPS word concatenated to lowercase
     cleaned = re.sub(r"([a-z])([A-Z]{3,})", r"\1 \2", cleaned)
 
@@ -1042,25 +1113,21 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     # Insert space between year and following word if concatenated
     cleaned = re.sub(r"(\d{4})(?=[A-Za-z])", r"\1 ", cleaned)
 
-    # Remove date prefixes
+    # Remove date prefixes and suffixes
     cleaned = strip_date_prefixes(cleaned)
-
-    # Remove press release prefix
     cleaned = strip_press_release_prefix(cleaned)
-
-    # Remove date suffixes
     cleaned = strip_date_suffixes(cleaned)
 
     # Currency normalization (inline compact forms only — full normalize_monetary_values
     # is called separately by _clean_signal_fields)
-    cleaned = re.sub(r"€\s*(\d[\d.,]*)\s*bn\b", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"€\s*(\d[\d.,]*)\s*(?:mln|million)\b", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"(\d[\d.,]*)\s*milion[ei]\s+(?:di\s+)?euro", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"(\d[\d.,]*)\s*miliard[ei]\s+(?:di\s+)?euro", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"(\d[\d.,]*)\s*mln\s+(?:di\s+)?euros?", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"(\d[\d.,]*)\s*mld\s+(?:di\s+)?euros?", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\b(\d[\d.,]*)\s+mln\b", lambda m: f"€{m.group(1)}M", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"\b(\d[\d.,]*)\s+mld\b", lambda m: f"€{m.group(1)}B", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\u20ac\s*(\d[\d.,]*)\s*bn\b", lambda m: f"\u20ac{m.group(1)}B", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\u20ac\s*(\d[\d.,]*)\s*(?:mln|million)\b", lambda m: f"\u20ac{m.group(1)}M", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(\d[\d.,]*)\s*milion[ei]\s+(?:di\s+)?euro", lambda m: f"\u20ac{m.group(1)}M", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(\d[\d.,]*)\s*miliard[ei]\s+(?:di\s+)?euro", lambda m: f"\u20ac{m.group(1)}B", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(\d[\d.,]*)\s*mln\s+(?:di\s+)?euros?", lambda m: f"\u20ac{m.group(1)}M", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(\d[\d.,]*)\s*mld\s+(?:di\s+)?euros?", lambda m: f"\u20ac{m.group(1)}B", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\b(\d[\d.,]*)\s+mln\b", lambda m: f"\u20ac{m.group(1)}M", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\b(\d[\d.,]*)\s+mld\b", lambda m: f"\u20ac{m.group(1)}B", cleaned, flags=re.IGNORECASE)
 
     # Apply spacing fixes
     cleaned = fix_spacing(cleaned)
@@ -1072,10 +1139,20 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     # Strip orphaned trailing 1-2 digit numbers (leftover day from stripped dates)
     cleaned = re.sub(r"\s+\d{1,2}\s*$", "", cleaned).strip()
 
+    return cleaned
+
+
+def _cdt_repair_tokens_and_attributes(text: str, is_title: bool) -> str:
+    """Repair fragmented tokens, strip attributions, and fix trailing artifacts.
+
+    Handles: repair_token_splits with label-repair fallback, newspaper
+    attribution suffix, final curly quotes, dangling connectors, CDP name
+    corrections.
+    """
     # Repair token splits — label-repair min length depends on is_title
-    min_len = 18 if is_title else 25
-    base = cleaned
-    cleaned = repair_token_splits(cleaned, strip_leading_label=True)
+    min_len = MIN_CLEANED_TITLE_LEN if is_title else MIN_CLEANED_TEXT_LEN
+    base = text
+    cleaned = repair_token_splits(text, strip_leading_label=True)
     if len(cleaned.strip()) < min_len:
         cleaned = repair_token_splits(base, strip_leading_label=False)
 
@@ -1089,8 +1166,7 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     cleaned = re.sub('^[\u201c\u201d"]+\\s*', '', cleaned)
     cleaned = re.sub('\\s*[\u201c\u201d"]+$', '', cleaned)
 
-    # Strip dangling connectors at end of text (not titles — filter handles
-    # truncated titles separately via what_changed fallback)
+    # Strip dangling connectors at end of text (not titles)
     if not is_title and _RE_DANGLING_END.search(cleaned):
         cleaned = re.sub(r"\s+\S+\s*$", "", cleaned).strip()
 
@@ -1098,19 +1174,28 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     for wrong, correct in CDP_NAME_CORRECTIONS.items():
         cleaned = cleaned.replace(wrong, correct)
 
-    # ALL CAPS → title case
+    return cleaned
+
+
+def _cdt_normalize_casing(text: str, is_title: bool) -> str:
+    """Normalize text casing: ALL CAPS to title, Title Case to sentence, person names.
+
+    Handles: ALL CAPS conversion, title case detection and normalization,
+    person name capitalization after appointment verbs.
+    """
+    cleaned = text
+
+    # ALL CAPS -> title case
     cleaned = caps_to_title_case(cleaned)
 
-    # Title Case → sentence case (Every Word Capitalized → normal sentence)
+    # Title Case -> sentence case
     cleaned = title_case_to_sentence_case(cleaned)
 
     # Capitalize person names after appointment verbs
-    # "appointed claudia pingue" → "appointed Claudia Pingue"
-    # "names diego de giorgi as" → "names Diego De Giorgi as"
+    # "appointed claudia pingue" -> "appointed Claudia Pingue"
     def _capitalize_person_after_verb(m: re.Match) -> str:
         verb = m.group(1)
         name_part = m.group(2)
-        # Capitalize each word in the name part (up to 4 words before "as"/"to"/"di"/role)
         words = name_part.split()
         capitalized = []
         for w in words:
@@ -1121,30 +1206,41 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
                 capitalized.append(w[0].upper() + w[1:])
             else:
                 capitalized.append(w)
-        # Add remaining words unchanged
         remaining_start = len(capitalized)
         capitalized.extend(words[remaining_start:])
         return verb + " " + " ".join(capitalized)
 
     cleaned = re.sub(
         r"\b(appointed|appoints|names|named|elects|elected|hires|hired|nominat[oa])\s+"
-        r"((?:[a-zà-öø-ÿ]+\s+){1,4})",
+        r"((?:[a-z\u00E0-\u00F6\u00F8-\u00FF]+\s+){1,4})",
         _capitalize_person_after_verb,
         cleaned,
         flags=re.IGNORECASE,
     )
 
+    return cleaned
+
+
+def _cdt_strip_datelines_and_navigation(text: str) -> str:
+    """Strip press release datelines, navigation breadcrumbs, and trailing artifacts.
+
+    Handles: list-number prefixes, city datelines (mixed/ALL-CAPS), Featured
+    News headers, Press Release breadcrumbs, Series letter fixes, pipe-separated
+    boilerplate, trailing truncated words, trailing colons.
+    """
+    cleaned = text
+
     # Strip leading list-number artifacts ("1. ", "2. ")
     cleaned = re.sub(r"^\d+\.\s+", "", cleaned)
 
-    # Strip press release dateline: "City (XX), date – "
+    # Strip press release dateline: "City (XX), date - "
     cleaned = re.sub(
-        r"^[A-Z][a-z]+(?:\s+\([A-Z]{2,4}\))?,\s*\d{1,2}\s+\w+\s+\d{4}\s*[-–—]\s*",
+        r"^[A-Z][a-z]+(?:\s+\([A-Z]{2,4}\))?,\s*\d{1,2}\s+\w+\s+\d{4}\s*[-\u2013\u2014]\s*",
         "", cleaned,
     )
-    # Strip ALL-CAPS city dateline: "MILAN – November 25,2025 –"
+    # Strip ALL-CAPS city dateline: "MILAN - November 25,2025 -"
     cleaned = re.sub(
-        r"^[A-Z][A-Z\s,]+[–\-—]+\s*(?:January|February|March|April|May|June|July|August|September|October|November|December|\d{1,2})\s+\d{1,2},?\s*\d{4}\s*[–\-—]+\s*",
+        r"^[A-Z][A-Z\s,]+[\u2013\-\u2014]+\s*(?:January|February|March|April|May|June|July|August|September|October|November|December|\d{1,2})\s+\d{1,2},?\s*\d{4}\s*[\u2013\-\u2014]+\s*",
         "",
         cleaned,
         flags=re.IGNORECASE,
@@ -1152,18 +1248,17 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
 
     # Strip "Featured News Press Review" header artifact
     cleaned = re.sub(r"\s*\.?\s*Featured\s+News\s+Press\s+Review\s*\.?\s*$", "", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"^Featured\s+News\s+Press\s+Review\s*[:\-–]?\s*", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"^Featured\s+News\s+Press\s+Review\s*[:\-\u2013]?\s*", "", cleaned, flags=re.IGNORECASE)
 
     # Strip navigation breadcrumbs: "... | Press releases."
     cleaned = re.sub(r"\s*\|?\s*[Pp]ress\s+[Rr]eleases?\.?\s*$", ".", cleaned).strip()
 
-    # Fix "Series Efinancing" → "Series E financing" (letter concatenated to word)
+    # Fix "Series Efinancing" -> "Series E financing" (letter concatenated to word)
     cleaned = re.sub(r"\bSeries\s+([A-G])([a-z]{3,})", r"Series \1 \2", cleaned)
 
-    # Strip pipe-separated boilerplate fragments (e.g., "andera Acto | Press release s")
+    # Strip pipe-separated boilerplate fragments
     if "|" in cleaned:
         parts = [p.strip() for p in cleaned.split("|")]
-        # If any part looks like navigation/boilerplate, strip it
         real_parts = [
             p for p in parts
             if len(p) > 3
@@ -1172,21 +1267,18 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
         if real_parts:
             cleaned = " ".join(real_parts)
 
-    # Strip trailing truncated words (single lowercase letter at end, e.g., "release s")
+    # Strip trailing truncated words (single lowercase letter at end)
     cleaned = re.sub(r"\s+[a-z]\s*$", "", cleaned)
 
-    # Strip trailing colon (interview byline artifact: "Giuseppe Santangelo (Space Industries):")
+    # Strip trailing colon (interview byline artifact)
     cleaned = re.sub(r"\s*:\s*$", "", cleaned)
 
-    # ── Geographic proper noun capitalization ──
-    # Country/region names that should always be capitalized
-    _GEO_PROPER_NOUNS = [
-        "italy", "italian", "spain", "spanish", "france", "french",
-        "germany", "german", "europe", "european", "benelux", "nordic",
-        "belgium", "netherlands", "portugal", "austria", "switzerland",
-        "london", "paris", "milan", "rome", "madrid", "berlin",
-        "americas", "emea", "asia", "uk", "us", "usa",
-    ]
+    return cleaned
+
+
+def _cdt_capitalize_proper_nouns(text: str) -> str:
+    """Restore proper capitalization for geographic proper nouns."""
+    cleaned = text
     for geo in _GEO_PROPER_NOUNS:
         cleaned = re.sub(
             r"\b" + re.escape(geo) + r"\b",
@@ -1194,49 +1286,70 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
             cleaned,
             flags=re.IGNORECASE,
         )
+    return cleaned
 
-    # ── Word-merge repair: split fused camelCase/run-on words ──
-    # Step 1: Split known fused role/preposition words (all-lowercase run-ons)
-    # E.g. "chiefexecutiveofficerand" → "chief executive officer and"
-    _FUSED_WORDS = [
-        (r"chiefexecutiveofficer", "chief executive officer"),
-        (r"chiefexecutive", "chief executive"),
-        (r"generalmanager", "general manager"),
-        (r"headof", "head of"),
-        (r"officerand", "officer and"),
-        (r"officeror", "officer or"),
-        (r"officerof", "officer of"),
-        (r"managerof", "manager of"),
-        (r"directorof", "director of"),
-        (r"partnerof", "partner of"),
-        (r"presidentof", "president of"),
-        (r"chairmanof", "chairman of"),
-        (r"ashead", "as head"),
-        (r"aschief", "as chief"),
-        (r"asdirector", "as director"),
-        (r"asmanaging", "as managing"),
-        (r"aspartner", "as partner"),
-        (r"asadvisors?", "as advisor"),
-        (r"asincoming", "as incoming"),
-        (r"oftheboardof", "of the board of"),
-        (r"oftheboard", "of the board"),
-        (r"boardof", "board of"),
-        (r"tomanagethe", "to manage the"),
-        (r"tomanage", "to manage"),
-        (r"incominghead", "incoming head"),
-        (r"theprocess", "the process"),
-        (r"forthe(\d)", r"for the \1"),
-    ]
-    for pattern, replacement in _FUSED_WORDS:
+
+def _cdt_split_fused_words(text: str) -> str:
+    """Split fused camelCase/run-on words and fix brand tokens.
+
+    Handles: fused role/preposition words (e.g. 'chiefexecutiveofficer'),
+    camelCase boundaries, uppercase acronym splits, TGCom24 brand reassembly.
+    """
+    cleaned = text
+
+    # Step 1: Split known fused role/preposition words
+    for pattern, replacement in _FUSED_WORD_PAIRS:
         cleaned = re.sub(pattern, replacement, cleaned, flags=re.IGNORECASE)
-    # Step 2: camelCase boundary (lowercase→uppercase)
-    # E.g. "appointedHead" → "appointed Head", "namedCandyFactory" → "named Candy Factory"
+
+    # Step 2: camelCase boundary (lowercase->uppercase)
     cleaned = re.sub(r"([a-z])([A-Z])", r"\1 \2", cleaned)
+
     # Step 3: uppercase acronym (2+ chars) fused with lowercase word
-    # E.g. "CEOand" → "CEO and", "SGRinvests" → "SGR invests"
     cleaned = re.sub(r"([A-Z]{2,})([a-z])", r"\1 \2", cleaned)
+
+    # Re-assemble known brand tokens broken by camelCase/acronym splits
+    cleaned = re.sub(r"\bTGC\s+om\s*24\b", "TGCom24", cleaned, flags=re.IGNORECASE)
+
     # Collapse any double spaces introduced
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
+
+    return cleaned
+
+
+# ---------------------------------------------------------------------------
+# clean_display_text — orchestrator calling the composable stages above
+# ---------------------------------------------------------------------------
+
+def clean_display_text(text: str, is_title: bool = False) -> str:
+    """Clean a signal text field for user-facing display.
+
+    Applied uniformly to title, what_changed, enriched_summary, diff_summary.
+    The is_title flag controls minor behavioral differences (newspaper-only
+    clearing, label-repair threshold, title capitalization).
+
+    Pipeline stages:
+      1. Strip boilerplate — logos, labels, AUM, templates, read-more
+      2. Normalize spacing and dates — punctuation, date prefixes/suffixes, currency
+      3. Repair tokens — fragmented splits, newspaper attribution, name corrections
+      4. Normalize casing — ALL CAPS, title case, person names
+      5. Strip datelines and navigation — press release headers, breadcrumbs
+      6. Capitalize proper nouns — geographic names
+      7. Split fused words — camelCase, acronym boundaries, brand reassembly
+    """
+    if not text:
+        return text
+
+    # For non-title fields, clear text that is just a newspaper name
+    if not is_title and NEWSPAPER_ONLY_RE.match(text):
+        return ""
+
+    cleaned = _cdt_strip_boilerplate(text, is_title)
+    cleaned = _cdt_normalize_spacing_and_dates(cleaned)
+    cleaned = _cdt_repair_tokens_and_attributes(cleaned, is_title)
+    cleaned = _cdt_normalize_casing(cleaned, is_title)
+    cleaned = _cdt_strip_datelines_and_navigation(cleaned)
+    cleaned = _cdt_capitalize_proper_nouns(cleaned)
+    cleaned = _cdt_split_fused_words(cleaned)
 
     # Ensure title starts with uppercase (fix scraper artifacts)
     if is_title and cleaned and cleaned[0].islower():
@@ -1272,8 +1385,8 @@ def is_garbage_summary(summary: str) -> bool:
     if "|" in text:
         return True
 
-    # Very short (< 15 chars) — likely bare name with no context
-    if len(text) < 15:
+    # Very short — likely bare name with no context
+    if len(text) < MIN_SUMMARY_LEN:
         return True
 
     # Starts with lowercase (LLM error — proper summaries start capitalized)
@@ -1293,13 +1406,13 @@ def is_garbage_summary(summary: str) -> bool:
     # E.g. "appointedClaudiaPingueasheadoffondotechnologytransfer"
     # These are scraper/LLM artifacts that look extremely unprofessional
     _longest_token = max((len(w) for w in text.split()), default=0)
-    if _longest_token >= 25:
+    if _longest_token >= MAX_SUMMARY_TOKEN_LEN:
         return True
 
     # Italian-language summary detection: if summary contains multiple Italian stop words,
     # it's untranslated and should be cleared
     _italian_stops = len(re.findall(r"\b(?:della|nella|degli|alle|sono|anche|questo|quella|stato|dopo|prima|verso|ogni|essere|avere|fatto|anno|presentata?|girata?)\b", text, re.IGNORECASE))
-    if _italian_stops >= 3:
+    if _italian_stops >= ITALIAN_STOP_WORD_THRESHOLD:
         return True
 
     # No verb — just a noun phrase (bare company/fund name)
@@ -1316,7 +1429,7 @@ def is_garbage_summary(summary: str) -> bool:
         r"|convened?|hired?|named?|elect\w*|promot\w*|resign\w*|retir\w*)\b",
         text, re.IGNORECASE
     ))
-    if not has_verb and len(text) < 80:
+    if not has_verb and len(text) < NO_VERB_MAX_LEN:
         return True
 
     return False

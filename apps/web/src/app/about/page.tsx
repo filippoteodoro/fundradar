@@ -27,6 +27,21 @@ export default function AboutPage() {
       </section>
 
       <section style={{ ...CARD_STYLE, padding: CARD_PADDING, marginBottom: '24px' }}>
+        <h2 style={{ fontSize: '18px', margin: '0 0 12px 0' }}>Why Fundradar Exists</h2>
+        <p style={{ lineHeight: 1.6, color: '#444', marginBottom: '12px' }}>
+          Traditional PE/VC databases charge thousands of euros per month for what is, fundamentally,
+          structured public information: who invested in what, when, and at what stage.
+        </p>
+        <p style={{ lineHeight: 1.6, color: '#444' }}>
+          With agentic coding, there is no reason this needs to be expensive anymore. Fundradar is
+          built and maintained almost entirely by AI agents — from website monitoring and signal
+          extraction to data enrichment and quality control. The result is a free, continuously
+          updated fund directory that would have required a full team of engineers, industry experts,
+          and journalists just a few years ago.
+        </p>
+      </section>
+
+      <section style={{ ...CARD_STYLE, padding: CARD_PADDING, marginBottom: '24px' }}>
         <h2 style={{ fontSize: '18px', margin: '0 0 12px 0' }}>Reliability Contract</h2>
         <p style={{ lineHeight: 1.6, color: '#444', marginBottom: '12px' }}>
           We follow a strict reliability contract:
