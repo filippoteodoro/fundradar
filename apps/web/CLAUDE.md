@@ -114,6 +114,27 @@ Both paths share signal processing via **`signalProcessing.ts`** (defense-in-dep
 
 **Result**: Both pages apply identical signal processing (garbage filter, title cleaning, reclassification). They still differ in source files (enriched vs filtered) and caching behavior.
 
+## Signal-to-Fund Text Matching (signalFundTags.ts)
+
+`signalFundTags.ts` matches signal text against fund names to determine which signals appear on each fund's page. `resolveSignalFundSlugs()` scans signal title/what_changed/enriched_summary against patterns built from all fund names.
+
+### How `buildFundMentionEntries()` creates patterns
+
+For each fund, three pattern types are generated:
+1. **Full name**: e.g., `"permira associati"` — exact multi-word match
+2. **Cleaned name**: strips legal suffixes (SGR, S.p.A., etc.) — e.g., `"permira associati"` → `"permira associati"` (no change if no suffix)
+3. **First-word short brand**: ONLY for names with ≤2 words, where first word ≥6 chars and not in `GENERIC_SHORT_BRANDS` — e.g., `"permira"` from "Permira Associati"
+
+### Cross-entity misattribution — the #1 risk
+
+**BUG CLASS**: If a fund name's first word is a common noun that appears in other entity names, signals about those entities get wrongly attributed to the fund. Example: "Cherry Bay Capital" → first word "cherry" → matches "Cherry Bank" in signal text.
+
+**Prevention** (two defenses):
+1. **Word count gate**: First-word patterns are ONLY created for names with ≤2 words. 3+ word names (e.g., "Cherry Bay Capital") rely on full/cleaned patterns only.
+2. **`GENERIC_SHORT_BRANDS` blocklist**: Common nouns (cherry, silver, golden, bridge, etc.) are blocked from becoming patterns even for 2-word names.
+
+**When adding a fund**: If the fund name's first word could match other entities, add it to `GENERIC_SHORT_BRANDS`. After running the pipeline, verify no misattributed signals appear on the fund's page.
+
 ## Portfolio Merge Logic (getPortfolioForFund)
 
 Merges from 2 sources:

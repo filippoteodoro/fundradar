@@ -23,6 +23,25 @@ const GENERIC_SHORT_BRANDS = new Set([
   'fondo',
   'fund',
   'team',
+  // Common nouns/adjectives that appear as first words of multi-word fund names
+  // but are too generic to use as standalone matching patterns
+  'cherry',
+  'silver',
+  'golden',
+  'bridge',
+  'impact',
+  'summit',
+  'spring',
+  'castle',
+  'anchor',
+  'global',
+  'europe',
+  'invest',
+  'select',
+  'market',
+  'search',
+  'towers',
+  'credit',
 ]);
 
 function normalizePhrase(value: string): string {
@@ -77,8 +96,15 @@ export function buildFundMentionEntries(funds: FundReference[]): FundMentionEntr
       addOwner(phraseOwners, cleaned, slug);
     }
 
-    const first = (cleaned || full).split(' ')[0] || '';
+    // Only extract first-word short brand for names with ≤2 words.
+    // For 3+ word names (e.g. "Cherry Bay Capital"), the first word alone
+    // (e.g. "cherry") is too ambiguous and causes cross-entity matches
+    // (e.g. "Cherry Bank" matching cherry-bay-capital). Multi-word fund
+    // names are adequately covered by the full/cleaned name patterns above.
+    const words = (cleaned || full).split(' ').filter(Boolean);
+    const first = words[0] || '';
     if (
+      words.length <= 2 &&
       first.length >= 6 &&
       !GENERIC_SHORT_BRANDS.has(first)
     ) {

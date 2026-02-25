@@ -51390,8 +51390,220 @@
         "people": [],
         "locations": []
       }
+    },
+    {
+      "id": "rss-signal-00144",
+      "fund_id": "",
+      "fund_slug": "capital-dynamics-sgr",
+      "related_fund_slugs": [
+        "capital-dynamics-sgr",
+        "mindful-capital"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Italcer spa, Mindful Capital Partners e Miura Partners, con i coinvestitori (Capital Dynamics), vendono il 50% +1 azione all\u2019austriaca Wienerberger AG",
+      "what_changed": "Mindful Capital Partners, Miura Partners and coinvestor Capital Dynamics have sold 50%+1 share of Italian high-end ceramics group Italcer spa to Austrian Wienerberger AG. The confirmed transaction changes the ownership of the Italy-founded Italcer (2017); no financial terms were disclosed.",
+      "source_url": "https://bebeez.it/private-equity/italcer-spa-mindful-capital-partners-e-miura-partners-con-i-coinvestitori-capital-dynamics-vendono-il-50-1-azione-allaustriaca-wienerberger-ag/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-25T06:53:13+00:00",
+      "observed_at": "2026-02-25T06:55:59.285724+00:00",
+      "created_at": "2026-02-25T06:55:59.285724+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Italcer spa",
+          "Wienerberger AG"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00145",
+      "fund_id": "",
+      "fund_slug": "mindful-capital",
+      "related_fund_slugs": [
+        "capital-dynamics-sgr",
+        "mindful-capital"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Italcer spa, Mindful Capital Partners e Miura Partners, con i coinvestitori (Capital Dynamics), vendono il 50% +1 azione all\u2019austriaca Wienerberger AG",
+      "what_changed": "Mindful Capital Partners, Miura Partners and coinvestor Capital Dynamics have sold 50%+1 share of Italian high-end ceramics group Italcer spa to Austrian Wienerberger AG. The confirmed transaction changes the ownership of the Italy-founded Italcer (2017); no financial terms were disclosed.",
+      "source_url": "https://bebeez.it/private-equity/italcer-spa-mindful-capital-partners-e-miura-partners-con-i-coinvestitori-capital-dynamics-vendono-il-50-1-azione-allaustriaca-wienerberger-ag/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-25T06:53:13+00:00",
+      "observed_at": "2026-02-25T06:55:59.285724+00:00",
+      "created_at": "2026-02-25T06:55:59.285724+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Italcer spa",
+          "Wienerberger AG"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00146",
+      "fund_id": "",
+      "fund_slug": "furstenberg-sgr",
+      "related_fund_slugs": [
+        "furstenberg-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Prima operazione per F\u00fcrstenberg sgr, che acquisisce la maggioranza di Noberasco spa (frutta secca e disidratata)",
+      "what_changed": "F\u00fcrstenberg sgr has completed its first acquisition, buying a majority stake in Italian dried-fruit and dehydrated foods maker Noberasco spa via the illimity Credit & Corporate Turnaround Fund. The confirmed deal marks F\u00fcrstenberg\u2019s market entry; sellers and financial terms were not disclosed.",
+      "source_url": "https://bebeez.it/crisi-rilanci/prima-operazione-per-furstenberg-sgr-che-acquisisce-la-maggioranza-di-noberasco-spa-frutta-secca-e-disidratata/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-25T06:51:01+00:00",
+      "observed_at": "2026-02-25T06:55:59.285724+00:00",
+      "created_at": "2026-02-25T06:55:59.285724+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Noberasco spa"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00147",
+      "fund_id": "",
+      "fund_slug": "ambienta-sgr",
+      "related_fund_slugs": [
+        "ambienta-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "No Dig Alliance (Ambienta sgr) acquisisce Suomen Putkisto Palvelu (riqualificazione reti idriche sotterranee) dalla famiglia Boman",
+      "what_changed": "No Dig Alliance, controlled by Ambienta sgr, has acquired Finnish trenchless water-network specialist Suomen Putkisto Palvelu from the Boman family. The confirmed add-on expands the Ambienta-backed group's presence in Nordic underground water and sewer rehabilitation; deal value was not disclosed.",
+      "source_url": "https://bebeez.it/private-equity/no-dig-alliance-ambienta-sgr-acquisisce-suomen-putkisto-palvelu-riqualificazione-reti-idriche-sotterranee-dalla-famiglia-boman/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-25T06:49:56+00:00",
+      "observed_at": "2026-02-25T06:55:59.285724+00:00",
+      "created_at": "2026-02-25T06:55:59.285724+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "No Dig Alliance",
+          "Suomen Putkisto Palvelu"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00148",
+      "fund_id": "",
+      "fund_slug": "investindustrial",
+      "related_fund_slugs": [
+        "investindustrial"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Via libera dalle assemblee a reverse take-over e fusione per incorporazione di Global Aerospace Technologies Group spa (Investindustrial) in Officina Stellare",
+      "what_changed": "After favourable votes by the assemblies of both companies, shareholders approved the reverse take-over and merger by incorporation of Global Aerospace Technologies Group spa (Investindustrial) into Officina Stellare. The confirmed corporate transaction restructures Investindustrial-linked Italian aerospace assets; financial terms were not disclosed.",
+      "source_url": "https://bebeez.it/private-equity/via-libera-dalle-assemblee-a-reverse-take-over-e-fusione-per-incorporazione-di-global-aerospace-technologies-group-spa-investindustrial-in-officina-stellare/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-25T06:48:56+00:00",
+      "observed_at": "2026-02-25T06:55:59.285724+00:00",
+      "created_at": "2026-02-25T06:55:59.285724+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Global Aerospace Technologies Group spa",
+          "Officina Stellare"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00149",
+      "fund_id": "",
+      "fund_slug": "h-i-g-capital",
+      "related_fund_slugs": [
+        "h-i-g-capital"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Berardi Bullonerie (HIG Capital) acquisisce Fastpoint srl dalla famiglia Carossa, settima m&a dall\u2019ingresso del private equity nel capitale",
+      "what_changed": "Berardi Bullonerie, controlled by HIG Capital via HIG Europe, has acquired Fastpoint srl from the Carossa family. The confirmed transaction is the seventh M&A since HIG\u2019s investment in Berardi and strengthens the Italian distributor of fastening elements and integrated logistics services; terms were not disclosed.",
+      "source_url": "https://bebeez.it/private-equity/berardi-bullonerie-hig-capital-acquisisce-fastpoint-srl-dalla-famiglia-carossa-settima-ma-dallingresso-del-private-equity-nel-capitale/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-25T06:47:17+00:00",
+      "observed_at": "2026-02-25T06:55:59.285724+00:00",
+      "created_at": "2026-02-25T06:55:59.285724+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Berardi Bullonerie",
+          "Fastpoint srl"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00150",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "AutoConnexa chiude un round da 4,4 mln euro guidato dal fondo Lumen II, CDP Venture Capital, Cr\u00e9dit Agricole ed esponenti del Club degli investitori",
+      "what_changed": "AutoConnexa, brand of Connexa InsTech srl, closed a 4,4 mln euro funding round led by the Lumen II fund with participation from CDP Venture Capital, Cr\u00e9dit Agricole and members of the Club degli investitori. The investment backs the Italian insurtech focused on automotive insurance innovation.",
+      "source_url": "https://bebeez.it/venture-capital/autoconnexa-chiude-un-round-da-44-mln-euro-guidato-dal-fondo-lumen-ii-cdp-venture-capital-credit-agricole-ed-esponenti-del-club-degli-investitori/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-25T06:37:46+00:00",
+      "observed_at": "2026-02-25T06:55:59.285724+00:00",
+      "created_at": "2026-02-25T06:55:59.285724+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "AutoConnexa",
+          "Connexa InsTech srl"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "4,4 mln euro"
     }
   ],
   "signal_count": 1903,
-  "translated_at": "2026-02-24T23:46:05.750354+00:00"
+  "translated_at": "2026-02-25T06:56:01.718020+00:00"
 }

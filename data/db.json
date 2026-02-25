@@ -1449,9 +1449,9 @@
         "Growth-Equity"
       ],
       "sector_tags": [
-        "Food & Beverage",
+        "Professional Services",
         "Healthcare",
-        "Professional Services"
+        "Hospitality & Tourism"
       ],
       "description": "Leverages a team of international private equity veterans to execute complex family successions and buy-and-build consolidations within the Italian healthcare and industrial sectors, targeting the professionalization of mid-market SMEs.",
       "geographies": [
@@ -1920,9 +1920,9 @@
         "Growth-Equity"
       ],
       "sector_tags": [
-        "Consumer Goods",
         "Food & Beverage",
-        "Industrial Manufacturing"
+        "Automotive",
+        "Consumer Goods"
       ],
       "description": "Utilizes a club deal model led by former Permira partner Nicola Volpi to provide growth equity for Italian and European SMEs in the consumer, food, and industrial sectors.",
       "geographies": [
@@ -2667,11 +2667,11 @@
         "Minority Expansion"
       ],
       "sector_tags": [
-        "Aerospace & Defense",
         "Automotive",
         "Biotech & Pharma",
         "Fashion & Luxury",
-        "Financial Services"
+        "Financial Services",
+        "Healthcare"
       ],
       "description": "Private investment office and club deal platform founded in Monaco in 2018, connecting Italian family assets to exclusive minority expansion opportunities in high-growth companies such as Bending Spoons and aerospace specialist Poggipolini.",
       "geographies": [
@@ -8811,8 +8811,8 @@
         "Financial Services",
         "Healthcare",
         "Professional Services",
-        "Media & Entertainment",
-        "Food & Beverage"
+        "Food & Beverage",
+        "Media & Entertainment"
       ],
       "description": "Spun out of Soros Private Equity Partners in 2005, this firm is the first mainstream private equity house to achieve B Corp certification, specializing in complex buyouts and corporate carve-outs.",
       "created_at": "2026-01-26T15:27:27.990348+00:00",
@@ -8970,9 +8970,10 @@
       ],
       "sector_tags": [
         "Technology",
-        "Healthcare",
         "Professional Services",
-        "Financial Services"
+        "Healthcare",
+        "Financial Services",
+        "Hospitality & Tourism"
       ],
       "description": "Backed by the Perrodo family, this firm leverages an evergreen capital structure to pursue long-term growth and buyout investments in European mid-market leaders such as Miss Group and Crosta & Mollica.",
       "created_at": "2026-01-26T15:27:27.990377+00:00",
@@ -9310,10 +9311,11 @@
         "Buy-Out"
       ],
       "sector_tags": [
-        "Education",
-        "Financial Services",
         "Software",
-        "Technology"
+        "Financial Services",
+        "Technology",
+        "Media & Entertainment",
+        "Education"
       ],
       "description": "Employs a concentrated, large-cap buyout strategy targeting businesses with defensible market positions and strong cash flows, including landmark investments such as the privatization of Axel Springer.",
       "geographies": [
@@ -9784,9 +9786,11 @@
         "Buy-Out"
       ],
       "sector_tags": [
-        "Healthcare",
-        "Industrial Manufacturing",
-        "Professional Services"
+        "Education",
+        "Professional Services",
+        "Biotech & Pharma",
+        "Financial Services",
+        "Food & Beverage"
       ],
       "description": "Originating from a 1934 merchant bank, this firm executes a high-conviction strategy targeting European mid-market leaders. Notable successes include the transformation and exit of data provider Bureau Van Dijk and nursery brand Avent.",
       "geographies": [
@@ -9923,7 +9927,10 @@
       ],
       "sector_tags": [
         "Biotech & Pharma",
-        "Industrial Manufacturing"
+        "Consumer Goods",
+        "Industrial Manufacturing",
+        "Packaging",
+        "Professional Services"
       ],
       "description": "Founded by Stefano Bonfiglio, the firm targets mid-market Italian leaders and corporate carve-outs, recently partnering with SIIC on environmental tech and backing established groups like Lucart and Proger.",
       "geographies": [
@@ -10028,8 +10035,8 @@
       ],
       "sector_tags": [
         "Technology",
-        "Software",
         "Aerospace & Defense",
+        "Software",
         "Automotive",
         "Education"
       ],

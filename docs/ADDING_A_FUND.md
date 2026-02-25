@@ -25,10 +25,11 @@ This is the definitive, step-by-step guide to correctly adding a new fund to Fun
 15. [Sitemap & llms.txt (Automatic)](#15-sitemap--llmstxt-automatic)
 16. [Assets & OG Images (Automatic)](#16-assets--og-images-automatic)
 17. [Commit & Deploy](#17-commit--deploy)
-18. [Post-Deployment Checklist](#18-post-deployment-checklist)
-19. [Reference: db.json Field Catalog](#reference-dbjson-field-catalog)
-20. [Reference: Extractor Template & Patterns](#reference-extractor-template--patterns)
-21. [Reference: Common Pitfalls](#reference-common-pitfalls)
+18. [Verify Data Quality (MANDATORY)](#18-verify-data-quality-mandatory)
+19. [Post-Deployment Checklist](#19-post-deployment-checklist)
+20. [Reference: db.json Field Catalog](#reference-dbjson-field-catalog)
+21. [Reference: Extractor Template & Patterns](#reference-extractor-template--patterns)
+22. [Reference: Common Pitfalls](#reference-common-pitfalls)
 
 ---
 
@@ -526,12 +527,14 @@ This fetches the fund's website, runs your extractor, and writes output to `data
 python3 -c "
 import json
 d = json.load(open('data/derived/portfolio_items.json'))
-companies = d.get('portfolios', {}).get('{fund-slug}', [])
+companies = d.get('fund_portfolios', {}).get('{fund-slug}', [])
 print(f'Companies: {len(companies)}')
 for c in companies[:5]:
     print(f\"  - {c['name']} ({c.get('status', 'unknown')}) [{c.get('sector', 'no sector')}]\")
 "
 ```
+
+> **CRITICAL**: If this returns 0 companies, your extractor's `URLS["portfolio"]` may be `None` or pointing to the wrong page. Check the extractor's `URLS` dict — every fund with a portfolio page MUST have a portfolio URL set.
 
 ### 5.4 — Extractor validation checklist
 
@@ -972,13 +975,133 @@ Fundradar auto-deploys from `main` on Vercel:
 
 ---
 
-## 18. Post-Deployment Checklist
+## 18. Verify Data Quality (MANDATORY)
+
+This is a **mandatory** verification step. Do NOT consider the fund "done" until all checks pass.
+
+### 18.1 — Automated data check
+
+Run this verification script for every new fund before committing:
+
+```bash
+python3 -c "
+import json
+
+slug = '{fund-slug}'
+db = json.load(open('data/db.json'))
+fund = next((f for f in db['funds'] if f['slug'] == slug), None)
+portfolio = json.load(open('data/derived/portfolio_items.json'))
+companies = portfolio.get('fund_portfolios', {}).get(slug, [])
+
+errors = []
+
+# 1. db.json fields
+if not fund:
+    errors.append('FATAL: Fund not in db.json')
+else:
+    if not fund.get('description'):
+        errors.append('Missing description')
+    if not fund.get('website'):
+        errors.append('Missing website')
+    if not fund.get('aum_eur'):
+        errors.append('Missing AUM (run enrich-fund-metadata-gemini.py)')
+    if not fund.get('geographies'):
+        errors.append('Missing geographies')
+    if not fund.get('strategy_tags'):
+        errors.append('Missing strategy_tags')
+
+# 2. Portfolio
+if len(companies) == 0:
+    errors.append('CRITICAL: Zero portfolio entries — check extractor URLS[\"portfolio\"]')
+elif len(companies) < 3:
+    errors.append(f'WARNING: Only {len(companies)} portfolio entries — verify extractor')
+
+# 3. Extractor URLS
+import importlib, sys
+sys.path.insert(0, 'apps/worker')
+mod_name = slug.replace('-', '_')
+try:
+    mod = importlib.import_module(f'fundradar_worker.strategies.extractors.{mod_name}')
+    urls = getattr(mod, 'URLS', {})
+    if urls.get('portfolio') is None:
+        errors.append('CRITICAL: Extractor URLS[\"portfolio\"] is None — no portfolio will be scraped')
+    if 'portfolio' not in getattr(mod, 'EXTRACTORS', {}):
+        errors.append('WARNING: No extract_portfolio() function in EXTRACTORS')
+except Exception as e:
+    errors.append(f'WARNING: Could not import extractor: {e}')
+
+# 4. Monitor URLs
+with open('data/monitor-urls.md') as f:
+    monitored = f.read().lower()
+if fund and fund.get('website'):
+    domain = fund['website'].replace('https://','').replace('http://','').replace('www.','').rstrip('/')
+    if domain.lower() not in monitored:
+        errors.append(f'WARNING: {domain} not in monitor-urls.md')
+
+# 5. Signal misattribution check (first word of fund name)
+if fund:
+    name_words = fund['name'].lower().split()
+    first_word = name_words[0] if name_words else ''
+    GENERIC_SHORT = {'capital','partners','private','venture','equity','asset','management','group',
+        'fondo','fund','team','cherry','silver','golden','bridge','impact','summit','spring',
+        'castle','anchor','global','europe','invest','select','market','search','towers','credit'}
+    if len(name_words) >= 3 and len(first_word) >= 6 and first_word not in GENERIC_SHORT:
+        errors.append(f'WARNING: Fund name first word \"{first_word}\" (from 3+ word name) could cause signal misattribution — verify it is in GENERIC_SHORT_BRANDS in signalFundTags.ts or that no cross-entity matches occur')
+
+if errors:
+    print(f'VERIFICATION FAILED for {slug}:')
+    for e in errors:
+        print(f'  ✗ {e}')
+else:
+    print(f'ALL CHECKS PASSED for {slug}')
+    print(f'  Portfolio: {len(companies)} companies')
+    print(f'  AUM: {fund.get(\"aum_eur\")}')
+    print(f'  Description: {fund.get(\"description\",\"\")[:60]}...')
+"
+```
+
+### 18.2 — Gemini verification (for batch additions)
+
+When adding multiple funds, use Gemini to cross-check data accuracy:
+
+```bash
+# Verify portfolio completeness via Gemini audit
+python3 scripts/audit-fund-assets-gemini.py --slugs {fund-slug}
+
+# Verify metadata (AUM, investment ranges)
+python3 scripts/enrich-fund-metadata-gemini.py --slugs {fund-slug}
+```
+
+### 18.3 — Verification loop (MANDATORY for batch additions)
+
+When adding multiple funds at once, you MUST run verification in a loop:
+
+1. **Run the automated data check** (18.1) for ALL new funds
+2. **Fix any issues** found (missing portfolio URLs, empty URLS, missing metadata)
+3. **Re-run the pipeline** for fixed funds: `pnpm pipeline --slugs {fixed-slugs} --force-extract`
+4. **Re-run the automated data check** — repeat steps 2-4 until ALL funds pass
+5. **Run Gemini audit** on all new funds to catch data quality issues
+6. **Apply audit fixes** and re-verify
+
+**Do NOT commit until the verification loop produces zero errors.** Common issues:
+
+| Issue | Fix |
+|---|---|
+| Zero portfolio entries | Add `portfolio` URL to extractor URLS dict, write `extract_portfolio()` |
+| Missing from monitor-urls.md | Add the fund's base domain URL |
+| Missing AUM | Run `enrich-fund-metadata-gemini.py --slugs {slug}` |
+| Missing description | Run `generate-fund-descriptions-gemini.py --slugs {slug}` |
+| Extractor URLS["portfolio"] is None | Check the fund's website for a portfolio/investments page |
+
+---
+
+## 19. Post-Deployment Checklist
 
 - [ ] Fund appears on `fundradar.co`
 - [ ] Fund detail page loads at `fundradar.co/funds/{slug}`
 - [ ] Portfolio tab shows companies
 - [ ] Signals tab shows signals (if any)
-- [ ] Fund appears on `/map` (if geocoded — see [Section 12](#12-geocoding--map-optional))
+- [ ] Fund appears on `/map` (if geocoded — see [Section 13](#13-geocoding--map-optional))
 - [ ] Fund's companies appear on `/companies`
 - [ ] Page renders correctly when shared on social media (site-level OG image is automatic)
 - [ ] Run `pnpm audit:quality` to check the fund's data quality grade
@@ -1145,6 +1268,28 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 | UI doesn't show new data | Restart `pnpm dev` — the web app caches with no invalidation |
 | Portfolio entries show as garbage | Check `isValidPortfolioEntry()` in `data.ts` — NAV_PATTERNS reject navigation text |
 | **Claude Code blocks on long scripts** | **ALWAYS run Gemini/pipeline scripts with `run_in_background: true` and check progress with non-blocking `tail` commands. NEVER use blocking waits (`block=true`) on tasks that call Gemini APIs — a single fund can take 5+ minutes, batches can take hours. Use `ps aux \| grep scriptname` and `tail -N outputfile` to monitor progress instead.** |
+
+### Signal misattribution (frontend text matching)
+
+The web app's `signalFundTags.ts` matches signal text against fund names to show related signals on fund pages. This text-matching system can cause **cross-entity misattribution** if fund names share words with other entities.
+
+**How it works**: `buildFundMentionEntries()` creates regex patterns from fund names:
+1. **Full name pattern**: e.g., `"cherry bay capital"` — safe, specific
+2. **Cleaned name pattern**: strips legal suffixes (SGR, S.p.A., etc.) — safe
+3. **First-word short brand**: for 1–2 word names where the first word is ≥6 chars and not in `GENERIC_SHORT_BRANDS` — e.g., `"permira"` from "Permira Associati"
+
+**The bug class**: For 3+ word fund names, the first word alone is too ambiguous. Example: "Cherry Bay Capital" → first word "cherry" → matches "Cherry Bank" in signal text → signal wrongly appears on Cherry Bay Capital's page.
+
+**Prevention** (already enforced in code):
+- First-word short brand extraction is **skipped for names with 3+ words** — multi-word names rely on full/cleaned patterns only
+- `GENERIC_SHORT_BRANDS` blocklist prevents common nouns (cherry, silver, golden, bridge, impact, etc.) from becoming patterns
+
+**When adding a fund — check for this**:
+1. If the fund name's **first word** is a common English/Italian noun or could appear in other entity names, verify it's in `GENERIC_SHORT_BRANDS` in `signalFundTags.ts`
+2. After running the pipeline, check the fund's signals tab — look for signals that mention a **different entity** with a similar name (e.g., "Cherry Bank" on Cherry Bay Capital's page)
+3. If misattributed signals appear, add the problematic word to `GENERIC_SHORT_BRANDS`
+
+**Files**: `apps/web/src/lib/signalFundTags.ts` — `buildFundMentionEntries()` and `GENERIC_SHORT_BRANDS`
 
 ### During deployment
 

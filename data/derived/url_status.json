@@ -3207,9 +3207,9 @@
     "https://www.tpg.com/news-and-insights/news": {
       "url": "https://www.tpg.com/news-and-insights/news",
       "status": "ok",
-      "status_code": 200,
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-02-24T23:43:34.590628+00:00",
+      "last_checked_at": "2026-02-25T06:54:13.457410+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3381,6 +3381,15 @@
       "status_code": 200,
       "error_message": null,
       "last_checked_at": "2026-02-24T23:42:53.916167+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.tpg.com/portfolio": {
+      "url": "https://www.tpg.com/portfolio",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-25T06:54:12.881638+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     }

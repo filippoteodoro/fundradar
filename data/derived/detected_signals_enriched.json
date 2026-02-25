@@ -15353,11 +15353,11 @@
     }
   ],
   "signal_count": 283,
-  "translated_at": "2026-02-24T23:46:05.750354+00:00",
-  "filtered_at": "2026-02-25T00:01:43.648561+00:00",
+  "translated_at": "2026-02-25T06:56:01.718020+00:00",
+  "filtered_at": "2026-02-25T06:57:09.302410+00:00",
   "filter_stats": {
-    "original_count": 1909,
-    "filtered_count": 330,
+    "original_count": 1916,
+    "filtered_count": 336,
     "removed_invalid_fund": 0,
     "removed_duplicates": 239,
     "resolved_duplicate_ids": 550,
@@ -15373,20 +15373,13 @@
     "removed_ml": 0,
     "removed_cross_page": 0,
     "kept_ml_override": 0,
-    "ml_type_overrides": 145,
+    "ml_type_overrides": 148,
     "min_quality_score": 80,
     "confidence_distribution": {
-      "high": 253,
+      "high": 260,
       "medium": 119,
       "low": 18
     }
   },
-  "llm_filter_stats": {
-    "mode": "hard",
-    "min_confidence": "high",
-    "filtered_out": 3,
-    "filtered_at": "2026-02-25T00:02:52.126418+00:00",
-    "llm_calls": 5
-  },
-  "enriched_at": "2026-02-25T00:02:52.126444+00:00"
+  "enriched_at": "2026-02-25T06:57:11.495492+00:00"
 }
