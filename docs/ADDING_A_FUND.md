@@ -25,7 +25,7 @@ This is the definitive, step-by-step guide to correctly adding a new fund to Fun
 15. [Sitemap & llms.txt (Automatic)](#15-sitemap--llmstxt-automatic)
 16. [Assets & OG Images (Automatic)](#16-assets--og-images-automatic)
 17. [Commit & Deploy](#17-commit--deploy)
-18. [Verify Data Quality (MANDATORY)](#18-verify-data-quality-mandatory)
+18. [Verify Data Quality (MANDATORY)](#18-verify-data-quality-mandatory) — Automated checks + Gemini enrichment + asset audit + verification loop
 19. [Post-Deployment Checklist](#19-post-deployment-checklist)
 20. [Reference: db.json Field Catalog](#reference-dbjson-field-catalog)
 21. [Reference: Extractor Template & Patterns](#reference-extractor-template--patterns)
@@ -1010,11 +1010,23 @@ else:
     if not fund.get('strategy_tags'):
         errors.append('Missing strategy_tags')
 
-# 2. Portfolio
+# 2. Portfolio count
 if len(companies) == 0:
     errors.append('CRITICAL: Zero portfolio entries — check extractor URLS[\"portfolio\"]')
 elif len(companies) < 3:
     errors.append(f'WARNING: Only {len(companies)} portfolio entries — verify extractor')
+
+# 2b. Portfolio enrichment (sector/desc/HQ)
+if len(companies) > 0:
+    with_sector = sum(1 for c in companies if c.get('sector'))
+    with_desc = sum(1 for c in companies if c.get('description'))
+    with_hq = sum(1 for c in companies if c.get('headquarters') or c.get('hq_country'))
+    if with_sector < len(companies):
+        errors.append(f'ENRICHMENT: {len(companies)-with_sector} companies missing sector — run: cd apps/worker && python3 scripts/enrich_portfolio_gemini_full.py --slugs {slug} --limit 0')
+    if with_desc < len(companies):
+        errors.append(f'ENRICHMENT: {len(companies)-with_desc} companies missing description — run Gemini enrichment')
+    if with_hq < len(companies):
+        errors.append(f'ENRICHMENT: {len(companies)-with_hq} companies missing HQ — run Gemini enrichment')
 
 # 3. Extractor URLS
 import importlib, sys
@@ -1060,28 +1072,73 @@ else:
 "
 ```
 
-### 18.2 — Gemini verification (for batch additions)
+### 18.2 — Gemini portfolio enrichment (MANDATORY)
 
-When adding multiple funds, use Gemini to cross-check data accuracy:
+After the pipeline runs, you **MUST** run Gemini portfolio enrichment to fill missing sector/HQ/description on portfolio companies. This is NOT optional — the pipeline's monitor step only extracts what the website provides, which is often incomplete.
 
 ```bash
-# Verify portfolio completeness via Gemini audit
-python3 scripts/audit-fund-assets-gemini.py --slugs {fund-slug}
+# Run portfolio enrichment for the new fund(s)
+cd apps/worker && python3 scripts/enrich_portfolio_gemini_full.py --slugs {fund-slug} --limit 0
+```
 
-# Verify metadata (AUM, investment ranges)
+Then **verify** enrichment was applied:
+
+```bash
+python3 -c "
+import json
+slug = '{fund-slug}'
+d = json.load(open('data/derived/portfolio_items.json'))
+companies = d.get('fund_portfolios', {}).get(slug, [])
+n = len(companies)
+with_sector = sum(1 for c in companies if c.get('sector'))
+with_desc = sum(1 for c in companies if c.get('description'))
+with_hq = sum(1 for c in companies if c.get('headquarters') or c.get('hq_country'))
+print(f'Companies: {n}')
+print(f'With sector: {with_sector}/{n}')
+print(f'With description: {with_desc}/{n}')
+print(f'With HQ: {with_hq}/{n}')
+if with_sector < n or with_desc < n or with_hq < n:
+    print('WARNING: Some companies still missing data — re-run enrichment or check Gemini errors')
+else:
+    print('ALL COMPANIES FULLY ENRICHED')
+"
+```
+
+**If enrichment coverage is < 100%**: Re-run with `--limit 0` (unlimited). If specific companies consistently fail, they may need manual data entry in `portfolio_items.json`.
+
+### 18.3 — Gemini metadata enrichment (MANDATORY)
+
+Ensure the fund has AUM and investment ranges:
+
+```bash
 python3 scripts/enrich-fund-metadata-gemini.py --slugs {fund-slug}
 ```
 
-### 18.3 — Verification loop (MANDATORY for batch additions)
+### 18.4 — Gemini asset audit (MANDATORY)
 
-When adding multiple funds at once, you MUST run verification in a loop:
+Run the asset audit to find missing Italian companies and verify data accuracy:
+
+```bash
+python3 scripts/audit-fund-assets-gemini.py --slugs {fund-slug}
+```
+
+Then apply findings:
+```bash
+python3 scripts/apply-gemini-missing-assets.py --slugs {fund-slug}
+```
+
+### 18.5 — Verification loop (MANDATORY for ALL additions)
+
+After running all enrichments, you MUST verify the complete data quality. This applies to **every** fund addition, not just batch additions.
 
 1. **Run the automated data check** (18.1) for ALL new funds
 2. **Fix any issues** found (missing portfolio URLs, empty URLS, missing metadata)
 3. **Re-run the pipeline** for fixed funds: `pnpm pipeline --slugs {fixed-slugs} --force-extract`
-4. **Re-run the automated data check** — repeat steps 2-4 until ALL funds pass
-5. **Run Gemini audit** on all new funds to catch data quality issues
-6. **Apply audit fixes** and re-verify
+4. **Re-run Gemini portfolio enrichment** (18.2) — verify coverage is 100% or explain gaps
+5. **Re-run Gemini metadata enrichment** (18.3) — verify AUM is set
+6. **Re-run Gemini asset audit** (18.4) — apply findings
+7. **Re-run the automated data check** — repeat steps 2-7 until ALL funds pass
+8. **Check signal misattribution** — load the fund page in the dev server, verify signals tab shows only relevant signals
 
 **Do NOT commit until the verification loop produces zero errors.** Common issues:
 
