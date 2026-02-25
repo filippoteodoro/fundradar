@@ -50117,7 +50117,1281 @@
         ],
         "locations": []
       }
+    },
+    {
+      "id": "web-signal-01858",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "other",
+      "title": "We invest globally.We grow businesses sustainably.We value partnerships.",
+      "what_changed": "Recent ICGnews,insights,research and analysis.",
+      "source_url": "https://www.icgam.com/",
+      "source_name": "ICG",
+      "published_at": "2026-02-24",
+      "observed_at": "2026-02-24T23:42:57.769056+00:00",
+      "created_at": "2026-02-24T23:42:57.769056+00:00",
+      "snapshot_id": "snap-20260224234255-fec4df7a",
+      "diff_summary": "New news item detected (dated 24 February 2026, 23:37 BST)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01859",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "other",
+      "title": "ICG and Amundi announce long-term strategic and equity partnership",
+      "what_changed": "New announcement: ICG and Amundi announce long-term strategic and equity partnership",
+      "source_url": "https://www.icgam.com/2025/11/18/icg-and-amundi-announce-long-term-strategic-and-equity-partnership/",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:57.769056+00:00",
+      "created_at": "2026-02-24T23:42:57.769056+00:00",
+      "snapshot_id": "snap-20260224234255-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01860",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "other",
+      "title": "Europe: a relatively favourable investment environment",
+      "what_changed": "New announcement: Europe: a relatively favourable investment environment",
+      "source_url": "https://www.icgam.com/2025/09/25/europe-a-relatively-favourable-investment-environment/",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:57.769056+00:00",
+      "created_at": "2026-02-24T23:42:57.769056+00:00",
+      "snapshot_id": "snap-20260224234255-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01861",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "other",
+      "title": "CEO foreword to Sustainability and People Report 2025",
+      "what_changed": "New announcement: CEO foreword to Sustainability and People Report 2025",
+      "source_url": "https://www.icgam.com/2025/06/20/ceo-foreword-to-sustainability-and-people-report-2025/",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:57.769056+00:00",
+      "created_at": "2026-02-24T23:42:57.769056+00:00",
+      "snapshot_id": "snap-20260224234255-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "People Report"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01862",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "other",
+      "title": "Scaling up and scaling out, enabling employees to reach new heights",
+      "what_changed": "New announcement: Scaling up and scaling out, enabling employees to reach new heights",
+      "source_url": "https://www.icgam.com/2025/04/10/scaling-up-and-scaling-out-enabling-employees-to-reach-new-heights/",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:57.769056+00:00",
+      "created_at": "2026-02-24T23:42:57.769056+00:00",
+      "snapshot_id": "snap-20260224234255-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01863",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "other",
+      "title": "2026 Macro and Private Markets Outlook: Sustained Resilience",
+      "what_changed": "New announcement: 2026 Macro and Private Markets Outlook: Sustained Resilience",
+      "source_url": "https://www.icgam.com/2026/01/23/2026-macro-and-private-markets-outlook-sustained-resilience/",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:57.769056+00:00",
+      "created_at": "2026-02-24T23:42:57.769056+00:00",
+      "snapshot_id": "snap-20260224234255-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Private Markets Outlook",
+          "Sustained Resilience"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01864",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "other",
+      "title": "Q3 trading statement for the period to 31 December 2025",
+      "what_changed": "New announcement: Q3 trading statement for the period to 31 December 2025",
+      "source_url": "https://www.icgam.com/2026/01/21/q3-trading-statement-for-the-period-to-31-december-2025/",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:57.769056+00:00",
+      "created_at": "2026-02-24T23:42:57.769056+00:00",
+      "snapshot_id": "snap-20260224234255-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01865",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "people_move",
+      "title": "Commencement of Share Buyback Programme and Appointment of Non-Executive Director",
+      "what_changed": "Recent ICGnews,insights,research and analysis.",
+      "source_url": "https://www.icgam.com/news-insights-analysis/#news",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:57.769056+00:00",
+      "created_at": "2026-02-24T23:42:57.769056+00:00",
+      "snapshot_id": "snap-20260224234255-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Executive Director Recent",
+          "Share Buyback Programme"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01866",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "people_move",
+      "title": "ICG appoints Sujey Subramanian as Head of Asia-Pacific Corporate strategy",
+      "what_changed": "New announcement: ICG appoints Sujey Subramanian as Head of Asia-Pacific Corporate strategy",
+      "source_url": "https://www.icgam.com/2026/02/10/icg-appoints-sujey-subramanian-as-head-of-asia-pacific-corporate-strategy/",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:57.769056+00:00",
+      "created_at": "2026-02-24T23:42:57.769056+00:00",
+      "snapshot_id": "snap-20260224234255-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Sujey Subramanian",
+          "Pacific Corporate"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01867",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "other",
+      "title": "ICG Asia-Pacific Infrastructure partners with Ray8 Energy to scale its battery energy storage platform in Japan",
+      "what_changed": "New announcement: ICG Asia-Pacific Infrastructure partners with Ray8 Energy to scale its battery energy storage platform in Japan",
+      "source_url": "https://www.icgam.com/2026/01/22/icg-asia-pacific-infrastructure-partners-with-ray8-energy-to-scale-its-battery-energy-storage-platform-in-japan/",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:57.769056+00:00",
+      "created_at": "2026-02-24T23:42:57.769056+00:00",
+      "snapshot_id": "snap-20260224234255-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Pacific Infrastructure"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01868",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "other",
+      "title": "Recent US Credit Market Dislocation: Systemic or Idiosyncratic?",
+      "what_changed": "New announcement: Recent US Credit Market Dislocation: Systemic or Idiosyncratic?",
+      "source_url": "https://www.icgam.com/2025/10/24/recent-us-credit-market-dislocation-systemic-or-idiosyncratic/",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:57.769056+00:00",
+      "created_at": "2026-02-24T23:42:57.769056+00:00",
+      "snapshot_id": "snap-20260224234255-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Credit Market Dislocation"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01869",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "other",
+      "title": "Remarkable Resilience: Global Economic and Private Markets Update",
+      "what_changed": "New announcement: Remarkable Resilience: Global Economic and Private Markets Update",
+      "source_url": "https://www.icgam.com/2025/09/18/remarkable-resilience-global-economic-and-private-markets-update/",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:57.769056+00:00",
+      "created_at": "2026-02-24T23:42:57.769056+00:00",
+      "snapshot_id": "snap-20260224234255-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Remarkable Resilience",
+          "Private Markets Update",
+          "Global Economic"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01870",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "deal_announced",
+      "title": "Trade War Update: US-EU trade deal reduces policy uncertainty and downside growth risks",
+      "what_changed": "New announcement: Trade War Update: US-EU trade deal reduces policy uncertainty and downside growth risks",
+      "source_url": "https://www.icgam.com/2025/07/30/trade-war-update-us-eu-trade-deal-reduces-policy-uncertainty-and-downside-growth-risks/",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:57.769056+00:00",
+      "created_at": "2026-02-24T23:42:57.769056+00:00",
+      "snapshot_id": "snap-20260224234255-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Trade War Update"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01871",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "other",
+      "title": "Trade War Views: Implications for the Economic Outlook and Business Operating Environment",
+      "what_changed": "New announcement: Trade War Views: Implications for the Economic Outlook and Business Operating Environment",
+      "source_url": "https://www.icgam.com/2025/04/16/trade-war-views-implications-for-the-economic-outlook-and-business-operating-environment/",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:57.769056+00:00",
+      "created_at": "2026-02-24T23:42:57.769056+00:00",
+      "snapshot_id": "snap-20260224234255-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Business Operating Environment",
+          "Trade War Views",
+          "Economic Outlook"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01872",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "signal_type": "deal_announced",
+      "title": "Artisan Partners Asset Management Inc. added to Hellman & Friedman portfolio",
+      "what_changed": "Artisan Partners Asset Management Inc. added to Hellman & Friedman portfolio",
+      "source_url": "https://hf.com/portfolio/",
+      "source_name": "Hellman & Friedman",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:59.045749+00:00",
+      "created_at": "2026-02-24T23:42:59.045749+00:00",
+      "snapshot_id": "snap-20260224234253-c7a623be",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Artisan Partners Asset Management Inc."
+        ],
+        "people": [
+          "Artisan Partners Asset",
+          "Management Inc"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01873",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "signal_type": "deal_announced",
+      "title": "Blackbaud, Inc. added to Hellman & Friedman portfolio",
+      "what_changed": "Blackbaud, Inc. added to Hellman & Friedman portfolio",
+      "source_url": "https://hf.com/portfolio/",
+      "source_name": "Hellman & Friedman",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:59.045749+00:00",
+      "created_at": "2026-02-24T23:42:59.045749+00:00",
+      "snapshot_id": "snap-20260224234253-c7a623be",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Blackbaud, Inc."
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01874",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "signal_type": "deal_announced",
+      "title": "Digitas, Inc. added to Hellman & Friedman portfolio",
+      "what_changed": "Digitas, Inc. added to Hellman & Friedman portfolio",
+      "source_url": "https://hf.com/portfolio/",
+      "source_name": "Hellman & Friedman",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:59.045749+00:00",
+      "created_at": "2026-02-24T23:42:59.045749+00:00",
+      "snapshot_id": "snap-20260224234253-c7a623be",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Digitas, Inc."
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01875",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "signal_type": "deal_announced",
+      "title": "DoubleClick, Inc. added to Hellman & Friedman portfolio",
+      "what_changed": "DoubleClick, Inc. added to Hellman & Friedman portfolio",
+      "source_url": "https://hf.com/portfolio/",
+      "source_name": "Hellman & Friedman",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:59.045749+00:00",
+      "created_at": "2026-02-24T23:42:59.045749+00:00",
+      "snapshot_id": "snap-20260224234253-c7a623be",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "DoubleClick, Inc."
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01876",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "signal_type": "deal_announced",
+      "title": "Ellucian, Inc. added to Hellman & Friedman portfolio",
+      "what_changed": "Ellucian, Inc. added to Hellman & Friedman portfolio",
+      "source_url": "https://hf.com/portfolio/",
+      "source_name": "Hellman & Friedman",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:42:59.045749+00:00",
+      "created_at": "2026-02-24T23:42:59.045749+00:00",
+      "snapshot_id": "snap-20260224234253-c7a623be",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Ellucian, Inc."
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01877",
+      "fund_id": "",
+      "fund_slug": "lone-star-funds",
+      "signal_type": "deal_announced",
+      "title": "Lone Star Completes Acquisition of Hillenbrand",
+      "what_changed": "February 10, 2026",
+      "source_url": "https://www.lonestarfunds.com/lone-star-completes-acquisition-of-hillenbrand/",
+      "source_name": "Lone Star Funds",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:02.298834+00:00",
+      "created_at": "2026-02-24T23:43:02.298834+00:00",
+      "snapshot_id": "snap-20260224234302-b4e23d80",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Lone Star Completes",
+          "Hillenbrand February"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01878",
+      "fund_id": "",
+      "fund_slug": "lone-star-funds",
+      "signal_type": "deal_announced",
+      "title": "Lone Star Acquires Alliance Ground International",
+      "what_changed": "January 22, 2026",
+      "source_url": "https://www.lonestarfunds.com/news/",
+      "source_name": "Lone Star Funds",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:02.298834+00:00",
+      "created_at": "2026-02-24T23:43:02.298834+00:00",
+      "snapshot_id": "snap-20260224234302-b4e23d80",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Alliance Ground International",
+          "Lone Star Acquires"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01879",
+      "fund_id": "",
+      "fund_slug": "lone-star-funds",
+      "signal_type": "exit_announced",
+      "title": "Lone Star Announces Sale of SENQCIA to Noritsu Koki",
+      "what_changed": "January 15, 2026",
+      "source_url": "https://www.lonestarfunds.com/news/",
+      "source_name": "Lone Star Funds",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:02.298834+00:00",
+      "created_at": "2026-02-24T23:43:02.298834+00:00",
+      "snapshot_id": "snap-20260224234302-b4e23d80",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Noritsu Koki January",
+          "Lone Star Announces"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01880",
+      "fund_id": "",
+      "fund_slug": "lone-star-funds",
+      "signal_type": "deal_announced",
+      "title": "Lone Star Acquires Coral Gables Office Complex",
+      "what_changed": "January 9, 2026",
+      "source_url": "https://www.lonestarfunds.com/news/",
+      "source_name": "Lone Star Funds",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:02.298834+00:00",
+      "created_at": "2026-02-24T23:43:02.298834+00:00",
+      "snapshot_id": "snap-20260224234302-b4e23d80",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Complex January",
+          "Coral Gables Office",
+          "Lone Star Acquires"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01881",
+      "fund_id": "",
+      "fund_slug": "lone-star-funds",
+      "signal_type": "deal_announced",
+      "title": "Lone Star Acquires Loan Secured by San Francisco Office Tower",
+      "what_changed": "January 8, 2026",
+      "source_url": "https://www.lonestarfunds.com/news/",
+      "source_name": "Lone Star Funds",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:02.298834+00:00",
+      "created_at": "2026-02-24T23:43:02.298834+00:00",
+      "snapshot_id": "snap-20260224234302-b4e23d80",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Tower January",
+          "Lone Star Acquires",
+          "San Francisco Office",
+          "Loan Secured"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01882",
+      "fund_id": "",
+      "fund_slug": "lone-star-funds",
+      "signal_type": "exit_announced",
+      "title": "Lone Star Announces Sale of SPX FLOW to ITT Inc.",
+      "what_changed": "December 5, 2025",
+      "source_url": "https://www.lonestarfunds.com/news/",
+      "source_name": "Lone Star Funds",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:02.298834+00:00",
+      "created_at": "2026-02-24T23:43:02.298834+00:00",
+      "snapshot_id": "snap-20260224234302-b4e23d80",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Lone Star Announces"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01883",
+      "fund_id": "",
+      "fund_slug": "lone-star-funds",
+      "signal_type": "deal_announced",
+      "title": "Lone Star Acquires Multi-Asset Real Estate Portfolio from St. James\u2019s Place",
+      "what_changed": "November 17, 2025",
+      "source_url": "https://www.lonestarfunds.com/news/",
+      "source_name": "Lone Star Funds",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:02.298834+00:00",
+      "created_at": "2026-02-24T23:43:02.298834+00:00",
+      "snapshot_id": "snap-20260224234302-b4e23d80",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Asset Real Estate",
+          "Lone Star Acquires",
+          "Place November"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01884",
+      "fund_id": "",
+      "fund_slug": "lone-star-funds",
+      "signal_type": "exit_announced",
+      "title": "Lone Star Announces Sale of Multi-Property Real Estate Portfolio Across Texas",
+      "what_changed": "November 10, 2025",
+      "source_url": "https://www.lonestarfunds.com/news/",
+      "source_name": "Lone Star Funds",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:02.298834+00:00",
+      "created_at": "2026-02-24T23:43:02.298834+00:00",
+      "snapshot_id": "snap-20260224234302-b4e23d80",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Property Real Estate",
+          "Portfolio Across Texas",
+          "Lone Star Announces"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01885",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "signal_type": "deal_announced",
+      "title": "Civitfun-logo-Azul added to P101 SGR portfolio",
+      "what_changed": "Civitfun-logo-Azul added to P101 SGR portfolio",
+      "source_url": "https://p101.it/portfolio/",
+      "source_name": "P101 SGR",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:10.870219+00:00",
+      "created_at": "2026-02-24T23:43:10.870219+00:00",
+      "snapshot_id": "snap-20260224234306-94323df3",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Civitfun-logo-Azul"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01886",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "signal_type": "deal_announced",
+      "title": "Habyt logo wordmark rich black rgb 1920px added to P101 SGR portfolio",
+      "what_changed": "Habyt logo wordmark rich black rgb 1920px added to P101 SGR portfolio",
+      "source_url": "https://p101.it/portfolio/",
+      "source_name": "P101 SGR",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:10.870219+00:00",
+      "created_at": "2026-02-24T23:43:10.870219+00:00",
+      "snapshot_id": "snap-20260224234306-94323df3",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Habyt logo wordmark rich black rgb 1920px"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01887",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "signal_type": "deal_announced",
+      "title": "Hotiday logo colors added to P101 SGR portfolio",
+      "what_changed": "Hotiday logo colors added to P101 SGR portfolio",
+      "source_url": "https://p101.it/portfolio/",
+      "source_name": "P101 SGR",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:10.870219+00:00",
+      "created_at": "2026-02-24T23:43:10.870219+00:00",
+      "snapshot_id": "snap-20260224234306-94323df3",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Hotiday logo colors"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01888",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "signal_type": "deal_announced",
+      "title": "Streetbeat logo light bg rgb added to P101 SGR portfolio",
+      "what_changed": "Streetbeat logo light bg rgb added to P101 SGR portfolio",
+      "source_url": "https://p101.it/portfolio/",
+      "source_name": "P101 SGR",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:10.870219+00:00",
+      "created_at": "2026-02-24T23:43:10.870219+00:00",
+      "snapshot_id": "snap-20260224234306-94323df3",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Streetbeat logo light bg rgb"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01889",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "signal_type": "deal_announced",
+      "title": "Jet hr logo white added to P101 SGR portfolio",
+      "what_changed": "Jet hr logo white added to P101 SGR portfolio",
+      "source_url": "https://p101.it/portfolio/",
+      "source_name": "P101 SGR",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:10.870219+00:00",
+      "created_at": "2026-02-24T23:43:10.870219+00:00",
+      "snapshot_id": "snap-20260224234306-94323df3",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Jet hr logo white"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01890",
+      "fund_id": "",
+      "fund_slug": "platinum-equity",
+      "signal_type": "other",
+      "title": "Read More How Sunrise Medical Supports Air Travel Innovation for Power Wheelchair Users Wheelchair manufacturer works to assist users who need assistance while flying. Read More",
+      "what_changed": "Wheelchair manufacturer works to assist users who need assistance while flying.",
+      "source_url": "https://www.platinumequity.com/news/how-sunrise-medical-supports-air-travel-innovation-for-power-wheelchair-users/",
+      "source_name": "Platinum Equity",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:24.345142+00:00",
+      "created_at": "2026-02-24T23:43:24.345142+00:00",
+      "snapshot_id": "snap-20260224234320-6bb5def5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Power Wheelchair Users",
+          "Sunrise Medical Supports",
+          "Read More Wheelchair",
+          "Read More How",
+          "Air Travel Innovation"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01891",
+      "fund_id": "",
+      "fund_slug": "platinum-equity",
+      "signal_type": "other",
+      "title": "How Sunrise Medical Supports Air Travel Innovation for Power Wheelchair Users",
+      "what_changed": "New announcement: How Sunrise Medical Supports Air Travel Innovation for Power Wheelchair Users",
+      "source_url": "https://www.platinumequity.com/news/how-sunrise-medical-supports-air-travel-innovation-for-power-wheelchair-users/",
+      "source_name": "Platinum Equity",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:24.345142+00:00",
+      "created_at": "2026-02-24T23:43:24.345142+00:00",
+      "snapshot_id": "snap-20260224234320-6bb5def5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "How Sunrise Medical",
+          "Power Wheelchair Users",
+          "Supports Air Travel"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01892",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "deal_announced",
+      "title": "A platform unlike any other, built on an accelerating breadth and depth of vision, expertise and relationships added to Silver Lake portfolio",
+      "what_changed": "A platform unlike any other, built on an accelerating breadth and depth of vision, expertise and relationships added to Silver Lake portfolio",
+      "source_url": "https://www.silverlake.com/portfolio/",
+      "source_name": "Silver Lake",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:28.871911+00:00",
+      "created_at": "2026-02-24T23:43:28.871911+00:00",
+      "snapshot_id": "snap-20260224234320-f09b320e",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "A platform unlike any other, built on an accelerating breadth and depth of vision, expertise and relationships"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01893",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "deal_announced",
+      "title": "Equinox Group added to Silver Lake portfolio",
+      "what_changed": "Equinox Group added to Silver Lake portfolio",
+      "source_url": "https://www.silverlake.com/portfolio/",
+      "source_name": "Silver Lake",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:28.871911+00:00",
+      "created_at": "2026-02-24T23:43:28.871911+00:00",
+      "snapshot_id": "snap-20260224234320-f09b320e",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Equinox Group"
+        ],
+        "people": [
+          "Equinox Group Health"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01894",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "deal_announced",
+      "title": "Fanatics, Inc. added to Silver Lake portfolio",
+      "what_changed": "Fanatics, Inc. added to Silver Lake portfolio",
+      "source_url": "https://www.silverlake.com/portfolio/",
+      "source_name": "Silver Lake",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:28.871911+00:00",
+      "created_at": "2026-02-24T23:43:28.871911+00:00",
+      "snapshot_id": "snap-20260224234320-f09b320e",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Fanatics, Inc."
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01895",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "deal_announced",
+      "title": "i2 added to Silver Lake portfolio",
+      "what_changed": "i2 added to Silver Lake portfolio",
+      "source_url": "https://www.silverlake.com/portfolio/",
+      "source_name": "Silver Lake",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:28.871911+00:00",
+      "created_at": "2026-02-24T23:43:28.871911+00:00",
+      "snapshot_id": "snap-20260224234320-f09b320e",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "i2"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01896",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "deal_announced",
+      "title": "Mission Pet Health added to Silver Lake portfolio",
+      "what_changed": "Mission Pet Health added to Silver Lake portfolio",
+      "source_url": "https://www.silverlake.com/portfolio/",
+      "source_name": "Silver Lake",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:28.871911+00:00",
+      "created_at": "2026-02-24T23:43:28.871911+00:00",
+      "snapshot_id": "snap-20260224234320-f09b320e",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Mission Pet Health"
+        ],
+        "people": [
+          "Mission Pet Health"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01897",
+      "fund_id": "",
+      "fund_slug": "augens-capital",
+      "signal_type": "deal_announced",
+      "title": "SRG Associati added to Augens Capital portfolio",
+      "what_changed": "SRG Associati added to Augens Capital portfolio",
+      "source_url": "https://www.augenscapital.com/portfolio/",
+      "source_name": "Augens Capital",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:33.730524+00:00",
+      "created_at": "2026-02-24T23:43:33.730524+00:00",
+      "snapshot_id": "snap-20260224234333-e3cf86d9",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "SRG Associati"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01898",
+      "fund_id": "",
+      "fund_slug": "augens-capital",
+      "signal_type": "deal_announced",
+      "title": "HOFI added to Augens Capital portfolio",
+      "what_changed": "HOFI added to Augens Capital portfolio",
+      "source_url": "https://www.augenscapital.com/portfolio/",
+      "source_name": "Augens Capital",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:33.730524+00:00",
+      "created_at": "2026-02-24T23:43:33.730524+00:00",
+      "snapshot_id": "snap-20260224234333-e3cf86d9",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "HOFI"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01899",
+      "fund_id": "",
+      "fund_slug": "augens-capital",
+      "signal_type": "deal_announced",
+      "title": "Bomaki added to Augens Capital portfolio",
+      "what_changed": "Bomaki added to Augens Capital portfolio",
+      "source_url": "https://www.augenscapital.com/portfolio/",
+      "source_name": "Augens Capital",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:33.730524+00:00",
+      "created_at": "2026-02-24T23:43:33.730524+00:00",
+      "snapshot_id": "snap-20260224234333-e3cf86d9",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Bomaki"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01900",
+      "fund_id": "",
+      "fund_slug": "augens-capital",
+      "signal_type": "deal_announced",
+      "title": "Delta Med added to Augens Capital portfolio",
+      "what_changed": "Delta Med added to Augens Capital portfolio",
+      "source_url": "https://www.augenscapital.com/portfolio/",
+      "source_name": "Augens Capital",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:33.730524+00:00",
+      "created_at": "2026-02-24T23:43:33.730524+00:00",
+      "snapshot_id": "snap-20260224234333-e3cf86d9",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Delta Med"
+        ],
+        "people": [
+          "Delta Med"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01901",
+      "fund_id": "",
+      "fund_slug": "towerbrook",
+      "signal_type": "deal_announced",
+      "title": "Azzurri Group added to TowerBrook portfolio",
+      "what_changed": "Azzurri Group added to TowerBrook portfolio",
+      "source_url": "https://www.towerbrook.com/investments/",
+      "source_name": "TowerBrook",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:39.765000+00:00",
+      "created_at": "2026-02-24T23:43:39.765000+00:00",
+      "snapshot_id": "snap-20260224234331-688a3470",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Azzurri Group"
+        ],
+        "people": [
+          "Azzurri Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01902",
+      "fund_id": "",
+      "fund_slug": "kkr",
+      "signal_type": "deal_announced",
+      "title": "Darwinbox added to KKR portfolio (Information Technology)",
+      "what_changed": "Darwinbox added to KKR portfolio (Information Technology)",
+      "source_url": "https://www.kkr.com/invest/portfolio",
+      "source_name": "KKR",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:43:51.619969+00:00",
+      "created_at": "2026-02-24T23:43:51.619969+00:00",
+      "snapshot_id": "snap-20260224234316-9683ffac",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Darwinbox"
+        ],
+        "people": [
+          "Middle East",
+          "Southeast Asia",
+          "Darwinbox Information Technology",
+          "The Company"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01903",
+      "fund_id": "",
+      "fund_slug": "united-ventures",
+      "signal_type": "deal_announced",
+      "title": "D Orbit added to United Ventures portfolio",
+      "what_changed": "D Orbit added to United Ventures portfolio",
+      "source_url": "https://unitedventures.com/portfolio/",
+      "source_name": "United Ventures",
+      "published_at": null,
+      "observed_at": "2026-02-24T23:44:16.905102+00:00",
+      "created_at": "2026-02-24T23:44:16.905102+00:00",
+      "snapshot_id": "snap-20260224234416-ddb0c308",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "D Orbit"
+        ],
+        "people": [],
+        "locations": []
+      }
     }
   ],
-  "signal_count": 1857
+  "signal_count": 1903,
+  "translated_at": "2026-02-24T23:46:05.750354+00:00"
 }

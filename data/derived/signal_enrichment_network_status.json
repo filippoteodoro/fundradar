@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-02-24T22:10:40.062709+00:00",
-  "scope": "cherry-bay-capital",
+  "checked_at": "2026-02-25T00:02:52.082075+00:00",
+  "scope": "augens-capital,bic-capital,cherry-bay-capital,varde-partners,blackstone,kkr,oakley-capital,towerbrook,astorg,perwyn,investindustrial,cvc-dif,sosteneo,tpg,hellman-friedman,icg,silver-lake,lone-star-funds,warburg-pincus,ta-associates,investcorp,platinum-equity,charterhouse-capital-partners,tamburi-investment-partners,white-bridge-investments,azzurra-capital,p101-sgr,united-ventures,vam-investments",
   "strict_network_mode": true,
   "llm_connection_fallbacks": 0,
   "translation_network_errors": 0,

@@ -570,3 +570,10 @@ https://www.cvc.com/
 https://www.bu-partners.com/
 https://www.apeironmanagement.com/
 https://www.alphape.com/
+https://bic-capital.com/
+https://www.varde.com/
+https://www.towerbrook.com/
+https://www.perwyn.com/
+https://www.cvcdif.com/
+https://www.tpg.com/
+https://www.lonestarfunds.com/

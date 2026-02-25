@@ -1144,6 +1144,7 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 | Deleting progress files | NEVER delete `signal_enrichment_progress.json` or `detected_signals_enriched.json` — causes expensive re-runs. See `apps/worker/CLAUDE.md` for full cost details. |
 | UI doesn't show new data | Restart `pnpm dev` — the web app caches with no invalidation |
 | Portfolio entries show as garbage | Check `isValidPortfolioEntry()` in `data.ts` — NAV_PATTERNS reject navigation text |
+| **Claude Code blocks on long scripts** | **ALWAYS run Gemini/pipeline scripts with `run_in_background: true` and check progress with non-blocking `tail` commands. NEVER use blocking waits (`block=true`) on tasks that call Gemini APIs — a single fund can take 5+ minutes, batches can take hours. Use `ps aux \| grep scriptname` and `tail -N outputfile` to monitor progress instead.** |
 
 ### During deployment
 
