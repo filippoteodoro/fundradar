@@ -16,6 +16,8 @@ from signal_patterns import (  # noqa: E402
     CORE_GEO_TYPES,
     CORE_QUALITY_TYPES,
     _RE_ACQUISITION_VERBS,
+    _RE_PORTFOLIO_CO_AS_ACQUIRER,
+    _RE_PORTFOLIO_COMPANY_BACKED,
     _RE_BOARD_APPOINT,
     _RE_BOND_ISSUANCE,
     _RE_BUYER_CUES,
@@ -226,6 +228,167 @@ class TestOtherPatterns:
     def test_portfolio_update(self):
         assert _RE_PORTFOLIO_UPDATE.search("portfolio company xyz expands")
         assert _RE_PORTFOLIO_UPDATE.search("bolt-on acquisition by portfolio co")
+
+
+# ── _RE_PORTFOLIO_CO_AS_ACQUIRER ──────────────────────────────────────────────
+
+
+class TestPortfolioCoAsAcquirer:
+    """Tests for _RE_PORTFOLIO_CO_AS_ACQUIRER — the portfolio-company-as-acquirer detector.
+
+    Semantic contract:
+      MATCH  → portfolio company (not the fund) is making the acquisition → portfolio_update
+      NO MATCH → fund itself is the acquirer → deal_announced
+
+    These cases come from real BeBeez signals that were historically misclassified.
+    DO NOT weaken these tests without updating the pattern AND the audit results.
+    """
+
+    # ── Positive: portfolio company IS the acquirer ───────────────────────────
+
+    def test_hyphenated_backed_acquires(self):
+        """[Fund]-backed [Company] acquires X — canonical case."""
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "silver lake-backed facile.it acquires pratiche auto online"
+        )
+
+    def test_hyphenated_backed_acquires_variant(self):
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "silver lake-backed facile.it acquires horizon automotive"
+        )
+
+    def test_hyphenated_owned_merges(self):
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "kkr-owned company merges with competitor"
+        )
+
+    def test_backed_by_acquires(self):
+        """backed by [Fund] ... acquires — non-hyphenated variant."""
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "facile.it, backed by silver lake, acquires horizon automotive"
+        )
+
+    def test_backed_by_acquires_inline(self):
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "backed by ardian, euronics acquires a german retailer"
+        )
+
+    def test_portfolio_company_acquires(self):
+        """Explicit 'portfolio company' language with acquisition verb."""
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "bain capital portfolio company euronics acquires competitor"
+        )
+
+    def test_bolt_on_acquisition(self):
+        """bolt-on acquisition = BY DEFINITION portfolio company M&A."""
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "ardian-backed company completes bolt-on acquisition of xyz"
+        )
+
+    def test_add_on_deal(self):
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "portfolio company makes add-on deal in italy"
+        )
+
+    def test_tuck_in_acquisition(self):
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "tuck-in acquisition by portfolio co completed"
+        )
+
+    # BeBeez parenthetical format: "Company (Fund) acquires" — from live audit findings
+
+    def test_bebeez_parenthetical_eos_im(self):
+        """Lexham Power (EOS IM) acquires — real signal rss-signal-00117."""
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "lexham power (eos im) acquires majority stake in innovo agri"
+        )
+
+    def test_bebeez_parenthetical_argos(self):
+        """Axitea (Argos) acquires — real signal rss-signal-00096."""
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "axitea (argos) on its acquisition of surveye"
+        )
+
+    def test_bebeez_parenthetical_equinox(self):
+        """MVC Group (Equinox) acquires — real signal rss-signal-00010."""
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "mvc group (equinox) acquires wolvenberg nv"
+        )
+
+    def test_bebeez_parenthetical_charme(self):
+        """Bianalisi (Charme+Columna) acquires — real signal rss-signal-00056."""
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "bianalisi (charme+columna) acquires poliambulatorio oberdan"
+        )
+
+    def test_bebeez_parenthetical_investindustrial(self):
+        """Guala Closures (Investindustrial) acquires — real signal rss-signal-00138."""
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "guala closures (investindustrial) acquires plant from vinventions"
+        )
+
+    def test_bebeez_parenthetical_oakley(self):
+        """Phenna Group (Oakley Capital) makes sixth acquisition — real signal rss-signal-00018."""
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "phenna group (oakley capital) makes sixth acquisition of italian company"
+        )
+
+    def test_italian_partecipata(self):
+        """Italian 'partecipata da [Fund]' with acquisition verb."""
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "partecipata da ardian acquisisce la maggioranza di xyz"
+        )
+
+    def test_italian_controllata(self):
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "la controllata da clessidra acquisisce il concorrente"
+        )
+
+    def test_promoted_controlled_by(self):
+        assert _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "controlled by kkr, telecom italia acquires fibernet"
+        )
+
+    # ── _RE_PORTFOLIO_COMPANY_BACKED bug fix: 'acquires' must now match ───────
+
+    def test_backed_bug_fix_acquires(self):
+        """Bug: acquis\\w+ missed 'acquires' (uses 'acquir-' not 'acquis-').
+        Fixed by adding acquir\\w+ to _RE_PORTFOLIO_COMPANY_BACKED."""
+        assert _RE_PORTFOLIO_COMPANY_BACKED.search(
+            "backed by silver lake, facile.it acquires horizon automotive"
+        )
+
+    def test_backed_still_matches_acquisisce(self):
+        """Ensure Italian 'acquisisce' still matches after the fix."""
+        assert _RE_PORTFOLIO_COMPANY_BACKED.search(
+            "partecipata da ardian acquisisce la società xyz"
+        )
+
+    # ── Negative: fund is the acquirer, NOT a portfolio company ───────────────
+
+    def test_fund_directly_acquires_no_match(self):
+        """Silver Lake acquires X — fund is the subject, no 'backed' modifier."""
+        assert not _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "silver lake acquires facile.it in €1bn deal"
+        )
+
+    def test_fund_acquires_no_match_2(self):
+        assert not _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "kkr acquires italian tech company for €500m"
+        )
+
+    def test_hyphenated_backed_acquisition_guard(self):
+        """[Fund]-backed acquisition of X — 'backed' modifies abstract noun, not company.
+        Must NOT match: this is a fund-level deal, not portfolio company M&A."""
+        assert not _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "silver lake-backed acquisition of facile.it"
+        )
+
+    def test_year_in_parenthetical_no_match(self):
+        """Company (2024) acquires — year in parenthetical must not match."""
+        assert not _RE_PORTFOLIO_CO_AS_ACQUIRER.search(
+            "company (2024) acquires competitor"
+        )
 
     def test_report(self):
         assert _RE_REPORT.search("annual report 2024 published")

@@ -86,6 +86,7 @@ from signal_patterns import (
     _RE_PARTNERSHIP,
     _RE_PARTNERSHIP_EXCLUDE,
     _RE_PEOPLE_TITLE,
+    _RE_PORTFOLIO_CO_AS_ACQUIRER,
     _RE_PORTFOLIO_UPDATE,
     _RE_PROJECT_FINANCING,
     _RE_RACCOGLIE_EXCLUDE,
@@ -3858,31 +3859,18 @@ def main():
                 if not re.search(r"\b(?:acquir\w+|invest\w+\s+in\b|stake|majority|minority)\b", text_check_da2):
                     signal["signal_type"] = "fund_launch"
 
-        # Post-ML correction: deal_announced where portfolio company (not the fund) acquires → portfolio_update
-        # Pattern: "CompanyX, backed by FundY, acquires Z" or "CompanyX (FundY) acquires Z"
+        # Post-ML correction: deal_announced where portfolio company (not the fund) acquires → portfolio_update.
+        # Primary detection now in correct_deal() via _RE_PORTFOLIO_CO_AS_ACQUIRER (shared with enricher).
+        # This block handles the remaining signal-specific case: fund name appears only in parenthetical.
         if signal.get("signal_type") == "deal_announced":
             text_check_pu = (raw_title + " " + raw_summary).lower()
-            fund_slug = (signal.get("fund_slug") or "").replace("-", " ").lower()
-            fund_first = fund_slug.split()[0] if fund_slug else ""
-            # Check if company acquires and fund is in parenthetical/backing role
-            if re.search(r"\b(?:backed\s+by|controlled\s+by|owned\s+by|supported\s+by)\b.{0,50}\b(?:acquir\w+|complet\w+\s+acquisition)\b", text_check_pu):
-                signal["signal_type"] = "portfolio_update"
-            # "Fund-backed/controlled/owned Company acquires" (hyphenated)
-            elif re.search(r"\w+[\-\u2010\u2011\u2012\u2013](?:backed|controlled|owned)\s+\w+.*\b(?:acqui\w+|merg\w+|partner\w+|expansion|launch\w*)\b", text_check_pu):
-                signal["signal_type"] = "portfolio_update"
-            # "Fund backs/supports Company in its acquisition/merger"
-            elif re.search(r"\b(?:backs|supports?|sostiene)\s+\w+.*\b(?:acqui\w+|merg\w+|in\s+its)\b", text_check_pu):
-                signal["signal_type"] = "portfolio_update"
-            # "Fund's Company acquires" (possessive: portfolio co doing M&A)
-            elif re.search(r"\b\w+'s\s+\w+.*\b(?:acqui\w+|merg\w+|establish\w+|launch\w*|announc\w+\s+(?:the\s+)?acqui\w+)\b", text_check_pu):
-                signal["signal_type"] = "portfolio_update"
-            # "Promoted/controlled by Fund, Company acquires"
-            elif re.search(r"\b(?:promoted|controllat[oa]|promoss[oa]|controlled)\s+(?:by|da)\s+\w+.*\b(?:acqui\w+|espand\w+|expand\w+|merg\w+)\b", text_check_pu):
+            if _RE_PORTFOLIO_CO_AS_ACQUIRER.search(text_check_pu):
                 signal["signal_type"] = "portfolio_update"
             elif re.search(r"\b(?:acquir\w+|complet\w+\s+(?:the\s+)?acquisition)\b", text_check_pu):
-                # Check if the acquiring entity is NOT the fund (fund appears later in parenthetical)
+                # Fund mentioned only in parenthetical = portfolio company is the buyer
+                fund_slug = (signal.get("fund_slug") or "").replace("-", " ").lower()
+                fund_first = fund_slug.split()[0] if fund_slug else ""
                 if fund_first and len(fund_first) >= 3:
-                    # Fund mentioned only in parenthetical = portfolio company is the buyer
                     if re.search(rf"\([^)]*{re.escape(fund_first)}[^)]*\)", text_check_pu):
                         if not text_check_pu.startswith(fund_first):
                             signal["signal_type"] = "portfolio_update"

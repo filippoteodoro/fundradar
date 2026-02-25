@@ -107,8 +107,18 @@ const SECTOR_PLUS_STYLE: React.CSSProperties = {
   flex: '0 0 auto',
 };
 
-function SectorGroupsCell({ sectorTags, maxVisibleGroups }: { sectorTags: string[]; maxVisibleGroups: number }) {
-  const groups = useMemo(() => fundSectorGroups(sectorTags), [sectorTags]);
+function SectorGroupsCell({ sectorTags, italianSectorGroups, maxVisibleGroups }: { sectorTags: string[]; italianSectorGroups?: string[]; maxVisibleGroups: number }) {
+  const groups = useMemo(() => {
+    const allGroups = fundSectorGroups(sectorTags);
+    if (!italianSectorGroups || italianSectorGroups.length === 0) return allGroups;
+    // Sort: Italian portfolio sectors first (by count desc), then remaining groups
+    const priorityIndex = new Map(italianSectorGroups.map((g, i) => [g, i]));
+    return [...allGroups].sort((a, b) => {
+      const ai = priorityIndex.get(a) ?? Infinity;
+      const bi = priorityIndex.get(b) ?? Infinity;
+      return ai - bi;
+    });
+  }, [sectorTags, italianSectorGroups]);
 
   if (groups.length === 0) return <span style={{ color: '#999' }}>-</span>;
 
@@ -696,6 +706,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
                 >
                   <SectorGroupsCell
                     sectorTags={fund.sector_tags}
+                    italianSectorGroups={fund.italian_sector_groups}
                     maxVisibleGroups={maxVisibleSectorGroups}
                   />
                 </td>

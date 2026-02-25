@@ -619,9 +619,44 @@ _RE_CLOSING_FUND = re.compile(
     r"\bclosing\s+(?:del|di|per|of)\s+(?:il\s+)?(?:fondo|fund|oversubscribed)\b", re.IGNORECASE)
 
 # Portfolio company backed/partecipata patterns
+# NOTE: acquir\w+ covers English "acquires/acquired/acquiring"; acquis\w+ covers Italian/formal "acquisisce/acquisizione"
 _RE_PORTFOLIO_COMPANY_BACKED = re.compile(
-    r"\b(?:partecipata|sostenuta|backed)\b.*\b(?:acquis\w+|complet\w+|espand\w+|expand\w+|rafforz\w+)",
+    r"\b(?:partecipata|sostenuta|backed)\b.*\b(?:acquis\w+|acquir\w+|complet\w+|espand\w+|expand\w+|rafforz\w+)",
     re.IGNORECASE)
+
+# Portfolio company as acquirer — portfolio company (not the fund) is making the acquisition.
+# Covers the full family of phrasings where a PORTFOLIO COMPANY is the acquirer, not the fund.
+# These must be classified portfolio_update, not deal_announced.
+#
+# Key insight: "deal_announced" = fund deploys capital; "portfolio_update" = portfolio company acts.
+# When Facile.it (Silver Lake portfolio co) acquires X, Silver Lake didn't make a new investment —
+# its existing portfolio company made an add-on acquisition. → portfolio_update.
+_RE_PORTFOLIO_CO_AS_ACQUIRER = re.compile(
+    # "[Fund]-backed/-owned/-controlled [Company] acquires" — hyphenated compound adjective.
+    # Requires at least one word between "backed" and the acquisition verb (guards against
+    # "[Fund]-backed acquisition of X" which is a fund-level deal, not portfolio co M&A).
+    r"\b\w+[\-\u2010\u2011\u2012\u2013](?:backed|owned|controlled)\b\s+\w.{0,100}\b(?:acquir\w+|merg\w+|purchas\w+)\b"
+    # "backed by [Fund] ... acquires/merges" — fund name in non-principal position
+    r"|\bbacked\s+by\b.{0,120}\b(?:acquir\w+|merg\w+|purchas\w+)\b"
+    # "portfolio company acquires" — explicit portfolio language with acquisition verb
+    r"|\bportfolio\s+compan(?:y|ies)\b.{0,120}\b(?:acquir\w+|merg\w+)\b"
+    # Italian: "partecipata/sostenuta/controllata da/di [Fund] acquires"
+    r"|\b(?:partecipata|sostenuta|controllata)\s+(?:da|di|by)\b.{0,120}\b(?:acquir\w+|acquis\w+|merg\w+)\b"
+    # Italian: "tramite la sua partecipata/controllata ... acquires"
+    r"|\btramite\s+(?:la\s+sua\s+)?(?:partecipata|controllata)\b.{0,120}\b(?:acquir\w+|acquis\w+)\b"
+    # "promoted/controlled by [Fund] ... acquires/expands" (Italian-English hybrid)
+    r"|\b(?:promoted|controllat[oa]|promoss[oa]|controlled)\s+(?:by|da)\b.{0,120}\b(?:acquir\w+|espand\w+|expand\w+|merg\w+)\b"
+    # Bolt-on/add-on/tuck-in acquisition — BY DEFINITION portfolio company M&A
+    r"|\b(?:add[\-\s]?on|bolt[\-\s]?on|tuck[\-\s]?in)\s+(?:acqui\w+|deal|investment|operazion\w+)\b"
+    r"|\b(?:acqui\w+|deal)\b.{0,30}\b(?:add[\-\s]?on|bolt[\-\s]?on|tuck[\-\s]?in)\b"
+    # "Company (Fund) acquires" — BeBeez-style parenthetical fund name.
+    # The first char of the parenthetical must be a letter (guards against year "(2024)" etc.).
+    # E.g.: "Lexham Power (EOS IM) acquires Innovo Agri",
+    #        "Bianalisi (Charme+Columna) acquires X",
+    #        "Phenna Group (Oakley Capital) makes sixth acquisition"
+    r"|\b\w[\w\s.,'-]{2,50}\s+\([A-Za-z][^)]{2,59}\)\s*.{0,60}\b(?:acquir\w+|acquis\w+|merg\w+)\b",
+    re.IGNORECASE,
+)
 
 # Interview patterns (for people_move/partnership reclassification)
 _RE_INTERVIEW_EDITORIAL = re.compile(

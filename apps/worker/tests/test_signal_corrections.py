@@ -234,6 +234,62 @@ class TestCorrectDeal:
         )
         assert result == "portfolio_update"
 
+    # ── Portfolio company M&A — the class of bugs fixed Feb 2026 ─────────────
+
+    def test_hyphenated_backed_acquires_portfolio_update(self):
+        """[Fund]-backed [Company] acquires X → portfolio_update, NOT deal_announced.
+        Root cause: correct_deal() previously only checked _RE_PORTFOLIO_UPDATE (which
+        doesn't include 'backed') and blocked reclassification when deal verbs present."""
+        assert correct_deal(
+            "silver lake-backed facile.it acquires pratiche auto online",
+            "silver lake-backed facile.it acquires pratiche auto online",
+        ) == "portfolio_update"
+
+    def test_backed_by_acquires_portfolio_update(self):
+        assert correct_deal(
+            "facile.it, backed by silver lake, acquires horizon automotive",
+            "facile.it, backed by silver lake, acquires horizon automotive",
+        ) == "portfolio_update"
+
+    def test_bebeez_parenthetical_acquires(self):
+        """Company (Fund) acquires — BeBeez format from real audit findings."""
+        assert correct_deal(
+            "lexham power (eos im) acquires majority stake in innovo agri",
+            "lexham power (eos im) acquires majority stake in innovo agri",
+        ) == "portfolio_update"
+
+    def test_bebeez_parenthetical_oakley(self):
+        assert correct_deal(
+            "phenna group (oakley capital) makes sixth acquisition of italian company",
+            "phenna group (oakley capital) makes sixth acquisition",
+        ) == "portfolio_update"
+
+    def test_portfolio_company_acquires(self):
+        assert correct_deal(
+            "bain capital portfolio company euronics acquires competitor",
+            "portfolio company euronics acquires",
+        ) == "portfolio_update"
+
+    def test_bolt_on_is_portfolio_update(self):
+        """Bolt-on acquisition = portfolio company M&A, always portfolio_update."""
+        assert correct_deal(
+            "ardian portfolio company completes bolt-on acquisition of xyz",
+            "bolt-on acquisition completed",
+        ) == "portfolio_update"
+
+    def test_fund_directly_acquires_stays_deal(self):
+        """Fund itself acquires → deal_announced (not portfolio_update)."""
+        assert correct_deal(
+            "silver lake acquires facile.it in €1bn deal",
+            "silver lake acquires facile.it",
+        ) == "deal_announced"
+
+    def test_kkr_acquires_stays_deal(self):
+        assert correct_deal(
+            "kkr acquires italian tech company for €500m",
+            "kkr acquires italian tech company",
+        ) == "deal_announced"
+
 
 # ── correct_fundraise ─────────────────────────────────────────────────────────
 

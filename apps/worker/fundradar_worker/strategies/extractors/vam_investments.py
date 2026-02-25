@@ -12,7 +12,7 @@ DOMAIN = "www.vaminvestments.com"
 
 URLS = {
     "portfolio": "/en/portfolio-en/",
-    "team": "/en/team-en/",
+    "team": "/team/",
     "news": None,
 }
 

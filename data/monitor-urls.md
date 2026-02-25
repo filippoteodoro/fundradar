@@ -577,3 +577,8 @@ https://www.perwyn.com/
 https://www.cvcdif.com/
 https://www.tpg.com/
 https://www.lonestarfunds.com/
+https://antin-ip.com/
+https://searchlightcap.com/
+https://www.rhonegroup.com/
+https://www.tdrcapital.com/
+https://www.stirlingsquare.com/

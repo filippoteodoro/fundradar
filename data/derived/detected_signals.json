@@ -51602,8 +51602,123 @@
         "locations": []
       },
       "deal_amount": "4,4 mln euro"
+    },
+    {
+      "id": "web-signal-01904",
+      "fund_id": "",
+      "fund_slug": "searchlight-capital-partners",
+      "signal_type": "deal_announced",
+      "title": "Skip to Main Content added to Searchlight Capital Partners portfolio",
+      "what_changed": "Skip to Main Content added to Searchlight Capital Partners portfolio",
+      "source_url": "https://searchlightcap.com/portfolio/",
+      "source_name": "Searchlight Capital Partners",
+      "published_at": null,
+      "observed_at": "2026-02-25T13:21:47.315315+00:00",
+      "created_at": "2026-02-25T13:21:47.315315+00:00",
+      "snapshot_id": "snap-20260225132146-4c9d02fc",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Skip to Main Content"
+        ],
+        "people": [
+          "Main Content"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01905",
+      "fund_id": "",
+      "fund_slug": "searchlight-capital-partners",
+      "signal_type": "deal_announced",
+      "title": "Portfolio added to Searchlight Capital Partners portfolio",
+      "what_changed": "Portfolio added to Searchlight Capital Partners portfolio",
+      "source_url": "https://searchlightcap.com/portfolio/",
+      "source_name": "Searchlight Capital Partners",
+      "published_at": null,
+      "observed_at": "2026-02-25T13:21:47.315315+00:00",
+      "created_at": "2026-02-25T13:21:47.315315+00:00",
+      "snapshot_id": "snap-20260225132146-4c9d02fc",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Portfolio"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01906",
+      "fund_id": "",
+      "fund_slug": "searchlight-capital-partners",
+      "signal_type": "deal_announced",
+      "title": "Skip Companies List added to Searchlight Capital Partners portfolio",
+      "what_changed": "Skip Companies List added to Searchlight Capital Partners portfolio",
+      "source_url": "https://searchlightcap.com/portfolio/",
+      "source_name": "Searchlight Capital Partners",
+      "published_at": null,
+      "observed_at": "2026-02-25T13:21:47.315315+00:00",
+      "created_at": "2026-02-25T13:21:47.315315+00:00",
+      "snapshot_id": "snap-20260225132146-4c9d02fc",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Skip Companies List"
+        ],
+        "people": [
+          "Skip Companies List"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00151",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Sinergy Flow, 7 milioni di euro per la startup delle batterie green",
+      "what_changed": "CDP Venture Capital SGR led a \u20ac7 million investment in Sinergy Flow, an Italian startup developing low-cost green flow-battery technology to integrate renewables into power systems. The funding backs R&D and commercialization in the energy storage sector and highlights active involvement by the Italian national VC arm.",
+      "source_url": "https://www.economyup.it/startup/sinergy-flow-7-milioni-di-euro-per-la-startup-delle-batterie-green/",
+      "source_name": "EconomyUp",
+      "published_at": "2026-02-25T09:35:21+00:00",
+      "observed_at": "2026-02-25T13:25:01.693311+00:00",
+      "created_at": "2026-02-25T13:25:01.693311+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Sinergy Flow"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac7 million"
     }
   ],
-  "signal_count": 1903,
-  "translated_at": "2026-02-25T06:56:01.718020+00:00"
+  "signal_count": 1906,
+  "translated_at": "2026-02-25T13:25:18.656518+00:00"
 }

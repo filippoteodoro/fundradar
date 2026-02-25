@@ -224,6 +224,7 @@ def map_type_to_signal_type(
     type_label: str,
     current_type: str,
 ) -> str:
+    # Old short-name aliases (backward compatibility for legacy .pkl models)
     if type_label == "deal":
         return "deal_announced"
     if type_label == "exit":
@@ -236,6 +237,23 @@ def map_type_to_signal_type(
         return "fund_launch"
     if type_label == JOB_LABEL:
         return "job_posting"
-    if type_label == "other":
-        return "other"
+    # New full-name labels (direct passthrough — matches 11-class retrained model)
+    if type_label in {
+        "deal_announced",
+        "exit_announced",
+        "fund_launch",
+        "people_move",
+        "job_posting",
+        "portfolio_update",
+        "fundraise_announced",
+        "fundraise_closed",
+        "debt_financing",
+        "partnership",
+        "report",
+        "other",
+    }:
+        # Preserve fundraise sub-type already set by rules
+        if type_label == "fund_launch" and current_type in FUND_SIGNAL_TYPES:
+            return current_type
+        return type_label
     return type_label or current_type

@@ -3392,6 +3392,60 @@
       "last_checked_at": "2026-02-25T06:54:12.881638+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
+    },
+    "https://www.antin-ip.com/investments": {
+      "url": "https://www.antin-ip.com/investments",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-25T13:21:45.559041+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://searchlightcap.com/portfolio/": {
+      "url": "https://searchlightcap.com/portfolio/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-25T13:21:46.295941+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.tdrcapital.com/news/": {
+      "url": "https://www.tdrcapital.com/news/",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-25T13:21:47.655462+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.stirlingsquare.com/investments": {
+      "url": "https://www.stirlingsquare.com/investments",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-25T13:21:48.306582+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.stirlingsquare.com/news": {
+      "url": "https://www.stirlingsquare.com/news",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-02-25T13:21:56.940294+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.rhonegroup.com/portfolio/": {
+      "url": "https://www.rhonegroup.com/portfolio/",
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.rhonegroup.com', port=443): Max retries exceeded with url: /portfolio/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.rhonegroup.com', port=443): Failed to resolve 'www.rhonegroup.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-02-25T13:22:13.842490+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-02-25T13:27:13.842490+00:00"
     }
   }
 }

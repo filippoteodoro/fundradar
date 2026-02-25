@@ -229,6 +229,7 @@ Normalizes company names for deduplication across sources:
 | **Reliability** | `circuit_breaker.py`, `rate_limiter.py`, `health_report.py`, `quality_monitor.py` |
 | **I/O** | `io_utils.py`, `normalizer.py`, `url_utils.py`, `url_generator.py`, `entity_resolver.py` |
 | **Signal Pipeline** | `scripts/signal_patterns.py`, `scripts/signal_corrections.py`, `scripts/signal_text_utils.py`, `scripts/filter_signals.py`, `scripts/enrich_signals_openai.py`, `scripts/translate_signals.py` |
+| **ML Classifier** | `fundradar_worker/signal_classifier.py`, `fundradar_worker/signal_features.py`, `scripts/train_signal_classifier.py` |
 | **Translation** | `fundradar_worker/translator.py` (shared DeepL→Azure→OpenAI module) |
 
 ### Shared Signal Modules (scripts/)
@@ -245,7 +246,62 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 **When adding a new pattern**: add it to `signal_patterns.py`. Both filter and enricher import from it.
 **When adding a new text cleanup rule**: add it to `signal_text_utils.py` inside `clean_display_text()`. Applied uniformly to all text fields (title, what_changed, enriched_summary, diff_summary) in both filter and enricher.
 **When adding a new correction rule**: add it to `signal_corrections.py`. Both filter and enricher import and call it directly. Do NOT add inline correction patterns to `_reclassify_signal_type()` in `filter_signals.py` — they won't be shared with the enricher.
-**When adding a new signal type**: update `signal_patterns.py` (CORE_GEO_TYPES/CORE_QUALITY_TYPES), `signal_corrections.py`, `filter_signals.py`, `enrich_signals_openai.py`, `signalProcessing.ts`, `types.ts`, `SignalsFeed.tsx`.
+**When adding a new signal type**: update `signal_patterns.py` (CORE_GEO_TYPES/CORE_QUALITY_TYPES), `signal_corrections.py`, `filter_signals.py`, `enrich_signals_openai.py`, `signalProcessing.ts`, `types.ts`, `SignalsFeed.tsx`. Then retrain the ML classifier (`python scripts/train_signal_classifier.py`) so the new type gets a passthrough mapping in `map_type_to_signal_type()`.
+
+### ML Signal Classifier
+
+The filter uses an optional sklearn ML classifier (`signal_classifier.py`) for confidence-gated type prediction and keep/discard scoring. It is a secondary layer — rule-based corrections in `signal_corrections.py` always run after ML and can override its output.
+
+**Models** (in `data/models/`):
+
+| File | Purpose |
+|------|---------|
+| `signal_vectorizer.joblib` | TF-IDF vectorizer (shared by both models, fitted on filtered signals) |
+| `signal_type_model.joblib` | 11-class LogisticRegression for signal type |
+| `signal_keep_model.joblib` | Binary LogisticRegression for keep/discard |
+| `signal_feature_meta.json` | Metadata: labels, thresholds, train counts |
+
+**Current model (retrained Feb 2026)**:
+- Algorithm: `LogisticRegression(class_weight='balanced', solver='lbfgs')` for TYPE; `liblinear` for KEEP
+- TYPE: 11 classes, trained on 337 filtered signals (ground truth). Test macro-F1: ~0.43 (expected — small classes like `partnership`/`job_posting` won't produce confident predictions; rule-based corrections handle them)
+- KEEP: trained on 337 pos + 1,668 neg signals (raw minus filtered). Test keep-F1: ~0.75, accuracy 0.90
+- Thresholds: keep ≥ 0.70, type ≥ 0.60 (stored in `signal_feature_meta.json`, override via `SIGNAL_ML_KEEP_THRESHOLD` / `SIGNAL_ML_TYPE_THRESHOLD` env vars)
+- Features: TF-IDF (20k ngrams) + 18 engineered features (amount/date/keyword flags, page_category, italy_relevant, relevance_score)
+
+**Type labels** (all 11 full-name, passthrough via `map_type_to_signal_type()`):
+`deal_announced`, `exit_announced`, `fund_launch`, `people_move`, `job_posting`, `portfolio_update`, `fundraise_announced`, `fundraise_closed`, `debt_financing`, `partnership`, `other`
+
+Old short-name labels (`deal`, `exit`, `fund`, `people`, `job`) are still mapped for backward compatibility with legacy `.pkl` models.
+
+**To retrain** (after accumulating new filtered signals or adding new types):
+```bash
+cd apps/worker
+python scripts/train_signal_classifier.py
+# Optional flags:
+# --keep-threshold 0.72  --type-threshold 0.60  --seed 42
+```
+Overwrites the 3 `.joblib` files and `signal_feature_meta.json`. No pipeline restart needed — `get_signal_classifier()` loads from disk on next filter run (module-level singleton, reset between pipeline runs).
+
+**When NOT to retrain**: the ML classifier is confidence-gated. If `type_confident=False` the filter falls back to rule-based classification. Low macro-F1 on small classes is correct behavior — rules are the primary classification path for rare types.
+
+### Portfolio Company M&A Classification Rule
+
+**CRITICAL**: `deal_announced` = fund deploys capital. `portfolio_update` = portfolio company acts.
+
+When a **portfolio company** makes an acquisition, it's **always `portfolio_update`** — the fund is not making a new investment, its existing portfolio company is growing via add-on M&A.
+
+**Covered by `_RE_PORTFOLIO_CO_AS_ACQUIRER` in `signal_patterns.py`**:
+- `[Fund]-backed [Company] acquires X` — hyphenated compound adjective
+- `[Company], backed by [Fund], acquires X` — fund in non-principal position
+- `portfolio company acquires X` — explicit portfolio language
+- `bolt-on/add-on/tuck-in acquisition` — inherently portfolio company M&A
+- Italian equivalents: `partecipata/sostenuta/controllata da ... acquis*`
+
+**Classification wired in `correct_deal()` in `signal_corrections.py`** — fires before any deal-verb check, so acquisition verbs in the text don't prevent the reclassification. Both filter and enricher benefit automatically.
+
+**Negatives (stay `deal_announced`)**:
+- `[Fund] acquires [Company]` — fund is the subject, no "backed" modifier
+- `[Fund]-backed acquisition of X` — "backed" modifies the abstract noun "acquisition", no company between backed and the verb
 
 ### Shared Utility Functions — NEVER Re-implement Inline
 
@@ -455,3 +511,25 @@ Signal enrichment (`pnpm pipeline:signals` or step 8 of `pnpm pipeline`) makes O
 - Location: `apps/worker/tests/`
 - Fixtures: `tests/fixtures/`
 - Run: `cd apps/worker && pytest`
+
+### Signal Classification Test Suite
+
+The signal classification logic has a dedicated three-file test suite:
+
+| File | Purpose |
+|------|---------|
+| `tests/test_signal_patterns.py` | Unit tests for every regex pattern in `signal_patterns.py` |
+| `tests/test_signal_corrections.py` | Unit tests for every correction function in `signal_corrections.py` |
+| `tests/test_signal_classification.py` | **End-to-end living spec** — tests the full `apply_type_corrections()` contract |
+
+**`test_signal_classification.py` is the canonical classification contract.** It covers:
+- Portfolio company M&A (the class of bugs fixed Feb 2026): all 8 BeBeez parenthetical patterns, bolt-on/add-on, hyphenated-backed, Italian variants
+- Deal vs exit disambiguation: evaluating/exploring a sale, completed sale, seller-side language
+- Fundraise vs deal: final close, company rounds, ordinal investments
+- People move: rescue from other, demotion of false positives
+- Debt financing vs deal: bonds, credit facilities, restructuring agreements
+- Universal demotions: press reviews, events, editorials, opinion
+- Other → type rescue: over-demoted signals with clear type indicators
+- **Section 8 (`TestFeb2026AuditRegressions`)**: exact signal IDs from the Feb 2026 audit — every signal fix committed during that audit has a corresponding regression test
+
+**When changing classification logic**: at least one test in this suite must break or a new test must be added. If nothing breaks, the change may be silently wrong.

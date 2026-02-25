@@ -29,6 +29,8 @@ import {
   resolveFundNamesForSlugs,
   type FundMentionEntry,
 } from './signalFundTags';
+import { isItalianCompany } from './italianCompany';
+import { canonicalizeSectorTag, SECTOR_TO_GROUP } from './sectorGroups';
 
 interface Database {
   generated_at: string;
@@ -1700,6 +1702,24 @@ export function getAllRealAnalytics(): Record<string, TeamAnalytics> {
  * Avoids serializing description, contacts, AIFI metrics, etc. to the client.
  */
 export function getAllFundsSlim(): FundSlim[] {
+  const portfolioData = loadPortfolios();
+  // Pre-compute Italian sector group priority per fund from portfolio data.
+  const italianSectorGroupsByFund: Record<string, string[]> = {};
+  for (const [slug, companies] of Object.entries(portfolioData.portfolios)) {
+    const groupCounts: Record<string, number> = {};
+    for (const company of companies) {
+      if (!isItalianCompany(company)) continue;
+      if (!company.sector) continue;
+      const canonical = canonicalizeSectorTag(company.sector);
+      const group = SECTOR_TO_GROUP[canonical];
+      if (group) groupCounts[group] = (groupCounts[group] || 0) + 1;
+    }
+    const sorted = Object.entries(groupCounts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([g]) => g);
+    if (sorted.length > 0) italianSectorGroupsByFund[slug] = sorted;
+  }
+
   return getAllFunds().map(f => ({
     id: f.id,
     slug: f.slug,
@@ -1716,6 +1736,7 @@ export function getAllFundsSlim(): FundSlim[] {
     aum_eur: f.aum_eur,
     investment_min_eur: f.investment_min_eur ?? null,
     investment_max_eur: f.investment_max_eur ?? null,
+    italian_sector_groups: italianSectorGroupsByFund[f.slug],
   }));
 }
 
@@ -1735,6 +1756,8 @@ export interface FundSlim {
   aum_eur?: number | null;
   investment_min_eur?: number | null;
   investment_max_eur?: number | null;
+  /** Sector groups ordered by Italian portfolio company count (desc). */
+  italian_sector_groups?: string[];
 }
 
 export function getMegaFundSlugs(): string[] {

@@ -1371,6 +1371,69 @@ The web app's `signalFundTags.ts` matches signal text against fund names to show
 
 ---
 
+## Reference: Manual Signal Creation
+
+When adding signals manually (e.g., for newly added funds with historical Italy-relevant events), follow these rules carefully.
+
+### Valid Signal Types
+
+The **only** valid values for `signal_type` are defined in `SignalType` in `packages/shared/src/types.ts`:
+
+| Signal Type | Description |
+|---|---|
+| `fundraise_announced` | Fund announces a new fundraise |
+| `fundraise_closed` | Fund closes a fundraise |
+| `fund_launch` | New fund vehicle launched |
+| `deal_announced` | New investment/acquisition announced |
+| `exit_announced` | Portfolio company sale/exit announced |
+| `debt_financing` | Bonds, refinancings, credit facilities, mezzanine |
+| `report` | Annual/sustainability/ESG reports |
+| `partnership` | Strategic partnership or collaboration |
+| `people_move` | Key hire, departure, or appointment |
+| `job_posting` | Career/hiring signal |
+| `portfolio_update` | News about existing portfolio companies |
+| `website_change` | Website content change detected |
+| `other` | Doesn't fit other categories |
+
+> **WARNING**: `"exit"` is NOT a valid signal type — you must use `"exit_announced"`. This is the most common mistake when creating manual signals.
+
+### Manual Signal Template
+
+Add manual signals to **both** `data/derived/detected_signals_filtered.json` and `data/derived/detected_signals_enriched.json`.
+
+```json
+{
+  "id": "manual-{fund-slug}-001",
+  "fund_id": "",
+  "fund_slug": "{fund-slug}",
+  "signal_type": "deal_announced",
+  "title": "Clear, factual English title describing the event",
+  "what_changed": "1-2 sentence description of what happened, with key details (amounts, companies, dates).",
+  "source_url": "https://example.com/real-article-url",
+  "source_name": "Reuters",
+  "published_at": "2025-06-15T00:00:00.000Z",
+  "observed_at": "2026-02-25T00:00:00.000Z",
+  "created_at": "2026-02-25T00:00:00.000Z",
+  "quality_score": 85,
+  "italy_relevant": true,
+  "enriched_summary": "",
+  "extraction_source": "manual"
+}
+```
+
+### Rules for Manual Signals
+
+1. **Signal types**: Only use values from the `SignalType` enum above — NEVER `"exit"`, always `"exit_announced"`
+2. **Source URLs**: Must be real, verifiable URLs from reputable sources (Reuters, FT, BeBeez, Il Sole 24 Ore, etc.)
+3. **Quality score**: Set to `85` (above the 80 threshold) for verified manual signals
+4. **IDs**: Use format `manual-{fund-slug}-NNN` (3-digit sequential)
+5. **Both files**: Add to both `detected_signals_filtered.json` AND `detected_signals_enriched.json`
+6. **enriched_summary**: Set to `""` for manual signals — the frontend will display the title
+7. **Language**: Write title and what_changed in English
+8. **italy_relevant**: Set to `true` for Italy-related events
+
+---
+
 ## Quick Reference: Commands
 
 | What | Command |

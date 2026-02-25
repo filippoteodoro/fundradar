@@ -13,7 +13,7 @@ DOMAIN = "p101.it"
 
 URLS = {
     "portfolio": "/portfolio/",
-    "team": "/about/team/",
+    "team": "/about/who-we-are/",
     "news": "/news-press/latest-news/",
 }
 

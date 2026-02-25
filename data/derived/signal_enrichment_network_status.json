@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-02-25T06:57:11.482852+00:00",
-  "scope": "tpg",
+  "checked_at": "2026-02-25T13:34:53.885667+00:00",
+  "scope": "antin-infrastructure-partners,searchlight-capital-partners,rhone-group,tdr-capital,stirling-square-capital-partners",
   "strict_network_mode": true,
   "llm_connection_fallbacks": 0,
   "translation_network_errors": 0,

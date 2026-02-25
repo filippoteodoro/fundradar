@@ -83,6 +83,7 @@ from signal_patterns import (
     _RE_PARTNERSHIP_EXCLUDE,
     _RE_PEOPLE_LANGUAGE,
     _RE_PEOPLE_TITLE,
+    _RE_PORTFOLIO_CO_AS_ACQUIRER,
     _RE_PORTFOLIO_COMPANY_BACKED,
     _RE_PORTFOLIO_UPDATE,
     _RE_PROJECT_FINANCING,
@@ -438,8 +439,15 @@ def correct_deal(text_lower: str, title_lower: str, diff_summary_lower: str = ""
     if re.search(r"\b(?:sells?|sold|divests?|divested|cede|ceduto)\s+(?:(?:\w+|[\d.]+%?)\s+)?(?:stake|position|shares?|interest|partecipazione|quota)\b", text_lower):
         return "exit_announced"
 
-    # Portfolio company news → portfolio_update (but NOT if deal verbs present)
-    # Check BOTH title and body: portfolio co acquiring another company = deal, not update
+    # Portfolio company (not the fund) is the acquirer → portfolio_update.
+    # "[Fund]-backed [Company] acquires X", "backed by [Fund]..acquires", bolt-on/add-on, etc.
+    # This fires BEFORE the _RE_PORTFOLIO_UPDATE check so acquisition verbs don't block it:
+    # when a portfolio company acquires, deal verbs are expected and correct — the key is
+    # that the PORTFOLIO COMPANY is the subject, not the fund deploying new capital.
+    if _RE_PORTFOLIO_CO_AS_ACQUIRER.search(text_lower):
+        return "portfolio_update"
+
+    # Portfolio company news → portfolio_update (no acquisition verbs = pure company update)
     if _RE_PORTFOLIO_UPDATE.search(text_lower):
         _has_deal_in_title = bool(_RE_ACQUISITION_VERBS.search(title_lower) or _RE_INVEST_VERBS.search(title_lower))
         _has_deal_in_body = bool(_RE_ACQUISITION_VERBS.search(text_lower) or _RE_STRONG_DEAL.search(text_lower))
@@ -834,6 +842,10 @@ def detect_portfolio_update(text_lower: str, current_type: str) -> Optional[str]
     if _RE_PORTFOLIO_COMPANY_BACKED.search(text_lower):
         return "portfolio_update"
 
+    # "[Fund]-backed [Company] acquires", bolt-on/add-on, "backed by [Fund] acquires", etc.
+    if _RE_PORTFOLIO_CO_AS_ACQUIRER.search(text_lower):
+        return "portfolio_update"
+
     return None
 
 
@@ -896,8 +908,19 @@ def apply_type_corrections(
     if current_type == "partnership":
         return correct_partnership(text_lower, title_lower)
 
-    # Portfolio update with strong deal language in title → deal
+    # Portfolio update correction
     if current_type == "portfolio_update":
+        # Guard: if portfolio company is the acquirer, KEEP as portfolio_update even when
+        # acquisition verbs are present in the title. Without this guard the enricher would
+        # re-demote "[Fund]-backed [Co] acquires X" back to deal_announced after the filter
+        # correctly classified it as portfolio_update.
+        if _RE_PORTFOLIO_CO_AS_ACQUIRER.search(text_lower):
+            # Still allow exit reclassification if the portfolio company is being sold
+            if _RE_STRONG_EXIT_VERBS.search(text_lower):
+                return "exit_announced"
+            return "portfolio_update"
+        # Generic portfolio_update with deal verbs in title → reclassify as deal
+        # (fund making a new investment that was initially tagged as portfolio update)
         if _RE_ACQUISITION_VERBS.search(title_lower) or _RE_INVEST_VERBS.search(title_lower):
             return "deal_announced"
         if _RE_STRONG_EXIT_VERBS.search(text_lower):

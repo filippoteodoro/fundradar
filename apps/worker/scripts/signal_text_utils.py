@@ -388,6 +388,19 @@ def fix_spacing(text: str) -> str:
     cleaned = re.sub(r"^\d+\s+(?=[A-Z])", "", cleaned)
     # Italian ordinals in text
     cleaned = re.sub(r"\b(\d+)\s+([ao])\s+", r"\1\2 ", cleaned)
+    # Brand name corrections (common LLM/OCR token splits)
+    cleaned = re.sub(r"\bOpen\s+AI\b", "OpenAI", cleaned)
+    cleaned = re.sub(r"\bUni\s*Credit\b", "UniCredit", cleaned)
+    cleaned = re.sub(r"\bBorg\s*Warner\b", "BorgWarner", cleaned)
+    cleaned = re.sub(r"\b[Bb]rand\s*[Oo]n\s+[Gg]roup\b", "BrandOn Group", cleaned)
+    cleaned = re.sub(r"\b[Ff]in\s*[Tt]ech\b", "fintech", cleaned)
+    cleaned = re.sub(r"\bTechnology\s*transfer\b", "Technology Transfer", cleaned, flags=re.IGNORECASE)
+    # Italian phrases that slip through translation
+    cleaned = re.sub(r"\bgestito\s+da\b", "managed by", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\bsociet[àa]\s+di\s+gestione\b", "management company", cleaned, flags=re.IGNORECASE)
+    # "IndustriaItaliana:" prefix artifact from RSS feeds
+    cleaned = re.sub(r"\bIndustria\s*[Ii]taliana\s*:\s*", "", cleaned)
+
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
     # Re-compact currency amount suffixes split by digit-letter spacing
     cleaned = re.sub(r'([€$£]\d+(?:[.,]\d+)?)\s+([KMBT])\b', r'\1\2', cleaned)
@@ -758,6 +771,11 @@ def normalize_monetary_values(text: str) -> str:
     result = re.sub(r'\bcentinaia\s+di\s+mln\b', 'hundreds of millions', result, flags=re.IGNORECASE)
     result = re.sub(r'\bdecine\s+di\s+milioni\b', 'tens of millions', result, flags=re.IGNORECASE)
 
+    # Catch-all: "EUR" + compact amount → € symbol (e.g. "EUR 200M" → "€200M")
+    result = re.sub(r'\bEUR\s*(\d+(?:[.,]\d+)?)\s*([KMBT])\b', lambda m: f"€{m.group(1)}{m.group(2)}", result)
+    # Reversed: "200M EUR" → "€200M"
+    result = re.sub(r'\b(\d+(?:[.,]\d+)?)\s*([KMBT])\s*EUR\b', lambda m: f"€{m.group(1)}{m.group(2)}", result)
+
     # Clean up spacing: "€ 500M" → "€500M"
     result = re.sub(r"€\s+(\d)", r"€\1", result)
 
@@ -1126,6 +1144,15 @@ def _cdt_strip_boilerplate(text: str, is_title: bool) -> str:
     # Strip "more details" suffix
     cleaned = re.sub(r"\s*more\s+details\s*$", "", cleaned, flags=re.IGNORECASE)
 
+    # Strip "Back Download Press Release" navigation artifact
+    cleaned = re.sub(r"\s*Back\s+Download\s+Press\s+Release\s*", " ", cleaned, flags=re.IGNORECASE)
+
+    # Strip trailing placeholder word "Historical" (LLM artifact)
+    cleaned = re.sub(r"\s*\.?\s*Historical\s*\.?\s*$", ".", cleaned, flags=re.IGNORECASE)
+    # Clean up trailing/leading period artifacts
+    cleaned = re.sub(r"^\.\s*", "", cleaned)
+    cleaned = re.sub(r"\.\.\s*$", ".", cleaned)
+
     return cleaned
 
 
@@ -1313,13 +1340,17 @@ def _cdt_strip_datelines_and_navigation(text: str) -> str:
     return cleaned
 
 
+# Actual acronyms that should be fully uppercased (not just short words)
+_GEO_ACRONYMS = {"uk", "us", "usa", "emea"}
+
+
 def _cdt_capitalize_proper_nouns(text: str) -> str:
     """Restore proper capitalization for geographic proper nouns."""
     cleaned = text
     for geo in _GEO_PROPER_NOUNS:
         cleaned = re.sub(
             r"\b" + re.escape(geo) + r"\b",
-            geo.upper() if len(geo) <= 4 else geo.title(),
+            geo.upper() if geo in _GEO_ACRONYMS else geo.title(),
             cleaned,
             flags=re.IGNORECASE,
         )
