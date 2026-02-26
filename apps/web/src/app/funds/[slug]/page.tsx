@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: fund.name,
     description: description.slice(0, 160),
     openGraph: {
-      title: `${fund.name} — ${category}`,
+      title: `${fund.name} - Fundradar`,
       description: description.slice(0, 200),
       type: 'website',
       url: `/funds/${fund.slug}`,
