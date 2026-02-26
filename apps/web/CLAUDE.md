@@ -101,8 +101,14 @@ Both paths share signal processing via **`signalProcessing.ts`** (defense-in-dep
 
 **`/signals` page** uses `signals_unified.ts`:
 - Tries files in priority: `detected_signals_enriched.json` → `detected_signals_filtered.json` → `detected_signals.json`
-- Normalizes to `UnifiedSignal` (extends Signal with `fund_name`, `page_category`, `diff_summary`, `enriched_summary`)
-- 3-layer dedup: composite key (`source_url::what_changed::published_at`), cross-fund dedup (`source_url::normTitle`), semantic dedup (50% word overlap within same fund_slug, with cross-language Italian↔English term equivalence)
+- Normalizes to `UnifiedSignal` (extends Signal with `fund_name`, `page_category`, `diff_summary`, `enriched_summary`, `signal_types`)
+- `signal_types?: SignalType[]` carries all types detected in a signal (e.g. `["fundraise_closed", "exit_announced"]`); primary type is always first. Rendered as secondary badges in `SignalCard.tsx`.
+- 4-check dedup (same loop pass for first 3, separate pass for semantic):
+  1. **Composite key** `source_url::what_changed::published_at` — exact match
+  2. **Content key** `normText::published_at` — same content, different URL
+  3. **Cross-fund key** `source_url::normTitle` — same article published under multiple fund slugs; merges fund tags via `mergeRelatedFundTags()`. Uses title as fallback when `what_changed` is empty (prevents CDP newsroom signals from all collapsing to one)
+  4. **Semantic dedup** (within same `fund_slug`, tiered thresholds): 40% overlap within 3 days; 50% within 7 days (both dates known); 60% when dates are unknown. Cross-language Italian↔English equivalences applied via `CROSS_LANG` map.
+- **`DEDUP_STRUCTURAL_WORDS`** strips fund-name slug words + PE/VC structural terms + English stop-words (articles, prepositions, conjunctions) before overlap calculation. The English stop-words are critical: without them, ecosystem newsroom funds whose titles all start with the fund name (e.g. "CDP Venture Capital invests in X") share many function words after slug stripping and get falsely deduped. **Do NOT remove the stop-words.** (Fixed Feb 2026 — recovered 7 incorrectly collapsed CDP signals.)
 - Does NOT cache — re-reads files on every call
 - Shows AI-enriched summaries when available
 
@@ -123,15 +129,17 @@ Both paths share signal processing via **`signalProcessing.ts`** (defense-in-dep
 For each fund, three pattern types are generated:
 1. **Full name**: e.g., `"permira associati"` — exact multi-word match
 2. **Cleaned name**: strips legal suffixes (SGR, S.p.A., etc.) — e.g., `"permira associati"` → `"permira associati"` (no change if no suffix)
-3. **First-word short brand**: ONLY for names with ≤2 words, where first word ≥6 chars and not in `GENERIC_SHORT_BRANDS` — e.g., `"permira"` from "Permira Associati"
+3. **First-word short brand**: for names where first word ≥6 chars and not in `GENERIC_SHORT_BRANDS` — e.g., `"permira"` from "Permira Associati", `"azimut"` from "Azimut Libera Impresa SGR". Only kept when the first word uniquely identifies exactly one fund (uniqueness filter).
 
 ### Cross-entity misattribution — the #1 risk
 
 **BUG CLASS**: If a fund name's first word is a common noun that appears in other entity names, signals about those entities get wrongly attributed to the fund. Example: "Cherry Bay Capital" → first word "cherry" → matches "Cherry Bank" in signal text.
 
 **Prevention** (two defenses):
-1. **Word count gate**: First-word patterns are ONLY created for names with ≤2 words. 3+ word names (e.g., "Cherry Bay Capital") rely on full/cleaned patterns only.
-2. **`GENERIC_SHORT_BRANDS` blocklist**: Common nouns (cherry, silver, golden, bridge, etc.) are blocked from becoming patterns even for 2-word names.
+1. **`GENERIC_SHORT_BRANDS` blocklist**: Common nouns (cherry, silver, golden, bridge, etc.) are blocked from becoming patterns regardless of name length.
+2. **Uniqueness filter**: A short-word pattern is only kept if it maps to exactly one fund across all of db.json. If any other fund shares the same first word, the pattern is silently dropped.
+
+Note: a previous ≤2-word count gate was removed (Feb 2026) — it blocked valid matches for 3+ word fund names (e.g., "Azimut Libera Impresa SGR"). The uniqueness filter already provides the necessary safety.
 
 **When adding a fund**: If the fund name's first word could match other entities, add it to `GENERIC_SHORT_BRANDS`. After running the pipeline, verify no misattributed signals appear on the fund's page.
 

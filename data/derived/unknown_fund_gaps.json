@@ -1,0 +1,74 @@
+{
+  "gaps": [
+    {
+      "mention": "Indaco Venture Partners SGR",
+      "suggested_slug": "indaco-venture-partners",
+      "signal_id": "test-1",
+      "signal_title": "D-Orbit raises \u20ac110M; exit for Indaco Venture Partners SGR TT Venture fund",
+      "alerted_at": "2026-02-26T18:07:50.183420+00:00"
+    },
+    {
+      "mention": "Investimento SGR",
+      "suggested_slug": "investimento",
+      "signal_id": "rss-signal-00153",
+      "signal_title": "Fondo Italiano d\u2019Investimento sgr, CIO giampaolo di dio leaves",
+      "alerted_at": "2026-02-26T20:00:39.173118+00:00"
+    },
+    {
+      "mention": "CDP VC SGR",
+      "suggested_slug": "cdp-vc",
+      "signal_id": "news-signal-20260205111509-fb1ed3df-595543c0",
+      "signal_title": "Primo space and CDP VC SGR invest \u20ac5.1M in sidereus space dynamics",
+      "alerted_at": "2026-02-26T20:00:39.173118+00:00"
+    },
+    {
+      "mention": "Finanziaria Internazionale Investments SGR",
+      "suggested_slug": "finanziaria-internazionale-investments",
+      "signal_id": "web-signal-01779",
+      "signal_title": "NOTICE: Amendments to the Management Regulations of the Italian reserved investment fund named \"Fondo Finint Bond",
+      "alerted_at": "2026-02-26T20:00:39.173118+00:00"
+    },
+    {
+      "mention": "Finint SGR",
+      "suggested_slug": "finint",
+      "signal_id": "web-signal-01779",
+      "signal_title": "NOTICE: Amendments to the Management Regulations of the Italian reserved investment fund named \"Fondo Finint Bond",
+      "alerted_at": "2026-02-26T20:00:39.173118+00:00"
+    },
+    {
+      "mention": "Clessidra Private Equity SGR",
+      "suggested_slug": "clessidra-private-equity",
+      "signal_id": "rss-signal-00034",
+      "signal_title": "Ottaviano (Clessidra): That's why we don't fear compounders",
+      "alerted_at": "2026-02-26T20:00:39.173118+00:00"
+    },
+    {
+      "mention": "EDG Alcedo SGR",
+      "suggested_slug": "edg-alcedo",
+      "signal_id": "rss-signal-00125",
+      "signal_title": "Advisors to Alcedo on its acquisition of EDG",
+      "alerted_at": "2026-02-26T20:00:39.173118+00:00"
+    },
+    {
+      "mention": "Capital Alternative Funds SGR",
+      "suggested_slug": "capital-alternative-funds",
+      "signal_id": "rss-signal-00113",
+      "signal_title": "banco bpm provides financing to Atena Societ\u00e0 Agricola, based in Arezzo, which is owned by the Idea Agro fund (De A Capi",
+      "alerted_at": "2026-02-26T20:00:39.173118+00:00"
+    },
+    {
+      "mention": "Partners SGR",
+      "suggested_slug": "partners",
+      "signal_id": "rss-signal-00120",
+      "signal_title": "Nineteenth acquisition in a row for Finlogic (Credem Private Equity, Aurora Growth Capital, and PM&Partners SGR), which ",
+      "alerted_at": "2026-02-26T20:00:39.173118+00:00"
+    },
+    {
+      "mention": "Credem Private Equity SGR",
+      "suggested_slug": "credem-private-equity",
+      "signal_id": "rss-signal-00120",
+      "signal_title": "Nineteenth acquisition in a row for Finlogic (Credem Private Equity, Aurora Growth Capital, and PM&Partners SGR), which ",
+      "alerted_at": "2026-02-26T20:00:39.173118+00:00"
+    }
+  ]
+}

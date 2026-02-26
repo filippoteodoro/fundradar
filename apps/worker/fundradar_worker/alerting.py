@@ -280,6 +280,42 @@ def send_url_failure_alerts(data_dir: Path, failure_threshold: int = 3):
     manager.send_pending_alerts()
 
 
+def send_unknown_fund_alerts(gaps: list[dict], config: AlertConfig) -> None:
+    """Send Telegram alerts for fund names found in signal text but missing from db.json.
+
+    Args:
+        gaps: List of gap dicts from fund_gap_detector.detect_unknown_fund_mentions()
+              Each dict: {mention, suggested_slug, signal_id, signal_title}
+        config: AlertConfig (use AlertConfig.from_env() in production)
+    """
+    if not gaps:
+        return
+    if not config.telegram_enabled and not config.webhook_enabled:
+        logger.info("No alert channels configured, skipping unknown fund alerts")
+        return
+
+    lines = ["Unknown fund mentions in signals — consider adding to db.json:\n"]
+    for gap in gaps[:20]:
+        lines.append(f"• {gap['mention']}")
+        lines.append(f"  Suggested slug: {gap['suggested_slug']}")
+        lines.append(f"  Signal: \"{gap['signal_title']}\"")
+        lines.append("")
+
+    if len(gaps) > 20:
+        lines.append(f"...and {len(gaps) - 20} more")
+
+    manager = AlertManager(config)
+    manager.add_alert(
+        Alert(
+            title=f"Unknown funds in signals: {len(gaps)} new mention(s)",
+            message="\n".join(lines),
+            level="info",
+            source="fund_gap_detector",
+        )
+    )
+    manager.send_pending_alerts()
+
+
 def prune_stale_url_statuses(data_dir: Path) -> int:
     """
     Remove entries from url_status.json that are not in any active extractor.

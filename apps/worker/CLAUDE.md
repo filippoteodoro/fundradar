@@ -63,6 +63,7 @@ Without `--force-extract`, updated extractor code won't take effect until the we
 | `fund_people_stats.json` | `linkedin/*.py` | `getTeamAnalyticsForFund()` |
 | `fund_aliases.json` | manual/generated | `slug_normalizer.py` (canonicalizes/blocks slugs) |
 | `signal_to_portfolio_progress.json` | `signal_to_portfolio.py` | (progress tracking, not consumed by web) |
+| `unknown_fund_gaps.json` | `fund_gap_detector.py` (called by `filter_signals.py`) | (worker-only dedup state, not consumed by web) |
 
 ## Critical Rules
 
@@ -228,7 +229,7 @@ Normalizes company names for deduplication across sources:
 | **External** | `aifi_scraper.py`, `ingest_pem.py`, `linkedin/` |
 | **Reliability** | `circuit_breaker.py`, `rate_limiter.py`, `health_report.py`, `quality_monitor.py` |
 | **I/O** | `io_utils.py`, `normalizer.py`, `url_utils.py`, `url_generator.py`, `entity_resolver.py` |
-| **Signal Pipeline** | `scripts/signal_patterns.py`, `scripts/signal_corrections.py`, `scripts/signal_text_utils.py`, `scripts/filter_signals.py`, `scripts/enrich_signals_openai.py`, `scripts/translate_signals.py` |
+| **Signal Pipeline** | `scripts/signal_patterns.py`, `scripts/signal_corrections.py`, `scripts/signal_text_utils.py`, `scripts/filter_signals.py`, `scripts/enrich_signals_openai.py`, `scripts/translate_signals.py`, `scripts/fund_gap_detector.py` |
 | **ML Classifier** | `fundradar_worker/signal_classifier.py`, `fundradar_worker/signal_features.py`, `scripts/train_signal_classifier.py` |
 | **Translation** | `fundradar_worker/translator.py` (shared DeepL→Azure→OpenAI module) |
 
@@ -239,13 +240,22 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 | Module | Purpose | Consumers |
 |--------|---------|-----------|
 | `signal_patterns.py` | **Single source of truth** for compiled regex patterns, constants, utility functions | `filter_signals.py`, `enrich_signals_openai.py`, `signal_corrections.py`, `signal_text_utils.py` |
-| `signal_corrections.py` | Shared post-classification corrections (`apply_universal_demotions()`, `apply_type_corrections()`) | `filter_signals.py` (primary, runs after `_reclassify_signal_type()`), `enrich_signals_openai.py` (defense-in-depth) |
+| `signal_corrections.py` | Shared post-classification corrections (`apply_universal_demotions()`, `apply_type_corrections()`) + multi-type detection (`detect_all_signal_types()`) | `filter_signals.py` (primary, runs after `_reclassify_signal_type()`), `enrich_signals_openai.py` (defense-in-depth) |
 | `signal_text_utils.py` | Shared text cleaning: `clean_display_text()`, `fix_spacing()`, `normalize_monetary_values()`, `repair_token_splits()`, AUM boilerplate stripping | `filter_signals.py`, `enrich_signals_openai.py` |
 | `translator.py` | Shared translation: language detection, DeepL quota management, Azure fallback, OpenAI fallback | `translate_signals.py` (pipeline step), `enrich_signals_openai.py` (safety net) |
 
 **When adding a new pattern**: add it to `signal_patterns.py`. Both filter and enricher import from it.
 **When adding a new text cleanup rule**: add it to `signal_text_utils.py` inside `clean_display_text()`. Applied uniformly to all text fields (title, what_changed, enriched_summary, diff_summary) in both filter and enricher.
 **When adding a new correction rule**: add it to `signal_corrections.py`. Both filter and enricher import and call it directly. Do NOT add inline correction patterns to `_reclassify_signal_type()` in `filter_signals.py` — they won't be shared with the enricher.
+
+### fund_gap_detector.py — Unknown Fund Detection
+
+`detect_unknown_fund_mentions(signals, known_slugs)` in `scripts/fund_gap_detector.py` scans filtered signal text for Italian-style fund names (matching `[Proper Names] SGR/Venture Partners/etc.`) that are not in `known_slugs`. Called by `filter_signals.py` after writing `detected_signals_filtered.json`.
+
+- Deduplicates against `data/derived/unknown_fund_gaps.json` (30-day window) — no duplicate Telegram alerts for already-known gaps
+- Results sent via `send_unknown_fund_alerts()` in `fundradar_worker/alerting.py`
+- The whole block is wrapped in try/except — gap detection failures never block the filter output
+- `unknown_fund_gaps.json` is worker state only, not consumed by web; safe to delete to reset the 30-day dedup window
 **When adding a new signal type**: update `signal_patterns.py` (CORE_GEO_TYPES/CORE_QUALITY_TYPES), `signal_corrections.py`, `filter_signals.py`, `enrich_signals_openai.py`, `signalProcessing.ts`, `types.ts`, `SignalsFeed.tsx`. Then retrain the ML classifier (`python scripts/train_signal_classifier.py`) so the new type gets a passthrough mapping in `map_type_to_signal_type()`.
 
 ### signal_text_utils.py — Architecture Notes
@@ -258,6 +268,14 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 `fix_spacing()` — the "strip leading numbered list artifacts" rule requires **period or closing paren** after the number: `^\d+[.)]\s+`. This prevents stripping fund names that start with a number (e.g., "21 Invest", "3i"). Do NOT weaken this to bare `^\d+\s+` again.
 
 `correct_exit()` in `signal_corrections.py` — checks bond/debt patterns (`_RE_BOND_ISSUANCE`, `_RE_DEBT_FINANCING_BROAD`, `_RE_CREDIT_FACILITY`) before the general exit-verb checks. Bond/debt issuances were being mislabeled `exit_announced` before this was added (Feb 2026).
+
+`normalize_monetary_values()` — comma-formatted thousands (`€720,000`) are converted to compact notation (`€720K`, `€1.2M`) at the very beginning of the function, before all other rules. Pattern: `([€$£])\s*(\d{1,3}(?:,\d{3})+)(?!\s*[KMBT]|\d)`.
+
+`_TITLE_CASE_ACRONYMS` — expanded (Feb 2026) to include PE/finance terms: `LBO`, `MBO`, `NPL`, `SPAC`, `LP`, `GP`, `VC`, `PE`, `IRR`, `NAV`, `EV`, `SaaS`, `AI`, `ICT`, `B2B`, `B2C`, `SME`, `CVC`. The list restores correct casing after `.title()` lowercases them.
+
+`apply_universal_demotions()` — includes a conference-event-with-date check: titles matching `\d+(st|nd|rd|th)?\s+annual\b.{0,80}\d{1,2}/\d{1,2}/\d{4}` are demoted to `other`. This catches conference listings like "3rd Annual LPGP Connect CFO/COO 3/25/2026 - Capital Dynamics" that lack the usual congress/summit keywords.
+
+`apply_type_corrections()` `other` rescue — in addition to the existing "names/appoints X as role" rescue, a **standalone professional title** rescue fires when the title contains managing director / head of / chief * officer / etc. with no PE fund/investment language. Catches "Michele Romualdi managing director, Head of Investor Relations" type signals.
 
 `_passes_strict_quality_gates()` in `filter_signals.py` — **noise gates run BEFORE the `italy_focused` early return**. This order is intentional: bare portfolio extraction signals (just a company name, no context) must be caught even for italy-focused funds that otherwise get a pass on geo checks.
 

@@ -47,8 +47,18 @@ function normalizeWordsXL(words: Set<string>): Set<string> {
 }
 
 const DEDUP_STRUCTURAL_WORDS = new Set([
+  // PE/VC structural terms
   'sgr', 'capital', 'partners', 'group', 'investimenti', 'investment',
   'private', 'venture', 'fondo', 'fund', 'equity',
+  // English stop-words (articles, prepositions, conjunctions, aux verbs).
+  // Without these, coincidental function-word overlap (e.g. "in", "to", "the")
+  // inflates similarity ratios and causes false-positive semantic dedup — notably
+  // for CDP Venture Capital newsroom signals whose titles all start with "CDP
+  // Venture Capital [SGR] …" and share many of these function words after fund-slug
+  // stripping.
+  'the', 'of', 'in', 'to', 'an', 'a', 'for', 'and', 'with', 'at', 'by',
+  'from', 'on', 'as', 'is', 'are', 'was', 'were', 'be', 'been', 'has',
+  'had', 'have', 'will', 'that', 'this', 'it', 'its', 'or', 'so',
 ]);
 
 function parseSignalDate(s: { published_at?: string | null; observed_at?: string | null; created_at?: string | null }): number | null {
@@ -70,6 +80,7 @@ export interface UnifiedSignal extends Signal {
   page_type?: string;
   diff_summary?: string;
   snapshot_id?: string;
+  signal_types?: SignalType[];
 }
 
 interface WebsiteMonitorSignal {
@@ -99,6 +110,7 @@ interface WebsiteMonitorSignal {
   title_original?: string;
   what_changed_original?: string;
   related_fund_slugs?: string[];
+  signal_types?: SignalType[];
 }
 
 interface DetectedSignalsFile {
@@ -382,6 +394,7 @@ function normalizeWebsiteMonitorSignal(
     diff_summary: sig.diff_summary,
     snapshot_id: sig.snapshot_id,
     is_rumor: sig.is_rumor,
+    signal_types: sig.signal_types,
   };
 }
 

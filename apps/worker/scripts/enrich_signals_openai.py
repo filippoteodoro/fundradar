@@ -502,6 +502,10 @@ def _apply_final_type_and_overrides(signal: dict, filtered_signal_type: str | No
     elif _RE_JOB_SELECTION.search(_pc_text):
         signal["signal_type"] = "job_posting"
 
+    # Step 6: Capture all detected types (a signal can be exit_announced AND fundraise_closed)
+    from signal_corrections import detect_all_signal_types
+    signal["signal_types"] = detect_all_signal_types(signal)
+
 
 def _apply_post_type_corrections(signal: dict) -> None:
     """Apply shared + enricher-specific type corrections (internal helper).
@@ -2308,6 +2312,8 @@ def main(slugs_filter: str | None = None):
                 processed_ids.add(signal_id)
             if signal_key:
                 processed_keys.add(signal_key)
+            # Ensure signal_types is populated (detect_all_signal_types inside)
+            _apply_final_type_and_overrides(signal, _filtered_signal_type)
             continue
 
         # Needs LLM enrichment (or re-enrichment for target_companies extraction)

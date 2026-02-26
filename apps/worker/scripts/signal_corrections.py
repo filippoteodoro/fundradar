@@ -63,6 +63,7 @@ from signal_patterns import (
     _RE_FUNDRAISE_CLOSED_VERBS,
     _RE_FUNDRAISE_CLOSING,
     _RE_FUNDRAISE_MILESTONE,
+    _RE_FUNDRAISE_VERBS_FULL,
     _RE_HAS_ANY_PE_VERB,
     _RE_INTERNSHIP,
     _RE_INTERVIEW,
@@ -158,6 +159,11 @@ def apply_universal_demotions(text_lower: str, title_lower: str) -> Optional[str
     Returns the corrected type if a demotion applies, or None if no demotion.
     These run BEFORE type-specific corrections in both filter and enricher.
     """
+    # Conference events with date in title: "3rd Annual LPGP Connect 3/25/2026 - organizer"
+    # The date embedded in the title is the key differentiator for conference listings.
+    if re.search(r"\b\d+(?:st|nd|rd|th)?\s+annual\b.{0,80}\b\d{1,2}/\d{1,2}/\d{4}\b", text_lower):
+        return "other"
+
     # Press review / rassegna stampa → other (aggregated press clippings, not PE signals)
     # Also catch "Press Review:" prefix pattern from FIEE-SGR extractor
     if re.search(r"\b(?:rassegna\s+stampa|press\s+review)\b", text_lower):
@@ -953,6 +959,18 @@ def apply_type_corrections(
         # "names X as [role]" / "appoints X as [role]" → people_move
         if re.search(r"\b(?:names?|appoints?|appointed|hired?)\b.*\b(?:head|director|partner|managing|chief|ceo|cfo|coo|cto|president|chairman)\b", text_lower):
             return "people_move"
+        # Standalone professional title signal: title IS the person + role, no PE verbs.
+        # Catches "Michele Romualdi managing director, Head of Investor Relations" and similar
+        # signals where a website lists personnel with no transactional verb.
+        if re.search(
+            r"\b(?:managing\s+director|head\s+of|chief\s+\w+\s+officer|partner|president"
+            r"|vice\s+president|director\s+of|responsabile\s+(?:di|del|della))\b",
+            title_lower,
+        ) and not re.search(
+            r"\b(?:fund|fondo|capital|sgr|invest|acqui|rais|portfolio|raises?|launch|exit)\b",
+            title_lower,
+        ):
+            return "people_move"
         # "offers €XXM for" / "bids for" → deal_announced
         if _RE_OFFER_BID.search(text_lower) and re.search(r"[€$£]\s*\d+", text_lower):
             return "deal_announced"
@@ -961,3 +979,51 @@ def apply_type_corrections(
             return "deal_announced"
 
     return current_type
+
+
+def detect_all_signal_types(signal: dict) -> list[str]:
+    """Detect all signal types present in a signal's text.
+
+    Returns a list where the first element is the primary signal_type and
+    subsequent elements are additional types detected in the text. Only
+    secondary types that differ from the primary are included.
+
+    Example: a signal about D-Orbit raising €110M where Indaco exits would
+    return ["fundraise_closed", "exit_announced"].
+    """
+    primary = signal.get("signal_type") or "other"
+    text = (
+        (signal.get("title") or "") + " " + (signal.get("what_changed") or "")
+    ).lower()
+
+    result: list[str] = [primary]
+
+    def _add_if_new(stype: str) -> None:
+        if stype != primary and stype not in result:
+            result.append(stype)
+
+    # exit_announced
+    if _RE_EXIT_VERBS.search(text):
+        _add_if_new("exit_announced")
+
+    # fundraise_closed
+    if _RE_FUNDRAISE_CLOSING.search(text):
+        _add_if_new("fundraise_closed")
+
+    # fundraise_announced — only if no closing verbs (avoid duplicate with fundraise_closed)
+    if _RE_FUNDRAISE_VERBS_FULL.search(text) and not _RE_FUNDRAISE_CLOSING.search(text):
+        _add_if_new("fundraise_announced")
+
+    # people_move
+    if _RE_PEOPLE_TITLE.search(text) or _RE_PEOPLE_LANGUAGE.search(text):
+        _add_if_new("people_move")
+
+    # debt_financing
+    if _RE_BOND_ISSUANCE.search(text):
+        _add_if_new("debt_financing")
+
+    # deal_announced
+    if _RE_ACQUISITION_VERBS.search(text) or _RE_INVEST_VERBS.search(text):
+        _add_if_new("deal_announced")
+
+    return result

@@ -96,15 +96,13 @@ export function buildFundMentionEntries(funds: FundReference[]): FundMentionEntr
       addOwner(phraseOwners, cleaned, slug);
     }
 
-    // Only extract first-word short brand for names with ≤2 words.
-    // For 3+ word names (e.g. "Cherry Bay Capital"), the first word alone
-    // (e.g. "cherry") is too ambiguous and causes cross-entity matches
-    // (e.g. "Cherry Bank" matching cherry-bay-capital). Multi-word fund
-    // names are adequately covered by the full/cleaned name patterns above.
+    // Extract first-word short brand for unambiguous fund names (e.g. "azimut"
+    // from "Azimut Libera Impresa SGR"). The uniqueness filter below rejects
+    // patterns shared by multiple funds — the previous ≤2-word guard was
+    // redundant and blocked valid single-word matches for 3+ word fund names.
     const words = (cleaned || full).split(' ').filter(Boolean);
     const first = words[0] || '';
     if (
-      words.length <= 2 &&
       first.length >= 6 &&
       !GENERIC_SHORT_BRANDS.has(first)
     ) {

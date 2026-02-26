@@ -103,6 +103,15 @@ Every signal MUST have: `source_url`, `source_name`, `published_at` (if known), 
 ### 7. Scope
 Italy-only funds. Solo project — keep solutions minimal. Avoid over-engineering.
 
+### 8. Documentation Process — Update Docs Immediately
+**Whenever you discover anything new about the codebase** — a subtle behavior, a non-obvious pattern, a bug root cause, a pitfall — **update the relevant CLAUDE.md before the session ends**. Do not defer to a separate "docs pass".
+
+- Root `CLAUDE.md` — cross-cutting rules, architecture patterns, pitfalls
+- `apps/web/CLAUDE.md` — web-specific behaviors, dedup details, component logic
+- `apps/worker/CLAUDE.md` — pipeline, patterns, signal classification details
+
+If you learned it during a session, write it down. This is what prevents the same bug from being debugged twice.
+
 ## Data Pipeline
 
 ### Source → Output → Loader
@@ -117,6 +126,7 @@ Italy-only funds. Solo project — keep solutions minimal. Avoid over-engineerin
 | Team stats | `fund_people_stats.json` | `getTeamAnalyticsForFund()` |
 | LinkedIn URLs | `linkedin/fund_linkedin_urls.json` | merged at load time |
 | Fund coordinates | `fund_coordinates.json` | merged into `db.json` via `merge-aifi` |
+| Unknown fund gaps | `unknown_fund_gaps.json` | worker dedup state only (not consumed by web) |
 
 Pipeline: `monitor → rss → translate (DeepL→Azure→OpenAI) → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini) → filter (quality scoring) → enrich (AI summaries) → signal_to_portfolio (local)`
 
@@ -133,7 +143,9 @@ Content hashing skips unchanged pages — use `--force-extract` after updating e
 - **Entity resolution**: normalizes company names, fuzzy matching at 90% Jaccard
 - **Atomic writes**: `safe_json_write()` — NEVER use bare `open()/json.dump()`
 - **Signal quality**: defense-in-depth — Python `filter_signals.py` is primary gate, TS `signalProcessing.ts` is safety net
-- **Signal shared modules**: `signal_patterns.py` (regex patterns), `signal_corrections.py` (type corrections), `signal_text_utils.py` (text cleaning via `clean_display_text()`) — all consumed by filter and enricher
+- **Signal shared modules**: `signal_patterns.py` (regex patterns), `signal_corrections.py` (type corrections + `detect_all_signal_types()`), `signal_text_utils.py` (text cleaning via `clean_display_text()`) — all consumed by filter and enricher
+- **Multi-type signals**: `signal_types?: SignalType[]` on `Signal` holds all types present in a signal (e.g. `["fundraise_closed", "exit_announced"]`); primary type first. Written by both filter and enricher via `detect_all_signal_types()`. Rendered as secondary badges in `SignalCard.tsx`.
+- **Unknown fund alerting**: `fund_gap_detector.py` detects Italian-style fund names in signal text not in db.json; `alerting.py::send_unknown_fund_alerts()` sends Telegram alerts; dedup state in `data/derived/unknown_fund_gaps.json`
 - **Extractor vs pipeline boundary**: extractors handle site-specific HTML parsing/URL routing; pipeline handles universal classification language (e.g. "takes a stake" → deal). Fund-specific metadata (e.g. ecosystem newsrooms) goes in `db.json`, not hardcoded in pipeline code
 - **Fund metadata flags in db.json**: `is_ecosystem_newsroom` (newsroom covers the whole market, not just the fund's own activity — currently: cdp-venture-capital, itago, faro-value)
 
@@ -150,9 +162,10 @@ Content hashing skips unchanged pages — use `--force-extract` after updating e
 | `apps/worker/fundradar_worker/translator.py` | Shared translation module (DeepL→Azure→OpenAI) |
 | `apps/worker/scripts/filter_signals.py` | Primary quality gate (scoring, geo, dedup, reclassification) |
 | `apps/worker/scripts/signal_patterns.py` | Single source of truth for shared regex patterns |
-| `apps/worker/scripts/signal_corrections.py` | Shared post-classification corrections (filter + enricher) |
+| `apps/worker/scripts/signal_corrections.py` | Shared post-classification corrections + `detect_all_signal_types()` (filter + enricher) |
 | `apps/worker/scripts/signal_text_utils.py` | Shared text cleaning: `clean_display_text()`, `fix_spacing()`, `normalize_monetary_values()` |
 | `apps/worker/scripts/signal_to_portfolio.py` | Signal→portfolio conversion (local) |
+| `apps/worker/scripts/fund_gap_detector.py` | Detects unknown fund names in signal text; alerts via Telegram |
 | `apps/worker/fundradar_worker/strategies/extractors/` | Fund-specific extractors |
 
 ## Deployment (Vercel)
@@ -204,7 +217,6 @@ There are no login, signup, or watchlist features on production. All data is fre
 Items covered in detail by sub-project CLAUDE.md files are marked with → reference. Unique root-level pitfalls:
 
 1. **Worker runs but UI shows old data** → restart `pnpm dev` (→ `apps/web/CLAUDE.md`)
-20. **New sector tag in portfolio data breaks CI** → `sectorGroups.test.ts` scans all current `portfolio_items.json` entries and fails if any sector tag is unmapped. Whenever a new sector label appears in scraped/manual portfolio data, add it to `SECTOR_TAG_ALIASES` in `apps/web/src/lib/sectorGroups.ts` (map it to the nearest canonical sector or a strategy bucket like `Financial Services`). Run `pnpm test` locally before pushing.
 2. **Adding subpage URLs to `monitor-urls.md`** → NEVER. This file has base domain URLs only. Subpage routing is in extractors' `URLS` dicts.
 3. **Assuming fund website domains without checking AIFI** → verify URLs against `data/AIFI/all.csv`. AIFI is authoritative for member website URLs.
 4. **AIFI scraper sets wrong HQ for global funds** → Italian branch gets written as HQ. After ANY AIFI merge, cross-check `offices[]` is_hq entries against top-level `hq_*` fields. Preserve Italian office in `offices[]` when fixing global HQ.
@@ -223,6 +235,8 @@ Items covered in detail by sub-project CLAUDE.md files are marked with → refer
 17. **DeepL quota exhaustion sends Telegram alerts automatically** → Both keys exhausted = Telegram alert fires. Monthly quota resets on the 1st. `data/derived/deepl_quota_state.json` tracks per-key exhaustion — delete this file to reset state if needed.
 18. **NEVER block on long-running Gemini/pipeline scripts** → Pipeline runs, Gemini audit/enrichment scripts, and OpenAI enrichment can take **minutes to hours**. ALWAYS run them with `run_in_background: true`. Monitor progress via `tail -N outputfile` and `ps aux | grep scriptname`. Check progress JSON files (`gemini_fund_asset_audit_progress.json`, `fund_metadata_enrichment_progress.json`, `signal_enrichment_progress.json`) instead of blocking waits. NEVER run two instances of the same Gemini script — they share progress files and will corrupt each other.
 19. **NEVER appear stuck or idle** → When launching multiple parallel agents (research, enrichment, etc.), ALWAYS continue doing productive work while waiting. If you have 5 research agents running, start processing results from the first one that returns immediately — do NOT wait for all of them. If a background task takes > 2 minutes, check progress once and move on to other work. The user should ALWAYS see you actively producing output. **Batch work pattern**: launch agents → process results as they arrive → launch next batch. NEVER launch many agents and then sit idle waiting for all results.
+20. **New sector tag in portfolio data breaks CI** → `sectorGroups.test.ts` scans all current `portfolio_items.json` entries and fails if any sector tag is unmapped. Whenever a new sector label appears in scraped/manual portfolio data, add it to `SECTOR_TAG_ALIASES` in `apps/web/src/lib/sectorGroups.ts` (map it to the nearest canonical sector or a strategy bucket like `Financial Services`). Run `pnpm test` locally before pushing.
+21. **Semantic dedup false-positives in signals_unified.ts** → `DEDUP_STRUCTURAL_WORDS` strips fund-name slug words AND English stop-words before computing word overlap. If the stop-words are removed, ecosystem newsroom funds (CDP Venture Capital, Itago) whose signal titles all begin with the fund name will have many coincidental function-word matches and get falsely deduped. **NEVER remove the English stop-words from `DEDUP_STRUCTURAL_WORDS`** — they prevent ~7+ CDP signals from being incorrectly collapsed per run. See `apps/web/CLAUDE.md` for full dedup architecture details.
 
 For portfolio-specific pitfalls (PEM merge, garbage entries, manual entries, status detection): see `apps/web/CLAUDE.md`.
 For extractor/worker pitfalls (force-extract, PortfolioStore guard, site configs): see `apps/worker/CLAUDE.md`.

@@ -147,6 +147,7 @@ export interface Signal {
   // Includes fund_slug when available.
   related_fund_slugs?: string[];
   signal_type: SignalType;
+  signal_types?: SignalType[];      // all detected types (superset of signal_type)
   title: string;
   what_changed: string;
   source_url: string;

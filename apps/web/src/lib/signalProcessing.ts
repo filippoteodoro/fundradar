@@ -328,6 +328,9 @@ export function isGarbageSignal(signal: Signal, knownFundNames?: Set<string>): b
   // Event attendance that slipped through reclassification
   if (/\bguest\s+at\b.*\b(?:edition|congress|summit|conferenz|forum)\b/i.test(titleLower)) return true;
 
+  // Conference listing with embedded date: "3rd Annual LPGP Connect CFO/COO 3/25/2026 - Organizer"
+  if (/\b\d+(?:st|nd|rd|th)?\s+annual\b.{0,80}\b\d{1,2}\/\d{1,2}\/\d{4}/i.test(titleLower)) return true;
+
   // Vague "New investment involving [region]" with no company name
   if (/^new\s+(?:investment|deal)\s+involving\s+(?:latin\s+america|europe|asia|africa|middle\s+east|north\s+america|the\s+\w+\s+region)\s*$/i.test(title.trim())) return true;
 

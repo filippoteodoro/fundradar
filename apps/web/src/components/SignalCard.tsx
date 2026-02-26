@@ -66,6 +66,15 @@ export function SignalCard({ signal, showFundLink = false }: SignalCardProps) {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '12px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
           <span style={badgeStyle(typeStyle)}>{typeStyle.label}</span>
+          {(signal as any).signal_types?.slice(1).map((st: string) => {
+            const secStyle = SIGNAL_TYPE_STYLES[toDisplayType(st as Parameters<typeof toDisplayType>[0])] ?? SIGNAL_TYPE_STYLES.other;
+            if (secStyle === typeStyle) return null;
+            return (
+              <span key={st} style={{ ...badgeStyle(secStyle), opacity: 0.75 }}>
+                {secStyle.label}
+              </span>
+            );
+          })}
           {signal.is_rumor && (
             <span style={badgeStyle(RUMOR_STYLE)}>{RUMOR_STYLE.label}</span>
           )}

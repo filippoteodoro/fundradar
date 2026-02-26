@@ -107,6 +107,7 @@ from signal_patterns import (
 from signal_corrections import (
     apply_universal_demotions,
     apply_type_corrections,
+    detect_all_signal_types,
 )
 from signal_text_utils import (
     capitalize_entities,
@@ -3989,6 +3990,7 @@ def main():
 
         def _accept_signal(sig: dict, sc: int) -> None:
             """Track stats and append a kept signal."""
+            sig["signal_types"] = detect_all_signal_types(sig)
             filtered.append(sig)
             c = sig.get("quality_confidence") or "low"
             if c in confidence_distribution:
@@ -4066,6 +4068,17 @@ def main():
     }
 
     safe_json_write(OUTPUT_FILE, data)
+
+    # Detect mentions of unknown funds (not in db.json) and alert via Telegram
+    try:
+        from fund_gap_detector import detect_unknown_fund_mentions
+        from fundradar_worker.alerting import AlertConfig, send_unknown_fund_alerts
+        known_slugs = set(funds_by_slug.keys())
+        gaps = detect_unknown_fund_mentions(filtered, known_slugs)
+        if gaps:
+            send_unknown_fund_alerts(gaps, AlertConfig.from_env())
+    except Exception as _gap_exc:
+        print(f"Warning: fund gap detection failed: {_gap_exc}")
 
     print(f"\nScore distribution:")
     for range_name, count in score_distribution.items():

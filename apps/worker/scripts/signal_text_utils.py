@@ -196,8 +196,16 @@ CDP_NAME_CORRECTIONS = {
 
 # Acronyms to restore after title() lowercases them
 _TITLE_CASE_ACRONYMS = [
-    "Sgr", "Spa", "Srl", "Sas", "Eur", "Ceo", "Cfo", "Coo", "Cio",
-    "Ipo", "Esg", "Aifi", "Pem", "S.P.A.", "S.R.L.",
+    # Italian legal/institutional
+    "Sgr", "Spa", "Srl", "Sas", "Eur", "Aifi", "Pem", "S.P.A.", "S.R.L.",
+    # C-suite roles
+    "Ceo", "Cfo", "Coo", "Cio",
+    # Finance/PE terms
+    "Ipo", "Esg", "Lbo", "Mbo", "Npl", "Spac", "Lp", "Gp", "Vc", "Pe",
+    # Performance metrics
+    "Irr", "Nav", "Ev", "Dpi", "Moic", "Tvpi",
+    # Business/tech
+    "Saas", "Ai", "Ict", "B2b", "B2c", "Sme", "Cvc",
 ]
 
 # Italian prepositions/articles to lowercase in title case (not at start)
@@ -517,6 +525,24 @@ def normalize_monetary_values(text: str) -> str:
         return text
 
     result = text
+
+    # Comma-formatted thousands → compact notation: €720,000 → €720K, €1,200,000 → €1.2M
+    # Must run before other rules to avoid double-processing.
+    def _expand_comma_thousands(m: re.Match) -> str:  # type: ignore[type-arg]
+        sym = m.group(1)
+        val = int(m.group(2).replace(",", ""))
+        if val >= 1_000_000_000:
+            return f"{sym}{val / 1e9:.3g}B"
+        if val >= 1_000_000:
+            return f"{sym}{val / 1e6:.3g}M"
+        if val >= 1_000:
+            return f"{sym}{val // 1000}K"
+        return m.group(0)
+    result = re.sub(
+        r"([€$£])\s*(\d{1,3}(?:,\d{3})+)(?!\s*[KMBT]|\d)",
+        _expand_comma_thousands,
+        result,
+    )
 
     # Italian quantity words (from enricher)
     result = re.sub(r"\boltre\b", "over", result, flags=re.IGNORECASE)

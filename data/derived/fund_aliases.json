@@ -1,6 +1,6 @@
 {
   "description": "Maps variant/legacy fund slugs to their canonical slug in db.json. Every alias must be the SAME entity under a different name.",
-  "generated_at": "2026-02-13T15:20:32.000Z",
+  "generated_at": "2026-02-26T20:07:58.000Z",
   "aliases": {
     "21-investimenti": "21-invest",
     "21investimenti": "21-invest",
@@ -77,7 +77,12 @@
     "unigrains-italia": "unigrains",
     "wise-sgr": "wise-equity-sgr",
     "wise-venture-sgr": "wise-equity-sgr",
-    "banca-sella-holding": "sella-venture-partners"
+    "banca-sella-holding": "sella-venture-partners",
+    "cdp-vc": "cdp-venture-capital",
+    "cdp-vc-sgr": "cdp-venture-capital",
+    "finint-sgr": "finint-investments-sgr",
+    "finanziaria-internazionale-investments-sgr": "finint-investments-sgr",
+    "capital-alternative-funds-sgr": "dea-capital-alternative-funds-sgr"
   },
   "reverse_lookup": {
     "21-invest": [
@@ -131,7 +136,9 @@
       "the-carlyle-group"
     ],
     "cdp-venture-capital": [
-      "cdp-venture-capital-sgr"
+      "cdp-venture-capital-sgr",
+      "cdp-vc",
+      "cdp-vc-sgr"
     ],
     "charme-capital": [
       "charme-capital-partners-sgr"
@@ -277,6 +284,13 @@
     "wise-equity-sgr": [
       "wise-sgr",
       "wise-venture-sgr"
+    ],
+    "finint-investments-sgr": [
+      "finint-sgr",
+      "finanziaria-internazionale-investments-sgr"
+    ],
+    "dea-capital-alternative-funds-sgr": [
+      "capital-alternative-funds-sgr"
     ]
   },
   "invalid_slugs": [
@@ -292,7 +306,12 @@
     "sienna-im",
     "sienna-investment-managers-italia-sgr",
     "xenon-private-equity",
-    "zenitsgr-it"
+    "zenitsgr-it",
+    "investimento-sgr",
+    "edg-alcedo-sgr",
+    "partners-sgr",
+    "credem-private-equity-sgr",
+    "credem-private-equity"
   ],
   "domain_aliases": {
     "www.clessidrasgr.it": "www.clessidragroup.it",

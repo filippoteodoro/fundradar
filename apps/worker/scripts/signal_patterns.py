@@ -74,7 +74,9 @@ _RE_INVEST_VERBS = re.compile(
     r"|\binvestitore\s+unic\w*\s+al\s+fianco\s+di\b"
     r"|\bsole\s+investor\s+(?:backing|alongside)\b"
     r"|\btakes?\s+(?:a\s+)?(?:stake|quota|partecipazione)\b"
-    r"|\bpreso\s+(?:una?\s+)?(?:quota|partecipazione)\b",
+    r"|\bpreso\s+(?:una?\s+)?(?:quota|partecipazione)\b"
+    r"|\binvested\s+in\b"
+    r"|\b[€$£]\s*[\d.]+[MBK]?\s+in\s+investments?\b",
     re.IGNORECASE,
 )
 
@@ -236,7 +238,8 @@ _RE_PARTNERSHIP = re.compile(
     r"|\bdistribution\s+agreement\b|\bstrategic\s+alliance\b"
     r"|\bcollaborazione\s+strategica\b"
     r"|\baccordo\s+(?:di\s+)?(?:collaborazione|distribuzione|partnership)\b"
-    r"|\balleanza\s+strategica\b|\bintesa\s+(?:strategica|commerciale)\b",
+    r"|\balleanza\s+strategica\b|\bintesa\s+(?:strategica|commerciale)\b"
+    r"|\bjoins?\s+forces\b|\bjoined\s+forces\b",
     re.IGNORECASE,
 )
 
@@ -276,7 +279,7 @@ _RE_EXITED_FROM_PORTFOLIO = re.compile(
 # Standardized name: _RE_BOND_ISSUANCE (enricher called it _RE_BOND)
 _RE_BOND_ISSUANCE = re.compile(
     r"\b(?:bond|obbligazion\w+|emissione|rifinanzia\w+|refinanc\w+|debt\s+issuance"
-    r"|collocamento|collocare?)\b",
+    r"|collocamento|collocare?|minibond[s]?|mini\s+bond[s]?)\b",
     re.IGNORECASE,
 )
 
@@ -677,7 +680,12 @@ _RE_PEOPLE_LANGUAGE = re.compile(
     # Departure language — stepping down / leaving is still a people move
     r"|steps?\s+down|stepping\s+down|leaves?|leaving|left\s+(?:the\s+)?(?:firm|fund|company|role)"
     r"|resign\w*|depart\w*|dimission\w*|lascia|lasciat\w+|abbandona"
-    r"|succession\w*|succeed\w*|replac\w+)\b", re.IGNORECASE)
+    r"|succession\w*|succeed\w*|replac\w+"
+    # "names/appoints X as [role]" — announcement phrasing
+    r"|names?\s+\w[\w\s]{1,40}\s+as\s+(?:(?:new|incoming|interim|acting)\s+)?(?:head|chief|director|managing\s+director|partner|president|vice|senior)"
+    r"|appoints?\s+\w[\w\s]{1,40}\s+as\s+(?:(?:new|incoming|interim|acting)\s+)?(?:head|chief|director|managing\s+director|partner|president|vice|senior)"
+    r"|appointed\s+(?:as\s+)?(?:(?:new|incoming|interim|acting)\s+)?(?:head|chief|director|managing\s+director|partner|president|vice|senior)"
+    r")\b", re.IGNORECASE)
 
 # Appointment verbs (for advisory board context check)
 _RE_APPOINTMENT_VERBS = re.compile(
