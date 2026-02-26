@@ -90,6 +90,37 @@ LLM_TYPE_MAP = {
     "other": "other",
 }
 
+# Prospective/candidate language ("interested bidders", "in the running", rumors)
+# can mention many funds that are not confirmed active transaction parties.
+_STRONG_SPECULATIVE_CONTEXT_RE = re.compile(
+    r"\b(?:among|fra|tra)\s+(?:the\s+)?(?:interested|potential)\s+(?:bidders|buyers|parties|investors)\b"
+    r"|\b(?:interested|potential)\s+(?:bidders|buyers|parties|investors)\b"
+    r"|\bin\s+the\s+running\b"
+    r"|\bin\s+corsa\b"
+    r"|\bgli\s+interessati\b"
+    r"|\btra\s+gli\s+interessati\b"
+    r"|\bfra\s+gli\s+interessati\b"
+    r"|\b(?:vying|in\s+talks?|consider(?:ing)?)\b",
+    re.IGNORECASE,
+)
+_SPECULATIVE_CONTEXT_RE = re.compile(
+    r"\b(?:rumou?r(?:ed|s)?|reported(?:ly)?|could|might|may|possibly|potentially"
+    r"|in\s+talks?|consider(?:ing)?|valuta|negozia|studia|ipotesi)\b",
+    re.IGNORECASE,
+)
+_ACTIVE_PARTY_CONTEXT_RE = re.compile(
+    r"\b(?:acqui(?:res|red|ring|sition)|sell(?:s|ing)?|sold|sale|exit(?:s|ed)?"
+    r"|divest(?:s|ed)?|invest(?:s|ed|ing|ment)|back(?:ed)?|lead(?:s|ing)?"
+    r"|co[-\s]?invest(?:or|ors)?|together\s+with|with\s+participation"
+    r"|with\s+co[-\s]?investors?|guidat[oa]|partecipazion(?:e|i)"
+    r"|acquisisc(?:e|ono)|acquista(?:no)?|vende(?:re|no)?|cessione|uscita)\b",
+    re.IGNORECASE,
+)
+_LEGAL_SUFFIX_RE = re.compile(
+    r"\s*(S\.?p\.?A\.?|S\.?r\.?l\.?|SGR|SICAF|SIM|S\.?A\.?|Ltd\.?|Inc\.?|GmbH|LLP|LP)\s*$",
+    re.IGNORECASE,
+)
+
 
 def load_feeds(feed_name: str | None = None) -> list[dict]:
     """Load feed configuration from rss_feeds.json."""
@@ -340,6 +371,63 @@ def _normalize_for_match(text: str) -> str:
     return re.sub(r"\s+", " ", text.lower().strip())
 
 
+def _fund_name_variants_for_match(slug: str, fund_meta: dict[str, Any] | None) -> list[str]:
+    """Build normalized fund-name variants for context checks."""
+    variants: list[str] = []
+    seen: set[str] = set()
+
+    def _add(raw: str | None) -> None:
+        if not raw or not isinstance(raw, str):
+            return
+        norm = _normalize_for_match(raw)
+        if len(norm) < 4 or norm in seen:
+            return
+        seen.add(norm)
+        variants.append(norm)
+
+        clean = _normalize_for_match(_LEGAL_SUFFIX_RE.sub("", raw).strip())
+        if len(clean) >= 4 and clean not in seen:
+            seen.add(clean)
+            variants.append(clean)
+
+    if slug:
+        _add(slug.replace("-", " "))
+    meta = fund_meta or {}
+    _add(meta.get("name"))
+    _add(meta.get("legal_name"))
+    return variants
+
+
+def _is_speculative_only_fund_mention(
+    article_text: str,
+    slug: str,
+    fund_meta: dict[str, Any] | None,
+) -> bool:
+    """True when all occurrences of a fund mention are in speculative context."""
+    text = _normalize_for_match(article_text)
+    if not text:
+        return False
+
+    variants = _fund_name_variants_for_match(slug, fund_meta)
+    saw_match = False
+
+    for name in variants:
+        for match in re.finditer(r"\b" + re.escape(name) + r"\b", text):
+            saw_match = True
+            start = max(0, match.start() - 60)
+            end = min(len(text), match.end() + 60)
+            context = text[start:end]
+            if _STRONG_SPECULATIVE_CONTEXT_RE.search(context):
+                continue
+            is_speculative = bool(_SPECULATIVE_CONTEXT_RE.search(context))
+            has_active_evidence = bool(_ACTIVE_PARTY_CONTEXT_RE.search(context))
+            # If any occurrence is not speculative (or has active evidence), keep slug.
+            if not is_speculative or has_active_evidence:
+                return False
+
+    return saw_match
+
+
 def pre_filter_articles(
     entries: list[dict],
     fund_index: dict[str, str],
@@ -570,7 +658,18 @@ def articles_to_signals(
         llm_confirmed = set(classification.get("_llm_confirmed_slugs", []))
 
         # Keep only accepted slugs after portfolio-only guard.
-        accepted_slugs: list[str] = []
+        # Use raw title+description for context checks (not LLM summary), so we
+        # evaluate the original article language around each fund mention.
+        article_text = " ".join(
+            filter(
+                None,
+                [
+                    article.get("title", ""),
+                    article.get("description", ""),
+                ],
+            )
+        )
+        candidate_slugs: list[str] = []
         for slug in fund_slugs:
             # Skip if this slug was matched only via portfolio company name (not fund name)
             # AND the LLM didn't independently confirm it as relevant
@@ -579,8 +678,34 @@ def articles_to_signals(
                     f"Skipping portfolio-only match: {slug} for '{article['title'][:60]}'"
                 )
                 continue
-            if slug not in accepted_slugs:
-                accepted_slugs.append(slug)
+            if slug not in candidate_slugs:
+                candidate_slugs.append(slug)
+
+        if not candidate_slugs:
+            continue
+
+        speculative_only: dict[str, bool] = {}
+        for slug in candidate_slugs:
+            speculative_only[slug] = _is_speculative_only_fund_mention(
+                article_text=article_text,
+                slug=slug,
+                fund_meta=funds_by_slug.get(slug),
+            )
+
+        # If at least one active/non-speculative slug is present (e.g. seller),
+        # suppress speculative-only candidates (e.g. "in the running" bidders).
+        # If all slugs are speculative, keep them (pure rumor article).
+        has_non_speculative = any(not speculative_only[s] for s in candidate_slugs)
+        accepted_slugs: list[str] = []
+        for slug in candidate_slugs:
+            if has_non_speculative and speculative_only.get(slug, False):
+                logger.debug(
+                    "Skipping speculative-only fund mention: %s for '%s'",
+                    slug,
+                    article.get("title", "")[:80],
+                )
+                continue
+            accepted_slugs.append(slug)
 
         if not accepted_slugs:
             continue

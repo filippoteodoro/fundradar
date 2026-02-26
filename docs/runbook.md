@@ -264,6 +264,10 @@ Expected behavior:
 How it works:
 - RSS monitor emits `related_fund_slugs` for each signal when multiple funds are involved.
 - Web loaders keep backward compatibility by inferring extra fund tags from signal text for older rows.
+- Both layers suppress speculative-only candidate mentions (for example `among interested bidders`,
+  `in the running`, `fra/tra gli interessati`) so passive rumor mentions do not become related fund tags.
+- RSS guard behavior: when at least one non-speculative active slug exists in an article, speculative-only
+  candidates are dropped from `related_fund_slugs`; pure-rumor articles (all slugs speculative) are preserved.
 
 Validation:
 ```bash

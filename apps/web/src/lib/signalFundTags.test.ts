@@ -59,4 +59,46 @@ describe('signalFundTags', () => {
 
     expect(slugs).toEqual(['cdp-venture-capital']);
   });
+
+  it('does not auto-tag prospective bidders as related funds', () => {
+    const entries = buildFundMentionEntries([
+      { slug: 'apax-partners', name: 'Apax Partners' },
+      { slug: 'blackstone', name: 'Blackstone' },
+      { slug: 'cvc', name: 'CVC' },
+    ]);
+
+    const slugs = resolveSignalFundSlugs(
+      {
+        fund_slug: 'apax-partners',
+        title: 'Apax launches sale of Gama Life Italia insurance activities',
+        what_changed:
+          'Apax Partners put up for sale GamaLife. Generali, BFF Bank, CVC, Blackstone and Brookfield among interested bidders.',
+      },
+      entries,
+    );
+
+    expect(slugs).toEqual(['apax-partners']);
+  });
+
+  it('keeps active seller mention but drops in-the-running bidder mentions', () => {
+    const entries = buildFundMentionEntries([
+      { slug: 'carlyle', name: 'Carlyle' },
+      { slug: 'fondo-italiano-d-investimento-sgr', name: "Fondo Italiano d'Investimento SGR" },
+      { slug: 'pai-partners', name: 'PAI Partners' },
+    ]);
+
+    const slugs = resolveSignalFundSlugs(
+      {
+        fund_slug: 'carlyle',
+        title:
+          "Mecaer (Fondo Italiano d'Investimento and Stellex Capital Management), Lazard is handling the sale process. Carlyle and PAI Partners in the running. [Rumor]",
+        what_changed: '',
+      },
+      entries,
+    );
+
+    expect(slugs[0]).toBe('carlyle');
+    expect(slugs).toContain('fondo-italiano-d-investimento-sgr');
+    expect(slugs).not.toContain('pai-partners');
+  });
 });

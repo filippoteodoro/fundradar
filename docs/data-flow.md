@@ -65,6 +65,9 @@ Both `/signals` and `/funds/[slug]` pages apply identical signal processing via 
   associated `related_fund_slugs` for UI rendering.
 - `getSignalsForFund()` includes signals where the requested slug appears in
   `related_fund_slugs` (not only where it is the primary `fund_slug`).
+- Active-party guardrails:
+  - worker (`rss_monitor.py`) drops speculative-only candidate slugs when active slugs are present
+  - web (`signalFundTags.ts`) suppresses inferred speculative mentions in sentence-local context
 
 ## Portfolio Validation
 

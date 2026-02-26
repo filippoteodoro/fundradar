@@ -1346,6 +1346,7 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 | Signal text expands `CDP` to long legal form | Keep acronym form. Cleaning removes redundant `CDP (...)` parentheticals in both worker and web display paths; if it reappears, update shared regex in `signal_text_utils.py` and `signalProcessing.ts` |
 | Merger headline appears as Exit | Treat merger/fusion (`merge`, `merger`, `fusione`) as `deal_announced` unless there is explicit seller/exit evidence (`sells`, `a vendere`, `exit from portfolio`, etc.) |
 | Filtered and enriched disagree on `signal_type` for same signal ID | Treat filtered `signal_type` as authoritative in enricher skip/cached paths and resync enriched rows from filtered IDs after classifier/rule changes |
+| Prospective bidders appear as extra fund tags | Suppress inferred related tags for sentence-local speculative contexts (`among interested bidders`, `in the running`, `fra/tra gli interessati`, `vying`, etc.). Keep explicitly provided tags and active-party mentions |
 | Team profile cards or role openings show as signals | Static titles like `Name Head of X`, `Name investor relations`, `...Legal & Corporate Affairs Specialist`, and TEAM blurbs like `X is the parent company of Y` are demoted to `other` and filtered. If variants leak through, update `TEAM_ROLE_PROFILE_TITLE_RE` / `ROLE_OPENING_TITLE_RE` / `TEAM_STATIC_CORP_DESC_RE` in `filter_signals.py` and matching guards in `signalProcessing.ts` |
 | Departure news appears as Investment | If text has people transition verbs (`steps down`, `leaves`, `resigns`, `appointed`, etc.) with no deal/exit evidence, force `people_move` (worker `correct_deal()` + post-ML correction, web `reclassifySignalType()`) |
 | Co-investor names lose capitalization in summaries | Re-capitalize from `extracted_entities`, fund slugs, and title-cased company/fund phrases (`extract_company_like_entities()` + `capitalize_entities()` in worker clean paths) so strings like `capital dynamics`/`miura partners` stay properly cased |
@@ -1365,6 +1366,7 @@ The web app's `signalFundTags.ts` matches signal text against fund names to show
 **Prevention** (already enforced in code):
 - Short brands are kept only when they are unambiguous (single-owner match)
 - `GENERIC_SHORT_BRANDS` blocks generic English/Italian nouns from becoming standalone patterns (including `sviluppo`, `imprese`, `centro`, `italia`, `italiano`, `nazionale`)
+- Inferred tags are sentence-local context-aware: speculative/candidate mentions (`among/fra/tra gli interessati`, `interested bidders/buyers`, `in the running`, `vying`) are not auto-tagged unless active-party evidence is present for that mention
 
 **When adding a fund — check for this**:
 1. If the fund name's **first word** is a common English/Italian noun or could appear in other entity names, verify it's in `GENERIC_SHORT_BRANDS` in `signalFundTags.ts`

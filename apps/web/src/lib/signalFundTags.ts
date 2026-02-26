@@ -80,6 +80,40 @@ function toPatternRegex(pattern: string): RegExp {
   return new RegExp(`(?:^|\\s)${escaped}(?=\\s|$)`, 'i');
 }
 
+// Candidate / rumor language means a mentioned fund may NOT be an active deal party.
+// We suppress inferred extra tags in these contexts unless the same local context
+// also includes active-transaction evidence (sale/acquisition/investment verbs).
+const STRONG_SPECULATIVE_CONTEXT_RE = /\b(?:among|fra|tra)\s+(?:the\s+)?(?:interested|potential)\s+(?:bidders|buyers|parties|investors)\b|\b(?:interested|potential)\s+(?:bidders|buyers|parties|investors)\b|\bin\s+the\s+running\b|\bin\s+corsa\b|\bgli\s+interessati\b|\btra\s+gli\s+interessati\b|\bfra\s+gli\s+interessati\b|\b(?:vying|in\s+talks?|consider(?:ing)?)\b/i;
+const SPECULATIVE_CONTEXT_RE = /\b(?:rumou?r(?:ed|s)?|reported(?:ly)?|could|might|may|possibly|potentially|in\s+talks?|consider(?:ing)?|valuta|negozia|studia|ipotesi)\b/i;
+const ACTIVE_PARTY_CONTEXT_RE = /\b(?:acqui(?:res|red|ring|sition)|sell(?:s|ing)?|sold|sale|exit(?:s|ed)?|divest(?:s|ed)?|invest(?:s|ed|ing|ment)|back(?:ed)?|lead(?:s|ing)?|co[-\s]?invest(?:or|ors)?|together\s+with|with\s+participation|with\s+co[-\s]?investors?|guidat[oa]|partecipazion(?:e|i)|acquisisc(?:e|ono)|acquista(?:no)?|vende(?:re|no)?|cessione|uscita)\b/i;
+
+function toGlobalRegex(re: RegExp): RegExp {
+  const flags = re.flags.includes('g') ? re.flags : `${re.flags}g`;
+  return new RegExp(re.source, flags);
+}
+
+function isSpeculativeOnlyMention(text: string, entryRegex: RegExp): boolean {
+  const re = toGlobalRegex(entryRegex);
+  let sawMatch = false;
+  let match: RegExpExecArray | null;
+  while ((match = re.exec(text)) !== null) {
+    sawMatch = true;
+    const start = Math.max(0, match.index - 60);
+    const end = Math.min(text.length, match.index + match[0].length + 60);
+    const context = text.slice(start, end);
+    const hasStrongSpeculative = STRONG_SPECULATIVE_CONTEXT_RE.test(context);
+    if (hasStrongSpeculative) {
+      continue;
+    }
+    const isSpeculative = SPECULATIVE_CONTEXT_RE.test(context);
+    const hasActiveEvidence = ACTIVE_PARTY_CONTEXT_RE.test(context);
+    if (!isSpeculative || hasActiveEvidence) return false;
+    // Safety against zero-length regex loops
+    if (re.lastIndex === match.index) re.lastIndex++;
+  }
+  return sawMatch;
+}
+
 function addOwner(map: Map<string, Set<string>>, phrase: string, slug: string): void {
   const normalized = normalizePhrase(phrase);
   if (!normalized || normalized.length < 4 || !slug) return;
@@ -185,6 +219,11 @@ export function resolveSignalFundSlugs(
   if (mentionText) {
     for (const entry of mentionEntries) {
       if (entry.regex.test(mentionText)) {
+        // Only apply this guard to inferred tags. Primary slug and worker-provided
+        // related_fund_slugs are authoritative and already present in `seen`.
+        if (!seen.has(entry.slug) && isSpeculativeOnlyMention(mentionText, entry.regex)) {
+          continue;
+        }
         push(entry.slug);
       }
     }
