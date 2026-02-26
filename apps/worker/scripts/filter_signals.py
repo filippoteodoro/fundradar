@@ -2705,6 +2705,12 @@ def _passes_strict_quality_gates(
         if age_days > 365 * 2 and not (_has_deal_keyword(text) and _has_amount(text)):
             return False
 
+    # Non-overridable noise gates — run before any fund-scope early return
+    if _is_portfolio_extraction_only(signal, text):
+        return False
+    if _is_portfolio_list_item(signal, text, summary, title):
+        return False
+
     # Portfolio change signals from italy_focused funds with core types are valuable
     # (e.g. "New investment: Sa.No." from B4 Investimenti SGR)
     fund_scope = signal.get("_fund_geo_scope", "")
@@ -2720,12 +2726,6 @@ def _passes_strict_quality_gates(
             signal.get("italy_relevant") is True or _mentions_italy(text)
         ):
             return True
-
-    # Non-overridable noise gates
-    if _is_portfolio_extraction_only(signal, text):
-        return False
-    if _is_portfolio_list_item(signal, text, summary, title):
-        return False
     if page_category == "PORTFOLIO" and _is_sector_only_listing_text(text.lower()) and not (_has_deal_keyword(text) or _has_amount(text)):
         return False
     if _is_team_extraction_only(signal):

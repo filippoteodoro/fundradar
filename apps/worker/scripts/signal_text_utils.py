@@ -1117,19 +1117,7 @@ def _cdt_strip_boilerplate(text: str, is_title: bool) -> str:
     cleaned = _RE_AUM_BARE.sub("", cleaned)
     cleaned = re.sub(r",\s*,", ",", cleaned)
 
-    # Rewrite "X exited from Y portfolio (description)" -> "Y exits X"
-    _exited_match = re.match(
-        r"^(.+?)\s+exited\s+from\s+(.+?)\s+portfolio(?:\s*\(.*?\))?\s*$",
-        cleaned, flags=re.IGNORECASE
-    )
-    if _exited_match:
-        _company = _exited_match.group(1).strip()
-        _fund = _exited_match.group(2).strip()
-        cleaned = f"{_fund} exits {_company}"
-
-    # Strip "added to X portfolio" suffix
-    cleaned = re.sub(r"(.+?)\s+added to\s+.+?\s+portfolio(?:\s*\(.*?\))?\s*$", r"\1", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"(.+?)\s+aggiunt[oa]\s+al?\s+portafoglio\s+.+$", r"\1", cleaned, flags=re.IGNORECASE)
+    # Portfolio rewrites moved to clean_display_text() to preserve original casing
 
     # Strip "Read more" / "Continue reading" / "LEGGI TUTTO" / "Approfondisci" link text
     cleaned = re.sub(r"\s*Approfondisci\s*$", "", cleaned, flags=re.IGNORECASE)
@@ -1410,6 +1398,28 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     # For non-title fields, clear text that is just a newspaper name
     if not is_title and NEWSPAPER_ONLY_RE.match(text):
         return ""
+
+    # Monitor-generated portfolio titles: match against original text to preserve
+    # casing, then return directly (bypasses casing normalization steps).
+    _raw = text.strip()
+    _exited_m = re.match(
+        r"^(.+?)\s+exited\s+from\s+(.+?)\s+portfolio(?:\s*\(.*?\))?\s*$",
+        _raw, flags=re.IGNORECASE,
+    )
+    if _exited_m:
+        return f"{_exited_m.group(2).strip()} exits {_exited_m.group(1).strip()}"
+    _added_m = re.match(
+        r"^(.+?)\s+added to\s+(.+?)\s+portfolio(?:\s*\(.*?\))?\s*$",
+        _raw, flags=re.IGNORECASE,
+    )
+    if _added_m:
+        return f"{_added_m.group(2).strip()}: new investment in {_added_m.group(1).strip()}"
+    _added_it_m = re.match(
+        r"^(.+?)\s+aggiunt[oa]\s+al?\s+portafoglio\s+(.+)$",
+        _raw, flags=re.IGNORECASE,
+    )
+    if _added_it_m:
+        return f"{_added_it_m.group(2).strip()}: nuovo investimento in {_added_it_m.group(1).strip()}"
 
     cleaned = _cdt_strip_boilerplate(text, is_title)
     cleaned = _cdt_normalize_spacing_and_dates(cleaned)
