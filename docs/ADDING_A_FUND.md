@@ -876,6 +876,14 @@ This populates `hq_lat`, `hq_lng`, and `hq_address` in `db.json`. The map page r
 2. `hq_lat` / `hq_lng` fields
 3. `cityCoordinates.ts` fallback (~59 entries covering Italian and European cities, matched by `hq_city` name)
 
+### Address quality rule (MANDATORY for Italy offices)
+
+- If a fund has an office in Italy, never leave a generic city-only address like `Milan`, `Rome`, or `Italy`.
+- `hq_address` / `offices[].address` must be specific (street + number, and city at minimum) whenever that office is in Italy.
+- This resolution step is owned by the automation/agent workflow, not by manual user follow-up.
+- Resolve the address with a quick web lookup first (official site/contact/legal pages). If unclear, use a Gemini API lookup to extract/verify the address and write it directly to `db.json`.
+- If still unresolved after both attempts, do **not** invent an address: explicitly report the blocker (fund slug, attempted sources, why unresolved) and request input only as last resort.
+
 ---
 
 ## 14. Verify Frontend Display
@@ -1382,6 +1390,7 @@ The web app's `signalFundTags.ts` matches signal text against fund names to show
 | `pnpm seed` overwrites curated db.json | Use `--force` flag only intentionally — seed has a safety guard |
 | AIFI scraper sets wrong HQ for global funds | Cross-check `offices[]` after any AIFI merge |
 | Fund doesn't appear on map | Run `pnpm worker:geocode && pnpm merge-aifi` to populate coordinates |
+| Italian office has generic address like `Milan` | Agent must resolve to street-level via web lookup + Gemini API (no manual user research by default); if unresolved, explicitly report blocker and sources attempted |
 | AI mentioned in UI | Never disclose AI in user-facing text — reference sources, not tools |
 | AIFI creates duplicate fund under legal name | Add alias in `fund_aliases.json` mapping legal-name slug to canonical slug |
 
