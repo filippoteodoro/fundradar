@@ -1073,7 +1073,8 @@ if fund:
     first_word = name_words[0] if name_words else ''
     GENERIC_SHORT = {'capital','partners','private','venture','equity','asset','management','group',
         'fondo','fund','team','cherry','silver','golden','bridge','impact','summit','spring',
-        'castle','anchor','global','europe','invest','select','market','search','towers','credit'}
+        'castle','anchor','global','europe','invest','select','market','search','towers','credit',
+        'sviluppo','imprese','centro','italia','italiano','nazionale'}
     if len(name_words) >= 3 and len(first_word) >= 6 and first_word not in GENERIC_SHORT:
         errors.append(f'WARNING: Fund name first word \"{first_word}\" (from 3+ word name) could cause signal misattribution — verify it is in GENERIC_SHORT_BRANDS in signalFundTags.ts or that no cross-entity matches occur')
 
@@ -1342,6 +1343,10 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 | Deleting progress files | NEVER delete `signal_enrichment_progress.json` or `detected_signals_enriched.json` — causes expensive re-runs. See `apps/worker/CLAUDE.md` for full cost details. |
 | UI doesn't show new data | Restart `pnpm dev` — the web app caches with no invalidation |
 | Portfolio entries show as garbage | Check `isValidPortfolioEntry()` in `data.ts` — NAV_PATTERNS reject navigation text |
+| Signal text expands `CDP` to long legal form | Keep acronym form. Cleaning removes redundant `CDP (...)` parentheticals in both worker and web display paths; if it reappears, update shared regex in `signal_text_utils.py` and `signalProcessing.ts` |
+| Merger headline appears as Exit | Treat merger/fusion (`merge`, `merger`, `fusione`) as `deal_announced` unless there is explicit seller/exit evidence (`sells`, `a vendere`, `exit from portfolio`, etc.) |
+| Team profile cards or role openings show as signals | Static titles like `Name Head of X`, `Name investor relations`, `...Legal & Corporate Affairs Specialist`, and TEAM blurbs like `X is the parent company of Y` are demoted to `other` and filtered. If variants leak through, update `TEAM_ROLE_PROFILE_TITLE_RE` / `ROLE_OPENING_TITLE_RE` / `TEAM_STATIC_CORP_DESC_RE` in `filter_signals.py` and matching guards in `signalProcessing.ts` |
+| Departure news appears as Investment | If text has people transition verbs (`steps down`, `leaves`, `resigns`, `appointed`, etc.) with no deal/exit evidence, force `people_move` (worker `correct_deal()` + post-ML correction, web `reclassifySignalType()`) |
 | **Claude Code blocks on long scripts** | **ALWAYS run Gemini/pipeline scripts with `run_in_background: true` and check progress with non-blocking `tail` commands. NEVER use blocking waits (`block=true`) on tasks that call Gemini APIs — a single fund can take 5+ minutes, batches can take hours. Use `ps aux \| grep scriptname` and `tail -N outputfile` to monitor progress instead.** |
 
 ### Signal misattribution (frontend text matching)
@@ -1349,19 +1354,19 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 The web app's `signalFundTags.ts` matches signal text against fund names to show related signals on fund pages. This text-matching system can cause **cross-entity misattribution** if fund names share words with other entities.
 
 **How it works**: `buildFundMentionEntries()` creates regex patterns from fund names:
-1. **Full name pattern**: e.g., `"cherry bay capital"` — safe, specific
-2. **Cleaned name pattern**: strips legal suffixes (SGR, S.p.A., etc.) — safe
-3. **First-word short brand**: for 1–2 word names where the first word is ≥6 chars and not in `GENERIC_SHORT_BRANDS` — e.g., `"permira"` from "Permira Associati"
+1. **Full name pattern**: e.g., `"cherry bay capital"` — specific
+2. **Cleaned name pattern**: strips legal suffixes (SGR, S.p.A., etc.)
+3. **First-word short brand**: first word is used when it is ≥6 chars, not in `GENERIC_SHORT_BRANDS`, and maps to exactly one fund
 
-**The bug class**: For 3+ word fund names, the first word alone is too ambiguous. Example: "Cherry Bay Capital" → first word "cherry" → matches "Cherry Bank" in signal text → signal wrongly appears on Cherry Bay Capital's page.
+**The bug class**: Long legal names with generic first words can still misattribute signals. Example: `"Sviluppo Imprese Centro Italia SGR"` can be matched by generic prose containing `sviluppo`.
 
 **Prevention** (already enforced in code):
-- First-word short brand extraction is **skipped for names with 3+ words** — multi-word names rely on full/cleaned patterns only
-- `GENERIC_SHORT_BRANDS` blocklist prevents common nouns (cherry, silver, golden, bridge, impact, etc.) from becoming patterns
+- Short brands are kept only when they are unambiguous (single-owner match)
+- `GENERIC_SHORT_BRANDS` blocks generic English/Italian nouns from becoming standalone patterns (including `sviluppo`, `imprese`, `centro`, `italia`, `italiano`, `nazionale`)
 
 **When adding a fund — check for this**:
 1. If the fund name's **first word** is a common English/Italian noun or could appear in other entity names, verify it's in `GENERIC_SHORT_BRANDS` in `signalFundTags.ts`
-2. After running the pipeline, check the fund's signals tab — look for signals that mention a **different entity** with a similar name (e.g., "Cherry Bank" on Cherry Bay Capital's page)
+2. After running the pipeline, check the fund's signals tab — look for signals that mention a **different entity** with a similar token
 3. If misattributed signals appear, add the problematic word to `GENERIC_SHORT_BRANDS`
 
 **Files**: `apps/web/src/lib/signalFundTags.ts` — `buildFundMentionEntries()` and `GENERIC_SHORT_BRANDS`

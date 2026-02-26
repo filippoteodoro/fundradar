@@ -391,6 +391,12 @@ def correct_exit(text_lower: str, title_lower: str, page_category: str = "") -> 
         _RE_EXPLICIT_SELLER.search(text_lower) or _RE_EXITED_FROM_PORTFOLIO.search(text_lower)
     )
 
+    # Merger/fusion language without explicit seller cues is not a completed exit.
+    # Example: "X will merge with Y" should stay deal context, not exit.
+    if _RE_MERGER.search(text_lower):
+        if not has_explicit_seller and not _RE_STRONG_EXIT_VERBS.search(text_lower):
+            return "deal_announced"
+
     # Buyer perspective in title → deal
     if re.search(r"\bacquires?\s+\w+", title_lower) and not has_explicit_seller:
         return "deal_announced"
@@ -499,6 +505,26 @@ def correct_deal(text_lower: str, title_lower: str, diff_summary_lower: str = ""
     # Team strengthening → people_move (if no deal language)
     if _RE_TEAM_STRENGTHENING.search(text_lower) and not _matches_deal(text_lower):
         return "people_move"
+
+    # Departure/appointment language with no deal/exit evidence is a people move.
+    # Example: "CIO steps down", "leaves role", "resigns".
+    if _RE_PEOPLE_LANGUAGE.search(text_lower):
+        has_explicit_deal = bool(
+            re.search(
+                r"\b(?:acquir\w+|acquis\w+|acquisizion\w+|rileva"
+                r"|entra\s+(?:nel\s+capitale|in)\b|enters?\s+capital|buys?|compra"
+                r"|tratt[ai]\s+l[''\u2019]acquisto)\b",
+                text_lower,
+            )
+            or re.search(r"\binvest\w+\s+(?:in|nel|nella|nei|nelle|da|per)\b", text_lower)
+            or _RE_OFFER_BID.search(text_lower)
+            or _RE_COMPANY_ROUND.search(text_lower)
+            or _RE_STRONG_DEAL.search(text_lower)
+            or _matches_exit(text_lower)
+            or _RE_MERGER.search(text_lower)
+        )
+        if not has_explicit_deal:
+            return "people_move"
 
     # Partnership language → partnership
     if _RE_PARTNERSHIP.search(text_lower) and not _RE_INVEST_VERBS.search(text_lower) and not _RE_EXIT_VERBS.search(text_lower):
@@ -710,7 +736,7 @@ def correct_fundraise(text_lower: str, title_lower: str) -> str:
     return "fundraise_announced"
 
 
-def correct_people_move(text_lower: str, title_lower: str) -> str:
+def correct_people_move(text_lower: str, title_lower: str, page_category: str = "") -> str:
     """Correct people_move signals. Returns corrected type."""
     # "join forces" / "join forces to promote" → partnership (not a person move)
     if re.search(r"\bjoin\s+forces\b", text_lower):
@@ -741,6 +767,37 @@ def correct_people_move(text_lower: str, title_lower: str) -> str:
 
     # Advisory board formation (without appointment verbs) → other
     if _RE_ADVISORY_BOARD.search(text_lower) and not _RE_APPOINTMENT_VERBS.search(text_lower):
+        return "other"
+
+    _has_transition_verb = bool(
+        _RE_APPOINTMENT_VERBS.search(text_lower)
+        or re.search(
+            r"\b(?:named?\s+as|hired?|promot\w+|new\s+(?:hire|appointment)"
+            r"|steps?\s+down|stepping\s+down|leaves?|left|resign\w*|depart\w*"
+            r"|dimission\w*|lascia|lasciat\w+|abbandona)\b",
+            text_lower,
+            re.IGNORECASE,
+        )
+    )
+
+    # Team page profile cards ("Name Head of X") are static bios, not moves.
+    if page_category == "TEAM":
+        if re.search(
+            r"^[a-z][a-z'’.\-]+(?:\s+[a-z][a-z'’.\-]+){1,3}\s+"
+            r"(?:head|director|manager|partner|officer|counsel)\b",
+            title_lower,
+            re.IGNORECASE,
+        ) and not _has_transition_verb:
+            return "other"
+
+    # Role-opening/job-like titles misclassified as people_move.
+    # Example: "Senior Investment Associate, Clean Energy - Capital Dynamics".
+    if re.search(
+        r"^\s*(?:senior|junior|lead|principal|chief|head|managing)?\s*"
+        r"(?:investment\s+)?(?:associate|analyst|manager|specialist|advisor|officer|counsel|director)\b",
+        title_lower,
+        re.IGNORECASE,
+    ) and not _has_transition_verb:
         return "other"
 
     # Strong exit verbs → exit
@@ -916,7 +973,7 @@ def apply_type_corrections(
         return correct_fundraise(text_lower, title_lower)
 
     if current_type == "people_move":
-        return correct_people_move(text_lower, title_lower)
+        return correct_people_move(text_lower, title_lower, page_category)
 
     if current_type == "report":
         return correct_report(text_lower, title_lower)

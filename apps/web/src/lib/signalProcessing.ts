@@ -28,6 +28,21 @@ const RE_NON_DEBT_VERBS = /\b(?:acqui\w+|rileva|investiment[oi]|exit|sells?|cess
 /** Italian job selection patterns */
 const RE_JOB_SELECTION = /\b(?:procedura\s+di\s+selezione|ricerca\s+(?:una?\s+)?risors[ae]|avvia\s+(?:la\s+)?selezione|selezione\s+per\s+(?:il\s+)?(?:ruolo|responsabile|posizione)|(?:tempo\s+)?(?:pieno|indeterminato|determinato)(?:\s+e\s+indeterminato)?)\b/i;
 
+/** Merger/fusion language (not automatically an exit without seller cues) */
+const RE_MERGER = /\b(?:fusion[ei]|merger|merg(?:e|es|ed|ing)|fonde|si\s+fondono)\b/i;
+
+/** Explicit people-transition verbs (hire/appointment/departure) */
+const RE_PEOPLE_TRANSITION_VERBS = /\b(?:appoint\w+|nomin\w+|joins?|joined|hired?|promot\w+|named?\s+as|new\s+(?:hire|appointment)|steps?\s+down|stepping\s+down|leaves?|left|resign\w*|depart\w*|dimission\w*|lascia|lasciat\w+|abbandona)\b/i;
+
+/** Static TEAM profile card title (e.g. "Giulio Pesenti head of ...") */
+const RE_TEAM_PROFILE_TITLE = /^[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+(?:\s+[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+){1,3}\s+(?:head|director|manager|partner|officer|counsel|analyst|associate|specialist|investor\s+relations|legal\s*(?:&|and)\s*corporate\s+affairs(?:\s+(?:specialist|manager|head|director))?)\b/i;
+
+/** Role-opening/job-style title (e.g. "Senior Investment Associate, ...") */
+const RE_ROLE_OPENING_TITLE = /^\s*(?:senior|junior|lead|principal|chief|head|managing)?\s*(?:investment\s+)?(?:associate|analyst|manager|specialist|advisor|officer|counsel|director)\b/i;
+
+/** Static TEAM/company profile blurbs (not a transaction signal) */
+const RE_TEAM_STATIC_DESC = /\b(?:is|acts?\s+as)\s+the\s+(?:parent|holding)\s+company\b|\b(?:parent|holding)\s+company\s+of\b|\bsociet[aà]\s+capogruppo\b/i;
+
 // ── Shared signal type display config ─────────────────────────────────────────
 // Single source of truth for signal type labels and colors.
 // Used by both SignalsFeed (signals page) and SignalsCompact (fund page).
@@ -553,6 +568,20 @@ function fixSignalSpacing(text: string): string {
 
 const NEWSPAPER_ONLY_RE = /^\s*(?:Il Sole 24 Ore|Corriere\s+\w+|BeBeez|Forbes|Bloomberg|Reuters|Financial Times|Milano Finanza|MF[\s-]Milano Finanza|La Repubblica|Italia Oggi|MF Newswires|StartupItalia|Corriere della Sera)\s*$/i;
 
+function stripRedundantCdpParenthetical(text: string): string {
+  if (!text) return text;
+  let cleaned = text;
+  cleaned = cleaned.replace(
+    /\b(CDP(?:\s+Equity)?)\s*\(\s*Cassa\s+Depositi(?:\s+e|\s+and)\s+Prestiti\s*\)/gi,
+    '$1',
+  );
+  cleaned = cleaned.replace(
+    /\b(CDP(?:\s+Equity)?)\s*\(\s*Cassa\s+Depositi\s+e\s+Prestiti\s+S\.?p\.?A\.?\s*\)/gi,
+    '$1',
+  );
+  return cleaned;
+}
+
 export function cleanSignalText(text: string): string {
   if (!text) return text;
   // If entire text is just a newspaper name, clear it
@@ -569,6 +598,7 @@ export function cleanSignalText(text: string): string {
   cleaned = cleaned.replace(/\b\d+\s*min(?:uto|uti)\s*di\s*lettura\b/gi, '');
   cleaned = cleaned.replace(/\btempo\s+di\s+lettura\b/gi, '');
   cleaned = cleaned.replace(/\bread\s+time\b/gi, '');
+  cleaned = stripRedundantCdpParenthetical(cleaned);
   cleaned = fixSignalSpacing(cleaned);
   cleaned = stripLeadingLabel(cleaned);
   cleaned = fixSignalSpacing(cleaned);
@@ -654,6 +684,10 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
   // Pure event/conference title → demote (just an event name, no deal content)
   if (/^(?:.*\s)?(?:congress[oi]?|summit|forum|conferenz\w*|convegno|workshop|webinar|tavola\s+rotonda|seminari[oi]?)\s*(?:\d{4}|$)/i.test(text) &&
       !RE_PE_ACTION_VERBS_EXTENDED.test(text)) {
+    return 'website_change';
+  }
+  // Conference listing with explicit date in title/body.
+  if (/\b\d+(?:st|nd|rd|th)?\s+annual\b.{0,80}\b\d{1,2}\/\d{1,2}\/\d{4}\b/i.test(text)) {
     return 'website_change';
   }
 
@@ -815,6 +849,10 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
     }
     const buyerCues = /\bin\s+lizza\b|\bpotrebbe\s+essere\s+interessat\w*\b|\bpotrebbero\s+essere\s+interessat\w*\b|\bvaluta\s+l['\u2019]acqui\w+\b/i;
     const hasExplicitSeller = /\ba\s+vendere\b|\bil\s+venditore\b|\bcede\s+(?:la\s+)?(?:propria\s+)?(?:partecipat\w+|quota|partecipazione)\b|\bcede\s+(?:il\s+)?(?:proprio\s+)?(?:\d+%|controllo|majority|maggioranza)\b|\bdisinvestiment[oi]\b/i.test(text);
+    // Merger/fusion without seller cues is not a completed exit.
+    if (RE_MERGER.test(text) && !hasExplicitSeller && !RE_EXIT_VERBS.test(text)) {
+      return 'deal_announced';
+    }
     // Buyer-perspective: "in lizza" (bidding), "potrebbe essere interessat" (might be interested) → deal
     if (buyerCues.test(titleText) && !hasExplicitSeller) {
       return 'deal_announced';
@@ -1050,6 +1088,18 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
         !/\b(?:acqui\w+|investi\w+|rileva|buyout)\b/i.test(text)) {
       return 'people_move';
     }
+    // TEAM static blurbs are not deals.
+    if (pageCategory === 'TEAM' && RE_TEAM_STATIC_DESC.test(text) && !RE_PEOPLE_TRANSITION_VERBS.test(text)) {
+      return 'other';
+    }
+    // Departure/appointment language with no deal cues is a people move.
+    const hasPeopleTransition = RE_PEOPLE_TRANSITION_VERBS.test(text);
+    const hasExplicitDeal =
+      /\b(?:acquir\w+|acquisizion\w+|rileva|stake|majority|minority|offer|bid|round|series|seed|merger|fusione|sells?|sold|exit\w*|cession[ei]|vendit[ae]|entra\s+nel\s+capitale|buys?|compra)\b/i.test(text) ||
+      /\binvest\w+\s+(?:in|into|nel|nella|nei|nelle|da|per)\b/i.test(text);
+    if (hasPeopleTransition && !hasExplicitDeal) {
+      return 'people_move';
+    }
     // Partnership signals → partnership
     if (/\b(?:partnership|partners?\s+(?:with|to\s+deliver)|joint\s+venture|distribution\s+agreement|accordo\s+(?:di\s+)?(?:collaborazione|distribuzione|partnership)|alleanza\s+strategica|intesa\s+(?:strategica|commerciale))\b/i.test(text) &&
         !/\b(?:acqui\w+|rileva|buyout|majority|minority\s+stake|entra\s+nel\s+capitale)\b/i.test(text)) {
@@ -1086,6 +1136,19 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
   // people_move safety net: people_move with NO people-related language → other
   // Must include BOTH arrival AND departure language to catch "steps down", "leaves", "resigns"
   if (signal.signal_type === 'people_move') {
+    const normalizedTitle = titleText.replace(/([a-zà-öø-ÿ])([A-Z])/g, '$1 $2');
+    // TEAM profile cards ("Name Head of X") are static bios, not true moves.
+    if (pageCategory === 'TEAM' && RE_TEAM_PROFILE_TITLE.test(normalizedTitle) && !RE_PEOPLE_TRANSITION_VERBS.test(text)) {
+      return 'other';
+    }
+    // Role-opening/job-style titles are low-signal and should not be treated as people moves.
+    if (RE_ROLE_OPENING_TITLE.test(normalizedTitle) && !RE_PEOPLE_TRANSITION_VERBS.test(text)) {
+      return 'other';
+    }
+    // TEAM static blurbs ("is the parent company...") are not people-move signals.
+    if (pageCategory === 'TEAM' && RE_TEAM_STATIC_DESC.test(text) && !RE_PEOPLE_TRANSITION_VERBS.test(text)) {
+      return 'other';
+    }
     const hasPeopleArrival = /\b(?:appoint\w+|joins?|joined|nomin(?:a|e|at\w+)|named?\s+(?:as\s+)?(?:ceo|cfo|coo|cio|partner|director|head|president|chairman)|promot\w+|hired?|board|consiglio|eletto|assume\s+(?:il\s+)?(?:ruolo|incarico)|entra\s+(?:nel\s+)?(?:team|consiglio|cda)|nuovo\s+(?:ingresso|membro)|new\s+(?:head|director|managing\s+director|president|chairman))\b/i.test(text);
     const hasPeopleDeparture = /\b(?:steps?\s+down|stepping\s+down|leaves?|leaving|left|resign\w*|depart\w*|exit\w*\s+(?:the\s+)?(?:firm|company|fund|role)|dimission\w+|lascia|lasciat\w+|abbandona|si\s+(?:dimette|ritira)|uscita\s+(?:di|dal)|succession\w*)\b/i.test(text);
     const hasTeamStrength = /\bstrengthens?\b.*\bteam\b/i.test(text);

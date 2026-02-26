@@ -47,6 +47,15 @@ const GENERIC_SHORT_BRANDS = new Set([
   'tamburi',
   'searchlight',
   'stirling',
+  // Generic Italian nouns frequently found in prose/news text.
+  // Prevent accidental first-word matches for long legal fund names
+  // (e.g., "Sviluppo Imprese Centro Italia SGR" from "sviluppo ...").
+  'sviluppo',
+  'imprese',
+  'centro',
+  'italia',
+  'italiano',
+  'nazionale',
 ]);
 
 function normalizePhrase(value: string): string {

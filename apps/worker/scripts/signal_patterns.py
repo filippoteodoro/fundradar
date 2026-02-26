@@ -607,7 +607,7 @@ _RE_BUYER_CUES = re.compile(
 
 # Merger/fusion patterns
 _RE_MERGER = re.compile(
-    r"\b(?:fusion[ei]|merger|fonde|si\s+fondono)\b", re.IGNORECASE)
+    r"\b(?:fusion[ei]|merger|merg(?:e|es|ed|ing)|fonde|si\s+fondono)\b", re.IGNORECASE)
 
 # Agreement/partnership language (used in exit→partnership reclassification)
 _RE_AGREEMENT = re.compile(

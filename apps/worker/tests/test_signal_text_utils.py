@@ -167,6 +167,14 @@ class TestCleanDisplayText:
         result = clean_display_text("raises 500 milioni di euro for new fund", is_title=True)
         assert "€500M" in result
 
+    def test_strips_redundant_cdp_parenthetical(self):
+        result = clean_display_text(
+            "CDP Equity (Cassa Depositi and Prestiti) acquires a stake",
+            is_title=True,
+        )
+        assert "CDP Equity" in result
+        assert "Cassa Depositi and Prestiti" not in result
+
 
 # ── fix_spacing ───────────────────────────────────────────────────────────────
 

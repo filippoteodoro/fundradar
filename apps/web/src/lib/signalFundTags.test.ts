@@ -41,4 +41,22 @@ describe('signalFundTags', () => {
 
     expect(slugs).toEqual([]);
   });
+
+  it('does not match long legal names from generic Italian first words', () => {
+    const entries = buildFundMentionEntries([
+      { slug: 'cdp-venture-capital', name: 'CDP Venture Capital' },
+      { slug: 'sviluppo-imprese-centro-italia-sgr', name: 'Sviluppo Imprese Centro Italia SGR' },
+    ]);
+
+    const slugs = resolveSignalFundSlugs(
+      {
+        fund_slug: 'cdp-venture-capital',
+        title: 'Sinergy Flow closes a €7M round for the energy transition',
+        what_changed: 'The company is focused on battery sviluppo and industrial scale-up.',
+      },
+      entries,
+    );
+
+    expect(slugs).toEqual(['cdp-venture-capital']);
+  });
 });

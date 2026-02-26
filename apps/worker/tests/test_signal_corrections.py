@@ -187,6 +187,13 @@ class TestCorrectExit:
         result = correct_exit("strategic partnership for distribution", "partners with xyz")
         assert result == "partnership"
 
+    def test_merger_without_seller_cues_to_deal(self):
+        result = correct_exit(
+            "crowdfundme will merge with smart4tech to create a larger group",
+            "crowdfundme smart4tech merger",
+        )
+        assert result == "deal_announced"
+
 
 # ── correct_deal ──────────────────────────────────────────────────────────────
 
@@ -397,6 +404,22 @@ class TestCorrectPeopleMove:
         result = correct_people_move("snam joins tech 4 planet hub", "snam joins hub")
         assert result == "partnership"
 
+    def test_team_profile_title_without_transition_to_other(self):
+        result = correct_people_move(
+            "giulio pesenti head of strategic business development",
+            "giulio pesenti head of strategic business development",
+            page_category="TEAM",
+        )
+        assert result == "other"
+
+    def test_role_opening_title_to_other(self):
+        result = correct_people_move(
+            "senior investment associate, clean energy - capital dynamics",
+            "senior investment associate, clean energy - capital dynamics",
+            page_category="NEWS",
+        )
+        assert result == "other"
+
 
 # ── correct_report ────────────────────────────────────────────────────────────
 
@@ -503,6 +526,14 @@ class TestApplyTypeCorrections:
             "sellers are apollo",
         )
         assert result == "exit_announced"
+
+    def test_deal_departure_language_to_people_move(self):
+        result = apply_type_corrections(
+            "deal_announced",
+            "giampaolo di dio is stepping down as cio of fondo italiano d'investimento sgr",
+            "fondo italiano d'investimento sgr, cio giampaolo di dio leaves",
+        )
+        assert result == "people_move"
 
     def test_fundraise_dispatched(self):
         result = apply_type_corrections(

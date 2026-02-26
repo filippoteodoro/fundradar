@@ -79,6 +79,7 @@ from signal_patterns import (
     _RE_JOINS_EVENT,
     _RE_JOB_SELECTION as _RE_JOB_POSTING_SHORT,
     _RE_LP_COMMITMENT,
+    _RE_MERGER,
     _RE_OFFER_BID,
     _RE_OFFICE_OPENING,
     _RE_ORDINAL_INVESTMENT,
@@ -329,6 +330,34 @@ TEAM_EXTRACTION_ONLY_PATTERNS = [
         r"via extraction",
     ]
 ]
+
+# Static role/profile titles misclassified as people moves.
+# These are not personnel transitions unless explicit move verbs are present.
+TEAM_ROLE_PROFILE_TITLE_RE = re.compile(
+    r"^[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+(?:\s+[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+){1,3}\s+"
+    r"(?:head|director|manager|partner|officer|counsel|analyst|associate|specialist"
+    r"|investor\s+relations"
+    r"|legal\s*(?:&|and)\s*corporate\s+affairs(?:\s+(?:specialist|manager|head|director))?)\b",
+    re.IGNORECASE,
+)
+ROLE_OPENING_TITLE_RE = re.compile(
+    r"^\s*(?:senior|junior|lead|principal|chief|head|managing)?\s*"
+    r"(?:investment\s+)?(?:associate|analyst|manager|specialist|advisor|officer|counsel|director)\b",
+    re.IGNORECASE,
+)
+TEAM_STATIC_CORP_DESC_RE = re.compile(
+    r"\b(?:is|acts?\s+as)\s+the\s+(?:parent|holding)\s+company\b"
+    r"|\b(?:parent|holding)\s+company\s+of\b"
+    r"|\bsociet[aà]\s+capogruppo\b",
+    re.IGNORECASE,
+)
+PEOPLE_TRANSITION_VERBS_RE = re.compile(
+    r"\b(?:appoint\w+|nomin\w+|joins?|joined|hired?|promot\w+"
+    r"|named?\s+as|new\s+(?:hire|appointment)"
+    r"|steps?\s+down|stepping\s+down|leaves?|left|resign\w*|depart\w*"
+    r"|dimission\w*|lascia|lasciat\w+|abbandona)\b",
+    re.IGNORECASE,
+)
 
 # CORE_GEO_TYPES — imported from signal_patterns
 # CORE_QUALITY_TYPES — imported from signal_patterns
@@ -1837,6 +1866,60 @@ def _is_senior_title(title: str) -> bool:
     return any(pat.search(title) for pat in SENIOR_TITLE_PATTERNS)
 
 
+def _has_people_transition_verb(text: str) -> bool:
+    """Return True if text has explicit hire/appointment/departure language."""
+    return bool(PEOPLE_TRANSITION_VERBS_RE.search(text or ""))
+
+
+def _normalize_profile_title(title: str) -> str:
+    """Normalize title for TEAM/profile pattern checks."""
+    if not title:
+        return ""
+    # Repair joined tokens like "NoèLegal" -> "Noè Legal" before role matching.
+    repaired = re.sub(r"([a-zà-öø-ÿ])([A-Z])", r"\1 \2", title)
+    return repaired.strip().lower()
+
+
+def _is_team_role_profile_line(title: str, page_category: str) -> bool:
+    """Detect static TEAM profile lines like 'Name Head of X'."""
+    if page_category != "TEAM":
+        return False
+    title_lower = _normalize_profile_title(title)
+    if not title_lower:
+        return False
+    if _has_people_transition_verb(title_lower):
+        return False
+    return bool(TEAM_ROLE_PROFILE_TITLE_RE.search(title_lower))
+
+
+def _is_role_opening_title(title: str) -> bool:
+    """Detect role-opening/job-style titles misclassified as people moves."""
+    title_lower = _normalize_profile_title(title)
+    if not title_lower:
+        return False
+    if _has_people_transition_verb(title_lower):
+        return False
+    return bool(ROLE_OPENING_TITLE_RE.search(title_lower))
+
+
+def _is_team_static_description(title: str, text: str, page_category: str) -> bool:
+    """Detect static TEAM/company description blurbs (not a real signal)."""
+    if page_category != "TEAM":
+        return False
+    combined = _normalize_profile_title(f"{title or ''} {text or ''}")
+    if not combined:
+        return False
+    if _has_people_transition_verb(combined):
+        return False
+    if (
+        _matches_any(DEAL_CLASSIFY_PATTERNS, combined)
+        or _matches_any(EXIT_CLASSIFY_PATTERNS, combined)
+        or _matches_any(FUNDRAISE_CLASSIFY_PATTERNS, combined)
+    ):
+        return False
+    return bool(TEAM_STATIC_CORP_DESC_RE.search(combined))
+
+
 def _is_junior_title(title: str) -> bool:
     """Return True if the title indicates a junior role."""
     return any(pat.search(title) for pat in JUNIOR_TITLE_PATTERNS)
@@ -2676,13 +2759,20 @@ def _passes_strict_quality_gates(
     signal_type = signal.get("signal_type", "")
     page_category = (signal.get("page_category") or "").upper()
     title = signal.get("title") or summary
+    role_noise = _is_role_opening_title(title) or _is_team_role_profile_line(title, page_category)
+    static_team_noise = _is_team_static_description(title, text, page_category)
+
+    if static_team_noise:
+        return False
 
     override = False
     if pre_score is not None and pre_score >= STRICT_GATE_OVERRIDE_SCORE:
-        override = True
+        if not role_noise:
+            override = True
     # Lower threshold for italy_focused funds with italy_relevant=True (prefer false positive over false negative)
     if pre_score is not None and pre_score >= 85 and signal.get("italy_relevant") is True and signal.get("_fund_geo_scope") == "italy_focused":
-        override = True
+        if signal_type not in {"other", "website_change"} and not role_noise:
+            override = True
     if evidence_score is not None and evidence_score >= 3 and signal_type in {
         "deal_announced",
         "exit_announced",
@@ -2693,7 +2783,8 @@ def _passes_strict_quality_gates(
         override = True
     # High-score signals with deal keywords pass regardless of signal_type (catches "other" with empty page_category)
     if pre_score is not None and pre_score >= 90 and _has_deal_keyword(text):
-        override = True
+        if signal_type not in {"other", "website_change"} and not role_noise:
+            override = True
 
     # Recency gate: drop stale signals (override cannot bypass)
     # - >2 years: drop unless hard deal evidence (keyword + amount)
@@ -2745,16 +2836,22 @@ def _passes_strict_quality_gates(
 
     # 1) Hard drop generic website/other unless strong evidence
     if signal_type in {"website_change", "other"}:
+        role_noise_news = False
         if page_category == "NEWS":
             # NEWS "other" from italy_focused funds: allow with deal keyword OR amount/entity
             fund_scope = signal.get("_fund_geo_scope", "")
-            if fund_scope == "italy_focused" and (_has_deal_keyword(text) or _has_amount(text) or _has_entity(signal, summary)):
-                return True
-            if (_has_amount(text) or _has_entity(signal, summary)) and (
+            title_for_gate = signal.get("title") or summary
+            role_noise_news = _is_role_opening_title(title_for_gate) or _is_team_role_profile_line(title_for_gate, page_category)
+            if fund_scope == "italy_focused":
+                if (_has_deal_keyword(text) or _has_amount(text)) and not role_noise_news:
+                    return True
+                if _has_entity(signal, summary) and not role_noise_news:
+                    return True
+            if (_has_amount(text) or _has_entity(signal, summary)) and not role_noise_news and (
                 signal.get("italy_relevant") is True or _mentions_italy(text) or _mentions_europe(text)
             ):
                 return True
-        if not (_has_deal_keyword(text) and (_has_amount(text) or _has_entity(signal, summary))):
+        if role_noise_news or not (_has_deal_keyword(text) and (_has_amount(text) or _has_entity(signal, summary))):
             return False
     if signal_type == "fund_launch":
         if not _matches_any(FUND_LAUNCH_CLASSIFY_PATTERNS, text.lower()):
@@ -2762,6 +2859,8 @@ def _passes_strict_quality_gates(
 
     # 2) People moves must be senior or explicitly Italy/EU relevant
     if signal_type == "people_move":
+        if role_noise:
+            return False
         if _is_senior_title(summary) or _is_senior_title(signal.get("title", "")):
             pass
         elif signal.get("italy_relevant") is True or _mentions_italy(text) or _mentions_europe(text):
@@ -3389,9 +3488,12 @@ def main():
         # restructuring, "sells stake" → exit, etc.) — single source of truth
         _corr_text = f"{raw_title} {raw_summary}".lower()
         _corr_title = raw_title.lower()
+        was_universal_other_demotion = False
         _corr_demotion = apply_universal_demotions(_corr_text, _corr_title)
         if _corr_demotion is not None:
             signal["signal_type"] = _corr_demotion
+            if _corr_demotion == "other":
+                was_universal_other_demotion = True
         else:
             _corr_type = apply_type_corrections(
                 signal["signal_type"], _corr_text, _corr_title,
@@ -3478,7 +3580,7 @@ def main():
             continue
 
         # Reject team baseline signals: TEAM page listing existing members (not actual moves)
-        page_type = (signal.get("page_type") or "").upper()
+        page_type = ((signal.get("page_type") or signal.get("page_category") or "")).upper()
         sig_type = signal.get("signal_type") or ""
         if page_type in ("TEAM", "TEAM_LIST"):
             what = signal.get("what_changed") or ""
@@ -3490,6 +3592,17 @@ def main():
             # Pattern 2: title ends with "(+N more)" — team listing from baseline scrape
             # Check regardless of signal_type since reclassifier may have changed it
             if re.search(r"\(\+\d+ more\)", clean_title):
+                removed_garbage += 1
+                continue
+            # Pattern 3: static TEAM bios/corporate blurbs are not discrete move signals.
+            if (
+                (
+                    _is_team_role_profile_line(clean_title, "TEAM")
+                    or _is_role_opening_title(clean_title)
+                    or _is_team_static_description(clean_title, what, "TEAM")
+                )
+                and not _has_people_transition_verb(f"{clean_title} {what}".lower())
+            ):
                 removed_garbage += 1
                 continue
 
@@ -3608,9 +3721,14 @@ def main():
 
         # Post-ML correction: event/conference attendance — ML may override our demotion
         post_ml_text = (raw_title + " " + raw_summary).lower()
-        demoted_to_other_by_editorial = False
-        if _RE_EVENT_ATTENDANCE.search(post_ml_text) or _RE_EVENT_RECAP_ITALIAN.search(post_ml_text):
+        demoted_to_other_by_editorial = was_universal_other_demotion
+        if (
+            _RE_EVENT_ATTENDANCE.search(post_ml_text)
+            or _RE_EVENT_RECAP_ITALIAN.search(post_ml_text)
+            or re.search(r"\b\d+(?:st|nd|rd|th)?\s+annual\b.{0,80}\b\d{1,2}/\d{1,2}/\d{4}\b", post_ml_text)
+        ):
             signal["signal_type"] = "other"
+            demoted_to_other_by_editorial = True
 
         # Post-ML correction: job postings — ML often misclassifies hiring notices as exits/deals
         # Italian selection procedure language is unambiguous
@@ -3798,8 +3916,11 @@ def main():
             title_check_ex = (signal.get("title") or "").lower()
             buyer_cues_ex = r"\bin\s+lizza\b|\bpotrebbe\s+essere\s+interessat\w*\b|\bpotrebbero\s+essere\s+interessat\w*\b|\bvaluta\s+l[''\u2019]acqui\w+\b"
             has_explicit_seller_ex = bool(_RE_EXPLICIT_SELLER.search(text_check_ex) or _RE_EXITED_FROM_PORTFOLIO.search(text_check_ex))
+            # Merger/fusion without explicit seller cues is not a completed exit.
+            if _RE_MERGER.search(text_check_ex) and not has_explicit_seller_ex and not _RE_STRONG_EXIT_VERBS.search(text_check_ex):
+                signal["signal_type"] = "deal_announced"
             # "Fund acquires X" in title = buyer, not exiter
-            if re.search(r"\bacquires?\s+\w+", title_check_ex) and not has_explicit_seller_ex:
+            elif re.search(r"\bacquires?\s+\w+", title_check_ex) and not has_explicit_seller_ex:
                 signal["signal_type"] = "deal_announced"
             elif re.search(buyer_cues_ex, title_check_ex):
                 if not has_explicit_seller_ex:
@@ -3835,7 +3956,20 @@ def main():
         # CEO/CFO mentioned in interviews or event speeches are NOT personnel changes
         if signal.get("signal_type") == "people_move":
             text_check_pm = (raw_title + " " + raw_summary).lower()
-            if _RE_REPORT.search(text_check_pm) and not _RE_INVEST_VERBS.search(text_check_pm):
+            title_check_pm = (signal.get("title") or "").lower()
+            page_category_pm = (signal.get("page_category") or "").upper()
+            # Static profile cards and role-opening titles are not true personnel-move events.
+            if (
+                (
+                    _is_team_role_profile_line(title_check_pm, page_category_pm)
+                    or _is_role_opening_title(title_check_pm)
+                    or _is_team_static_description(title_check_pm, text_check_pm, page_category_pm)
+                )
+                and not _has_people_transition_verb(text_check_pm)
+            ):
+                signal["signal_type"] = "other"
+                demoted_to_other_by_editorial = True
+            elif _RE_REPORT.search(text_check_pm) and not _RE_INVEST_VERBS.search(text_check_pm):
                 signal["signal_type"] = "report"
             elif re.search(r"\bintervist\w+\b|\binterview\w*\b|\bsits?\s+down\s+with\b|\breflects?\s+on\b|\bexplains?\b|\bspiega\b|\bracconta\b", text_check_pm):
                 if not re.search(r"\b(?:nomin\w+|appoint\w+|hired?|joins?|joined|dimission\w+|resign\w+|leaves?)\b", text_check_pm):
@@ -3850,11 +3984,31 @@ def main():
                     signal["signal_type"] = "other"
                     demoted_to_other_by_editorial = True
 
-        # Post-ML correction: deal_announced where title says "appoints/appointed" → people_move
+        # Post-ML correction: deal_announced with pure people-transition language → people_move
         if signal.get("signal_type") == "deal_announced":
             text_check_da = (raw_title + " " + raw_summary).lower()
-            if re.search(r"\b(?:appoints?|appointed|nomin(?:at|a)\w*)\b", text_check_da):
-                if not re.search(r"\b(?:acquir\w+|invest\w+|stake|majority|minority)\b", text_check_da):
+            title_check_da = (signal.get("title") or "").lower()
+            page_category_da = (signal.get("page_category") or "").upper()
+            if _is_team_static_description(title_check_da, text_check_da, page_category_da):
+                signal["signal_type"] = "other"
+                demoted_to_other_by_editorial = True
+            else:
+                has_people_transition = _has_people_transition_verb(text_check_da)
+                has_explicit_deal = bool(
+                    re.search(
+                        r"\b(?:acquir\w+|acquisizion\w+|rileva"
+                        r"|entra\s+(?:nel\s+capitale|in)\b|enters?\s+capital|buys?|compra"
+                        r"|tratt[ai]\s+l[''\u2019]acquisto)\b",
+                        text_check_da,
+                    )
+                    or re.search(r"\binvest\w+\s+(?:in|into|nel|nella|nei|nelle|da|per)\b", text_check_da)
+                    or _RE_OFFER_BID.search(text_check_da)
+                    or _RE_COMPANY_ROUND.search(text_check_da)
+                    or _RE_MERGER.search(text_check_da)
+                    or _RE_STRONG_EXIT_VERBS.search(text_check_da)
+                    or _RE_EXPLICIT_SELLER.search(text_check_da)
+                )
+                if has_people_transition and not has_explicit_deal:
                     signal["signal_type"] = "people_move"
 
         # Post-ML correction: deal_announced with "launches" + fund vehicle/accelerator → fund_launch
@@ -3912,17 +4066,31 @@ def main():
         # Post-ML correction: re-run full reclassifier for "other" signals.
         # ML often overrides the reclassifier's correct decision — trust pattern matches.
         if signal.get("signal_type") == "other" and not demoted_to_other_by_editorial:
-            reclassified = _reclassify_signal_type(signal, raw_title + " " + raw_summary, fund=fund)
-            if reclassified and reclassified != "other":
-                # Guard: don't promote to fund_launch unless TITLE has fund vehicle language.
-                # The reclassifier uses full text which can match "launched...fondo" in what_changed,
-                # undoing the post-ML demotion that correctly identified stale/editorial signals.
-                if reclassified == "fund_launch":
-                    title_check_fl = (signal.get("title") or "").lower()
-                    if not _matches_any(FUND_LAUNCH_CLASSIFY_PATTERNS, title_check_fl):
-                        reclassified = "other"
-                if reclassified != "other":
-                    signal["signal_type"] = reclassified
+            title_check_other = (signal.get("title") or "").lower()
+            page_category_other = (signal.get("page_category") or "").upper()
+            text_check_other = (raw_title + " " + raw_summary).lower()
+            # Don't rescue static team profile/job-style titles back into semantic types.
+            if (
+                (
+                    _is_team_role_profile_line(title_check_other, page_category_other)
+                    or _is_role_opening_title(title_check_other)
+                    or _is_team_static_description(title_check_other, text_check_other, page_category_other)
+                )
+                and not _has_people_transition_verb(text_check_other)
+            ):
+                demoted_to_other_by_editorial = True
+            else:
+                reclassified = _reclassify_signal_type(signal, raw_title + " " + raw_summary, fund=fund)
+                if reclassified and reclassified != "other":
+                    # Guard: don't promote to fund_launch unless TITLE has fund vehicle language.
+                    # The reclassifier uses full text which can match "launched...fondo" in what_changed,
+                    # undoing the post-ML demotion that correctly identified stale/editorial signals.
+                    if reclassified == "fund_launch":
+                        title_check_fl = (signal.get("title") or "").lower()
+                        if not _matches_any(FUND_LAUNCH_CLASSIFY_PATTERNS, title_check_fl):
+                            reclassified = "other"
+                    if reclassified != "other":
+                        signal["signal_type"] = reclassified
 
         # Pre-score for strict gate override and downstream filtering
         score = calculate_quality_score(

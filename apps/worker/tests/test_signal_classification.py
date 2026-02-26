@@ -441,6 +441,15 @@ class TestDealVsExitDisambiguation:
         )
         assert result == "exit_announced"
 
+    def test_merger_without_seller_cues_not_exit(self):
+        """Merger language alone is not a completed exit without seller evidence."""
+        result = apply_type_corrections(
+            "exit_announced",
+            "crowdfundme will merge with smart4tech to create a larger group",
+            "crowdfundme smart4tech merger",
+        )
+        assert result == "deal_announced"
+
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 3. FUNDRAISE vs DEAL DISAMBIGUATION
@@ -589,6 +598,42 @@ class TestPeopleMove:
         for current_type, text, title in cases:
             result = apply_type_corrections(current_type, text, title)
             assert result == "people_move", f"Expected people_move for: {title!r}, got {result!r}"
+
+    def test_team_profile_title_not_treated_as_people_move(self):
+        """TEAM profile card text should be demoted to other."""
+        result = apply_type_corrections(
+            "people_move",
+            "giulio pesenti head of strategic business development",
+            "giulio pesenti head of strategic business development",
+            page_category="TEAM",
+        )
+        assert result == "other"
+
+    def test_team_investor_relations_profile_demoted(self):
+        result = apply_type_corrections(
+            "people_move",
+            "angela dall'oglio investor relations",
+            "angela dall'oglio investor relations",
+            page_category="TEAM",
+        )
+        assert result == "other"
+
+    def test_team_joined_tokens_profile_demoted(self):
+        result = apply_type_corrections(
+            "people_move",
+            "manuela noèlegal & corporate affairs specialist",
+            "manuela noèlegal & corporate affairs specialist",
+            page_category="TEAM",
+        )
+        assert result == "other"
+
+    def test_deal_with_departure_language_to_people_move(self):
+        result = apply_type_corrections(
+            "deal_announced",
+            "giampaolo di dio is stepping down as cio of fondo italiano d'investimento sgr",
+            "fondo italiano d'investimento sgr, cio giampaolo di dio leaves",
+        )
+        assert result == "people_move"
 
 
 # ──────────────────────────────────────────────────────────────────────────────

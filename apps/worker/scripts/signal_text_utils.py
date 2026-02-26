@@ -1344,6 +1344,21 @@ def _cdt_repair_tokens_and_attributes(text: str, is_title: bool) -> str:
     for wrong, correct in CDP_NAME_CORRECTIONS.items():
         cleaned = cleaned.replace(wrong, correct)
 
+    # Remove redundant CDP long-form parenthetical expansions when acronym is
+    # already present (e.g. "CDP Equity (Cassa Depositi and Prestiti)").
+    cleaned = re.sub(
+        r"\b(CDP(?:\s+Equity)?)\s*\(\s*Cassa\s+Depositi(?:\s+e|\s+and)\s+Prestiti\s*\)",
+        r"\1",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+    cleaned = re.sub(
+        r"\b(CDP(?:\s+Equity)?)\s*\(\s*Cassa\s+Depositi\s+e\s+Prestiti\s+S\.?p\.?A\.?\s*\)",
+        r"\1",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+
     return cleaned
 
 
