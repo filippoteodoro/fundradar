@@ -2261,11 +2261,17 @@ def _is_geo_relevant_signal(signal: dict, fund_geo_scope: str, fund: dict | None
     # For other scopes, only trust it for core geo types — non-core types
     # (people_move, portfolio_update) need text evidence from europe_wide/mixed_or_global
     if signal.get("italy_relevant") is True:
+        # Sanity-check: score=0 with no reasons means the flag was set as a default upstream,
+        # not from actual evidence. Don't trust it for non-italy-focused funds.
+        _score = signal.get("relevance_score") or 0
+        _reasons = signal.get("relevance_reasons") or []
+        _unreliable = (_score == 0 and not _reasons)
         if fund_geo_scope == "italy_focused":
-            return True
-        if signal_type in CORE_GEO_TYPES:
-            return True
-        # Non-core types from europe_wide/mixed_or_global fall through to text checks
+            return True  # Italy-focused: always trust, even with score=0
+        if not _unreliable:
+            if signal_type in CORE_GEO_TYPES:
+                return True
+        # Unreliable flag or non-core type from europe_wide/mixed_or_global: fall through to text checks
 
     text = " ".join([
         signal.get("title", ""),

@@ -142,7 +142,10 @@ _RE_FASHION_CAMPAIGN = re.compile(
     r"|\b(?:campaign|collection|lookbook|runway|fashion\s+show|capsule)\b"
     r".*\b(?:spring[\s/]+summer|fall[\s/]+winter|autumn[\s/]+winter|SS\s*\d{2,4}|FW\s*\d{2,4}|AW\s*\d{2,4})\b"
     r"|\b(?:shot\s+on\b|directed\s+by\b|photographed\s+by\b|creative\s+director\b).*\b(?:campaign|collection)\b"
-    r"|\bpresents?\s+(?:its?\s+)?(?:new\s+)?(?:spring|fall|winter|summer|SS|FW|AW)\b",
+    r"|\bpresents?\s+(?:its?\s+)?(?:new\s+)?(?:spring|fall|winter|summer|SS|FW|AW)\b"
+    # Location-based photo/PR campaign: "chooses X for its campaign", "selects Y for new campaign"
+    r"|\bchooses?\s+(?:the\s+)?\w.*?\bfor\s+(?:its?\s+)?.*?\bcampaign\b"
+    r"|\bselects?\s+(?:the\s+)?\w.*?\bfor\s+(?:its?\s+)?.*?\bcampaign\b",
     re.IGNORECASE,
 )
 

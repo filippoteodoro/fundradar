@@ -332,8 +332,10 @@ export function CompaniesTable({ companies }: CompaniesTableProps) {
                       {company.investmentCount}
                     </td>
                     <td style={{ padding: '10px 12px', borderBottom: '1px solid #eee' }}>
-                      {(() => {
-                        const st = STATUS_STYLES[status] || STATUS_STYLES.unknown;
+                      {status === 'unknown' ? (
+                        <span style={{ color: '#999' }}>-</span>
+                      ) : (() => {
+                        const st = STATUS_STYLES[status];
                         return <span style={badgeStyle(st)}>{st.label}</span>;
                       })()}
                     </td>

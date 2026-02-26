@@ -166,7 +166,11 @@ export function CompanyDetail({ company, signals = [] }: CompanyDetailProps) {
                       </Link>
                     </td>
                     <td style={{ padding: '10px 12px', borderBottom: '1px solid #eee' }}>
-                      <span style={badgeStyle(st)}>{st.label}</span>
+                      {inv.status ? (
+                        <span style={badgeStyle(st)}>{st.label}</span>
+                      ) : (
+                        <span style={{ color: '#999' }}>-</span>
+                      )}
                     </td>
                     <td style={{ padding: '10px 12px', borderBottom: '1px solid #eee', color: '#666' }}>
                       {inv.entry_date
@@ -177,18 +181,23 @@ export function CompanyDetail({ company, signals = [] }: CompanyDetailProps) {
                       {inv.investment_stage || '-'}
                     </td>
                     <td style={{ padding: '10px 12px', borderBottom: '1px solid #eee' }}>
-                      {inv.source_url ? (
-                        <a
-                          href={inv.source_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ ...badgeStyle(src), textDecoration: 'none', display: 'inline-block' }}
-                        >
-                          {label}
-                        </a>
-                      ) : (
-                        <span style={badgeStyle(src)}>{label}</span>
-                      )}
+                      {(() => {
+                        if (!inv.data_source && !inv.source_url && !inv.source_label) {
+                          return <span style={{ color: '#999' }}>-</span>;
+                        }
+                        return inv.source_url ? (
+                          <a
+                            href={inv.source_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ ...badgeStyle(src), textDecoration: 'none', display: 'inline-block' }}
+                          >
+                            {label}
+                          </a>
+                        ) : (
+                          <span style={badgeStyle(src)}>{label}</span>
+                        );
+                      })()}
                     </td>
                   </tr>
                 );

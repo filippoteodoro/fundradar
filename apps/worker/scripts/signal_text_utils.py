@@ -384,14 +384,16 @@ def fix_spacing(text: str) -> str:
     cleaned = re.sub(r"\bIfund\b", "I Fund", cleaned)
     # "Travelso" → "Travelsoft" (common truncation)
     cleaned = re.sub(r"\bTravelso\b", "Travelsoft", cleaned)
-    # Strip leading numbered list artifacts
-    cleaned = re.sub(r"^\d+\s+(?=[A-Z])", "", cleaned)
+    # Strip leading numbered list artifacts (e.g. "1. Item" or "1) Item")
+    # Require period or closing paren — prevents stripping fund names like "21 Invest" or "3i"
+    cleaned = re.sub(r"^\d+[.)]\s+(?=[A-Z])", "", cleaned)
     # Italian ordinals in text
     cleaned = re.sub(r"\b(\d+)\s+([ao])\s+", r"\1\2 ", cleaned)
     # Brand name corrections (common LLM/OCR token splits)
     cleaned = re.sub(r"\bOpen\s+AI\b", "OpenAI", cleaned)
     cleaned = re.sub(r"\bUni\s*Credit\b", "UniCredit", cleaned)
     cleaned = re.sub(r"\bBorg\s*Warner\b", "BorgWarner", cleaned)
+    cleaned = re.sub(r"\bInfo\s+Cert\b", "InfoCert", cleaned)
     cleaned = re.sub(r"\b[Bb]rand\s*[Oo]n\s+[Gg]roup\b", "BrandOn Group", cleaned)
     cleaned = re.sub(r"\b[Ff]in\s*[Tt]ech\b", "fintech", cleaned)
     cleaned = re.sub(r"\bTechnology\s*transfer\b", "Technology Transfer", cleaned, flags=re.IGNORECASE)
@@ -1156,6 +1158,14 @@ def _cdt_normalize_spacing_and_dates(text: str) -> str:
     # Insert space before ALL-CAPS word concatenated to lowercase
     cleaned = re.sub(r"([a-z])([A-Z]{3,})", r"\1 \2", cleaned)
 
+    # Fix doubled articles: "the The" → "The", "a A" → "A", "an An" → "An"
+    cleaned = re.sub(r"\b(the)\s+the\b", "the", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\b(a)\s+a\b(?!\s*\w*[a-z]{2})", "a", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\b(an)\s+an\b", "an", cleaned, flags=re.IGNORECASE)
+    # Mixed-case double article: "the The" → "The" (capital follows lower)
+    cleaned = re.sub(r"\bthe\s+The\b", "The", cleaned)
+    cleaned = re.sub(r"\ba\s+A\b", "A", cleaned)
+
     # Strip leading/trailing curly quotes
     cleaned = re.sub('^[\u201c\u201d"]+\\s*', '', cleaned)
     cleaned = re.sub('\\s*[\u201c\u201d"]+$', '', cleaned)
@@ -1432,6 +1442,13 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     # Ensure title starts with uppercase (fix scraper artifacts)
     if is_title and cleaned and cleaned[0].islower():
         cleaned = cleaned[0].upper() + cleaned[1:]
+
+    # Cap excessively long titles (press release paragraph intros)
+    if is_title and len(cleaned) > 160:
+        cut = cleaned[:157]
+        last_space = cut.rfind(" ")
+        if last_space > 80:
+            cleaned = cut[:last_space].rstrip(".,;:—–-") + "…"
 
     return cleaned.strip()
 

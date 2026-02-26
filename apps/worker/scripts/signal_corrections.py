@@ -350,6 +350,16 @@ def correct_exit(text_lower: str, title_lower: str, page_category: str = "") -> 
     if _RE_EDITORIAL_FORMAT.search(text_lower):
         return "other"
 
+    # Bond/debt issuance misclassified as exit (bond issues, green bonds, credit facilities,
+    # refinancing — these are debt events, not fund exits from portfolio companies)
+    if _RE_BOND_ISSUANCE.search(text_lower) and not _RE_BOND_EXCLUDE.search(text_lower):
+        if not _RE_STRONG_EXIT_VERBS.search(text_lower):
+            return "debt_financing"
+    if _RE_DEBT_FINANCING_BROAD.search(text_lower) and not _RE_STRONG_EXIT_VERBS.search(text_lower):
+        return "debt_financing"
+    if _RE_CREDIT_FACILITY.search(text_lower) and not _RE_STRONG_EXIT_VERBS.search(text_lower):
+        return "debt_financing"
+
     # "Evaluating sale" / "considering sale" / "exploring sale" — process initiation, not completed exit
     # Keep as deal_announced (potential transaction) rather than exit_announced (completed)
     if re.search(r"\b(?:evaluat|consider|explor|weigh|assess)\w*\s+(?:the\s+)?(?:sale|disposal|divestiture|exit)\b", text_lower):
