@@ -248,6 +248,21 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 **When adding a new correction rule**: add it to `signal_corrections.py`. Both filter and enricher import and call it directly. Do NOT add inline correction patterns to `_reclassify_signal_type()` in `filter_signals.py` — they won't be shared with the enricher.
 **When adding a new signal type**: update `signal_patterns.py` (CORE_GEO_TYPES/CORE_QUALITY_TYPES), `signal_corrections.py`, `filter_signals.py`, `enrich_signals_openai.py`, `signalProcessing.ts`, `types.ts`, `SignalsFeed.tsx`. Then retrain the ML classifier (`python scripts/train_signal_classifier.py`) so the new type gets a passthrough mapping in `map_type_to_signal_type()`.
 
+### signal_text_utils.py — Architecture Notes
+
+`clean_display_text()` is a 7-stage pipeline. **Stage ordering is critical:**
+
+1. **Early-exit rewrites (before stage 1)**: Portfolio title rewrites ("X added to Fund portfolio" → "Fund: new investment in X") run at the very top of `clean_display_text()`, matching against the raw original text. This preserves proper noun casing — if done inside later stages, `_cdt_normalize_casing` (stage 4) lowercases the generated string's proper nouns because it detects the high capitalization ratio and triggers title-case→sentence-case conversion.
+2. Stages 1–7 run on all other signals.
+
+`fix_spacing()` — the "strip leading numbered list artifacts" rule requires **period or closing paren** after the number: `^\d+[.)]\s+`. This prevents stripping fund names that start with a number (e.g., "21 Invest", "3i"). Do NOT weaken this to bare `^\d+\s+` again.
+
+`correct_exit()` in `signal_corrections.py` — checks bond/debt patterns (`_RE_BOND_ISSUANCE`, `_RE_DEBT_FINANCING_BROAD`, `_RE_CREDIT_FACILITY`) before the general exit-verb checks. Bond/debt issuances were being mislabeled `exit_announced` before this was added (Feb 2026).
+
+`_passes_strict_quality_gates()` in `filter_signals.py` — **noise gates run BEFORE the `italy_focused` early return**. This order is intentional: bare portfolio extraction signals (just a company name, no context) must be caught even for italy-focused funds that otherwise get a pass on geo checks.
+
+`italy_relevant=True` reliability: the flag is trustworthy only when `relevance_score > 0` OR `relevance_reasons` is non-empty. A signal with `italy_relevant=True`, `relevance_score=0`, and no `relevance_reasons` means the flag was set as an upstream default — treat as unreliable. Non-italy-focused funds in this state fall through to text-based geo checks.
+
 ### ML Signal Classifier
 
 The filter uses an optional sklearn ML classifier (`signal_classifier.py`) for confidence-gated type prediction and keep/discard scoring. It is a secondary layer — rule-based corrections in `signal_corrections.py` always run after ML and can override its output.

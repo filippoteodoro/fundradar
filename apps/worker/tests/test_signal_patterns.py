@@ -474,3 +474,87 @@ class TestUtilityFunctions:
         result = _extract_portfolio_company_name(signal, "nothing here", "the market outlook")
         # May return the title text as fallback — verify it's not a crash
         assert isinstance(result, str) or result is None
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Job-title and person-name capitalization (signal_text_utils.py)
+# Added Feb 2026 after reports of 'head' not capitalized in role context
+# ──────────────────────────────────────────────────────────────────────────────
+
+class TestJobTitleCapitalization:
+    """clean_display_text() must capitalize 'head' and other role words in context.
+
+    Regression tests for web-signal-01938 (Permira/Giorgio Dinaro 'as head of Milan')
+    and web-signal-01770 (Clessidra/Romualdi 'managing director, head of Investor Relations').
+    """
+
+    def test_as_head_of_capitalized(self):
+        from signal_text_utils import clean_display_text
+        result = clean_display_text(
+            "Permira appoints Giorgio Dinaro as head of Milan", is_title=True
+        )
+        assert "as Head of" in result, f"Expected 'as Head of' in: {result!r}"
+
+    def test_comma_head_of_capitalized(self):
+        from signal_text_utils import clean_display_text
+        result = clean_display_text(
+            "Michele romualdi managing director, head of Investor Relations and Strategic Client Partnership",
+            is_title=True,
+        )
+        assert ", Head of" in result, f"Expected ', Head of' in: {result!r}"
+
+    def test_surname_at_start_capitalized(self):
+        from signal_text_utils import clean_display_text
+        result = clean_display_text(
+            "Michele romualdi managing director, head of Investor Relations",
+            is_title=True,
+        )
+        assert "Romualdi" in result, f"Expected capitalized surname in: {result!r}"
+
+    def test_as_managing_director_capitalized(self):
+        from signal_text_utils import clean_display_text
+        result = clean_display_text(
+            "Ardian appoints Marco Rossi as managing director of Italy", is_title=True
+        )
+        assert "as Managing Director of" in result, f"Expected 'as Managing Director of' in: {result!r}"
+
+    def test_and_head_of_capitalized(self):
+        from signal_text_utils import clean_display_text
+        result = clean_display_text(
+            "Permira names Marco Rossi as partner and head of mid-market", is_title=True
+        )
+        assert "and Head of" in result, f"Expected 'and Head of' in: {result!r}"
+
+    def test_non_title_head_not_capitalized(self):
+        """'heads into' (verb) must NOT be capitalized."""
+        from signal_text_utils import clean_display_text
+        result = clean_display_text("The fund heads into new markets", is_title=True)
+        assert "Heads" not in result, f"'heads' (verb) should stay lowercase: {result!r}"
+
+    def test_mostly_caps_preserves_proper_nouns(self):
+        """Mostly-caps job title: ALL CAPS words get title-cased, mixed-case proper
+        nouns are preserved unchanged.
+
+        Regression for web-signal-01910 (Capital Dynamics SGR job posting):
+        'SENIOR INVESTMENT ASSOCIATE, CLEAN ENERGY - Capital Dynamics'
+        The mostly-caps path must NOT run title_case_to_sentence_case() on top, which
+        would lowercase 'Capital' and 'Dynamics'.
+        """
+        from signal_text_utils import clean_display_text
+        result = clean_display_text(
+            "SENIOR INVESTMENT ASSOCIATE, CLEAN ENERGY - Capital Dynamics",
+            is_title=True,
+        )
+        assert result == "Senior Investment Associate, Clean Energy - Capital Dynamics", (
+            f"Unexpected result: {result!r}"
+        )
+
+    def test_fully_caps_converted_to_sentence_case(self):
+        """Fully-caps news signals still get sentence-cased (not kept as title case).
+
+        'APOLLO ACQUIRES STAKE IN COMPANY' → sentence case (existing behaviour preserved).
+        """
+        from signal_text_utils import clean_display_text
+        result = clean_display_text("APOLLO ACQUIRES STAKE IN COMPANY", is_title=True)
+        # Should be sentence case (first word capped, rest lowercased)
+        assert result.startswith("Apollo acquires"), f"Expected sentence case: {result!r}"

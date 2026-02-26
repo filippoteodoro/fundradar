@@ -873,15 +873,48 @@ def repair_attached_connectors(text: str, company_candidates: list[str] | None =
 # ---------------------------------------------------------------------------
 
 def caps_to_title_case(text: str) -> str:
-    """Convert ALL CAPS text to title case, preserving acronyms and lowercasing prepositions."""
+    """Convert ALL CAPS text to title case, preserving acronyms and lowercasing prepositions.
+
+    Handles two cases:
+    1. Fully uppercase: "SENIOR INVESTMENT ASSOCIATE" — entire string is ALL CAPS.
+    2. Mostly uppercase: "SENIOR INVESTMENT ASSOCIATE, CLEAN ENERGY - Capital Dynamics"
+       — mixed string where >50% of words are ALL CAPS. Converts the ALL CAPS
+       words individually and leaves already-correct mixed-case words untouched.
+    """
     if not text:
         return text
     if len(text) <= 20:
         return text
-    if not re.match(r"^[A-ZÀ-ÖØ-Þ0-9\s.,':;!?()\-–—€$£%/&]+$", text):
-        return text
 
-    cleaned = text.title()
+    # Build a set of known acronyms (upper) for quick lookup during word conversion
+    _acr_set = {a.upper() for a in _TITLE_CASE_ACRONYMS}
+
+    fully_caps = bool(re.match(r"^[A-ZÀ-ÖØ-Þ0-9\s.,':;!?()\-–—€$£%/&]+$", text))
+
+    if not fully_caps:
+        # Check for "mostly caps": >50% of alphabetic words (3+ chars) are ALL CAPS
+        words = text.split()
+        alpha_words = [re.sub(r"[^A-Za-zÀ-ÖØ-öø-ÿ]", "", w) for w in words]
+        long_alpha = [w for w in alpha_words if len(w) >= 3]
+        if not long_alpha:
+            return text
+        caps_count = sum(1 for w in long_alpha if w == w.upper())
+        if caps_count / len(long_alpha) <= 0.5:
+            return text  # Not mostly caps — leave untouched
+
+        # Convert word-by-word: only touch fully-uppercase words
+        def _convert_word(w: str) -> str:
+            core = re.sub(r"[^A-Za-zÀ-ÖØ-öø-ÿ]", "", w)
+            if len(core) < 3 or core != core.upper():
+                return w  # Short word or already mixed-case — preserve as-is
+            if core.upper() in _acr_set:
+                return w  # Known acronym — preserve uppercase
+            return w[0].upper() + w[1:].lower() if len(w) == len(core) else w.title()
+
+        cleaned = " ".join(_convert_word(w) for w in words)
+    else:
+        cleaned = text.title()
+
     # Restore common acronyms that title() lowercased
     for acr in _TITLE_CASE_ACRONYMS:
         cleaned = re.sub(r"\b" + re.escape(acr) + r"\b", acr.upper(), cleaned)
@@ -1139,6 +1172,55 @@ def _cdt_strip_boilerplate(text: str, is_title: bool) -> str:
 
     # Strip trailing placeholder word "Historical" (LLM artifact)
     cleaned = re.sub(r"\s*\.?\s*Historical\s*\.?\s*$", ".", cleaned, flags=re.IGNORECASE)
+
+    # Strip LLM meta-commentary sentences — reasoning leaked from the enricher/monitor LLM.
+    # These are sentences where the LLM explains what TYPE of signal this is instead of
+    # describing actual news content.  They always appear as trailing sentences.
+    # e.g. "This is news of a management change, not an M&A transaction."
+    # e.g. "This is not a deal announcement."  "This article covers X, not a deal."
+    #
+    # IMPORTANT: _META_SEP must only match sentence-ending punctuation, NOT bare whitespace.
+    # Using \s+ would match spaces within sentences (e.g. "Note: This is..." becomes
+    # "Note: " + "This is..." match, leaving orphaned "Note:" after stripping).
+    _META_SEP = r"(?:[.!?]\s*)"  # sentence boundary — requires sentence-ending punctuation
+
+    # "This is news of X, not an M&A transaction." / "This is a management change, not a deal."
+    # Applied both at start-of-text (^) and after a sentence boundary
+    _META_CORE_1 = (
+        r"This\s+is\s+(?:news\s+of\s+)?(?:a\s+|an\s+)?[\w\s,'\u2019\-]{3,60}?"
+        r"\bnot\s+an?\s+(?:M&A|M\s*&\s*A|merger|acquisition|deal|exit|transaction|fundraise)\b[^.]{0,60}\."
+    )
+    cleaned = re.sub(r"^" + _META_CORE_1, "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(_META_SEP + _META_CORE_1, ".", cleaned, flags=re.IGNORECASE)
+
+    # "This is not an M&A transaction / deal / announcement."
+    _META_CORE_2 = (
+        r"This\s+is\s+not\s+an?\s+(?:M&A|M\s*&\s*A|merger|acquisition|deal|exit|fundraise|investment)"
+        r"\s*(?:transaction|announcement|event|deal)?[^.]{0,40}\."
+    )
+    cleaned = re.sub(r"^" + _META_CORE_2, "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(_META_SEP + _META_CORE_2, ".", cleaned, flags=re.IGNORECASE)
+
+    # "This article/signal/piece reports on X, not a deal."
+    _META_CORE_3 = (
+        r"This\s+(?:article|signal|piece|report|news\s+item|post)"
+        r"\s+(?:is\s+about|reports?\s+on|covers?|discusses?|describes?|concerns?)\s+[^.]{0,120}\."
+    )
+    cleaned = re.sub(r"^" + _META_CORE_3, "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(_META_SEP + _META_CORE_3, ".", cleaned, flags=re.IGNORECASE)
+
+    # "Note: This is a people move, not a deal." — possibly at start of text
+    _META_NOTE = (
+        r"Note[:\s]+[Tt]his\s+is\s+(?:not\s+)?(?:a\s+|an\s+)?"
+        r"[\w\s,]{3,80}?(?:not\s+an?\s+[\w\s]{3,40}?)?[.!]"
+    )
+    cleaned = re.sub(r"^" + _META_NOTE, "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(_META_SEP + _META_NOTE, ".", cleaned, flags=re.IGNORECASE)
+
+    # Collapse orphaned "." artifacts left by stripping
+    cleaned = re.sub(r"\.\s*\.\s*$", ".", cleaned)
+    cleaned = re.sub(r"^\.\s*", "", cleaned)
+
     # Clean up trailing/leading period artifacts
     cleaned = re.sub(r"^\.\s*", "", cleaned)
     cleaned = re.sub(r"\.\.\s*$", ".", cleaned)
@@ -1247,17 +1329,42 @@ def _cdt_normalize_casing(text: str, is_title: bool) -> str:
     """
     cleaned = text
 
+    # Detect "mostly caps" before conversion so we can skip sentence-case afterwards.
+    # "SENIOR INVESTMENT ASSOCIATE, CLEAN ENERGY - Capital Dynamics" is mostly-caps:
+    # >50% of long alpha words are ALL CAPS but the string isn't fully uppercase.
+    # After caps_to_title_case() converts the ALL CAPS words, the result is already
+    # correct title case — running title_case_to_sentence_case() on top would then
+    # lowercase already-correct proper nouns like "Capital Dynamics".
+    _words_tmp = cleaned.split()
+    _alpha_tmp = [re.sub(r"[^A-Za-z\u00C0-\u00D6\u00D8-\u00DE\u00E0-\u00F6\u00F8-\u00FF]", "", w) for w in _words_tmp]
+    _long_tmp = [w for w in _alpha_tmp if len(w) >= 3]
+    _fully_caps = bool(re.match(r"^[A-Z\u00C0-\u00D6\u00D8-\u00DE0-9\s.,':;!?()\-\u2013\u2014\u20AC$\u00A3%/&]+$", cleaned))
+    _was_mostly_caps = (
+        not _fully_caps
+        and bool(_long_tmp)
+        and sum(1 for w in _long_tmp if w == w.upper()) / len(_long_tmp) > 0.5
+    )
+
     # ALL CAPS -> title case
     cleaned = caps_to_title_case(cleaned)
 
-    # Title Case -> sentence case
-    cleaned = title_case_to_sentence_case(cleaned)
+    # Title Case -> sentence case.
+    # Skipped when the original text was mostly-caps (not fully-caps): the
+    # caps_to_title_case() word-by-word path already produced the correct title
+    # case by converting only the ALL CAPS tokens and leaving mixed-case words
+    # (proper nouns, fund names) intact.  Applying sentence-case on top would
+    # incorrectly lowercase those preserved words.
+    if not _was_mostly_caps:
+        cleaned = title_case_to_sentence_case(cleaned)
 
     # Capitalize person names after appointment verbs
     # "appointed claudia pingue" -> "appointed Claudia Pingue"
     def _capitalize_person_after_verb(m: re.Match) -> str:
         verb = m.group(1)
         name_part = m.group(2)
+        # name_part ends with trailing whitespace (from the \s+ in each repetition).
+        # Preserve it so we don't merge the last captured word with the next word.
+        trailing_space = " " if name_part.endswith((" ", "\t")) else ""
         words = name_part.split()
         capitalized = []
         for w in words:
@@ -1270,12 +1377,60 @@ def _cdt_normalize_casing(text: str, is_title: bool) -> str:
                 capitalized.append(w)
         remaining_start = len(capitalized)
         capitalized.extend(words[remaining_start:])
-        return verb + " " + " ".join(capitalized)
+        return verb + " " + " ".join(capitalized) + trailing_space
 
     cleaned = re.sub(
         r"\b(appointed|appoints|names|named|elects|elected|hires|hired|nominat[oa])\s+"
         r"((?:[a-z\u00E0-\u00F6\u00F8-\u00FF]+\s+){1,4})",
         _capitalize_person_after_verb,
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+
+    # Capitalize surname at start of text when followed immediately by a job-title word.
+    # Pattern: "FirstName lastname managing director..." → "FirstName Lastname managing director..."
+    # Safe guard: requires a known job-title word in the 3rd position.
+    _JOB_TITLE_GUARD = (
+        r"(?:managing\s+director|managing\s+partner|senior\s+partner|general\s+partner"
+        r"|head|director|partner|chairman|president|vice\s+president|chief|principal"
+        r"|associate|ceo|cfo|coo|cio|officer|responsabile|direttore)"
+    )
+    cleaned = re.sub(
+        r"^([A-Z][a-z]{1,18})\s+([a-z][a-z\-']{2,20})\s+(?=" + _JOB_TITLE_GUARD + r"\b)",
+        lambda m: m.group(1) + " " + m.group(2).capitalize() + " ",
+        cleaned,
+    )
+
+    # Capitalize job-title words in role/appointment context.
+    # These words are sentence-case lowercased by title_case_to_sentence_case but should
+    # stay capitalised when used as a person's role designation.
+    _ROLE_WORDS = (
+        r"head|managing\s+director|managing\s+partner|senior\s+partner|general\s+partner"
+        r"|director|partner|chairman|president|vice\s+president|chief\s+executive"
+        r"|chief\s+investment\s+officer|chief\s+financial\s+officer|principal"
+    )
+    # Rule A: "as <role>" — appointment context
+    cleaned = re.sub(
+        r"\bas\s+(" + _ROLE_WORDS + r")\b",
+        lambda m: "as " + re.sub(r"\b(\w)", lambda w: w.group(1).upper(), m.group(1)),
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+    # Rule B: ", <role> of" or "and <role> of" — comma/and-separated role enumeration
+    def _cap_role(m: re.Match) -> str:
+        sep, role = m.group(1), m.group(2)
+        return sep + re.sub(r"\b(\w)", lambda w: w.group(1).upper(), role) + " of"
+    cleaned = re.sub(
+        r"([,]\s+|(?<=\s)and\s+)(" + _ROLE_WORDS + r")\s+of\b",
+        _cap_role,
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+    # Rule C: standalone role after comma without "of" (e.g. ", Managing Director")
+    # Only triggers when the role appears as the last significant phrase (end of text or before ",")
+    cleaned = re.sub(
+        r",\s+(" + _ROLE_WORDS + r")\s*$",
+        lambda m: ", " + re.sub(r"\b(\w)", lambda w: w.group(1).upper(), m.group(1)),
         cleaned,
         flags=re.IGNORECASE,
     )

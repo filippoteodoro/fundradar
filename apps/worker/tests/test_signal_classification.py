@@ -969,3 +969,48 @@ class TestSemanticBoundaries:
             "ardian completes sale",
         )
         assert result == "exit_announced"
+
+
+class TestPeopleMoveDeparture:
+    """Regression tests for people_move departure language (Feb 2026 fix).
+
+    Before fix: 'steps down', 'leaves', 'resigns' were not in the people_move
+    safety-net patterns → signals got demoted to 'other'.
+    Signal: rss-signal-00153 — Giampaolo Di Dio steps down as CIO of Fondo Italiano.
+    """
+
+    def test_steps_down_stays_people_move(self):
+        """'stepping down as CIO' must stay people_move, not be demoted to other."""
+        result = apply_type_corrections(
+            "people_move",
+            "giampaolo di dio is stepping down as cio of fondo italiano d'investimento sgr",
+            "fondo italiano d'investimento sgr, cio giampaolo di dio leaves",
+        )
+        assert result == "people_move"
+
+    def test_leaves_role_stays_people_move(self):
+        """'X leaves' in title must stay people_move."""
+        result = apply_type_corrections(
+            "people_move",
+            "marco rossi leaves his role as managing director at apollo italy",
+            "marco rossi leaves apollo italy",
+        )
+        assert result == "people_move"
+
+    def test_resigns_stays_people_move(self):
+        """'resigns' must stay people_move."""
+        result = apply_type_corrections(
+            "people_move",
+            "cfo resigns from kkr italy after ten years at the firm",
+            "kkr cfo resigns",
+        )
+        assert result == "people_move"
+
+    def test_no_people_language_still_demotes(self):
+        """No arrival OR departure language → still demotes to other (safety net intact)."""
+        result = apply_type_corrections(
+            "people_move",
+            "generic market commentary about italian private equity landscape",
+            "market commentary",
+        )
+        assert result == "other"

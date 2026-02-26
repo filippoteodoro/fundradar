@@ -468,9 +468,18 @@ export function loadUnifiedSignals(): { signals: UnifiedSignal[]; fundPrioritySc
     const key = getCompositeKey(signal);
     const normText = normalizeSignalText(signal.what_changed || '');
     const contentKey = `${normText}::${signal.published_at || ''}`;
-    const crossFundKey = `${signal.source_url}::${normText}`;
+    // Cross-fund dedup: identify the same article published under multiple fund slugs
+    // and collapse it into one signal (keeping all fund tags).
+    // Bug guard: when what_changed is empty, fall back to title so that signals from
+    // the same URL with *different* story titles (e.g. CDP newsroom) are NOT collapsed.
+    // Without the fallback, all URL-same + empty-what_changed signals share key "url::"
+    // and 34+ legitimate CDP signals were silently deduped to 1.
+    const normTextForKey = normText || normalizeSignalText(signal.title || '');
+    // Skip cross-fund dedup when there is genuinely no identifying text — the composite
+    // key (url::what_changed::date) is still the primary collision guard.
+    const crossFundKey = normTextForKey ? `${signal.source_url}::${normTextForKey}` : null;
     const existing =
-      byCrossFundKey.get(crossFundKey) ||
+      (crossFundKey ? byCrossFundKey.get(crossFundKey) : undefined) ||
       byCompositeKey.get(key) ||
       byContentKey.get(contentKey);
     if (existing) {
@@ -480,7 +489,7 @@ export function loadUnifiedSignals(): { signals: UnifiedSignal[]; fundPrioritySc
 
     byCompositeKey.set(key, signal);
     byContentKey.set(contentKey, signal);
-    byCrossFundKey.set(crossFundKey, signal);
+    if (crossFundKey) byCrossFundKey.set(crossFundKey, signal);
     unified.push(signal);
   }
 

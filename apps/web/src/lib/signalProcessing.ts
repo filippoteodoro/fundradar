@@ -1081,8 +1081,12 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
   }
 
   // people_move safety net: people_move with NO people-related language → other
+  // Must include BOTH arrival AND departure language to catch "steps down", "leaves", "resigns"
   if (signal.signal_type === 'people_move') {
-    if (!/\b(?:appoint\w+|joins?|joined|nomin(?:a|e|at\w+)|named?\s+(?:as\s+)?(?:ceo|cfo|coo|cio|partner|director|head|president|chairman)|promot\w+|hired?|board|consiglio|eletto|assume\s+(?:il\s+)?(?:ruolo|incarico)|entra\s+(?:nel\s+)?(?:team|consiglio|cda)|nuovo\s+(?:ingresso|membro)|new\s+(?:head|director|managing\s+director|president|chairman))\b/i.test(text) && !/\bstrengthens?\b.*\bteam\b/i.test(text)) {
+    const hasPeopleArrival = /\b(?:appoint\w+|joins?|joined|nomin(?:a|e|at\w+)|named?\s+(?:as\s+)?(?:ceo|cfo|coo|cio|partner|director|head|president|chairman)|promot\w+|hired?|board|consiglio|eletto|assume\s+(?:il\s+)?(?:ruolo|incarico)|entra\s+(?:nel\s+)?(?:team|consiglio|cda)|nuovo\s+(?:ingresso|membro)|new\s+(?:head|director|managing\s+director|president|chairman))\b/i.test(text);
+    const hasPeopleDeparture = /\b(?:steps?\s+down|stepping\s+down|leaves?|leaving|left|resign\w*|depart\w*|exit\w*\s+(?:the\s+)?(?:firm|company|fund|role)|dimission\w+|lascia|lasciat\w+|abbandona|si\s+(?:dimette|ritira)|uscita\s+(?:di|dal)|succession\w*)\b/i.test(text);
+    const hasTeamStrength = /\bstrengthens?\b.*\bteam\b/i.test(text);
+    if (!hasPeopleArrival && !hasPeopleDeparture && !hasTeamStrength) {
       return 'other';
     }
   }

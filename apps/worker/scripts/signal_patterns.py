@@ -430,7 +430,10 @@ _RE_DEBT_RESTRUCTURING = re.compile(
 # filter called it _RE_PEOPLE_TITLE, enricher called it _RE_SENIOR_PEOPLE — same content
 _RE_PEOPLE_TITLE = re.compile(
     r"\bappoint\w+|\bjoins?\b|\bpromot\w+\b|\bnamed\b"
-    r"|\bnew\s+(?:ceo|cfo|coo|cio|partner)\b",
+    r"|\bnew\s+(?:ceo|cfo|coo|cio|partner)\b"
+    # Departure language — leaving/stepping down is also a people_move
+    r"|\bleaves?\b|\bleaving\b|\bleft\b|\bresign\w*\b|\bsteps?\s+down\b|\bstepping\s+down\b"
+    r"|\bdepart\w*\b|\bdimission\w*\b|\blascia\b|\blasciat\w+\b|\babbandona\b",
     re.IGNORECASE,
 )
 
@@ -670,7 +673,11 @@ _RE_INTERVIEW_EDITORIAL = re.compile(
 _RE_PEOPLE_LANGUAGE = re.compile(
     r"\b(?:nomin\w+|hired?|joins?|joined|promot\w+|assume\s+(?:il\s+)?(?:ruolo|incarico)"
     r"|entra\s+(?:nel\s+)?(?:team|consiglio|cda)|nuovo\s+(?:ingresso|membro)"
-    r"|new\s+(?:team\s+)?member)\b", re.IGNORECASE)
+    r"|new\s+(?:team\s+)?member"
+    # Departure language — stepping down / leaving is still a people move
+    r"|steps?\s+down|stepping\s+down|leaves?|leaving|left\s+(?:the\s+)?(?:firm|fund|company|role)"
+    r"|resign\w*|depart\w*|dimission\w*|lascia|lasciat\w+|abbandona"
+    r"|succession\w*|succeed\w*|replac\w+)\b", re.IGNORECASE)
 
 # Appointment verbs (for advisory board context check)
 _RE_APPOINTMENT_VERBS = re.compile(
