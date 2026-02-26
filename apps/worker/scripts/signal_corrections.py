@@ -779,13 +779,25 @@ def correct_people_move(text_lower: str, title_lower: str, page_category: str = 
             re.IGNORECASE,
         )
     )
+    title_norm = re.sub(r"([a-zà-öø-ÿ])([A-Z])", r"\1 \2", title_lower or "")
 
     # Team page profile cards ("Name Head of X") are static bios, not moves.
     if page_category == "TEAM":
         if re.search(
-            r"^[a-z][a-z'’.\-]+(?:\s+[a-z][a-z'’.\-]+){1,3}\s+"
-            r"(?:head|director|manager|partner|officer|counsel)\b",
-            title_lower,
+            r"^[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+(?:\s+[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+){1,3}\s+"
+            r"(?:(?:managing|senior|junior|lead|principal|chief)\s+)?"
+            r"(?:head|director|manager|partner|officer|counsel|analyst|associate|specialist"
+            r"|investor\s+relations"
+            r"|legal\s*(?:&|and)\s*corporate\s+affairs(?:\s+(?:specialist|manager|head|director))?)\b",
+            title_norm,
+            re.IGNORECASE,
+        ) and not _has_transition_verb:
+            return "other"
+        if re.search(
+            r"\b(?:is|acts?\s+as)\s+the\s+(?:parent|holding)\s+company\b"
+            r"|\b(?:parent|holding)\s+company\s+of\b"
+            r"|\bsociet[aà]\s+capogruppo\b",
+            text_lower,
             re.IGNORECASE,
         ) and not _has_transition_verb:
             return "other"
@@ -795,7 +807,7 @@ def correct_people_move(text_lower: str, title_lower: str, page_category: str = 
     if re.search(
         r"^\s*(?:senior|junior|lead|principal|chief|head|managing)?\s*"
         r"(?:investment\s+)?(?:associate|analyst|manager|specialist|advisor|officer|counsel|director)\b",
-        title_lower,
+        title_norm,
         re.IGNORECASE,
     ) and not _has_transition_verb:
         return "other"
@@ -1013,6 +1025,48 @@ def apply_type_corrections(
     # Rescue "other" signals that have clear type indicators
     # These were demoted but may have been over-demoted
     if current_type == "other":
+        title_norm = re.sub(r"([a-zà-öø-ÿ])([A-Z])", r"\1 \2", title_lower or "")
+        has_people_transition = bool(
+            _RE_APPOINTMENT_VERBS.search(text_lower)
+            or re.search(
+                r"\b(?:named?\s+as|hired?|promot\w+|new\s+(?:hire|appointment)"
+                r"|steps?\s+down|stepping\s+down|leaves?|left|resign\w*|depart\w*"
+                r"|dimission\w*|lascia|lasciat\w+|abbandona)\b",
+                text_lower,
+                re.IGNORECASE,
+            )
+        )
+        is_team_profile_noise = bool(
+            page_category == "TEAM" and re.search(
+                r"^[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+(?:\s+[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+){1,3}\s+"
+                r"(?:(?:managing|senior|junior|lead|principal|chief)\s+)?"
+                r"(?:head|director|manager|partner|officer|counsel|analyst|associate|specialist"
+                r"|investor\s+relations"
+                r"|legal\s*(?:&|and)\s*corporate\s+affairs(?:\s+(?:specialist|manager|head|director))?)\b",
+                title_norm,
+                re.IGNORECASE,
+            )
+        )
+        is_role_opening_noise = bool(
+            re.search(
+                r"^\s*(?:senior|junior|lead|principal|chief|head|managing)?\s*"
+                r"(?:investment\s+)?(?:associate|analyst|manager|specialist|advisor|officer|counsel|director)\b",
+                title_norm,
+                re.IGNORECASE,
+            )
+        )
+        is_team_static_desc = bool(
+            page_category == "TEAM" and re.search(
+                r"\b(?:is|acts?\s+as)\s+the\s+(?:parent|holding)\s+company\b"
+                r"|\b(?:parent|holding)\s+company\s+of\b"
+                r"|\bsociet[aà]\s+capogruppo\b",
+                text_lower,
+                re.IGNORECASE,
+            )
+        )
+        if (is_team_profile_noise or is_role_opening_noise or is_team_static_desc) and not has_people_transition:
+            return "other"
+
         # "names X as [role]" / "appoints X as [role]" → people_move
         if re.search(r"\b(?:names?|appoints?|appointed|hired?)\b.*\b(?:head|director|partner|managing|chief|ceo|cfo|coo|cto|president|chairman)\b", text_lower):
             return "people_move"
@@ -1022,10 +1076,10 @@ def apply_type_corrections(
         if re.search(
             r"\b(?:managing\s+director|head\s+of|chief\s+\w+\s+officer|partner|president"
             r"|vice\s+president|director\s+of|responsabile\s+(?:di|del|della))\b",
-            title_lower,
+            title_norm,
         ) and not re.search(
             r"\b(?:fund|fondo|capital|sgr|invest|acqui|rais|portfolio|raises?|launch|exit)\b",
-            title_lower,
+            title_norm,
         ):
             return "people_move"
         # "offers €XXM for" / "bids for" → deal_announced

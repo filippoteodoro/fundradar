@@ -17,6 +17,7 @@ from signal_text_utils import (  # noqa: E402
     capitalize_entities,
     caps_to_title_case,
     clean_display_text,
+    extract_company_like_entities,
     fix_spacing,
     is_garbage_summary,
     normalize_monetary_values,
@@ -459,6 +460,32 @@ class TestCapitalizeEntities:
         assert "Apollo" in result
         assert "Carlyle" in result
         assert "Audiotonix" in result
+
+    def test_longer_entity_replacement_takes_priority(self):
+        result = capitalize_entities(
+            "mindful capital partners and capital dynamics sold the stake",
+            ["Capital Dynamics", "Mindful Capital", "Mindful Capital Partners"],
+        )
+        assert "Mindful Capital Partners" in result
+        assert "Capital Dynamics" in result
+
+
+class TestExtractCompanyLikeEntities:
+    """Tests for extracting title-cased company/fund phrases."""
+
+    def test_extracts_company_like_phrases(self):
+        result = extract_company_like_entities(
+            "Italcer spa, Mindful Capital Partners and Miura Partners sell to Wienerberger AG",
+        )
+        assert "Mindful Capital Partners" in result
+        assert "Miura Partners" in result
+        assert "Wienerberger AG" in result
+
+    def test_ignores_generic_phrases_without_company_tokens(self):
+        result = extract_company_like_entities(
+            "The Confirmed Transaction Changes Ownership",
+        )
+        assert result == []
 
 
 # ── caps_to_title_case ─────────────────────────────────────────────────────────

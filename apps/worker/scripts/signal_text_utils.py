@@ -1748,11 +1748,25 @@ def capitalize_entities(text: str, entity_names: list[str] | None) -> str:
     if not text or not entity_names:
         return text
     result = text
-    for name in entity_names:
+    ordered_names: list[str] = []
+    seen_names: set[str] = set()
+    for raw in entity_names:
+        name = (raw or "").strip()
+        if not name:
+            continue
+        key = name.lower()
+        if key in seen_names:
+            continue
+        seen_names.add(key)
+        ordered_names.append(name)
+    # Replace longer phrases first ("Mindful Capital Partners" before "Mindful Capital")
+    ordered_names.sort(key=len, reverse=True)
+
+    for name in ordered_names:
         if not name or len(name) < 2:
             continue
-        # Build case-insensitive pattern for this entity name
-        pattern = re.escape(name)
+        # Build case-insensitive pattern for this entity name with token boundaries
+        pattern = r"(?<!\w)" + re.escape(name) + r"(?!\w)"
 
         def _preserve_acronyms(m: re.Match) -> str:
             matched = m.group(0)
@@ -1767,3 +1781,49 @@ def capitalize_entities(text: str, entity_names: list[str] | None) -> str:
 
         result = re.sub(pattern, _preserve_acronyms, result, flags=re.IGNORECASE)
     return result
+
+
+_COMPANY_SUFFIX_TOKENS = {
+    "capital", "partners", "partner", "ventures", "venture", "equity", "group",
+    "holdings", "holding", "management", "advisors", "advisor", "dynamics",
+    "investments", "investment", "fund", "sgr", "spa", "srl", "ag", "sa", "inc", "ltd",
+}
+
+
+def extract_company_like_entities(*texts: str) -> list[str]:
+    """Extract title-cased company/fund phrases from reference text.
+
+    Used to restore capitalization in summaries when NER misses co-investor names.
+    """
+    entities: list[str] = []
+    seen: set[str] = set()
+
+    phrase_re = re.compile(
+        r"\b(?:[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’.\-]+|[A-Z]{2,6})"
+        r"(?:\s+(?:[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’.\-]+|[A-Z]{2,6}|S\.p\.A\.|S\.r\.l\.)){1,5}\b"
+    )
+
+    for text in texts:
+        if not text or not isinstance(text, str):
+            continue
+        for m in phrase_re.finditer(text):
+            phrase = m.group(0).strip(" ,.;:()[]{}")
+            phrase = re.sub(r"\s{2,}", " ", phrase)
+            if len(phrase) < 4:
+                continue
+            tokens = [tok.strip(" ,.;:()[]{}").strip(".") for tok in phrase.split()]
+            if len(tokens) < 2:
+                continue
+            token_l = [tok.lower() for tok in tokens if tok]
+            if not token_l:
+                continue
+            if token_l[0] in _SENTENCE_CASE_LOWERCASE:
+                continue
+            if not any(tok in _COMPANY_SUFFIX_TOKENS for tok in token_l):
+                continue
+            key = phrase.lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            entities.append(phrase)
+    return entities

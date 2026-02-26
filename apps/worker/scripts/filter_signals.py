@@ -113,6 +113,7 @@ from signal_corrections import (
 from signal_text_utils import (
     capitalize_entities,
     clean_display_text,
+    extract_company_like_entities,
     fix_spacing,
     normalize_monetary_values,
     normalize_monetary_values as _normalize_monetary_values,  # backward compat for tests
@@ -335,6 +336,7 @@ TEAM_EXTRACTION_ONLY_PATTERNS = [
 # These are not personnel transitions unless explicit move verbs are present.
 TEAM_ROLE_PROFILE_TITLE_RE = re.compile(
     r"^[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+(?:\s+[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+){1,3}\s+"
+    r"(?:(?:managing|senior|junior|lead|principal|chief)\s+)?"
     r"(?:head|director|manager|partner|officer|counsel|analyst|associate|specialist"
     r"|investor\s+relations"
     r"|legal\s*(?:&|and)\s*corporate\s+affairs(?:\s+(?:specialist|manager|head|director))?)\b",
@@ -2142,6 +2144,23 @@ def _clean_signal_fields(signal: dict) -> dict:
         display_parts = [p.upper() if len(p) <= 4 and p.lower() not in _NOT_ACRONYMS else p.title() for p in parts]
         fund_display = " ".join(display_parts)
         entity_names.append(fund_display)
+    # Add related fund names as capitalization hints (co-investors often appear in summaries).
+    for related_slug in signal.get("related_fund_slugs") or []:
+        if not isinstance(related_slug, str) or not related_slug.strip():
+            continue
+        _NOT_ACRONYMS = {"bain", "real", "blue", "next", "tree", "open", "true", "fair", "iron", "wise", "gold", "star"}
+        parts = related_slug.strip().split("-")
+        display_parts = [p.upper() if len(p) <= 4 and p.lower() not in _NOT_ACRONYMS else p.title() for p in parts]
+        entity_names.append(" ".join(display_parts))
+    # Extract company/fund-like title-cased phrases from nearby fields (e.g. "Miura Partners").
+    entity_names.extend(
+        extract_company_like_entities(
+            signal.get("title") or "",
+            signal.get("what_changed") or "",
+            signal.get("title_original") or "",
+            signal.get("what_changed_original") or "",
+        )
+    )
     if entity_names:
         for key in ("title", "what_changed", "enriched_summary"):
             if signal.get(key):

@@ -105,6 +105,7 @@ from signal_patterns import (
 from signal_text_utils import (
     capitalize_entities,
     clean_display_text,
+    extract_company_like_entities,
     is_garbage_summary,
     normalize_monetary_values,
 )
@@ -486,13 +487,11 @@ def _apply_final_type_and_overrides(signal: dict, filtered_signal_type: str | No
     # Steps 1-2: shared + enricher-specific corrections
     _apply_post_type_corrections(signal)
 
-    # Step 3: Filter is authoritative for promotions — don't let enricher
-    # incorrectly promote deal_announced→fund_launch.
-    # But DO respect "other" demotions from apply_universal_demotions()
-    # (fashion campaigns, editorial format, outsourcing RFPs, etc.)
-    if filtered_signal_type and filtered_signal_type != "other":
-        if signal.get("signal_type") == "fund_launch" and filtered_signal_type == "deal_announced":
-            signal["signal_type"] = filtered_signal_type
+    # Step 3: Filter is authoritative for the primary signal_type.
+    # This prevents stale cached enrich rows from drifting (for example,
+    # old exit tags after filter reclassified the signal as deal_announced).
+    if filtered_signal_type and signal.get("signal_type") != filtered_signal_type:
+        signal["signal_type"] = filtered_signal_type
 
     # Step 4: Portfolio company news is NOT a fund-level signal
     _pc_text = ((signal.get("title") or "") + " " + (signal.get("what_changed") or "")).lower()
@@ -736,6 +735,22 @@ def _clean_signal_fields(signal: dict) -> dict:
             val = _clean_summary_text(val)
             val = normalize_monetary_values(val)
             signal[key] = val
+    # Re-capitalize known entities in summaries when sentence-case normalization
+    # lowercases co-investor names (e.g. "Miura Partners", "Capital Dynamics").
+    entities = signal.get("extracted_entities") or {}
+    entity_names = list(entities.get("companies") or []) + list(entities.get("people") or [])
+    entity_names.extend(
+        extract_company_like_entities(
+            signal.get("title") or "",
+            signal.get("what_changed") or "",
+            signal.get("title_original") or "",
+            signal.get("what_changed_original") or "",
+        )
+    )
+    if entity_names:
+        for key in ("title", "what_changed", "diff_summary", "enriched_summary"):
+            if signal.get(key):
+                signal[key] = capitalize_entities(signal[key], entity_names)
     return signal
 
 

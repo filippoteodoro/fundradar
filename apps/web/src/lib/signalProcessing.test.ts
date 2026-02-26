@@ -86,6 +86,19 @@ describe('signalProcessing', () => {
     expect(result).toBe('other');
   });
 
+  it('demotes TEAM managing-director bio titles', () => {
+    const result = reclassifySignalType(
+      makeSignal({
+        signal_type: 'people_move',
+        page_category: 'TEAM',
+        title:
+          'Michele Romualdi managing director, Head of investor relations and strategic client partnership',
+        what_changed: '',
+      }),
+    );
+    expect(result).toBe('other');
+  });
+
   it('demotes TEAM static parent-company blurbs', () => {
     const result = reclassifySignalType(
       makeSignal({

@@ -35,7 +35,7 @@ const RE_MERGER = /\b(?:fusion[ei]|merger|merg(?:e|es|ed|ing)|fonde|si\s+fondono
 const RE_PEOPLE_TRANSITION_VERBS = /\b(?:appoint\w+|nomin\w+|joins?|joined|hired?|promot\w+|named?\s+as|new\s+(?:hire|appointment)|steps?\s+down|stepping\s+down|leaves?|left|resign\w*|depart\w*|dimission\w*|lascia|lasciat\w+|abbandona)\b/i;
 
 /** Static TEAM profile card title (e.g. "Giulio Pesenti head of ...") */
-const RE_TEAM_PROFILE_TITLE = /^[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+(?:\s+[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+){1,3}\s+(?:head|director|manager|partner|officer|counsel|analyst|associate|specialist|investor\s+relations|legal\s*(?:&|and)\s*corporate\s+affairs(?:\s+(?:specialist|manager|head|director))?)\b/i;
+const RE_TEAM_PROFILE_TITLE = /^[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+(?:\s+[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+){1,3}\s+(?:(?:managing|senior|junior|lead|principal|chief)\s+)?(?:head|director|manager|partner|officer|counsel|analyst|associate|specialist|investor\s+relations|legal\s*(?:&|and)\s*corporate\s+affairs(?:\s+(?:specialist|manager|head|director))?)\b/i;
 
 /** Role-opening/job-style title (e.g. "Senior Investment Associate, ...") */
 const RE_ROLE_OPENING_TITLE = /^\s*(?:senior|junior|lead|principal|chief|head|managing)?\s*(?:investment\s+)?(?:associate|analyst|manager|specialist|advisor|officer|counsel|director)\b/i;

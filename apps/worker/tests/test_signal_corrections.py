@@ -559,6 +559,15 @@ class TestApplyTypeCorrections:
         )
         assert result == "people_move"
 
+    def test_other_team_profile_stays_other(self):
+        result = apply_type_corrections(
+            "other",
+            "michele romualdi managing director, head of investor relations and strategic client partnership",
+            "michele romualdi managing director, head of investor relations and strategic client partnership",
+            page_category="TEAM",
+        )
+        assert result == "other"
+
     def test_other_rescued_to_deal(self):
         result = apply_type_corrections(
             "other",
