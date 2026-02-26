@@ -189,6 +189,7 @@ const SECTOR_TAG_ALIASES: Record<string, string> = {
   'flex equity mid market': 'Financial Services',
   'growth': 'Financial Services',
   'impact investing': 'Financial Services',
+  'private equity': 'Financial Services',
 };
 
 function includesAny(text: string, words: string[]): boolean {

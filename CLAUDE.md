@@ -204,6 +204,7 @@ There are no login, signup, or watchlist features on production. All data is fre
 Items covered in detail by sub-project CLAUDE.md files are marked with → reference. Unique root-level pitfalls:
 
 1. **Worker runs but UI shows old data** → restart `pnpm dev` (→ `apps/web/CLAUDE.md`)
+20. **New sector tag in portfolio data breaks CI** → `sectorGroups.test.ts` scans all current `portfolio_items.json` entries and fails if any sector tag is unmapped. Whenever a new sector label appears in scraped/manual portfolio data, add it to `SECTOR_TAG_ALIASES` in `apps/web/src/lib/sectorGroups.ts` (map it to the nearest canonical sector or a strategy bucket like `Financial Services`). Run `pnpm test` locally before pushing.
 2. **Adding subpage URLs to `monitor-urls.md`** → NEVER. This file has base domain URLs only. Subpage routing is in extractors' `URLS` dicts.
 3. **Assuming fund website domains without checking AIFI** → verify URLs against `data/AIFI/all.csv`. AIFI is authoritative for member website URLs.
 4. **AIFI scraper sets wrong HQ for global funds** → Italian branch gets written as HQ. After ANY AIFI merge, cross-check `offices[]` is_hq entries against top-level `hq_*` fields. Preserve Italian office in `offices[]` when fixing global HQ.
