@@ -31,6 +31,14 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
     companies = []
     seen = set()
 
+    hard_skip = {
+        "close",
+        "skip to main content",
+        "skip companies list",
+        "portfolio",
+        "companies",
+    }
+
     # Primary: extract company names from img alt attributes
     for img in soup.select("img[alt]"):
         alt = img.get("alt", "").strip()
@@ -43,6 +51,7 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
         name = re.sub(r'\s+logo\s*$', '', name, flags=re.IGNORECASE)
         name = re.sub(r'\s*[-–]\s*Platinum\s+Equity\s*$', '', name, flags=re.IGNORECASE)
         name = name.strip()
+        key = name.lower()
 
         if not name or len(name) < 3 or name.lower() in seen:
             continue
@@ -53,14 +62,16 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
             "banner", "background", "our companies", "companies",
             "see all", "contact", "arrow", "menu",
         )
-        if name.lower() in skip:
+        if key in hard_skip or key in skip:
             continue
         if re.match(r'^(logo|icon|img|image)\b', name, re.IGNORECASE):
+            continue
+        if re.search(r'\b(?:icon|link)\b', key):
             continue
         if len(name) > 80:
             continue
 
-        seen.add(name.lower())
+        seen.add(key)
 
         companies.append({
             "name": name,

@@ -8184,6 +8184,12 @@
     ],
     "https://www.wisesgr.com/en/news": [
       {
+        "title": "Wise Equity e FAS International insieme per proseguire la crescita nel retail tech",
+        "date": "2026-02-26",
+        "url": "https://www.wisesgr.com/web/content/26899/26.02.2026_Comunicato Stampa_WISE Equity_FAS vITA.pdf",
+        "fingerprint": "0a9d0eb5828d"
+      },
+      {
         "title": "Wise Equity entra nel capitale di Marullo per accompagnarne la crescita",
         "date": "2025-12-15",
         "url": "https://www.wisesgr.com/web/content/458/15-12-2025_Comunicato-Stampa_WISE-Equity_Marullo_v-ITA_DEF.pdf",
@@ -19123,16 +19129,16 @@
     ],
     "https://varde.com/news/": [
       {
+        "title": "V\u00e4rde In the News\u2013 2/06/2026V\u00e4rde Recognized by Octus as One of the Leading India Private Credit Lenders in 2025MUMBAI \u2013 V\u00e4rde Partners is pleased to be recognized by Octus as one of the leading private credit lenders in India in 2025.",
+        "date": null,
+        "url": "https://varde.com/varde-recognized-by-octus-as-one-of-the-leading-india-private-credit-lenders-in-2025/",
+        "fingerprint": "7d63cbb83967"
+      },
+      {
         "title": "Insights\u2013 9/09/2025Bloomberg FICC Focus Podcast: A Primer on Property Lending with V\u00e4rde\u2019s Jim DunbarV\u00e4rde\u2019s Head of Real Estate Lending, Jim Dunbar, joined Bloomberg\u2019s FICC Focus podcast for a conversation on the dynamics shaping U.S. commercial real estate, including the trends driving supply/dema",
         "date": null,
         "url": "https://varde.com/bloomberg-ficc-focus-podcast-a-primer-on-property-lending-with-vardes-jim-dunbar/",
         "fingerprint": "fcc312bdf549"
-      },
-      {
-        "title": "Announcements\u2013 6/17/2025V\u00e4rde Launches Fund Finance PlatformNEW YORK \u2013 V\u00e4rde Partners, a leading global alternative investment firm specializing in credit and credit-related assets, today announced the launch of its fund finance platform. Building on V\u00e4rde\u2019s broader asset-based finance strategy, the",
-        "date": null,
-        "url": "https://varde.com/varde-launches-fund-finance-platform/",
-        "fingerprint": "76889789e041"
       }
     ],
     "https://www.spacecapital.it/it/news/index.html": [
@@ -19865,12 +19871,6 @@
     ],
     "https://www.icgam.com/news-insights-analysis/": [
       {
-        "title": "We invest globally.We grow businesses sustainably.We value partnerships.",
-        "date": "24 February 2026, 23:37 BST",
-        "url": "https://www.icgam.com/",
-        "fingerprint": "02d61d472df3"
-      },
-      {
         "title": "ICG and Amundi announce long-term strategic and equity partnership",
         "date": null,
         "url": "https://www.icgam.com/2025/11/18/icg-and-amundi-announce-long-term-strategic-and-equity-partnership/",
@@ -19981,10 +19981,16 @@
         "fingerprint": "cb70e6c032ec"
       },
       {
+        "title": "Lone Star Agrees to Acquire Central London Office Building",
+        "date": null,
+        "url": "https://www.lonestarfunds.com/lone-star-agrees-to-acquire-central-london-office-building/",
+        "fingerprint": "9701ab5ea5ce"
+      },
+      {
         "title": "Lone Star Completes Acquisition of Hillenbrand",
         "date": null,
-        "url": "https://www.lonestarfunds.com/lone-star-completes-acquisition-of-hillenbrand/",
-        "fingerprint": "4a6270efbff2"
+        "url": null,
+        "fingerprint": "dcdd41d5d781"
       },
       {
         "title": "2025 Year in Review",
@@ -20027,12 +20033,6 @@
         "date": null,
         "url": null,
         "fingerprint": "c642ecedb15f"
-      },
-      {
-        "title": "Lone Star Announces Sale of Multi-Property Real Estate Portfolio Across Texas",
-        "date": null,
-        "url": null,
-        "fingerprint": "b5b39253fd2e"
       }
     ]
   }

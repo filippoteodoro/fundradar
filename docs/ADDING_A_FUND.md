@@ -594,6 +594,23 @@ pnpm pipeline --slugs {fund-slug} --force-extract
 
 Without this flag, the monitor's content hash optimization skips pages whose HTML hasn't changed — meaning your updated extractor code won't run. **Example**: if you fix status detection from `"current"` to `"exited"`, use `--force-extract` even if the HTML was fetched yesterday.
 
+### 6.2.1 — Mandatory backpropagation after `--force-extract`
+
+Extractor fixes can change parsing output without any real website change. That can create pseudo-"new" portfolio/news signals during the first forced run. You must backpropagate those artifacts immediately.
+
+1. Run a focused monitor pass:
+   ```bash
+   pnpm pipeline --step monitor --slugs {fund-slug} --force-extract
+   ```
+2. Inspect generated output for the same slug:
+   - `data/derived/portfolio_items.json` (company list quality)
+   - `data/derived/detected_signals.json` (raw new signals)
+   - `data/derived/detected_signals_filtered.json` (what survives quality gates)
+3. If the run produced extractor-artifact signals (e.g., nav text, logo labels, or normalization drift), fix the extractor and remove the artifact rows from derived output.
+4. Re-run the same focused command until it produces **0 new signals** for that slug.
+
+This prevents extractor-change noise from being mistaken as real deal flow.
+
 ### 6.3 — Run individual steps
 
 ```bash
@@ -1320,6 +1337,7 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 | Pitfall | Solution |
 |---|---|
 | Updated extractor code doesn't run | Use `--force-extract` to bypass content hash caching |
+| `--force-extract` creates fake "new company" signals after parser changes | Backpropagate immediately: tighten extractor filters, clean artifact rows in derived files, and rerun focused monitor until it returns 0 new signals |
 | Signals are in Italian after filtering | Translation (step 3) must run BEFORE filter (step 7) — never change this order |
 | Deleting progress files | NEVER delete `signal_enrichment_progress.json` or `detected_signals_enriched.json` — causes expensive re-runs. See `apps/worker/CLAUDE.md` for full cost details. |
 | UI doesn't show new data | Restart `pnpm dev` — the web app caches with no invalidation |

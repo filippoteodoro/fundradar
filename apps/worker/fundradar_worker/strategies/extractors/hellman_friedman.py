@@ -27,6 +27,17 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
     soup = BeautifulSoup(html, "html.parser")
     companies = []
     seen = set()
+    normalize_map = {
+        "aadvanstar": "Advanstar",
+        "applied materials hellman friedman": "Associated Materials",
+        "eller media hellman friedman": "Eller Media",
+        "ellucian, inc": "Ellucian",
+        "internet brands, inc": "Internet Brands",
+        "wood mackenzie ltd": "Wood Mackenzie",
+    }
+    hard_skip = {
+        "company",
+    }
 
     # Primary: company logos in portfolio grid
     for grid_item in soup.select("div.portgrid"):
@@ -44,10 +55,16 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
             if name.endswith(suffix):
                 name = name[:-len(suffix)].strip()
                 break
+        name = name.strip().rstrip(".")
 
-        if not name or len(name) < 2 or name.lower() in seen:
+        key = name.lower()
+        if key in normalize_map:
+            name = normalize_map[key]
+            key = name.lower()
+
+        if not name or len(name) < 2 or key in hard_skip or key in seen:
             continue
-        seen.add(name.lower())
+        seen.add(key)
 
         # Get link to company detail page
         link = grid_item.select_one("a[href]")

@@ -4,7 +4,8 @@ Warburg Pincus is a global growth equity firm (~$87B AUM, HQ New York).
 Investments page at /investments/, news at /news/.
 """
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse, unquote
+import re
 
 DOMAIN = "warburgpincus.com"
 
@@ -17,9 +18,76 @@ URLS = {
 
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """Extract portfolio companies from Warburg Pincus investments page."""
+    if "/investments" not in (base_url or "").lower():
+        return []
+
     soup = BeautifulSoup(html, "html.parser")
     companies = []
     seen = set()
+    hard_skip = {
+        "unity advisory",
+        "community fibre",
+        "skip to main content",
+        "skip companies list",
+    }
+
+    # Primary extraction: cards are link-only (logo image + href slug), not text headings.
+    for link in soup.select("a.investment--link[href*='/investments/']"):
+        href = link.get("href", "")
+        if not href:
+            continue
+        parsed_path = urlparse(href).path.strip("/")
+        parts = [p for p in parsed_path.split("/") if p]
+        if "investments" not in parts:
+            continue
+        try:
+            slug = parts[parts.index("investments") + 1]
+        except Exception:
+            continue
+        slug = unquote(slug).strip("/")
+        if not slug:
+            continue
+        name = re.sub(r"[_\-]+", " ", slug).strip()
+        if not name:
+            continue
+        # Title-case tokenized slugs while keeping 2-3 letter acronyms uppercase.
+        words = []
+        for w in name.split():
+            if len(w) <= 3 and w.isalpha():
+                words.append(w.upper())
+            else:
+                words.append(w.capitalize())
+        name = " ".join(words).strip()
+        name_key = name.lower().strip(" .")
+        if not name or len(name) < 2 or name_key in seen:
+            continue
+        if name_key in (
+            "investments", "portfolio", "back", "view all",
+            "warburg pincus", "our investments",
+        ):
+            continue
+        if name_key in hard_skip or re.search(r"unity\W*advisory", name_key):
+            continue
+        seen.add(name_key)
+        card = link.find_parent(class_=re.compile(r"\binvestment\b"))
+        sector = None
+        if card and card.get("data-sectors"):
+            sectors = [s.strip() for s in card.get("data-sectors", "").split(",") if s.strip()]
+            if sectors:
+                sector = ", ".join(s.replace("-", " ").title() for s in sectors)
+
+        companies.append({
+            "name": name,
+            "sector": sector,
+            "website": None,
+            "description": None,
+            "status": "current",
+            "confidence": 0.92,
+        })
+
+    # Fallback for structural changes where link cards are not available.
+    if companies:
+        return companies
 
     for item in soup.select(
         "article, .portfolio-item, .investment, .card, .company, "
@@ -28,39 +96,18 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
         heading = item.select_one("h2, h3, h4, .name, .title")
         if not heading:
             continue
-
         name = heading.get_text(strip=True)
-        if not name or len(name) < 2 or name.lower() in seen:
+        name_key = name.lower().strip(" .")
+        if not name or len(name) < 2 or name_key in seen:
             continue
-        if name.lower() in (
-            "investments", "portfolio", "back", "view all",
-            "warburg pincus", "our investments",
-        ):
+        if name_key in hard_skip or re.search(r"unity\W*advisory", name_key):
             continue
-        seen.add(name.lower())
-
-        website = None
-        link = item.select_one("a[href^='http']")
-        if link and "warburgpincus.com" not in link.get("href", ""):
-            website = link.get("href")
-
-        description = None
-        desc_el = item.select_one("p, .description, .excerpt")
-        if desc_el and desc_el != heading:
-            text = desc_el.get_text(strip=True)
-            if len(text) > 15:
-                description = text[:500]
-
-        sector = None
-        sector_el = item.select_one(".sector, .industry, .category, .tag")
-        if sector_el:
-            sector = sector_el.get_text(strip=True)
-
+        seen.add(name_key)
         companies.append({
             "name": name,
-            "sector": sector,
-            "website": website,
-            "description": description,
+            "sector": None,
+            "website": None,
+            "description": None,
             "status": "current",
             "confidence": 0.85,
         })

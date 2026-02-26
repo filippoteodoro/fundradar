@@ -1656,6 +1656,27 @@ class WebsiteMonitor:
         """
         # Extract current companies
         current_companies = self._portfolio_extractor.extract(result.html, monitored.url)
+        # Apply the same validation used at persistence time BEFORE diffing/signals.
+        # Otherwise invalid entries (e.g., very short labels like "AA") can generate
+        # recurring false-positive "new company" signals every force-extract run.
+        try:
+            from .portfolio_validation import clean_portfolio_name, is_valid_portfolio_entry
+
+            validated_companies = []
+            rejected = 0
+            for company in current_companies:
+                cleaned_name = clean_portfolio_name(company.name or "")
+                if not cleaned_name or not is_valid_portfolio_entry(cleaned_name, monitored.fund_slug):
+                    rejected += 1
+                    continue
+                company.name = cleaned_name
+                validated_companies.append(company)
+            if rejected:
+                print(f"    Filtered {rejected} invalid portfolio entries before diff/signals")
+            current_companies = validated_companies
+        except Exception:
+            # Keep extractor behavior if validation import/path fails unexpectedly.
+            pass
         print(f"    Found {len(current_companies)} portfolio companies")
 
         # Phase 6: Enrich with detail pages for priority sites

@@ -172,8 +172,8 @@
         "Technology",
         "Financial Services",
         "Hospitality & Tourism",
-        "Aerospace & Defense",
-        "Professional Services"
+        "Professional Services",
+        "Aerospace & Defense"
       ],
       "description": "Established in 1984 as a spinoff from TA Associates, this global firm pioneered a sector-specialized approach to complex buyouts. Notable Italian transactions include the landmark consolidation of Nexi and the take-private of Tinexta.",
       "geographies": [
@@ -1843,8 +1843,8 @@
         "Buy-Out"
       ],
       "sector_tags": [
-        "Healthcare",
         "Biotech & Pharma",
+        "Healthcare",
         "Industrial Manufacturing",
         "Software",
         "Professional Services"
@@ -4708,10 +4708,10 @@
       ],
       "sector_tags": [
         "Technology",
+        "Industrial Manufacturing",
         "Software",
         "Healthcare",
-        "Financial Services",
-        "Retail"
+        "Automotive"
       ],
       "description": "Pioneered the Sicaf investment model in Italy to drive digital transformation within traditional SMEs, executing buyouts and expansion rounds in the healthcare and industrial manufacturing sectors.",
       "geographies": [
@@ -5157,6 +5157,7 @@
         "Education",
         "Professional Services",
         "Healthcare",
+        "Renewable Energy",
         "Technology"
       ],
       "description": "Specializes in digital transformation and impact-driven growth buyouts, with a distinctive focus on consolidating the fragmented Italian private education market through its Plena Education platform.",
@@ -5634,8 +5635,8 @@
       ],
       "sector_tags": [
         "Professional Services",
-        "Technology",
         "Hospitality & Tourism",
+        "Technology",
         "Healthcare",
         "Financial Services"
       ],
@@ -6249,9 +6250,9 @@
       "sector_tags": [
         "Technology",
         "Financial Services",
+        "Fashion & Luxury",
         "Healthcare",
-        "Biotech & Pharma",
-        "Fashion & Luxury"
+        "Biotech & Pharma"
       ],
       "description": "Tracing its roots back to Schroder Ventures in 1985, this global buyout specialist is renowned for transforming premium consumer brands like Valentino and Golden Goose into international powerhouses.",
       "geographies": [
@@ -6875,8 +6876,8 @@
         "Industrial Manufacturing",
         "Healthcare",
         "Technology",
-        "Biotech & Pharma",
-        "Consumer Goods"
+        "Aerospace & Defense",
+        "Biotech & Pharma"
       ],
       "description": "Established through the spin-off of Intesa Sanpaolo\u2019s private equity activities, this firm specializes in scaling Italian 'champions' like Bending Spoons and U-Power through international buyouts.",
       "geographies": [
@@ -9315,8 +9316,8 @@
       "sector_tags": [
         "Financial Services",
         "Software",
-        "Technology",
         "Media & Entertainment",
+        "Technology",
         "Professional Services"
       ],
       "description": "Employs a concentrated, large-cap buyout strategy targeting businesses with defensible market positions and strong cash flows, including landmark investments such as the privatization of Axel Springer.",
@@ -9374,10 +9375,9 @@
         "Secondaries"
       ],
       "sector_tags": [
-        "Financial Services",
-        "Healthcare",
-        "Industrial Manufacturing",
-        "Technology"
+        "Agriculture",
+        "Food & Beverage",
+        "Healthcare"
       ],
       "description": "FTSE 100-listed global alternative asset manager that pioneered the European mezzanine finance market in 1989, now providing flexible capital solutions across private debt, credit, and real estate.",
       "geographies": [
@@ -9495,10 +9495,7 @@
         "Distressed"
       ],
       "sector_tags": [
-        "Energy",
-        "Financial Services",
-        "Industrial Manufacturing",
-        "Real Estate"
+        "Chemicals"
       ],
       "description": "Established by John Grayken in 1995, this firm specializes in acquiring distressed debt and non-performing loan portfolios from financial institutions during periods of market volatility.",
       "geographies": [
@@ -9675,10 +9672,8 @@
         "Distressed"
       ],
       "sector_tags": [
-        "Consumer Goods",
-        "Financial Services",
-        "Real Estate",
-        "Technology"
+        "Technology",
+        "Fashion & Luxury"
       ],
       "description": "Established in 1982 to bridge Gulf capital with Western markets, this manager is recognized for its historic turnarounds of luxury icons Tiffany & Co. and Gucci while operating a global multi-asset platform.",
       "geographies": [
@@ -9884,7 +9879,7 @@
       "category": "pe",
       "hq_city": "Milan",
       "hq_region": "Italy",
-      "website": null,
+      "website": "https://www.whitebridgeinvestments.com",
       "strategy_tags": [
         "Buy-Out"
       ],
@@ -9996,8 +9991,8 @@
         "Software",
         "Technology",
         "Food & Beverage",
-        "Automotive",
-        "Hospitality & Tourism"
+        "Retail",
+        "Automotive"
       ],
       "description": "Named after Olivetti\u2019s first personal computer, this firm leverages founder Andrea Di Camillo\u2019s digital expertise to scale Italian tech champions like Tannico and Musixmatch.",
       "geographies": [
@@ -10139,7 +10134,8 @@
         "Transportation & Logistics",
         "Energy",
         "Construction",
-        "Technology"
+        "Technology",
+        "Real Estate"
       ],
       "description": "European infrastructure investment firm managing EUR 33 billion across five flagship funds. In Italy, owns Hippocrates (460+ pharmacy network) and previously held Grandi Stazioni Retail (exited 2024 at 2.6x).",
       "geographies": [
@@ -10242,7 +10238,11 @@
         "Growth"
       ],
       "sector_tags": [
-        "Food & Beverage"
+        "Food & Beverage",
+        "Industrial Manufacturing",
+        "Transportation & Logistics",
+        "Chemicals",
+        "Consumer Goods"
       ],
       "description": "Transatlantic private equity firm managing approximately USD 10 billion. In Italy, holds a 20% stake in illycaffe, the iconic Trieste-based premium coffee brand. Previously backed Unieuro through its successful IPO.",
       "geographies": [

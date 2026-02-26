@@ -1,6 +1,299 @@
 {
   "signals": [
     {
+      "id": "rss-signal-00157",
+      "fund_id": "",
+      "fund_slug": "smart-capital",
+      "related_fund_slugs": [
+        "smart-capital"
+      ],
+      "signal_type": "exit_announced",
+      "title": "Crowdfundme-Smart4Tech merger on the horizon: equity crowdfunding shifts toward services for SME s",
+      "what_changed": "Crowdfundme, led by Tommaso Baldisserra Pacchetti, will merge with Smart4Tech (Smart Capital) to create a group providing equity crowdfunding, capital access, advisory and services to startups and Italian SME s, aiming to shift crowdfunding toward services for PMI and scale-ups. Shareholders vote on March 6; no financial terms disclosed.",
+      "source_url": "https://www.economyup.it/innovazione/crowdfundme-smart4tech-fusione-in-vista-cosi-lequity-crowdfunding-si-sposta-verso-i-servizi-alle-pmi/",
+      "source_name": "EconomyUp",
+      "published_at": "2026-02-26T13:41:39+00:00",
+      "observed_at": "2026-02-26T20:26:46.320588+00:00",
+      "created_at": "2026-02-26T20:26:46.320588+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Crowdfundme",
+          "Smart4Tech"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Crowdfundme-Smart4Tech, fusione in vista: cos\u00ec l\u2019equity crowdfunding si sposta verso i servizi alle PMI",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": false,
+      "ml_keep_prob": 0.008,
+      "ml_keep_confidence": 0.992,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 0.992,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "exit_announced"
+      ],
+      "enriched_summary": "Crowdfundme, led by Tommaso Baldisserra Pacchetti, will merge with Smart4Tech (Smart Capital) to create a group providing equity crowdfunding, capital access, advisory and services to startups and Italian SME s, aiming..",
+      "type": "exit_announced"
+    },
+    {
+      "id": "rss-signal-00059",
+      "fund_id": "",
+      "fund_slug": "smart-capital",
+      "signal_type": "exit_announced",
+      "title": "The merger between Smart4Tech (Smart Capital), Crowd Fund Me, and We Are Starting is underway. Binding agreements have been signed.",
+      "what_changed": "Binding agreements signed for the merger between Smart4Tech (Smart Capital), Crowd Fund Me, and We Are Starting.",
+      "source_url": "https://bebeez.it/fintech/al-via-la-fusione-tra-smart4tech-smart-capital-crowdfundme-e-wearestarting-firmati-gli-accordi-vincolanti/",
+      "source_name": "BeBeez",
+      "published_at": "2026-01-27T06:45:17+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Smart4Tech",
+          "CrowdFundMe",
+          "WeAreStarting"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Firmati accordi vincolanti per la fusione tra Smart4Tech (Smart Capital), CrowdFundMe e WeAreStarting.",
+      "title_original": "Al via la fusione tra Smart4Tech (Smart Capital), CrowdFundMe e WeAreStarting. Firmati gli accordi vincolanti",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.998,
+      "ml_keep_confidence": 0.998,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 0.998,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "exit_announced"
+      ],
+      "enriched_summary": "Smart4Tech (held by Smart Capital) will merge with Crowd Fund Me and We Are Starting after signing binding agreements.",
+      "enriched_date": "2026-02-12",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-02-23T12:14:47.271504+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "M&A involving Smart Capital and Italian fintech platforms is relevant.",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "Smart4Tech",
+          "is_direct_investment": true,
+          "action": "other"
+        },
+        {
+          "name": "Crowd Fund Me",
+          "is_direct_investment": false,
+          "action": "other"
+        },
+        {
+          "name": "WeAreStarting",
+          "is_direct_investment": false,
+          "action": "other"
+        }
+      ],
+      "type": "exit_announced"
+    },
+    {
+      "id": "web-signal-01947",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "partnership",
+      "title": "Wise Equity and FAS International join forces to continue growth in retail tech",
+      "what_changed": "",
+      "source_url": "https://www.wisesgr.com/web/content/26899/26.02.2026_Comunicato Stampa_WISE Equity_FAS vITA.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2026-02-26",
+      "observed_at": "2026-02-26T20:25:26.705986+00:00",
+      "created_at": "2026-02-26T20:25:26.705986+00:00",
+      "snapshot_id": "snap-20260226202526-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2026-02-26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Wise Equity e FAS International insieme per proseguire la crescita nel retail tech",
+      "title_original": "Wise Equity e FAS International insieme per proseguire la crescita nel retail tech",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 100,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.84,
+      "signal_types": [
+        "partnership",
+        "people_move"
+      ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
+      "enriched_at": "2026-02-26T20:28:40.106962+00:00",
+      "enriched_summary": "",
+      "type": "partnership"
+    },
+    {
+      "id": "web-signal-01713-670df804",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Wise Equity acquires stake in Marullo to support its growth",
+      "what_changed": "",
+      "source_url": "https://www.wisesgr.com/web/content/458/15-12-2025_Comunicato-Stampa_WISE-Equity_Marullo_v-ITA_DEF.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-12-15",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-12-15)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Wise Equity entra nel capitale di Marullo per accompagnarne la crescita",
+      "title_original": "Wise Equity entra nel capitale di Marullo per accompagnarne la crescita",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 100,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.84,
+      "signal_types": [
+        "deal_announced"
+      ],
+      "enriched_summary": "",
+      "enriched_date": "2025-12-15",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-02-23T12:15:10.508493+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "Direct deal by Italian SGR involving an Italian company; relevant to Italian PE market.",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "Marullo",
+          "is_direct_investment": true,
+          "action": "investment"
+        }
+      ],
+      "type": "deal_announced"
+    },
+    {
+      "id": "web-signal-01714-66170459",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "portfolio_update",
+      "title": "NTC, backed by Wise Equity, completes acquisition of Pharmathen's ophthalmic business",
+      "what_changed": "",
+      "source_url": "https://www.wisesgr.com/web/content/457/20251210_CS_WE-NTC-Pharmathen_ITA_vF.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-12-10",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-12-10)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: NTC sostenuta da Wise Equity, completa l\u2019acquisizione del Business oftalmico di Pharmathen",
+      "title_original": "NTC sostenuta da Wise Equity, completa l\u2019acquisizione del Business oftalmico di Pharmathen",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 100,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "portfolio_update",
+        "deal_announced"
+      ],
+      "enriched_summary": "",
+      "enriched_at": "2026-02-26T20:28:40.121016+00:00",
+      "target_companies": [],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
+      "type": "portfolio_update"
+    },
+    {
       "id": "rss-signal-00153",
       "fund_id": "",
       "fund_slug": "fondo-italiano-d-investimento-sgr",
@@ -9,7 +302,7 @@
         "fondo-italiano-d-investimento-sgr"
       ],
       "signal_type": "deal_announced",
-      "title": "Fondo Italiano d\u2019Investimento SGR, CIO Giampaolo Di Dio leaves",
+      "title": "Italian Investment Fund SGR, CIO Giampaolo Di Dio leaves",
       "what_changed": "Giampaolo Di Dio is stepping down as CIO of Fondo Italiano d'Investimento SGR, a management company with over \u20ac4B in assets, 55% owned by CDP Equity (Cassa Depositi and Prestiti) and partly owned by Uni Credit, Intesa Sanpaolo, ENPAM/ENPAIA Foundations, ABI, Banco BPM, and BPER Banca.",
       "source_url": "https://bebeez.it/manager-2/fondo-italiano-dinvestimento-sgr-il-cio-giampaolo-di-dio-se-ne-va/",
       "source_name": "BeBeez",
@@ -35,16 +328,16 @@
         "locations": []
       },
       "what_changed_original": "Giampaolo Di Dio lascia il ruolo di CIO di Fondo Italiano d\u2019Investimento sgr, societ\u00e0 di gestione con oltre \u20ac4 miliardi di asset controllata al 55% da CDP Equity (Cassa Depositi e Prestiti) e partecipata da UniCredit, Intesa Sanpaolo, Fondazioni ENPAM/ENPAIA, ABI, Banco BPM e BPER Banca. Notizia su un cambio manageriale, non un\u2019operazione M&A.",
-      "title_original": "Fondo Italiano d\u2019Investimento SGR, CIO giampaolo di dio leaves",
+      "title_original": "Fondo italiano d'Investimento SGR, CIO giampaolo di dio leaves",
       "_fund_geo_scope": "italy_focused",
       "ml_keep": true,
       "ml_keep_prob": 1.0,
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "deal_announced",
-      "ml_type_prob": 0.745,
+      "ml_type_prob": 0.643,
       "ml_type_confident": true,
-      "ml_confidence": 0.745,
+      "ml_confidence": 0.643,
       "evidence_score": 5,
       "quality_confidence": "high",
       "confidence_score": 1.0,
@@ -52,7 +345,7 @@
         "deal_announced",
         "people_move"
       ],
-      "enriched_summary": "",
+      "enriched_summary": "Giampaolo Di Dio is stepping down as CIO of Fondo Italiano d'Investimento SGR, a management company with over \u20ac4B in assets, 55% owned by CDP Equity (Cassa Depositi and Prestiti) and partly owned by Uni Credit, Intesa...",
       "enriched_date": "2026-02-26",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T09:25:20.163353+00:00",
@@ -63,6 +356,66 @@
       "llm_event_type": "people",
       "llm_type_confidence": "high",
       "target_companies": [],
+      "type": "deal_announced"
+    },
+    {
+      "id": "web-signal-01703-ce5a79d0",
+      "fund_id": "",
+      "fund_slug": "fondo-italiano-d-investimento-sgr",
+      "signal_type": "deal_announced",
+      "title": "Fondo Italiano d'Investimento\u2019s FIAF fund acquired a majority stake in piadina producer Alimenta.",
+      "what_changed": "Fondo Italiano d'Investimento\u2019s FIAF fund acquired a majority stake in piadina producer Alimenta.",
+      "source_url": "https://www.fondoitaliano.it/wp-content/uploads/20260220_LargoConsumo_Alimenta.pdf",
+      "source_name": "Fondo Italiano d\u2019Investimento SGR",
+      "published_at": "2026-02-23",
+      "observed_at": "2026-02-23T10:20:09.801588+00:00",
+      "created_at": "2026-02-23T10:20:09.801588+00:00",
+      "snapshot_id": "snap-20260223102009-e09eb0c6",
+      "diff_summary": "New news item detected (dated 2026-02-23)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 100,
+      "evidence_score": 2,
+      "quality_confidence": "medium",
+      "confidence_score": 0.71,
+      "signal_types": [
+        "deal_announced"
+      ],
+      "enriched_summary": "",
+      "enriched_date": "2026-02-20",
+      "enrichment_confidence": "medium",
+      "llm_keep": true,
+      "llm_keep_reason": "Clear deal announcement by an Italian fund acquiring majority control of an Italian food company; relevant to Italy PE coverage.",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "enriched_at": "2026-02-26T20:29:11.367078+00:00",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [
+        {
+          "name": "Alimenta",
+          "is_direct_investment": true,
+          "action": "investment"
+        }
+      ],
       "type": "deal_announced"
     },
     {
@@ -167,7 +520,7 @@
       ],
       "enriched_summary": "Valori Asset Management invests in Fondo Italiano Consolidamento and Crescita II (FICC II); the fund has exceeded \u20ac500M in assets under management.",
       "enrichment_confidence": "low",
-      "enriched_at": "2026-02-26T20:01:00.800863+00:00",
+      "enriched_at": "2026-02-26T20:28:40.178323+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
@@ -331,11 +684,7 @@
       "enriched_summary": "",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:43.955646+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:40.190157+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -355,6 +704,11 @@
           "action": "investment"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -381,9 +735,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "people_move",
-      "ml_type_prob": 0.974,
+      "ml_type_prob": 0.963,
       "ml_type_confident": true,
-      "ml_confidence": 0.974,
+      "ml_confidence": 0.963,
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.79,
@@ -391,13 +745,12 @@
         "people_move",
         "deal_announced"
       ],
+      "enriched_summary": "",
+      "enriched_at": "2026-02-26T20:01:00.822250+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
-      "enriched_at": "2026-02-26T20:01:00.822250+00:00",
-      "enriched_summary": "",
       "type": "people_move"
     },
     {
@@ -438,11 +791,7 @@
       "enriched_summary": "",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:43.963765+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:40.198635+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -452,6 +801,11 @@
           "action": "investment"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -605,10 +959,14 @@
         "deal_announced",
         "fundraise_announced"
       ],
-      "enriched_summary": "Cleafy, an Italian cybersecurity scaleup specializing in fraud prevention for digital banking, has closed an \u20ac11.9M funding round subscribed by the United Ventures T-Growth fund (managed by United Ventures SGR) and...",
+      "enriched_summary": "Cleafy, an Italian cybersecurity scaleup specializing in fraud prevention for digital banking, has closed an \u20ac11.9M funding round subscribed by the United Ventures T-Growth fund (managed by United Ventures SGR) and.",
       "enriched_date": "2026-02-26",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:00.898277+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -618,11 +976,6 @@
           "action": "investment"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -741,11 +1094,12 @@
         "other"
       ],
       "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:44.014620+00:00",
+      "enriched_at": "2026-02-26T20:28:40.254211+00:00",
       "llm_keep": false,
       "llm_keep_reason": "type=other (demoted by filter/demotion)",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "other"
     },
     {
@@ -843,9 +1197,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "deal_announced",
-      "ml_type_prob": 0.885,
+      "ml_type_prob": 0.983,
       "ml_type_confident": true,
-      "ml_confidence": 0.885,
+      "ml_confidence": 0.983,
       "evidence_score": 5,
       "quality_confidence": "high",
       "confidence_score": 1.0,
@@ -857,6 +1211,10 @@
       "enriched_date": "2026-02-16",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:00.981971+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -866,11 +1224,6 @@
           "action": "investment"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -1395,10 +1748,10 @@
       "ml_keep_prob": 1.0,
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
-      "ml_type": "people_move",
-      "ml_type_prob": 0.998,
+      "ml_type": "fund",
+      "ml_type_prob": 0.889,
       "ml_type_confident": true,
-      "ml_confidence": 0.998,
+      "ml_confidence": 0.889,
       "evidence_score": 1,
       "quality_confidence": "high",
       "confidence_score": 0.63,
@@ -1411,7 +1764,6 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "people_move"
     },
     {
@@ -1728,10 +2080,67 @@
       "type": "deal_announced"
     },
     {
+      "id": "news-signal-20260205111509-fb1ed3df-17b5afb0",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "other",
+      "title": "CDP Venture Capital: over \u20ac6M invested in VITA, the startup accelerator in Digital Health",
+      "what_changed": "",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "CDP Venture Capital",
+      "published_at": "2026-02-05",
+      "observed_at": "2026-02-05T11:15:09.810709+00:00",
+      "created_at": "2026-02-05T11:15:09.810709+00:00",
+      "fingerprint": "b792ef24ec92",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 100,
+      "what_changed_original": "News: CDP Venture Capital: oltre 6 milioni di investimenti per VITA, l\u2019acceleratore di startup nella Digital Health",
+      "title_original": "CDP Venture Capital: oltre 6 milioni di investimenti per VITA, l\u2019acceleratore di startup nella Digital Health",
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "other",
+      "ml_type_prob": 0.952,
+      "ml_type_confident": true,
+      "ml_confidence": 0.952,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.79,
+      "signal_types": [
+        "other",
+        "deal_announced"
+      ],
+      "enriched_summary": "",
+      "enriched_date": "2026-02-05",
+      "enrichment_confidence": "high",
+      "llm_keep": false,
+      "llm_keep_reason": "phase3: type=other safety net (dropped after final type corrections)",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "enriched_at": "2026-02-26T20:28:57.448276+00:00",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [
+        {
+          "name": "VITA",
+          "is_direct_investment": true,
+          "action": "investment"
+        }
+      ],
+      "llm_type_override": true,
+      "type": "other"
+    },
+    {
       "id": "news-signal-20260205111509-fb1ed3df-d5055443",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "deal_announced",
+      "signal_type": "partnership",
       "title": "CDP Venture Capital and EIF: Indaco Bio, the first fund created by the co-investment partnership to boost Technology Transfer in Italy, is launched",
       "what_changed": "CDP Venture Capital and FEI: Indaco Bio, the first fund created by the co-investment partnership to enhance Technology Transfer in Italy, is launched",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -1753,14 +2162,14 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "deal_announced",
-      "ml_type_prob": 0.853,
+      "ml_type_prob": 1.0,
       "ml_type_confident": true,
-      "ml_confidence": 0.853,
+      "ml_confidence": 1.0,
       "evidence_score": 4,
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "deal_announced"
+        "partnership"
       ],
       "enriched_summary": "",
       "enriched_at": "2026-02-26T20:01:01.117048+00:00",
@@ -1768,14 +2177,13 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
-      "type": "deal_announced"
+      "type": "partnership"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-79ec7dbf",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "partnership",
+      "signal_type": "deal_announced",
       "title": "CDP Venture Capital SGR launches the Energy Tech segment of the Corporate Partners I Fund: the most innovative corporations join forces to invest in\u2026",
       "what_changed": "CDP Venture Capital SGR launches the Energy Tech segment of the Corporate Partners I Fund: the most innovative corporations join forces to invest in startups operating in the energy transition sector",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -1796,25 +2204,26 @@
       "ml_keep_prob": 1.0,
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
-      "ml_type": "other",
-      "ml_type_prob": 0.799,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.99,
       "ml_type_confident": true,
-      "ml_confidence": 0.799,
+      "ml_confidence": 0.99,
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.84,
       "signal_types": [
-        "partnership",
+        "deal_announced",
         "people_move"
       ],
       "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:44.188654+00:00",
+      "enriched_at": "2026-02-26T20:28:40.434560+00:00",
+      "target_companies": [],
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "target_companies": [],
-      "type": "partnership"
+      "llm_keep_version": 3,
+      "type": "deal_announced"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-38795a75",
@@ -1857,7 +2266,6 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "fundraise_announced"
     },
     {
@@ -2009,7 +2417,6 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "people_move"
     },
     {
@@ -2070,12 +2477,12 @@
       "id": "news-signal-20260205111509-fb1ed3df-c0e8b7c2",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "deal_announced",
+      "signal_type": "fundraise_announced",
       "title": "1 Control raises over \u20ac1M thanks to the entry of CDP Venture Capital and the follow-on investment by AZIMUT ELTIF - Venture Capital ALI crowd II",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
       "source_name": "CDP Venture Capital",
-      "published_at": "2026-02-05",
+      "published_at": null,
       "observed_at": "2026-02-05T11:15:09.809257+00:00",
       "created_at": "2026-02-05T11:15:09.809257+00:00",
       "fingerprint": "04c5f7fa6dca",
@@ -2092,26 +2499,26 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "other",
-      "ml_type_prob": 0.771,
+      "ml_type_prob": 0.998,
       "ml_type_confident": true,
-      "ml_confidence": 0.771,
+      "ml_confidence": 0.998,
       "evidence_score": 4,
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "deal_announced"
+        "fundraise_announced"
       ],
       "enriched_summary": "1 Control raised over \u20ac1M with new investment from CDP Venture Capital and a follow-on from Azimut ELTIF.",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
+      "enriched_at": "2026-02-26T20:01:17.521881+00:00",
       "llm_keep": true,
       "llm_keep_reason": "Relevant Italy-based VC deal: clear fund investor names and amount for portfolio monitoring.",
       "llm_keep_confidence": "high",
       "llm_keep_source": "llm",
-      "enriched_at": "2026-02-26T20:01:17.521881+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
-      "llm_italy_relevant": true,
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "1 Control",
@@ -2119,8 +2526,7 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
-      "type": "deal_announced"
+      "type": "fundraise_announced"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-c686eb05",
@@ -2313,7 +2719,6 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "people_move"
     },
     {
@@ -2471,7 +2876,6 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "people_move"
     },
     {
@@ -2575,11 +2979,12 @@
         "people_move"
       ],
       "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:44.264879+00:00",
+      "enriched_at": "2026-02-26T20:28:40.535233+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "people_move"
     },
     {
@@ -2633,11 +3038,7 @@
       "enriched_summary": "After postponing planned Milan IPO in June 2024, Permira executed private sale exit of Golden Goose (Venice luxury sneaker brand). Hong Shan Capital Group acquired controlling stake at ~\u20ac2.5B EV.",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:44.292266+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:40.564249+00:00",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -2647,6 +3048,11 @@
           "action": "exit"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "exit_announced"
     },
     {
@@ -2684,9 +3090,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "people_move",
-      "ml_type_prob": 0.953,
+      "ml_type_prob": 1.0,
       "ml_type_confident": true,
-      "ml_confidence": 0.953,
+      "ml_confidence": 1.0,
       "quality_score": 100,
       "evidence_score": 2,
       "quality_confidence": "medium",
@@ -2695,11 +3101,12 @@
         "people_move"
       ],
       "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:44.300249+00:00",
+      "enriched_at": "2026-02-26T20:28:40.578118+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high quality score",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "people_move"
     },
     {
@@ -3054,7 +3461,7 @@
         "deal_announced"
       ],
       "enriched_summary": "Ambienta SGR's Gruppo Spaggiari Parma completed add\u2011on acquisitions of Job 4 U srl and Bitlab srl (Prima Scuola).",
-      "enriched_at": "2026-02-26T20:01:01.384584+00:00",
+      "enriched_at": "2026-02-26T20:28:40.659157+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
@@ -3105,7 +3512,7 @@
         "fundraise_announced"
       ],
       "enriched_summary": "Ambienta Sustainable Credit Opportunities has reached final closing with commitments of \u20ac500M.",
-      "enriched_at": "2026-02-26T20:01:01.393393+00:00",
+      "enriched_at": "2026-02-26T20:28:40.665220+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
@@ -3158,7 +3565,29 @@
       "signal_types": [
         "deal_announced"
       ],
-      "enriched_summary": "",
+      "enriched_summary": "Shareholders approved reverse takeover and merger of Global Aerospace Technologies Group spa into Officina Stellare; financial terms undisclosed.",
+      "enriched_date": "2026-02-25",
+      "enrichment_confidence": "high",
+      "llm_keep": true,
+      "llm_keep_reason": "Material corporate transaction involving Investindustrial-linked Italian aerospace assets; relevant to Italy/PE coverage.",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "enriched_at": "2026-02-26T20:29:11.674106+00:00",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [
+        {
+          "name": "Global Aerospace Technologies Group spa",
+          "is_direct_investment": true,
+          "action": "other"
+        },
+        {
+          "name": "Officina Stellare",
+          "is_direct_investment": false,
+          "action": "other"
+        }
+      ],
       "type": "deal_announced"
     },
     {
@@ -3608,9 +4037,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "deal_announced",
-      "ml_type_prob": 0.995,
+      "ml_type_prob": 1.0,
       "ml_type_confident": true,
-      "ml_confidence": 0.995,
+      "ml_confidence": 1.0,
       "quality_score": 100,
       "evidence_score": 4,
       "quality_confidence": "high",
@@ -3621,12 +4050,13 @@
       ],
       "enriched_summary": "Azzurra Capital has completed the first closing of the Asia Environmental Technology Fund (\u201cAETF \u201d), a joint venture established with Shanghai Industrial Investment (Holdings) Co., Ltd.",
       "enrichment_confidence": "low",
-      "enriched_at": "2026-02-26T09:24:44.504817+00:00",
+      "enriched_at": "2026-02-26T20:28:40.758653+00:00",
+      "target_companies": [],
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "target_companies": [],
+      "llm_keep_version": 3,
       "type": "partnership"
     },
     {
@@ -3737,10 +4167,10 @@
       "ml_keep_prob": 1.0,
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.406,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.461,
       "ml_type_confident": false,
-      "ml_confidence": 0.406,
+      "ml_confidence": 0.461,
       "quality_score": 100,
       "evidence_score": 3,
       "quality_confidence": "high",
@@ -3752,11 +4182,12 @@
       ],
       "enriched_summary": "Please note that on december 15,2025, the board of directors of Finanziaria Internazionale Investments SGR S.p.A.",
       "enrichment_confidence": "low",
-      "enriched_at": "2026-02-26T09:24:44.528069+00:00",
+      "enriched_at": "2026-02-26T20:28:40.784546+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "debt_financing"
     },
     {
@@ -4114,11 +4545,7 @@
       "enriched_summary": "Bain Capital, Clessidra and Advent have exited their stakes in Nexi, the Italian paytech specializing in digital payments. Their departures modify the shareholders' pact, reducing the syndicate to 41.",
       "enriched_date": "2026-02-17",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:44.962698+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:40.838193+00:00",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -4128,7 +4555,65 @@
           "action": "exit"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "exit_announced"
+    },
+    {
+      "id": "rss-signal-00034",
+      "fund_id": "",
+      "fund_slug": "clessidra-sgr",
+      "signal_type": "other",
+      "title": "Ottaviano (Clessidra): That's why we don't fear compounders",
+      "what_changed": "Andrea Ottaviano, CEO of Clessidra Private Equity SGR, explains why Clessidra does not fear perpetual compounder funds.",
+      "source_url": "https://bebeez.it/insight-views/ottaviano-clessidra-ecco-perche-non-temiamo-i-compounder/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-02T06:54:57+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Ottaviano (Clessidra): Ecco perch\u00e9 non temiamo i compounder",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": false,
+      "ml_keep_prob": 0.001,
+      "ml_keep_confidence": 0.999,
+      "ml_keep_confident": true,
+      "ml_type": "people_move",
+      "ml_type_prob": 0.993,
+      "ml_type_confident": true,
+      "ml_confidence": 0.993,
+      "evidence_score": 2,
+      "quality_confidence": "high",
+      "confidence_score": 0.71,
+      "signal_types": [
+        "other"
+      ],
+      "enriched_summary": "Clessidra CEO Andrea Ottaviano explains why Clessidra does not fear perpetual compounder funds.",
+      "enrichment_confidence": "high",
+      "enriched_date": "2026-02-12",
+      "llm_keep": false,
+      "llm_keep_reason": "phase3: type=other safety net (dropped after final type corrections)",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "enriched_at": "2026-02-26T20:28:55.970790+00:00",
+      "llm_event_type": "other",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [],
+      "type": "other"
     },
     {
       "id": "news-signal-20260205111507-934c2dec-d3afe65f",
@@ -4277,6 +4762,10 @@
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:01.813039+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -4286,11 +4775,6 @@
           "action": "investment"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -4525,7 +5009,7 @@
       ],
       "enriched_summary": "F2I SGR announced a first closing of \u20ac460M for F2i Infrastructure Credit Fund II (ICF 2), equal to 62% of its \u20ac750M target.",
       "enrichment_confidence": "low",
-      "enriched_at": "2026-02-26T20:01:01.868410+00:00",
+      "enriched_at": "2026-02-26T20:28:40.918824+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
@@ -4579,7 +5063,7 @@
       "enriched_summary": "Alerion Clean Power places \u20ac300M in green bonds, upsizing by \u20ac100M due to strong demand.",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T20:01:01.888577+00:00",
+      "enriched_at": "2026-02-26T20:28:40.934342+00:00",
       "llm_event_type": "debt",
       "llm_type_confidence": "high",
       "llm_keep": true,
@@ -4703,7 +5187,6 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "people_move"
     },
     {
@@ -4808,9 +5291,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "exit_announced",
-      "ml_type_prob": 1.0,
+      "ml_type_prob": 0.982,
       "ml_type_confident": true,
-      "ml_confidence": 1.0,
+      "ml_confidence": 0.982,
       "quality_score": 100,
       "evidence_score": 3,
       "quality_confidence": "high",
@@ -4818,13 +5301,13 @@
       "signal_types": [
         "other"
       ],
+      "enriched_summary": "",
+      "enriched_at": "2026-02-26T20:01:01.934310+00:00",
       "llm_keep": false,
-      "llm_keep_reason": "low-value announcement (report/interview/event/award)",
+      "llm_keep_reason": "hard block: press review/newspaper digest",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
-      "enriched_at": "2026-02-26T20:01:01.934310+00:00",
-      "enriched_summary": "",
+      "target_companies": [],
       "type": "other"
     },
     {
@@ -4960,7 +5443,7 @@
         "deal_announced"
       ],
       "enriched_summary": "Sirti digital solutions announced an investment by vodafone qatar in sirti digital solutions MENA, with vodafone qatar acquiring a 51% stake.",
-      "enriched_at": "2026-02-26T20:01:01.966166+00:00",
+      "enriched_at": "2026-02-26T20:28:41.017987+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
@@ -5040,7 +5523,6 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -5140,9 +5622,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "people_move",
-      "ml_type_prob": 1.0,
+      "ml_type_prob": 0.989,
       "ml_type_confident": true,
-      "ml_confidence": 1.0,
+      "ml_confidence": 0.989,
       "quality_score": 100,
       "evidence_score": 2,
       "quality_confidence": "low",
@@ -5151,68 +5633,13 @@
         "people_move"
       ],
       "enriched_summary": "Sofinnova Partners portfolio company Gen Sight Biologics strengthens its regulatory team in the US and Europe with two senior hires.",
-      "enriched_at": "2026-02-26T09:24:44.767261+00:00",
+      "enriched_at": "2026-02-26T20:28:41.085138+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high quality score",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "people_move"
-    },
-    {
-      "id": "web-signal-01380",
-      "fund_id": "",
-      "fund_slug": "sofinnova-partners",
-      "signal_type": "other",
-      "title": "European Life Sciences Coalition launched to strengthen Europe\u2019s life sciences investment ecosystem",
-      "what_changed": "",
-      "source_url": "https://sofinnovapartners.com/news/european-life-sciences-coalition-launched-to-strengthen-europe-s-life-sciences-investment-ecosystem",
-      "source_name": "Sofinnova Partners",
-      "published_at": "2026-02-12",
-      "observed_at": "2026-02-12T18:37:58.755140+00:00",
-      "created_at": "2026-02-12T18:37:58.755140+00:00",
-      "snapshot_id": "snap-20260212183758-bbe621ef",
-      "diff_summary": "New news item detected (dated 12 February, 2026)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "European Life Sciences"
-        ],
-        "locations": []
-      },
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 100,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
-      "signal_types": [
-        "other"
-      ],
-      "enriched_summary": "",
-      "enriched_date": "2026-02-12",
-      "enrichment_confidence": "high",
-      "llm_keep": false,
-      "llm_keep_reason": "phase3: type=other safety net (dropped after final type corrections)",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "llm",
-      "enriched_at": "2026-02-26T20:01:20.883437+00:00",
-      "llm_event_type": "other",
-      "llm_type_confidence": "high",
-      "llm_italy_relevant": true,
-      "target_companies": [],
-      "type": "other"
     },
     {
       "id": "web-signal-01679",
@@ -5261,130 +5688,13 @@
       ],
       "enriched_summary": "The EIB is committing \u20ac100M to support a new project led by Eiffel Investment Group to promote energy savings among businesses in Europe.",
       "enrichment_confidence": "low",
-      "enriched_at": "2026-02-26T20:01:02.044072+00:00",
+      "enriched_at": "2026-02-26T20:28:41.111145+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
       "llm_keep_version": 3,
       "type": "partnership"
-    },
-    {
-      "id": "web-signal-01713-670df804",
-      "fund_id": "",
-      "fund_slug": "wise-equity-sgr",
-      "signal_type": "deal_announced",
-      "title": "Wise Equity acquires stake in Marullo to support its growth",
-      "what_changed": "",
-      "source_url": "https://www.wisesgr.com/web/content/458/15-12-2025_Comunicato-Stampa_WISE-Equity_Marullo_v-ITA_DEF.pdf",
-      "source_name": "Wise Equity SGR",
-      "published_at": "2025-12-15",
-      "observed_at": "2026-02-20T09:38:42.325184+00:00",
-      "created_at": "2026-02-20T09:38:42.325184+00:00",
-      "snapshot_id": "snap-20260220093842-0b7ef0c4",
-      "diff_summary": "New news item detected (dated 2025-12-15)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Wise Equity"
-        ],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: Wise Equity entra nel capitale di Marullo per accompagnarne la crescita",
-      "title_original": "Wise Equity entra nel capitale di Marullo per accompagnarne la crescita",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 100,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
-      "signal_types": [
-        "deal_announced"
-      ],
-      "enriched_summary": "",
-      "enriched_date": "2025-12-15",
-      "enrichment_confidence": "high",
-      "enriched_at": "2026-02-23T12:15:10.508493+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "Direct deal by Italian SGR involving an Italian company; relevant to Italian PE market.",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "llm",
-      "llm_event_type": "deal",
-      "llm_type_confidence": "high",
-      "target_companies": [
-        {
-          "name": "Marullo",
-          "is_direct_investment": true,
-          "action": "investment"
-        }
-      ],
-      "type": "deal_announced"
-    },
-    {
-      "id": "web-signal-01714-66170459",
-      "fund_id": "",
-      "fund_slug": "wise-equity-sgr",
-      "signal_type": "portfolio_update",
-      "title": "NTC, backed by Wise Equity, completes acquisition of Pharmathen's ophthalmic business",
-      "what_changed": "",
-      "source_url": "https://www.wisesgr.com/web/content/457/20251210_CS_WE-NTC-Pharmathen_ITA_vF.pdf",
-      "source_name": "Wise Equity SGR",
-      "published_at": "2025-12-10",
-      "observed_at": "2026-02-20T09:38:42.325184+00:00",
-      "created_at": "2026-02-20T09:38:42.325184+00:00",
-      "snapshot_id": "snap-20260220093842-0b7ef0c4",
-      "diff_summary": "New news item detected (dated 2025-12-10)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Wise Equity"
-        ],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: NTC sostenuta da Wise Equity, completa l\u2019acquisizione del Business oftalmico di Pharmathen",
-      "title_original": "NTC sostenuta da Wise Equity, completa l\u2019acquisizione del Business oftalmico di Pharmathen",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 100,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "portfolio_update",
-        "deal_announced"
-      ],
-      "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:44.799360+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "target_companies": [],
-      "type": "portfolio_update"
     },
     {
       "id": "web-signal-01694",
@@ -5615,11 +5925,7 @@
       ],
       "enriched_summary": "",
       "enrichment_confidence": "medium",
-      "enriched_at": "2026-02-26T09:24:44.829398+00:00",
-      "llm_keep": false,
-      "llm_keep_reason": "phase3: stale signal (dated 2019, >24 months old)",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:41.148651+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -5629,6 +5935,11 @@
           "action": "investment"
         }
       ],
+      "llm_keep": false,
+      "llm_keep_reason": "phase3: stale signal (dated 2019, >24 months old)",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -5667,9 +5978,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
+      "ml_type_prob": 0.994,
       "ml_type_confident": true,
-      "ml_confidence": 1.0,
+      "ml_confidence": 0.994,
       "quality_score": 100,
       "evidence_score": 3,
       "quality_confidence": "high",
@@ -5678,11 +5989,12 @@
         "debt_financing"
       ],
       "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:44.833894+00:00",
+      "enriched_at": "2026-02-26T20:28:41.155543+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "debt_financing"
     },
     {
@@ -5734,11 +6046,7 @@
       "enriched_summary": "",
       "enriched_date": "2026-02-19",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:44.839768+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:41.163685+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -5748,6 +6056,11 @@
           "action": "investment"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -5969,7 +6282,7 @@
       ],
       "enriched_summary": "Two French asset managers, Capza and Tikehau Capital, announced back-to-back closings of new private debt funds.",
       "enrichment_confidence": "low",
-      "enriched_at": "2026-02-26T20:01:02.135733+00:00",
+      "enriched_at": "2026-02-26T20:28:41.211196+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
@@ -6001,9 +6314,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "other",
-      "ml_type_prob": 0.729,
+      "ml_type_prob": 0.79,
       "ml_type_confident": true,
-      "ml_confidence": 0.729,
+      "ml_confidence": 0.79,
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.74,
@@ -6016,7 +6329,6 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "debt_financing"
     },
     {
@@ -6096,9 +6408,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "other",
-      "ml_type_prob": 0.846,
+      "ml_type_prob": 0.8,
       "ml_type_confident": true,
-      "ml_confidence": 0.846,
+      "ml_confidence": 0.8,
       "evidence_score": 4,
       "quality_confidence": "high",
       "confidence_score": 0.92,
@@ -6112,7 +6424,6 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "debt_financing"
     },
     {
@@ -6157,7 +6468,7 @@
       ],
       "enriched_summary": "Two French asset managers, Capza and Tikehau Capital, announced back-to-back closings of new private debt funds.",
       "enrichment_confidence": "low",
-      "enriched_at": "2026-02-26T20:01:02.181763+00:00",
+      "enriched_at": "2026-02-26T20:28:41.250508+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
@@ -6215,7 +6526,6 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "fundraise_closed"
     },
     {
@@ -6242,9 +6552,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "fund",
-      "ml_type_prob": 0.979,
+      "ml_type_prob": 0.983,
       "ml_type_confident": true,
-      "ml_confidence": 0.979,
+      "ml_confidence": 0.983,
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.74,
@@ -6252,11 +6562,12 @@
         "fundraise_closed"
       ],
       "enriched_summary": "Capza completes the first closing of its Capza 6 Private Debt fund.",
-      "enriched_at": "2026-02-26T09:24:44.911449+00:00",
+      "enriched_at": "2026-02-26T20:28:41.267279+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "fundraise_closed"
     },
     {
@@ -6298,7 +6609,6 @@
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "fundraise_announced"
     },
     {
@@ -6830,11 +7140,7 @@
       "enriched_summary": "Bain Capital, Clessidra and Advent have exited their stakes in Nexi, the Italian paytech specializing in digital payments. Their departures modify the shareholders' pact, reducing the syndicate to 41.",
       "enriched_date": "2026-02-17",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:44.962698+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:41.314918+00:00",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -6844,6 +7150,11 @@
           "action": "exit"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "exit_announced"
     },
     {
@@ -6996,6 +7307,10 @@
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:02.281165+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -7005,11 +7320,6 @@
           "action": "investment"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -7478,9 +7788,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "exit_announced",
-      "ml_type_prob": 1.0,
+      "ml_type_prob": 0.987,
       "ml_type_confident": true,
-      "ml_confidence": 1.0,
+      "ml_confidence": 0.987,
       "quality_score": 100,
       "evidence_score": 3,
       "quality_confidence": "high",
@@ -7491,11 +7801,7 @@
       "enriched_summary": "",
       "enriched_date": "2025-10-29",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:45.172612+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:41.474138+00:00",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -7505,6 +7811,11 @@
           "action": "exit"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "exit_announced"
     },
     {
@@ -7553,11 +7864,12 @@
       ],
       "enriched_summary": "",
       "enrichment_confidence": "low",
-      "enriched_at": "2026-02-26T09:24:45.177293+00:00",
+      "enriched_at": "2026-02-26T20:28:41.478310+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "people_move"
     },
     {
@@ -7731,7 +8043,7 @@
         "fundraise_closed"
       ],
       "enriched_summary": "Nextalia SGR's fund Nextalia Flexible Capital completed a first closing at \u20ac200M and supported Innovo Infrastructure.",
-      "enriched_at": "2026-02-26T20:01:02.434501+00:00",
+      "enriched_at": "2026-02-26T20:28:41.507429+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
@@ -7918,11 +8230,7 @@
       "enriched_summary": "Advent International preparing exit from IRCA S.p.A. (headquartered Gallarate, Varese), the global confectionery ingredients group. Under Advent ownership since 2022, IRCA reached ~\u20ac1.5B revenue by 2024.",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:45.053411+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:41.566079+00:00",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -7932,6 +8240,11 @@
           "action": "exit"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "exit_announced"
     },
     {
@@ -8162,9 +8475,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "fund",
-      "ml_type_prob": 0.989,
+      "ml_type_prob": 0.996,
       "ml_type_confident": true,
-      "ml_confidence": 0.989,
+      "ml_confidence": 0.996,
       "quality_score": 100,
       "evidence_score": 5,
       "quality_confidence": "high",
@@ -8174,11 +8487,12 @@
         "deal_announced"
       ],
       "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:45.239341+00:00",
+      "enriched_at": "2026-02-26T20:28:41.613910+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "fund_launch"
     },
     {
@@ -8429,11 +8743,7 @@
       "enriched_summary": "",
       "enriched_date": "2018-01-19",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:45.305611+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high quality score",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:41.687858+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -8443,6 +8753,11 @@
           "action": "investment"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high quality score",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -8534,6 +8849,10 @@
       "enriched_date": "2018-12-20",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:02.686705+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -8543,11 +8862,6 @@
           "action": "investment"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -8611,7 +8925,7 @@
       "what_changed": "",
       "source_url": "https://fvs.nooostaging.com/2023/07/24/il-gruppo-iqt-si-espande-nel-settore-idrico-ed-ambientale-con-lacquisizione-di-hmr/",
       "source_name": "FVS SGR",
-      "published_at": "2023-07-24",
+      "published_at": null,
       "observed_at": "2026-01-26T15:36:37.950810+00:00",
       "created_at": "2026-01-26T15:36:37.950810+00:00",
       "fingerprint": "9b0cc088d615",
@@ -8635,17 +8949,12 @@
       "signal_types": [
         "deal_announced"
       ],
-      "enriched_summary": "IQT Group has acquired HMR, expanding into the water and environmental sector.",
+      "enriched_summary": "",
       "enriched_date": "2023-07-24",
       "enrichment_confidence": "high",
-      "llm_keep": false,
-      "llm_keep_reason": "phase3: stale signal (published 2023-07-24, >24 months old)",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "llm",
-      "enriched_at": "2026-02-26T20:01:22.732517+00:00",
+      "enriched_at": "2026-02-26T20:28:41.704054+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
-      "llm_italy_relevant": true,
       "target_companies": [
         {
           "name": "HMR",
@@ -8653,6 +8962,11 @@
           "action": "investment"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -8699,18 +9013,18 @@
       "signal_types": [
         "other"
       ],
-      "enriched_summary": "AXON Partners Group publishes 'Beyond Capital', an article outlining what it takes to scale technology companies across Europe.",
+      "enriched_summary": "",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
+      "enriched_at": "2026-02-26T20:29:47.250648+00:00",
+      "llm_event_type": "other",
+      "llm_type_confidence": "high",
+      "target_companies": [],
       "llm_keep": false,
       "llm_keep_reason": "phase3: type=other safety net (dropped after final type corrections)",
       "llm_keep_confidence": "high",
       "llm_keep_source": "llm",
-      "enriched_at": "2026-02-26T20:01:22.818266+00:00",
-      "llm_event_type": "other",
-      "llm_type_confidence": "medium",
       "llm_italy_relevant": true,
-      "target_companies": [],
       "type": "other"
     },
     {
@@ -8764,6 +9078,10 @@
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:02.726223+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -8773,11 +9091,6 @@
           "action": "exit"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "exit_announced"
     },
     {
@@ -9006,9 +9319,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "fund",
-      "ml_type_prob": 0.957,
+      "ml_type_prob": 0.916,
       "ml_type_confident": true,
-      "ml_confidence": 0.957,
+      "ml_confidence": 0.916,
       "evidence_score": 5,
       "quality_confidence": "high",
       "confidence_score": 1.0,
@@ -9018,11 +9331,7 @@
       "enriched_summary": "",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:45.419228+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:41.822534+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -9032,6 +9341,11 @@
           "action": "investment"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -9144,6 +9458,10 @@
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:02.846466+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -9153,11 +9471,6 @@
           "action": "exit"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "exit_announced"
     },
     {
@@ -9192,9 +9505,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "deal_announced",
-      "ml_type_prob": 0.859,
+      "ml_type_prob": 0.963,
       "ml_type_confident": true,
-      "ml_confidence": 0.859,
+      "ml_confidence": 0.963,
       "quality_score": 100,
       "evidence_score": 3,
       "quality_confidence": "high",
@@ -9206,6 +9519,10 @@
       "enriched_date": "2026-02-09",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:02.859200+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -9215,11 +9532,6 @@
           "action": "exit"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "exit_announced"
     },
     {
@@ -9435,9 +9747,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "deal_announced",
-      "ml_type_prob": 0.999,
+      "ml_type_prob": 0.998,
       "ml_type_confident": true,
-      "ml_confidence": 0.999,
+      "ml_confidence": 0.998,
       "evidence_score": 5,
       "quality_confidence": "high",
       "confidence_score": 1.0,
@@ -9448,6 +9760,10 @@
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:02.888909+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -9457,11 +9773,6 @@
           "action": "investment"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -9509,7 +9820,7 @@
       "enriched_summary": "[Rumor] Carlyle and PAI Partners are reportedly vying to acquire Mecaer Aviation Group, controlled by Fondo Italiano d'Investimento and Stellex; Lazard is handling the sale process.",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "medium",
-      "enriched_at": "2026-02-26T20:01:02.905839+00:00",
+      "enriched_at": "2026-02-26T20:28:41.897876+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "medium",
       "target_companies": [
@@ -9572,6 +9883,10 @@
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:02.914514+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -9581,11 +9896,6 @@
           "action": "investment"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -9636,7 +9946,7 @@
       "enriched_summary": "Palladio Holding sells DPA Microphones, Austrian Audio, and Wisycom to Audiotonix, controlled by PAI partners; exit confirmed.",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T20:01:02.923384+00:00",
+      "enriched_at": "2026-02-26T20:28:41.915138+00:00",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -9695,13 +10005,13 @@
       "title_original": "Vorn Energy (Macquarie) ottiene da ING finanziamento di decine di mln per impianto di biometano a Ferrara, primo progetto italiano",
       "_fund_geo_scope": "mixed_or_global",
       "ml_keep": true,
-      "ml_keep_prob": 0.998,
-      "ml_keep_confidence": 0.998,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "deal_announced",
-      "ml_type_prob": 0.988,
+      "ml_type_prob": 1.0,
       "ml_type_confident": true,
-      "ml_confidence": 0.988,
+      "ml_confidence": 1.0,
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.84,
@@ -9709,12 +10019,13 @@
         "deal_announced"
       ],
       "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:45.545490+00:00",
+      "enriched_at": "2026-02-26T20:28:41.921554+00:00",
+      "target_companies": [],
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "target_companies": [],
+      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -9806,9 +10117,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "other",
-      "ml_type_prob": 0.668,
+      "ml_type_prob": 0.665,
       "ml_type_confident": true,
-      "ml_confidence": 0.668,
+      "ml_confidence": 0.665,
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.84,
@@ -9818,11 +10129,12 @@
       ],
       "enriched_summary": "Anthilia Capital Partners announced the first closing of Anthilia Bit V, the fifth edition of its Bond Impresa Territorio debt strategy.",
       "enrichment_confidence": "low",
-      "enriched_at": "2026-02-26T09:24:45.576787+00:00",
+      "enriched_at": "2026-02-26T20:28:41.948401+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "debt_financing"
     },
     {
@@ -9871,85 +10183,13 @@
       ],
       "enriched_summary": "",
       "enrichment_confidence": "low",
-      "enriched_at": "2026-02-26T09:24:45.623407+00:00",
+      "enriched_at": "2026-02-26T20:28:41.953871+00:00",
       "llm_keep": true,
-      "llm_keep_reason": "override: type=other (demoted by filter/demotion)",
+      "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "people_move"
-    },
-    {
-      "id": "rss-signal-00059",
-      "fund_id": "",
-      "fund_slug": "smart-capital",
-      "signal_type": "exit_announced",
-      "title": "The merger between Smart4Tech (Smart Capital), Crowd Fund Me, and We Are Starting is underway. Binding agreements have been signed.",
-      "what_changed": "Binding agreements signed for the merger between Smart4Tech (Smart Capital), Crowd Fund Me, and We Are Starting.",
-      "source_url": "https://bebeez.it/fintech/al-via-la-fusione-tra-smart4tech-smart-capital-crowdfundme-e-wearestarting-firmati-gli-accordi-vincolanti/",
-      "source_name": "BeBeez",
-      "published_at": "2026-01-27T06:45:17+00:00",
-      "observed_at": "2026-02-12T10:53:24.152370+00:00",
-      "created_at": "2026-02-12T10:53:24.152370+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Smart4Tech",
-          "CrowdFundMe",
-          "WeAreStarting"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "Firmati accordi vincolanti per la fusione tra Smart4Tech (Smart Capital), CrowdFundMe e WeAreStarting.",
-      "title_original": "Al via la fusione tra Smart4Tech (Smart Capital), CrowdFundMe e WeAreStarting. Firmati gli accordi vincolanti",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.998,
-      "ml_keep_confidence": 0.998,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 0.998,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "exit_announced"
-      ],
-      "enriched_summary": "Smart4Tech (held by Smart Capital) will merge with Crowd Fund Me and We Are Starting after signing binding agreements.",
-      "enriched_date": "2026-02-12",
-      "enrichment_confidence": "high",
-      "enriched_at": "2026-02-23T12:14:47.271504+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "M&A involving Smart Capital and Italian fintech platforms is relevant.",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "llm",
-      "llm_event_type": "deal",
-      "llm_type_confidence": "high",
-      "target_companies": [
-        {
-          "name": "Smart4Tech",
-          "is_direct_investment": true,
-          "action": "other"
-        },
-        {
-          "name": "Crowd Fund Me",
-          "is_direct_investment": false,
-          "action": "other"
-        },
-        {
-          "name": "WeAreStarting",
-          "is_direct_investment": false,
-          "action": "other"
-        }
-      ],
-      "type": "exit_announced"
     },
     {
       "id": "web-signal-00437",
@@ -10225,9 +10465,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "exit_announced",
-      "ml_type_prob": 0.967,
+      "ml_type_prob": 0.91,
       "ml_type_confident": true,
-      "ml_confidence": 0.967,
+      "ml_confidence": 0.91,
       "evidence_score": 5,
       "quality_confidence": "high",
       "confidence_score": 1.0,
@@ -10238,6 +10478,10 @@
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:03.033364+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -10247,11 +10491,6 @@
           "action": "exit"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "exit_announced"
     },
     {
@@ -10362,11 +10601,7 @@
       "enriched_summary": "ARES Management's Alternative Credit funds finalize acquisition of 20% stake in Italian renewable energy firm Plenitude for \u20ac2B ($2.3B).",
       "enriched_date": "2026-02-11",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:45.699415+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:42.034546+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -10376,6 +10611,11 @@
           "action": "investment"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "portfolio_update"
     },
     {
@@ -10425,6 +10665,10 @@
       "enriched_date": "2026-02-02",
       "enrichment_confidence": "medium",
       "enriched_at": "2026-02-26T20:01:03.074883+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "strong evidence score",
+      "llm_keep_confidence": "medium",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -10434,11 +10678,6 @@
           "action": "investment"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "strong evidence score",
-      "llm_keep_confidence": "medium",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -10618,70 +10857,6 @@
       "type": "deal_announced"
     },
     {
-      "id": "web-signal-00626",
-      "fund_id": "",
-      "fund_slug": "gradiente-sgr",
-      "signal_type": "exit_announced",
-      "title": "Gradiente II sells its platform company Argos S.r.l.",
-      "what_changed": "Gradiente II sells its platform company Argos S.r.l.",
-      "source_url": "https://www.gradientesgr.it/news/gradiente-ii-vende-la-sua-platform-company-argos-s-r-l/",
-      "source_name": "Gradiente SGR",
-      "published_at": "2026-02-05",
-      "observed_at": "2026-02-05T20:47:21.552910+00:00",
-      "created_at": "2026-02-05T20:47:21.552910+00:00",
-      "snapshot_id": "snap-20260205204720-8c077ec5",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.3,
-      "relevance_reasons": [
-        "Italian entity types: SRL"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "Gradiente II vende la sua platform company Argos"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 0.995,
-      "ml_type_confident": true,
-      "ml_confidence": 0.995,
-      "quality_score": 100,
-      "evidence_score": 2,
-      "quality_confidence": "medium",
-      "confidence_score": 0.71,
-      "signal_types": [
-        "exit_announced"
-      ],
-      "enriched_summary": "",
-      "enriched_date": "2026-02-05",
-      "enrichment_confidence": "high",
-      "llm_keep": true,
-      "llm_keep_reason": "Clear, specific exit announcement involving an Italian portfolio company.",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "llm",
-      "enriched_at": "2026-02-26T20:01:21.395134+00:00",
-      "llm_event_type": "exit",
-      "llm_type_confidence": "high",
-      "llm_italy_relevant": true,
-      "target_companies": [
-        {
-          "name": "Argos S.r.l.",
-          "is_direct_investment": true,
-          "action": "exit"
-        }
-      ],
-      "type": "exit_announced"
-    },
-    {
       "id": "web-signal-01059",
       "fund_id": "",
       "fund_slug": "ibla-capital",
@@ -10712,13 +10887,13 @@
       "title_original": "Nuova operazione di carve-out per Ibla Capital, acquisita SolarEdge Automation Machines \u2013 IL SOLE24ORE",
       "_fund_geo_scope": "europe_wide",
       "ml_keep": true,
-      "ml_keep_prob": 0.938,
-      "ml_keep_confidence": 0.938,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "exit_announced",
-      "ml_type_prob": 1.0,
+      "ml_type_prob": 0.893,
       "ml_type_confident": true,
-      "ml_confidence": 0.938,
+      "ml_confidence": 0.893,
       "quality_score": 100,
       "evidence_score": 3,
       "quality_confidence": "high",
@@ -10730,6 +10905,10 @@
       "enriched_date": "2026-02-09",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:03.117386+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -10739,11 +10918,6 @@
           "action": "investment"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -10911,11 +11085,7 @@
       "enriched_summary": "",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:45.752148+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:42.116615+00:00",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -10925,6 +11095,11 @@
           "action": "exit"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "exit_announced"
     },
     {
@@ -10973,11 +11148,7 @@
       "enriched_summary": "",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:45.757631+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:42.127277+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -10987,6 +11158,11 @@
           "action": "investment"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -11022,9 +11198,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "exit_announced",
-      "ml_type_prob": 1.0,
+      "ml_type_prob": 0.998,
       "ml_type_confident": true,
-      "ml_confidence": 1.0,
+      "ml_confidence": 0.998,
       "quality_score": 100,
       "evidence_score": 4,
       "quality_confidence": "high",
@@ -11035,11 +11211,7 @@
       "enriched_summary": "",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:45.759920+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:42.133720+00:00",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -11049,6 +11221,11 @@
           "action": "exit"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "exit_announced"
     },
     {
@@ -11086,10 +11263,10 @@
       "ml_keep_prob": 1.0,
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
+      "ml_type": "fund",
+      "ml_type_prob": 0.945,
       "ml_type_confident": true,
-      "ml_confidence": 1.0,
+      "ml_confidence": 0.945,
       "quality_score": 100,
       "evidence_score": 4,
       "quality_confidence": "high",
@@ -11098,12 +11275,13 @@
         "fund_launch"
       ],
       "enriched_summary": "Arm\u00f2nia Italy Fund II makes its fifth investment.",
-      "enriched_at": "2026-02-26T09:24:45.765954+00:00",
+      "enriched_at": "2026-02-26T20:28:42.141259+00:00",
+      "enriched_summary_original": "Fifth investment for Arm\u00f2nia Italy Fund II.",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "enriched_summary_original": "Fifth investment for Arm\u00f2nia Italy Fund II.",
+      "llm_keep_version": 3,
       "type": "fund_launch"
     },
     {
@@ -11463,13 +11641,12 @@
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:03.187222+00:00",
-      "llm_event_type": "people",
-      "llm_type_confidence": "high",
       "llm_keep": true,
       "llm_keep_reason": "strong evidence score",
       "llm_keep_confidence": "medium",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
+      "llm_event_type": "people",
+      "llm_type_confidence": "high",
       "type": "people_move"
     },
     {
@@ -11648,9 +11825,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "deal_announced",
-      "ml_type_prob": 0.727,
-      "ml_type_confident": true,
-      "ml_confidence": 0.727,
+      "ml_type_prob": 0.443,
+      "ml_type_confident": false,
+      "ml_confidence": 0.443,
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.84,
@@ -11658,11 +11835,12 @@
         "debt_financing"
       ],
       "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:45.805022+00:00",
+      "enriched_at": "2026-02-26T20:28:42.241537+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "debt_financing"
     },
     {
@@ -12020,11 +12198,7 @@
       "enriched_summary": "",
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:45.886021+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "high quality score",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
+      "enriched_at": "2026-02-26T20:28:42.367737+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -12034,6 +12208,11 @@
           "action": "investment"
         }
       ],
+      "llm_keep": true,
+      "llm_keep_reason": "high quality score",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -12145,6 +12324,56 @@
         }
       ],
       "type": "exit_announced"
+    },
+    {
+      "id": "news-signal-20260205111509-fb1ed3df-789016c6",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "other",
+      "title": "CDP Venture Capital launches Next Age: \u20ac5.5M in investments for Europe's first accelerator dedicated to the growth of startups operating in the Silver Economy",
+      "what_changed": "",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "CDP Venture Capital",
+      "published_at": "2026-02-05",
+      "observed_at": "2026-02-05T11:15:09.810773+00:00",
+      "created_at": "2026-02-05T11:15:09.810773+00:00",
+      "fingerprint": "59bf7dcbbc32",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 97,
+      "what_changed_original": "News: CDP Venture Capital lancia Next Age: 5,46 milioni di investimenti per il primo acceleratore in Europa dedicato alla crescita di startup operative nella Silver Economy",
+      "title_original": "CDP Venture Capital lancia Next Age: 5,46 milioni di investimenti per il primo acceleratore in Europa dedicato alla crescita di startup operative nella Silver Economy",
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "other",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.678,
+      "signal_types": [
+        "other"
+      ],
+      "enriched_summary": "",
+      "enriched_date": "2026-02-05",
+      "enrichment_confidence": "high",
+      "llm_keep": false,
+      "llm_keep_reason": "phase3: type=other safety net (dropped after final type corrections)",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "enriched_at": "2026-02-26T20:28:58.567683+00:00",
+      "llm_event_type": "fund",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [],
+      "llm_type_override": true,
+      "type": "other"
     },
     {
       "id": "web-signal-00018",
@@ -12294,9 +12523,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "people_move",
-      "ml_type_prob": 0.844,
+      "ml_type_prob": 0.847,
       "ml_type_confident": true,
-      "ml_confidence": 0.844,
+      "ml_confidence": 0.847,
       "quality_score": 96,
       "evidence_score": 0,
       "quality_confidence": "high",
@@ -12306,12 +12535,11 @@
       ],
       "enriched_summary": "",
       "enrichment_confidence": "low",
+      "enriched_at": "2026-02-26T20:01:03.355413+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
-      "enriched_at": "2026-02-26T20:01:03.355413+00:00",
       "type": "people_move"
     },
     {
@@ -12459,11 +12687,12 @@
         "people_move"
       ],
       "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:45.927200+00:00",
+      "enriched_at": "2026-02-26T20:28:42.451850+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high quality score",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "people_move"
     },
     {
@@ -12492,9 +12721,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "fund",
-      "ml_type_prob": 0.994,
+      "ml_type_prob": 0.997,
       "ml_type_confident": true,
-      "ml_confidence": 0.994,
+      "ml_confidence": 0.997,
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.816,
@@ -12502,11 +12731,12 @@
         "fund_launch"
       ],
       "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:45.931838+00:00",
+      "enriched_at": "2026-02-26T20:28:42.458140+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "fund_launch"
     },
     {
@@ -12535,9 +12765,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "fund",
-      "ml_type_prob": 1.0,
+      "ml_type_prob": 0.999,
       "ml_type_confident": true,
-      "ml_confidence": 1.0,
+      "ml_confidence": 0.999,
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.816,
@@ -12545,11 +12775,12 @@
         "fund_launch"
       ],
       "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:45.933806+00:00",
+      "enriched_at": "2026-02-26T20:28:42.463209+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "fund_launch"
     },
     {
@@ -12809,14 +13040,15 @@
       "enriched_summary": "",
       "enriched_date": "2017-12-29",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T09:24:45.888803+00:00",
+      "enriched_at": "2026-02-26T20:28:42.503254+00:00",
+      "llm_event_type": "other",
+      "llm_type_confidence": "high",
+      "target_companies": [],
       "llm_keep": true,
       "llm_keep_reason": "high quality score",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_event_type": "other",
-      "llm_type_confidence": "high",
-      "target_companies": [],
+      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -13001,6 +13233,56 @@
       "llm_type_confidence": "high",
       "target_companies": [],
       "type": "deal_announced"
+    },
+    {
+      "id": "news-signal-20260205111509-fb1ed3df-83759ea3",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "other",
+      "title": "Startup XI talia private matching \u201d: CDP Venture Capital joins forces with Riccardo Luna to discover the most promising Italian startups",
+      "what_changed": "Startup XI talia private matching \u201d: CDP Venture Capital joins Riccardo Luna in discovering the most promising Italian startups",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "CDP Venture Capital",
+      "published_at": "2026-02-05",
+      "observed_at": "2026-02-05T11:15:09.811470+00:00",
+      "created_at": "2026-02-05T11:15:09.811470+00:00",
+      "fingerprint": "ed08e2a1ee13",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 91,
+      "what_changed_original": "News: \u201cStartupXItalia private matching\u201d: CDP Venture Capital insieme a Riccardo Luna alla scoperta delle pi\u00f9 promettenti startup italiane",
+      "title_original": "\u201cStartupXItalia private matching\u201d: CDP Venture Capital insieme a Riccardo Luna alla scoperta delle pi\u00f9 promettenti startup italiane",
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "other",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "evidence_score": 1,
+      "quality_confidence": "low",
+      "confidence_score": 0.494,
+      "signal_types": [
+        "other",
+        "people_move"
+      ],
+      "enriched_summary": "CDP Venture Capital partners with Riccardo Luna to identify and support Italy's most promising startups via a private matching initiative.",
+      "enriched_date": "2026-02-05",
+      "enrichment_confidence": "high",
+      "llm_keep": false,
+      "llm_keep_reason": "phase3: type=other safety net (dropped after final type corrections)",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "enriched_at": "2026-02-26T20:29:02.152523+00:00",
+      "llm_event_type": "other",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [],
+      "type": "other"
     },
     {
       "id": "news-signal-20260205111509-fb1ed3df-4f3280da",
@@ -13358,6 +13640,61 @@
       "type": "deal_announced"
     },
     {
+      "id": "news-signal-20260205131640-38e5d7a5-7efa875d",
+      "fund_id": "",
+      "fund_slug": "invitalia",
+      "signal_type": "deal_announced",
+      "title": "Serenis Health, when therapy is online",
+      "what_changed": "",
+      "source_url": "https://www.invitalia.it/news-media/storie/serenis-health-quando-la-terapia-e-online",
+      "source_name": "Invitalia",
+      "published_at": "2026-02-05",
+      "observed_at": "2026-02-05T13:16:40.932538+00:00",
+      "created_at": "2026-02-05T13:16:40.932538+00:00",
+      "fingerprint": "6b783a63b9b6",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 91,
+      "what_changed_original": "News: Serenis Health, quando la terapia \u00e8 online",
+      "title_original": "Serenis Health, quando la terapia \u00e8 online",
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.999,
+      "ml_type_confident": true,
+      "ml_confidence": 0.999,
+      "evidence_score": 2,
+      "quality_confidence": "medium",
+      "confidence_score": 0.674,
+      "signal_types": [
+        "deal_announced"
+      ],
+      "enriched_summary": "Invitalia announces an investment in Serenis Health to support delivery of online therapy services.",
+      "enriched_date": "2026-02-05",
+      "enrichment_confidence": "medium",
+      "llm_keep": true,
+      "llm_keep_reason": "Relevant Invitalia deal involving an Italian digital health company (Serenis Health).",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "enriched_at": "2026-02-26T20:29:01.229995+00:00",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [
+        {
+          "name": "Serenis Health",
+          "is_direct_investment": true,
+          "action": "investment"
+        }
+      ],
+      "type": "deal_announced"
+    },
+    {
       "id": "web-signal-01731",
       "fund_id": "",
       "fund_slug": "unigrains",
@@ -13463,11 +13800,12 @@
       ],
       "enriched_summary": "Capza and MAIF launch an environmental-impact private debt fund.",
       "enrichment_confidence": "low",
-      "enriched_at": "2026-02-26T09:24:46.048738+00:00",
+      "enriched_at": "2026-02-26T20:28:42.604781+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "fund_launch"
     },
     {
@@ -13581,7 +13919,7 @@
       "id": "web-signal-01768",
       "fund_id": "",
       "fund_slug": "clessidra-sgr",
-      "signal_type": "other",
+      "signal_type": "people_move",
       "title": "Giulio Pesenti head of strategic business development",
       "what_changed": "",
       "source_url": "https://www.clessidragroup.it/team_member/giulio-pesenti-holding/",
@@ -13608,30 +13946,31 @@
       "ml_keep_prob": 1.0,
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
-      "ml_type": "other",
-      "ml_type_prob": 0.719,
+      "ml_type": "people_move",
+      "ml_type_prob": 1.0,
       "ml_type_confident": true,
-      "ml_confidence": 0.719,
+      "ml_confidence": 1.0,
       "quality_score": 88,
       "evidence_score": 1,
       "quality_confidence": "high",
       "confidence_score": 0.582,
       "signal_types": [
-        "other"
+        "people_move"
       ],
       "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:46.064337+00:00",
+      "enriched_at": "2026-02-26T20:28:42.624888+00:00",
       "llm_keep": false,
-      "llm_keep_reason": "phase3: type=other safety net (dropped after final type corrections)",
+      "llm_keep_reason": "type=other (demoted by filter/demotion)",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "type": "other"
+      "llm_keep_version": 3,
+      "type": "people_move"
     },
     {
       "id": "web-signal-01773",
       "fund_id": "",
       "fund_slug": "clessidra-sgr",
-      "signal_type": "people_move",
+      "signal_type": "other",
       "title": "Gabriele Gagliolo head of legal & corporate affairs",
       "what_changed": "",
       "source_url": "https://www.clessidragroup.it/team_member/gabriele-gagliolo/",
@@ -13655,28 +13994,27 @@
       },
       "_fund_geo_scope": "italy_focused",
       "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
+      "ml_keep_prob": 0.984,
+      "ml_keep_confidence": 0.984,
       "ml_keep_confident": true,
-      "ml_type": "people_move",
-      "ml_type_prob": 1.0,
+      "ml_type": "other",
+      "ml_type_prob": 0.788,
       "ml_type_confident": true,
-      "ml_confidence": 1.0,
+      "ml_confidence": 0.788,
       "quality_score": 88,
       "evidence_score": 1,
       "quality_confidence": "high",
       "confidence_score": 0.582,
       "signal_types": [
-        "people_move"
+        "other"
       ],
+      "enriched_summary": "",
+      "enriched_at": "2026-02-26T20:01:03.662482+00:00",
       "llm_keep": false,
-      "llm_keep_reason": "type=other (demoted by filter/demotion)",
+      "llm_keep_reason": "phase3: type=other safety net (dropped after final type corrections)",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
-      "enriched_at": "2026-02-26T20:01:03.662482+00:00",
-      "enriched_summary": "",
-      "type": "people_move"
+      "type": "other"
     },
     {
       "id": "web-signal-01039",
@@ -13762,9 +14100,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "exit_announced",
-      "ml_type_prob": 0.965,
+      "ml_type_prob": 0.815,
       "ml_type_confident": true,
-      "ml_confidence": 0.965,
+      "ml_confidence": 0.815,
       "quality_score": 88,
       "evidence_score": 2,
       "quality_confidence": "medium",
@@ -13775,14 +14113,15 @@
       "enriched_summary": "",
       "enriched_date": "2020-01-15",
       "enrichment_confidence": "medium",
-      "enriched_at": "2026-02-26T09:24:45.960861+00:00",
+      "enriched_at": "2026-02-26T20:28:42.639523+00:00",
+      "llm_event_type": "exit",
+      "llm_type_confidence": "high",
+      "target_companies": [],
       "llm_keep": true,
       "llm_keep_reason": "high quality score",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_event_type": "exit",
-      "llm_type_confidence": "high",
-      "target_companies": [],
+      "llm_keep_version": 3,
       "type": "exit_announced"
     },
     {
@@ -13831,11 +14170,10 @@
       "enriched_summary": "Sinloc Investimenti SGR adds Matteo Luca Bertolini to its team.",
       "enrichment_confidence": "low",
       "enriched_at": "2026-02-26T20:01:03.706282+00:00",
-      "llm_keep": true,
-      "llm_keep_reason": "self-describing structured signal (skip LLM)",
+      "llm_keep": false,
+      "llm_keep_reason": "hard block: bare company name with no event context",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "people_move"
     },
     {
@@ -13896,6 +14234,70 @@
       "type": "report"
     },
     {
+      "id": "web-signal-01647",
+      "fund_id": "",
+      "fund_slug": "finint-investments-sgr",
+      "signal_type": "other",
+      "title": "Student Housing: Campusx, CDP, Finint Investments, and Supernova inaugurate a new 366-bed residence in Modena with an urban park covering over 5,000 square\u2026",
+      "what_changed": "Student Housing: Campusx, CDP, Finint Investments, and Supernova inaugurate a new 366-bed residence in Modena with an urban park covering over 5,000 square meters.",
+      "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/press/comunicati_stampa/2025/CS  STUDENT HOUSING CAMPUSX CDP FININT INVESTMENTS E SUPERNOVA  MODENA.pdf",
+      "source_name": "Finint Investments SGR",
+      "published_at": "2025-11-14",
+      "observed_at": "2026-02-20T09:10:38.015157+00:00",
+      "created_at": "2026-02-20T09:10:38.015157+00:00",
+      "snapshot_id": "snap-20260220091037-2111bf67",
+      "diff_summary": "New news item detected (dated 2025-11-14)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.5,
+      "relevance_reasons": [
+        "Italian cities: Modena",
+        "Italian business context: CDP"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Finint Investments",
+          "Student Housing"
+        ],
+        "locations": [
+          "Modena"
+        ]
+      },
+      "what_changed_original": "New announcement: Student Housing: Campusx, CDP, Finint Investments e Supernova inaugurano a Modena una nuova residenza da 366 posti con parco urbano di oltre 5.000 metri quadrati",
+      "title_original": "Student Housing: Campusx, CDP, Finint Investments e Supernova inaugurano a Modena una nuova residenza da 366 posti con parco urbano di oltre 5.000 metri quadrati",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": false,
+      "ml_keep_prob": 0.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "other",
+      "ml_type_prob": 0.999,
+      "ml_type_confident": true,
+      "ml_confidence": 0.999,
+      "quality_score": 87,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.738,
+      "signal_types": [
+        "other"
+      ],
+      "enriched_summary": "",
+      "enriched_date": null,
+      "enrichment_confidence": "high",
+      "llm_keep": false,
+      "llm_keep_reason": "phase3: type=other safety net (dropped after final type corrections)",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "enriched_at": "2026-02-26T20:29:06.764294+00:00",
+      "llm_event_type": "other",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [],
+      "type": "other"
+    },
+    {
       "id": "rss-signal-00066",
       "fund_id": "",
       "fund_slug": "renaissance-partners",
@@ -13923,14 +14325,14 @@
       "what_changed_original": "Uteco Converting riceve rifinanziamento e aumento di capitale da Cherry Bank e Muzinich & Co.; Muzinich sottoscrive aucap con Renaissance Partners.",
       "title_original": "Uteco Converting riceve finanziamento da Cherry Bank e Muzinich & Co., che sottoscrive aucap con Renaissance Partners (socio di controllo)",
       "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
+      "ml_keep": false,
+      "ml_keep_prob": 0.018,
+      "ml_keep_confidence": 0.982,
       "ml_keep_confident": true,
       "ml_type": "people_move",
-      "ml_type_prob": 0.97,
+      "ml_type_prob": 0.626,
       "ml_type_confident": true,
-      "ml_confidence": 0.97,
+      "ml_confidence": 0.626,
       "evidence_score": 2,
       "quality_confidence": "low",
       "confidence_score": 0.554,
@@ -13943,7 +14345,6 @@
       "llm_keep_reason": "high quality score",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "debt_financing"
     },
     {
@@ -13983,6 +14384,10 @@
       "enriched_date": "2026-02-05",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:03.785914+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high quality score",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -13992,11 +14397,6 @@
           "action": "investment"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high quality score",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -14292,9 +14692,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "exit_announced",
-      "ml_type_prob": 0.991,
-      "ml_type_confident": true,
-      "ml_confidence": 0.991,
+      "ml_type_prob": 0.569,
+      "ml_type_confident": false,
+      "ml_confidence": 0.569,
       "evidence_score": 2,
       "quality_confidence": "medium",
       "confidence_score": 0.654,
@@ -14302,12 +14702,53 @@
         "debt_financing"
       ],
       "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:46.174328+00:00",
+      "enriched_at": "2026-02-26T20:28:42.716485+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high quality score",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "debt_financing"
+    },
+    {
+      "id": "hist-signal-00161",
+      "fund_id": "",
+      "fund_slug": "fvs-sgr",
+      "signal_type": "fund_launch",
+      "title": "Veneto sviluppo avvia il \u201cFondo sviluppo PMI",
+      "what_changed": "",
+      "source_url": "https://fvs.nooostaging.com/2022/02/02/veneto-sviluppo-avvia-il-fondo-sviluppo-pmi-2/",
+      "source_name": "FVS SGR",
+      "published_at": null,
+      "observed_at": "2026-01-26T15:36:37.950852+00:00",
+      "created_at": "2026-01-26T15:36:37.950852+00:00",
+      "fingerprint": "a523ed848ca7",
+      "extraction_source": "historical_extraction",
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "fund",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 86,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.784,
+      "signal_types": [
+        "fund_launch"
+      ],
+      "llm_keep": false,
+      "llm_keep_reason": "phase3: Italian title with no English summary",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
+      "enriched_at": "2026-02-26T20:28:42.720495+00:00",
+      "enriched_summary": "",
+      "type": "fund_launch"
     },
     {
       "id": "rss-signal-00155",
@@ -14360,11 +14801,65 @@
       ],
       "enriched_summary": "Limonta spa, an Italian manufacturer of high-end fabrics (owned by Tamburi Investment Partners since 2021), has acquired 60% of Novares in spa and 100% of Piran dello & Gregorin srl from the Fumagalli family.",
       "enrichment_confidence": "low",
-      "enriched_at": "2026-02-26T09:24:46.194069+00:00",
+      "enriched_at": "2026-02-26T20:28:04.391773+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "type": "portfolio_update"
+    },
+    {
+      "id": "rss-signal-00146",
+      "fund_id": "",
+      "fund_slug": "furstenberg-sgr",
+      "related_fund_slugs": [
+        "furstenberg-sgr"
+      ],
+      "signal_type": "portfolio_update",
+      "title": "First transaction for F\u00fcrstenberg SGR, which acquires a majority stake in Noberasco S.p.A. (dried and dehydrated fruit)",
+      "what_changed": "F\u00fcrstenberg SGR has completed its first acquisition, buying a majority stake in Italian dried-fruit and dehydrated foods maker Noberasco spa via the illimity Credit & Corporate Turnaround Fund. The confirmed deal marks F\u00fcrstenberg\u2019s market entry; sellers and financial terms were not disclosed.",
+      "source_url": "https://bebeez.it/crisi-rilanci/prima-operazione-per-furstenberg-sgr-che-acquisisce-la-maggioranza-di-noberasco-spa-frutta-secca-e-disidratata/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-25T06:51:01+00:00",
+      "observed_at": "2026-02-25T06:55:59.285724+00:00",
+      "created_at": "2026-02-25T06:55:59.285724+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Noberasco spa"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Prima operazione per F\u00fcrstenberg sgr, che acquisisce la maggioranza di Noberasco spa (frutta secca e disidratata)",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.962,
+      "ml_type_confident": true,
+      "ml_confidence": 0.962,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.73,
+      "signal_types": [
+        "portfolio_update",
+        "deal_announced"
+      ],
+      "llm_keep": true,
+      "llm_keep_reason": "override: navigation/legal content",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
+      "enriched_at": "2026-02-26T20:28:42.750789+00:00",
+      "enriched_summary": "F\u00fcrstenberg SGR has completed its first acquisition, buying a majority stake in Italian dried-fruit and dehydrated foods maker Noberasco spa via the illimity Credit & Corporate Turnaround Fund.",
       "type": "portfolio_update"
     },
     {
@@ -14415,7 +14910,7 @@
       ],
       "enriched_summary": "No Dig Alliance, controlled by Ambienta SGR, has acquired Finnish trenchless water-network specialist Suomen Putkisto Palvelu from the Boman family.",
       "enrichment_confidence": "low",
-      "enriched_at": "2026-02-26T20:01:03.891867+00:00",
+      "enriched_at": "2026-02-26T20:28:42.776754+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
@@ -14452,13 +14947,13 @@
       "title_original": "Quarto add-on per Frigoveneta (Ambienta) che rileva SAIM Impianti e SAIM Service dalla famiglia Simonelli",
       "_fund_geo_scope": "italy_focused",
       "ml_keep": false,
-      "ml_keep_prob": 0.0,
-      "ml_keep_confidence": 1.0,
+      "ml_keep_prob": 0.175,
+      "ml_keep_confidence": 0.825,
       "ml_keep_confident": true,
       "ml_type": "other",
-      "ml_type_prob": 0.982,
+      "ml_type_prob": 0.918,
       "ml_type_confident": true,
-      "ml_confidence": 0.982,
+      "ml_confidence": 0.825,
       "evidence_score": 3,
       "quality_confidence": "high",
       "confidence_score": 0.73,
@@ -14467,11 +14962,12 @@
         "deal_announced"
       ],
       "enriched_summary": "",
-      "enriched_at": "2026-02-26T09:24:46.233698+00:00",
+      "enriched_at": "2026-02-26T20:28:42.783901+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high evidence confidence",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
+      "llm_keep_version": 3,
       "type": "portfolio_update"
     },
     {
@@ -14537,6 +15033,61 @@
           "action": "investment"
         }
       ],
+      "type": "portfolio_update"
+    },
+    {
+      "id": "rss-signal-00149",
+      "fund_id": "",
+      "fund_slug": "h-i-g-capital",
+      "related_fund_slugs": [
+        "h-i-g-capital"
+      ],
+      "signal_type": "portfolio_update",
+      "title": "Berardi Bullonerie (HIG Capital) acquires Fastpoint srl from the Carossa family, seventh M&A since private equity entered the capital",
+      "what_changed": "Berardi Bullonerie, controlled by HIG Capital via HIG Europe, has acquired Fastpoint srl from the Carossa family. The confirmed transaction is the seventh M&A since HIG\u2019s investment in Berar di and strengthens the Italian distributor of fastening elements and integrated logistics services; terms were not disclosed.",
+      "source_url": "https://bebeez.it/private-equity/berardi-bullonerie-hig-capital-acquisisce-fastpoint-srl-dalla-famiglia-carossa-settima-ma-dallingresso-del-private-equity-nel-capitale/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-25T06:47:17+00:00",
+      "observed_at": "2026-02-25T06:55:59.285724+00:00",
+      "created_at": "2026-02-25T06:55:59.285724+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Berardi Bullonerie",
+          "Fastpoint srl"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Berardi Bullonerie (HIG Capital) acquisisce Fastpoint srl dalla famiglia Carossa, settima m&a dall\u2019ingresso del private equity nel capitale",
+      "_fund_geo_scope": "europe_wide",
+      "ml_keep": true,
+      "ml_keep_prob": 0.94,
+      "ml_keep_confidence": 0.94,
+      "ml_keep_confident": true,
+      "ml_type": "other",
+      "ml_type_prob": 0.632,
+      "ml_type_confident": true,
+      "ml_confidence": 0.632,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.73,
+      "signal_types": [
+        "portfolio_update",
+        "deal_announced"
+      ],
+      "llm_keep": true,
+      "llm_keep_reason": "override: navigation/legal content",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
+      "enriched_at": "2026-02-26T20:28:42.829414+00:00",
+      "enriched_summary": "Berardi Bullonerie, controlled by HIG Capital via HIG Europe, has acquired Fastpoint srl from the Carossa family.",
       "type": "portfolio_update"
     },
     {
@@ -14666,6 +15217,110 @@
       "type": "portfolio_update"
     },
     {
+      "id": "rss-signal-00123",
+      "fund_id": "",
+      "fund_slug": "the-equity-club",
+      "signal_type": "portfolio_update",
+      "title": "Club del Sole (THE Equity CLUB, aurora growth capital) acquires Le Palme Lazise Family Collection, its 28th property",
+      "what_changed": "Club del Sole, backed by THE Equity CLUB and Aurora Growth Capital, has acquired Le Palme Lazise Family Collection on Lake Garda \u2014 its 28th add-on for the Italian holiday village chain. The deal strengthens Club del Sole\u2019s domestic footprint in the leisure/tourism sector; no financial terms disclosed.",
+      "source_url": "https://bebeez.it/private-equity/club-del-sole-the-equity-club-aurora-growth-capital-acquisisce-le-palme-lazise-family-collection-sua-28esima-struttura/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-19T06:50:34+00:00",
+      "observed_at": "2026-02-19T11:17:46.802125+00:00",
+      "created_at": "2026-02-19T11:17:46.802125+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Club del Sole",
+          "Le Palme Lazise Family Collection"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Club del Sole (The Equity CLub, Aurora Growth Capital) acquisisce Le Palme Lazise Family Collection, sua 28esima struttura",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.73,
+      "signal_types": [
+        "portfolio_update",
+        "deal_announced"
+      ],
+      "llm_keep": true,
+      "llm_keep_reason": "override: navigation/legal content",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
+      "enriched_at": "2026-02-26T20:28:42.869703+00:00",
+      "enriched_summary": "",
+      "type": "portfolio_update"
+    },
+    {
+      "id": "rss-signal-00124",
+      "fund_id": "",
+      "fund_slug": "aurora-growth-capital",
+      "signal_type": "portfolio_update",
+      "title": "Club del Sole (the equity club, Aurora Growth Capital) acquires Le Palme Lazise Family Collection, its 28th property",
+      "what_changed": "Club del Sole, backed by The Equity Club and Aurora Growth Capital, has acquired Le Palme Lazise Family Collection on Lake Garda \u2014 its 28th add-on for the Italian holiday village chain. The deal strengthens Club del Sole\u2019s domestic footprint in the leisure/tourism sector; no financial terms disclosed.",
+      "source_url": "https://bebeez.it/private-equity/club-del-sole-the-equity-club-aurora-growth-capital-acquisisce-le-palme-lazise-family-collection-sua-28esima-struttura/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-19T06:50:34+00:00",
+      "observed_at": "2026-02-19T11:17:46.802125+00:00",
+      "created_at": "2026-02-19T11:17:46.802125+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Club del Sole",
+          "Le Palme Lazise Family Collection"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Club del Sole (The Equity CLub, Aurora Growth Capital) acquisisce Le Palme Lazise Family Collection, sua 28esima struttura",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.73,
+      "signal_types": [
+        "portfolio_update",
+        "deal_announced"
+      ],
+      "llm_keep": true,
+      "llm_keep_reason": "override: navigation/legal content",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
+      "llm_keep_version": 3,
+      "enriched_at": "2026-02-26T20:28:42.887445+00:00",
+      "enriched_summary": "",
+      "type": "portfolio_update"
+    },
+    {
       "id": "rss-signal-00120",
       "fund_id": "",
       "fund_slug": "aurora-growth-capital",
@@ -14711,7 +15366,7 @@
       "enriched_summary": "Finlogic spa, controlled by Credem Private Equity SGR with coinvestors Aurora Growth Capital and PM&Partners SGR, has acquired 51% of Etichettificio Jolly srl.",
       "enriched_date": "2026-02-18",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T20:01:04.014127+00:00",
+      "enriched_at": "2026-02-26T20:28:42.905570+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -14769,6 +15424,23 @@
         "deal_announced"
       ],
       "enriched_summary": "",
+      "enriched_date": "2026-02-05",
+      "enrichment_confidence": "high",
+      "llm_keep": true,
+      "llm_keep_reason": "Clear PE-backed add-on acquisition involving Argos Wityu's portfolio company; relevant deal news.",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "llm",
+      "enriched_at": "2026-02-26T20:29:22.595010+00:00",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": false,
+      "target_companies": [
+        {
+          "name": "Witteler & Burkhardt",
+          "is_direct_investment": false,
+          "action": "investment"
+        }
+      ],
       "type": "portfolio_update"
     },
     {
@@ -14876,7 +15548,7 @@
       "enriched_summary": "Nextalia Flexible Capital (Nextalia SGR) acquires a majority stake in Business Changers srl, an Italian IT consulting firm based in Rome.",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T20:01:04.051251+00:00",
+      "enriched_at": "2026-02-26T20:28:42.940690+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -14951,6 +15623,10 @@
       "enriched_date": "2025-10-01",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:04.076699+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -14960,11 +15636,6 @@
           "action": "investment"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "deal_announced"
     },
     {
@@ -15018,7 +15689,7 @@
       "enriched_summary": "Groupe Premium (controlled by Eurazeo) acquired majority stake in Grifo Group, Italian insurance brokerage and financial advisory company (500 advisors, 65,000+ clients, 21 offices, \u20ac34M revenue).",
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T20:01:04.097339+00:00",
+      "enriched_at": "2026-02-26T20:28:42.984868+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -15083,6 +15754,10 @@
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:04.108641+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high quality score",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -15092,11 +15767,6 @@
           "action": "investment"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high quality score",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "portfolio_update"
     },
     {
@@ -15209,6 +15879,10 @@
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "medium",
       "enriched_at": "2026-02-26T20:01:04.137232+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high quality score",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "medium",
       "target_companies": [
@@ -15218,11 +15892,6 @@
           "action": "exit"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high quality score",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "portfolio_update"
     },
     {
@@ -15273,6 +15942,10 @@
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:04.146640+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high quality score",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -15282,11 +15955,6 @@
           "action": "investment"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high quality score",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "portfolio_update"
     },
     {
@@ -15338,6 +16006,10 @@
       "enriched_date": "2026-02-12",
       "enrichment_confidence": "high",
       "enriched_at": "2026-02-26T20:01:04.155698+00:00",
+      "llm_keep": true,
+      "llm_keep_reason": "high evidence confidence",
+      "llm_keep_confidence": "high",
+      "llm_keep_source": "local",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -15347,11 +16019,6 @@
           "action": "investment"
         }
       ],
-      "llm_keep": true,
-      "llm_keep_reason": "high evidence confidence",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "local",
-      "llm_keep_version": 3,
       "type": "portfolio_update"
     },
     {
@@ -15401,7 +16068,7 @@
       "enriched_summary": "Bridgepoint acquires majority stake in Interpath, global financial advisory firm, at \u00a3800M valuation (more than double previous price). Interpath planning acquisitions in Italy.",
       "enriched_date": "2026-02-11",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T20:01:04.168571+00:00",
+      "enriched_at": "2026-02-26T20:28:43.039739+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -15502,9 +16169,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "deal_announced",
-      "ml_type_prob": 0.997,
+      "ml_type_prob": 0.858,
       "ml_type_confident": true,
-      "ml_confidence": 0.997,
+      "ml_confidence": 0.858,
       "quality_score": 83,
       "evidence_score": 1,
       "quality_confidence": "low",
@@ -15512,31 +16179,29 @@
       "signal_types": [
         "job_posting"
       ],
+      "enriched_summary": "",
+      "enriched_at": "2026-02-26T20:01:04.183100+00:00",
       "llm_keep": true,
       "llm_keep_reason": "high quality score",
       "llm_keep_confidence": "high",
       "llm_keep_source": "local",
-      "llm_keep_version": 3,
-      "enriched_at": "2026-02-26T20:01:04.183100+00:00",
-      "enriched_summary": "",
+      "target_companies": [],
       "type": "job_posting"
     },
     {
-      "id": "hist-signal-00160",
+      "id": "hist-signal-00158",
       "fund_id": "",
       "fund_slug": "fvs-sgr",
       "signal_type": "deal_announced",
-      "title": "FVS SGR acquires stake in padua-based liking SPA",
+      "title": "Elifriulia entra nel Gruppo Eliance",
       "what_changed": "",
-      "source_url": "https://fvs.nooostaging.com/2022/02/17/fvs-sgr-entra-nel-capitale-della-padovana-liking-spa/",
+      "source_url": "https://fvs.nooostaging.com/2022/11/19/elifriulia-entra-nel-gruppo-eliance/",
       "source_name": "FVS SGR",
-      "published_at": "2022-02-17",
-      "observed_at": "2026-01-26T15:36:37.950847+00:00",
-      "created_at": "2026-01-26T15:36:37.950847+00:00",
-      "fingerprint": "2d8b5b5a39bb",
+      "published_at": null,
+      "observed_at": "2026-01-26T15:36:37.950834+00:00",
+      "created_at": "2026-01-26T15:36:37.950834+00:00",
+      "fingerprint": "db98c30a6fd7",
       "extraction_source": "historical_extraction",
-      "what_changed_original": "Historical: Continua a leggere\u201cFVS Sgr entra nel capitale della padovana Liking Spa\u201d",
-      "title_original": "Continua a leggere\u201cFVS Sgr entra nel capitale della padovana Liking Spa\u201d",
       "_fund_geo_scope": "italy_focused",
       "italy_relevant": true,
       "ml_keep": true,
@@ -15555,39 +16220,24 @@
         "deal_announced"
       ],
       "enriched_summary": "",
-      "enriched_date": "2022-02-17",
-      "enrichment_confidence": "medium",
-      "llm_keep": false,
-      "llm_keep_reason": "phase3: stale signal (published 2022-02-17, >24 months old)",
-      "llm_keep_confidence": "high",
-      "llm_keep_source": "llm",
-      "enriched_at": "2026-02-26T20:01:22.881446+00:00",
-      "llm_event_type": "deal",
-      "llm_type_confidence": "high",
-      "llm_italy_relevant": true,
-      "target_companies": [
-        {
-          "name": "Liking SpA",
-          "is_direct_investment": true,
-          "action": "investment"
-        }
-      ],
       "type": "deal_announced"
     },
     {
-      "id": "hist-signal-00159",
+      "id": "hist-signal-00155",
       "fund_id": "",
       "fund_slug": "fvs-sgr",
       "signal_type": "deal_announced",
-      "title": "FVS SGR created the Candy Factory group, consolidating businesses into a new corporate group.",
-      "what_changed": "FVS SGR created the Candy Factory group, consolidating businesses into a new corporate group.",
-      "source_url": "https://fvs.nooostaging.com/2022/11/14/creazione-del-gruppo-candy-factory/",
+      "title": "FVS SGR focuses on the integrated logistics of the Futura Group",
+      "what_changed": "",
+      "source_url": "https://fvs.nooostaging.com/2023/06/27/fvs-sgr-punta-sulla-logistica-integrata-del-gruppo-futura/",
       "source_name": "FVS SGR",
-      "published_at": null,
-      "observed_at": "2026-01-26T15:36:37.950840+00:00",
-      "created_at": "2026-01-26T15:36:37.950840+00:00",
-      "fingerprint": "8bfa953a3469",
+      "published_at": "2023-06-27",
+      "observed_at": "2026-01-26T15:36:37.950816+00:00",
+      "created_at": "2026-01-26T15:36:37.950816+00:00",
+      "fingerprint": "c83c0ab43acc",
       "extraction_source": "historical_extraction",
+      "what_changed_original": "Historical: Continua a leggere\u201cFVS SGR punta sulla logistica integrata del Gruppo Futura\u201d",
+      "title_original": "Continua a leggere\u201cFVS SGR punta sulla logistica integrata del Gruppo Futura\u201d",
       "_fund_geo_scope": "italy_focused",
       "italy_relevant": true,
       "ml_keep": true,
@@ -15595,9 +16245,9 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "deal_announced",
-      "ml_type_prob": 0.993,
+      "ml_type_prob": 1.0,
       "ml_type_confident": true,
-      "ml_confidence": 0.993,
+      "ml_confidence": 1.0,
       "quality_score": 83,
       "evidence_score": 2,
       "quality_confidence": "medium",
@@ -15606,18 +16256,19 @@
         "deal_announced"
       ],
       "enriched_summary": "",
-      "enriched_date": "2022-11-14",
+      "enriched_date": "2023-06-27",
       "enrichment_confidence": "medium",
-      "enriched_at": "2026-02-26T09:25:20.984065+00:00",
       "llm_keep": false,
-      "llm_keep_reason": "phase3: stale signal (published 2022-11-14, >24 months old)",
+      "llm_keep_reason": "phase3: stale signal (published 2023-06-27, >24 months old)",
       "llm_keep_confidence": "high",
       "llm_keep_source": "llm",
+      "enriched_at": "2026-02-26T20:29:12.686556+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
       "target_companies": [
         {
-          "name": "Candy Factory",
+          "name": "Futura Group",
           "is_direct_investment": true,
           "action": "investment"
         }
@@ -15733,10 +16384,10 @@
       "signal_types": [
         "deal_announced"
       ],
-      "enriched_summary": "IBLA Capital acquires Borg Warner system lugo business.",
+      "enriched_summary": "IBLA Capital acquires Borg Warner System Lugo, taking ownership of the Lugo operations.",
       "enriched_date": "2026-02-09",
       "enrichment_confidence": "high",
-      "enriched_at": "2026-02-26T20:01:22.990848+00:00",
+      "enriched_at": "2026-02-26T20:29:06.759147+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -15747,55 +16398,19 @@
         }
       ],
       "llm_keep": true,
-      "llm_keep_reason": "Direct acquisition of an Italian operational unit by an Italian PE fund; relevant deal for the Italian PE market.",
+      "llm_keep_reason": "Clear deal announcement involving an acquisition by an Italian fund of an Italian-target asset.",
       "llm_keep_confidence": "high",
       "llm_keep_source": "llm",
       "llm_italy_relevant": true,
       "type": "deal_announced"
-    },
-    {
-      "id": "news-signal-20260205131640-38e5d7a5-70f85636",
-      "fund_id": "",
-      "fund_slug": "invitalia",
-      "signal_type": "deal_announced",
-      "title": "News Gruppo Invitalia",
-      "what_changed": "",
-      "source_url": "https://www.invitalia.it/news-media/news?data_start=&data_end=&ambito%5B0%5D=8399&title=&sort_by=data_start&sort_order=DESC&items_per_page=12",
-      "source_name": "Invitalia",
-      "published_at": null,
-      "observed_at": "2026-02-05T13:16:40.932557+00:00",
-      "created_at": "2026-02-05T13:16:40.932557+00:00",
-      "fingerprint": "8c6dcaa82c87",
-      "extraction_source": "news_signal_generator",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "quality_score": 76,
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": true,
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 0.999,
-      "ml_type_confident": true,
-      "ml_confidence": 0.999,
-      "evidence_score": 1,
-      "quality_confidence": "low",
-      "confidence_score": 0.484,
-      "signal_types": [
-        "deal_announced"
-      ],
-      "enriched_summary": "",
-      "type": "deal_announced"
     }
   ],
-  "signal_count": 276,
-  "translated_at": "2026-02-26T09:09:08.289648+00:00",
-  "filtered_at": "2026-02-26T20:00:57.179270+00:00",
+  "signal_count": 287,
+  "translated_at": "2026-02-26T20:27:35.311699+00:00",
+  "filtered_at": "2026-02-26T20:28:38.547908+00:00",
   "filter_stats": {
-    "original_count": 1961,
-    "filtered_count": 316,
+    "original_count": 1967,
+    "filtered_count": 318,
     "removed_invalid_fund": 0,
     "removed_duplicates": 245,
     "resolved_duplicate_ids": 550,
@@ -15804,17 +16419,17 @@
     "removed_low_quality": 88,
     "removed_support_only": 1,
     "removed_junior_non_italy": 1,
-    "removed_geo_irrelevant": 518,
+    "removed_geo_irrelevant": 522,
     "removed_misattributed": 226,
     "removed_too_old": 235,
     "removed_orphan_fund": 0,
     "removed_ml": 0,
     "removed_cross_page": 0,
     "kept_ml_override": 0,
-    "ml_type_overrides": 228,
+    "ml_type_overrides": 230,
     "min_quality_score": 80,
     "confidence_distribution": {
-      "high": 256,
+      "high": 258,
       "medium": 95,
       "low": 22
     }
@@ -15822,9 +16437,9 @@
   "llm_filter_stats": {
     "mode": "hard",
     "min_confidence": "high",
-    "filtered_out": 40,
-    "filtered_at": "2026-02-26T20:02:17.205877+00:00",
-    "llm_calls": 13
+    "filtered_out": 31,
+    "filtered_at": "2026-02-26T20:29:59.704412+00:00",
+    "llm_calls": 19
   },
-  "enriched_at": "2026-02-26T20:02:17.205900+00:00"
+  "enriched_at": "2026-02-26T20:29:59.704434+00:00"
 }

@@ -27,9 +27,33 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """
     import re
 
+    # The monitor can call extractors for multiple URL buckets; avoid parsing
+    # team/news pages where logo alt text creates portfolio false positives.
+    if "/portfolio" not in (base_url or "").lower():
+        return []
+
     soup = BeautifulSoup(html, "html.parser")
     companies = []
     seen = set()
+
+    normalize_map = {
+        "2 bauzaar.it": "Bauzaar",
+        "depor village": "Deporvillage",
+    }
+    hard_skip = {
+        "location",
+        "industry",
+        "fund",
+        "company",
+        "portfolio",
+        "all companies",
+        "portfolio companies",
+        "skip to main content",
+        "skip companies list",
+        "bynd",
+        "civitfun",
+        "hotiday",
+    }
 
     # Primary: extract from img alt attributes in portfolio grid
     for img in soup.select("img[alt]"):
@@ -41,8 +65,14 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
         name = alt
         name = re.sub(r'\s*[-–]\s*logo\s*$', '', name, flags=re.IGNORECASE)
         name = re.sub(r'\s+logo\s*$', '', name, flags=re.IGNORECASE)
+        name = re.sub(r'[-_ ]logo[-_ ]?[a-z0-9]+$', '', name, flags=re.IGNORECASE)
         name = re.sub(r'\s*[-–]\s*P101\s*$', '', name, flags=re.IGNORECASE)
         name = name.strip()
+
+        key = name.lower()
+        if key in normalize_map:
+            name = normalize_map[key]
+            key = name.lower()
 
         if not name or len(name) < 2 or name.lower() in seen:
             continue
@@ -54,10 +84,18 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
             "news", "contact", "about", "prana", "header", "footer",
             "banner", "background", "arrow", "close", "menu", "search",
         )
-        if name.lower() in skip_patterns:
+        if key in hard_skip or key in skip_patterns:
             continue
         # Skip if alt is just "Logo rgb" or similar generic text
-        if re.match(r'^logo\b', name, re.IGNORECASE):
+        if re.match(r'^logo', name, re.IGNORECASE):
+            continue
+        # Reject social/nav artifacts embedded in names (e.g., "Bynd logo1")
+        if re.search(r'\b(?:logo|icon|link)\b', key):
+            continue
+        # Reject hashed/id artifacts and malformed alt blobs
+        if re.search(r'\bid[a-z0-9]{6,}\b', key):
+            continue
+        if key.startswith("connect ventures "):
             continue
         if len(name) > 80:
             continue

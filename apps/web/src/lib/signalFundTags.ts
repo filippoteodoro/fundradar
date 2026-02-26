@@ -42,6 +42,11 @@ const GENERIC_SHORT_BRANDS = new Set([
   'search',
   'towers',
   'credit',
+  'hellman',
+  'charterhouse',
+  'tamburi',
+  'searchlight',
+  'stirling',
 ]);
 
 function normalizePhrase(value: string): string {

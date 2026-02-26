@@ -20,6 +20,8 @@ URLS = {
 
 def extract_news(html: str, base_url: str) -> list[dict]:
     """Extract news/insights from ICG news page."""
+    import re
+
     soup = BeautifulSoup(html, "html.parser")
     news = []
     seen = set()
@@ -36,12 +38,18 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             continue
         if title.lower() in ("news", "insights", "analysis", "load more", "view all"):
             continue
+        # Skip concatenated hero copy (e.g., "We invest globally.We grow ...")
+        if title.count(".") >= 2 and not re.search(r"\.\s", title):
+            continue
         seen.add(title.lower())
 
         url = None
         link = article.select_one("a[href]")
         if link:
             url = urljoin(base_url, link.get("href", ""))
+        # Real news cards always have a navigable article URL.
+        if not url or url.rstrip("/") == base_url.rstrip("/"):
+            continue
 
         date = None
         date_el = article.select_one("time, .date, [datetime], .published")
