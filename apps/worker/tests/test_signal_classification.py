@@ -1070,8 +1070,25 @@ class TestFundLaunchVsDeal:
     now takes priority in correct_deal().
     """
 
-    def test_launches_fund_is_fund_launch_not_deal(self):
-        """'launches X fund to invest in Y' = fund_launch, not deal_announced."""
+    def test_launches_fund_is_fund_launch_not_deal_from_other(self):
+        """'launches X fund to invest in Y' starting as other → fund_launch, not deal.
+
+        The raw classifier often marks these 'other'; the 'other' rescue block
+        must catch the fund_launch pattern BEFORE the invest_verbs deal rescue.
+        Signal ID: web-signal-01675.
+        """
+        result = apply_type_corrections(
+            "other",
+            "bebeez: teamsystem capital@work launches fpam 1 fund to invest in invoices owed by the public administration. anchor investor is bff banking group.",
+            "teamsystem capital@work launches fpam 1 fund",
+        )
+        assert result == "fund_launch"
+
+    def test_launches_fund_is_fund_launch_not_deal_from_deal(self):
+        """'launches X fund to invest in Y' starting as deal_announced → fund_launch.
+
+        Covers the ML-classified path where initial type is deal_announced.
+        """
         result = apply_type_corrections(
             "deal_announced",
             "teamsystem capital@work launches fpam 1 fund to invest in invoices owed by the public administration",

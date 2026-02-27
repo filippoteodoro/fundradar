@@ -281,7 +281,12 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 
 `apply_type_corrections()` `other` rescue — in addition to the existing "names/appoints X as role" rescue, a **standalone professional title** rescue fires when the title contains managing director / head of / chief * officer / etc. with no PE fund/investment language. Catches "Michele Romualdi managing director, Head of Investor Relations" type signals.
 
-`correct_deal()` fund_launch rescue (Feb 2026) — when a `deal_announced` signal contains explicit fund-launch verbs (`launches/lancia/nasce/avvia`) followed by a fund vehicle word (`fund/fondo/comparto/vehicle`) within 80 chars, it is reclassified to `fund_launch`. This prevents "TeamSystem Capital@Work launches FPAM 1 fund to invest in invoices" from being tagged as a deal (the "invests in" describes the fund's mandate, not an investment transaction). Runs AFTER the fundraise-closing checks so `fundraise_closed` signals are correctly handled first.
+`correct_deal()` / `correct_exit()` / `other` rescue — fund_launch rescue (Feb 2026): when a signal contains explicit fund-launch verbs (`launches/lancia/nasce/avvia`) followed by a fund vehicle word within 80 chars, it is reclassified to `fund_launch` regardless of what type arrived. "TeamSystem Capital@Work launches FPAM 1 fund to invest in invoices" is a fund launch — the "invests in" describes the fund's mandate. This required fixes in 4 places:
+1. `_RE_LAUNCH_FUND` / `_RE_FUND_LAUNCH_VERBS` in `signal_patterns.py` — added `(?:es|ed)?` so "launches" (conjugated) matches `\blaunch\b`. Previously only base form "launch" matched.
+2. `correct_exit()` in `signal_corrections.py` — moved `_RE_LAUNCH_FUND` check BEFORE `_RE_INVEST_VERBS` check. ML often predicts `exit_announced` for PA-invoice signals; without this the invest-verbs → deal path fired first.
+3. `correct_deal()` in `signal_corrections.py` — fund_launch rescue at end of `correct_deal()` (covers ML-predicted `deal_announced`).
+4. `other` rescue in `apply_type_corrections()` — fund_launch check BEFORE `_RE_INVEST_VERBS → deal_announced` (covers rule-classified `other`).
+5. `filter_signals.py` post-ML fund_launch block — added `and not has_fund_vehicle` guard to `elif _RE_INVEST_VERBS` so fund mandate language doesn't override a correctly-classified `fund_launch`.
 
 `_cdt_normalize_casing()` person-name casing (Feb 2026) — two patterns for person names in appointment context:
 1. **Forward** (line ~1447): `(appointed|...) [lowercase name]` → capitalizes the name after the verb.

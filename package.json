@@ -23,6 +23,8 @@
     "gemini:rebuild": "python3 scripts/rebuild-gemini-audit-from-canonical.py",
     "gemini:apply:dry": "python3 scripts/apply-gemini-missing-assets.py",
     "gemini:apply": "python3 scripts/apply-gemini-missing-assets.py --apply",
+    "signals:backfill-top-aum": "python3 scripts/backfill_top_aum_signals.py --apply",
+    "verify:new-fund-completion": "python3 scripts/verify_new_fund_completion.py",
     "slug:validate": "python3 scripts/validate-slug-consistency.py",
     "slug:cleanup:dry": "python3 scripts/cleanup-derived-slug-artifacts.py",
     "slug:cleanup:derived": "python3 scripts/cleanup-derived-slug-artifacts.py --apply",

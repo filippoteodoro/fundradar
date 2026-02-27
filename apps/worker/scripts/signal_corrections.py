@@ -416,6 +416,12 @@ def correct_exit(text_lower: str, title_lower: str, page_category: str = "") -> 
     if _RE_OFFER_BID.search(text_lower) and not _RE_STRONG_EXIT_VERBS.search(text_lower):
         return "deal_announced"
 
+    # Fund launch verbs + fund vehicle takes priority over invest/acquisition verbs.
+    # "launches X fund to invest in Y" — the "invest in" is the fund's mandate, not a
+    # deal transaction or an exit event. Must fire BEFORE the invest_verbs deal rescue.
+    if _RE_LAUNCH_FUND.search(text_lower):
+        return "fund_launch"
+
     # Acquisition verbs without exit verbs → deal
     if _RE_ACQUISITION_VERBS.search(text_lower) and not _RE_EXIT_VERBS.search(text_lower):
         return "deal_announced"
@@ -423,10 +429,6 @@ def correct_exit(text_lower: str, title_lower: str, page_category: str = "") -> 
     # Investment verbs without exit verbs → deal
     if _RE_INVEST_VERBS.search(text_lower) and not _RE_STRONG_EXIT_VERBS.search(text_lower):
         return "deal_announced"
-
-    # "launch/lancia fund" on exit signal → fund_launch
-    if _RE_LAUNCH_FUND.search(text_lower):
-        return "fund_launch"
 
     # Partnership without exit verbs → partnership
     if _RE_PARTNERSHIP.search(text_lower) and not _RE_STRONG_EXIT_VERBS.search(text_lower):
@@ -645,8 +647,9 @@ def correct_fund_launch(text_lower: str, title_lower: str) -> str:
     if _RE_OFFER_BID.search(text_lower):
         return "deal_announced"
 
-    # Investment verbs → deal
-    if _RE_INVEST_VERBS.search(text_lower):
+    # Investment verbs → deal, but only when no fund vehicle is in the title.
+    # "launches X fund to invest in Y" — "invest in" is the fund's mandate, not a transaction.
+    if _RE_INVEST_VERBS.search(text_lower) and not has_fund_vehicle:
         return "deal_announced"
 
     # Company round → deal
@@ -1057,6 +1060,16 @@ def apply_type_corrections(
         # that were demoted to other but clearly describe an appointment (e.g. "appointed ... CEO").
         if _RE_PEOPLE_APPOINTMENT_RESCUE.search(text_lower):
             return "people_move"
+        # Fund launch verbs + fund vehicle → fund_launch (must run BEFORE invest_verbs rescue).
+        # "launches X fund to invest in Y" contains "invest in" which would otherwise push
+        # it to deal_announced. The launch verb makes the primary event a fund launch.
+        if re.search(
+            r"\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?|avvia|al\s+via)\b.{0,80}\b(?:fondo|fund|comparto|veicolo|vehicle)\b",
+            text_lower,
+            re.IGNORECASE,
+        ):
+            return "fund_launch"
+
         # Investment/acquisition language over-demoted to other → deal_announced.
         # Guard against editorial/interview pieces that mention investing abstractly.
         if _RE_INVEST_VERBS.search(text_lower):

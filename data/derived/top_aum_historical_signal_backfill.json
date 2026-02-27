@@ -1,0 +1,48 @@
+{
+  "signals": [
+    {
+      "fund_slug": "silver-lake",
+      "signal_type": "deal_announced",
+      "published_date": "2022-07-25",
+      "title": "Silver Lake leads €350M investment in Italian insurtech Prima",
+      "what_changed": "Silver Lake led a €350M funding round in Prima, an Italian insurtech company based in Milan, to support technology expansion.",
+      "source_name": "Reuters",
+      "source_url": "https://www.reuters.com/business/finance/insurtech-prima-it-gets-350-mln-euro-investment-led-by-silver-lake-2022-07-25/",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 90
+    },
+    {
+      "fund_slug": "silver-lake",
+      "signal_type": "portfolio_update",
+      "published_date": "2023-02-03",
+      "title": "EuroGroup Laminations sets IPO range in Milan after Silver Lake backing",
+      "what_changed": "Italian EV-components supplier EuroGroup Laminations set its IPO price range on the Milan exchange after investment support from Silver Lake.",
+      "source_name": "Reuters",
+      "source_url": "https://www.reuters.com/markets/deals/italys-eurogroup-laminations-sets-ipo-price-range-2023-02-03/",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 88
+    },
+    {
+      "fund_slug": "oaktree-capital-management",
+      "signal_type": "deal_announced",
+      "published_date": "2024-05-22",
+      "title": "Oaktree becomes owner of Inter Milan after financing default",
+      "what_changed": "Oaktree Capital Management took ownership of Inter Milan, an Italian Serie A football club based in Milan, after a financing default event.",
+      "source_name": "Business Wire",
+      "source_url": "https://www.businesswire.com/news/home/20240522670272/en/Oaktree-becomes-owner-of-Inter-Milan",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 88
+    },
+    {
+      "fund_slug": "oaktree-capital-management",
+      "signal_type": "portfolio_update",
+      "published_date": "2025-06-26",
+      "title": "Oaktree supports Inter Milan with capital injection under long-term plan",
+      "what_changed": "Inter Milan, the Italian club controlled by Oaktree, approved a capital increase to strengthen the balance sheet and support ongoing operations.",
+      "source_name": "Reuters",
+      "source_url": "https://www.investing.com/news/stock-market-news/inter-milan-shareholders-approve-47-million-capital-increase-4103346",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 86
+    }
+  ]
+}

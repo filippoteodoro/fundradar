@@ -506,12 +506,14 @@ _RE_ACCELERATOR_RESULTS = re.compile(
     re.IGNORECASE)
 
 # Fund launch verbs: explicit "launch/lancia fund/fondo" pattern
+# NOTE: uses launch(?:es|ed)? to match conjugated forms ("launches", "launched")
 _RE_FUND_LAUNCH_VERBS = re.compile(
-    r"\b(?:launch|lancia|nasce|nascita|lancio)\b.*\b(?:fund|fondo)\b", re.IGNORECASE)
+    r"\b(?:launch(?:es|ed)?|lancia|nasce|nascita|lancio)\b.*\b(?:fund|fondo)\b", re.IGNORECASE)
 
 # Broader fund launch verbs (includes "avvia", "al via" — used in enricher's launch detection)
+# NOTE: uses launch(?:es|ed)? to match conjugated forms ("launches", "launched")
 _RE_LAUNCH_FUND = re.compile(
-    r"\b(?:launch|lancia|nasce|nascita|lancio|avvia|al\s+via)\b.{0,80}\b(?:fund|fondo)\b", re.IGNORECASE)
+    r"\b(?:launch(?:es|ed)?|lancia|nasce|nascita|lancio|avvia|al\s+via)\b.{0,80}\b(?:fund|fondo)\b", re.IGNORECASE)
 
 # Regulatory/internal dealing communications
 _RE_REGULATORY_COMMUNICATION = re.compile(

@@ -2385,30 +2385,31 @@ def _is_geo_relevant_signal(signal: dict, fund_geo_scope: str, fund: dict | None
     - mixed_or_global: ALL signals need Italy/Europe evidence (no free pass for core types)
     """
     signal_type = signal.get("signal_type", "")
-
-    # For italy_focused funds, trust the italy_relevant flag for all types
-    # For other scopes, only trust it for core geo types — non-core types
-    # (people_move, portfolio_update) need text evidence from europe_wide/mixed_or_global
-    if signal.get("italy_relevant") is True:
-        # Sanity-check: score=0 with no reasons means the flag was set as a default upstream,
-        # not from actual evidence. Don't trust it for non-italy-focused funds.
-        _score = signal.get("relevance_score") or 0
-        _reasons = signal.get("relevance_reasons") or []
-        _unreliable = (_score == 0 and not _reasons)
-        if fund_geo_scope == "italy_focused":
-            return True  # Italy-focused: always trust, even with score=0
-        if not _unreliable:
-            if signal_type in CORE_GEO_TYPES:
-                return True
-        # Unreliable flag or non-core type from europe_wide/mixed_or_global: fall through to text checks
-
     text = " ".join([
         signal.get("title", ""),
         signal.get("what_changed", ""),
         signal.get("diff_summary", ""),
     ])
+    reasons = [str(r) for r in (signal.get("relevance_reasons") or []) if r]
+    extracted = signal.get("extracted_entities") or {}
+    locations = extracted.get("locations") or []
+    location_text = " ".join(str(x) for x in locations if x)
 
-    if _mentions_italy(text):
+    # Explicit Italy evidence must come from text/reasons/entities, not just a
+    # defaulted italy_relevant=true flag.
+    explicit_italy_evidence = (
+        _mentions_italy(text)
+        or _mentions_italy(" ".join(reasons))
+        or _mentions_italy(location_text)
+    )
+
+    # Sanity-check: score=0 with no reasons means the flag was set as a default
+    # upstream (or carried through), not from deterministic evidence.
+    _score = signal.get("relevance_score") or 0
+    _unreliable_italy_flag = (_score == 0 and not reasons)
+    italy_flag_reliable = bool(signal.get("italy_relevant") is True and not _unreliable_italy_flag)
+
+    if explicit_italy_evidence:
         return True
 
     # Team/people signals from Italian legal entities (SGR/SICAF/SIM) are inherently Italy-relevant
@@ -2420,6 +2421,8 @@ def _is_geo_relevant_signal(signal: dict, fund_geo_scope: str, fund: dict | None
 
     # Italy-focused funds: core types always pass; non-core unless explicitly non-EU
     if fund_geo_scope == "italy_focused":
+        if italy_flag_reliable:
+            return True
         if signal_type in CORE_GEO_TYPES:
             return True
         if _mentions_non_eu_geo(text):
@@ -2440,34 +2443,21 @@ def _is_geo_relevant_signal(signal: dict, fund_geo_scope: str, fund: dict | None
         fund_geos = (fund.get("geographies") or []) if fund else []
         fund_has_italy_geo = "Italy" in fund_geos
 
-        if _mentions_italy(text):
+        if explicit_italy_evidence:
             return True
 
         if fund_has_italy_geo:
-            # Italy-geo funds: core types pass; non-core need Europe evidence
-            if signal_type in CORE_GEO_TYPES:
-                return True
-            if _mentions_europe(text):
-                return True
+            # Italy-geo funds still require explicit Italy evidence in main feed.
             return False
 
-        # Non-Italy-geo funds: require pan-European context (not single-country)
-        if re.search(r"\b(?:europe(?:an)?|pan[\-\s]?european|emea|cross[\-\s]?border|multi[\-\s]?country)\b", text, re.IGNORECASE):
-            return True
-        if signal_type == "people_move" and _has_italian_name(text):
-            return True
+        # Non-Italy-geo europe-wide funds: strict mode requires explicit Italy.
         return False
 
-    # Mixed/global funds: require Italy/Europe evidence for ALL signal types
+    # Mixed/global funds: strict main feed requires explicit Italy evidence.
     if fund_geo_scope == "mixed_or_global":
-        if _mentions_europe(text):
-            return True
-        if signal_type == "people_move":
-            if _has_italian_name(text):
-                return True
         return False
 
-    return False
+    return bool(italy_flag_reliable and signal_type in CORE_GEO_TYPES)
 
 
 def _boost_italy_relevance(signal: dict, fund_geo_scope: str) -> dict:
@@ -3840,7 +3830,9 @@ def main():
             elif _RE_OFFICE_OPENING.search(post_ml_text2) and not _matches_any(DEAL_CLASSIFY_PATTERNS, post_ml_text2):
                 signal["signal_type"] = "people_move"
             # Investment verbs or "investimento da/in X" → deal
-            elif _RE_INVEST_VERBS.search(post_ml_text2):
+            # Guard: if a fund vehicle exists in the title, "invest in" describes the fund's
+            # investment mandate (e.g. "launches X fund to invest in Y"), not a deal transaction.
+            elif _RE_INVEST_VERBS.search(post_ml_text2) and not has_fund_vehicle:
                 signal["signal_type"] = "deal_announced"
             # Company round (startup raises money) → deal
             elif _RE_COMPANY_ROUND.search(post_ml_text2):

@@ -1217,6 +1217,23 @@ else:
 "
 ```
 
+Hard-gate verifier (recommended, replaces the ad-hoc inline check above):
+
+```bash
+# Auto-detect newly added funds (created_at outliers vs baseline)
+pnpm verify:new-fund-completion
+
+# Or verify specific slugs
+pnpm verify:new-fund-completion -- --slugs patrizia,oaktree-capital-management,silver-lake
+```
+
+This command fails (`exit 1`) if any fund is incomplete on mandatory gates:
+- missing AUM/description/strategy/geographies in `db.json`
+- incomplete portfolio enrichment (sector/description/HQ coverage)
+- missing or non-complete Gemini asset audit result
+- filtered/enriched signal parity mismatch
+- top-AUM fund below minimum signal completeness threshold
+
 Run the deterministic internal QA agent right after the check above:
 
 ```bash
@@ -1318,7 +1335,41 @@ After running all enrichments, you MUST verify the complete data quality. This a
 | Missing description | Run `generate-fund-descriptions-gemini.py --slugs {slug}` |
 | Extractor URLS["portfolio"] is None | Verify whether the fund has a real public portfolio page. If yes, add it; if no, keep manual/PEM mode (do not use homepage placeholder `/`). |
 
-### 18.6 — Persistence rule (MANDATORY)
+### 18.6 — Italy Feed Policy (STRICT)
+
+The main `/signals` Italy feed is **Italy-strict** for non-Italian/global funds:
+
+- For `mixed_or_global` and `europe_wide` funds, Europe-only evidence is not enough.
+- A signal must have **explicit Italy evidence** (Italy/Italian geography/entity evidence in text or extracted metadata).
+- Examples that should be filtered from the main feed:
+  - Germany-only transactions
+  - UK/Nordic-only portfolio updates
+  - Pan-European items with no Italy mention
+
+This is enforced in worker geo relevance gates, not by one-off JSON edits.
+
+### 18.7 — Top-AUM Signal Completeness (MANDATORY)
+
+For top-AUM funds, page completeness is mandatory even if recent live signals are sparse:
+
+- Target set: top 25 funds by `aum_eur`
+- Minimum: at least 2 visible signals per fund
+- If below minimum, add vetted historical Italy-relevant signals through:
+
+```bash
+# Dry run
+python3 scripts/backfill_top_aum_signals.py --top-n 25 --min-signals 2
+
+# Apply
+pnpm signals:backfill-top-aum
+```
+
+Backfilled signals must:
+- be Italy-relevant (explicit evidence in title/body)
+- include source URL and source name
+- be written to both filtered and enriched files (ID parity)
+
+### 18.8 — Persistence rule (MANDATORY)
 
 If a bad signal/tag/classification appears, do not apply one-off data-only fixes as the final solution.
 
@@ -1529,6 +1580,8 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 | Merger headline appears as Exit | Treat merger/fusion (`merge`, `merger`, `fusione`) as `deal_announced` unless there is explicit seller/exit evidence (`sells`, `a vendere`, `exit from portfolio`, etc.) |
 | Filtered and enriched disagree on `signal_type` for same signal ID | Treat filtered `signal_type` as authoritative in enricher skip/cached paths and resync enriched rows from filtered IDs after classifier/rule changes |
 | `/signals` count differs from filtered count for the same fund | Enforce ID parity: enriched should be a 1:1 projection of filtered for each slug. Re-run slug-scoped `filter` then `enrich`, and remove stale enriched-only IDs |
+| Europe-only signal appears in Italy feed for global fund | Main feed policy is strict Italy: require explicit Italy evidence for `mixed_or_global` and `europe_wide` funds; do not treat Germany/UK/Nordic-only as sufficient |
+| Top-AUM fund page has 0 signals | Run `python3 scripts/backfill_top_aum_signals.py --top-n 25 --min-signals 2 --apply` with vetted Italy-relevant historical signals (source URL required) |
 | Prospective bidders appear as extra fund tags | Suppress inferred related tags for sentence-local speculative contexts (`among interested bidders`, `in the running`, `fra/tra gli interessati`, `vying`, etc.). Keep explicitly provided tags and active-party mentions |
 | Team profile cards or role openings show as signals | Static titles like `Name Head of X`, `Name investor relations`, `...Legal & Corporate Affairs Specialist`, and TEAM blurbs like `X is the parent company of Y` are demoted to `other` and filtered. If variants leak through, update `TEAM_ROLE_PROFILE_TITLE_RE` / `ROLE_OPENING_TITLE_RE` / `TEAM_STATIC_CORP_DESC_RE` in `filter_signals.py` and matching guards in `signalProcessing.ts` |
 | Departure news appears as Investment | If text has people transition verbs (`steps down`, `leaves`, `resigns`, `appointed`, etc.) with no deal/exit evidence, force `people_move` (worker `correct_deal()` + post-ML correction, web `reclassifySignalType()`) |
