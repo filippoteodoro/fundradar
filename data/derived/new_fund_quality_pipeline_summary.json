@@ -1,13 +1,16 @@
 {
-  "generated_at": "2026-02-27T19:36:13.567772+00:00",
+  "generated_at": "2026-02-27T21:55:16.236213+00:00",
   "status": "passed",
   "slugs": [
-    "test-fund"
+    "credem-euromobiliare-private-asset-sgr",
+    "hat-sicaf",
+    "one-equity-partners",
+    "permira"
   ],
   "args": {
-    "force_extract": true,
+    "force_extract": false,
     "apply_missing_assets": false,
-    "apply_backfill": true,
+    "apply_backfill": false,
     "backfill_top_n": 25,
     "backfill_min_signals": 2,
     "stop_on_fail": true,
@@ -16,37 +19,37 @@
   "stages": [
     {
       "stage": "pipeline",
-      "command": "pnpm pipeline --slugs test-fund --force-extract",
+      "command": "pnpm pipeline --slugs credem-euromobiliare-private-asset-sgr,hat-sicaf,one-equity-partners,permira",
       "status": "passed",
-      "started_at": "2026-02-27T19:36:13.567349+00:00",
-      "finished_at": "2026-02-27T19:36:13.567654+00:00",
+      "started_at": "2026-02-27T21:55:16.235707+00:00",
+      "finished_at": "2026-02-27T21:55:16.236056+00:00",
       "exit_code": 0,
       "note": null
     },
     {
       "stage": "enrich_portfolio_gemini",
-      "command": "cd apps/worker && . .venv/bin/activate && python3 scripts/enrich_portfolio_gemini_full.py --slugs test-fund --limit 0",
+      "command": "cd apps/worker && . .venv/bin/activate && python3 scripts/enrich_portfolio_gemini_full.py --slugs credem-euromobiliare-private-asset-sgr,hat-sicaf,one-equity-partners,permira --limit 0",
       "status": "passed",
-      "started_at": "2026-02-27T19:36:13.567668+00:00",
-      "finished_at": "2026-02-27T19:36:13.567674+00:00",
+      "started_at": "2026-02-27T21:55:16.236078+00:00",
+      "finished_at": "2026-02-27T21:55:16.236089+00:00",
       "exit_code": 0,
       "note": null
     },
     {
       "stage": "enrich_fund_metadata_gemini",
-      "command": "python3 scripts/enrich-fund-metadata-gemini.py --slugs test-fund",
+      "command": "python3 scripts/enrich-fund-metadata-gemini.py --slugs credem-euromobiliare-private-asset-sgr,hat-sicaf,one-equity-partners,permira",
       "status": "passed",
-      "started_at": "2026-02-27T19:36:13.567680+00:00",
-      "finished_at": "2026-02-27T19:36:13.567685+00:00",
+      "started_at": "2026-02-27T21:55:16.236101+00:00",
+      "finished_at": "2026-02-27T21:55:16.236110+00:00",
       "exit_code": 0,
       "note": null
     },
     {
       "stage": "audit_fund_assets_gemini",
-      "command": "python3 scripts/audit-fund-assets-gemini.py --slugs test-fund --no-grounding --chunk-size 20 --chunk-split-sizes 20,8,1 --max-existing-names-in-missing-prompt 60 --missing-name-caps 60,20,1 --sleep-seconds 1 --timeout-sec 90 --hard-timeout-sec 120 --retries 3",
+      "command": "python3 scripts/audit-fund-assets-gemini.py --slugs credem-euromobiliare-private-asset-sgr,hat-sicaf,one-equity-partners,permira --no-grounding --chunk-size 20 --chunk-split-sizes 20,8,1 --max-existing-names-in-missing-prompt 60 --missing-name-caps 60,20,1 --sleep-seconds 1 --timeout-sec 90 --hard-timeout-sec 120 --retries 3",
       "status": "passed",
-      "started_at": "2026-02-27T19:36:13.567690+00:00",
-      "finished_at": "2026-02-27T19:36:13.567697+00:00",
+      "started_at": "2026-02-27T21:55:16.236120+00:00",
+      "finished_at": "2026-02-27T21:55:16.236130+00:00",
       "exit_code": 0,
       "note": null
     },
@@ -54,35 +57,17 @@
       "stage": "signals_to_portfolio",
       "command": "pnpm pipeline:signals-to-portfolio",
       "status": "passed",
-      "started_at": "2026-02-27T19:36:13.567719+00:00",
-      "finished_at": "2026-02-27T19:36:13.567726+00:00",
+      "started_at": "2026-02-27T21:55:16.236166+00:00",
+      "finished_at": "2026-02-27T21:55:16.236178+00:00",
       "exit_code": 0,
       "note": null
     },
     {
       "stage": "verify_completion",
-      "command": "python3 scripts/verify_new_fund_completion.py --slugs test-fund --output data/derived/new_fund_completion_report.json",
+      "command": "python3 scripts/verify_new_fund_completion.py --slugs credem-euromobiliare-private-asset-sgr,hat-sicaf,one-equity-partners,permira --output data/derived/new_fund_completion_report.json",
       "status": "passed",
-      "started_at": "2026-02-27T19:36:13.567732+00:00",
-      "finished_at": "2026-02-27T19:36:13.567737+00:00",
-      "exit_code": 0,
-      "note": null
-    },
-    {
-      "stage": "backfill_top_aum_signals",
-      "command": "python3 scripts/backfill_top_aum_signals.py --slugs test-fund --top-n 25 --min-signals 2 --apply",
-      "status": "passed",
-      "started_at": "2026-02-27T19:36:13.567744+00:00",
-      "finished_at": "2026-02-27T19:36:13.567749+00:00",
-      "exit_code": 0,
-      "note": null
-    },
-    {
-      "stage": "verify_completion_after_backfill",
-      "command": "python3 scripts/verify_new_fund_completion.py --slugs test-fund --output data/derived/new_fund_completion_report.json",
-      "status": "passed",
-      "started_at": "2026-02-27T19:36:13.567757+00:00",
-      "finished_at": "2026-02-27T19:36:13.567764+00:00",
+      "started_at": "2026-02-27T21:55:16.236189+00:00",
+      "finished_at": "2026-02-27T21:55:16.236199+00:00",
       "exit_code": 0,
       "note": null
     }

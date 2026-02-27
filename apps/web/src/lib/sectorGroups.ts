@@ -98,6 +98,7 @@ const SECTOR_TAG_ALIASES: Record<string, string> = {
   'textiles': 'Fashion & Luxury',
   'furniture': 'Consumer Goods',
   'cosmetics': 'Consumer Goods',
+  'beauty cosmetics': 'Consumer Goods',
   'nutraceuticals cosmetics': 'Healthcare',
   'food': 'Food & Beverage',
   'agrifood': 'Food & Beverage',
@@ -186,6 +187,7 @@ const SECTOR_TAG_ALIASES: Record<string, string> = {
   'estensione di assistenza': 'Professional Services',
   'fonderie': 'Industrial Manufacturing',
   'nautica': 'Consumer Goods',
+  'nautical': 'Consumer Goods',
   'nutraceutica': 'Healthcare',
   'safety e prevenzione incendi': 'Industrial Manufacturing',
   'scaffalature': 'Industrial Manufacturing',
@@ -206,6 +208,7 @@ const SECTOR_TAG_ALIASES: Record<string, string> = {
   'growth': 'Financial Services',
   'impact investing': 'Financial Services',
   'private equity': 'Financial Services',
+  'venture capital': 'Financial Services',
 };
 
 function includesAny(text: string, words: string[]): boolean {

@@ -14542,6 +14542,240 @@
       "llm_keep_source": "local",
       "llm_keep_version": 3,
       "type": "deal_announced"
+    },
+    {
+      "id": "seed-signal-00036",
+      "fund_id": "",
+      "fund_slug": "permira",
+      "signal_type": "other",
+      "title": "Kedrion Biopharma (Permira) invests €150M for new plasma fractionation plant in Tuscany",
+      "what_changed": "Kedrion Biopharma (majority-owned by Permira since 2022, with Marcucci family) announced €150M investment to build new plasma fractionation facility in Bolognana (Lucca), Garfagnana, Tuscany. Will nearly double production capacity to 2 million liters, creating 100 new jobs.",
+      "source_url": "https://bebeez.it/private-equity/kedrion-biopharma-permira-investe-150-mln-in-garfagnana-per-un-nuovo-impianto-di-frazionamento-del-plasma/",
+      "source_name": "BeBeez",
+      "published_at": "2025-06-01",
+      "observed_at": "2026-02-12T11:17:58.661959+00:00",
+      "created_at": "2026-02-12T11:17:58.661959+00:00",
+      "snapshot_id": "seed-2026-02-12",
+      "diff_summary": "Seeded historical signal: Kedrion Biopharma (Permira) invests €150M for new plasma fractionation plant",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 1,
+      "relevance_reasons": [
+        "Kedrion",
+        "Lucca",
+        "Tuscany",
+        "Italian biopharma"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "Kedrion Biopharma"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": false,
+      "ml_keep_prob": 0.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.788,
+      "ml_type_confident": true,
+      "ml_confidence": 0.788,
+      "quality_score": 100,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.87,
+      "signal_types": [
+        "other"
+      ]
+    },
+    {
+      "id": "web-signal-01703-1f67e833",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "deal_announced",
+      "title": "HAT SGR, Three Hills and Azimut Libera Impresa invest in Mech-I-Tronic",
+      "what_changed": "",
+      "source_url": "https://hat.it/hat-sgr-three-hills-and-azimut-libera-impresa-invests-in-mech-i-tronic/",
+      "source_name": "HAT SICAF",
+      "published_at": "2025-05-30",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 30-05-2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Tronic Featured",
+          "Azimut Libera Impresa",
+          "Three Hills"
+        ],
+        "locations": []
+      },
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.987,
+      "ml_type_confident": true,
+      "ml_confidence": 0.987,
+      "quality_score": 78,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.752,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "web-signal-01705-74b3f810",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "portfolio_update",
+      "title": "Safety 21 (HAT fund 4) acquires cross control",
+      "what_changed": "",
+      "source_url": "https://hat.it/safety21-hat-fund-4-acquires-cross-control/",
+      "source_name": "HAT SICAF",
+      "published_at": "2025-05-07",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 07-05-2025)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Cross Control Featured"
+        ],
+        "locations": []
+      },
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "fund",
+      "ml_type_prob": 0.487,
+      "ml_type_confident": false,
+      "ml_confidence": 0.487,
+      "quality_score": 85,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.73,
+      "signal_types": [
+        "portfolio_update",
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "seed-signal-00034",
+      "fund_id": "",
+      "fund_slug": "permira",
+      "signal_type": "portfolio_update",
+      "title": "Permira acquires 40% of K-Way from Basic Net for €192M (EV €505M)",
+      "what_changed": "Permira (Growth Opportunities II fund) acquired ~40% of K-Way from Turin-listed Basic Net (Boglione family retained ~60%). K-Way is French-founded premium outerwear brand. Deal valued at €505M enterprise value, €192M for Permira's stake.",
+      "source_url": "https://bebeez.it/private-equity/permira-rilevera-da-basicnet-famiglia-boglione-il-40-di-k-way-sulla-base-di-un-ev-di-505-mln-euro/",
+      "source_name": "BeBeez",
+      "published_at": "2025-02-28",
+      "observed_at": "2026-02-12T11:17:58.661959+00:00",
+      "created_at": "2026-02-12T11:17:58.661959+00:00",
+      "snapshot_id": "seed-2026-02-12",
+      "diff_summary": "Seeded historical signal: Permira acquires 40% of K-Way from Basic Net for €192M (EV €505M)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 1,
+      "relevance_reasons": [
+        "K-Way",
+        "BasicNet",
+        "Turin",
+        "Italian fashion"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "K-Way S.p.A.",
+          "BasicNet S.p.A."
+        ],
+        "people": [],
+        "locations": []
+      },
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": false,
+      "ml_keep_prob": 0.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 85,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.73,
+      "signal_types": [
+        "portfolio_update",
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "web-signal-01710-f0295980",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "deal_announced",
+      "title": "HAT SGR and TXT acquire webgenesys",
+      "what_changed": "",
+      "source_url": "https://hat.it/hat-sgr-and-txt-acquire-webgenesys/",
+      "source_name": "HAT SICAF",
+      "published_at": "2024-11-12",
+      "observed_at": "2026-02-20T09:31:03.083358+00:00",
+      "created_at": "2026-02-20T09:31:03.083358+00:00",
+      "snapshot_id": "snap-20260220093101-de86d2e1",
+      "diff_summary": "New news item detected (dated 12-11-2024)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Webgenesys Featured"
+        ],
+        "locations": []
+      },
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 78,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.752,
+      "signal_types": [
+        "deal_announced"
+      ]
     }
   ],
   "signal_count": 258,
