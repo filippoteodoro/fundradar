@@ -12,10 +12,18 @@ Website Scrape → Extraction → Portfolio Validation → Entity Resolution →
 
 ```
 pnpm pipeline
-├── 1. monitor    (fetch pages → extract data → detect changes → write signals + portfolio)
-├── 2. filter     (score signal quality → write filtered signals)
-└── 3. enrich     (AI summaries → write enriched signals)
+├── 1. monitor            (fetch pages → extract data → detect changes → write signals + portfolio)
+├── 2. rss                (fetch Italian news feeds → match to funds → append signals)
+├── 3. translate          (DeepL→Azure→OpenAI — MUST run before filter; filter uses English patterns)
+├── 4. normalize_sectors  (canonical 30-sector taxonomy for funds + companies)
+├── 5. normalize_portfolio(dedup company names across fund portfolios)
+├── 6. enrich_portfolio   (optional — Gemini fills missing sector/HQ/description)
+├── 7. filter             (multi-gate quality scoring → write detected_signals_filtered.json)
+├── 8. enrich             (AI summaries via OpenAI → write detected_signals_enriched.json)
+└── 9. signal_to_portfolio(convert deal/exit signals to portfolio entries — zero API calls)
 ```
+
+> **Critical ordering**: step 3 (`translate`) MUST precede step 7 (`filter`). The filter's keyword patterns are English-only — Italian signals reaching the filter score lower and get misclassified. See `apps/worker/CLAUDE.md` for full translation architecture.
 
 ## Data Sources (by trust tier)
 

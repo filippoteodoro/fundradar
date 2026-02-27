@@ -145,8 +145,9 @@ Many extractors were auto-generated with template paths like `/investments`, `/m
 1. **Always verify** each URL path returns 200 (use WebFetch or browser)
 2. **Never use** template paths — check the actual website structure
 3. **Common real paths**: `/portfolio/`, `/portafoglio/`, `/investimenti/`, `/our-companies/`, `/chi-siamo/`, `/team/`
-4. **Single-page sites**: use `"/"` — do NOT invent subpage paths
-5. **Check `url_status.json`** for known working paths for a domain (search by domain name)
+4. **Single-page sites**: use `"/"` only if the homepage contains a real structured portfolio/team list
+5. **No public portfolio index**: set `URLS["portfolio"] = None` and keep data manual/PEM-derived. Do **not** use homepage `"/"` as a placeholder; generic extraction will create sentence/news-title garbage companies.
+6. **Check `url_status.json`** for known working paths for a domain (search by domain name)
 
 The `# auto-generated from fund_urls.json` comment in URLS blocks indicates paths that may not have been verified. Replace with `# verified against live site` after checking.
 

@@ -76,7 +76,7 @@ _RE_INVEST_VERBS = re.compile(
     r"|\btakes?\s+(?:a\s+)?(?:stake|quota|partecipazione)\b"
     r"|\bpreso\s+(?:una?\s+)?(?:quota|partecipazione)\b"
     r"|\binvested\s+in\b"
-    r"|\b[€$£]\s*[\d.]+[MBK]?\s+in\s+investments?\b",
+    r"|(?<!\w)[€$£]\s*[\d.,]+[MBK]?\s+in\s+investments?\b",
     re.IGNORECASE,
 )
 
@@ -690,6 +690,36 @@ _RE_PEOPLE_LANGUAGE = re.compile(
 # Appointment verbs (for advisory board context check)
 _RE_APPOINTMENT_VERBS = re.compile(
     r"\b(?:appoint\w+|nomin\w+|joins?|entra)\b", re.IGNORECASE)
+
+# Broad appointment rescue for the "other" rescue path in apply_type_corrections().
+# Looser than _RE_PEOPLE_LANGUAGE (uses .* between verb and role) — intentional: rescues signals
+# that were demoted to other but clearly describe an appointment (e.g. "appointed ... CEO").
+_RE_PEOPLE_APPOINTMENT_RESCUE = re.compile(
+    r"\b(?:names?|appoints?|appointed|hired?)\b.*\b(?:head|director|partner|managing|chief"
+    r"|ceo|cfo|coo|cto|president|chairman)\b",
+    re.IGNORECASE,
+)
+
+# Team page profile noise: "Name Surname [optional seniority] [role title]" with no transition verb.
+# Catches static team listing pages where the signal is just "Person Name — Title" with no PE event.
+# Used in correct_people_move() and apply_type_corrections() other-rescue.
+_RE_TEAM_PROFILE_NOISE = re.compile(
+    r"^[a-zà-öø-ÿ][a-zà-öø-ÿ''.\-]+(?:\s+[a-zà-öø-ÿ][a-zà-öø-ÿ''.\-]+){1,3}\s+"
+    r"(?:(?:managing|senior|junior|lead|principal|chief)\s+)?"
+    r"(?:head|director|manager|partner|officer|counsel|analyst|associate|specialist"
+    r"|investor\s+relations"
+    r"|legal\s*(?:&|and)\s*corporate\s+affairs(?:\s+(?:specialist|manager|head|director))?)\b",
+    re.IGNORECASE,
+)
+
+# Role-opening / job-posting titles misclassified as people_move.
+# Example: "Senior Investment Associate, Clean Energy - Capital Dynamics"
+# Used in correct_people_move() and apply_type_corrections() other-rescue.
+_RE_ROLE_OPENING_TITLE = re.compile(
+    r"^\s*(?:senior|junior|lead|principal|chief|head|managing)?\s*"
+    r"(?:investment\s+)?(?:associate|analyst|manager|specialist|advisor|officer|counsel|director)\b",
+    re.IGNORECASE,
+)
 
 
 # ─────────────────────────────────────────────────────────────────────────────

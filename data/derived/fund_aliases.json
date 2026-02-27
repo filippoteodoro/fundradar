@@ -1,6 +1,6 @@
 {
   "description": "Maps variant/legacy fund slugs to their canonical slug in db.json. Every alias must be the SAME entity under a different name.",
-  "generated_at": "2026-02-26T20:07:58.000Z",
+  "generated_at": "2026-02-27T00:00:00.000Z",
   "aliases": {
     "21-investimenti": "21-invest",
     "21investimenti": "21-invest",
@@ -82,7 +82,23 @@
     "cdp-vc-sgr": "cdp-venture-capital",
     "finint-sgr": "finint-investments-sgr",
     "finanziaria-internazionale-investments-sgr": "finint-investments-sgr",
-    "capital-alternative-funds-sgr": "dea-capital-alternative-funds-sgr"
+    "capital-alternative-funds-sgr": "dea-capital-alternative-funds-sgr",
+    "finanziaria-internazionale-investments": "finint-investments-sgr",
+    "finint": "finint-investments-sgr",
+    "clessidra-private-equity": "clessidra-sgr",
+    "capital-alternative-funds": "dea-capital-alternative-funds-sgr",
+    "indaco-venture-partners": "indaco-venture-partners-sgr",
+    "indaco-sgr": "indaco-venture-partners-sgr",
+    "indaco": "indaco-venture-partners-sgr",
+    "intermediate-capital-group": "icg",
+    "hg": "h-i-g-capital",
+    "hg-capital": "h-i-g-capital",
+    "hig-capital": "h-i-g-capital",
+    "oaktree": "oaktree-capital-management",
+    "oaktree-capital": "oaktree-capital-management",
+    "stonepeak-capital": "stonepeak",
+    "patrizia-ag": "patrizia",
+    "one-equity": "one-equity-partners"
   },
   "reverse_lookup": {
     "21-invest": [
@@ -147,7 +163,8 @@
       "clessidra",
       "clessidra-capital-partners",
       "clessidra-private-equity-sgr",
-      "clessidragroup-it"
+      "clessidragroup-it",
+      "clessidra-private-equity"
     ],
     "cvc-capital-partners": [
       "cvc-advisers-italia"
@@ -190,7 +207,10 @@
       "greenarrow-capital"
     ],
     "h-i-g-capital": [
-      "h-i-g-european-capital-partners-italy"
+      "h-i-g-european-capital-partners-italy",
+      "hg",
+      "hg-capital",
+      "hig-capital"
     ],
     "hat-sgr": [
       "hat"
@@ -287,10 +307,34 @@
     ],
     "finint-investments-sgr": [
       "finint-sgr",
-      "finanziaria-internazionale-investments-sgr"
+      "finanziaria-internazionale-investments-sgr",
+      "finanziaria-internazionale-investments",
+      "finint"
     ],
     "dea-capital-alternative-funds-sgr": [
-      "capital-alternative-funds-sgr"
+      "capital-alternative-funds-sgr",
+      "capital-alternative-funds"
+    ],
+    "indaco-venture-partners-sgr": [
+      "indaco-venture-partners",
+      "indaco-sgr",
+      "indaco"
+    ],
+    "icg": [
+      "intermediate-capital-group"
+    ],
+    "oaktree-capital-management": [
+      "oaktree",
+      "oaktree-capital"
+    ],
+    "stonepeak": [
+      "stonepeak-capital"
+    ],
+    "patrizia": [
+      "patrizia-ag"
+    ],
+    "one-equity-partners": [
+      "one-equity"
     ]
   },
   "invalid_slugs": [
@@ -311,7 +355,10 @@
     "edg-alcedo-sgr",
     "partners-sgr",
     "credem-private-equity-sgr",
-    "credem-private-equity"
+    "credem-private-equity",
+    "investimento",
+    "edg-alcedo",
+    "partners"
   ],
   "domain_aliases": {
     "www.clessidrasgr.it": "www.clessidragroup.it",

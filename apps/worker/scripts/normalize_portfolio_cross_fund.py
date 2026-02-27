@@ -26,6 +26,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, PORTFOLIO_FILE as PORTFOLIO_PATH
 from fundradar_worker.io_utils import safe_json_write, backup_before_write
+from fundradar_worker.portfolio_validation import clean_portfolio_name, is_valid_portfolio_entry
 from fundradar_worker.url_utils import extract_domain
 
 # ─── Configuration ────────────────────────────────────────────────────────────
@@ -239,6 +240,45 @@ def pick_best_description(entries: list[dict]) -> str | None:
     return max(cleaned, key=len)
 
 
+def cleanup_invalid_entries(fund_portfolios: dict[str, list[dict]], dry_run: bool) -> dict[str, int]:
+    """Drop invalid portfolio entries and normalize names with shared validation logic.
+
+    Uses fundradar_worker.portfolio_validation as the single source of truth so
+    cleanup remains aligned with monitor-time validation.
+    """
+    removed = 0
+    renamed = 0
+
+    for fund_slug, entries in list(fund_portfolios.items()):
+        cleaned_entries: list[dict] = []
+
+        for entry in entries:
+            if entry.get("curation_locked"):
+                cleaned_entries.append(entry)
+                continue
+
+            raw_name = (entry.get("name") or "").strip()
+            if not raw_name:
+                removed += 1
+                continue
+
+            normalized_name = clean_portfolio_name(raw_name)
+            if not normalized_name or not is_valid_portfolio_entry(normalized_name, fund_slug):
+                removed += 1
+                continue
+
+            if normalized_name != raw_name:
+                renamed += 1
+                if not dry_run:
+                    entry["name"] = normalized_name
+            cleaned_entries.append(entry)
+
+        if not dry_run:
+            fund_portfolios[fund_slug] = cleaned_entries
+
+    return {"removed": removed, "renamed": renamed}
+
+
 # ─── Main normalization ──────────────────────────────────────────────────────
 
 def normalize_cross_fund(dry_run: bool = False) -> dict:
@@ -278,6 +318,8 @@ def normalize_cross_fund(dry_run: bool = False) -> dict:
     stats = {
         "total_groups": len(multi_fund_groups),
         "entries_updated": 0,
+        "invalid_entries_removed": 0,
+        "names_cleaned": 0,
         "fields_updated": {
             "name": 0,
             "website": 0,
@@ -337,8 +379,18 @@ def normalize_cross_fund(dry_run: bool = False) -> dict:
             if updated:
                 stats["entries_updated"] += 1
 
+    cleanup_stats = cleanup_invalid_entries(fund_portfolios, dry_run=dry_run)
+    stats["invalid_entries_removed"] = cleanup_stats["removed"]
+    stats["names_cleaned"] = cleanup_stats["renamed"]
+
+    changes_written = (
+        stats["entries_updated"] > 0
+        or stats["invalid_entries_removed"] > 0
+        or stats["names_cleaned"] > 0
+    )
+
     # Write back
-    if not dry_run and stats["entries_updated"] > 0:
+    if not dry_run and changes_written:
         backup_before_write(PORTFOLIO_PATH)
         safe_json_write(PORTFOLIO_PATH, data)
 
@@ -362,13 +414,19 @@ def main():
     print(f"Results:")
     print(f"  Multi-fund company groups: {stats['total_groups']}")
     print(f"  Entries updated: {stats['entries_updated']}")
+    print(f"  Invalid entries removed: {stats['invalid_entries_removed']}")
+    print(f"  Names cleaned by validator: {stats['names_cleaned']}")
     print(f"  Field updates:")
     for field, count in stats["fields_updated"].items():
         print(f"    {field}: {count}")
 
     if dry_run:
         print(f"\n  (dry run — no changes written)")
-    elif stats["entries_updated"] > 0:
+    elif (
+        stats["entries_updated"] > 0
+        or stats["invalid_entries_removed"] > 0
+        or stats["names_cleaned"] > 0
+    ):
         print(f"\n  Written to {PORTFOLIO_PATH}")
     else:
         print(f"\n  No changes needed.")

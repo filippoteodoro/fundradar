@@ -48,6 +48,22 @@ SELF_REF_SUFFIXES_RE = re.compile(
     re.IGNORECASE,
 )
 
+# Single-word editorial labels that are never company names.
+GENERIC_SINGLE_WORD_REJECTS = {
+    "acquisitions",
+    "acquisition",
+    "insights",
+    "insight",
+    "investments",
+    "investment",
+    "announcements",
+    "announcement",
+    "news",
+    "newsroom",
+    "podcast",
+    "resources",
+}
+
 # NAV patterns that indicate garbage entries (navigation text, UI artifacts, etc.)
 NAV_PATTERNS = [
     re.compile(p, re.IGNORECASE) for p in [
@@ -357,6 +373,12 @@ def is_valid_portfolio_entry(name: str, fund_slug: str) -> bool:
         return False
     if re.match(r"^[A-Z][a-z]+ing\s+\w+\s+\w*\s*(?:with|for|in|into)\s", trimmed, re.IGNORECASE):
         return False
+    if re.match(
+        r"^[A-Z][a-z]+ing\s+.+\b(?:across|through|throughout|toward|towards|via|among|between)\b",
+        trimmed,
+        re.IGNORECASE,
+    ):
+        return False
 
     # Reject description-like text
     if re.match(r"^(?:A\s+)?leading\s+", trimmed, re.IGNORECASE):
@@ -372,14 +394,29 @@ def is_valid_portfolio_entry(name: str, fund_slug: str) -> bool:
     if re.match(r"^Investimenti\s", trimmed, re.IGNORECASE):
         return False
 
+    # Reject sentence-like editorial titles frequently misparsed as portfolio companies.
+    if re.search(r"\bfeatured\s+on\b", trimmed, re.IGNORECASE):
+        return False
+    if re.search(r"\bpodcast\b", trimmed, re.IGNORECASE):
+        return False
+    if re.match(r"^The\s+\w+\s+of\s+the\s+", trimmed, re.IGNORECASE):
+        return False
+
+    # Reject single generic editorial/category words.
+    if " " not in trimmed and trimmed.lower() in GENERIC_SINGLE_WORD_REJECTS:
+        return False
+
     # Reject sector/industry category names
     if trimmed.lower() in SECTOR_NAMES:
         return False
 
     # Reject concatenated words >15 chars containing portfolio/company substrings
-    if " " not in trimmed and len(trimmed) > 15:
+    if " " not in trimmed and len(trimmed) >= 12:
         lower = trimmed.lower()
-        if re.search(r"portfolio|company|companies|investment|ourport", lower):
+        if re.search(
+            r"portfolio|company|companies|invest(?:ment|ing)|ourport|insight|acquisit|announc|podcast|news|press",
+            lower,
+        ):
             return False
 
     # Reject known UI/nav patterns

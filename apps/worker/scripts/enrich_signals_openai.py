@@ -2441,6 +2441,8 @@ def main(slugs_filter: str | None = None):
                         processed_ids.add(signal_id)
                     if signal_key:
                         processed_keys.add(signal_key)
+                    # Ensure signal_types is populated (detect_all_signal_types inside)
+                    _apply_final_type_and_overrides(signal, _filtered_signal_type)
                     print(f"  [{completed}/{len(needs_llm)}] {fund} — local fallback ({fallback_reason})")
                     continue
 

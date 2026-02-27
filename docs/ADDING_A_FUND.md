@@ -11,6 +11,8 @@ This is the definitive, step-by-step guide to correctly adding a new fund to Fun
 1. [Prerequisites & Eligibility](#1-prerequisites--eligibility)
 2. [Research the Fund](#2-research-the-fund)
 3. [Add the Fund Entry to db.json](#3-add-the-fund-entry-to-dbjson)
+   - [3.5 Register variant names in fund_aliases.json](#35--register-variant-names-in-fund_aliasesjson)
+   - [3.6 Clear gap detector state](#36--clear-gap-detector-state-after-adding-a-fund)
 4. [Build the Custom Extractor](#4-build-the-custom-extractor)
 5. [Test the Extractor](#5-test-the-extractor)
 6. [Run the Pipeline](#6-run-the-pipeline)
@@ -63,7 +65,7 @@ Excluded entities are blocked via `invalid_slugs` in `data/derived/fund_aliases.
    {
      "aliases": { "legacy-slug": "canonical-slug" },
      "invalid_slugs": ["bank-slug", "asset-manager-slug"],
-     "domain_aliases": { "old-domain.com": "current-domain.com" }
+     "reverse_lookup": { "canonical-slug": ["legacy-slug"] }
    }
    ```
    - If a variant slug maps to an existing fund, use the canonical slug — don't create a new entry.
@@ -192,6 +194,58 @@ The full list of valid categories is the `FundCategory` type in `packages/shared
 
 See the [full field catalog](#reference-dbjson-field-catalog) at the end of this document.
 
+### 3.5 — Register variant names in fund_aliases.json
+
+If the fund is known by short-form brands, old legal names, or hyphenation variants, register them in `data/derived/fund_aliases.json` so the pipeline resolves them to the canonical slug:
+
+```json
+{
+  "aliases": {
+    "indaco":                    "indaco-venture-partners-sgr",
+    "indaco-sgr":                "indaco-venture-partners-sgr",
+    "indaco-venture-partners":   "indaco-venture-partners-sgr"
+  },
+  "reverse_lookup": {
+    "indaco-venture-partners-sgr": ["indaco", "indaco-sgr", "indaco-venture-partners"]
+  }
+}
+```
+
+Keep `aliases` and `reverse_lookup` in sync manually — the file has no auto-generation.
+
+**When to add aliases:**
+- Short-form brand: `"Indaco"` → full canonical slug
+- Pre-rebrand name: `"old-legal-name-sgr"` → current canonical slug
+- Legal entity variant: `"fund-name-spa"` → `"fund-name"`
+
+**When NOT to add aliases — use `invalid_slugs` instead:**
+- Non-PE/VC entities (asset managers, banks, regional agencies)
+- Generic words that appear in many signal bodies (`investimento`, `partners`, `capital`)
+
+### 3.6 — Clear gap detector state after adding a fund
+
+`data/derived/unknown_fund_gaps.json` is a dedup state file that prevents the Telegram gap-alert from firing twice for the same unrecognised fund name within a 30-day window. When a fund name appeared in signals **before** you added it to `db.json`, old alerts are suppressed by that state — new pipeline runs won't re-fire them even though the gaps are now resolved.
+
+After adding the fund and its aliases, check the state:
+
+```bash
+python3 -c "
+import json
+gaps = json.load(open('data/derived/unknown_fund_gaps.json')).get('gaps', [])
+print(f'{len(gaps)} dedup entries')
+for g in gaps[:10]:
+    print(f'  {g[\"fund_name\"]:40s}  {g[\"signal_id\"]}')
+"
+```
+
+If any entries correspond to the fund you just added (or its aliases), **clear the file** so the gap detector treats those mentions as resolved and won't fire stale alerts:
+
+```bash
+echo '{"gaps": []}' > data/derived/unknown_fund_gaps.json
+```
+
+This is safe — the file is recreated on the next pipeline run. Only clear it when all listed gaps are genuinely resolved (i.e. the fund is now in `db.json` or `invalid_slugs`).
+
 ---
 
 ## 4. Build the Custom Extractor
@@ -232,7 +286,8 @@ URLS = {
 **CRITICAL RULES for URLS:**
 - **Every path MUST be verified against the live website** — open it in a browser, confirm it returns 200 and has relevant content.
 - **NEVER use generic template paths** like `/investments`, `/management` — these are placeholders that rarely exist on real websites.
-- **Single-page sites**: Use `"/"` for the homepage if portfolio/team data is on the main page.
+- **Single-page sites**: Use `"/"` only when the homepage contains a real, structured portfolio/team list.
+- **Never use `"/"` as a placeholder** just to satisfy checks. If no reliable public portfolio index exists, set `"portfolio": None` and keep portfolio data manual/PEM-derived. Placeholder homepages cause persistent garbage companies/signals.
 - **Multiple pages**: Use a list — for example, when current and exited portfolios are on separate pages:
   ```python
   "portfolio": ["/current-investments/", "/past-investments/"]
@@ -534,7 +589,10 @@ for c in companies[:5]:
 "
 ```
 
-> **CRITICAL**: If this returns 0 companies, your extractor's `URLS["portfolio"]` may be `None` or pointing to the wrong page. Check the extractor's `URLS` dict — every fund with a portfolio page MUST have a portfolio URL set.
+> **CRITICAL**: If this returns 0 companies, either:
+> - the fund truly has no public portfolio index (manual/PEM mode is expected), or
+> - your `URLS["portfolio"]` is wrong / selectors are broken.
+> Do not force `"/"` as a placeholder to silence this check.
 
 ### 5.4 — Extractor validation checklist
 
@@ -662,7 +720,7 @@ Configuration values are defined as constants at the top of `apps/worker/scripts
 python3 -c "
 import json
 d = json.load(open('data/derived/portfolio_items.json'))
-companies = d.get('portfolios', {}).get('{fund-slug}', [])
+companies = d.get('fund_portfolios', {}).get('{fund-slug}', [])
 enriched = [c for c in companies if c.get('sector') and c.get('description')]
 print(f'Total: {len(companies)}, With sector+description: {len(enriched)}')
 "
@@ -884,11 +942,51 @@ This populates `hq_lat`, `hq_lng`, and `hq_address` in `db.json`. The map page r
 - Resolve the address with a quick web lookup first (official site/contact/legal pages). If unclear, use a Gemini API lookup to extract/verify the address and write it directly to `db.json`.
 - If still unresolved after both attempts, do **not** invent an address: explicitly report the blocker (fund slug, attempted sources, why unresolved) and request input only as last resort.
 
+Quick audit before commit (find Italian offices still using generic addresses):
+
+```bash
+python3 -c "
+import json, re
+db = json.load(open('data/db.json'))
+GENERIC = {'milan','milano','rome','roma','italy','italia'}
+
+def is_generic(address, city, country):
+    if not address:
+        return True
+    a = address.strip().lower()
+    if a in GENERIC:
+        return True
+    if city and a == city.strip().lower():
+        return True
+    if country and a == country.strip().lower():
+        return True
+    if not any(ch.isdigit() for ch in a):
+        tokens = [t.strip() for t in re.split(r'[,/;-]+', a) if t.strip()]
+        allowed = {x.lower() for x in [city, country, 'italy', 'italia'] if x}
+        if tokens and set(tokens).issubset(allowed):
+            return True
+    return False
+
+for f in db.get('funds', []):
+    slug = f.get('slug')
+    city = f.get('hq_city')
+    country = f.get('hq_region')
+    hq_address = f.get('hq_address')
+    if (country or '').lower() == 'italy' and is_generic(hq_address, city, country):
+        print(f'{slug}: generic hq_address -> {hq_address!r}')
+    for off in f.get('offices', []) or []:
+        if (off.get('country') or '').lower() != 'italy':
+            continue
+        if is_generic(off.get('address'), off.get('city'), off.get('country')):
+            print(f'{slug}: generic office address -> {off.get(\"address\")!r}')
+"
+```
+
 ---
 
 ## 14. Verify Frontend Display
 
-### 12.1 — Restart the dev server
+### 14.1 — Restart the dev server
 
 The web app caches all JSON data in memory with **NO TTL, NO invalidation**. After any worker run:
 
@@ -896,7 +994,7 @@ The web app caches all JSON data in memory with **NO TTL, NO invalidation**. Aft
 pnpm dev
 ```
 
-### 12.2 — Check the fund pages
+### 14.2 — Check the fund pages
 
 | URL | What to check |
 |---|---|
@@ -910,7 +1008,7 @@ pnpm dev
 | `http://localhost:3000/companies` | Portfolio companies appear |
 | `http://localhost:3000/signals` | Fund's signals appear in the global feed |
 
-### 12.3 — Data loading architecture
+### 14.3 — Data loading architecture
 
 Understanding how data reaches the UI (verify against `apps/web/src/lib/data.ts` if this seems outdated):
 
@@ -960,7 +1058,7 @@ There is no centralized logo storage. Fund logos are referenced from the fund's 
 
 ## 17. Commit & Deploy
 
-### 15.1 — What to commit
+### 17.1 — What to commit
 
 ```bash
 # Stage the new/modified files
@@ -978,7 +1076,7 @@ git add data/derived/detected_signals_enriched.json
 - `deepl_quota_state.json` (transient state)
 - `rss_state.json` (transient state)
 
-### 15.2 — Commit message
+### 17.2 — Commit message
 
 ```
 Add {Fund Name} fund and extractor
@@ -989,7 +1087,7 @@ Add {Fund Name} fund and extractor
 - News monitoring: {enabled/disabled}
 ```
 
-### 15.3 — Deploy
+### 17.3 — Deploy
 
 Fundradar auto-deploys from `main` on Vercel:
 
@@ -1017,6 +1115,10 @@ db = json.load(open('data/db.json'))
 fund = next((f for f in db['funds'] if f['slug'] == slug), None)
 portfolio = json.load(open('data/derived/portfolio_items.json'))
 companies = portfolio.get('fund_portfolios', {}).get(slug, [])
+filtered = json.load(open('data/derived/detected_signals_filtered.json')).get('signals', [])
+enriched = json.load(open('data/derived/detected_signals_enriched.json')).get('signals', [])
+filtered_rows = [s for s in filtered if s.get('fund_slug') == slug]
+enriched_rows = [s for s in enriched if s.get('fund_slug') == slug]
 
 errors = []
 
@@ -1061,21 +1163,16 @@ try:
     mod = importlib.import_module(f'fundradar_worker.strategies.extractors.{mod_name}')
     urls = getattr(mod, 'URLS', {})
     if urls.get('portfolio') is None:
-        errors.append('CRITICAL: Extractor URLS[\"portfolio\"] is None — no portfolio will be scraped')
+        if len(companies) == 0:
+            errors.append('WARNING: Extractor URLS[\"portfolio\"] is None and no manual/PEM portfolio entries found')
+        else:
+            errors.append('INFO: Extractor URLS[\"portfolio\"] is None (manual/PEM portfolio mode)')
     if 'portfolio' not in getattr(mod, 'EXTRACTORS', {}):
         errors.append('WARNING: No extract_portfolio() function in EXTRACTORS')
 except Exception as e:
     errors.append(f'WARNING: Could not import extractor: {e}')
 
-# 4. Monitor URLs
-with open('data/monitor-urls.md') as f:
-    monitored = f.read().lower()
-if fund and fund.get('website'):
-    domain = fund['website'].replace('https://','').replace('http://','').replace('www.','').rstrip('/')
-    if domain.lower() not in monitored:
-        errors.append(f'WARNING: {domain} not in monitor-urls.md')
-
-# 5. Signal misattribution check (first word of fund name)
+# 4. Signal misattribution check (first word of fund name)
 if fund:
     name_words = fund['name'].lower().split()
     first_word = name_words[0] if name_words else ''
@@ -1086,6 +1183,27 @@ if fund:
     if len(name_words) >= 3 and len(first_word) >= 6 and first_word not in GENERIC_SHORT:
         errors.append(f'WARNING: Fund name first word \"{first_word}\" (from 3+ word name) could cause signal misattribution — verify it is in GENERIC_SHORT_BRANDS in signalFundTags.ts or that no cross-entity matches occur')
 
+# 5. Filtered vs enriched signal parity
+filtered_by_id = {s.get('id'): s for s in filtered_rows if s.get('id')}
+enriched_by_id = {s.get('id'): s for s in enriched_rows if s.get('id')}
+missing_in_enriched = sorted(set(filtered_by_id) - set(enriched_by_id))
+stale_in_enriched = sorted(set(enriched_by_id) - set(filtered_by_id))
+if missing_in_enriched:
+    errors.append(f'CRITICAL: {len(missing_in_enriched)} filtered signals missing in enriched (run slug-scoped enrich)')
+if stale_in_enriched:
+    errors.append(f'CRITICAL: {len(stale_in_enriched)} enriched signals not present in filtered (stale rows; resync enrich from filtered)')
+
+type_mismatches = []
+for sid, frow in filtered_by_id.items():
+    erow = enriched_by_id.get(sid)
+    if not erow:
+        continue
+    if (frow.get('signal_type') or '') != (erow.get('signal_type') or ''):
+        type_mismatches.append((sid, frow.get('signal_type'), erow.get('signal_type')))
+if type_mismatches:
+    sample = ', '.join(f'{sid}:{ft}->{et}' for sid, ft, et in type_mismatches[:3])
+    errors.append(f'CRITICAL: {len(type_mismatches)} signal_type mismatches filtered vs enriched ({sample})')
+
 if errors:
     print(f'VERIFICATION FAILED for {slug}:')
     for e in errors:
@@ -1093,6 +1211,7 @@ if errors:
 else:
     print(f'ALL CHECKS PASSED for {slug}')
     print(f'  Portfolio: {len(companies)} companies')
+    print(f'  Signals filtered/enriched: {len(filtered_rows)}/{len(enriched_rows)}')
     print(f'  AUM: {fund.get(\"aum_eur\")}')
     print(f'  Description: {fund.get(\"description\",\"\")[:60]}...')
 "
@@ -1170,11 +1289,19 @@ After running all enrichments, you MUST verify the complete data quality. This a
 
 | Issue | Fix |
 |---|---|
-| Zero portfolio entries | Add `portfolio` URL to extractor URLS dict, write `extract_portfolio()` |
-| Missing from monitor-urls.md | Add the fund's base domain URL |
+| Zero portfolio entries | If a real public portfolio page exists: add `portfolio` URL + extractor. If not: keep `portfolio=None` and add manual/PEM portfolio entries. |
 | Missing AUM | Run `enrich-fund-metadata-gemini.py --slugs {slug}` |
 | Missing description | Run `generate-fund-descriptions-gemini.py --slugs {slug}` |
-| Extractor URLS["portfolio"] is None | Check the fund's website for a portfolio/investments page |
+| Extractor URLS["portfolio"] is None | Verify whether the fund has a real public portfolio page. If yes, add it; if no, keep manual/PEM mode (do not use homepage placeholder `/`). |
+
+### 18.6 — Persistence rule (MANDATORY)
+
+If a bad signal/tag/classification appears, do not apply one-off data-only fixes as the final solution.
+
+- Always patch the underlying logic in worker/web code (`filter_signals.py`, `signal_text_utils.py`, `signalFundTags.ts`, `signalProcessing.ts`) so the same bug cannot reappear on the next run.
+- Use derived JSON edits only as temporary cleanup/backfill after the code fix.
+- Re-run focused pipeline steps (`monitor`/`filter`/`enrich`) for affected slugs and verify the issue stays fixed on a clean rerun.
+- Document the rule change in this file (or `docs/runbook.md`) when it introduces a new recurring guardrail.
 
 ---
 
@@ -1188,6 +1315,7 @@ After running all enrichments, you MUST verify the complete data quality. This a
 - [ ] Fund's companies appear on `/companies`
 - [ ] Page renders correctly when shared on social media (site-level OG image is automatic)
 - [ ] Run `pnpm audit:quality` to check the fund's data quality grade
+- [ ] Clear gap detector dedup state if the fund's name appeared in earlier signals (see §3.6)
 - [ ] Weekly digest will automatically include signals from this fund (no action needed)
 - [ ] RSS feeds will automatically match articles mentioning this fund (no action needed)
 
@@ -1237,7 +1365,7 @@ After running all enrichments, you MUST verify the complete data quality. This a
 | `data_confidence` | `string` | Confidence level (`"high"`, `"medium"`, `"low"`) |
 | `description_source` | `string` | Where description came from (`"gemini"`, `"manual"`) |
 | `is_ecosystem_newsroom` | `boolean` | News page covers the whole market (rare — search db.json for current list) |
-| `offices` | `Office[]` | Array of office locations with coordinates |
+| `offices` | `Office[]` | Array of office locations with coordinates (see structure below) |
 | `aliases` | `string[]` | Alternative names |
 | `aifi_url` | `string` | AIFI member page URL |
 
@@ -1250,6 +1378,28 @@ After running all enrichments, you MUST verify the complete data quality. This a
 | `hq_address` | `string \| null` | Full address |
 
 These are populated by `pnpm worker:geocode && pnpm merge-aifi`. Without them, the fund won't appear on the map.
+
+### `Office` object structure
+
+Each entry in `offices[]` has:
+
+| Field | Type | Description |
+|---|---|---|
+| `city` | `string` | City name |
+| `country` | `string` | Country name (e.g. `"Italy"`, `"United Kingdom"`) |
+| `address` | `string \| null` | Street address (required for Italy — see §13 address quality rule) |
+| `postal_code` | `string \| null` | Postal/ZIP code |
+| `phone` | `string \| null` | Office phone number |
+| `lat` | `number \| null` | Latitude (populated by geocoder) |
+| `lng` | `number \| null` | Longitude (populated by geocoder) |
+| `is_hq` | `boolean` | `true` for the fund's headquarters office |
+| `is_italy` | `boolean` | `true` for Italian offices |
+| `source_url` | `string \| null` | Source page where this office was found |
+| `source_name` | `string \| null` | Name of the source (e.g. `"AIFI"`, `"fund website"`) |
+
+**At least one entry should have `is_hq: true`.** The map page resolves coordinates in this priority: Italian office with lat/lng → `is_hq: true` entry → any entry with lat/lng → top-level `hq_lat`/`hq_lng` fallback.
+
+> **AIFI warning**: After any AIFI merge, cross-check `offices[].is_hq` against top-level `hq_city`/`hq_region` — AIFI writes Italian branch as HQ for global funds. Preserve the Italian office entry but fix `is_hq` so it reflects the fund's actual global headquarters.
 
 ---
 
@@ -1354,10 +1504,12 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 | Signal text expands `CDP` to long legal form | Keep acronym form. Cleaning removes redundant `CDP (...)` parentheticals in both worker and web display paths; if it reappears, update shared regex in `signal_text_utils.py` and `signalProcessing.ts` |
 | Merger headline appears as Exit | Treat merger/fusion (`merge`, `merger`, `fusione`) as `deal_announced` unless there is explicit seller/exit evidence (`sells`, `a vendere`, `exit from portfolio`, etc.) |
 | Filtered and enriched disagree on `signal_type` for same signal ID | Treat filtered `signal_type` as authoritative in enricher skip/cached paths and resync enriched rows from filtered IDs after classifier/rule changes |
+| `/signals` count differs from filtered count for the same fund | Enforce ID parity: enriched should be a 1:1 projection of filtered for each slug. Re-run slug-scoped `filter` then `enrich`, and remove stale enriched-only IDs |
 | Prospective bidders appear as extra fund tags | Suppress inferred related tags for sentence-local speculative contexts (`among interested bidders`, `in the running`, `fra/tra gli interessati`, `vying`, etc.). Keep explicitly provided tags and active-party mentions |
 | Team profile cards or role openings show as signals | Static titles like `Name Head of X`, `Name investor relations`, `...Legal & Corporate Affairs Specialist`, and TEAM blurbs like `X is the parent company of Y` are demoted to `other` and filtered. If variants leak through, update `TEAM_ROLE_PROFILE_TITLE_RE` / `ROLE_OPENING_TITLE_RE` / `TEAM_STATIC_CORP_DESC_RE` in `filter_signals.py` and matching guards in `signalProcessing.ts` |
 | Departure news appears as Investment | If text has people transition verbs (`steps down`, `leaves`, `resigns`, `appointed`, etc.) with no deal/exit evidence, force `people_move` (worker `correct_deal()` + post-ML correction, web `reclassifySignalType()`) |
 | Co-investor names lose capitalization in summaries | Re-capitalize from `extracted_entities`, fund slugs, and title-cased company/fund phrases (`extract_company_like_entities()` + `capitalize_entities()` in worker clean paths) so strings like `capital dynamics`/`miura partners` stay properly cased |
+| Fix works once but breaks on next pipeline run | The fix is data-only. Patch worker/web rules first, then rerun pipeline and backfill outputs; one-off JSON cleanup alone is not persistent |
 | **Claude Code blocks on long scripts** | **ALWAYS run Gemini/pipeline scripts with `run_in_background: true` and check progress with non-blocking `tail` commands. NEVER use blocking waits (`block=true`) on tasks that call Gemini APIs — a single fund can take 5+ minutes, batches can take hours. Use `ps aux \| grep scriptname` and `tail -N outputfile` to monitor progress instead.** |
 
 ### Signal misattribution (frontend text matching)
@@ -1443,6 +1595,7 @@ Add manual signals to **both** `data/derived/detected_signals_filtered.json` and
   "fund_id": "",
   "fund_slug": "{fund-slug}",
   "signal_type": "deal_announced",
+  "signal_types": ["deal_announced"],
   "title": "Clear, factual English title describing the event",
   "what_changed": "1-2 sentence description of what happened, with key details (amounts, companies, dates).",
   "source_url": "https://example.com/real-article-url",
@@ -1480,7 +1633,8 @@ Add manual signals to **both** `data/derived/detected_signals_filtered.json` and
 | Full pipeline for fund | `pnpm pipeline --slugs {slug}` |
 | Force re-extraction | `pnpm pipeline --slugs {slug} --force-extract` |
 | Filter + enrich only | `pnpm pipeline:signals` |
-| Check portfolio output | `python3 -c "import json; d=json.load(open('data/derived/portfolio_items.json')); print(len(d.get('portfolios',{}).get('{slug}',[])))"` |
+| Check portfolio output | `python3 -c "import json; d=json.load(open('data/derived/portfolio_items.json')); print(len(d.get('fund_portfolios',{}).get('{slug}',[])))"` |
+| Check filtered/enriched parity for slug | `python3 -c "import json; slug='{slug}'; f=[s for s in json.load(open('data/derived/detected_signals_filtered.json')).get('signals',[]) if s.get('fund_slug')==slug]; e=[s for s in json.load(open('data/derived/detected_signals_enriched.json')).get('signals',[]) if s.get('fund_slug')==slug]; fi={s.get('id') for s in f}; ei={s.get('id') for s in e}; print('filtered',len(f),'enriched',len(e),'missing_in_enriched',len(fi-ei),'stale_in_enriched',len(ei-fi))"` |
 | Check enrichment progress | `python3 -c "import json; d=json.load(open('data/derived/signal_enrichment_progress.json')); print(len(d.get('processed_ids',[])),'processed')"` |
 | Generate fund description | `python3 scripts/generate-fund-descriptions-gemini.py --slugs {slug}` (from repo root) |
 | Audit data quality | `pnpm audit:quality` |

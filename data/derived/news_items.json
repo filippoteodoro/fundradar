@@ -8840,6 +8840,12 @@
     ],
     "https://www.eqtgroup.com/news": [
       {
+        "title": "EQT exits remaining stake in Azelis Group",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/eqt-exits-remaining-stake-in-azelis-group-2026-02-26",
+        "fingerprint": "497a3863b93d"
+      },
+      {
         "title": "EQT and Blackstone Infrastructure to acquire Urbaser, a leading waste management infrastructure platform",
         "date": null,
         "url": "https://www.eqtgroup.com/news/eqt-and-blackstone-infrastructure-to-acquire-urbaser-a-leading-waste-management-infrastructure-platform-2026-02-12",
@@ -8904,12 +8910,6 @@
         "date": null,
         "url": "https://www.eqtgroup.com/news/eqt-real-estate-acquires-a-portfolio-of-four-high-quality-logistics-assets-in-northern-italy-2026-01-12",
         "fingerprint": "3e663ac0ba26"
-      },
-      {
-        "title": "EQT Life Sciences to exit Vivasure Medical via sale to Haemonetics",
-        "date": null,
-        "url": "https://www.eqtgroup.com/news/eqt-life-sciences-to-exit-vivasure-medical-via-sale-to-haemonetics-2026-01-12",
-        "fingerprint": "70f3ad4fdef1"
       }
     ],
     "https://www.fvssgr.it/notizie": [
@@ -11131,6 +11131,12 @@
     ],
     "https://www.oakleycapital.com/news-and-insights/": [
       {
+        "title": "From Local Champions to Market Leaders: Unlocking the DACH Business Services sector",
+        "date": "26.02.26",
+        "url": "https://www.oakleycapital.com/news-and-insights/from-local-champions-to-market-leaders-unlocking-the-dach-business-services-sector",
+        "fingerprint": "fdc827307ff9"
+      },
+      {
         "title": "Oakley Capital and La Caisse invest in institutional debt administration provider GLAS",
         "date": "05.01.26",
         "url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-and-la-caisse-invest-in-institutional-debt-administration-provider-glas",
@@ -11149,16 +11155,16 @@
         "fingerprint": "4e6af8490cde"
       },
       {
-        "title": "Oakley Capital invests in Brevo, Europe\u2019s leading customer engagement platform",
-        "date": "04.12.25",
-        "url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-invests-in-brevo-europe-s-leading-customer-engagement-platform",
-        "fingerprint": "544c082e21f3"
-      },
-      {
         "title": "Winter Newsletter 2025",
         "date": "04.12.25",
         "url": "https://www.oakleycapital.com/news-and-insights/winter-newsletter-2025",
         "fingerprint": "23c4093cb67d"
+      },
+      {
+        "title": "Oakley Capital invests in Brevo, Europe\u2019s leading customer engagement platform",
+        "date": "04.12.25",
+        "url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-invests-in-brevo-europe-s-leading-customer-engagement-platform",
+        "fingerprint": "544c082e21f3"
       },
       {
         "title": "Oakley Capital invests in Spanish hotel demand generation platform Paraty Tech",
@@ -11183,12 +11189,6 @@
         "date": "14.10.25",
         "url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-invests-in-leading-italian-healthcare-insurance-service-provider-onhc",
         "fingerprint": "5df720d7bf74"
-      },
-      {
-        "title": "Launch of the Oakley Capital 2026 Internship Programme",
-        "date": "08.10.25",
-        "url": "https://www.oakleycapital.com/news-and-insights/launch-of-the-oakley-capital-2026-internship-programme",
-        "fingerprint": "4db4e00c6064"
       }
     ],
     "https://sofinnovapartners.com/news": [
@@ -16335,6 +16335,12 @@
     ],
     "https://www.higeurope.com/news/": [
       {
+        "title": "H.I.G. WhiteHorse Europe Hires Andy Armah-Kwantreng and Marimba Odundo-Mendez to Lead Its UK Direct Lending Platform",
+        "date": "February 23, 2026",
+        "url": "https://higeurope.com/news/h-i-g-whitehorse-europe-hires-andy-armah-kwantreng-and-marimba-odundo-mendez-to-lead-its-uk-direct-lending-platform/",
+        "fingerprint": "d323e2b04888"
+      },
+      {
         "title": "H.I.G. Realty Increases to Over \u00a31bn its Prime Living Portfolio in Central London",
         "date": "February 12, 2026",
         "url": "https://higeurope.com/news/h-i-g-realty-increases-to-over-1bn-its-prime-living-portfolio-in-central-london/",
@@ -16387,12 +16393,6 @@
         "date": "November 4, 2025",
         "url": "https://higeurope.com/news/h-i-g-realty-expands-its-european-logistics-and-ios-platform-with-the-acquisition-of-four-logistics-assets-in-norway/",
         "fingerprint": "3b4fa4bdcaf7"
-      },
-      {
-        "title": "H.I.G. Capital Acquires A.L.A. S.p.A.",
-        "date": "October 21, 2025",
-        "url": "https://higeurope.com/news/h-i-g-capital-acquires-a-l-a-s-p-a/",
-        "fingerprint": "907fd8bb31b9"
       }
     ],
     "https://www.sagard.com/news/": [
@@ -16633,6 +16633,12 @@
     ],
     "https://www.carlyle.com/media-room/news-release-archive": [
       {
+        "title": "Carlyle Presents Growth Outlook at 2026 Shareholder Update",
+        "date": "2026-02-26",
+        "url": "https://www.carlyle.com/media-room/news-release-archive/carlyle-presents-growth-outlook-2026-shareholder-update",
+        "fingerprint": "cf45960818fe"
+      },
+      {
         "title": "Carlyle provides a structured capital solution to Peloton Computer Enterprises to support growth",
         "date": "2026-02-23",
         "url": "https://www.carlyle.com/media-room/news-release-archive/carlyle-provides-structured-capital-solution-peloton-computer",
@@ -16661,12 +16667,6 @@
         "date": "2026-01-29",
         "url": "https://www.carlyle.com/media-room/news-release-archive/carlyle-sell-iwasaki-electric-stanley-electric",
         "fingerprint": "7fcf819f1a60"
-      },
-      {
-        "title": "Eldridge and Carlyle AlpInvest Partner to Launch the Eldridge Diversified Credit Platform and the Closing of its First Fund, EDCF I",
-        "date": "2026-01-22",
-        "url": "https://www.carlyle.com/media-room/news-release-archive/eldridge-and-carlyle-alpinvest-partner-launch-eldridge-diversified",
-        "fingerprint": "df52b056ae59"
       }
     ],
     "https://news.google.com/rss/search?q=site%3Aalgebris.com+Algebris+when%3A30d&hl=en-US&gl=US&ceid=US:en": [
@@ -16699,12 +16699,6 @@
         "date": "2026-02-09",
         "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOREtWNU54d3dFaUUxZ1FOWW9TS2c4S2Etenl5dTJmLUlOUUswTFhTLUh6MlNZQ1l4QXhwVDliVEZBUnhLSGZUeVUwYWpBN19rNGZoUEU2NU1zNGp0ZGFRb2RxQjNpUHFSOUNhZ0VtSW85aG9BVFY4b0M1R2JJcDFQb2VuYW90NmVfVGJjajhNQnl5X256b29uQ2lFdWlxa25ibC12MWplLXo5ekdrUXJONWQzREs?oc=5",
         "fingerprint": "af86cfe659ff"
-      },
-      {
-        "title": "GLOBAL EQUITY BULLETS | Wednesday, 28 January 2026 - Algebris Investments",
-        "date": "2026-01-28",
-        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNMXRBdUQ5dkltcGZweXBDVm5HRFEzOTdZeE1nNXhHbzhKUzBDTXlsem9vMEtFaEdXVTB5N0JtaTV1Z2tJcXM4SGNzVUg2dkdYVWNmNXRGZnBHZndFbk16OWxoNWhReFhIZGRxMEliUzBVMjF6NEdQUzdQdkNBaUxnd2Y1TWFIRXZaT1BVWHA5MA?oc=5",
-        "fingerprint": "dd86fd820a0c"
       }
     ],
     "https://news.google.com/rss/search?q=site%3Acapdyn.com+%22Capital+Dynamics%22+when%3A30d&hl=en-US&gl=US&ceid=US:en": [
@@ -16731,12 +16725,6 @@
         "date": "2026-02-05",
         "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQOVVpaFNRc1lhRTRDNlFPTDVGUXBzbEVlcjM2TjVxeW1ieUtRUmIyV2FieUJJWmhQMW5waVV3aG5oN1J0ak9sMjczYS15VTlQUFIwR3pUclM2dDA4b0Jkd01tLUZNN0NIUm1qQzlLQXJSbFNZd09EcVdMLUdZZmxvSUdlVlZWUkMxVFZZa2QtUDZJaGZyNVZKa25uenRaQzNnRVBsM28xeVM?oc=5",
         "fingerprint": "4b2b5e6d6476"
-      },
-      {
-        "title": "SENIOR INVESTMENT ASSOCIATE, CLEAN ENERGY - Capital Dynamics",
-        "date": "2026-02-18",
-        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9DNUxSZmZBYW1FYnM1RmEzZkhQMzNIbEV2RXVXNllXUVAxUlhxSnJVV3hHTEp6Uy0yX0JxaW1JVmRkVlZaZUNnLTU3dEE5cmdnU0phX0RjSGpNUHBHWUctakFpdEVzSHZyRlZBYkJpc01vUVRSTkpnNlkwYXo?oc=5",
-        "fingerprint": "ded73887115d"
       },
       {
         "title": "News, Research & Events - Capital Dynamics",
@@ -20033,6 +20021,1266 @@
         "date": null,
         "url": null,
         "fingerprint": "c642ecedb15f"
+      }
+    ],
+    "https://www.oaktreecapital.com/insights/": [
+      {
+        "title": "Memos From Howard Marks",
+        "date": null,
+        "url": null,
+        "fingerprint": "4543c1ab3778"
+      }
+    ],
+    "https://stonepeak.com/news/": [
+      {
+        "title": "CMA CGM and Stonepeak Announce Groundbreaking Terminal Joint Venture, UNITED PORTS LLC",
+        "date": null,
+        "url": "https://stonepeak.com/news/cma-cgm-and-stonepeak-announce-groundbreaking-terminal-joint-venture-united-ports-llc",
+        "fingerprint": "48a5e1c57ca1"
+      },
+      {
+        "title": "Stonepeak to Acquire Majority Controlling Interest in Castrol from bp",
+        "date": null,
+        "url": "https://stonepeak.com/news/stonepeak-to-acquire-majority-controlling-interest-in-castrol-from-bp",
+        "fingerprint": "81f94bfe38a5"
+      },
+      {
+        "title": "Stonepeak to Acquire TeleTower from Providence Portfolio Company Bit\u0117 Group",
+        "date": null,
+        "url": "https://stonepeak.com/news/stonepeak-to-acquire-teletower-from-providence-portfolio-company-bite-group",
+        "fingerprint": "a3dcdcfbebce"
+      },
+      {
+        "title": "Stonepeak to Acquire Allgas",
+        "date": null,
+        "url": "https://stonepeak.com/news/stonepeak-to-acquire-allgas",
+        "fingerprint": "c4784e91e9b2"
+      },
+      {
+        "title": "Stonepeak Portfolio Company Textainer Completes Acquisition of Seaco",
+        "date": null,
+        "url": "https://stonepeak.com/news/stonepeak-portfolio-company-textainer-completes-acquisition-of-seaco",
+        "fingerprint": "36873e063bbb"
+      },
+      {
+        "title": "Repsol advances its renewable energy strategy in the US with a new deal with Stonepeak",
+        "date": null,
+        "url": "https://stonepeak.com/news/repsol-advances-its-renewable-energy-strategy-in-the-us-with-a-new-deal-with-stonepeak",
+        "fingerprint": "6fbee61b15e2"
+      },
+      {
+        "title": "Stonepeak\u2019s Infrastructure Debt Note Begins Trading on the ASX",
+        "date": null,
+        "url": "https://stonepeak.com/news/stonepeaks-infrastructure-debt-note-begins-trading-on-the-asx",
+        "fingerprint": "8949b605a554"
+      },
+      {
+        "title": "IFCO welcomes Stonepeak as new co-investor alongside Triton",
+        "date": null,
+        "url": "https://stonepeak.com/news/ifco-welcomes-stonepeak-as-new-co-investor-alongside-triton",
+        "fingerprint": "919aa6585f66"
+      },
+      {
+        "title": "Stonepeak Launches Peregrine Cold Logistics",
+        "date": null,
+        "url": "https://stonepeak.com/news/stonepeak-launches-peregrine-cold-logistics",
+        "fingerprint": "94869f0ee0f8"
+      },
+      {
+        "title": "Stonepeak Acquires Student Housing Portfolio",
+        "date": null,
+        "url": "https://stonepeak.com/news/stonepeak-acquires-student-housing-portfolio",
+        "fingerprint": "1e4b1f3a64ad"
+      }
+    ],
+    "https://www.oneequity.com/news/": [
+      {
+        "title": "One Equity Partners Agrees to Acquire Bozzetto Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-bozzetto-group/",
+        "fingerprint": "de37b780f598"
+      },
+      {
+        "title": "One Equity Partners Agrees to Sell its Stake in Armis as part of a $7 Billion Transaction",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-sell-its-stake-in-armis-as-part-of-a-7-billion-transaction/",
+        "fingerprint": "f97a97422dce"
+      },
+      {
+        "title": "One Equity Partners Agrees to Acquire Montanhydraulik",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-montanhydraulik/",
+        "fingerprint": "dc434394b1dc"
+      },
+      {
+        "title": "One Equity Partners' Portfolio Company EthosEnergy to Sell Areospace and Defense Business",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-ethosenergy-to-sell-areospace-and-defense-business/",
+        "fingerprint": "1e2948dffc8a"
+      },
+      {
+        "title": "MediaKind and Harmonic's Video Business Set to Combine, Creating a Leading, Independent Video Technology Platform",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/mediakind-and-harmonics-video-business-set-to-combine-creating-a-leading-independent-video-technology-platform/",
+        "fingerprint": "9a8919ea3af0"
+      },
+      {
+        "title": "One Equity Partners Exits Investment in InfuCare Rx",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-exits-investment-in-infucare-rx/",
+        "fingerprint": "59cbd57a09b2"
+      },
+      {
+        "title": "Trustmarque Group and Ultima Business Solutions Complete Merger to Create New Force in UK IT Services Sector",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/trustmarque-group-and-ultima-business-solutions-complete-merger-to-create-new-force-in-uk-it-services-sector/",
+        "fingerprint": "1b4cf6dc2e3d"
+      },
+      {
+        "title": "Brown & Root Industrial Services Agrees to Acquire Specialty Welding and Turnarounds",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/brown-root-industrial-services-agrees-to-acquire-specialty-welding-and-turnarounds/",
+        "fingerprint": "7e216e5a9412"
+      },
+      {
+        "title": "One Equity Partners Agrees to Acquire Majority Stake in Digital Value",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-majority-stake-in-digital-value/",
+        "fingerprint": "e5b4ccad3b81"
+      },
+      {
+        "title": "One Equity Partners Invests in McNICHOLS",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-invests-in-mcnichols/",
+        "fingerprint": "2ac84374b83e"
+      },
+      {
+        "title": "One Equity Partners Named a 'Best Place to Work in Private Equity' by Mergers & Acquisitions",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-named-a-best-place-to-work-in-private-equity-by-mergers-acquisitions/",
+        "fingerprint": "f66877c93343"
+      },
+      {
+        "title": "One Equity Partners Closes $3.25 Billion Fund IX",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-closes-325-billion-fund-ix/",
+        "fingerprint": "f5007094de53"
+      },
+      {
+        "title": "One Equity Partners Agrees to Acquire BARTEC",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-bartec/",
+        "fingerprint": "fe2cd67a8ee0"
+      },
+      {
+        "title": "One Equity Partners Enters Into Agreement to Invest in Brown & Root Industrial Services",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-enters-into-agreement-to-invest-in-brown-root-industrial-services/",
+        "fingerprint": "16cfc1bc41f4"
+      },
+      {
+        "title": "One Equity Partners, Warburg Pincus, and Green Cement Investments to Sell Eco Material Technologies to CRH",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-warburg-pincus-and-green-cement-investments-to-sell-eco-material-technologies-to-crh/",
+        "fingerprint": "8759850fb1b6"
+      },
+      {
+        "title": "One Equity Partners Agrees to Sell BRUSH Group's Power Distribution Business",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-sell-brush-groups-power-distribution-business/",
+        "fingerprint": "a6a56259b5f0"
+      },
+      {
+        "title": "One Equity Partners Agrees to Acquire CraftMark Bakery",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-craftmark-bakery/",
+        "fingerprint": "f35bca4e9662"
+      },
+      {
+        "title": "OEP's Prime Time Healthcare Rebrands to Fortis Healthcare Solutions",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/oeps-prime-time-healthcare-rebrands-to-fortis-healthcare-solutions/",
+        "fingerprint": "3e8c0be25b19"
+      },
+      {
+        "title": "One Equity Partners Wins Mid Cap Deal of the Year",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-wins-mid-cap-deal-of-the-year/",
+        "fingerprint": "e435bd3dbbf0"
+      },
+      {
+        "title": "BluWave Recognizes One Equity Partners with 2025 Top PE Innovator Award",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/bluwave-recognizes-one-equity-partners-with-2025-top-pe-innovator-award/",
+        "fingerprint": "ee9b90a1a08e"
+      },
+      {
+        "title": "One Equity Partners Agrees to Acquire Wheeler Fleet Solutions",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-wheeler-fleet-solutions/",
+        "fingerprint": "89a16cf4c5f8"
+      },
+      {
+        "title": "One Equity Partners Completes Sale of W.W. Williams",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-ww-williams/",
+        "fingerprint": "14d65028d510"
+      },
+      {
+        "title": "One Equity Partners Completes Acquisition of EthosEnergy",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-acquisition-of-ethos-energy/",
+        "fingerprint": "bf4b972862b9"
+      },
+      {
+        "title": "One Equity Partners Completes Investment in Comau, An Italian Industrial Automation Leader",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-investment-in-comau-an-italian-industrial-automation-leader/",
+        "fingerprint": "dfd2eb58980b"
+      },
+      {
+        "title": "One Equity Completes Sale of Dragonfly Financial Technologies to FIS",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-completes-sale-of-dragonfly-financial-technologies-to-fis/",
+        "fingerprint": "3ebddcc659e9"
+      },
+      {
+        "title": "One Equity Partners Completes Sale of Interest in Allegro Microsystems",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-interest-in-allegro-microsystems/",
+        "fingerprint": "4dbc74f41e19"
+      },
+      {
+        "title": "One Equity Partners Acquires Global IT Services Firm, Yorktel",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-acquires-global-it-services-firm-yorktel/",
+        "fingerprint": "26762d311190"
+      },
+      {
+        "title": "One Equity Completes Investment in Sopra GMT Enabling Transformational Combination of Axway and Sopra Banking Software",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-completes-investment-in-sopra-gmt-enabling-transformational-combination-of-axway-and-sopra-banking-software/",
+        "fingerprint": "991cf96b949d"
+      },
+      {
+        "title": "One Equity Partners Agrees to Acquire EthosEnergy",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agreesto-acquire-ethos-energy/",
+        "fingerprint": "1a703b6f7bb5"
+      },
+      {
+        "title": "One Equity Partners Completes Sale of ORS Nasco",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-ors-nasco/",
+        "fingerprint": "52c4a980e9b1"
+      },
+      {
+        "title": "One Equity Partners Invests in Comau to Foster Greater Growth in the Italian Industrial Automation Leader",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-invests-in-comau-to-foster-greater-growth-in-the-italian-industrial-automation-leader/",
+        "fingerprint": "25b957e7bfce"
+      },
+      {
+        "title": "Ballymore Safety Products Acquires DOC Services",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/ballymore-safety-products-acquires-doc-services/",
+        "fingerprint": "925d74ea0eb8"
+      },
+      {
+        "title": "One Equity Partners completes investment in a Italian Ceramic Machinery Manufacturer and Services Provider Gruppo Siti BT",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equitypartnersrandservicesprovidergruppositibt/",
+        "fingerprint": "ae7dc4de18d2"
+      },
+      {
+        "title": "One Equity Partners Completes Acquistion of Ballymore Safety Products",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-acquistion-of-ballymore-safety-products/",
+        "fingerprint": "25360808f03b"
+      },
+      {
+        "title": "One Equity Partners Closes Sale of Walki Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-closes-sale-of-walki-group/",
+        "fingerprint": "1958caeffb42"
+      },
+      {
+        "title": "One Equity Partners Completes Sale of Interest of Crayon Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-interest-of-crayon-group/",
+        "fingerprint": "076be4573ef2"
+      },
+      {
+        "title": "One Equity Partners Completes Acquisition of Associated Spring",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-acquisition-of-associated-spring/",
+        "fingerprint": "03bd70e03bf1"
+      },
+      {
+        "title": "One Equity Partners Invests in Agricultural Tractor Attachment Maker CBM",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-invests-in-agricultural-tractor-attachment-maker-cbm/",
+        "fingerprint": "a6a0038db960"
+      },
+      {
+        "title": "One Equity Partners Completes Acquisition of TechnipFMC's Measurement Solutions Business",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-acquisition-of-technipfmcs-measurement-solutions-business/",
+        "fingerprint": "98a200bcf042"
+      },
+      {
+        "title": "One Equity Partners Acquires Acteon Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-acquires-acteon-group/",
+        "fingerprint": "be4e408b5160"
+      },
+      {
+        "title": "One Equity Partners Completes Sale of Computer Design & Integration to AHEAD",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-computer-design-integration-to-ahead/",
+        "fingerprint": "04b6b613a48a"
+      },
+      {
+        "title": "Greg Belinfanti Appointed President of One Equity Partners; Dick Cashin Continues Full-Time Role As Chairman",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/greg-belinfanti-appointed-president-of-one-equity-partners-dick-cashin-continues-full-time-role-as-chairman/",
+        "fingerprint": "dc02737f8e66"
+      },
+      {
+        "title": "One Equity Partners Agrees to Acquire TechnipFMC's Measurement Solutions Business",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-technipfmcs-measurement-solutions-business/",
+        "fingerprint": "71654118890e"
+      },
+      {
+        "title": "One Equity Partners Agrees to Sell Walki to Japan's Oji Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-sell-walki-to-japans-oji-group/",
+        "fingerprint": "25f6a6a2584a"
+      },
+      {
+        "title": "One Equity Partners to Acquire MSQ Partners, a Marketing & Digital Transformation Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-to-acquire-msq-partners-a-marketing-digital-transformation-group/",
+        "fingerprint": "7baa0831964b"
+      },
+      {
+        "title": "One Equity Partners Closes $1 Billion Continuation Fund Co-led by AlpInvest Partners and HarbourVest Partners",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-closes-1-billion-continuation-fund-co-led-by-alpinvest-partners-and-harbourvest-partners/",
+        "fingerprint": "adc15e4afca7"
+      },
+      {
+        "title": "One Equity Partners completes simultaneous acquisition of Kirey Group and Synergyc with the clear goal to create a Pan-European IT Service champion",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-simultaneous-acquisition-of-kirey-group-and-synergyc-with-the-clear-goal-to-create-a-pan-european-it-service-champion/",
+        "fingerprint": "eec2ebb5ce33"
+      },
+      {
+        "title": "One Equity Partners acquires cloud services provider Liquid Web and forms new holding company, CloudOne Digital",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-acquires-cloud-services-provider-liquid-web-and-forms-new-holding-company-cloudone-digital/",
+        "fingerprint": "ecbfc39f5750"
+      },
+      {
+        "title": "OEP\u2019s Clayens agrees on two transformative North American acquisitions - Parkway Products and Crystal Lake business",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/oeps-clayens-agrees-on-two-transformative-north-american-acquisitions-parkway-products-and-crystal-lake-business/",
+        "fingerprint": "b7e0446177f6"
+      },
+      {
+        "title": "One Equity Partners Receives Industry Recognition",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-receives-industry-recognition/",
+        "fingerprint": "5d9fac5dd368"
+      },
+      {
+        "title": "One Equity Partners Agrees to Make a Strategic Investment in Mythics Emergent Group, Leading IT Solutions Partner to the Public Sector",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-make-a-strategic-investment-in-mythics-emergent-group-leading-it-solutions-partner-to-the-public-sector/",
+        "fingerprint": "9b3e37103b14"
+      },
+      {
+        "title": "One Equity Partners Open Water I Corp. Obtains Stockholder Approval to Terminate Before Year-End",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-open-water-i-corp-obtains-stockholder-approval-to-terminate-before-year-end/",
+        "fingerprint": "1bc9ce63e48f"
+      },
+      {
+        "title": "One Equity Partners Portfolio Company Momentum Manufacturing Group Acquires Evans Industries and Little Enterprises",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-momentum-manufacturing-group-acquires-evans-industries-and-little-enterprises/",
+        "fingerprint": "e2a2d3c063c8"
+      },
+      {
+        "title": "One Equity Partners Open Water I Corp. Files Preliminary Proxy Statement to Obtain Stockholder Approval to Liquidate Early",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-open-water-i-corp-files-preliminary-proxy-statement-to-obtain-stockholder-approval-to-liquidate-early/",
+        "fingerprint": "72e1690d7928"
+      },
+      {
+        "title": "One Equity Partners to Acquire Amey plc, a Leading, UK-Based Engineering Consultancy and Infrastructure Services Provider",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-to-acquire-amey-plc-a-leading-uk-based-engineering-consultancy-and-infrastructure-services-provider/",
+        "fingerprint": "b0daad8e8882"
+      },
+      {
+        "title": "One Equity Partners Completes Sale of BRUSH Group\u2019s Power Generation Business",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-brush-groups-power-generation-business/",
+        "fingerprint": "52f5286fb36a"
+      },
+      {
+        "title": "One Equity Partners Acquires Staffing Company Prime Time Healthcare",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-acquires-staffing-company-prime-time-healthcare/",
+        "fingerprint": "f8e15f9ac8d2"
+      },
+      {
+        "title": "One Equity Partners to Purchase Core Operating Assets of Muehlhan AG",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-to-purchase-core-operating-assets-of-muehlhan-ag/",
+        "fingerprint": "a84c55eddd7a"
+      },
+      {
+        "title": "One Equity Partners Completes the Acquisitions of Gamut and CoxReps from Cox Media Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-the-acquisitions-of-gamut-and-coxreps-from-cox-media-group/",
+        "fingerprint": "4d2faa2445d3"
+      },
+      {
+        "title": "One Equity Partners Announces the Acquisitions of CoxReps and Gamut from Cox Media Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-announces-the-acquisitions-of-coxreps-and-gamut-from-cox-media-group/",
+        "fingerprint": "1bb5aba9e5a1"
+      },
+      {
+        "title": "One Equity Partners Agrees to Sell Power Generation Business of UK\u2019s BRUSH Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-sell-power-generation-business-of-uks-brush-group/",
+        "fingerprint": "939838e0dfc2"
+      },
+      {
+        "title": "One Equity Partners\u2019 Omni Environmental Solutions Merges with Purity Oilfield Services",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-omni-environmental-solutions-merges-with-purity-oilfield-services/",
+        "fingerprint": "e7e9c8ccce79"
+      },
+      {
+        "title": "Infobip Completes Peerless Network Acquisition Strengthening its U.S. and Global Offer",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/infobip-completes-peerless-network-acquisition-strengthening-its-us-and-global-offer/",
+        "fingerprint": "d426d30bab2d"
+      },
+      {
+        "title": "One Equity Partners Agrees to Acquire Precision Metals, Polymers & Composites Maker Clayens Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-precision-metals-polymers-composites-maker-clayens-group/",
+        "fingerprint": "73d7aacd9529"
+      },
+      {
+        "title": "Fortaco Group to be Acquired by One Equity Partners",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/fortaco-group-to-be-acquired-by-one-equity-partners/",
+        "fingerprint": "0df8795158bd"
+      },
+      {
+        "title": "Wood Technologies International acquires Timber Automation",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/wood-technologies-international-acquires-timber-automation/",
+        "fingerprint": "b984f3f7c1af"
+      },
+      {
+        "title": "DESMI, a Danish Manufacturer of Pumping Systems and Environmental Equipment, Sold to One Equity Partners",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/desmi-a-danish-manufacturer-of-pumping-systems-and-environmental-equipment-sold-to-one-equity-partners/",
+        "fingerprint": "63d85ac5b118"
+      },
+      {
+        "title": "One Equity Partners Agrees to Acquire Leading Corporate Banking Technology",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-leading-corporate-banking-technology/",
+        "fingerprint": "4f48f4e47b04"
+      },
+      {
+        "title": "One Equity Partners Completes Investment in React Health, a Leading Sleep Therapy, Respiratory Therapy and Disinfection Products Manufacturer and Distributor",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-investment-in-react-health-a-leading-sleep-therapy-respiratory-therapy-and-disinfection-products-manufacturer-and-distributor/",
+        "fingerprint": "df09692cba06"
+      },
+      {
+        "title": "One Equity Partners Agrees to Sell Rizing to Wipro",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-sell-rizing-to-wipro/",
+        "fingerprint": "1a5423c3d2a6"
+      },
+      {
+        "title": "One Equity Partners Closes $2.75 Billion Private Equity Fund",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-closes-275-billion-private-equity-fund/",
+        "fingerprint": "d3227f759eb3"
+      },
+      {
+        "title": "One Equity Partners to Acquire LKQ Corporation\u2019s PGW Auto Glass Business",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-to-acquire-lkq-corporations-pgw-auto-glass-business/",
+        "fingerprint": "793886fd01e0"
+      },
+      {
+        "title": "AMECO Expands Site Services Offerings with Acquisition of F&M MAFCO",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/ameco-expands-site-services-offerings-with-acquisition-of-fm-mafco/",
+        "fingerprint": "0dedf1cb9c64"
+      },
+      {
+        "title": "One Equity Partners Completes Acquisition of Norit Activated Carbon",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-acquisition-of-norit-activated-carbon/",
+        "fingerprint": "5331531ce519"
+      },
+      {
+        "title": "Eco Material Technologies Created Through Combination of Boral Resources and Green Cement",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/eco-material-technologies-created-through-combination-of-boral-resources-and-green-cement/",
+        "fingerprint": "71a392fa0f31"
+      },
+      {
+        "title": "One Equity Partners to Acquire Trustmarque, a Leading UK IT Solutions Provider",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-to-acquire-trustmarque-a-leading-uk-it-solutions-provider/",
+        "fingerprint": "bebba77dabca"
+      },
+      {
+        "title": "One Equity Partners Completes Investment in InfuCare Rx, a Leading Home Infusion Therapy Provider",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-investment-in-infucare-rx-a-leading-home-infusion-therapy-provider/",
+        "fingerprint": "3b3251dfd690"
+      },
+      {
+        "title": "One Equity Partners to Acquire Rosboro, a Leading Manufacturer of Sustainable Engineered Wood Products",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-to-acquire-rosboro-a-leading-manufacturer-of-sustainable-engineered-wood-products/",
+        "fingerprint": "5702fac0e568"
+      },
+      {
+        "title": "One Equity Partners Completes Merger of Walterscheid Powertrain Group with Comer Industries",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-merger-of-walterscheid-powertrain-group-with-comer-industries/",
+        "fingerprint": "45258de22e9b"
+      },
+      {
+        "title": "One Equity Partners to Acquire Norit Activated Carbon",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-to-acquire-norit-activated-carbon/",
+        "fingerprint": "69f07adb143c"
+      },
+      {
+        "title": "One Equity Partners Invests in Armis, a Leader in Asset Cybersecurity",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-invests-in-armis-a-leader-in-asset-cybersecurity/",
+        "fingerprint": "a66c219c175b"
+      },
+      {
+        "title": "One Equity Partners Completes Simultaneous Acquisitions and Merger of USNR and Wood Fiber Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-simultaneous-acquisitions-and-merger-of-usnr-and-wood-fiber-group/",
+        "fingerprint": "40b7899a184f"
+      },
+      {
+        "title": "One Equity Partners\u2019 Portfolio Company VASS Signs Agreement to Acquire ECENTA",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-vass-signs-agreement-to-acquire-ecenta/",
+        "fingerprint": "2ccb9398d137"
+      },
+      {
+        "title": "One Equity Partners Exits Investment in PS Logistics",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-exits-investment-in-ps-logistics/",
+        "fingerprint": "76324dedc4f7"
+      },
+      {
+        "title": "One Equity Partners Completes Sale of ResultsCX",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-resultscx/",
+        "fingerprint": "dd5f94c67012"
+      },
+      {
+        "title": "One Equity Partners Portfolio Company Spartronics Completes Acquisition of Inovar",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-spartronics-completes-acquisition-of-inovar/",
+        "fingerprint": "aa0520983de7"
+      },
+      {
+        "title": "One Equity Partners\u2019 Portfolio Company Computer Design & Integration Completes Acquisition of Candoris",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-computer-design-integration-completes-acquisition-of-candoris/",
+        "fingerprint": "0353aaf57b6d"
+      },
+      {
+        "title": "One Equity Partners Agrees to Sell Merfish United",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-sell-merfish-united/",
+        "fingerprint": "194764a9751f"
+      },
+      {
+        "title": "One Equity Partners Completes Strategic Investment in Cicor Technologies Ltd.",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-strategic-investment-in-cicor-technologies-ltd/",
+        "fingerprint": "0956fb17c291"
+      },
+      {
+        "title": "One Equity Partners Announces Merger of Portfolio Company Walterscheid Powertrain Group with Comer Industries",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-announces-merger-of-portfolio-company-walterscheid-powertrain-group-with-comer-industries/",
+        "fingerprint": "a3b123623759"
+      },
+      {
+        "title": "One Equity Partners Agrees to Sell OneLink Holdings",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-sell-onelink-holdings/",
+        "fingerprint": "3edadf2daddd"
+      },
+      {
+        "title": "One Equity Partners Completes Acquisition of BRUSH",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-acquisition-of-brush/",
+        "fingerprint": "b162c288cf35"
+      },
+      {
+        "title": "One Equity Partners Completes Sale of INTREN to MasTec Inc.",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-intren-to-mastec-inc/",
+        "fingerprint": "935566848197"
+      },
+      {
+        "title": "Infobip Acquires Anam Technologies - Gold Standard SMS Firewall and Analytics Specialist",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/infobip-acquires-anam-technologies-gold-standard-sms-firewall-and-analytics-specialist/",
+        "fingerprint": "12de0ead7ff2"
+      },
+      {
+        "title": "One Equity Partners Agrees to Acquire AMECO",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-ameco/",
+        "fingerprint": "d22b3fc6b1a3"
+      },
+      {
+        "title": "American Medical Technologies and RestorixHealth Announce Transformational Merger to Create Industry-Leading Advanced Wound Care Management Company",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/american-medical-technologies-and-restorixhealth-announce-transformational-merger-to-create-industry-leading-advanced-wound-care-management-company/",
+        "fingerprint": "03f5540913c7"
+      },
+      {
+        "title": "One Equity Partners Agrees to Sell Lutech",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-sell-lutech/",
+        "fingerprint": "fccce74a4d81"
+      },
+      {
+        "title": "One Equity Partners Portfolio Company, Computer Design & Integration, Completes Acquisition of Kintyre Solutions",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-computer-design-integration-completes-acquisition-of-kintyre-solutions/",
+        "fingerprint": "11b0306ab327"
+      },
+      {
+        "title": "Orion Signs Agreement to Acquire Romania-based Tellence Technologies",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/orion-signs-agreement-to-acquire-romania-based-tellence-technologies/",
+        "fingerprint": "6bcc2ca522c0"
+      },
+      {
+        "title": "One Equity Partners Portfolio Company Spartronics Acquires Primus Technologies",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-spartronics-acquires-primus-technologies/",
+        "fingerprint": "3c80601ac38f"
+      },
+      {
+        "title": "One Equity Partners Completes Sale of NuArx to Sysnet Global Solutions",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-nuarx-to-sysnet-global-solutions/",
+        "fingerprint": "8823267402c8"
+      },
+      {
+        "title": "One Equity Partners Portfolio Company, Computer Design & Integration, Completes Acquisition of High Availability",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-computer-design-integration-completes-acquisition-of-high-availability/",
+        "fingerprint": "e8e430dc3d3b"
+      },
+      {
+        "title": "One Equity Partners Acquires VASS Consultoria de Sistemas",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-acquires-vass-consultoria-de-sistemas/",
+        "fingerprint": "cc1a893d0789"
+      },
+      {
+        "title": "AdaptHealth Corp. Announces Acquisition of National HME Provider Aerocare Holdings Inc. and Updates Financial Guidance For 2021",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/adapthealth-corp-announces-acquisition-of-national-hme-provider-aerocare-holdings-inc-and-updates-financial-guidance-for-2021/",
+        "fingerprint": "b8f19e144b4d"
+      },
+      {
+        "title": "One Equity Partners Completes Sale of Simplura Health Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-simplura-health-group/",
+        "fingerprint": "435f8cdea133"
+      },
+      {
+        "title": "Infobip to Acquire OpenMarket, Creating a Leading Cloud Communications Player With Unparalleled Global Reach",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/infobip-to-acquire-openmarket-creating-a-leading-cloud-communications-player-with-unparalleled-global-reach/",
+        "fingerprint": "02f66658bd81"
+      },
+      {
+        "title": "One Equity Partners Portfolio Company Allegro MicroSystems Inc. Completes Initial Public Offering",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-allegro-microsystems-inc-completes-initial-public-offering/",
+        "fingerprint": "aed6a341498b"
+      },
+      {
+        "title": "One Equity Partners Agrees to Sell Simplura Health Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-sell-simplura-health-group/",
+        "fingerprint": "4dcbe052f262"
+      },
+      {
+        "title": "Allegro MicroSystems Acquires Voxtel, Inc. to Drive LiDAR Solutions for Advanced Automotive Safety Systems",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/allegro-microsystems-acquires-voxtel-inc-to-drive-lidar-solutions-for-advanced-automotive-safety-systems/",
+        "fingerprint": "b02cdefdd209"
+      },
+      {
+        "title": "One Equity Lands First Croatian Deal: Private Briefing",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-lands-first-croatian-deal-private-briefing/",
+        "fingerprint": "08fd8dc0f2e2"
+      },
+      {
+        "title": "One Equity Partners Acquires American Medical Technologies, a National Leader in Advanced Wound Care Management",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-acquires-american-medical-technologies-a-national-leader-in-advanced-wound-care-management/",
+        "fingerprint": "1b0a6fcdfbef"
+      },
+      {
+        "title": "One Equity Partners\u2019 Andrew Dunn and Ante Kusurin share their insights on OEP\u2019s partnership and growth strategy for Infobip",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-andrew-dunn-and-ante-kusurin-share-their-insights-on-oeps-partnership-and-growth-strategy-for-infobip/",
+        "fingerprint": "18968e23856c"
+      },
+      {
+        "title": "One Equity Partners to Make Strategic Investment in Infobip, a Global \u201cCommunications Platform as a Service\u201d Leader",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-to-make-strategic-investment-in-infobip-a-global-communications-platform-as-a-service-leader/",
+        "fingerprint": "7c6d240da8a2"
+      },
+      {
+        "title": "One Equity Partners Completes Acquisition of Spartronics",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-acquisition-of-spartronics/",
+        "fingerprint": "3b8ceae15d8c"
+      },
+      {
+        "title": "One Equity Partners Completes $190 Million Investment in AdaptHealth",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-190-million-investment-in-adapthealth/",
+        "fingerprint": "c8a8ddd3c2c9"
+      },
+      {
+        "title": "PS Logistics Completes Diamond State Trucking Acquisition",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/ps-logistics-completes-diamond-state-trucking-acquisition/",
+        "fingerprint": "6ef3adfad08f"
+      },
+      {
+        "title": "One Equity Partners Appoints R. Todd Bradley as Operating Partner",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-appoints-r-todd-bradley-as-operating-partner/",
+        "fingerprint": "ae88ddc2a48c"
+      },
+      {
+        "title": "OEP in PE Hub: One Equity uses cross-fund investment to grow digital transformation company Orion",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/oep-in-pe-hub-one-equity-uses-cross-fund-investment-to-grow-digital-transformation-company-orion/",
+        "fingerprint": "28a1a165bde5"
+      },
+      {
+        "title": "One Equity Partners\u2019 Portfolio Company, Orion Innovation, Completes Acquisition of Zodiac Systems",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-orion-innovation-completes-acquisition-of-zodiac-systems/",
+        "fingerprint": "2ca43a087b9b"
+      },
+      {
+        "title": "WSJ Pro PE: One Equity-Backed Orion Innovation Seals Add-On Deal Without Personal Contact",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/wsj-pro-pe-one-equity-backed-orion-innovation-seals-add-on-deal-without-personal-contact/",
+        "fingerprint": "58a119bd27ff"
+      },
+      {
+        "title": "One Equity Partners\u2019 Portfolio Company, Orion Innovation, Completes Acquisition of Tekmark Global Solutions",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-orion-innovation-completes-acquisition-of-tekmark-global-solutions/",
+        "fingerprint": "40c31dfaefd4"
+      },
+      {
+        "title": "One Equity Partners to Acquire MCL Computer & Zubeh\u00f6r",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-to-acquire-mcl-computer-zubehor/",
+        "fingerprint": "49a4cc00b915"
+      },
+      {
+        "title": "One Equity Partners Portfolio Company W.W. Williams Acquires CP Company",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-ww-williams-acquires-cp-company/",
+        "fingerprint": "466a2afb174d"
+      },
+      {
+        "title": "One Equity Partners Completes Sale of Specialty Chemicals Leader PeroxyChem for $640 Million",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-specialty-chemicals-leader-peroxychem-for-640-million/",
+        "fingerprint": "7456aaa4a999"
+      },
+      {
+        "title": "One Equity Partners Completes Investment in Computer Design and Integration",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-investment-in-computer-design-and-integration/",
+        "fingerprint": "8c1dffd54b66"
+      },
+      {
+        "title": "One Equity Partners Completes Investment in Nexion",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-investment-in-nexion/",
+        "fingerprint": "196afe01fc22"
+      },
+      {
+        "title": "In Loving Memory of William \u201cBill\u201d Wangerin, Jr., former OEP Managing Director",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/in-loving-memory-of-william-bill-wangerin-jr-former-oep-managing-director/",
+        "fingerprint": "b624a9c67be9"
+      },
+      {
+        "title": "One Equity Partners Completes Carve-Out of ORS MEDCO",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-carve-out-of-ors-medco/",
+        "fingerprint": "2da7fcd60dee"
+      },
+      {
+        "title": "One Equity Partners Closes Fund VII with $1.75 Billion of Total Commitments",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-closes-fund-vii-with-175-billion-of-total-commitments/",
+        "fingerprint": "5c9e92fd50fc"
+      },
+      {
+        "title": "One Equity Partners\u2019 USCO Has Agreed to Acquire a 75% Stake in Strickland Tracks",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-usco-has-agreed-to-acquire-a-75-stake-in-strickland-tracks/",
+        "fingerprint": "3499bec33c72"
+      },
+      {
+        "title": "One Equity Partners Completes Acquisition of Walterscheid Powertrain Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-acquisition-of-walterscheid-powertrain-group/",
+        "fingerprint": "8281a480fc65"
+      },
+      {
+        "title": "One Equity Partners Completes Sale of Anvil International",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-anvil/",
+        "fingerprint": "5c2fad540c80"
+      },
+      {
+        "title": "One Equity Partners' Lutech Group Acquires Leading Systems Integrator DISC",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-lutech-group-acquires-leading-systems-integrator-disc/",
+        "fingerprint": "c992e98a2462"
+      },
+      {
+        "title": "One Equity Partners Agrees to Sell Anvil International",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-sell-anvil-international/",
+        "fingerprint": "7e9d70651b20"
+      },
+      {
+        "title": "One Equity Partners\u2019 PS Logistics Completes Acquisition of Celadon Logistics Services",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-ps-logistics-completes-acquisition-of-celadon-logistics-services/",
+        "fingerprint": "dc1cebfc7e4c"
+      },
+      {
+        "title": "One Equity Partners\u2019 OMNI Environmental Solutions Completes Acquisition of Force Environmental Solutions",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-omni-environmental-solutions-completes-acquisition-of-force-environmental-solutions/",
+        "fingerprint": "caf265bff713"
+      },
+      {
+        "title": "One Equity Partners Completes Sale of Resolute Industrial Holdings",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-resolute-industrial-holdings/",
+        "fingerprint": "b57e37124659"
+      },
+      {
+        "title": "One Equity Partners to Acquire Walterscheid Powertrain Group",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-to-acquire-walterscheid-powertrain-group/",
+        "fingerprint": "e661ddbbb028"
+      },
+      {
+        "title": "One Equity Partners Completes Investment in Strategic Combination of Orion and MERA",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-investment-in-strategic-combination-of-orion-and-mera/",
+        "fingerprint": "ca67871615cd"
+      },
+      {
+        "title": "One Equity Partners\u2019 Merfish Pipe & Supply and United Pipe & Supply Combine Ownership",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-merfish-pipe-supply-and-united-pipe-supply-combine-ownership/",
+        "fingerprint": "762283263a88"
+      },
+      {
+        "title": "One Equity Partners\u2019 Simplura Health Group Acquires Personal In-Home Services",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-simplura-health-group-acquires-personal-in-home-services/",
+        "fingerprint": "0ce9c8892033"
+      },
+      {
+        "title": "One Equity Partners\u2019 Anvil International Acquires Basic-PSA, Inc.",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-anvil-international-acquires-basic-psa-inc/",
+        "fingerprint": "60adada9d3d9"
+      },
+      {
+        "title": "One Equity Partners To Sell Specialty Hydrocarbon Chemicals Company Sonneborn",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-to-sell-specialty-hydrocarbon-chemicals-company-sonneborn/",
+        "fingerprint": "02e07512866f"
+      },
+      {
+        "title": "One Equity Partners to Sell Specialty Chemicals Leader PeroxyChem for $625 Million",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-to-sell-specialty-chemicals-leader-peroxychem-for-625-million/",
+        "fingerprint": "5c6aca3ad7f0"
+      },
+      {
+        "title": "One Equity Partners Acquires Alltub, a Market Leader in Aluminum and Laminate Specialty Packaging",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-acquires-alltub-a-market-leader-in-aluminum-and-laminate-specialty-packaging/",
+        "fingerprint": "e84c4e6a2494"
+      },
+      {
+        "title": "OEP Partners with Orion Business Innovation",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/oep-partners-with-orion-business-innovation/",
+        "fingerprint": "137cdbfaaa51"
+      },
+      {
+        "title": "Rizing Completes Acquisition of 3D Results",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/rizing-completes-acquisition-of-3d-results/",
+        "fingerprint": "9bbe8cd388c3"
+      },
+      {
+        "title": "Simplura Health Group Acquires Helping Hand Home Health & Hospice Agency",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/simplura-health-group-acquires-helping-hand-home-health-hospice-agency/",
+        "fingerprint": "eeba7f9a3c7f"
+      },
+      {
+        "title": "Rizing, LLC Completes Acquisition of Aasonn, LLC",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/rizing-llc-completes-acquisition-of-aasonn-llc/",
+        "fingerprint": "ff7a55a8d27f"
+      },
+      {
+        "title": "Medical Properties Trust, Inc. Agrees to Sell Equity Investment in Ernest Health, Inc. to One Equity Partners",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/medical-properties-trust-inc-agrees-to-sell-equity-investment-in-ernest-health-inc-to-one-equity-partners/",
+        "fingerprint": "eb5e3f9075d4"
+      },
+      {
+        "title": "Simplura Health Group Completes Acquisition of Keystone In-Home Care",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/simplura-health-group-completes-acquisition-of-keystone-in-home-care/",
+        "fingerprint": "897a79530552"
+      },
+      {
+        "title": "One Equity Partners Acquires Gibson U.S. Environmental Services",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-acquires-gibson-us-environmental-services/",
+        "fingerprint": "e7b7fd75b17e"
+      },
+      {
+        "title": "One Equity Partners Acquires ePak Resources",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-acquires-epak-resources/",
+        "fingerprint": "7b30bf108510"
+      },
+      {
+        "title": "One Equity Partners agrees to acquire Walki, a leading producer of technical laminates and protective packaging materials",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-walki-a-leading-producer-of-technical-laminates-and-protective-packaging-materials/",
+        "fingerprint": "d4577fe7c9fe"
+      },
+      {
+        "title": "Sanken North America, Inc., highlights OEP\u2019s ability to drive transformational growth",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/sanken-north-america-inc-highlights-oeps-ability-to-drive-transformational-growth/",
+        "fingerprint": "fea27eb1f66b"
+      },
+      {
+        "title": "One Equity Partners\u2019 Anvil International Acquires FlexHead Industries and SprinkFLEX Assets from Atkore International Group Inc.",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-anvil-international-acquires-flexhead-industries-and-sprinkflex-assets-from-atkore-international-group-inc/",
+        "fingerprint": "4dd76ffec525"
+      },
+      {
+        "title": "One Equity Partners Appoints Norma Corio as Senior Managing Director",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-appoints-norma-corio-as-senior-managing-director/",
+        "fingerprint": "0c9fb80e7605"
+      },
+      {
+        "title": "Simplura Health Group Completes Acquisition of SarahCare of Jenkintown",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/simplura-health-group-completes-acquisition-of-sarahcare-of-jenkintown/",
+        "fingerprint": "4454e267f344"
+      },
+      {
+        "title": "One Equity Partners Enters Into Agreement to Acquire Majority Share in Ericsson Media Solutions",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-enters-into-agreement-to-acquire-majority-share-in-ericsson-media-solutions/",
+        "fingerprint": "9d0de7a874da"
+      },
+      {
+        "title": "Ericsson praises partnership with One Equity Partners",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/ericsson-praises-partnership-with-one-equity-partners/",
+        "fingerprint": "02b449c5956c"
+      },
+      {
+        "title": "One Equity Partners Acquires Rizing, a Leading SAP-Focused Systems Integrator",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-acquires-rizing-a-leading-sap-focused-systems-integrator/",
+        "fingerprint": "bc5f729ee9e0"
+      },
+      {
+        "title": "One Equity Partners Completes Investment in OneLink",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-investment-in-onelink/",
+        "fingerprint": "c083274136ce"
+      },
+      {
+        "title": "BUYOUTS: Five Questions with OEP\u2019s Brad Coppens",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/buyouts-five-questions-with-oeps-brad-coppens/",
+        "fingerprint": "b28c7bd800d9"
+      },
+      {
+        "title": "One Equity Partners Completes Sale of East Balt Bakeries",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-east-balt-bakeries/",
+        "fingerprint": "cf6a0d886625"
+      },
+      {
+        "title": "One Equity Partners Completes $291 Million Investment in Sanken North America",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-291-million-investment-in-sanken-north-america/",
+        "fingerprint": "352b63b8b29f"
+      },
+      {
+        "title": "One Equity Partners Completes Strategic Combination with Neology, Creates Technology Leader in Advanced Tolling Solutions",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-strategic-combination-with-neology-creates-technology-leader-in-advanced-tolling-solutions/",
+        "fingerprint": "69a808ac6a07"
+      },
+      {
+        "title": "One Equity Partners' The Results Companies Acquires USA800",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-the-results-companies-acquires-usa800/",
+        "fingerprint": "da5f8e13b16d"
+      },
+      {
+        "title": "Private Equity News: The Olympians of Private Equity",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/private-equity-news-the-olympians-of-private-equity/",
+        "fingerprint": "6ba6e382cc40"
+      },
+      {
+        "title": "All Metro Health Care Expands Its Presence in Massachusetts Through Acquisition of Independence Healthcare Corp.",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/all-metro-health-care-expands-its-presence-in-massachusetts-through-acquisition-of-independence-healthcare-corp/",
+        "fingerprint": "0e2e6af1407a"
+      },
+      {
+        "title": "One Equity Partners' Resolute Industrial Acquires Tioga HVAC Rentals",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-resolute-industrial-acquires-tioga-hvac-rentals/",
+        "fingerprint": "ff42ec5493a2"
+      },
+      {
+        "title": "One Equity Partners Completes Exit from Netas",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-exit-from-netas/",
+        "fingerprint": "147a871756cb"
+      },
+      {
+        "title": "One Equity Partners' Inna Etinberg featured as a \"Rising Star\" in WSJ Pro Private Equity",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-inna-etinberg-featured-as-a-rising-star-in-wsj-pro-private-equity/",
+        "fingerprint": "dc13212f28f0"
+      },
+      {
+        "title": "Anvil International Acquires Grinnell Grooved Mechanical products in North America from Johnson Controls",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/anvil-international-acquires-grinnell-grooved-mechanical-products-in-north-america-from-johnson-controls/",
+        "fingerprint": "a681583d893b"
+      },
+      {
+        "title": "One Equity Partners Portfolio Company Celltrion Healthcare Goes Public",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-celltrion-healthcare-goes-public/",
+        "fingerprint": "f33ae26842b3"
+      },
+      {
+        "title": "One Equity Partners acquires Lutech, a leading Italian IT system integration and solutions provider",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-acquires-lutech-a-leading-italian-it-system-integration-and-solutions-provider/",
+        "fingerprint": "95ccca77bb1c"
+      },
+      {
+        "title": "One Equity Partners to Sell East Balt Bakeries",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-to-sell-east-balt-bakeries/",
+        "fingerprint": "d5459f742a0d"
+      },
+      {
+        "title": "One Equity Partners Completes Investment in INTREN, Leading Provider of Specialized Services to Major Utilities",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-investment-in-intren-leading-provider-of-specialized-services-to-major-utilities/",
+        "fingerprint": "35022671b498"
+      },
+      {
+        "title": "Sanken North America to Conduct Private Placement of Shares to be Purchased by One Equity Partners for $291 Million",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/sanken-north-america-to-conduct-private-placement-of-shares-to-be-purchased-by-one-equity-partners-for-291-million/",
+        "fingerprint": "990881bae19f"
+      },
+      {
+        "title": "One Equity Partners Completes Acquisition of SGB-SMIT, the Largest Independent, Pure-Play Power Transformer Manufacturer",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-acquisition-of-sgb-smit-the-largest-independent-pure-play-power-transformer-manufacturer/",
+        "fingerprint": "373410c71106"
+      },
+      {
+        "title": "MERGERS & ACQUISITIONS Private Equity Special Report: 10 young and thriving firms worth watching",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/mergers-acquisitions-private-equity-special-report-10-young-and-thriving-firms-worth-watching/",
+        "fingerprint": "8a3ca2eb19c6"
+      },
+      {
+        "title": "One Equity Partners Portfolio Company Anvil International Acquires AFCON",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-anvil-international-acquires-afcon/",
+        "fingerprint": "1c665356ecd4"
+      },
+      {
+        "title": "One Equity Partners Completes Investment in USCO, Partnering with Founder to Pursue Strategic Acquisitions",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-investment-in-usco-partnering-with-founder-to-pursue-strategic-acquisitions/",
+        "fingerprint": "ad102ed231df"
+      },
+      {
+        "title": "One Equity Partners Grows W.W. Williams through Acquisition of Auto Safety House",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-grows-ww-williams-through-acquisition-of-auto-safety-house/",
+        "fingerprint": "9a2169174eed"
+      },
+      {
+        "title": "One Equity Partners Closes on $1.65 Billion for Fund VI",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-closes-on-165-billion-for-fund-vi/",
+        "fingerprint": "f8abbdd4c558"
+      },
+      {
+        "title": "One Equity Partners Completes Acquisition of Anvil International, LLC Corporate Carve-out of Market Leader",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-completes-acquisition-of-anvil-international-llc-corporate-carve-out-of-market-leader/",
+        "fingerprint": "f219afc2b5e6"
+      },
+      {
+        "title": "One Equity Partners Grows W.W. Williams through Acquisition of Desert Fleet-Serv Inc.",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-grows-ww-williams-through-acquisition-of-desert-fleet-serv-inc/",
+        "fingerprint": "1332158185d1"
+      },
+      {
+        "title": "One Equity Partners Portfolio Company All Metro Health Care Acquires Multicultural Home Care",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-all-metro-health-care-acquires-multicultural-home-care/",
+        "fingerprint": "14de0e118aae"
+      },
+      {
+        "title": "SMARTRAC Accelerates Technological Transformation in RFID & IoT Industry with Sale of its Secure ID & Transactions Business",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/smartrac-accelerates-technological-transformation-in-rfid-amp-iot-industry-with-sale-of-its-secure-id-amp-transactions-business/",
+        "fingerprint": "89536117e8dd"
+      },
+      {
+        "title": "Duran Group, a Global Leader in Laboratory Glass, Acquires Kimble Chase Life Science & Research Products",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/duran-group-a-global-leader-in-laboratory-glass-acquires-kimble-chase-life-science-research-products/",
+        "fingerprint": "1a3a92a8b8fc"
+      },
+      {
+        "title": "One Equity Partners Invests In The W.W. Williams Company",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-invests-in-the-ww-williams-company/",
+        "fingerprint": "7dc6d9579fb8"
+      },
+      {
+        "title": "The Results Companies Announces Acquisition of Corporate Call Center, Inc",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/the-results-companies-announces-acquisition-of-corporate-call-center-inc/",
+        "fingerprint": "55fe0f6e8180"
+      },
+      {
+        "title": "Alorica to Acquire EGS",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/alorica-to-acquire-egs/",
+        "fingerprint": "a07d72ae9fee"
+      },
+      {
+        "title": "OEP acquires All Metro Health Care Services (All Metro)",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/oep-acquires-all-metro-health-care-services-all-metro/",
+        "fingerprint": "82b037e47ec2"
+      },
+      {
+        "title": "OEP Invests in The Results Companies and TLK Merger",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/oep-invests-in-the-results-companies-and-tlk-merger/",
+        "fingerprint": "f6f36a07e683"
+      },
+      {
+        "title": "One Equity Partners acquires 3M's Library Systems Business",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-acquires-3ms-library-systems-business/",
+        "fingerprint": "3e2e6c18ef98"
+      },
+      {
+        "title": "One Equity Partners acquired Wheaton Industries, Inc.",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-acquired-wheaton-industries-inc/",
+        "fingerprint": "15f395f4f27e"
+      },
+      {
+        "title": "One Equity Partners Invests In Zodiac Interactive",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-invests-in-zodiac-interactive/",
+        "fingerprint": "f2ba32ad231a"
+      },
+      {
+        "title": "One Equity Partners expands presence in technology and technology enabled services markets",
+        "date": "02.09.26",
+        "url": "https://www.oneequity.com/news/one-equity-partners-expands-presence-in-technology-and-technology-enabled-services-markets/",
+        "fingerprint": "e4fc39418b6e"
       }
     ]
   }

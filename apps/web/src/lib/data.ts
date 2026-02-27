@@ -683,6 +683,7 @@ function isValidPortfolioEntry(name: string, fundSlug: string): boolean {
   // "Banking on software" ✗ | "Making investing simpler with X" ✗ | "Bending Spoons" ✓
   if (/^[A-Z][a-z]+ing\s+(?:on|in|into|with|for|new|big|the|a|an)\s/i.test(trimmed)) return false;
   if (/^[A-Z][a-z]+ing\s+\w+\s+\w*\s*(?:with|for|in|into)\s/i.test(trimmed)) return false;
+  if (/^[A-Z][a-z]+ing\s+.+\b(?:across|through|throughout|toward|towards|via|among|between)\b/i.test(trimmed)) return false;
 
   // Reject description-like text ("Leading provider of...", "A leading...", "One of the...", "Global leader in...")
   if (/^(?:A\s+)?leading\s+/i.test(trimmed)) return false;
@@ -693,6 +694,28 @@ function isValidPortfolioEntry(name: string, fundSlug: string): boolean {
 
   // Reject Italian investment-category headings
   if (/^Investimenti\s/i.test(trimmed)) return false;
+
+  // Reject sentence-like editorial/news titles frequently misparsed as company names.
+  if (/\bfeatured\s+on\b/i.test(trimmed)) return false;
+  if (/\bpodcast\b/i.test(trimmed)) return false;
+  if (/^The\s+\w+\s+of\s+the\s+/i.test(trimmed)) return false;
+
+  // Reject single-word editorial/category labels.
+  const GENERIC_SINGLE_WORD_REJECTS = new Set([
+    'acquisitions',
+    'acquisition',
+    'insights',
+    'insight',
+    'investments',
+    'investment',
+    'announcements',
+    'announcement',
+    'news',
+    'newsroom',
+    'podcast',
+    'resources',
+  ]);
+  if (!/\s/.test(trimmed) && GENERIC_SINGLE_WORD_REJECTS.has(trimmed.toLowerCase())) return false;
 
   // Reject sector/industry category names (exact match, case-insensitive)
   const SECTOR_NAMES = new Set([
@@ -715,11 +738,11 @@ function isValidPortfolioEntry(name: string, fundSlug: string): boolean {
   ]);
   if (SECTOR_NAMES.has(trimmed.toLowerCase())) return false;
 
-  // Reject concatenated words >15 chars containing portfolio/company substrings
+  // Reject concatenated words containing editorial/navigation fragments.
   // Catches "Ourportfoliocompanies", "Investmentportfolio", etc.
-  if (!/\s/.test(trimmed) && trimmed.length > 15) {
+  if (!/\s/.test(trimmed) && trimmed.length >= 12) {
     const lower = trimmed.toLowerCase();
-    if (/portfolio|company|companies|investment|ourport/.test(lower)) return false;
+    if (/portfolio|company|companies|invest(?:ment|ing)|ourport|insight|acquisit|announc|podcast|news|press/.test(lower)) return false;
   }
 
   // Reject known UI/nav patterns (case-insensitive)
@@ -926,6 +949,8 @@ function isValidPortfolioEntry(name: string, fundSlug: string): boolean {
 
     // Single generic navigation words (Zest Group, others)
     /^news$/i,
+    /^insights$/i,
+    /^acquisitions$/i,
     /^innovation$/i,
     /^content\s+hub$/i,
     /^the\s*hub$/i,
@@ -1026,6 +1051,8 @@ function isValidPortfolioEntry(name: string, fundSlug: string): boolean {
     /\bchiude\s+un\s+round\b/i,
     /\bcloses?\s+(?:a\s+)?(?:CHF|EUR|USD|GBP|[€$£])\b/i,
     /\bpre-seed\s+(?:funding\s+)?round\b/i,
+    /\bfeatured\s+on\b/i,
+    /\bpodcast\b/i,
 
     // Italian corporate instruction text (sviluppo-imprese-centro-italia-sgr)
     /\bimpresa\s+target\b/i,

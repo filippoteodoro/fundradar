@@ -52482,7 +52482,7 @@
         "fondo-italiano-d-investimento-sgr"
       ],
       "signal_type": "people_move",
-      "title": "Fondo Italiano d'Investimento sgr, CIO Giampaolo Di Dio leaves",
+      "title": "Fondo Italiano d'Investimento SGR, CIO Giampaolo Di Dio leaves",
       "what_changed": "Giampaolo Di Dio is stepping down as CIO of Fondo Italiano d'Investimento sgr, a management company with over \u20ac4 billion in assets, 55% owned by CDP Equity (Cassa Depositi e Prestiti) and partly owned by UniCredit, Intesa Sanpaolo, ENPAM/ENPAIA Foundations, ABI, Banco BPM, and BPER Banca. This is news of a management change, not an M&A transaction.",
       "source_url": "https://bebeez.it/manager-2/fondo-italiano-dinvestimento-sgr-il-cio-giampaolo-di-dio-se-ne-va/",
       "source_name": "BeBeez",
@@ -52508,7 +52508,7 @@
         "locations": []
       },
       "what_changed_original": "Giampaolo Di Dio lascia il ruolo di CIO di Fondo Italiano d\u2019Investimento sgr, societ\u00e0 di gestione con oltre \u20ac4 miliardi di asset controllata al 55% da CDP Equity (Cassa Depositi e Prestiti) e partecipata da UniCredit, Intesa Sanpaolo, Fondazioni ENPAM/ENPAIA, ABI, Banco BPM e BPER Banca. Notizia su un cambio manageriale, non un\u2019operazione M&A.",
-      "title_original": "Fondo Italiano d\u2019Investimento sgr, CIO Giampaolo Di Dio leaves"
+      "title_original": "Fondo Italiano d'Investimento sgr, CIO Giampaolo Di Dio leaves"
     },
     {
       "id": "rss-signal-00153",
@@ -52935,7 +52935,1527 @@
         ],
         "locations": []
       }
+    },
+    {
+      "id": "web-signal-01961",
+      "fund_id": "",
+      "fund_slug": "apax-partners",
+      "signal_type": "deal_announced",
+      "title": "iD Fresh Food added to Apax Partners portfolio",
+      "what_changed": "iD Fresh Food added to Apax Partners portfolio",
+      "source_url": "https://www.apax.com/partnerships/",
+      "source_name": "Apax Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:19:56.109743+00:00",
+      "created_at": "2026-02-27T08:19:56.109743+00:00",
+      "snapshot_id": "snap-20260227081953-687af4bc",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "iD Fresh Food"
+        ],
+        "people": [
+          "Fresh Food"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01962",
+      "fund_id": "",
+      "fund_slug": "h-i-g-capital",
+      "signal_type": "other",
+      "title": "H.I.G. WhiteHorse Europe Hires Andy Armah-Kwantreng and Marimba Odundo-Mendez to Lead Its UK Direct Lending Platform",
+      "what_changed": "LONDON \u2013 February 23, 2026 \u2013 H.I.G. WhiteHorse, the credit affiliate of H.I.G. Capital (\u201cH.I.G.\u201d), a leading global alternative investment firm with $74 billion of capital under management, is pleased to announce that it has hired Andy Armah-Kwantreng as Managing \u2026Read More",
+      "source_url": "https://higeurope.com/news/h-i-g-whitehorse-europe-hires-andy-armah-kwantreng-and-marimba-odundo-mendez-to-lead-its-uk-direct-lending-platform/",
+      "source_name": "H.I.G. Capital",
+      "published_at": "2026-02-23",
+      "observed_at": "2026-02-27T08:22:31.851311+00:00",
+      "created_at": "2026-02-27T08:22:31.851311+00:00",
+      "snapshot_id": "snap-20260227082231-fff3abf2",
+      "diff_summary": "New news item detected (dated February 23, 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Direct Lending Platform",
+          "Read More",
+          "Andy Armah",
+          "Marimba Odundo",
+          "Lead Its",
+          "Europe Hires Andy"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01963",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "deal_announced",
+      "title": "Lumos Fiber added to EQT portfolio (Digital)",
+      "what_changed": "Lumos Fiber added to EQT portfolio (Digital)",
+      "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:22:40.365548+00:00",
+      "created_at": "2026-02-27T08:22:40.365548+00:00",
+      "snapshot_id": "snap-20260227082155-6500e4d6",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Lumos Fiber"
+        ],
+        "people": [
+          "Lumos Fiber Digital"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01964",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "exit_announced",
+      "title": "EQT exits remaining stake in Azelis Group",
+      "what_changed": "New announcement: EQT exits remaining stake in Azelis Group",
+      "source_url": "https://www.eqtgroup.com/news/eqt-exits-remaining-stake-in-azelis-group-2026-02-26",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:22:41.562472+00:00",
+      "created_at": "2026-02-27T08:22:41.562472+00:00",
+      "snapshot_id": "snap-20260227082241-be32a7d6",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Azelis Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01965",
+      "fund_id": "",
+      "fund_slug": "itago",
+      "signal_type": "deal_announced",
+      "title": "OPERAMED S.R.L added to Itago portfolio",
+      "what_changed": "OPERAMED S.R.L added to Itago portfolio",
+      "source_url": "https://www.itagopartners.it/investments",
+      "source_name": "Itago",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:22:42.982367+00:00",
+      "created_at": "2026-02-27T08:22:42.982367+00:00",
+      "snapshot_id": "snap-20260227082242-ff2c8280",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SRL"
+      ],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "OPERAMED S.R.L"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01966",
+      "fund_id": "",
+      "fund_slug": "itago",
+      "signal_type": "deal_announced",
+      "title": "FORNO D\u2019ASOLO S.P.A added to Itago portfolio",
+      "what_changed": "FORNO D\u2019ASOLO S.P.A added to Itago portfolio",
+      "source_url": "https://www.itagopartners.it/investments",
+      "source_name": "Itago",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:22:42.982367+00:00",
+      "created_at": "2026-02-27T08:22:42.982367+00:00",
+      "snapshot_id": "snap-20260227082242-ff2c8280",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SPA"
+      ],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "FORNO D\u2019ASOLO S.P.A"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01967",
+      "fund_id": "",
+      "fund_slug": "itago",
+      "signal_type": "deal_announced",
+      "title": "LAFERT S.P.A added to Itago portfolio",
+      "what_changed": "LAFERT S.P.A added to Itago portfolio",
+      "source_url": "https://www.itagopartners.it/investments",
+      "source_name": "Itago",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:22:42.982367+00:00",
+      "created_at": "2026-02-27T08:22:42.982367+00:00",
+      "snapshot_id": "snap-20260227082242-ff2c8280",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SPA"
+      ],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "LAFERT S.P.A"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01968",
+      "fund_id": "",
+      "fund_slug": "carlyle",
+      "signal_type": "other",
+      "title": "Carlyle Presents Growth Outlook at 2026 Shareholder Update",
+      "what_changed": "New announcement: Carlyle Presents Growth Outlook at 2026 Shareholder Update",
+      "source_url": "https://www.carlyle.com/media-room/news-release-archive/carlyle-presents-growth-outlook-2026-shareholder-update",
+      "source_name": "Carlyle",
+      "published_at": "2026-02-26",
+      "observed_at": "2026-02-27T08:22:46.055512+00:00",
+      "created_at": "2026-02-27T08:22:46.055512+00:00",
+      "snapshot_id": "snap-20260227082245-b3e9bc2c",
+      "diff_summary": "New news item detected (dated 2026-02-26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Shareholder Update",
+          "Carlyle Presents Growth"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01969",
+      "fund_id": "",
+      "fund_slug": "montefiore",
+      "signal_type": "deal_announced",
+      "title": "European Camping Group added to Montefiore Investment portfolio (Leisure & Tourism)",
+      "what_changed": "European Camping Group added to Montefiore Investment portfolio (Leisure & Tourism)",
+      "source_url": "https://montefiore.eu/en/portfolio/",
+      "source_name": "Montefiore Investment",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:23:07.699427+00:00",
+      "created_at": "2026-02-27T08:23:07.699427+00:00",
+      "snapshot_id": "snap-20260227082303-0b4c0c3e",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "European Camping Group"
+        ],
+        "people": [
+          "European Camping Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01970",
+      "fund_id": "",
+      "fund_slug": "bridgepoint",
+      "signal_type": "people_move",
+      "title": "New team members: Dawit Johannes (+2 more)",
+      "what_changed": "New team members: Dawit Johannes (DirectorLondon), J. B. Kiley (Managing DirectorNew York), Michael Towers (Investment DirectorLondon)",
+      "source_url": "https://www.bridgepointgroup.com/about-us/our-people",
+      "source_name": "Bridgepoint",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:23:28.449409+00:00",
+      "created_at": "2026-02-27T08:23:28.449409+00:00",
+      "snapshot_id": "snap-20260227082310-b09e37c4",
+      "diff_summary": "3 new team members via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Dawit Johannes",
+          "J. B. Kiley",
+          "Michael Towers"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01971",
+      "fund_id": "",
+      "fund_slug": "kkr",
+      "signal_type": "deal_announced",
+      "title": "ReliaQuest LLC added to KKR portfolio (Information Technology)",
+      "what_changed": "ReliaQuest LLC added to KKR portfolio (Information Technology)",
+      "source_url": "https://www.kkr.com/invest/portfolio",
+      "source_name": "KKR",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:23:30.118865+00:00",
+      "created_at": "2026-02-27T08:23:30.118865+00:00",
+      "snapshot_id": "snap-20260227082256-9683ffac",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "ReliaQuest LLC"
+        ],
+        "people": [
+          "Information Technology Cyber"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01972",
+      "fund_id": "",
+      "fund_slug": "kkr",
+      "signal_type": "deal_announced",
+      "title": "SK E&S added to KKR portfolio (Energy)",
+      "what_changed": "SK E&S added to KKR portfolio (Energy)",
+      "source_url": "https://www.kkr.com/invest/portfolio",
+      "source_name": "KKR",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:23:30.118865+00:00",
+      "created_at": "2026-02-27T08:23:30.118865+00:00",
+      "snapshot_id": "snap-20260227082256-9683ffac",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "SK ES"
+        ],
+        "people": [
+          "Energy An"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01973",
+      "fund_id": "",
+      "fund_slug": "oakley-capital",
+      "signal_type": "other",
+      "title": "From Local Champions to Market Leaders: Unlocking the DACH Business Services sector",
+      "what_changed": "New announcement: From Local Champions to Market Leaders: Unlocking the DACH Business Services sector",
+      "source_url": "https://www.oakleycapital.com/news-and-insights/from-local-champions-to-market-leaders-unlocking-the-dach-business-services-sector",
+      "source_name": "Oakley Capital",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:23:48.029470+00:00",
+      "created_at": "2026-02-27T08:23:48.029470+00:00",
+      "snapshot_id": "snap-20260227082347-9c409e53",
+      "diff_summary": "New news item detected (dated 26.02.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "From Local Champions",
+          "Business Services",
+          "Market Leaders"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01974",
+      "fund_id": "",
+      "fund_slug": "quadrivio-group",
+      "signal_type": "people_move",
+      "title": "New team members: Francesco Profumo (+33 more)",
+      "what_changed": "New team members: Francesco Profumo (Presidente), Philippe Franchet (Managing Partner), Fabio Boschi (Managing Partner), Filippo Cavalli (Partner), Martino Rocca (COO e Senior Investment Manager di Quadrivio Group) (+29 more)",
+      "source_url": "https://www.quadriviogroup.com/it/about/people",
+      "source_name": "Quadrivio Group",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:23:58.789724+00:00",
+      "created_at": "2026-02-27T08:23:58.789724+00:00",
+      "snapshot_id": "snap-20260227082354-1b7f4e5a",
+      "diff_summary": "34 new team members via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Francesco Profumo",
+          "Philippe Franchet",
+          "Fabio Boschi",
+          "Filippo Cavalli",
+          "Martino Rocca",
+          "Vincenzo Esposito",
+          "Riccardo Bruno",
+          "Marco De Alfaro",
+          "Michael Von Liechtenstein",
+          "Riccardo Palmisano",
+          "Giovanni Ronca",
+          "Alberto Sangiovanni Vincentelli",
+          "Giorgio Metta",
+          "Christian Parmigiani",
+          "Diego Chiavarelli",
+          "Marco Massini",
+          "Valentina Di Rienzo",
+          "Giacomo Gerosa",
+          "Flavio Ponticello",
+          "Federico Cracco",
+          "Valerio Neri",
+          "Massimo Fontana",
+          "Leonardo Zorza",
+          "Giovanni Maria Pagano",
+          "Oliver Ghezzi",
+          "Alix Robinson",
+          "Riccardo Milani",
+          "Simona Spinelli",
+          "Tarek Elkhereiji",
+          "Elisabetta Marchiolo",
+          "Alessandro D'Orazio",
+          "Gianluca Piccioni",
+          "Francesco Alfano",
+          "Claudine Cosulich"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00158",
+      "fund_id": "",
+      "fund_slug": "eos-im",
+      "related_fund_slugs": [
+        "eos-im",
+        "permira"
+      ],
+      "signal_type": "other",
+      "title": "The week's personnel changes. News from Permira, Andersen Italia, BIP Law and Tax, EOS IM, and Consulbrokers.",
+      "what_changed": "The week's personnel changes. News from Permira, Andersen Italia, BIP Law and Tax, EOS IM, and Consulbrokers.",
+      "source_url": "https://bebeez.it/manager-2/i-giri-di-poltrone-della-settimana-notizie-da-permira-andersen-italia-bip-law-and-tax-eos-im-consulbrokers/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-27T06:55:14+00:00",
+      "observed_at": "2026-02-27T08:27:22.031536+00:00",
+      "created_at": "2026-02-27T08:27:22.031536+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "I giri di poltrone della settimana. Notizie da Permira, Andersen Italia, BIP Law and Tax, EOS IM, Consulbrokers",
+      "title_original": "I giri di poltrone della settimana. Notizie da Permira, Andersen Italia, BIP Law and Tax, EOS IM, Consulbrokers"
+    },
+    {
+      "id": "rss-signal-00159",
+      "fund_id": "",
+      "fund_slug": "permira",
+      "related_fund_slugs": [
+        "eos-im",
+        "permira"
+      ],
+      "signal_type": "other",
+      "title": "The week's personnel changes. News from Permira, Andersen Italia, BIP Law and Tax, EOS IM, and Consulbrokers.",
+      "what_changed": "The week's personnel changes. News from Permira, Andersen Italia, BIP Law and Tax, EOS IM, and Consulbrokers.",
+      "source_url": "https://bebeez.it/manager-2/i-giri-di-poltrone-della-settimana-notizie-da-permira-andersen-italia-bip-law-and-tax-eos-im-consulbrokers/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-27T06:55:14+00:00",
+      "observed_at": "2026-02-27T08:27:22.031536+00:00",
+      "created_at": "2026-02-27T08:27:22.031536+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "I giri di poltrone della settimana. Notizie da Permira, Andersen Italia, BIP Law and Tax, EOS IM, Consulbrokers",
+      "title_original": "I giri di poltrone della settimana. Notizie da Permira, Andersen Italia, BIP Law and Tax, EOS IM, Consulbrokers"
+    },
+    {
+      "id": "rss-signal-00160",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "other",
+      "title": "Proxima Fusion, \u20ac2 billion for the first commercial fusion power plant. The Free State of Bavaria covers 20%, the company also",
+      "what_changed": "Proxima Fusion, \u20ac2 billion for the first commercial fusion power plant. The Free State of Bavaria covers 20%, the company also",
+      "source_url": "https://bebeez.it/venture-capital/proxima-fusion-2-mld-di-euro-per-la-prima-centrale-elettrica-a-fusione-commerciale-lo-stato-libero-di-baviera-copre-il-20-la-societa-anche/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-27T06:54:25+00:00",
+      "observed_at": "2026-02-27T08:27:22.031536+00:00",
+      "created_at": "2026-02-27T08:27:22.031536+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "proxima fusion",
+          "fusion"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Proxima Fusion, 2 mld euro per la prima centrale elettrica a fusione commerciale. Lo Stato Libero di Baviera copre il 20%, la societ\u00e0 anche",
+      "title_original": "Proxima Fusion, 2 mld euro per la prima centrale elettrica a fusione commerciale. Lo Stato Libero di Baviera copre il 20%, la societ\u00e0 anche"
+    },
+    {
+      "id": "rss-signal-00161",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "related_fund_slugs": [
+        "wise-equity-sgr"
+      ],
+      "signal_type": "other",
+      "title": "The Wise Equity VI fund, on its sixth investment, signs agreement to acquire Fas (vending machines) from the Adriani family",
+      "what_changed": "The Wise Equity VI fund, on its sixth investment, signs agreement to acquire Fas (vending machines) from the Adriani family",
+      "source_url": "https://bebeez.it/private-equity/il-fondo-wise-equity-vi-al-suo-sesto-investimento-firma-accordo-per-acquisire-fas-distributori-automatici-dalla-famiglia-adriani/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-27T06:46:07+00:00",
+      "observed_at": "2026-02-27T08:27:22.031536+00:00",
+      "created_at": "2026-02-27T08:27:22.031536+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "fas international"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Il fondo Wise Equity VI, al suo sesto investimento, firma accordo per acquisire Fas (distributori automatici) dalla famiglia Adriani",
+      "title_original": "Il fondo Wise Equity VI, al suo sesto investimento, firma accordo per acquisire Fas (distributori automatici) dalla famiglia Adriani"
+    },
+    {
+      "id": "rss-signal-00162",
+      "fund_id": "",
+      "fund_slug": "equita-capital-sgr",
+      "related_fund_slugs": [
+        "equita-capital-sgr"
+      ],
+      "signal_type": "other",
+      "title": "Equita Green Impact Fund to develop two 53.6 MW wind farms in Basilicata",
+      "what_changed": "Equita Green Impact Fund to develop two 53.6 MW wind farms in Basilicata",
+      "source_url": "https://bebeez.it/greenbeez/equita-green-impact-fund-sviluppera-due-parchi-eolici-in-basilicata-da-536-mw/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-27T06:38:39+00:00",
+      "observed_at": "2026-02-27T08:27:22.031536+00:00",
+      "created_at": "2026-02-27T08:27:22.031536+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Equita Green Impact Fund svilupper\u00e0 due parchi eolici in Basilicata da 53,6 MW",
+      "title_original": "Equita Green Impact Fund svilupper\u00e0 due parchi eolici in Basilicata da 53,6 MW"
+    },
+    {
+      "id": "web-signal-01975",
+      "fund_id": "",
+      "fund_slug": "oaktree-capital-management",
+      "signal_type": "other",
+      "title": "Memos From Howard Marks",
+      "what_changed": "New announcement: Memos From Howard Marks",
+      "source_url": "",
+      "source_name": "Oaktree Capital Management",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:51.066684+00:00",
+      "created_at": "2026-02-27T08:43:51.066684+00:00",
+      "snapshot_id": "snap-20260227084350-f28eb0e4",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Memos From Howard"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01976",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "people_move",
+      "title": "CMA CGM and Stonepeak Announce Groundbreaking Terminal Joint Venture, UNITED PORTS LLC",
+      "what_changed": "New announcement: CMA CGM and Stonepeak Announce Groundbreaking Terminal Joint Venture, UNITED PORTS LLC",
+      "source_url": "https://stonepeak.com/news/cma-cgm-and-stonepeak-announce-groundbreaking-terminal-joint-venture-united-ports-llc",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:51.271407+00:00",
+      "created_at": "2026-02-27T08:43:51.271407+00:00",
+      "snapshot_id": "snap-20260227084351-490bd811",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Stonepeak Announce Groundbreaking",
+          "Terminal Joint Venture"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01977",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "deal_announced",
+      "title": "Stonepeak to Acquire Majority Controlling Interest in Castrol from bp",
+      "what_changed": "New announcement: Stonepeak to Acquire Majority Controlling Interest in Castrol from bp",
+      "source_url": "https://stonepeak.com/news/stonepeak-to-acquire-majority-controlling-interest-in-castrol-from-bp",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:51.271407+00:00",
+      "created_at": "2026-02-27T08:43:51.271407+00:00",
+      "snapshot_id": "snap-20260227084351-490bd811",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Acquire Majority Controlling"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01978",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "deal_announced",
+      "title": "Stonepeak to Acquire TeleTower from Providence Portfolio Company Bit\u0117 Group",
+      "what_changed": "New announcement: Stonepeak to Acquire TeleTower from Providence Portfolio Company Bit\u0117 Group",
+      "source_url": "https://stonepeak.com/news/stonepeak-to-acquire-teletower-from-providence-portfolio-company-bite-group",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:51.271407+00:00",
+      "created_at": "2026-02-27T08:43:51.271407+00:00",
+      "snapshot_id": "snap-20260227084351-490bd811",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Providence Portfolio Company"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01979",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "deal_announced",
+      "title": "Stonepeak to Acquire Allgas",
+      "what_changed": "New announcement: Stonepeak to Acquire Allgas",
+      "source_url": "https://stonepeak.com/news/stonepeak-to-acquire-allgas",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:51.271407+00:00",
+      "created_at": "2026-02-27T08:43:51.271407+00:00",
+      "snapshot_id": "snap-20260227084351-490bd811",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Acquire Allgas"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01980",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "deal_announced",
+      "title": "Stonepeak Portfolio Company Textainer Completes Acquisition of Seaco",
+      "what_changed": "New announcement: Stonepeak Portfolio Company Textainer Completes Acquisition of Seaco",
+      "source_url": "https://stonepeak.com/news/stonepeak-portfolio-company-textainer-completes-acquisition-of-seaco",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:51.271407+00:00",
+      "created_at": "2026-02-27T08:43:51.271407+00:00",
+      "snapshot_id": "snap-20260227084351-490bd811",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Stonepeak Portfolio Company",
+          "Textainer Completes Acquisition"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01981",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "deal_announced",
+      "title": "Repsol advances its renewable energy strategy in the US with a new deal with Stonepeak",
+      "what_changed": "New announcement: Repsol advances its renewable energy strategy in the US with a new deal with Stonepeak",
+      "source_url": "https://stonepeak.com/news/repsol-advances-its-renewable-energy-strategy-in-the-us-with-a-new-deal-with-stonepeak",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:51.271407+00:00",
+      "created_at": "2026-02-27T08:43:51.271407+00:00",
+      "snapshot_id": "snap-20260227084351-490bd811",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01982",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "other",
+      "title": "Stonepeak\u2019s Infrastructure Debt Note Begins Trading on the ASX",
+      "what_changed": "New announcement: Stonepeak\u2019s Infrastructure Debt Note Begins Trading on the ASX",
+      "source_url": "https://stonepeak.com/news/stonepeaks-infrastructure-debt-note-begins-trading-on-the-asx",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:51.271407+00:00",
+      "created_at": "2026-02-27T08:43:51.271407+00:00",
+      "snapshot_id": "snap-20260227084351-490bd811",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Infrastructure Debt Note",
+          "Begins Trading"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01983",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "people_move",
+      "title": "IFCO welcomes Stonepeak as new co-investor alongside Triton",
+      "what_changed": "New announcement: IFCO welcomes Stonepeak as new co-investor alongside Triton",
+      "source_url": "https://stonepeak.com/news/ifco-welcomes-stonepeak-as-new-co-investor-alongside-triton",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:51.271407+00:00",
+      "created_at": "2026-02-27T08:43:51.271407+00:00",
+      "snapshot_id": "snap-20260227084351-490bd811",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01984",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "other",
+      "title": "Stonepeak Launches Peregrine Cold Logistics",
+      "what_changed": "New announcement: Stonepeak Launches Peregrine Cold Logistics",
+      "source_url": "https://stonepeak.com/news/stonepeak-launches-peregrine-cold-logistics",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:51.271407+00:00",
+      "created_at": "2026-02-27T08:43:51.271407+00:00",
+      "snapshot_id": "snap-20260227084351-490bd811",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Cold Logistics",
+          "Stonepeak Launches Peregrine"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01985",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "deal_announced",
+      "title": "Stonepeak Acquires Student Housing Portfolio",
+      "what_changed": "New announcement: Stonepeak Acquires Student Housing Portfolio",
+      "source_url": "https://stonepeak.com/news/stonepeak-acquires-student-housing-portfolio",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:51.271407+00:00",
+      "created_at": "2026-02-27T08:43:51.271407+00:00",
+      "snapshot_id": "snap-20260227084351-490bd811",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Housing Portfolio",
+          "Stonepeak Acquires Student"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01986",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "deal_announced",
+      "title": "One Equity Partners Agrees to Acquire Bozzetto Group",
+      "what_changed": "New announcement: One Equity Partners Agrees to Acquire Bozzetto Group",
+      "source_url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-bozzetto-group/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "One Equity Partners",
+          "Acquire Bozzetto Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01987",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "deal_announced",
+      "title": "One Equity Partners Agrees to Sell its Stake in Armis as part of a $7 Billion Transaction",
+      "what_changed": "New announcement: One Equity Partners Agrees to Sell its Stake in Armis as part of a $7 Billion Transaction",
+      "source_url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-sell-its-stake-in-armis-as-part-of-a-7-billion-transaction/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "One Equity Partners",
+          "Billion Transaction"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01988",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "deal_announced",
+      "title": "One Equity Partners Agrees to Acquire Montanhydraulik",
+      "what_changed": "New announcement: One Equity Partners Agrees to Acquire Montanhydraulik",
+      "source_url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-montanhydraulik/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "One Equity Partners",
+          "Acquire Montanhydraulik"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01989",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "deal_announced",
+      "title": "One Equity Partners' Portfolio Company EthosEnergy to Sell Areospace and Defense Business",
+      "what_changed": "New announcement: One Equity Partners' Portfolio Company EthosEnergy to Sell Areospace and Defense Business",
+      "source_url": "https://www.oneequity.com/news/one-equity-partners-portfolio-company-ethosenergy-to-sell-areospace-and-defense-business/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "One Equity Partners' Portfolio Company EthosEnergy to Sell Areo"
+        ],
+        "people": [
+          "Portfolio Company",
+          "One Equity Partners",
+          "Sell Areospace",
+          "Defense Business"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01990",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "other",
+      "title": "MediaKind and Harmonic's Video Business Set to Combine, Creating a Leading, Independent Video Technology Platform",
+      "what_changed": "New announcement: MediaKind and Harmonic's Video Business Set to Combine, Creating a Leading, Independent Video Technology Platform",
+      "source_url": "https://www.oneequity.com/news/mediakind-and-harmonics-video-business-set-to-combine-creating-a-leading-independent-video-technology-platform/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Video Business Set",
+          "Independent Video Technology"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01991",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "exit_announced",
+      "title": "One Equity Partners Exits Investment in InfuCare Rx",
+      "what_changed": "New announcement: One Equity Partners Exits Investment in InfuCare Rx",
+      "source_url": "https://www.oneequity.com/news/one-equity-partners-exits-investment-in-infucare-rx/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "One Equity Partners",
+          "Exits Investment"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01992",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "other",
+      "title": "Trustmarque Group and Ultima Business Solutions Complete Merger to Create New Force in UK IT Services Sector",
+      "what_changed": "New announcement: Trustmarque Group and Ultima Business Solutions Complete Merger to Create New Force in UK IT Services Sector",
+      "source_url": "https://www.oneequity.com/news/trustmarque-group-and-ultima-business-solutions-complete-merger-to-create-new-force-in-uk-it-services-sector/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Create New Force",
+          "Ultima Business Solutions",
+          "Trustmarque Group",
+          "Services Sector",
+          "Complete Merger"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01993",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "deal_announced",
+      "title": "Brown & Root Industrial Services Agrees to Acquire Specialty Welding and Turnarounds",
+      "what_changed": "New announcement: Brown & Root Industrial Services Agrees to Acquire Specialty Welding and Turnarounds",
+      "source_url": "https://www.oneequity.com/news/brown-root-industrial-services-agrees-to-acquire-specialty-welding-and-turnarounds/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Root Industrial Services",
+          "Acquire Specialty Welding"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01994",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "deal_announced",
+      "title": "One Equity Partners Agrees to Acquire Majority Stake in Digital Value",
+      "what_changed": "New announcement: One Equity Partners Agrees to Acquire Majority Stake in Digital Value",
+      "source_url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-majority-stake-in-digital-value/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Digital Value",
+          "One Equity Partners",
+          "Acquire Majority Stake"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01995",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "other",
+      "title": "One Equity Partners Invests in McNICHOLS",
+      "what_changed": "New announcement: One Equity Partners Invests in McNICHOLS",
+      "source_url": "https://www.oneequity.com/news/one-equity-partners-invests-in-mcnichols/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "One Equity Partners"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01996",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "deal_announced",
+      "title": "One Equity Partners Named a 'Best Place to Work in Private Equity' by Mergers & Acquisitions",
+      "what_changed": "New announcement: One Equity Partners Named a 'Best Place to Work in Private Equity' by Mergers & Acquisitions",
+      "source_url": "https://www.oneequity.com/news/one-equity-partners-named-a-best-place-to-work-in-private-equity-by-mergers-acquisitions/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "One Equity Partners",
+          "Private Equity",
+          "Best Place"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01997",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "fundraise_announced",
+      "title": "One Equity Partners Closes $3.25 Billion Fund IX",
+      "what_changed": "New announcement: One Equity Partners Closes $3.25 Billion Fund IX",
+      "source_url": "https://www.oneequity.com/news/one-equity-partners-closes-325-billion-fund-ix/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "One Equity Partners",
+          "Billion Fund"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01998",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "deal_announced",
+      "title": "One Equity Partners Agrees to Acquire BARTEC",
+      "what_changed": "New announcement: One Equity Partners Agrees to Acquire BARTEC",
+      "source_url": "https://www.oneequity.com/news/one-equity-partners-agrees-to-acquire-bartec/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "One Equity Partners"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-01999",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "other",
+      "title": "One Equity Partners Enters Into Agreement to Invest in Brown & Root Industrial Services",
+      "what_changed": "New announcement: One Equity Partners Enters Into Agreement to Invest in Brown & Root Industrial Services",
+      "source_url": "https://www.oneequity.com/news/one-equity-partners-enters-into-agreement-to-invest-in-brown-root-industrial-services/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "One Equity Partners",
+          "Root Industrial Services",
+          "Enters Into Agreement"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02000",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "other",
+      "title": "One Equity Partners, Warburg Pincus, and Green Cement Investments to Sell Eco Material Technologies to CRH",
+      "what_changed": "New announcement: One Equity Partners, Warburg Pincus, and Green Cement Investments to Sell Eco Material Technologies to CRH",
+      "source_url": "https://www.oneequity.com/news/one-equity-partners-warburg-pincus-and-green-cement-investments-to-sell-eco-material-technologies-to-crh/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:43:54.581815+00:00",
+      "created_at": "2026-02-27T08:43:54.581815+00:00",
+      "snapshot_id": "snap-20260227084354-287778b2",
+      "diff_summary": "New news item detected (dated 02.09.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Green Cement Investments",
+          "One Equity Partners",
+          "Sell Eco Material",
+          "Warburg Pincus"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02001",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "deal_announced",
+      "title": "Siti B&T added to One Equity Partners portfolio",
+      "what_changed": "Siti B&T added to One Equity Partners portfolio",
+      "source_url": "https://www.oneequity.com/portfolio/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-02-27T08:49:35.592002+00:00",
+      "created_at": "2026-02-27T08:49:35.592002+00:00",
+      "snapshot_id": "snap-20260227084933-b72b7b31",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Siti BT"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02002",
+      "fund_id": "",
+      "fund_slug": "oaktree-capital-management",
+      "signal_type": "deal_announced",
+      "title": "Oaktreeinsights added to Oaktree Capital Management portfolio",
+      "what_changed": "Oaktreeinsights added to Oaktree Capital Management portfolio",
+      "source_url": "https://www.oaktreecapital.com/",
+      "source_name": "Oaktree Capital Management",
+      "published_at": null,
+      "observed_at": "2026-02-27T09:52:23.068853+00:00",
+      "created_at": "2026-02-27T09:52:23.068853+00:00",
+      "snapshot_id": "snap-20260227095221-39e926ba",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Oaktreeinsights"
+        ],
+        "people": [
+          "Oaktreeinsights In",
+          "The Insight",
+          "Oaktree Co",
+          "Armen Panossian"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02003",
+      "fund_id": "",
+      "fund_slug": "oaktree-capital-management",
+      "signal_type": "deal_announced",
+      "title": "Alternativeinvesting added to Oaktree Capital Management portfolio",
+      "what_changed": "Alternativeinvesting added to Oaktree Capital Management portfolio",
+      "source_url": "https://www.oaktreecapital.com/",
+      "source_name": "Oaktree Capital Management",
+      "published_at": null,
+      "observed_at": "2026-02-27T09:52:23.068853+00:00",
+      "created_at": "2026-02-27T09:52:23.068853+00:00",
+      "snapshot_id": "snap-20260227095221-39e926ba",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Alternativeinvesting"
+        ],
+        "people": [
+          "Alternativeinvesting Aggregate"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02004",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "deal_announced",
+      "title": "Driving connectivity across North America added to Stonepeak portfolio",
+      "what_changed": "Driving connectivity across North America added to Stonepeak portfolio",
+      "source_url": "https://stonepeak.com/",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-02-27T09:54:25.638444+00:00",
+      "created_at": "2026-02-27T09:54:25.638444+00:00",
+      "snapshot_id": "snap-20260227095417-9bb356e7",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Driving connectivity across North America"
+        ],
+        "people": [
+          "North America"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02005",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "deal_announced",
+      "title": "The backbone of the global supply chain added to Stonepeak portfolio",
+      "what_changed": "The backbone of the global supply chain added to Stonepeak portfolio",
+      "source_url": "https://stonepeak.com/",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-02-27T09:54:25.638444+00:00",
+      "created_at": "2026-02-27T09:54:25.638444+00:00",
+      "snapshot_id": "snap-20260227095417-9bb356e7",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "The backbone of the global supply chain"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02006",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "deal_announced",
+      "title": "Mike Dorrell Featured on The Wall Street Skinny Podcast added to Stonepeak portfolio (Insights)",
+      "what_changed": "Mike Dorrell Featured on The Wall Street Skinny Podcast added to Stonepeak portfolio (Insights)",
+      "source_url": "https://stonepeak.com/",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-02-27T09:54:25.638444+00:00",
+      "created_at": "2026-02-27T09:54:25.638444+00:00",
+      "snapshot_id": "snap-20260227095417-9bb356e7",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Mike Dorrell Featured on The Wall Street Skinny Podcast"
+        ],
+        "people": [
+          "Skinny Podcast Insights",
+          "The Wall Street",
+          "Mike Dorrell Featured"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02007",
+      "fund_id": "",
+      "fund_slug": "patrizia",
+      "signal_type": "deal_announced",
+      "title": "Acquisitions added to PATRIZIA portfolio",
+      "what_changed": "Acquisitions added to PATRIZIA portfolio",
+      "source_url": "https://www.patrizia.ag/",
+      "source_name": "PATRIZIA",
+      "published_at": null,
+      "observed_at": "2026-02-27T09:54:30.379429+00:00",
+      "created_at": "2026-02-27T09:54:30.379429+00:00",
+      "snapshot_id": "snap-20260227095415-6104ddf0",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Acquisitions"
+        ],
+        "people": [],
+        "locations": []
+      }
     }
   ],
-  "signal_count": 1960
+  "signal_count": 2007,
+  "translated_at": "2026-02-27T10:09:00.597712+00:00"
 }

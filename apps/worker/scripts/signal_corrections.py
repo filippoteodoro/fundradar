@@ -98,6 +98,9 @@ from signal_patterns import (
     _RE_STRONG_DEAL,
     _RE_STRONG_EXIT_VERBS,
     _RE_TEAM_STRENGTHENING,
+    _RE_TEAM_PROFILE_NOISE,
+    _RE_ROLE_OPENING_TITLE,
+    _RE_PEOPLE_APPOINTMENT_RESCUE,
     _RE_VALUE_CREATION,
 )
 
@@ -783,15 +786,7 @@ def correct_people_move(text_lower: str, title_lower: str, page_category: str = 
 
     # Team page profile cards ("Name Head of X") are static bios, not moves.
     if page_category == "TEAM":
-        if re.search(
-            r"^[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+(?:\s+[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+){1,3}\s+"
-            r"(?:(?:managing|senior|junior|lead|principal|chief)\s+)?"
-            r"(?:head|director|manager|partner|officer|counsel|analyst|associate|specialist"
-            r"|investor\s+relations"
-            r"|legal\s*(?:&|and)\s*corporate\s+affairs(?:\s+(?:specialist|manager|head|director))?)\b",
-            title_norm,
-            re.IGNORECASE,
-        ) and not _has_transition_verb:
+        if _RE_TEAM_PROFILE_NOISE.search(title_norm) and not _has_transition_verb:
             return "other"
         if re.search(
             r"\b(?:is|acts?\s+as)\s+the\s+(?:parent|holding)\s+company\b"
@@ -804,12 +799,7 @@ def correct_people_move(text_lower: str, title_lower: str, page_category: str = 
 
     # Role-opening/job-like titles misclassified as people_move.
     # Example: "Senior Investment Associate, Clean Energy - Capital Dynamics".
-    if re.search(
-        r"^\s*(?:senior|junior|lead|principal|chief|head|managing)?\s*"
-        r"(?:investment\s+)?(?:associate|analyst|manager|specialist|advisor|officer|counsel|director)\b",
-        title_norm,
-        re.IGNORECASE,
-    ) and not _has_transition_verb:
+    if _RE_ROLE_OPENING_TITLE.search(title_norm) and not _has_transition_verb:
         return "other"
 
     # Strong exit verbs → exit
@@ -1037,24 +1027,9 @@ def apply_type_corrections(
             )
         )
         is_team_profile_noise = bool(
-            page_category == "TEAM" and re.search(
-                r"^[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+(?:\s+[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]+){1,3}\s+"
-                r"(?:(?:managing|senior|junior|lead|principal|chief)\s+)?"
-                r"(?:head|director|manager|partner|officer|counsel|analyst|associate|specialist"
-                r"|investor\s+relations"
-                r"|legal\s*(?:&|and)\s*corporate\s+affairs(?:\s+(?:specialist|manager|head|director))?)\b",
-                title_norm,
-                re.IGNORECASE,
-            )
+            page_category == "TEAM" and _RE_TEAM_PROFILE_NOISE.search(title_norm)
         )
-        is_role_opening_noise = bool(
-            re.search(
-                r"^\s*(?:senior|junior|lead|principal|chief|head|managing)?\s*"
-                r"(?:investment\s+)?(?:associate|analyst|manager|specialist|advisor|officer|counsel|director)\b",
-                title_norm,
-                re.IGNORECASE,
-            )
-        )
+        is_role_opening_noise = bool(_RE_ROLE_OPENING_TITLE.search(title_norm))
         is_team_static_desc = bool(
             page_category == "TEAM" and re.search(
                 r"\b(?:is|acts?\s+as)\s+the\s+(?:parent|holding)\s+company\b"
@@ -1067,8 +1042,10 @@ def apply_type_corrections(
         if (is_team_profile_noise or is_role_opening_noise or is_team_static_desc) and not has_people_transition:
             return "other"
 
-        # "names X as [role]" / "appoints X as [role]" → people_move
-        if re.search(r"\b(?:names?|appoints?|appointed|hired?)\b.*\b(?:head|director|partner|managing|chief|ceo|cfo|coo|cto|president|chairman)\b", text_lower):
+        # "names/appoints/appointed/hired ... [role]" → people_move rescue for over-demoted signals.
+        # Broader than _RE_PEOPLE_LANGUAGE (loose .* gap) — intentional: this rescues signals
+        # that were demoted to other but clearly describe an appointment (e.g. "appointed ... CEO").
+        if _RE_PEOPLE_APPOINTMENT_RESCUE.search(text_lower):
             return "people_move"
         # Standalone professional title signal: title IS the person + role, no PE verbs.
         # Catches "Michele Romualdi managing director, Head of Investor Relations" and similar
