@@ -1217,6 +1217,26 @@ else:
 "
 ```
 
+Run the deterministic internal QA agent right after the check above:
+
+```bash
+python3 scripts/internal_quality_agent.py
+```
+
+Then inspect unresolved high/medium issues for your slug:
+
+```bash
+jq -r --arg slug "{fund-slug}" '
+  .findings
+  | map(select(.fund_slug == $slug and (.severity == "high" or .severity == "medium")))
+  | "open_issues=\(length)",
+    (.[]
+      | "\(.severity) \(.category) \(.signal_id // "-") :: \(.evidence)")
+' data/derived/internal_agent_audit.json
+```
+
+Acceptance bar for the added fund: `open_issues=0`. If not zero, apply a **systemic code fix** (not one-off JSON edits), rerun affected pipeline steps, and rerun this audit until clean.
+
 ### 18.2 — Gemini portfolio enrichment (MANDATORY)
 
 After the pipeline runs, you **MUST** run Gemini portfolio enrichment to fill missing sector/HQ/description on portfolio companies. This is NOT optional — the pipeline's monitor step only extracts what the website provides, which is often incomplete.

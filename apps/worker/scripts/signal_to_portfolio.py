@@ -38,13 +38,15 @@ from dotenv import load_dotenv
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, ENRICHED_SIGNALS_FILE, PORTFOLIO_FILE, ROOT_ENV_PATH
+from fundradar_worker.portfolio_validation import clean_portfolio_name, is_valid_portfolio_entry
 from fundradar_worker.url_utils import extract_domain, is_same_domain
 
 load_dotenv(ROOT_ENV_PATH, override=False)
 
 PROGRESS_FILE = DATA_DIR / "signal_to_portfolio_progress.json"
 
-# Signal types to process
+# Primary signal types to process.
+# We also process any signal with explicit direct target_companies actions.
 DEAL_TYPES = {"deal_announced", "exit_announced"}
 
 # Canonical 30-sector taxonomy (same as enrich_portfolio_gemini_full.py)
@@ -238,6 +240,21 @@ def build_existing_names(entries: list[dict]) -> tuple[set[str], set[str]]:
     return norm_names, compact_names
 
 
+def _matching_existing_entries(existing_entries: list[dict], matched_norm: str | None) -> list[dict]:
+    """Return all existing entries matching a normalized/compact company key."""
+    if not matched_norm:
+        return []
+    matched_compact = matched_norm.replace(" ", "")
+    out: list[dict] = []
+    for e in existing_entries:
+        n = normalize_company_name(e.get("name", ""))
+        if not n:
+            continue
+        if n == matched_norm or n.replace(" ", "") == matched_compact:
+            out.append(e)
+    return out
+
+
 def _detect_addon_locally(
     signal: dict,
     target_name: str,
@@ -258,6 +275,8 @@ def _detect_addon_locally(
     ])).lower()
     if not text:
         return False
+    text_norm = normalize_company_name(text)
+    text_compact = text_norm.replace(" ", "") if text_norm else ""
 
     # Build set of all target company names to exclude from add-on check
     target_norms = set()
@@ -284,6 +303,33 @@ def _detect_addon_locally(
             # Multi-word names: check if the full name appears in text
             if en in text:
                 return True
+            # Spacing/punctuation variants: "dili trust" vs "dilitrust"
+            en_compact = en.replace(" ", "")
+            if len(en_compact) >= 6 and en_compact in text_compact:
+                return True
+    return False
+
+
+def _has_processable_target_actions(signal: dict) -> bool:
+    """
+    Return True when signal carries direct target_companies actions that can
+    mutate portfolio state, even if signal_type is not deal_announced/exit_announced.
+    """
+    target_companies = signal.get("target_companies")
+    if not isinstance(target_companies, list) or not target_companies:
+        return False
+
+    for tc in target_companies:
+        if not isinstance(tc, dict):
+            continue
+        action = tc.get("action", "other")
+        if action not in {"investment", "exit"}:
+            continue
+        if not tc.get("is_direct_investment", False):
+            continue
+        name = clean_portfolio_name((tc.get("name") or "").strip())
+        if name:
+            return True
     return False
 
 
@@ -306,7 +352,7 @@ def process_fund_signals(
     stats = {
         "added": 0, "exits_updated": 0, "skipped_addon": 0,
         "skipped_existing": 0, "skipped_no_company": 0, "skipped_other": 0,
-        "skipped_exit_no_match": 0,
+        "skipped_exit_no_match": 0, "skipped_invalid_name": 0,
         "errors": 0,
     }
 
@@ -337,9 +383,12 @@ def process_fund_signals(
             continue
 
         for tc in target_companies:
-            company_name = (tc.get("name") or "").strip()
+            company_name = clean_portfolio_name((tc.get("name") or "").strip())
             if not company_name:
                 stats["skipped_no_company"] += 1
+                continue
+            if not is_valid_portfolio_entry(company_name, fund_slug):
+                stats["skipped_invalid_name"] += 1
                 continue
 
             is_direct = tc.get("is_direct_investment", False)
@@ -367,17 +416,18 @@ def process_fund_signals(
             matched, matched_norm = _matches_existing(company_name, existing_names, existing_compact)
             if matched:
                 if action == "exit" and matched_norm:
-                    existing_entry = existing_by_norm.get(matched_norm)
-                    if existing_entry and existing_entry.get("status") == "current":
-                        if existing_entry.get("curation_locked"):
-                            stats["skipped_existing"] += 1
-                        elif not dry_run:
-                            existing_entry["status"] = "exited"
-                            stats["exits_updated"] += 1
-                            print(f"    EXIT: {existing_entry.get('name')} → status=exited (signal: {sid})")
+                    matches = _matching_existing_entries(existing_entries, matched_norm)
+                    updatable = [e for e in matches if e.get("status") != "exited" and not e.get("curation_locked")]
+                    if updatable:
+                        if not dry_run:
+                            for existing_entry in updatable:
+                                existing_entry["status"] = "exited"
+                                stats["exits_updated"] += 1
+                                print(f"    EXIT: {existing_entry.get('name')} → status=exited (signal: {sid})")
                         else:
-                            stats["exits_updated"] += 1
-                            print(f"    [dry-run] EXIT: {existing_entry.get('name')} → status=exited (signal: {sid})")
+                            for existing_entry in updatable:
+                                stats["exits_updated"] += 1
+                                print(f"    [dry-run] EXIT: {existing_entry.get('name')} → status=exited (signal: {sid})")
                     else:
                         stats["skipped_existing"] += 1
                 else:
@@ -434,6 +484,44 @@ def process_fund_signals(
         existing_entries.extend(new_entries)
 
     return stats, processed_ids
+
+
+def _requires_reconciliation(signal: dict, fund_slug: str, existing_entries: list[dict]) -> bool:
+    """
+    Return True if a previously-processed signal still has unresolved portfolio effects.
+
+    Cases:
+    - investment action target is still missing from portfolio
+    - exit action target exists but status is not exited
+    """
+    target_companies = signal.get("target_companies")
+    if not isinstance(target_companies, list) or not target_companies:
+        return False
+
+    existing_names, existing_compact = build_existing_names(existing_entries)
+    for tc in target_companies:
+        if not isinstance(tc, dict):
+            continue
+        company_name = clean_portfolio_name((tc.get("name") or "").strip())
+        if not company_name or not is_valid_portfolio_entry(company_name, fund_slug):
+            continue
+
+        is_direct = tc.get("is_direct_investment", False)
+        action = tc.get("action", "other")
+        if not is_direct or action == "other":
+            continue
+
+        matched, matched_norm = _matches_existing(company_name, existing_names, existing_compact)
+        if action == "investment":
+            if not matched:
+                return True
+        elif action == "exit":
+            if matched_norm:
+                matches = _matching_existing_entries(existing_entries, matched_norm)
+                if any(e.get("status") != "exited" and not e.get("curation_locked") for e in matches):
+                    return True
+
+    return False
 
 
 def _send_alert(
@@ -514,18 +602,20 @@ def main():
     if pruned > 0:
         print(f"  Pruned {pruned} stale IDs from progress file")
 
-    # Filter to deal/exit signals with minimum quality.
+    # Filter to actionable signals with minimum quality:
+    # - primary deal/exit signal types
+    # - OR any signal carrying direct investment/exit target_companies actions
     # Threshold 60 is intentionally lower than filter's 80 — portfolio conversion
     # should be more lenient since deal/exit signals have high intrinsic value
     # even when their text quality is moderate.
     deal_signals = [
         s for s in all_signals
-        if s.get("signal_type") in DEAL_TYPES
+        if (s.get("signal_type") in DEAL_TYPES or _has_processable_target_actions(s))
         and s.get("fund_slug")
         and s.get("id")
         and (s.get("quality_score", 0) or 0) >= 60
     ]
-    print(f"  Total deal/exit signals (quality>=60): {len(deal_signals)}")
+    print(f"  Total actionable signals (quality>=60): {len(deal_signals)}")
 
     # Count extraction status: None = never attempted, [] = attempted/none found, [...] = extracted
     with_extraction = sum(1 for s in deal_signals if s.get("target_companies"))
@@ -543,10 +633,24 @@ def main():
     # Filter by progress (unless --force)
     if not args.force:
         before = len(deal_signals)
-        deal_signals = [s for s in deal_signals if s["id"] not in processed_ids]
+        reconciled = 0
+        unresolved: list[dict] = []
+        for s in deal_signals:
+            sid = s["id"]
+            if sid not in processed_ids:
+                unresolved.append(s)
+                continue
+            fund_slug = s["fund_slug"]
+            existing_entries = fund_portfolios.get(fund_slug, [])
+            if _requires_reconciliation(s, fund_slug, existing_entries):
+                unresolved.append(s)
+                reconciled += 1
+        deal_signals = unresolved
         skipped = before - len(deal_signals)
         if skipped:
             print(f"  Skipping {skipped} already-processed signals (use --force to reprocess)")
+        if reconciled:
+            print(f"  Reprocessing {reconciled} previously-processed signals with unresolved portfolio sync")
     else:
         if args.slugs:
             slug_filter_set = set(args.slugs.split(","))
@@ -574,7 +678,7 @@ def main():
     total_stats = {
         "added": 0, "exits_updated": 0, "skipped_addon": 0,
         "skipped_existing": 0, "skipped_no_company": 0, "skipped_other": 0,
-        "skipped_exit_no_match": 0,
+        "skipped_exit_no_match": 0, "skipped_invalid_name": 0,
         "errors": 0,
     }
     all_processed_in_run: list[str] = []
@@ -663,6 +767,7 @@ def main():
     print(f"  Skipped (no company):     {total_stats['skipped_no_company']}")
     print(f"  Skipped (non-deal/other): {total_stats['skipped_other']}")
     print(f"  Skipped (exit, no match): {total_stats['skipped_exit_no_match']}")
+    print(f"  Skipped (invalid name):   {total_stats['skipped_invalid_name']}")
     print(f"  Errors:                   {total_stats['errors']}")
     if without_extraction > 0:
         print(f"  Signals without extraction: {without_extraction} (need re-enrichment via step 7)")

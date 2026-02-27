@@ -4711,10 +4711,10 @@
       ],
       "sector_tags": [
         "Technology",
-        "Industrial Manufacturing",
         "Software",
         "Healthcare",
-        "Automotive"
+        "Financial Services",
+        "Retail"
       ],
       "description": "Pioneered the Sicaf investment model in Italy to drive digital transformation within traditional SMEs, executing buyouts and expansion rounds in the healthcare and industrial manufacturing sectors.",
       "geographies": [
@@ -6253,9 +6253,9 @@
       "sector_tags": [
         "Technology",
         "Financial Services",
-        "Fashion & Luxury",
         "Healthcare",
-        "Biotech & Pharma"
+        "Biotech & Pharma",
+        "Fashion & Luxury"
       ],
       "description": "Tracing its roots back to Schroder Ventures in 1985, this global buyout specialist is renowned for transforming premium consumer brands like Valentino and Golden Goose into international powerhouses.",
       "geographies": [

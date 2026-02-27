@@ -12,8 +12,10 @@ URLS = {
     # No reliable public portfolio index page; keep manual portfolio entries only.
     "portfolio": None,
     "team": None,
-    # Keep both likely press/news hubs; monitor will use whichever returns content.
-    "news": ["/en/news-and-press/news/", "/en/news-and-press/press-releases/"],
+    # Direct news hubs now return persistent 404. Use RSS fallback for stable monitoring.
+    "news": [
+        "https://news.google.com/rss/search?q=site%3Apatrizia.ag+PATRIZIA+when%3A30d&hl=en-US&gl=US&ceid=US:en",
+    ],
 }
 
 

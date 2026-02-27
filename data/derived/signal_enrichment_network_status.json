@@ -1,11 +1,11 @@
 {
-  "checked_at": "2026-02-27T10:09:38.460571+00:00",
-  "scope": "one-equity-partners,oaktree-capital-management,stonepeak,patrizia",
+  "checked_at": "2026-02-27T11:07:59.241019+00:00",
+  "scope": "all funds",
   "strict_network_mode": true,
   "llm_connection_fallbacks": 0,
   "translation_network_errors": 0,
   "translation_unresolved_fields": 0,
-  "translation_detected_fields": 0,
+  "translation_detected_fields": 1,
   "translation_sample_errors": [],
   "translation_skip_reason": "",
   "network_degraded": false

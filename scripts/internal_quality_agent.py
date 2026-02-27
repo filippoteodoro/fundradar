@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from collections import defaultdict
 from dataclasses import dataclass, asdict
 from pathlib import Path
@@ -17,6 +18,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DERIVED = ROOT / "data" / "derived"
 OUT = DERIVED / "internal_agent_audit.json"
+sys.path.insert(0, str(ROOT / "apps" / "worker"))
+from fundradar_worker.entity_resolver import normalize_company_name
 
 ENRICHED_PATH = DERIVED / "detected_signals_enriched.json"
 FILTERED_PATH = DERIVED / "detected_signals_filtered.json"
@@ -35,7 +38,7 @@ PEOPLE_MARKERS_RE = re.compile(
     re.IGNORECASE,
 )
 DEAL_MARKERS_RE = re.compile(
-    r"\b(?:acquires?|acquired|investment|invests?|stake|merger|buyout|exit|sold|sale)\b",
+    r"\b(?:acquires?|acquired|invests?|invested|stake|merger|buyout|exit|sold|sale)\b",
     re.IGNORECASE,
 )
 BOILERPLATE_RE = re.compile(
@@ -68,16 +71,66 @@ def _load_json(path: Path) -> dict:
         return json.load(f)
 
 
-def _normalize_name(name: str) -> str:
-    s = (name or "").lower().strip()
-    s = re.sub(r"[^a-z0-9\s]", " ", s)
-    s = re.sub(r"\b(spa|srl|ltd|llc|inc|gmbh|ag|bv|nv|plc|corp|corporation|company|group|holding|holdings)\b", " ", s)
-    s = re.sub(r"\s+", " ", s).strip()
-    return s
+def _token_overlap(a: str, b: str) -> float:
+    tokens_a = set(a.split())
+    tokens_b = set(b.split())
+    if not tokens_a or not tokens_b:
+        return 0.0
+    inter = tokens_a & tokens_b
+    union = tokens_a | tokens_b
+    return len(inter) / len(union)
 
 
-def _compact(name: str) -> str:
-    return _normalize_name(name).replace(" ", "")
+def _matches_existing(new_name: str, existing_names: set[str], existing_compact: set[str]) -> tuple[bool, str | None]:
+    """Mirror signal_to_portfolio name matching logic."""
+    norm = normalize_company_name(new_name)
+    if not norm:
+        return False, None
+
+    if norm in existing_names:
+        return True, norm
+
+    comp = norm.replace(" ", "")
+    if comp in existing_compact:
+        for en in existing_names:
+            if en.replace(" ", "") == comp:
+                return True, en
+        return True, None
+
+    norm_stripped = re.sub(r"\s*\d+$", "", norm)
+    if norm_stripped and norm_stripped != norm and norm_stripped in existing_names:
+        return True, norm_stripped
+    for en in existing_names:
+        en_stripped = re.sub(r"\s*\d+$", "", en)
+        if en_stripped and en_stripped != en and en_stripped == norm:
+            return True, en
+
+    norm_tokens = set(norm.split())
+    if len(norm_tokens) >= 1:
+        for en in existing_names:
+            en_tokens = set(en.split())
+            if not en_tokens:
+                continue
+            if len(norm_tokens) == 1 and len(en_tokens) == 1:
+                continue
+            if _token_overlap(norm, en) >= 0.8:
+                return True, en
+
+    return False, None
+
+
+def _matching_existing_rows(rows: list[dict], matched_norm: str | None) -> list[dict]:
+    if not matched_norm:
+        return []
+    matched_compact = matched_norm.replace(" ", "")
+    out: list[dict] = []
+    for row in rows:
+        n = normalize_company_name(row.get("name", ""))
+        if not n:
+            continue
+        if n == matched_norm or n.replace(" ", "") == matched_compact:
+            out.append(row)
+    return out
 
 
 def _text(signal: dict) -> str:
@@ -89,6 +142,32 @@ def _text(signal: dict) -> str:
             signal.get("diff_summary", ""),
         ] if x
     )
+
+
+def _looks_like_addon(signal: dict, target_name: str, all_target_names: list[str], existing_names: set[str]) -> bool:
+    """Heuristic add-on detection aligned with signal_to_portfolio local logic."""
+    text = _text(signal).lower()
+    if not text:
+        return False
+    text_norm = normalize_company_name(text)
+    text_compact = text_norm.replace(" ", "") if text_norm else ""
+
+    target_norms = {normalize_company_name(n) for n in all_target_names if n}
+    target_norms = {n for n in target_norms if n}
+    for en in existing_names:
+        if not en or en in target_norms:
+            continue
+        words = en.split()
+        if len(words) < 2:
+            if len(en) >= 4 and re.search(r"\b" + re.escape(en) + r"\b", text):
+                return True
+        else:
+            if en in text:
+                return True
+            en_compact = en.replace(" ", "")
+            if len(en_compact) >= 6 and en_compact in text_compact:
+                return True
+    return False
 
 
 def main() -> int:
@@ -210,16 +289,14 @@ def main() -> int:
     # 2) Signal -> portfolio linkage checks.
     normalized_portfolio = defaultdict(set)
     compact_portfolio = defaultdict(set)
-    status_lookup = defaultdict(dict)
     for slug, rows in portfolio.items():
         for row in rows:
             name = row.get("name", "")
-            norm = _normalize_name(name)
+            norm = normalize_company_name(name)
             if not norm:
                 continue
             normalized_portfolio[slug].add(norm)
             compact_portfolio[slug].add(norm.replace(" ", ""))
-            status_lookup[slug][norm] = row.get("status")
 
     for s in enriched:
         sid = s.get("id")
@@ -238,11 +315,12 @@ def main() -> int:
             is_direct = bool(tc.get("is_direct_investment"))
             if not name or not is_direct:
                 continue
-            norm = _normalize_name(name)
-            comp = _compact(name)
-            exists = norm in normalized_portfolio[slug] or comp in compact_portfolio[slug]
+            exists, matched_norm = _matches_existing(name, normalized_portfolio[slug], compact_portfolio[slug])
 
             if action == "investment" and not exists:
+                all_target_names = [tc2.get("name", "") for tc2 in targets if isinstance(tc2, dict)]
+                if _looks_like_addon(s, name, all_target_names, normalized_portfolio[slug]):
+                    continue
                 findings.append(Finding(
                     severity="high",
                     category="signal_to_portfolio_missing_investment",
@@ -253,8 +331,13 @@ def main() -> int:
                 ))
 
             if action == "exit" and exists:
-                st = status_lookup[slug].get(norm)
-                if st != "exited":
+                rows = _matching_existing_rows(portfolio.get(slug, []), matched_norm)
+                unresolved = [
+                    row for row in rows
+                    if row.get("status") != "exited" and not row.get("curation_locked")
+                ]
+                if unresolved:
+                    st = unresolved[0].get("status")
                     findings.append(Finding(
                         severity="medium",
                         category="signal_to_portfolio_exit_not_applied",
