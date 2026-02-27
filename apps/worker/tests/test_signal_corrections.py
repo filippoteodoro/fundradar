@@ -29,6 +29,7 @@ from signal_corrections import (  # noqa: E402
     correct_partnership,
     correct_people_move,
     correct_report,
+    detect_all_signal_types,
     detect_portfolio_update,
 )
 
@@ -576,6 +577,14 @@ class TestApplyTypeCorrections:
         )
         assert result == "deal_announced"
 
+    def test_other_invests_in_rescued_to_deal(self):
+        result = apply_type_corrections(
+            "other",
+            "arca space capital invests in unifarco to accelerate growth",
+            "arca space capital invests in unifarco",
+        )
+        assert result == "deal_announced"
+
     def test_unknown_type_passthrough(self):
         result = apply_type_corrections(
             "website_change",
@@ -591,3 +600,36 @@ class TestApplyTypeCorrections:
             "series b closed",
         )
         assert result == "deal_announced"
+
+
+class TestDetectAllSignalTypes:
+    """Tests for secondary signal type detection used by the UI badges."""
+
+    def test_people_move_not_tagged_as_deal_from_fund_name(self):
+        signal = {
+            "signal_type": "people_move",
+            "title": "Fondo Italiano d'Investimento SGR appoints a new CIO",
+            "what_changed": "Giampaolo Di Dio is stepping down as CIO of Fondo Italiano d'Investimento SGR.",
+        }
+        detected = detect_all_signal_types(signal)
+        assert detected[0] == "people_move"
+        assert "deal_announced" not in detected
+
+    def test_real_investment_gets_secondary_deal_tag(self):
+        signal = {
+            "signal_type": "people_move",
+            "title": "Fund appoints new partner and invests in portfolio company",
+            "what_changed": "The firm appoints a partner and invests in XYZ through a minority stake.",
+        }
+        detected = detect_all_signal_types(signal)
+        assert "deal_announced" in detected
+
+    def test_join_forces_partnership_not_secondary_people_move(self):
+        signal = {
+            "signal_type": "partnership",
+            "title": "Wise Equity and FAS International join forces to continue growth",
+            "what_changed": "The firms join forces to continue growth in retail tech.",
+        }
+        detected = detect_all_signal_types(signal)
+        assert detected[0] == "partnership"
+        assert "people_move" not in detected

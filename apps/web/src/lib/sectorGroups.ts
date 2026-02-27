@@ -140,6 +140,7 @@ const SECTOR_TAG_ALIASES: Record<string, string> = {
   'electrical equipment ev charging': 'Energy',
   'water treatment': 'Water & Utilities',
   'water infrastructure': 'Water & Utilities',
+  'utilities': 'Water & Utilities',
   'blue economy': 'Environmental Services',
   'hospitality': 'Hospitality & Tourism',
   'tourism': 'Hospitality & Tourism',

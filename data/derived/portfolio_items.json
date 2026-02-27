@@ -48295,7 +48295,7 @@
     "kkr": [
       {
         "name": "+Simple",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.plussimple.fr",
@@ -48334,7 +48334,7 @@
       },
       {
         "name": "A-Gas",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.agas.com",
@@ -48347,7 +48347,7 @@
       },
       {
         "name": "AEP Transmission",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.aeptransmission.com",
@@ -48360,7 +48360,7 @@
       },
       {
         "name": "AVIV Group",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.aviv-group.com/",
@@ -48373,7 +48373,7 @@
       },
       {
         "name": "Accuris",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://accuristech.com/",
@@ -48399,7 +48399,7 @@
       },
       {
         "name": "Advanced Navigation",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.advancednavigation.com/",
@@ -48425,7 +48425,7 @@
       },
       {
         "name": "Agiloft",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.agiloft.com",
@@ -48438,7 +48438,7 @@
       },
       {
         "name": "Aiwyn Inc",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.aiwyn.ai",
@@ -48451,7 +48451,7 @@
       },
       {
         "name": "Albioma",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.albioma.com",
@@ -48464,7 +48464,7 @@
       },
       {
         "name": "Alchemer",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.alchemer.com",
@@ -48477,7 +48477,7 @@
       },
       {
         "name": "Altitude Aircraft Leasing",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -48490,7 +48490,7 @@
       },
       {
         "name": "Anchorage Digital",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.anchorage.com",
@@ -48503,7 +48503,7 @@
       },
       {
         "name": "Apex Analytix",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.apexanalytix.com",
@@ -48516,7 +48516,7 @@
       },
       {
         "name": "April",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.april.com/",
@@ -48555,7 +48555,7 @@
       },
       {
         "name": "Artlist",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.artlist.io",
@@ -48568,7 +48568,7 @@
       },
       {
         "name": "Ascend Asia",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://ascendasiagroup.com/",
@@ -48594,7 +48594,7 @@
       },
       {
         "name": "Aster Renewable Energy",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.asterrenewable.com",
@@ -48607,7 +48607,7 @@
       },
       {
         "name": "Atlantic Aviation",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.atlanticaviation.com",
@@ -48620,7 +48620,7 @@
       },
       {
         "name": "Avantus",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.avantus.com",
@@ -48633,7 +48633,7 @@
       },
       {
         "name": "Avendus Capital",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.avendus.com",
@@ -48646,7 +48646,7 @@
       },
       {
         "name": "Axius Water",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.axiuswater.com",
@@ -48659,7 +48659,7 @@
       },
       {
         "name": "BMC",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.bmc.com",
@@ -48685,7 +48685,7 @@
       },
       {
         "name": "Barracuda Networks",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.barracuda.com",
@@ -48711,7 +48711,7 @@
       },
       {
         "name": "Beacon Pointe Advisors Holdings, LLC",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.beaconpointe.com",
@@ -48776,7 +48776,7 @@
       },
       {
         "name": "BrightView",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.brightview.com",
@@ -48815,7 +48815,7 @@
       },
       {
         "name": "ByteDance",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.bytedance.com",
@@ -48828,7 +48828,7 @@
       },
       {
         "name": "CIRCOR",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.circor.com",
@@ -48841,7 +48841,7 @@
       },
       {
         "name": "CMC Packaging Automation",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.cmcsolutions.com/",
@@ -48854,7 +48854,7 @@
       },
       {
         "name": "CapeOmega",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.capeomega.com",
@@ -48867,7 +48867,7 @@
       },
       {
         "name": "Captive Resources",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.captiveresources.com",
@@ -48880,7 +48880,7 @@
       },
       {
         "name": "CarbonCount Holdings",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.hasi.com",
@@ -48893,7 +48893,7 @@
       },
       {
         "name": "Caruna Oy",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://caruna.fi/en",
@@ -48906,7 +48906,7 @@
       },
       {
         "name": "Cegid",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.cegid.com",
@@ -48945,7 +48945,7 @@
       },
       {
         "name": "Chase Corp",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.chasecorp.com",
@@ -48958,7 +48958,7 @@
       },
       {
         "name": "Citation Group",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://thecitationgroup.com/",
@@ -48997,7 +48997,7 @@
       },
       {
         "name": "Cloudera",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.cloudera.com",
@@ -49036,7 +49036,7 @@
       },
       {
         "name": "Colonial First State",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.cfs.com.au",
@@ -49049,7 +49049,7 @@
       },
       {
         "name": "Contabo",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.contabo.com",
@@ -49062,11 +49062,11 @@
       },
       {
         "name": "Contentsquare",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.contentsquare.com",
-        "description": "Digital experience analytics platform that helps businesses understand and optimize user behavior.",
+        "description": "Customer experience analytics software to optimize a user's online journey.",
         "detail_page_url": null,
         "headquarters": "Paris, France",
         "investment_date": null,
@@ -49075,7 +49075,7 @@
       },
       {
         "name": "Contour Global",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.contourglobal.com",
@@ -49088,7 +49088,7 @@
       },
       {
         "name": "CoolIT Systems",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.coolitsystems.com/",
@@ -49101,7 +49101,7 @@
       },
       {
         "name": "Cordia Energy",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.cordiaenergy.com",
@@ -49127,7 +49127,7 @@
       },
       {
         "name": "Corel",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.corel.com/",
@@ -49166,7 +49166,7 @@
       },
       {
         "name": "Cue & Co",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://cue.group",
@@ -49179,7 +49179,7 @@
       },
       {
         "name": "CyrusOne, LLC",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.cyrusone.com",
@@ -49192,7 +49192,7 @@
       },
       {
         "name": "DATAGROUP",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.datagroup.de/en/",
@@ -49205,7 +49205,7 @@
       },
       {
         "name": "Darwinbox",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://darwinbox.com/",
@@ -49218,7 +49218,7 @@
       },
       {
         "name": "Data X",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://data-x.co.jp/",
@@ -49257,7 +49257,7 @@
       },
       {
         "name": "Dawsongroup",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://dawsongroup.co.uk",
@@ -49283,7 +49283,7 @@
       },
       {
         "name": "Dcar",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.dongchedi.com",
@@ -49309,7 +49309,7 @@
       },
       {
         "name": "Depot Connect International",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.depotconnect.com",
@@ -49322,7 +49322,7 @@
       },
       {
         "name": "Devoteam",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.devoteam.com",
@@ -49335,7 +49335,7 @@
       },
       {
         "name": "EGC Group",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.energyglobalco.com",
@@ -49361,7 +49361,7 @@
       },
       {
         "name": "ERM Worldwide Group Limited",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.erm.com/",
@@ -49387,7 +49387,7 @@
       },
       {
         "name": "Education Perfect Limited",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.educationperfect.com",
@@ -49413,7 +49413,7 @@
       },
       {
         "name": "Employment Hero",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://employmenthero.com/",
@@ -49426,7 +49426,7 @@
       },
       {
         "name": "Encavis AG",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.encavis.com",
@@ -49452,7 +49452,7 @@
       },
       {
         "name": "Ensono Holdings, LLC",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ensono.com",
@@ -49465,7 +49465,7 @@
       },
       {
         "name": "Epic Games",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.epicgames.com",
@@ -49478,7 +49478,7 @@
       },
       {
         "name": "Exact",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.exact.com",
@@ -49491,7 +49491,7 @@
       },
       {
         "name": "FGS Global",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://fgsglobal.com/",
@@ -49504,7 +49504,7 @@
       },
       {
         "name": "FUJI SOFT",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.fsi.co.jp",
@@ -49530,7 +49530,7 @@
       },
       {
         "name": "Feedzai",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.feedzai.com",
@@ -49543,7 +49543,7 @@
       },
       {
         "name": "FiberCop NetCo",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.fibercop.com/en/",
@@ -49556,7 +49556,7 @@
       },
       {
         "name": "Finago",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.finago.com",
@@ -49569,7 +49569,7 @@
       },
       {
         "name": "First Gen Corporation",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.firstgen.com.ph",
@@ -49582,7 +49582,7 @@
       },
       {
         "name": "Five-Star Business Finance Limited",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.fivestargroup.in",
@@ -49608,7 +49608,7 @@
       },
       {
         "name": "Flow Control Group",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.flowcontrolgroup.com",
@@ -49621,7 +49621,7 @@
       },
       {
         "name": "Fortifi",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.fortififoodsolutions.com/",
@@ -49699,7 +49699,7 @@
       },
       {
         "name": "GetYourGuide",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.getyourguide.com",
@@ -49712,7 +49712,7 @@
       },
       {
         "name": "GfK SE",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.gfk.com",
@@ -49738,7 +49738,7 @@
       },
       {
         "name": "Global Technical Realty",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.globaltechnicalrealty.com",
@@ -49764,7 +49764,7 @@
       },
       {
         "name": "Greentide Maritime",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://borealismaritime.com",
@@ -49777,7 +49777,7 @@
       },
       {
         "name": "Greenvolt",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.greenvolt.com",
@@ -49803,7 +49803,7 @@
       },
       {
         "name": "Growsari",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.growsari.com",
@@ -49829,7 +49829,7 @@
       },
       {
         "name": "Guesty",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.guesty.com",
@@ -49842,7 +49842,7 @@
       },
       {
         "name": "Gulf Data Hub",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.gulfdatahub.ae",
@@ -49907,7 +49907,7 @@
       },
       {
         "name": "Hero Future Energies",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.herofutureenergies.com",
@@ -49920,7 +49920,7 @@
       },
       {
         "name": "Hoken Minaoshi Hompo",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.mhompo.co.jp",
@@ -49959,7 +49959,7 @@
       },
       {
         "name": "Hyperoptic",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.hyperoptic.com",
@@ -49972,7 +49972,7 @@
       },
       {
         "name": "Hyundai Marine Solution., Ltd",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.hd-marinesolution.com/eng/Main.do",
@@ -49985,7 +49985,7 @@
       },
       {
         "name": "IQGeo",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.iqgeo.com/",
@@ -50011,7 +50011,7 @@
       },
       {
         "name": "Ignis",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://ignis.es",
@@ -50050,7 +50050,7 @@
       },
       {
         "name": "IndiGrid",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.indigrid.co.in",
@@ -50063,7 +50063,7 @@
       },
       {
         "name": "Industrial Physics",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://industrialphysics.com/",
@@ -50089,7 +50089,7 @@
       },
       {
         "name": "Infios",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.infios.com",
@@ -50102,7 +50102,7 @@
       },
       {
         "name": "Instructure Holdings Inc",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.instructure.com",
@@ -50115,7 +50115,7 @@
       },
       {
         "name": "Internet Brands",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.internetbrands.com",
@@ -50141,7 +50141,7 @@
       },
       {
         "name": "Janney Montgomery Scott",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.janney.com",
@@ -50167,7 +50167,7 @@
       },
       {
         "name": "Jio Platforms Limited",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.jio.com",
@@ -50180,7 +50180,7 @@
       },
       {
         "name": "John Laing",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.laing.com",
@@ -50219,7 +50219,7 @@
       },
       {
         "name": "KiotViet",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.kiotviet.vn",
@@ -50232,7 +50232,7 @@
       },
       {
         "name": "Kito Crosby Group",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.kitocrosby.com",
@@ -50245,7 +50245,7 @@
       },
       {
         "name": "KnowBe4",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.knowbe4.com",
@@ -50271,7 +50271,7 @@
       },
       {
         "name": "Koki Holdings Co., Ltd",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.koki-holdings.com",
@@ -50284,7 +50284,7 @@
       },
       {
         "name": "Kokusai Electric Corporation",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.kokusai-electric.com/en",
@@ -50297,7 +50297,7 @@
       },
       {
         "name": "LEAP India Private Limited",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://leapindia.net/index.html",
@@ -50310,7 +50310,7 @@
       },
       {
         "name": "LOGISTEED",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.logisteed.com",
@@ -50349,7 +50349,7 @@
       },
       {
         "name": "Latitude Financial Services",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.latitudefinancial.com.au",
@@ -50362,7 +50362,7 @@
       },
       {
         "name": "Leapwork A/S",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.leapwork.com",
@@ -50388,7 +50388,7 @@
       },
       {
         "name": "Level Access",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.levelaccess.com",
@@ -50401,7 +50401,7 @@
       },
       {
         "name": "Lightcast",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.lightcast.io",
@@ -50414,7 +50414,7 @@
       },
       {
         "name": "Lighthouse",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.mylighthouse.com",
@@ -50466,7 +50466,7 @@
       },
       {
         "name": "MYOB",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.myob.com/au/about/group",
@@ -50479,7 +50479,7 @@
       },
       {
         "name": "Marmic Fire & Safety, Inc",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://marmicfire.com/about/",
@@ -50492,7 +50492,7 @@
       },
       {
         "name": "MasOrange",
-        "sector": "Technology",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.masorange.es/en",
@@ -50505,7 +50505,7 @@
       },
       {
         "name": "Mediawan Holding",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.mediawan.com",
@@ -50544,7 +50544,7 @@
       },
       {
         "name": "MetroNet Fiber Inc",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.metronet.com",
@@ -50596,7 +50596,7 @@
       },
       {
         "name": "Nasuni",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.nasuni.com",
@@ -50635,7 +50635,7 @@
       },
       {
         "name": "Neon Renewables",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.neoen.com",
@@ -50648,7 +50648,7 @@
       },
       {
         "name": "Ness Digital",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ness.com",
@@ -50661,7 +50661,7 @@
       },
       {
         "name": "NetSPI",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.netspi.com",
@@ -50674,7 +50674,7 @@
       },
       {
         "name": "NetStars",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.netstars.co.jp",
@@ -50700,7 +50700,7 @@
       },
       {
         "name": "Northumbrian Water",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.nwg.co.uk/",
@@ -50713,7 +50713,7 @@
       },
       {
         "name": "Novaria Group",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.novariagroup.com",
@@ -50726,7 +50726,7 @@
       },
       {
         "name": "Nxera",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.nxera-dc.com/",
@@ -50739,7 +50739,7 @@
       },
       {
         "name": "OHB",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ohb.de/en/",
@@ -50752,7 +50752,7 @@
       },
       {
         "name": "ON*NET Fibra Chile",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.onnetfibra.com",
@@ -50765,7 +50765,7 @@
       },
       {
         "name": "ON*NET Fibra Colombia",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.onnetfibra.com",
@@ -50778,7 +50778,7 @@
       },
       {
         "name": "Ocean Yield",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.oceanyield.no",
@@ -50791,7 +50791,7 @@
       },
       {
         "name": "Omnissa",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.omnissa.com",
@@ -50804,7 +50804,7 @@
       },
       {
         "name": "OneStream Software",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.onestreamsoftware.com",
@@ -50817,7 +50817,7 @@
       },
       {
         "name": "Ontic Technologies",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://ontic.co",
@@ -50830,7 +50830,7 @@
       },
       {
         "name": "Open Dutch Fiber",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.opendutchfiber.nl",
@@ -50843,7 +50843,7 @@
       },
       {
         "name": "Optic Marine Services Group",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.opticmarine.com",
@@ -50856,7 +50856,7 @@
       },
       {
         "name": "Optiv",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.optiv.com",
@@ -50869,7 +50869,7 @@
       },
       {
         "name": "Ornikar",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ornikar.com",
@@ -50882,7 +50882,7 @@
       },
       {
         "name": "Osttra Group Ltd",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://osttra.com",
@@ -50895,7 +50895,7 @@
       },
       {
         "name": "OutSystems",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.outsystems.com",
@@ -50908,7 +50908,7 @@
       },
       {
         "name": "OverDrive",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.overdrive.com",
@@ -50947,7 +50947,7 @@
       },
       {
         "name": "Paddle.com Market Limited",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.paddle.com",
@@ -50986,7 +50986,7 @@
       },
       {
         "name": "Pinnacle Towers Pte Ltd",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.frontiertowersphilippines.com",
@@ -50999,7 +50999,7 @@
       },
       {
         "name": "PlayOn! Sports",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.playonsports.com",
@@ -51025,7 +51025,7 @@
       },
       {
         "name": "Potter Global Technologies",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.potterglobaltech.com",
@@ -51051,7 +51051,7 @@
       },
       {
         "name": "Premialab",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.premialab.com",
@@ -51064,7 +51064,7 @@
       },
       {
         "name": "Privy ID",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.privy.id",
@@ -51077,7 +51077,7 @@
       },
       {
         "name": "ProTen",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://proten.com.au/",
@@ -51090,7 +51090,7 @@
       },
       {
         "name": "Probe Group Pty Ltd",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.probegroup.com.au",
@@ -51103,7 +51103,7 @@
       },
       {
         "name": "Q-Park N.V",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.q-park.com",
@@ -51116,7 +51116,7 @@
       },
       {
         "name": "Qonto",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.qonto.com",
@@ -51129,7 +51129,7 @@
       },
       {
         "name": "Queensland Airports Limited",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.qldairports.com.au",
@@ -51142,7 +51142,7 @@
       },
       {
         "name": "Qventus Inc",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.qventus.com",
@@ -51155,7 +51155,7 @@
       },
       {
         "name": "RVShare",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.rvshare.com",
@@ -51168,7 +51168,7 @@
       },
       {
         "name": "RainFocus",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.rainfocus.com",
@@ -51181,7 +51181,7 @@
       },
       {
         "name": "Re Sustainability Limited",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://resustainability.com/",
@@ -51194,7 +51194,7 @@
       },
       {
         "name": "Rebel Foods",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.rebelfoods.com",
@@ -51207,7 +51207,7 @@
       },
       {
         "name": "Refresco",
-        "sector": "Agriculture",
+        "sector": "Materials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.refresco.com",
@@ -51220,7 +51220,7 @@
       },
       {
         "name": "Reintel",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.reintel.es",
@@ -51232,21 +51232,21 @@
         "data_source": "fund_website"
       },
       {
-        "name": "ReliaQuest",
-        "sector": "Technology",
+        "name": "ReliaQuest LLC",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.reliaquest.com",
         "description": "Cyber security managed service and intelligence platform for global enterprises",
         "detail_page_url": null,
-        "headquarters": "Tampa, United States",
+        "headquarters": null,
         "investment_date": null,
         "source_url": "https://www.kkr.com/invest/portfolio",
         "data_source": "fund_website"
       },
       {
         "name": "Reliance Logistics and Warehouse Holdings Limited",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.reliancelogisticsgroup.com",
@@ -51272,7 +51272,7 @@
       },
       {
         "name": "Renewus",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.renewus.co.kr/index.do",
@@ -51298,7 +51298,7 @@
       },
       {
         "name": "Resource Environmental Solutions (\"RES\")",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://res.us",
@@ -51311,7 +51311,7 @@
       },
       {
         "name": "Restaurant365",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.restaurant365.com",
@@ -51324,7 +51324,7 @@
       },
       {
         "name": "Ritchies Transport Holdings Ltd",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ritchies.co.nz",
@@ -51363,7 +51363,7 @@
       },
       {
         "name": "STT Global",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.sttelemediagdc.com",
@@ -51415,7 +51415,7 @@
       },
       {
         "name": "Semperis",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.semperis.com",
@@ -51428,7 +51428,7 @@
       },
       {
         "name": "Sempra Infrastructure",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.semprainfrastructure.com",
@@ -51441,7 +51441,7 @@
       },
       {
         "name": "Serentica Renewables",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.serenticaglobal.com",
@@ -51467,7 +51467,7 @@
       },
       {
         "name": "Shenzhen XunCe Technology Co., Ltd",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -51480,7 +51480,7 @@
       },
       {
         "name": "Shriram General Insurance",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.shriramgi.com",
@@ -51493,7 +51493,7 @@
       },
       {
         "name": "Simon & Schuster",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.simonandschuster.com",
@@ -51545,7 +51545,7 @@
       },
       {
         "name": "Smart Metering Services",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.sms-plc.com/",
@@ -51558,7 +51558,7 @@
       },
       {
         "name": "SmartHR",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://smarthr.jp/",
@@ -51571,7 +51571,7 @@
       },
       {
         "name": "Sol Systems LLC",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.solsystems.com",
@@ -51584,7 +51584,7 @@
       },
       {
         "name": "Sovra",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.sovra.com/",
@@ -51597,7 +51597,7 @@
       },
       {
         "name": "Spark Infrastructure",
-        "sector": "Water & Utilities",
+        "sector": "Utilities",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.sparkinfrastructure.com",
@@ -51610,7 +51610,7 @@
       },
       {
         "name": "Spectris",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.spectris.com/",
@@ -51636,7 +51636,7 @@
       },
       {
         "name": "Superstruct Entertainment",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.superstruct.com",
@@ -51649,7 +51649,7 @@
       },
       {
         "name": "SupplyHouse",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.supplyhouse.com",
@@ -51688,7 +51688,7 @@
       },
       {
         "name": "S\u00f6derberg & Partners",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.soderbergpartners.se/en",
@@ -51714,7 +51714,7 @@
       },
       {
         "name": "Telenor Fiber",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.telenor.com/about/our-companies/nordics/telenor-norway/",
@@ -51727,7 +51727,7 @@
       },
       {
         "name": "The Parking Spot",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.theparkingspot.com",
@@ -51740,7 +51740,7 @@
       },
       {
         "name": "The Stepstone Group",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.thestepstonegroup.com/",
@@ -51766,7 +51766,7 @@
       },
       {
         "name": "TowerNex",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://towernex.com/",
@@ -51818,7 +51818,7 @@
       },
       {
         "name": "USI Insurance Services LLC",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.usi.com",
@@ -51844,7 +51844,7 @@
       },
       {
         "name": "Vantage Towers",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.vantagetowers.com",
@@ -51870,7 +51870,7 @@
       },
       {
         "name": "Vertis Infrastructure Trust",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://vertis.co.in/",
@@ -51896,7 +51896,7 @@
       },
       {
         "name": "Viridor",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.viridor.co.uk",
@@ -51909,7 +51909,7 @@
       },
       {
         "name": "Vitesse",
-        "sector": "Financial Services",
+        "sector": "Financials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.vitesse.io",
@@ -51922,7 +51922,7 @@
       },
       {
         "name": "Voyager Innovations",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.voyagerinnovation.com",
@@ -51948,7 +51948,7 @@
       },
       {
         "name": "We Park Limited",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.huiboparking.com/en",
@@ -51987,7 +51987,7 @@
       },
       {
         "name": "Xoi",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.xoi.io",
@@ -52000,7 +52000,7 @@
       },
       {
         "name": "Yayoi Co., Ltd",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.yayoi-kk.co.jp",
@@ -52026,7 +52026,7 @@
       },
       {
         "name": "Zenobe",
-        "sector": "Industrial Manufacturing",
+        "sector": "Industrials",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.zenobe.com",
@@ -52065,7 +52065,7 @@
       },
       {
         "name": "Zwift Inc",
-        "sector": "Professional Services",
+        "sector": "Communication Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.zwift.com",
@@ -52078,7 +52078,7 @@
       },
       {
         "name": "ghSMART",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.ghsmart.com",
@@ -52104,7 +52104,7 @@
       },
       {
         "name": "o9 Solutions",
-        "sector": "Technology",
+        "sector": "Information Technology",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.o9solutions.com",
@@ -61619,6 +61619,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.954155+00:00",
         "curation_note": null
+      },
+      {
+        "name": "ApreaMare Yacht",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-12",
+        "source_url": "https://www.rielloinvestimenti.it/news-apreamare.html",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-01363"
       }
     ],
     "partners-group": [
@@ -79923,14 +79937,14 @@
     ],
     "hat-sicaf": [
       {
-        "name": "ADVICE",
-        "sector": "Technology",
+        "name": "ADVICE GROUP",
+        "sector": "MARKETING TECHNOLOGY",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/advice-group/",
-        "description": "Martech platform for behavioral loyalty and digital customer engagement",
+        "description": null,
         "detail_page_url": null,
-        "headquarters": "Torino, Italy",
+        "headquarters": null,
         "investment_date": null,
         "source_url": "https://www.hatsicaf.it/portfolio/our-partnership/",
         "data_source": "fund_website"
@@ -79959,7 +79973,7 @@
       },
       {
         "name": "BURKE & BURKE",
-        "sector": "Healthcare",
+        "sector": "MEDICAL TECH",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/burke-burke/",
@@ -79972,7 +79986,7 @@
       },
       {
         "name": "DOCFLOW",
-        "sector": "Technology",
+        "sector": "ICT",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/docflow/",
@@ -79985,7 +79999,7 @@
       },
       {
         "name": "GPI",
-        "sector": "Software",
+        "sector": "SOFTWARE",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/gpi/",
@@ -79998,7 +80012,7 @@
       },
       {
         "name": "HUMA THERAPEUTICS",
-        "sector": "Software",
+        "sector": "SOFTWARE",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/huma-therapeutics/",
@@ -80011,7 +80025,7 @@
       },
       {
         "name": "LUISA VIA ROMA",
-        "sector": "Retail",
+        "sector": "E-COMMERCE",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/luisa-via-roma/",
@@ -80023,8 +80037,8 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Lutech",
-        "sector": "Technology",
+        "name": "LUTECH",
+        "sector": "ICT",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/lutech/",
@@ -80036,8 +80050,8 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Marval",
-        "sector": "Industrial Manufacturing",
+        "name": "MARVAL",
+        "sector": "INDUSTRY 4.0",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/?post_type=partner&p=4900",
@@ -80050,7 +80064,7 @@
       },
       {
         "name": "MECH-I-TRONIC",
-        "sector": "Industrial Manufacturing",
+        "sector": "INDUSTRY 4.0",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/mech-i-tronic/",
@@ -80063,7 +80077,7 @@
       },
       {
         "name": "PLATUM",
-        "sector": "Automotive",
+        "sector": "E-MOBILITY",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/platum/",
@@ -80075,11 +80089,11 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Primat",
-        "sector": "Industrial Manufacturing",
+        "name": "PRIMAT",
+        "sector": "INDUSTRY 4.0",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://www.primatcurtis.com/",
+        "website": "https://hat.it/partner/primat-2/",
         "description": "European leader in anticorrosive coatings for small metal parts. Under Wise Equity ownership, the company completed a capex program, doubling production capacity, and finalized two Italian acquisitions.",
         "detail_page_url": null,
         "headquarters": "Olginate, Italy",
@@ -80111,7 +80125,7 @@
       },
       {
         "name": "SIA",
-        "sector": "Financial Services",
+        "sector": "FINTECH",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/sia/",
@@ -80124,7 +80138,7 @@
       },
       {
         "name": "TEXOR",
-        "sector": "Technology",
+        "sector": "ICT",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/texor/",
@@ -80137,7 +80151,7 @@
       },
       {
         "name": "WEBGENESYS",
-        "sector": "Technology",
+        "sector": "ICT",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/webgenesys/",
@@ -80150,7 +80164,7 @@
       },
       {
         "name": "WIIT",
-        "sector": "Technology",
+        "sector": "DIGITAL ENABLER",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/wiit/",
@@ -89039,7 +89053,7 @@
       },
       {
         "name": "Arcaplanet",
-        "sector": "Retail",
+        "sector": "Consumer",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.permira.com/portfolio/our-portfolio/arcaplanet/",
@@ -89052,10 +89066,10 @@
       },
       {
         "name": "Golden Goose",
-        "sector": "Fashion & Luxury",
+        "sector": "Consumer",
         "status": "exited",
         "confidence": 0.95,
-        "website": "https://www.goldengoose.com",
+        "website": "https://www.permira.com/portfolio/our-portfolio/golden-goose/",
         "description": "Italian luxury sneaker brand. Carlyle acquired 100% in 2017, sold majority to Permira in 2020. HSG became majority owner in 2025; Carlyle retains minority stake. EUR 655M revenue (2024).",
         "detail_page_url": null,
         "headquarters": "Venezia, Italy",
@@ -89065,10 +89079,10 @@
       },
       {
         "name": "Gruppo Florence",
-        "sector": "Fashion & Luxury",
+        "sector": "Consumer",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://www.gruppoflorence.it",
+        "website": "https://www.permira.com/portfolio/our-portfolio/gruppo-florence/",
         "description": "An integrated industrial platform for high-end Italian fashion manufacturing, supporting luxury brands globally.",
         "detail_page_url": null,
         "headquarters": "Milano, Italy",
@@ -89094,7 +89108,7 @@
         "sector": "Healthcare",
         "status": "current",
         "confidence": 0.95,
-        "website": "http://www.kedrion.it/",
+        "website": "https://www.permira.com/portfolio/our-portfolio/kedrion/",
         "description": "A global biopharmaceutical company specializing in the development and distribution of plasma-derived products.",
         "detail_page_url": null,
         "headquarters": "Castelvecchio Pascoli, Italy",
@@ -89104,10 +89118,10 @@
       },
       {
         "name": "La Piadineria",
-        "sector": "Food & Beverage",
+        "sector": "Consumer",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://www.lapiadineria.com",
+        "website": "https://www.permira.com/portfolio/our-portfolio/la-piadineria/",
         "description": "Leading Italian quick-service restaurant chain. Acquired from Permira in 2024.",
         "detail_page_url": null,
         "headquarters": "Brescia, Italy",

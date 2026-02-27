@@ -739,6 +739,26 @@ def _clean_signal_fields(signal: dict) -> dict:
     # lowercases co-investor names (e.g. "Miura Partners", "Capital Dynamics").
     entities = signal.get("extracted_entities") or {}
     entity_names = list(entities.get("companies") or []) + list(entities.get("people") or [])
+    for tc in signal.get("target_companies") or []:
+        if not isinstance(tc, dict):
+            continue
+        name = str(tc.get("name") or "").strip()
+        if name:
+            entity_names.append(name)
+    # Add fund name from slug as capitalization hints (same logic as filter step).
+    fund_slug = signal.get("fund_slug") or ""
+    if fund_slug:
+        _NOT_ACRONYMS = {"bain", "real", "blue", "next", "tree", "open", "true", "fair", "iron", "wise", "gold", "star"}
+        parts = fund_slug.split("-")
+        display_parts = [p.upper() if len(p) <= 4 and p.lower() not in _NOT_ACRONYMS else p.title() for p in parts]
+        entity_names.append(" ".join(display_parts))
+    for related_slug in signal.get("related_fund_slugs") or []:
+        if not isinstance(related_slug, str) or not related_slug.strip():
+            continue
+        _NOT_ACRONYMS = {"bain", "real", "blue", "next", "tree", "open", "true", "fair", "iron", "wise", "gold", "star"}
+        parts = related_slug.strip().split("-")
+        display_parts = [p.upper() if len(p) <= 4 and p.lower() not in _NOT_ACRONYMS else p.title() for p in parts]
+        entity_names.append(" ".join(display_parts))
     entity_names.extend(
         extract_company_like_entities(
             signal.get("title") or "",
@@ -751,6 +771,10 @@ def _clean_signal_fields(signal: dict) -> dict:
         for key in ("title", "what_changed", "diff_summary", "enriched_summary"):
             if signal.get(key):
                 signal[key] = capitalize_entities(signal[key], entity_names)
+    for key in ("title", "what_changed", "diff_summary", "enriched_summary"):
+        if signal.get(key):
+            signal[key] = re.sub(r"\bteamsystem\b", "TeamSystem", signal[key], flags=re.IGNORECASE)
+            signal[key] = re.sub(r"\bbanco\s+bpm\b", "Banco BPM", signal[key], flags=re.IGNORECASE)
     return signal
 
 
@@ -2765,6 +2789,12 @@ def main(slugs_filter: str | None = None):
             if signal.get(key):
                 signal[key] = normalize_monetary_values(signal[key])
 
+    # Final idempotent text normalization for ALL rows (including cached/skipped
+    # signals) so stale artifacts don't persist across runs. Use the full field
+    # cleaner (not just clean_display_text) to keep entity-case hints in sync.
+    for i, signal in enumerate(signals):
+        signals[i] = _clean_signal_fields(signal)
+
     # Safety net: ensure every signal has `type` and `enriched_summary` populated.
     # Some signals bypass enrichment (already enriched, or skipped) and may only have `signal_type`.
     _type_backfill = 0
@@ -2821,6 +2851,8 @@ def main(slugs_filter: str | None = None):
         print(f"  Truncated {_truncated} enriched_summary fields to {FINAL_MAX_SUMMARY_LEN} chars")
 
     final_signals = _merge_output_signals(signals)
+    for i, signal in enumerate(final_signals):
+        final_signals[i] = _clean_signal_fields(signal)
     data["signals"] = final_signals
     data["signal_count"] = len(final_signals)
     if filtered_out_keys or filtered_out_ids:

@@ -192,6 +192,8 @@ CDP_NAME_CORRECTIONS = {
     "De A Capital": "DeA Capital",
     "B 4 Investimenti": "B4 Investimenti",
     "Ne Xt RE": "NeXt RE",
+    "Uni Credit": "UniCredit",
+    "Berar di": "Berardi",
 }
 
 # Acronyms to restore after title() lowercases them
@@ -319,11 +321,13 @@ def fix_spacing(text: str) -> str:
     cleaned = re.sub(r"\bPintau\s+di\b", "Pintaudi", cleaned)
     cleaned = re.sub(r"\bUV\s*T[\s-]*Growth\b", "UVT-Growth", cleaned)
     cleaned = re.sub(r"\b[Bb]ee\s*2\s*[Ll]ink\b", "Bee2Link", cleaned)
+    cleaned = re.sub(r"\bBe\s*Beez\b", "BeBeez", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"\bSmart\s*4\s*T\s*ech\b", "Smart4Tech", cleaned)
     cleaned = re.sub(r"\bID\s*e\s*A\b", "IDea", cleaned)
     cleaned = re.sub(r"\bGT\s*x\b", "GTx", cleaned)
     cleaned = re.sub(r"\bFounta\s*in\s*Vest\b", "FountainVest", cleaned)
     cleaned = re.sub(r"\bXG\s+en\b", "XGen", cleaned)
+    cleaned = re.sub(r"\bTeamsystem\b", "TeamSystem", cleaned, flags=re.IGNORECASE)
     # Italian word splits from OCR/PDF
     cleaned = re.sub(r"\b([Tt]rasferimen)\s+(to)\b", r"\1\2", cleaned)
     cleaned = re.sub(r"\b([Ff]inanziamen)\s+(to)\b", r"\1\2", cleaned)
@@ -332,6 +336,7 @@ def fix_spacing(text: str) -> str:
     cleaned = re.sub(r"\b([Pp]otenziamen)\s+(to)\b", r"\1\2", cleaned)
     cleaned = re.sub(r"\b([Ii]nvestimen)\s+(to)\b", r"\1\2", cleaned)
     cleaned = re.sub(r"\b([Rr]iferimen)\s+(to)\b", r"\1\2", cleaned)
+    cleaned = re.sub(r"\bRosari\s+to(?=,\s)", "Rosario", cleaned)
     cleaned = re.sub(r"\bi\s*SPLASH\b", "iSPLASH", cleaned, flags=re.IGNORECASE)
     # "Warste in" → "Warstein"
     cleaned = re.sub(r"\bWarste\s+in\b", "Warstein", cleaned)
@@ -1067,7 +1072,7 @@ _GEO_PROPER_NOUNS = [
     "italy", "italian", "spain", "spanish", "france", "french",
     "germany", "german", "europe", "european", "benelux", "nordic",
     "belgium", "netherlands", "portugal", "austria", "switzerland",
-    "london", "paris", "milan", "rome", "madrid", "berlin",
+    "london", "paris", "milan", "rome", "madrid", "berlin", "mexico", "rosario",
     "americas", "emea", "asia", "uk", "us", "usa",
 ]
 
@@ -1343,6 +1348,25 @@ def _cdt_repair_tokens_and_attributes(text: str, is_title: bool) -> str:
     # Known name corrections
     for wrong, correct in CDP_NAME_CORRECTIONS.items():
         cleaned = cleaned.replace(wrong, correct)
+    cleaned = re.sub(r"\buni\s+credit\b", "UniCredit", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\bberar\s+di\b", "Berardi", cleaned, flags=re.IGNORECASE)
+
+    # Restore canonical legal suffix formatting (S.p.A., S.r.l.) when used as
+    # corporate suffixes, without touching generic words like "spa" (wellness).
+    cleaned = re.sub(
+        r"(\b[A-Z][A-Za-z0-9&'’.\-]{1,60})\s+S\.?\s*P\.?\s*A\.?\b",
+        r"\1 S.p.A.",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+    cleaned = re.sub(
+        r"(\b[A-Z][A-Za-z0-9&'’.\-]{1,60})\s+S\.?\s*R\.?\s*L\.?\b",
+        r"\1 S.r.l.",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
+    cleaned = re.sub(r"\bHIG\s+Capital\b", "H.I.G. Capital", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\bHIG\s+Europe\b", "H.I.G. Europe", cleaned, flags=re.IGNORECASE)
 
     # Remove redundant CDP long-form parenthetical expansions when acronym is
     # already present (e.g. "CDP Equity (Cassa Depositi and Prestiti)").
@@ -1440,6 +1464,28 @@ def _cdt_normalize_casing(text: str, is_title: bool) -> str:
         r"^([A-Z][a-z]{1,18})\s+([a-z][a-z\-']{2,20})\s+(?=" + _JOB_TITLE_GUARD + r"\b)",
         lambda m: m.group(1) + " " + m.group(2).capitalize() + " ",
         cleaned,
+    )
+
+    # Capitalize lowercase person names after C-suite acronyms.
+    # Example: "CIO giampaolo di dio leaves" -> "CIO Giampaolo Di Dio leaves"
+    def _capitalize_name_after_csuite(m: re.Match) -> str:
+        role = (m.group(1) or "").upper()
+        name = m.group(2) or ""
+        parts = [p for p in name.split() if p]
+        if not parts:
+            return m.group(0)
+        fixed = [p[0].upper() + p[1:] if len(p) > 1 else p.upper() for p in parts]
+        return f"{role} {' '.join(fixed)}"
+
+    cleaned = re.sub(
+        r"\b(CEO|CFO|COO|CIO|CTO)\s+"
+        r"([a-z\u00E0-\u00F6\u00F8-\u00FF][a-z\u00E0-\u00F6\u00F8-\u00FF'’\-]{2,}"
+        r"(?:\s+(?:di|de|del|della|dello|da|van|von))?"
+        r"(?:\s+[a-z\u00E0-\u00F6\u00F8-\u00FF][a-z\u00E0-\u00F6\u00F8-\u00FF'’\-]{2,}){1,2})"
+        r"(?=\s+(?:leaves?|joins?|joined|steps?|stepping|appointed|named|becomes?|is|was|to|at|of|,))",
+        _capitalize_name_after_csuite,
+        cleaned,
+        flags=re.IGNORECASE,
     )
 
     # Capitalize job-title words in role/appointment context.
@@ -1567,10 +1613,14 @@ def _cdt_split_fused_words(text: str) -> str:
     cleaned = re.sub(r"([a-z])([A-Z])", r"\1 \2", cleaned)
 
     # Step 3: uppercase acronym (2+ chars) fused with lowercase word
-    cleaned = re.sub(r"([A-Z]{2,})([a-z])", r"\1 \2", cleaned)
+    # Require 2+ lowercase chars to avoid breaking plural acronyms ("SMEs" -> "SME s").
+    cleaned = re.sub(r"\b([A-Z]{2,})([a-z]{2,})\b", r"\1 \2", cleaned)
 
     # Re-assemble known brand tokens broken by camelCase/acronym splits
     cleaned = re.sub(r"\bTGC\s+om\s*24\b", "TGCom24", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\bUni\s+Credit\b", "UniCredit", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\bTeam\s+System\b", "TeamSystem", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\bBe\s+Beez\b", "BeBeez", cleaned, flags=re.IGNORECASE)
 
     # Collapse any double spaces introduced
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
@@ -1634,6 +1684,9 @@ def clean_display_text(text: str, is_title: bool = False) -> str:
     cleaned = _cdt_strip_datelines_and_navigation(cleaned)
     cleaned = _cdt_capitalize_proper_nouns(cleaned)
     cleaned = _cdt_split_fused_words(cleaned)
+    cleaned = re.sub(r"\bS\.?\s*P\.?\s*A\.?\b", "S.p.A.", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\bS\.?\s*R\.?\s*L\.?\b", "S.r.l.", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"(S\.p\.A\.|S\.r\.l\.)\.+(?=\s|[,;:)\]]|$)", r"\1", cleaned)
 
     # Ensure title starts with uppercase (fix scraper artifacts)
     if is_title and cleaned and cleaned[0].islower():

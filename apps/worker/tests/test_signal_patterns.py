@@ -26,6 +26,7 @@ from signal_patterns import (  # noqa: E402
     _RE_COMPANY_ROUND,
     _RE_CREDIT_FACILITY,
     _RE_DEBT_FINANCING_BROAD,
+    _RE_ACCELERATOR_LAUNCH,
     _RE_EVENT_ATTENDANCE,
     _RE_EVENT_TITLE,
     _RE_EXIT_VERBS,
@@ -194,6 +195,14 @@ class TestFundLaunchPatterns:
 
     def test_launch_fund(self):
         assert _RE_LAUNCH_FUND.search("launch of new fund targeting €500m")
+
+    def test_accelerator_launch_pattern_positive(self):
+        assert _RE_ACCELERATOR_LAUNCH.search("launches a new accelerator program for startups")
+
+    def test_accelerator_launch_pattern_no_false_positive_on_accelerate(self):
+        assert not _RE_ACCELERATOR_LAUNCH.search(
+            "Arca Space Capital invests in Unifarco to accelerate its growth"
+        )
 
 
 # ── People patterns ───────────────────────────────────────────────────────────

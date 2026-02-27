@@ -668,8 +668,10 @@ FUND_LAUNCH_CLASSIFY_PATTERNS = [
 # If there's actual collaboration language, PARTNERSHIP_CLASSIFY_PATTERNS catches it first
 ACCELERATOR_LAUNCH_PATTERNS = [
     re.compile(p, re.IGNORECASE) for p in [
-        r"\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?|new|al\s+via)\b.*\b(?:accelerat\w*|polo|programma|hub)\b",
-        r"\b(?:accelerat\w*|polo|programma|hub)\b.*\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?)\b",
+        r"\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?|avvia|al\s+via)\b"
+        r".*\b(?:accelerator(?:e)?|incubator(?:e)?|polo|programma|program|hub)\b",
+        r"\b(?:accelerator(?:e)?|incubator(?:e)?|polo|programma|program|hub)\b"
+        r".*\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?|avvia|al\s+via)\b",
     ]
 ]
 
@@ -2098,6 +2100,13 @@ def _company_candidates_from_signal(signal: dict) -> list[str]:
     if portfolio_guess and not _is_generic_portfolio_name(portfolio_guess):
         companies.append(portfolio_guess)
 
+    for tc in signal.get("target_companies") or []:
+        if not isinstance(tc, dict):
+            continue
+        value = str(tc.get("name") or "").strip()
+        if value:
+            companies.append(value)
+
     return companies
 
 
@@ -2134,6 +2143,12 @@ def _clean_signal_fields(signal: dict) -> dict:
     # After sentence-case normalization, proper nouns may be lowercased
     entities = signal.get("extracted_entities") or {}
     entity_names = list(entities.get("companies") or []) + list(entities.get("people") or [])
+    for tc in signal.get("target_companies") or []:
+        if not isinstance(tc, dict):
+            continue
+        name = str(tc.get("name") or "").strip()
+        if name:
+            entity_names.append(name)
     # Also add fund name from slug as a capitalization source
     fund_slug = signal.get("fund_slug") or ""
     if fund_slug:
@@ -2165,6 +2180,17 @@ def _clean_signal_fields(signal: dict) -> dict:
         for key in ("title", "what_changed", "enriched_summary"):
             if signal.get(key):
                 signal[key] = capitalize_entities(signal[key], entity_names)
+        # Capitalization hints can occasionally re-introduce token-split artifacts
+        # from raw text. Apply focused repairs without re-running full cleaning.
+        for key in ("title", "what_changed", "enriched_summary"):
+            if signal.get(key):
+                signal[key] = re.sub(r"\bberar\s+di\b", "Berardi", signal[key], flags=re.IGNORECASE)
+                signal[key] = re.sub(r"\buni\s+credit\b", "UniCredit", signal[key], flags=re.IGNORECASE)
+    # Final brand/acronym casing corrections independent of NER hints.
+    for key in ("title", "what_changed", "enriched_summary"):
+        if signal.get(key):
+            signal[key] = re.sub(r"\bteamsystem\b", "TeamSystem", signal[key], flags=re.IGNORECASE)
+            signal[key] = re.sub(r"\bbanco\s+bpm\b", "Banco BPM", signal[key], flags=re.IGNORECASE)
     # Normalize date fields to ISO format
     for date_key in ("published_at", "enriched_date"):
         raw_date = signal.get(date_key)
@@ -4110,6 +4136,51 @@ def main():
                             reclassified = "other"
                     if reclassified != "other":
                         signal["signal_type"] = reclassified
+
+        # Final post-ML reconciliation: run the shared correction engine one more
+        # time so ML/local overrides cannot leave stale misclassifications.
+        _final_text = (raw_title + " " + raw_summary).lower()
+        _final_title = (signal.get("title") or raw_title or "").lower()
+        _final_page_category = (signal.get("page_category") or "").upper()
+        _final_diff_summary = (signal.get("diff_summary") or "").lower()
+
+        _final_demotion = apply_universal_demotions(_final_text, _final_title)
+        if _final_demotion is not None:
+            signal["signal_type"] = _final_demotion
+            if _final_demotion == "other":
+                demoted_to_other_by_editorial = True
+        else:
+            _editorial_skip = (
+                signal.get("signal_type") == "other"
+                and demoted_to_other_by_editorial
+                and not (_RE_INVEST_VERBS.search(_final_text) or _RE_ACQUISITION_VERBS.search(_final_text))
+            )
+            if not _editorial_skip:
+                signal["signal_type"] = apply_type_corrections(
+                    signal.get("signal_type") or "other",
+                    _final_text,
+                    _final_title,
+                    _final_page_category,
+                    _final_diff_summary,
+                )
+
+        # Safety net: if a signal is still "other" but has strong investment verbs
+        # plus monetary evidence, recover it as a deal announcement.
+        if signal.get("signal_type") == "other":
+            _rescue_text = " ".join(
+                [
+                    raw_title or "",
+                    raw_summary or "",
+                    signal.get("title_original") or "",
+                    signal.get("what_changed_original") or "",
+                ]
+            ).lower()
+            _has_strong_deal_money = bool(
+                _RE_INVEST_VERBS.search(_rescue_text)
+                and re.search(r"[€$£]\s*\d", _rescue_text)
+            )
+            if _has_strong_deal_money and not _RE_EDITORIAL_STRATEGY.search(_rescue_text) and not _RE_INTERVIEW.search(_rescue_text):
+                signal["signal_type"] = "deal_announced"
 
         # Pre-score for strict gate override and downstream filtering
         score = calculate_quality_score(

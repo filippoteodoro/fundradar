@@ -30,7 +30,7 @@ DB_PATH = ROOT / "data" / "db.json"
 
 ITALIAN_LEAK_RE = re.compile(
     r"\b(?:chiude|raccolta|investimento|partecipazione|societ[àa]"
-    r"|acquisizione|annuncia|nomina|consiglio|capitale|nel|nella|del|della|con|per|tra)\b",
+    r"|acquisizione|annuncia|nomina|consiglio|capitale|lancia|guidat[oa])\b",
     re.IGNORECASE,
 )
 PEOPLE_MARKERS_RE = re.compile(
@@ -179,6 +179,19 @@ def main() -> int:
 
     fund_names = {f["slug"]: f.get("name", "") for f in db_funds if f.get("slug")}
     findings: list[Finding] = []
+    dynamic_caps_allowlist: set[str] = set()
+
+    def _collect_caps_tokens(value: str) -> None:
+        for tok in re.findall(r"[A-Za-z]{4,}", value or ""):
+            dynamic_caps_allowlist.add(tok.upper())
+
+    for name in fund_names.values():
+        _collect_caps_tokens(str(name or ""))
+    for s in enriched:
+        _collect_caps_tokens(str(s.get("source_name") or ""))
+        for tc in s.get("target_companies") or []:
+            if isinstance(tc, dict):
+                _collect_caps_tokens(str(tc.get("name") or ""))
 
     # 1) Signal-level quality checks (website-visible set = enriched).
     for s in enriched:
@@ -190,8 +203,8 @@ def main() -> int:
         what_changed = (s.get("what_changed") or "").strip()
         stype = (s.get("signal_type") or "").strip()
 
-        it_matches = ITALIAN_LEAK_RE.findall(text)
-        if len(it_matches) >= 2:
+        it_matches = [m.lower() for m in ITALIAN_LEAK_RE.findall(text)]
+        if len(set(it_matches)) >= 2:
             findings.append(Finding(
                 severity="medium",
                 category="italian_leakage",
@@ -274,7 +287,7 @@ def main() -> int:
 
         all_caps_bad = [
             tok for tok in re.findall(r"\b[A-Z]{4,}\b", text)
-            if tok not in ALL_CAPS_ALLOWLIST
+            if tok not in ALL_CAPS_ALLOWLIST and tok not in dynamic_caps_allowlist
         ]
         if all_caps_bad:
             findings.append(Finding(

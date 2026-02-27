@@ -1,6 +1,133 @@
 {
   "signals": [
     {
+      "id": "web-signal-02011",
+      "fund_id": "",
+      "fund_slug": "patrizia",
+      "signal_type": "people_move",
+      "title": "PATRIZIA appoints Gus Wiseman to deepen alignment with UK investment policy and capital mobilisation",
+      "what_changed": "PATRIZIA has appointed Gus Wiseman as Director, UK product, based in London.",
+      "source_url": "https://www.patrizia.ag/en/news-detail/patrizia-appoints-gus-wiseman-to-deepen-alignment-with-uk-investment-policy-and-capital-mobilisation/",
+      "source_name": "PATRIZIA",
+      "published_at": "2026-02-06",
+      "observed_at": "2026-02-27T11:21:23.056372+00:00",
+      "created_at": "2026-02-27T11:21:23.056372+00:00",
+      "snapshot_id": "snap-20260227112122-168e4ed5",
+      "diff_summary": "New news item detected (dated 2026-02-06)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Gus Wiseman"
+        ],
+        "locations": []
+      },
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "people_move",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 100,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.79,
+      "signal_types": [
+        "people_move"
+      ]
+    },
+    {
+      "id": "web-signal-02012",
+      "fund_id": "",
+      "fund_slug": "patrizia",
+      "signal_type": "deal_announced",
+      "title": "PATRIZIA\u2019s Kinland adds 49 social infrastructure assets in ~\u20ac170M Nordic bolt-on programme",
+      "what_changed": "Kinland - a Nordic social infrastructure platform managed by PATRIZIA - has completed a series of bolt-on acquisitions across its core markets, with an aggregate transaction value of approximately EUR\u2026",
+      "source_url": "https://www.patrizia.ag/en/news-detail/patrizias-kinland-adds-49-social-infrastructure-assets-in-eur-170m-nordic-bolt-on-programme/",
+      "source_name": "PATRIZIA",
+      "published_at": "2026-01-13",
+      "observed_at": "2026-02-27T11:21:23.056372+00:00",
+      "created_at": "2026-02-27T11:21:23.056372+00:00",
+      "snapshot_id": "snap-20260227112122-168e4ed5",
+      "diff_summary": "New news item detected (dated 2026-01-13)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": false,
+      "ml_keep_prob": 0.002,
+      "ml_keep_confidence": 0.998,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.996,
+      "ml_type_confident": true,
+      "ml_confidence": 0.996,
+      "quality_score": 100,
+      "evidence_score": 3,
+      "quality_confidence": "medium",
+      "confidence_score": 0.79,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "web-signal-02013",
+      "fund_id": "",
+      "fund_slug": "patrizia",
+      "signal_type": "deal_announced",
+      "title": "PATRIZIA expands living platform with \u20ac100M+ acquisition of residential portfolio in Southern Germany",
+      "what_changed": "PATRIZIA has invested more than \u20ac100M into 237 rental apartments in Southern Germany.",
+      "source_url": "https://www.patrizia.ag/en/news-detail/patrizia-expands-living-platform-with-eur-100-million-acquisition-of-residential-portfolio-in-southern-germany/",
+      "source_name": "PATRIZIA",
+      "published_at": "2025-12-22",
+      "observed_at": "2026-02-27T11:21:23.056372+00:00",
+      "created_at": "2026-02-27T11:21:23.056372+00:00",
+      "snapshot_id": "snap-20260227112122-168e4ed5",
+      "diff_summary": "New news item detected (dated 2025-12-22)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Southern Germany"
+        ],
+        "locations": []
+      },
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 100,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
       "id": "web-signal-01992",
       "fund_id": "",
       "fund_slug": "one-equity-partners",
@@ -146,7 +273,7 @@
       "id": "web-signal-01599",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "other",
+      "signal_type": "fundraise_announced",
       "title": "Ultra-refractory materials: K3RX raises \u20ac1.6M, led by Deep Ocean Capital SGR and robo IT, CDP Venture Capital's technology transfer hub",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -181,15 +308,15 @@
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "other",
-      "ml_type_prob": 1.0,
+      "ml_type_prob": 0.672,
       "ml_type_confident": true,
-      "ml_confidence": 1.0,
+      "ml_confidence": 0.672,
       "quality_score": 100,
-      "evidence_score": 2,
-      "quality_confidence": "medium",
-      "confidence_score": 0.66,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.84,
       "signal_types": [
-        "other"
+        "fundraise_announced"
       ]
     },
     {
@@ -668,7 +795,7 @@
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
       "signal_type": "deal_announced",
-      "title": "CDP Venture Capital Sgr invests \u20ac3.5M in Brand On group, an Italian digital distributor for SME s",
+      "title": "CDP Venture Capital Sgr invests \u20ac3.5M in Brand On group, an Italian digital distributor for SMEs",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
       "source_name": "CDP Venture Capital",
@@ -811,7 +938,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-efb4d3ca",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "people_move",
+      "signal_type": "partnership",
       "title": "CDP Venture Capital SGR joins the UVT-Growth Fund with an investment of \u20ac31.5M",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -837,9 +964,10 @@
       "ml_type_confident": true,
       "ml_confidence": 0.988,
       "evidence_score": 3,
-      "quality_confidence": "low",
-      "confidence_score": 0.69,
+      "quality_confidence": "high",
+      "confidence_score": 0.79,
       "signal_types": [
+        "partnership",
         "people_move"
       ]
     },
@@ -880,10 +1008,46 @@
       ]
     },
     {
+      "id": "news-signal-20260205111509-fb1ed3df-789016c6",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "deal_announced",
+      "title": "CDP Venture Capital launches Next Age: \u20ac5.5M in investments for Europe's first accelerator dedicated to the growth of startups operating in the Silver Economy",
+      "what_changed": "",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "CDP Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-02-05T11:15:09.810773+00:00",
+      "created_at": "2026-02-05T11:15:09.810773+00:00",
+      "fingerprint": "59bf7dcbbc32",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 100,
+      "what_changed_original": "News: CDP Venture Capital lancia Next Age: 5,46 milioni di investimenti per il primo acceleratore in Europa dedicato alla crescita di startup operative nella Silver Economy",
+      "title_original": "CDP Venture Capital lancia Next Age: 5,46 milioni di investimenti per il primo acceleratore in Europa dedicato alla crescita di startup operative nella Silver Economy",
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": null,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "other",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.82,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
       "id": "news-signal-20260205111509-fb1ed3df-17b5afb0",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "other",
+      "signal_type": "deal_announced",
       "title": "CDP Venture Capital: over \u20ac6M invested in VITA, the startup accelerator in Digital Health",
       "what_changed": "",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -908,11 +1072,10 @@
       "ml_type_prob": 0.817,
       "ml_type_confident": true,
       "ml_confidence": 0.817,
-      "evidence_score": 3,
+      "evidence_score": 4,
       "quality_confidence": "high",
-      "confidence_score": 0.79,
+      "confidence_score": 0.92,
       "signal_types": [
-        "other",
         "deal_announced"
       ]
     },
@@ -920,7 +1083,7 @@
       "id": "news-signal-20260205111509-fb1ed3df-d5055443",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
-      "signal_type": "fund_launch",
+      "signal_type": "partnership",
       "title": "CDP Venture Capital and EIF: Indaco Bio, the first fund created by the co-investment partnership to boost Technology Transfer in Italy, is launched",
       "what_changed": "CDP Venture Capital and FEI: Indaco Bio, the first fund created by the co-investment partnership to enhance Technology Transfer in Italy, is launched",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
@@ -945,48 +1108,11 @@
       "ml_type_prob": 1.0,
       "ml_type_confident": true,
       "ml_confidence": 1.0,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "fund_launch"
-      ]
-    },
-    {
-      "id": "news-signal-20260205111509-fb1ed3df-79ec7dbf",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "signal_type": "deal_announced",
-      "title": "CDP Venture Capital SGR launches the Energy Tech segment of the Corporate Partners I Fund: the most innovative corporations join forces to invest in\u2026",
-      "what_changed": "CDP Venture Capital SGR launches the Energy Tech segment of the Corporate Partners I Fund: the most innovative corporations join forces to invest in startups operating in the energy transition sector",
-      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
-      "source_name": "CDP Venture Capital",
-      "published_at": null,
-      "observed_at": "2026-02-05T11:15:09.810489+00:00",
-      "created_at": "2026-02-05T11:15:09.810489+00:00",
-      "fingerprint": "9c91b794185d",
-      "extraction_source": "news_signal_generator",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "quality_score": 100,
-      "what_changed_original": "News: CDP Venture Capital Sgr lancia il comparto Energy Tech del Fondo Corporate Partners I: le corporate pi\u00f9 innovative insieme per investire in startup che operano nel mondo della transizione energetica",
-      "title_original": "CDP Venture Capital Sgr lancia il comparto Energy Tech del Fondo Corporate Partners I: le corporate pi\u00f9 innovative insieme per investire in startup che operano nel mondo della transizione energetica",
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": true,
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "other",
-      "ml_type_prob": 0.799,
-      "ml_type_confident": true,
-      "ml_confidence": 0.799,
       "evidence_score": 3,
       "quality_confidence": "high",
-      "confidence_score": 0.84,
+      "confidence_score": 0.79,
       "signal_types": [
-        "deal_announced",
-        "people_move"
+        "partnership"
       ]
     },
     {
@@ -1030,8 +1156,8 @@
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
       "signal_type": "other",
-      "title": "SIMEST and CDP Venture Capital SGR: \u20ac200M agreement for the internationalization of innovative Italian startups and SME s through resources from the Venture\u2026",
-      "what_changed": "SIMEST and CDP Venture Capital SGR: \u20ac200M agreement for the internationalization of innovative Italian startups and SME s through resources from the Venture Capital Fund allocated by the MAEC",
+      "title": "SIMEST and CDP Venture Capital SGR: \u20ac200M agreement for the internationalization of innovative Italian startups and SMEs through resources from the Venture\u2026",
+      "what_changed": "SIMEST and CDP Venture Capital SGR: \u20ac200M agreement for the internationalization of innovative Italian startups and SMEs through resources from the Venture Capital Fund allocated by the MAEC",
       "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
       "source_name": "CDP Venture Capital",
       "published_at": null,
@@ -1585,7 +1711,7 @@
       "id": "web-signal-01947",
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
-      "signal_type": "people_move",
+      "signal_type": "partnership",
       "title": "Wise Equity and FAS International join forces to continue growth in retail tech",
       "what_changed": "",
       "source_url": "https://www.wisesgr.com/web/content/26899/26.02.2026_Comunicato Stampa_WISE Equity_FAS vITA.pdf",
@@ -1620,10 +1746,10 @@
       "ml_confidence": 1.0,
       "quality_score": 100,
       "evidence_score": 2,
-      "quality_confidence": "low",
-      "confidence_score": 0.61,
+      "quality_confidence": "medium",
+      "confidence_score": 0.66,
       "signal_types": [
-        "people_move"
+        "partnership"
       ]
     },
     {
@@ -1724,8 +1850,8 @@
         "smart-capital"
       ],
       "signal_type": "deal_announced",
-      "title": "Crowdfundme-Smart4Tech merger on the horizon: equity crowdfunding shifts toward services for SME s",
-      "what_changed": "Crowdfundme, led by Tommaso Baldisserra Pacchetti, will merge with Smart4Tech (Smart Capital) to create a group providing equity crowdfunding, capital access, advisory and services to startups and Italian SME s, aiming to shift crowdfunding toward services for PMI and scale-ups. Shareholders vote on March 6; no financial terms disclosed.",
+      "title": "Crowdfundme-Smart4Tech merger on the horizon: equity crowdfunding shifts toward services for SMEs",
+      "what_changed": "Crowdfundme, led by Tommaso Baldisserra Pacchetti, will merge with Smart4Tech (Smart Capital) to create a group providing equity crowdfunding, capital access, advisory and services to startups and Italian SMEs, aiming to shift crowdfunding toward services for PMI and scale-ups. Shareholders vote on March 6; no financial terms disclosed.",
       "source_url": "https://www.economyup.it/innovazione/crowdfundme-smart4tech-fusione-in-vista-cosi-lequity-crowdfunding-si-sposta-verso-i-servizi-alle-pmi/",
       "source_name": "EconomyUp",
       "published_at": "2026-02-26T13:41:39+00:00",
@@ -1816,7 +1942,7 @@
         "fondo-italiano-d-investimento-sgr"
       ],
       "signal_type": "people_move",
-      "title": "Fondo italiano d'Investimento SGR, CIO giampaolo di dio leaves",
+      "title": "Fondo italiano d'Investimento SGR, CIO Giampaolo Di Dio leaves",
       "what_changed": "Giampaolo Di Dio is stepping down as CIO of Fondo Italiano d'Investimento SGR, a management company with over \u20ac4B in assets, 55% owned by CDP Equity and partly owned by UniCredit, Intesa Sanpaolo, ENPAM/ENPAIA Foundations, ABI, Banco BPM, and BPER Banca.",
       "source_url": "https://bebeez.it/manager-2/fondo-italiano-dinvestimento-sgr-il-cio-giampaolo-di-dio-se-ne-va/",
       "source_name": "BeBeez",
@@ -1856,8 +1982,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.87,
       "signal_types": [
-        "people_move",
-        "deal_announced"
+        "people_move"
       ]
     },
     {
@@ -1899,49 +2024,6 @@
       "confidence_score": 0.71,
       "signal_types": [
         "deal_announced"
-      ]
-    },
-    {
-      "id": "rss-signal-00089",
-      "fund_id": "",
-      "fund_slug": "fondo-italiano-d-investimento-sgr",
-      "signal_type": "exit_announced",
-      "title": "Turin is the new Space Valley. Giuseppe Santangelo (Space Industries): \"After the US, I chose Italy. Soon there will be data centers in space.",
-      "what_changed": "Interview with Giuseppe Santangelo, founder and CEO of Space Industries, discusses plans to establish space-sector data centers and accelerate satellite delivery. No PE transaction reported. Company operates in aerospace/drones; Santangelo returned to Italy from the US, signaling an Italian operational focus. No deal amount was disclosed.",
-      "source_url": "https://startupitalia.eu/startup/torino-e-la-nuova-space-valley-giuseppe-santangelo-space-industries-dopo-gli-usa-ho-scelto-litalia-presto-data-center-nello-spazio/",
-      "source_name": "StartupItalia",
-      "published_at": "2026-02-13T01:23:00+00:00",
-      "observed_at": "2026-02-13T14:33:03.605513+00:00",
-      "created_at": "2026-02-13T14:33:03.605513+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Space Industries",
-          "Giuseppe Santangelo"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "title_original": "Torino \u00e8 la nuova Space Valley. Giuseppe Santangelo (Space Industries): \u00abDopo gli USA ho scelto l\u2019Italia. Presto data center nello spazio\u00bb",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": false,
-      "ml_keep_prob": 0.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.964,
-      "ml_type_confident": true,
-      "ml_confidence": 0.964,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
-      "signal_types": [
-        "exit_announced"
       ]
     },
     {
@@ -1987,14 +2069,15 @@
       "quality_confidence": "high",
       "confidence_score": 1.0,
       "signal_types": [
-        "fundraise_closed"
+        "fundraise_closed",
+        "deal_announced"
       ]
     },
     {
       "id": "web-signal-01116",
       "fund_id": "",
       "fund_slug": "fondo-italiano-d-investimento-sgr",
-      "signal_type": "fund_launch",
+      "signal_type": "deal_announced",
       "title": "Fondo Italiano Sgr acquires Vetraco and accelerates research and development",
       "what_changed": "",
       "source_url": "https://www.fondoitaliano.it/wp-content/uploads/20260123_IlGiorno_Vetraco.pdf",
@@ -2035,7 +2118,6 @@
       "quality_confidence": "medium",
       "confidence_score": 0.71,
       "signal_types": [
-        "fund_launch",
         "deal_announced"
       ]
     },
@@ -2043,7 +2125,7 @@
       "id": "news-signal-20260205105259-8b419cb6-5a3bdd38",
       "fund_id": "",
       "fund_slug": "fondo-italiano-d-investimento-sgr",
-      "signal_type": "partnership",
+      "signal_type": "deal_announced",
       "title": "Fondo Italiano d\u2019Investimento launches strategic partnership with ESG.IAMA Private",
       "what_changed": "",
       "source_url": "https://www.fondoitaliano.it/en/fondo-italiano-dinvestimento-launches-strategic-partnershipwith-esg-iama-private/",
@@ -2068,11 +2150,10 @@
       "ml_type_prob": 0.618,
       "ml_type_confident": true,
       "ml_confidence": 0.618,
-      "evidence_score": 4,
+      "evidence_score": 5,
       "quality_confidence": "high",
-      "confidence_score": 0.87,
+      "confidence_score": 1.0,
       "signal_types": [
-        "partnership",
         "deal_announced"
       ]
     },
@@ -2141,8 +2222,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.79,
       "signal_types": [
-        "people_move",
-        "deal_announced"
+        "people_move"
       ]
     },
     {
@@ -2150,7 +2230,7 @@
       "fund_id": "",
       "fund_slug": "fondo-italiano-d-investimento-sgr",
       "signal_type": "deal_announced",
-      "title": "Fondo italiano d'Investimento acquires NPO torino s.r.l.",
+      "title": "Fondo italiano d'Investimento acquires NPO torino S.r.l.",
       "what_changed": "",
       "source_url": "https://www.fondoitaliano.it/en/fondo-italiano-dinvestimento-acquires-npo-torino-s-r-l/",
       "source_name": "Fondo Italiano d'Investimento SGR",
@@ -2448,8 +2528,8 @@
         "mindful-capital"
       ],
       "signal_type": "exit_announced",
-      "title": "Italcer spa, Mindful Capital Partners, and Miura Partners, together with co-investors (Capital Dynamics), sell 50% +1 share to Austrian company Wienerberger AG.",
-      "what_changed": "Mindful Capital Partners, Miura Partners and coinvestor Capital Dynamics have sold 50%+1 share of Italian high-end ceramics group Italcer spa to Austrian Wienerberger AG. The confirmed transaction changes the ownership of the Italy-founded Italcer (2017); no financial terms were disclosed.",
+      "title": "Italcer S.p.A., Mindful Capital Partners, and Miura Partners, together with co-investors (Capital Dynamics), sell 50% +1 share to Austrian company\u2026",
+      "what_changed": "Mindful Capital Partners, Miura Partners and coinvestor Capital Dynamics have sold 50%+1 share of Italian high-end ceramics group Italcer S.p.A. to Austrian Wienerberger AG. The confirmed transaction changes the ownership of the Italy-founded Italcer (2017); no financial terms were disclosed.",
       "source_url": "https://bebeez.it/private-equity/italcer-spa-mindful-capital-partners-e-miura-partners-con-i-coinvestitori-capital-dynamics-vendono-il-50-1-azione-allaustriaca-wienerberger-ag/",
       "source_name": "BeBeez",
       "published_at": "2026-02-25T06:53:13+00:00",
@@ -2495,8 +2575,8 @@
         "mindful-capital"
       ],
       "signal_type": "exit_announced",
-      "title": "Italcer spa, Mindful Capital Partners, and Miura Partners, together with co-investors (Capital Dynamics), sell 50% +1 share to Austrian company Wienerberger AG.",
-      "what_changed": "Mindful Capital Partners, Miura Partners and coinvestor Capital Dynamics have sold 50%+1 share of Italian high-end ceramics group Italcer spa to Austrian Wienerberger AG. The confirmed transaction changes the ownership of the Italy-founded Italcer (2017); no financial terms were disclosed.",
+      "title": "Italcer S.p.A., Mindful Capital Partners, and Miura Partners, together with co-investors (Capital Dynamics), sell 50% +1 share to Austrian company\u2026",
+      "what_changed": "Mindful Capital Partners, Miura Partners and coinvestor Capital Dynamics have sold 50%+1 share of Italian high-end ceramics group Italcer S.p.A. to Austrian Wienerberger AG. The confirmed transaction changes the ownership of the Italy-founded Italcer (2017); no financial terms were disclosed.",
       "source_url": "https://bebeez.it/private-equity/italcer-spa-mindful-capital-partners-e-miura-partners-con-i-coinvestitori-capital-dynamics-vendono-il-50-1-azione-allaustriaca-wienerberger-ag/",
       "source_name": "BeBeez",
       "published_at": "2026-02-25T06:53:13+00:00",
@@ -2580,54 +2660,12 @@
       ]
     },
     {
-      "id": "rss-signal-00073",
-      "fund_id": "",
-      "fund_slug": "ambienta-sgr",
-      "signal_type": "exit_announced",
-      "title": "Paul & Shark chooses the island of Milos for its 'Reflection of light' campaign",
-      "what_changed": "Paul & Shark presenta la campagna primavera/estate 2026 'Reflection of light', girata a Milos, diretta da Brett Lloyd.",
-      "source_url": "https://www.pambianconews.com/2026/02/10/paul-shark-sceglie-lisola-di-milos-per-la-campagna-reflection-of-light-473872/",
-      "source_name": "Pambianco News",
-      "published_at": "2026-02-10T11:15:49+00:00",
-      "observed_at": "2026-02-12T10:54:05.626809+00:00",
-      "created_at": "2026-02-12T10:54:05.626809+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Paul & Shark"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "title_original": "Paul & Shark sceglie l\u2019isola di Milos per la campagna \u2018Reflection of light\u2019",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": false,
-      "ml_keep_prob": 0.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.916,
-      "ml_type_confident": true,
-      "ml_confidence": 0.916,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
-      "signal_types": [
-        "exit_announced"
-      ]
-    },
-    {
       "id": "rss-signal-00017",
       "fund_id": "",
       "fund_slug": "ambienta-sgr",
-      "signal_type": "exit_announced",
-      "title": "Gruppo Spaggiari Parma (Ambienta) makes two add-ons, acquiring Job 4 U srl and Bitlab srl, which owns Prima Scuola.",
-      "what_changed": "Ambienta SGR's Gruppo Spaggiari Parma completed add\u2011on acquisitions of Job 4 U srl and Bitlab srl (Prima Scuola).",
+      "signal_type": "deal_announced",
+      "title": "Gruppo Spaggiari Parma (Ambienta) makes two add-ons, acquiring Job 4 U S.r.l. and Bitlab S.r.l., which owns Prima Scuola.",
+      "what_changed": "Ambienta SGR's Gruppo Spaggiari Parma completed add\u2011on acquisitions of Job 4 U S.r.l. and Bitlab S.r.l. (Prima Scuola).",
       "source_url": "https://bebeez.it/private-equity/gruppo-spaggiari-parma-ambienta-effettua-due-add-on-rilevando-job4u-srl-e-bitlab-srl-cui-fa-capo-prima-scuola/",
       "source_name": "BeBeez",
       "published_at": "2026-02-06T06:49:51+00:00",
@@ -2663,7 +2701,6 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "exit_announced",
         "deal_announced"
       ]
     },
@@ -2718,8 +2755,8 @@
         "investindustrial"
       ],
       "signal_type": "deal_announced",
-      "title": "Shareholders approve reverse takeover and merger by incorporation of Global Aerospace Technologies Group spa (Investindustrial) into Officina Stellare",
-      "what_changed": "After favourable votes by the assemblies of both companies, shareholders approved the reverse take-over and merger by incorporation of Global Aerospace Technologies Group spa (Investindustrial) into Officina Stellare. The confirmed corporate transaction restructures Investindustrial-linked Italian aerospace assets; financial terms were not disclosed.",
+      "title": "Shareholders approve reverse takeover and merger by incorporation of Global Aerospace Technologies Group S.p.A. (Investindustrial) into Officina Stellare",
+      "what_changed": "After favourable votes by the assemblies of both companies, shareholders approved the reverse take-over and merger by incorporation of Global Aerospace Technologies Group S.p.A. (Investindustrial) into Officina Stellare. The confirmed corporate transaction restructures Investindustrial-linked Italian aerospace assets; financial terms were not disclosed.",
       "source_url": "https://bebeez.it/private-equity/via-libera-dalle-assemblee-a-reverse-take-over-e-fusione-per-incorporazione-di-global-aerospace-technologies-group-spa-investindustrial-in-officina-stellare/",
       "source_name": "BeBeez",
       "published_at": "2026-02-25T06:48:56+00:00",
@@ -2760,7 +2797,7 @@
       "id": "rss-signal-00071",
       "fund_id": "",
       "fund_slug": "investindustrial",
-      "signal_type": "exit_announced",
+      "signal_type": "debt_financing",
       "title": "Advisors to Nexture (Investindustrial) on its \u20ac500M bond issue",
       "what_changed": "Nexture (Investindustrial) issues a \u20ac500M high\u2011yield bond and increases revolving credit by \u20ac70M.",
       "source_url": "https://financecommunity.it/gli-advisor-del-bond-da-500-milioni-di-euro-di-nexture-investindustrial/",
@@ -2794,13 +2831,11 @@
       "ml_type_prob": 0.938,
       "ml_type_confident": true,
       "ml_confidence": 0.812,
-      "evidence_score": 5,
+      "evidence_score": 4,
       "quality_confidence": "high",
-      "confidence_score": 1.0,
+      "confidence_score": 0.92,
       "signal_types": [
-        "exit_announced",
-        "debt_financing",
-        "deal_announced"
+        "debt_financing"
       ]
     },
     {
@@ -2848,8 +2883,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "debt_financing",
-        "deal_announced"
+        "debt_financing"
       ]
     },
     {
@@ -3040,7 +3074,7 @@
       "id": "web-signal-01847",
       "fund_id": "",
       "fund_slug": "azzurra-capital",
-      "signal_type": "deal_announced",
+      "signal_type": "partnership",
       "title": "Azzurra Capital and SIIC complete first close of Asia Environmental Technology Fund",
       "what_changed": "Azzurra Capital has completed the first closing of the Asia Environmental Technology Fund (\u201cAETF \u201d), a joint venture established with Shanghai Industrial Investment (Holdings) Co., Ltd. (\u201cSIIC \u201d). Hong Kong, February 2026 \u2013 The Fund has raised initial.",
       "source_url": "https://www.azzurracapital.com/azzurra-capital-and-siic-complete-first-close-of-asia-environmental-technology-fund/",
@@ -3077,11 +3111,11 @@
       "ml_type_confident": true,
       "ml_confidence": 0.995,
       "quality_score": 100,
-      "evidence_score": 4,
+      "evidence_score": 3,
       "quality_confidence": "high",
-      "confidence_score": 0.82,
+      "confidence_score": 0.69,
       "signal_types": [
-        "deal_announced",
+        "partnership",
         "fundraise_closed"
       ]
     },
@@ -3185,60 +3219,12 @@
       ]
     },
     {
-      "id": "web-signal-01644",
-      "fund_id": "",
-      "fund_slug": "finint-investments-sgr",
-      "signal_type": "exit_announced",
-      "title": "Trentino Minibond: Palazzo Stella celebrates the successful conclusion of the Trentino Alto-Adige Strategic Fund operation",
-      "what_changed": "",
-      "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/5.2 CS Confindustria Trento_Finint Investments_Trentino Minibond.pdf",
-      "source_name": "Finint Investments SGR",
-      "published_at": "2026-02-05",
-      "observed_at": "2026-02-20T09:10:38.015157+00:00",
-      "created_at": "2026-02-20T09:10:38.015157+00:00",
-      "snapshot_id": "snap-20260220091037-2111bf67",
-      "diff_summary": "New news item detected (dated 2026-02-05)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Trentino Minibond",
-          "Fondo Strategico Trentino",
-          "Palazzo Stella"
-        ],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: Trentino Minibond: a Palazzo Stella celebrata la conclusione positiva dell\u2019operazione del Fondo Strategico Trentino Alto-Adige",
-      "title_original": "Trentino Minibond: a Palazzo Stella celebrata la conclusione positiva dell\u2019operazione del Fondo Strategico Trentino Alto-Adige",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": false,
-      "ml_keep_prob": 0.344,
-      "ml_keep_confidence": 0.656,
-      "ml_keep_confident": false,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.999,
-      "ml_type_confident": true,
-      "ml_confidence": 0.656,
-      "quality_score": 100,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
-      "signal_types": [
-        "exit_announced",
-        "debt_financing"
-      ]
-    },
-    {
       "id": "web-signal-01648",
       "fund_id": "",
       "fund_slug": "finint-investments-sgr",
-      "signal_type": "exit_announced",
-      "title": "The expertise of Finint Investments chosen by the Uni Credit Pension Fund for the management of multi-asset mandates and FIA portfolios totaling \u20ac224M",
-      "what_changed": "Uni Credit Pension Fund selects Finint Investments' expertise to manage multi-asset mandates and FIA portfolios totaling \u20ac224M",
+      "signal_type": "partnership",
+      "title": "The expertise of Finint Investments chosen by the UniCredit Pension Fund for the management of multi-asset mandates and FIA portfolios totaling \u20ac224M",
+      "what_changed": "UniCredit Pension Fund selects Finint Investments' expertise to manage multi-asset mandates and FIA portfolios totaling \u20ac224M",
       "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/05.11_CS_Finint Investments_Fondo Pensione Unicredit.pdf",
       "source_name": "Finint Investments SGR",
       "published_at": "2025-11-05",
@@ -3271,11 +3257,11 @@
       "ml_type_confident": true,
       "ml_confidence": 0.986,
       "quality_score": 100,
-      "evidence_score": 5,
+      "evidence_score": 4,
       "quality_confidence": "high",
-      "confidence_score": 1.0,
+      "confidence_score": 0.87,
       "signal_types": [
-        "exit_announced"
+        "partnership"
       ]
     },
     {
@@ -3330,7 +3316,7 @@
       "id": "web-signal-01650",
       "fund_id": "",
       "fund_slug": "finint-investments-sgr",
-      "signal_type": "exit_announced",
+      "signal_type": "deal_announced",
       "title": "Finint Equity For Growth (finint E4G) continues to grow: 60% of A.M. acquired",
       "what_changed": "",
       "source_url": "http://www.finintinvestments.com/files/siti/finintsgr.com/press/comunicati_stampa/20250903 CS Finint E4G_AM_.pdf",
@@ -3368,7 +3354,6 @@
       "quality_confidence": "high",
       "confidence_score": 0.84,
       "signal_types": [
-        "exit_announced",
         "deal_announced"
       ]
     },
@@ -3376,7 +3361,7 @@
       "id": "web-signal-01750",
       "fund_id": "",
       "fund_slug": "arca-space-capital",
-      "signal_type": "fund_launch",
+      "signal_type": "deal_announced",
       "title": "Arca Space Capital invests in Unifarco S.p.A. to accelerate its growth",
       "what_changed": "",
       "source_url": "https://www.spacecapital.it/en/news/index.html",
@@ -3416,7 +3401,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "fund_launch"
+        "deal_announced"
       ]
     },
     {
@@ -3600,7 +3585,7 @@
       "id": "rss-signal-00037",
       "fund_id": "",
       "fund_slug": "f2i-sgr",
-      "signal_type": "exit_announced",
+      "signal_type": "debt_financing",
       "title": "Alerion Clean Power places \u20ac300M green bond. Upsize of \u20ac100M due to strong demand",
       "what_changed": "Alerion Clean Power places \u20ac300M in green bonds, upsizing by \u20ac100M due to strong demand.",
       "source_url": "https://bebeez.it/private-debt/alerion-clean-power-colloca-green-bond-da-300-mln-euro-upsize-di-100-mln-per-forte-domanda/",
@@ -3633,11 +3618,10 @@
       "ml_type_prob": 0.999,
       "ml_type_confident": true,
       "ml_confidence": 0.996,
-      "evidence_score": 4,
+      "evidence_score": 3,
       "quality_confidence": "high",
-      "confidence_score": 0.92,
+      "confidence_score": 0.84,
       "signal_types": [
-        "exit_announced",
         "debt_financing"
       ]
     },
@@ -3774,56 +3758,6 @@
       "confidence_score": 0.84,
       "signal_types": [
         "deal_announced"
-      ]
-    },
-    {
-      "id": "web-signal-01718",
-      "fund_id": "",
-      "fund_slug": "fiee-sgr",
-      "signal_type": "exit_announced",
-      "title": "Press Review: ntplusdiritto.ilsole24ore.com \u2013 Parola Associati, Pw C TLS, Legance, De Lorenzi Micciche Scalera Spada, and Chiomenti advise on the largest\u2026",
-      "what_changed": "Press review: ntplusdiritto.ilsole24ore.com \u2013 Parola Associati, Pw C TLS, Legance, De Lorenzi Micciche Scalera Spada, and Chiomenti advisors in the largest European transaction ever in the public lighting sector",
-      "source_url": "https://www.fieesgr.com/2025/11/03/rassegna-stampa-ntplusdiritto-ilsole24ore-com-parola-associati-pwc-tls-legance-de-lorenzi-micciche-scalera-spada-e-chiomenti-advisor-nella-piu-grande-operazione-europea-di-sempre-nel-settore-del/",
-      "source_name": "FIEE SGR",
-      "published_at": "2025-11-03",
-      "observed_at": "2026-02-23T21:53:03.273589+00:00",
-      "created_at": "2026-02-23T21:53:03.273589+00:00",
-      "snapshot_id": "snap-20260223215302-988cdb3f",
-      "diff_summary": "New news item detected (dated 2025-11-03 T 00:00:00)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "De Lorenzi Micciche Scalera"
-        ],
-        "people": [
-          "De Lorenzi Micciche",
-          "Rassegna Stampa",
-          "Scalera Spada",
-          "Parola Associati"
-        ],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: Rassegna Stampa: ntplusdiritto.ilsole24ore.com \u2013 Parola Associati, PwC TLS, Legance, De Lorenzi Micciche Scalera Spada e Chiomenti advisor nella piu grande operazione europea di sempre nel settore dell\u2019illuminazione pubblica",
-      "title_original": "Rassegna Stampa: ntplusdiritto.ilsole24ore.com \u2013 Parola Associati, PwC TLS, Legance, De Lorenzi Micciche Scalera Spada e Chiomenti advisor nella piu grande operazione europea di sempre nel settore",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": false,
-      "ml_keep_prob": 0.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.982,
-      "ml_type_confident": true,
-      "ml_confidence": 0.982,
-      "quality_score": 100,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
-      "signal_types": [
-        "exit_announced"
       ]
     },
     {
@@ -4098,49 +4032,6 @@
       ]
     },
     {
-      "id": "web-signal-01380",
-      "fund_id": "",
-      "fund_slug": "sofinnova-partners",
-      "signal_type": "deal_announced",
-      "title": "European Life Sciences Coalition launched to strengthen Europe\u2019s life sciences investment ecosystem",
-      "what_changed": "",
-      "source_url": "https://sofinnovapartners.com/news/european-life-sciences-coalition-launched-to-strengthen-europe-s-life-sciences-investment-ecosystem",
-      "source_name": "Sofinnova Partners",
-      "published_at": null,
-      "observed_at": "2026-02-12T18:37:58.755140+00:00",
-      "created_at": "2026-02-12T18:37:58.755140+00:00",
-      "snapshot_id": "snap-20260212183758-bbe621ef",
-      "diff_summary": "New news item detected (dated 12 February, 2026)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "European Life Sciences"
-        ],
-        "locations": []
-      },
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 0.989,
-      "ml_type_confident": true,
-      "ml_confidence": 0.989,
-      "quality_score": 100,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
       "id": "web-signal-01679",
       "fund_id": "",
       "fund_slug": "eiffel",
@@ -4240,8 +4131,8 @@
       "id": "web-signal-01675",
       "fund_id": "",
       "fund_slug": "teamsystem-capital-at-work-sgr",
-      "signal_type": "exit_announced",
-      "title": "Be Beez: Teamsystem Capital@Work launches FPAM 1 fund to invest in invoices owed by the public administration. Anchor investor is BFF Banking Group.",
+      "signal_type": "deal_announced",
+      "title": "BeBeez: Teamsystem Capital@Work launches FPAM 1 fund to invest in invoices owed by the public administration. Anchor investor is BFF Banking Group.",
       "what_changed": "",
       "source_url": "https://www.tscawsgr.com/downloads/4695/112/2.BeBeez.pdf",
       "source_name": "TeamSystem Capital at Work SGR",
@@ -4279,14 +4170,14 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "exit_announced"
+        "deal_announced"
       ]
     },
     {
       "id": "web-signal-01658",
       "fund_id": "",
       "fund_slug": "wrm-group",
-      "signal_type": "deal_announced",
+      "signal_type": "partnership",
       "title": "WRM Group and AXPO Italia Group join forces for new investments in renewable energy",
       "what_changed": "",
       "source_url": "https://wrmgroup.net/wp-content/uploads/2022/04/Announcement_19-04-2222_WRM_AXPO.pdf",
@@ -4320,12 +4211,11 @@
       "ml_type_confident": true,
       "ml_confidence": 0.988,
       "quality_score": 100,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
+      "evidence_score": 2,
+      "quality_confidence": "medium",
+      "confidence_score": 0.66,
       "signal_types": [
-        "deal_announced",
-        "people_move"
+        "partnership"
       ]
     },
     {
@@ -4425,7 +4315,7 @@
       "fund_id": "",
       "fund_slug": "sagitta-sgr",
       "signal_type": "deal_announced",
-      "title": "Acquisition of the prestigious Donnafugata Golf Resort & Spa completed by a fund managed by Sagitta SGR, part of Arrow Global Italy",
+      "title": "Acquisition of the prestigious Donnafugata Golf Resort & S.p.A. completed by a fund managed by Sagitta SGR, part of Arrow Global Italy",
       "what_changed": "",
       "source_url": "https://www.sagittasgr.it/en/acquisition-of-the-prestigious-donnafugata-golf-resort-spa-completed-by-a-fund-managed-by-sagitta-sgr-part-of-arrow-global-italy/",
       "source_name": "Sagitta SGR",
@@ -4471,7 +4361,7 @@
       "id": "web-signal-01279",
       "fund_id": "",
       "fund_slug": "the-equity-club",
-      "signal_type": "exit_announced",
+      "signal_type": "deal_announced",
       "title": "CY 4 GATE signs a preliminary agreement for the acquisition of about 55% of DIATEAM, a French cyber security company. The total value of the transaction is\u2026",
       "what_changed": "CY 4 GATE signs a preliminary agreement for the acquisition of about 55% of DIATEAM, a French cyber security company. The total value of the transaction is approximately \u20ac10M.",
       "source_url": "https://www.equityclub.eu/en/news",
@@ -4505,7 +4395,6 @@
       "quality_confidence": "medium",
       "confidence_score": 0.71,
       "signal_types": [
-        "exit_announced",
         "deal_announced"
       ]
     },
@@ -5129,7 +5018,7 @@
       "id": "news-signal-20260205105313-cc65210b-d85ab864",
       "fund_id": "",
       "fund_slug": "capza",
-      "signal_type": "people_move",
+      "signal_type": "deal_announced",
       "title": "Capza supports solutys groups acquisitions of nedap and rayonnance",
       "what_changed": "",
       "source_url": "https://capza.co/news/capza-supports-solutys-groups-acquisitions-of-nedap-and-rayonnance/",
@@ -5152,11 +5041,10 @@
       "ml_type_prob": 0.765,
       "ml_type_confident": true,
       "ml_confidence": 0.765,
-      "evidence_score": 2,
-      "quality_confidence": "low",
-      "confidence_score": 0.51,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.74,
       "signal_types": [
-        "people_move",
         "deal_announced"
       ]
     },
@@ -5392,7 +5280,7 @@
       "id": "rss-signal-00016",
       "fund_id": "",
       "fund_slug": "bain-capital",
-      "signal_type": "exit_announced",
+      "signal_type": "debt_financing",
       "title": "FIS Fabbrica Italiana Sintetici places a double bond issue worth \u20ac770M. To refinance existing securities and pay dividends.",
       "what_changed": "Fabbrica Italiana Sintetici (FIS), controlled by Bain Capital, places two five-year bonds totaling \u20ac770M for refinancing and dividends.",
       "source_url": "https://bebeez.it/private-debt/fis-fabbrica-italiana-sintetici-colloca-una-doppia-emissione-di-bond-da-770-mln-euro-per-rifinanziare-i-titoli-in-essere-e-pagare-dividendi/",
@@ -5425,11 +5313,10 @@
       "ml_type_prob": 1.0,
       "ml_type_confident": true,
       "ml_confidence": 1.0,
-      "evidence_score": 4,
+      "evidence_score": 3,
       "quality_confidence": "high",
-      "confidence_score": 0.92,
+      "confidence_score": 0.84,
       "signal_types": [
-        "exit_announced",
         "debt_financing"
       ]
     },
@@ -5437,7 +5324,7 @@
       "id": "seed-signal-00011",
       "fund_id": "",
       "fund_slug": "bain-capital",
-      "signal_type": "deal_announced",
+      "signal_type": "partnership",
       "title": "Bain Capital and Stoneweg expand Italian logistics JV with \u20ac200M investment",
       "what_changed": "Bain Capital and Stoneweg expand Italian logistics joint venture with \u20ac200M portfolio of six grade-A logistics warehouses in Florence and Rome, totaling 225,000 sqm.",
       "source_url": "https://www.baincapital.com/news/bain-capital-and-stoneweg-expand-italian-logistics-development-jv-eu200-million-investment",
@@ -5471,11 +5358,11 @@
       "ml_type_confident": true,
       "ml_confidence": 1.0,
       "quality_score": 100,
-      "evidence_score": 5,
+      "evidence_score": 4,
       "quality_confidence": "high",
-      "confidence_score": 1.0,
+      "confidence_score": 0.87,
       "signal_types": [
-        "deal_announced"
+        "partnership"
       ]
     },
     {
@@ -5736,7 +5623,7 @@
       "id": "rss-signal-00096",
       "fund_id": "",
       "fund_slug": "argos-wityu",
-      "signal_type": "exit_announced",
+      "signal_type": "deal_announced",
       "title": "Advisors to Axitea (Argos) on its acquisition of Surveye",
       "what_changed": "Argos-controlled security provider Axitea has acquired Surveye, a system integrator specializing in video surveillance, intrusion detection, fire detection, access control and alarm systems. The deal consolidates Argos\u2019s control of the expanded Axitea Group, strengthening its physical and cyber security offering in Italy; no financial terms were disclosed.",
       "source_url": "https://financecommunity.it/gli-advisor-dellacquisizione-di-surveye-da-parte-di-axitea-argos/",
@@ -5772,7 +5659,6 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "exit_announced",
         "deal_announced"
       ]
     },
@@ -5782,7 +5668,7 @@
       "fund_slug": "eos-im",
       "signal_type": "deal_announced",
       "title": "EOS IM, through the EOS Next Transition II fund, acquires a controlling stake (60%) in Compton Industriale (electronic material recycling). FEI among the\u2026",
-      "what_changed": "EOS Investment Management Group, through its fund EOS Next Transition II, has completed the acquisition of 60% of Italian Compton Industriale spa (electronic waste recycling). FEI is among the investors. The deal gives EOS IM control of the e-waste recycling company; financial terms were not disclosed.",
+      "what_changed": "EOS Investment Management Group, through its fund EOS Next Transition II, has completed the acquisition of 60% of Italian Compton Industriale S.p.A. (electronic waste recycling). FEI is among the investors. The deal gives EOS IM control of the e-waste recycling company; financial terms were not disclosed.",
       "source_url": "https://bebeez.it/private-equity/eos-im-attraverso-il-fondo-eos-next-transition-ii-va-al-controllo-60-di-compton-industriale-riciclo-materiale-elettronico-fei-tra-gli-investitori/",
       "source_name": "BeBeez",
       "published_at": "2026-02-16T06:47:09+00:00",
@@ -5909,53 +5795,10 @@
       ]
     },
     {
-      "id": "rss-signal-00079",
-      "fund_id": "",
-      "fund_slug": "cinven",
-      "signal_type": "exit_announced",
-      "title": "Cinven offers \u20ac300M for Burger King's Italian operations, currently held by Kharis Capital",
-      "what_changed": "",
-      "source_url": "https://bebeez.it/private-equity/offerta-da-300-mln-euro-di-cinven-per-le-attivita-italiane-di-burger-king-oggi-in-portafoglio-a-kharis-capital/",
-      "source_name": "BeBeez",
-      "published_at": "2026-02-13T06:57:44+00:00",
-      "observed_at": "2026-02-13T14:32:40.644764+00:00",
-      "created_at": "2026-02-13T14:32:40.644764+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "restaurant brands europe"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "Offerta da 300 mln euro di Cinven per le attivit\u00e0 italiane di Burger King, oggi in portafoglio a Kharis Capital",
-      "title_original": "Offerta da 300 mln euro di Cinven per le attivit\u00e0 italiane di Burger King, oggi in portafoglio a Kharis Capital",
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": false,
-      "ml_keep_prob": 0.464,
-      "ml_keep_confidence": 0.536,
-      "ml_keep_confident": false,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.691,
-      "ml_type_confident": true,
-      "ml_confidence": 0.536,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "exit_announced"
-      ]
-    },
-    {
       "id": "rss-signal-00072",
       "fund_id": "",
       "fund_slug": "cinven",
-      "signal_type": "exit_announced",
+      "signal_type": "deal_announced",
       "title": "Cinven tratta l\u2019acquisto di Burger King in italia",
       "what_changed": "[Rumor] Cinven negotiates the purchase of Burger King's Italian business; offer of around \u20ac300M to Kharis Capital, possible integration into RBE and future sale of the group.",
       "source_url": "https://www.ilsole24ore.com/art/cinven-tratta-l-acquisto-burger-king-italia-AIzdufMB",
@@ -5991,7 +5834,47 @@
       "quality_confidence": "high",
       "confidence_score": 1.0,
       "signal_types": [
-        "exit_announced",
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "rss-signal-00082",
+      "fund_id": "",
+      "fund_slug": "igi-private-equity",
+      "signal_type": "deal_announced",
+      "title": "Meter ball bearings (IGI Private Equity-Amundi Private Equity Italia and banca ifis) acquire colzani ingranaggi group",
+      "what_changed": "",
+      "source_url": "https://bebeez.it/private-equity/i-cuscinetti-a-sfera-meter-igi-private-equity-amundi-private-equity-italia-e-banca-ifis-comprano-gruppo-colzani-ingranaggi/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-13T06:46:53+00:00",
+      "observed_at": "2026-02-13T14:32:40.644764+00:00",
+      "created_at": "2026-02-13T14:32:40.644764+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "I cuscinetti a sfera Meter (IGI Private Equity-Amundi Private Equity Italia e Banca Ifis) comprano Gruppo Colzani Ingranaggi",
+      "title_original": "I cuscinetti a sfera Meter (IGI Private Equity-Amundi Private Equity Italia e Banca Ifis) comprano Gruppo Colzani Ingranaggi",
+      "_fund_geo_scope": "europe_wide",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.84,
+      "signal_types": [
         "deal_announced"
       ]
     },
@@ -6090,7 +5973,7 @@
       "id": "rss-signal-00087",
       "fund_id": "",
       "fund_slug": "advent-international",
-      "signal_type": "exit_announced",
+      "signal_type": "deal_announced",
       "title": "Tinexta activates the call on 16.09% of InfoCert and mandates the CEO to set the price. Consob orders the restart of the preliminary investigation terms\u2026",
       "what_changed": "Tinexta activated the call on a 16.09% stake in InfoCert and tasked its CEO to define the offer price; Consob ordered the restart of procedural deadlines for the OPA. The move concerns Tinexta, an Italian digital-trust and information services group, and reflects a corporate takeover process rather than a private-equity transaction.",
       "source_url": "https://bebeez.it/private-equity/tinexta-attiva-la-call-sul-1609-di-infocert-e-da-mandato-al-ceo-per-definire-il-prezzo-e-la-consob-dispone-il-riavvio-dei-termini-istruttori-per-lopa/",
@@ -6127,7 +6010,6 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "exit_announced",
         "deal_announced"
       ]
     },
@@ -6224,49 +6106,6 @@
       "evidence_score": 5,
       "quality_confidence": "high",
       "confidence_score": 1.0,
-      "signal_types": [
-        "exit_announced"
-      ]
-    },
-    {
-      "id": "rss-signal-00078",
-      "fund_id": "",
-      "fund_slug": "eqt",
-      "signal_type": "exit_announced",
-      "title": "Editorial evolution for Grazia: from weekly to fortnightly publication",
-      "what_changed": "Reworld Media Italia's magazine Grazia will move from a weekly to a fortnightly publication from February 2026. Directed by Silvia Grilli, the editorial shift aims for a more premium positioning and stronger digital and social presence. This is an editorial change in the Italian publishing sector, not a PE transaction.",
-      "source_url": "https://www.pambianconews.com/2026/02/12/evoluzione-editoriale-per-grazia-da-settimanale-passa-a-quindicinale-474236/",
-      "source_name": "Pambianco News",
-      "published_at": "2026-02-12T11:22:37+00:00",
-      "observed_at": "2026-02-12T18:01:42.550894+00:00",
-      "created_at": "2026-02-12T18:01:42.550894+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Reworld Media Italia",
-          "Grazia"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "title_original": "Evoluzione editoriale per Grazia: da settimanale passa a quindicinale",
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": false,
-      "ml_keep_prob": 0.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
       "signal_types": [
         "exit_announced"
       ]
@@ -6512,6 +6351,61 @@
       ]
     },
     {
+      "id": "web-signal-01302",
+      "fund_id": "",
+      "fund_slug": "fvs-sgr",
+      "signal_type": "deal_announced",
+      "title": "FVS SGR focuses on plant-based products and acquires a majority stake in Biolab. Seventh transaction for the SME Development Fund 2 in co-investment with\u2026",
+      "what_changed": "FVS SGR focuses on plant-based products and acquires a majority stake in Biolab Seventh transaction for the SME Development Fund 2 in co-investment with Banca Ifis. The aim of the transaction is to accelerate Biolab's development and acquisition plan. Gorizia, October 1,2025 \u2013 FVS SGR S.p.A. (FVS), a subsidiary of the regional financial company Veneto Sviluppo,",
+      "source_url": "https://fvs.nooostaging.com/2025/10/01/fvs-sgr-punta-sul-plant-based-e-acquisisce-la-maggioranza-di-biolab-settima-operazione-per-il-fondo-sviluppo-pmi-2-in-co-investimento-con-banca-ifis/",
+      "source_name": "FVS SGR",
+      "published_at": "2025-10-01",
+      "observed_at": "2026-02-12T17:58:24.118973+00:00",
+      "created_at": "2026-02-12T17:58:24.118973+00:00",
+      "snapshot_id": "snap-20260212175822-953c338c",
+      "diff_summary": "New news item detected (dated 2025-10-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.68,
+      "relevance_reasons": [
+        "Italian regions: Veneto",
+        "Italian entity types: SPA, SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "FVS Sgr"
+        ],
+        "people": [
+          "Fondo Sviluppo",
+          "Veneto Sviluppo",
+          "Banca Ifis",
+          "Biolab Settima"
+        ],
+        "locations": [
+          "Veneto"
+        ]
+      },
+      "what_changed_original": "FVS SGR punta sul plant based e acquisisce la maggioranza di Biolab Settima operazione per il Fondo Sviluppo PMI 2 in co-investimento con Banca Ifis. Obiettivo dell\u2019operazione \u00e8 accelerare il piano di sviluppo e di acquisizioni di Biolab. Gorizia, 1 ottobre 2025 \u2013 FVS Sgr S.p.A. (FVS), societ\u00e0 controllata dalla finanziaria regionale Veneto Sviluppo, per Continua a leggere \u201cFVS SGR punta sul plant based e acquisisce la maggioranza di Biolab. Settima operazione per il Fondo Sviluppo PMI 2 in co-in",
+      "title_original": "Continua a leggere \u201cFVS SGR punta sul plant based e acquisisce la maggioranza di Biolab. Settima operazione per il Fondo Sviluppo PMI 2 in co-investimento con Banca Ifis.\u201d",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 100,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
       "id": "web-signal-01303",
       "fund_id": "",
       "fund_slug": "fvs-sgr",
@@ -6569,7 +6463,7 @@
       "fund_id": "",
       "fund_slug": "fvs-sgr",
       "signal_type": "job_posting",
-      "title": "FVS SGR SPA launches selection process for general secretary",
+      "title": "FVS SGR S.p.A. launches selection process for general secretary",
       "what_changed": "FVS SGR S.p.A., active in the private equity market in the regions of Veneto, Friuli-Venezia Giulia, and Trentino-Alto Adige, is seeking a full-time, permanent employee for the role of Head of General Administration. The full notice, admission requirements, and evaluation criteria are available at the following address: LINK The search is open to candidates",
       "source_url": "https://fvs.nooostaging.com/2024/07/22/fvs-sgr-spa-avvia-la-procedura-di-selezione-per-responsabilie-segreteria-generale/",
       "source_name": "FVS SGR",
@@ -7424,7 +7318,7 @@
       "id": "rss-signal-00013",
       "fund_id": "",
       "fund_slug": "carlyle",
-      "signal_type": "exit_announced",
+      "signal_type": "deal_announced",
       "title": "Mecaer (Fondo Italiano d\u2019Investimento and Stellex Capital Management), Lazard is handling the sale process. Carlyle and PAI Partners in the running.",
       "what_changed": "[Rumor] Carlyle and PAI Partners are reportedly vying to acquire Mecaer Aviation Group, controlled by Fondo Italiano d'Investimento and Stellex; Lazard is handling the sale process.",
       "source_url": "https://bebeez.it/private-equity/mecaer-fondo-italiano-dinvestimento-e-stellex-capital-management-lazard-si-occupa-del-processo-di-vendita-carlyle-e-pai-partners-in-lizza/",
@@ -7460,7 +7354,6 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "exit_announced",
         "deal_announced"
       ]
     },
@@ -7600,10 +7493,53 @@
       ]
     },
     {
-      "id": "web-signal-01209",
+      "id": "rss-signal-00049",
       "fund_id": "",
       "fund_slug": "macquarie",
       "signal_type": "deal_announced",
+      "title": "Eco Eridania S.p.A. (Icon Infrastructure), Ardian, Macquarie, DIF, and DWS could be among the major funds interested in investing.",
+      "what_changed": "[Rumor] Ardian, Macquarie, DIF, and DWS may be interested in investing in Eco Eridania S.p.A., currently controlled by Icon Infrastructure (hypothesis reported by Il sole24ore).",
+      "source_url": "https://bebeez.it/private-equity/eco-eridania-spa-icon-infrastructure-ardian-macquarie-dif-e-dws-potrebbero-essere-tra-i-grandi-fondi-interessati-ad-investire/",
+      "source_name": "BeBeez",
+      "published_at": "2026-01-29T06:50:54+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": true,
+      "extracted_entities": {
+        "companies": [
+          "Eco Eridania spa"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "[Rumor] Ardian, Macquarie, Dif e Dws potrebbero essere interessati a investire in Eco Eridania spa, oggi controllata da Icon Infrastructure (ipotesi riportata da Il Sole 24 Ore).",
+      "title_original": "Eco Eridania spa (Icon Infrastructure), Ardian, Macquarie, Dif e Dws potrebbero essere tra i grandi fondi interessati ad investire",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": false,
+      "ml_keep_prob": 0.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.997,
+      "ml_type_confident": true,
+      "ml_confidence": 0.997,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "web-signal-01209",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "signal_type": "debt_financing",
       "title": "Polarise and Macquarie announce up to \u20ac117M financing deal for European AI ambitions",
       "what_changed": "",
       "source_url": "https://www.macquarie.com/it/en/about/news/2026/polarise-and-macquarie-announce-up-to-117-million-euros-financing-deal-for-european-ai-ambitions.html",
@@ -7633,11 +7569,11 @@
       "ml_type_confident": true,
       "ml_confidence": 0.995,
       "quality_score": 100,
-      "evidence_score": 4,
+      "evidence_score": 3,
       "quality_confidence": "high",
-      "confidence_score": 0.92,
+      "confidence_score": 0.84,
       "signal_types": [
-        "deal_announced"
+        "debt_financing"
       ]
     },
     {
@@ -7679,6 +7615,135 @@
       "signal_types": [
         "debt_financing",
         "fundraise_closed"
+      ]
+    },
+    {
+      "id": "rss-signal-00047",
+      "fund_id": "",
+      "fund_slug": "muzinich-co",
+      "signal_type": "deal_announced",
+      "title": "Eco Eridania S.p.A. (Icon Infrastructure), Ardian, Macquarie, DIF, and DWS could be among the major funds interested in investing.",
+      "what_changed": "[Rumor] Ardian, Macquarie, DIF, and DWS may be interested in investing in Eco Eridania S.p.A., currently controlled by Icon Infrastructure (hypothesis reported by Il sole24ore).",
+      "source_url": "https://bebeez.it/private-equity/eco-eridania-spa-icon-infrastructure-ardian-macquarie-dif-e-dws-potrebbero-essere-tra-i-grandi-fondi-interessati-ad-investire/",
+      "source_name": "BeBeez",
+      "published_at": "2026-01-29T06:50:54+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": true,
+      "extracted_entities": {
+        "companies": [
+          "Eco Eridania spa"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "[Rumor] Ardian, Macquarie, Dif e Dws potrebbero essere interessati a investire in Eco Eridania spa, oggi controllata da Icon Infrastructure (ipotesi riportata da Il Sole 24 Ore).",
+      "title_original": "Eco Eridania spa (Icon Infrastructure), Ardian, Macquarie, Dif e Dws potrebbero essere tra i grandi fondi interessati ad investire",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": false,
+      "ml_keep_prob": 0.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.997,
+      "ml_type_confident": true,
+      "ml_confidence": 0.997,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "rss-signal-00048",
+      "fund_id": "",
+      "fund_slug": "ardian",
+      "signal_type": "deal_announced",
+      "title": "Eco Eridania S.p.A. (Icon Infrastructure), Ardian, Macquarie, DIF, and DWS could be among the major funds interested in investing.",
+      "what_changed": "[Rumor] Ardian, Macquarie, DIF, and DWS may be interested in investing in Eco Eridania S.p.A., currently controlled by Icon Infrastructure (hypothesis reported by Il sole24ore).",
+      "source_url": "https://bebeez.it/private-equity/eco-eridania-spa-icon-infrastructure-ardian-macquarie-dif-e-dws-potrebbero-essere-tra-i-grandi-fondi-interessati-ad-investire/",
+      "source_name": "BeBeez",
+      "published_at": "2026-01-29T06:50:54+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": true,
+      "extracted_entities": {
+        "companies": [
+          "Eco Eridania spa"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "[Rumor] Ardian, Macquarie, Dif e Dws potrebbero essere interessati a investire in Eco Eridania spa, oggi controllata da Icon Infrastructure (ipotesi riportata da Il Sole 24 Ore).",
+      "title_original": "Eco Eridania spa (Icon Infrastructure), Ardian, Macquarie, Dif e Dws potrebbero essere tra i grandi fondi interessati ad investire",
+      "_fund_geo_scope": "europe_wide",
+      "ml_keep": false,
+      "ml_keep_prob": 0.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.997,
+      "ml_type_confident": true,
+      "ml_confidence": 0.997,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "rss-signal-00063",
+      "fund_id": "",
+      "fund_slug": "ardian",
+      "signal_type": "deal_announced",
+      "title": "Ardian and Rockfield, with their strategy focused on student housing, purchase property in Viale Certosa in Milan",
+      "what_changed": "Ardian and Rockfield, through the PBSA strategy and with CBRE Investment Management, acquire a property in Viale Certosa in Milan.",
+      "source_url": "https://bebeez.it/real-estate-2/ardian-e-rockfield-con-la-loro-strategia-dedicata-allo-student-housing-comprano-immobile-in-viale-certosa-a-milano/",
+      "source_name": "BeBeez",
+      "published_at": "2026-01-26T06:41:01+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Rockfield real estate"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Ardian e Rockfield, tramite la strategia PBSA e con CBRE Investment Management, acquistano un immobile in viale Certosa a Milano.",
+      "title_original": "Ardian e Rockfield, con la loro strategia dedicata allo student housing, comprano immobile in viale Certosa a Milano",
+      "_fund_geo_scope": "europe_wide",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "deal_announced"
       ]
     },
     {
@@ -7770,6 +7835,50 @@
       ]
     },
     {
+      "id": "web-signal-00206",
+      "fund_id": "",
+      "fund_slug": "friulia",
+      "signal_type": "deal_announced",
+      "title": "Friulia joins Quin and supports the Group's multi-year growth plan",
+      "what_changed": "",
+      "source_url": "http://www.friulia.it/it/news/friulia-entra-in-quin-e-sostiene-il-piano-di-crescita-pluriennale-del-gruppo",
+      "source_name": "Friulia",
+      "published_at": "2026-01-20",
+      "observed_at": "2026-02-05T15:57:40.145518+00:00",
+      "created_at": "2026-02-05T15:57:40.145518+00:00",
+      "snapshot_id": "snap-20260205155738-cebf957e",
+      "diff_summary": "New news item detected (dated 2026-01-20)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Friulia entra in Quin e sostiene il piano di crescita pluriennale del Gruppo",
+      "title_original": "Friulia entra in Quin e sostiene il piano di crescita pluriennale del Gruppo",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.658,
+      "ml_type_confident": true,
+      "ml_confidence": 0.658,
+      "quality_score": 100,
+      "evidence_score": 2,
+      "quality_confidence": "medium",
+      "confidence_score": 0.71,
+      "signal_types": [
+        "deal_announced",
+        "people_move"
+      ]
+    },
+    {
       "id": "web-signal-00207",
       "fund_id": "",
       "fund_slug": "friulia",
@@ -7808,49 +7917,6 @@
       "evidence_score": 3,
       "quality_confidence": "medium",
       "confidence_score": 0.79,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "rss-signal-00063",
-      "fund_id": "",
-      "fund_slug": "ardian",
-      "signal_type": "deal_announced",
-      "title": "Ardian and Rockfield, with their strategy focused on student housing, purchase property in Viale Certosa in Milan",
-      "what_changed": "Ardian and Rockfield, through the PBSA strategy and with CBRE Investment Management, acquire a property in Viale Certosa in Milan.",
-      "source_url": "https://bebeez.it/real-estate-2/ardian-e-rockfield-con-la-loro-strategia-dedicata-allo-student-housing-comprano-immobile-in-viale-certosa-a-milano/",
-      "source_name": "BeBeez",
-      "published_at": "2026-01-26T06:41:01+00:00",
-      "observed_at": "2026-02-12T10:53:24.152370+00:00",
-      "created_at": "2026-02-12T10:53:24.152370+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Rockfield real estate"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "Ardian e Rockfield, tramite la strategia PBSA e con CBRE Investment Management, acquistano un immobile in viale Certosa a Milano.",
-      "title_original": "Ardian e Rockfield, con la loro strategia dedicata allo student housing, comprano immobile in viale Certosa a Milano",
-      "_fund_geo_scope": "europe_wide",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
       "signal_types": [
         "deal_announced"
       ]
@@ -8079,7 +8145,7 @@
       "id": "seed-signal-00008",
       "fund_id": "",
       "fund_slug": "partners-group",
-      "signal_type": "exit_announced",
+      "signal_type": "fund_launch",
       "title": "Partners Group and Mediobanca launch private markets royalties fund for Italian investors",
       "what_changed": "Partners Group and Mediobanca Private Banking announce exclusive partnership to provide Italian investors access to private markets royalties evergreen fund for the first time.",
       "source_url": "https://www.wealthbriefing.com/html/article.php/partners-group-enters-distribution-pact-with-italian-bank",
@@ -8116,7 +8182,7 @@
       "quality_confidence": "high",
       "confidence_score": 1.0,
       "signal_types": [
-        "exit_announced"
+        "fund_launch"
       ]
     },
     {
@@ -8170,7 +8236,7 @@
       "fund_id": "",
       "fund_slug": "gradiente-sgr",
       "signal_type": "exit_announced",
-      "title": "Gradiente II vende la sua platform company Argos S.r.l",
+      "title": "Gradiente II vende la sua platform company Argos S.r.l.",
       "what_changed": "",
       "source_url": "https://www.gradientesgr.it/news/gradiente-ii-vende-la-sua-platform-company-argos-s-r-l/",
       "source_name": "Gradiente SGR",
@@ -8214,7 +8280,7 @@
       "id": "web-signal-01059",
       "fund_id": "",
       "fund_slug": "ibla-capital",
-      "signal_type": "exit_announced",
+      "signal_type": "deal_announced",
       "title": "New carve-out operation for Ibla Capital, Solar Edge Automation Machines acquired \u2013 IL sole24ore",
       "what_changed": "New carve-out transaction for Ibla Capital, Solar Edge Automation Machines acquired \u2013 IL sole24ore",
       "source_url": "https://iblacapital.com/it/nuova-operazione-di-carve-out-per-ibla-capital-acquisita-solaredge-automation-machines-il-sole24ore/",
@@ -8253,97 +8319,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.74,
       "signal_types": [
-        "exit_announced",
         "deal_announced"
-      ]
-    },
-    {
-      "id": "web-signal-01044",
-      "fund_id": "",
-      "fund_slug": "xgen-venture-sgr",
-      "signal_type": "deal_announced",
-      "title": "New investment: Epilepsy GT x (life sciences)",
-      "what_changed": "New portfolio investment: Epilepsy GT x in Life Sciences sector",
-      "source_url": "https://xgenventure.com/portfolio/",
-      "source_name": "XGen Venture SGR",
-      "published_at": null,
-      "observed_at": "2026-02-08T14:11:36.141750+00:00",
-      "created_at": "2026-02-08T14:11:36.141750+00:00",
-      "snapshot_id": "snap-20260208141132-97a816fa",
-      "diff_summary": "New portfolio company detected via extraction",
-      "page_category": "PORTFOLIO",
-      "page_type": "PORTFOLIO",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "Epilepsy GTx"
-        ],
-        "people": [
-          "Life Sciences Providing"
-        ],
-        "locations": []
-      },
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 100,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "web-signal-00550",
-      "fund_id": "",
-      "fund_slug": "xgen-venture-sgr",
-      "signal_type": "people_move",
-      "title": "Tes Pharma Announces formation of AKI Clinical Advisory Board",
-      "what_changed": "",
-      "source_url": "https://www.tespharma.com/news/tes-pharma-announces-formation-of-aki-clinical-advisory-board/#new_tab",
-      "source_name": "XGen Venture SGR",
-      "published_at": null,
-      "observed_at": "2026-02-05T18:24:20.898968+00:00",
-      "created_at": "2026-02-05T18:24:20.898968+00:00",
-      "snapshot_id": "snap-20260205182420-09358b66",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Tes Pharma Announces",
-          "Clinical Advisory Board"
-        ],
-        "locations": []
-      },
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "people_move",
-      "ml_type_prob": 0.945,
-      "ml_type_confident": true,
-      "ml_confidence": 0.945,
-      "quality_score": 100,
-      "evidence_score": 1,
-      "quality_confidence": "high",
-      "confidence_score": 0.63,
-      "signal_types": [
-        "people_move"
       ]
     },
     {
@@ -8481,7 +8457,7 @@
       "id": "web-signal-00577",
       "fund_id": "",
       "fund_slug": "armonia-sgr",
-      "signal_type": "fund_launch",
+      "signal_type": "deal_announced",
       "title": "Fifth investment for Arm\u00f2nia Italy Fund II",
       "what_changed": "",
       "source_url": "https://www.armoniasgr.it/uploads/20251217_CS_Cosmesi.pdf",
@@ -8521,7 +8497,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "fund_launch"
+        "deal_announced"
       ]
     },
     {
@@ -8529,7 +8505,7 @@
       "fund_id": "",
       "fund_slug": "armonia-sgr",
       "signal_type": "deal_announced",
-      "title": "Arm\u00f2nia Italy Fund II acquires PSH SPA",
+      "title": "Arm\u00f2nia Italy Fund II acquires PSH S.p.A.",
       "what_changed": "",
       "source_url": "https://www.armoniasgr.it/uploads/14112025_PSH.pdf",
       "source_name": "Arm\u00f2nia SGR",
@@ -9108,54 +9084,46 @@
       ]
     },
     {
-      "id": "web-signal-01304",
+      "id": "rss-signal-00079",
       "fund_id": "",
-      "fund_slug": "fvs-sgr",
-      "signal_type": "exit_announced",
-      "title": "Exploratory survey for the outsourcing of Internal Audit, Compliance, and Risk Management functions",
-      "what_changed": "FVS SGR S.P.A. is conducting an exploratory survey in order to gather expressions of interest from specialized economic operators with proven expertise and many years of experience in participating in a comparative procedure aimed at awarding the functions of Internal Audit, Compliance, and Risk Management to three separate operators on a full outsourcing basis. The Notices",
-      "source_url": "https://fvs.nooostaging.com/2025/07/30/indagine-esplorativa-per-laffidamento-in-outsourcing-delle-funzioni-di-revisione-interna-compliance-e-risk-management/",
-      "source_name": "FVS SGR",
-      "published_at": null,
-      "observed_at": "2026-02-12T17:58:24.118973+00:00",
-      "created_at": "2026-02-12T17:58:24.118973+00:00",
-      "snapshot_id": "snap-20260212175822-953c338c",
-      "diff_summary": "New news item detected",
+      "fund_slug": "cinven",
+      "signal_type": "other",
+      "title": "Cinven offers \u20ac300M for Burger King's Italian operations, currently held by Kharis Capital",
+      "what_changed": "",
+      "source_url": "https://bebeez.it/private-equity/offerta-da-300-mln-euro-di-cinven-per-le-attivita-italiane-di-burger-king-oggi-in-portafoglio-a-kharis-capital/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-13T06:57:44+00:00",
+      "observed_at": "2026-02-13T14:32:40.644764+00:00",
+      "created_at": "2026-02-13T14:32:40.644764+00:00",
       "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.345,
-      "relevance_reasons": [
-        "Italian entity types: SPA, SGR"
-      ],
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
       "italy_relevant": true,
+      "quality_score": 99,
+      "is_rumor": false,
       "extracted_entities": {
         "companies": [
-          "FVS SGR"
+          "restaurant brands europe"
         ],
-        "people": [
-          "Gli Avvisi Continua",
-          "Risk Management",
-          "Revisione Interna"
-        ],
+        "people": [],
         "locations": []
       },
-      "what_changed_original": "FVS SGR S.P.A. sta svolgendo un\u2019indagine esplorativa al fine di acquisire, da parte di operatori economici specializzati con comprovata competenza e pluriennale esperienza, le manifestazioni di interesse a partecipare a una procedura comparativa finalizzata all\u2019affidamento in full outsourcing \u2013 a tre distinti operatori \u2013 delle funzioni di Revisione Interna, Compliance e Risk Management. Gli Avvisi Continua a leggere \u201cIndagine esplorativa per l\u2019affidamento in outsourcing delle funzioni di Revisio",
-      "title_original": "Continua a leggere \u201cIndagine esplorativa per l\u2019affidamento in outsourcing delle funzioni di Revisione Interna, Compliance e Risk Management\u201d",
-      "_fund_geo_scope": "italy_focused",
+      "what_changed_original": "Offerta da 300 mln euro di Cinven per le attivit\u00e0 italiane di Burger King, oggi in portafoglio a Kharis Capital",
+      "title_original": "Offerta da 300 mln euro di Cinven per le attivit\u00e0 italiane di Burger King, oggi in portafoglio a Kharis Capital",
+      "_fund_geo_scope": "mixed_or_global",
       "ml_keep": false,
-      "ml_keep_prob": 0.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
+      "ml_keep_prob": 0.464,
+      "ml_keep_confidence": 0.536,
+      "ml_keep_confident": false,
       "ml_type": "exit_announced",
-      "ml_type_prob": 0.997,
+      "ml_type_prob": 0.691,
       "ml_type_confident": true,
-      "ml_confidence": 0.997,
-      "quality_score": 99,
-      "evidence_score": 2,
-      "quality_confidence": "medium",
-      "confidence_score": 0.706,
+      "ml_confidence": 0.536,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.786,
       "signal_types": [
-        "exit_announced"
+        "other"
       ]
     },
     {
@@ -9253,40 +9221,6 @@
       ]
     },
     {
-      "id": "hist-signal-00156",
-      "fund_id": "",
-      "fund_slug": "fvs-sgr",
-      "signal_type": "people_move",
-      "title": "FVS SGR SPA launches urgent selection procedure for the roles of Chief Investment Officer (CIO) and Chief Operating Officer (COO)",
-      "what_changed": "Historical",
-      "source_url": "https://fvs.nooostaging.com/2023/03/21/fvs-sgr-spa-avvia-la-procedura-di-selezione-con-carattere-durgenza-per-i-ruoli-di-direttore-investimenti-cio-e-direttore-operativo-coo/",
-      "source_name": "FVS SGR",
-      "published_at": null,
-      "observed_at": "2026-01-26T15:36:37.950822+00:00",
-      "created_at": "2026-01-26T15:36:37.950822+00:00",
-      "fingerprint": "1557a2687c40",
-      "extraction_source": "historical_extraction",
-      "what_changed_original": "Historical: Continua a leggere\u201cFVS SGR SPA avvia la procedura di selezione con carattere d\u2019urgenza per i ruoli di direttore investimenti (CIO) e direttore operati",
-      "title_original": "Continua a leggere\u201cFVS SGR SPA avvia la procedura di selezione con carattere d\u2019urgenza per i ruoli di direttore investimenti (CIO) e direttore operativo (COO)\u201d",
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": true,
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "people_move",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 98,
-      "evidence_score": 2,
-      "quality_confidence": "high",
-      "confidence_score": 0.702,
-      "signal_types": [
-        "people_move"
-      ]
-    },
-    {
       "id": "web-signal-00526",
       "fund_id": "",
       "fund_slug": "itago",
@@ -9332,39 +9266,50 @@
       ]
     },
     {
-      "id": "news-signal-20260205111509-fb1ed3df-789016c6",
+      "id": "web-signal-01663",
       "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "signal_type": "other",
-      "title": "CDP Venture Capital launches Next Age: \u20ac5.5M in investments for Europe's first accelerator dedicated to the growth of startups operating in the Silver Economy",
+      "fund_slug": "wrm-group",
+      "signal_type": "deal_announced",
+      "title": "Margherita Distribuzione Signs an Agreement with OVS S.p.A. for 18 New Shops",
       "what_changed": "",
-      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
-      "source_name": "CDP Venture Capital",
+      "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/CS_Margherita-Distribuzione-Signs-an-Agreement-with-OVS-Spa-for-18-New-Shops_en.pdf",
+      "source_name": "WRM Group",
       "published_at": null,
-      "observed_at": "2026-02-05T11:15:09.810773+00:00",
-      "created_at": "2026-02-05T11:15:09.810773+00:00",
-      "fingerprint": "59bf7dcbbc32",
-      "extraction_source": "news_signal_generator",
+      "observed_at": "2026-02-20T09:20:17.095396+00:00",
+      "created_at": "2026-02-20T09:20:17.095396+00:00",
+      "snapshot_id": "snap-20260220092016-726b880c",
+      "diff_summary": "New news item detected (dated 2020)",
       "page_category": "NEWS",
       "page_type": "NEWS",
-      "quality_score": 97,
-      "what_changed_original": "News: CDP Venture Capital lancia Next Age: 5,46 milioni di investimenti per il primo acceleratore in Europa dedicato alla crescita di startup operative nella Silver Economy",
-      "title_original": "CDP Venture Capital lancia Next Age: 5,46 milioni di investimenti per il primo acceleratore in Europa dedicato alla crescita di startup operative nella Silver Economy",
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": null,
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SPA"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "Margherita Distribuzione Signs an Agreement with OVS"
+        ],
+        "people": [
+          "New Shops",
+          "Margherita Distribuzione Signs"
+        ],
+        "locations": []
+      },
+      "_fund_geo_scope": "europe_wide",
       "ml_keep": true,
       "ml_keep_prob": 1.0,
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
-      "ml_type": "other",
-      "ml_type_prob": 1.0,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.707,
       "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.678,
+      "ml_confidence": 0.707,
+      "quality_score": 97,
+      "evidence_score": 2,
+      "quality_confidence": "medium",
+      "confidence_score": 0.698,
       "signal_types": [
-        "other",
         "deal_announced"
       ]
     },
@@ -9407,51 +9352,6 @@
       "evidence_score": 1,
       "quality_confidence": "medium",
       "confidence_score": 0.618,
-      "signal_types": [
-        "exit_announced"
-      ]
-    },
-    {
-      "id": "web-signal-01673",
-      "fund_id": "",
-      "fund_slug": "teamsystem-capital-at-work-sgr",
-      "signal_type": "exit_announced",
-      "title": "Bff-Team System partnership for the transfer of receivables to the Public Administration and National Health Service",
-      "what_changed": "",
-      "source_url": "https://www.tscawsgr.com/downloads/4697/114/4.Industriaitaliana.pdf",
-      "source_name": "TeamSystem Capital at Work SGR",
-      "published_at": null,
-      "observed_at": "2026-02-20T09:30:38.889614+00:00",
-      "created_at": "2026-02-20T09:30:38.889614+00:00",
-      "snapshot_id": "snap-20260220093038-ffdced9f",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Partnership Bff"
-        ],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: Industriaitaliana: Partnership Bff-TeamSystem per cessione dei crediti a Pa e Ssn",
-      "title_original": "Industriaitaliana: Partnership Bff-TeamSystem per cessione dei crediti a Pa e Ssn",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.864,
-      "ml_type_confident": true,
-      "ml_confidence": 0.864,
-      "quality_score": 96,
-      "evidence_score": 2,
-      "quality_confidence": "medium",
-      "confidence_score": 0.694,
       "signal_types": [
         "exit_announced"
       ]
@@ -9649,6 +9549,117 @@
       ]
     },
     {
+      "id": "news-signal-20260205111509-fb1ed3df-79ec7dbf",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "partnership",
+      "title": "CDP Venture Capital SGR launches the Energy Tech segment of the Corporate Partners I Fund: the most innovative corporations join forces to invest in\u2026",
+      "what_changed": "CDP Venture Capital SGR launches the Energy Tech segment of the Corporate Partners I Fund: the most innovative corporations join forces to invest in startups operating in the energy transition sector",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "CDP Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-02-05T11:15:09.810489+00:00",
+      "created_at": "2026-02-05T11:15:09.810489+00:00",
+      "fingerprint": "9c91b794185d",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 94,
+      "what_changed_original": "News: CDP Venture Capital Sgr lancia il comparto Energy Tech del Fondo Corporate Partners I: le corporate pi\u00f9 innovative insieme per investire in startup che operano nel mondo della transizione energetica",
+      "title_original": "CDP Venture Capital Sgr lancia il comparto Energy Tech del Fondo Corporate Partners I: le corporate pi\u00f9 innovative insieme per investire in startup che operano nel mondo della transizione energetica",
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.99,
+      "ml_type_confident": true,
+      "ml_confidence": 0.99,
+      "evidence_score": 2,
+      "quality_confidence": "medium",
+      "confidence_score": 0.636,
+      "signal_types": [
+        "partnership",
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "news-signal-20260205111509-fb1ed3df-4f3280da",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "partnership",
+      "title": "CDP Venture Capital Sgr: Newlat food and terna forward join the Corporate Partners ifund",
+      "what_changed": "",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "CDP Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-02-05T11:15:09.810308+00:00",
+      "created_at": "2026-02-05T11:15:09.810308+00:00",
+      "fingerprint": "3597504cb45d",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 94,
+      "what_changed_original": "News: CDP Venture Capital Sgr: Newlat Food e Terna Forward entrano nel fondo Corporate Partners I",
+      "title_original": "CDP Venture Capital Sgr: Newlat Food e Terna Forward entrano nel fondo Corporate Partners I",
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "other",
+      "ml_type_prob": 0.988,
+      "ml_type_confident": true,
+      "ml_confidence": 0.988,
+      "evidence_score": 1,
+      "quality_confidence": "medium",
+      "confidence_score": 0.556,
+      "signal_types": [
+        "partnership",
+        "people_move"
+      ]
+    },
+    {
+      "id": "news-signal-20260205111509-fb1ed3df-51e0be45",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "partnership",
+      "title": "SNAM joins Tech 4 Planet, the national Technology Transfer hub for sustainability run by CDP Venture Capital SGR",
+      "what_changed": "",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "CDP Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-02-05T11:15:09.809809+00:00",
+      "created_at": "2026-02-05T11:15:09.809809+00:00",
+      "fingerprint": "fee2e8c4e153",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 94,
+      "what_changed_original": "News: SNAM aderisce a Tech4Planet, il polo nazionale di trasferimento tecnologico per la sostenibilit\u00e0 di CDP Venture Capital Sgr",
+      "title_original": "SNAM aderisce a Tech4Planet, il polo nazionale di trasferimento tecnologico per la sostenibilit\u00e0 di CDP Venture Capital Sgr",
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "other",
+      "ml_type_prob": 0.999,
+      "ml_type_confident": true,
+      "ml_confidence": 0.999,
+      "evidence_score": 1,
+      "quality_confidence": "medium",
+      "confidence_score": 0.556,
+      "signal_types": [
+        "partnership",
+        "people_move"
+      ]
+    },
+    {
       "id": "news-signal-20260205111509-fb1ed3df-8439ad66",
       "fund_id": "",
       "fund_slug": "cdp-venture-capital",
@@ -9682,6 +9693,43 @@
       "confidence_score": 0.816,
       "signal_types": [
         "fund_launch"
+      ]
+    },
+    {
+      "id": "news-signal-20260205111509-fb1ed3df-512724d8",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "partnership",
+      "title": "CDP Venture Capital and Open AI join forces to promote the development of Artificial Intelligence in Italy",
+      "what_changed": "",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "CDP Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-02-05T11:15:09.808607+00:00",
+      "created_at": "2026-02-05T11:15:09.808607+00:00",
+      "fingerprint": "95d7ece6ca42",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 94,
+      "what_changed_original": "News: CDP Venture Capital e OpenAI insieme per promuovere lo sviluppo dell'Intelligenza Artificiale in Italia",
+      "title_original": "CDP Venture Capital e OpenAI insieme per promuovere lo sviluppo dell'Intelligenza Artificiale in Italia",
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "other",
+      "ml_type_prob": 0.999,
+      "ml_type_confident": true,
+      "ml_confidence": 0.999,
+      "evidence_score": 1,
+      "quality_confidence": "medium",
+      "confidence_score": 0.556,
+      "signal_types": [
+        "partnership",
+        "people_move"
       ]
     },
     {
@@ -9943,49 +9991,6 @@
       ]
     },
     {
-      "id": "web-signal-00206",
-      "fund_id": "",
-      "fund_slug": "friulia",
-      "signal_type": "people_move",
-      "title": "Friulia joins Quin and supports the Group's multi-year growth plan",
-      "what_changed": "",
-      "source_url": "http://www.friulia.it/it/news/friulia-entra-in-quin-e-sostiene-il-piano-di-crescita-pluriennale-del-gruppo",
-      "source_name": "Friulia",
-      "published_at": "2026-01-20",
-      "observed_at": "2026-02-05T15:57:40.145518+00:00",
-      "created_at": "2026-02-05T15:57:40.145518+00:00",
-      "snapshot_id": "snap-20260205155738-cebf957e",
-      "diff_summary": "New news item detected (dated 2026-01-20)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: Friulia entra in Quin e sostiene il piano di crescita pluriennale del Gruppo",
-      "title_original": "Friulia entra in Quin e sostiene il piano di crescita pluriennale del Gruppo",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 0.658,
-      "ml_type_confident": true,
-      "ml_confidence": 0.658,
-      "quality_score": 93,
-      "evidence_score": 1,
-      "quality_confidence": "low",
-      "confidence_score": 0.502,
-      "signal_types": [
-        "people_move"
-      ]
-    },
-    {
       "id": "web-signal-01668",
       "fund_id": "",
       "fund_slug": "wrm-group",
@@ -10122,212 +10127,11 @@
       ]
     },
     {
-      "id": "news-signal-20260205111509-fb1ed3df-4f3280da",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "signal_type": "people_move",
-      "title": "CDP Venture Capital Sgr: Newlat food and terna forward join the Corporate Partners ifund",
-      "what_changed": "",
-      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
-      "source_name": "CDP Venture Capital",
-      "published_at": null,
-      "observed_at": "2026-02-05T11:15:09.810308+00:00",
-      "created_at": "2026-02-05T11:15:09.810308+00:00",
-      "fingerprint": "3597504cb45d",
-      "extraction_source": "news_signal_generator",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "quality_score": 91,
-      "what_changed_original": "News: CDP Venture Capital Sgr: Newlat Food e Terna Forward entrano nel fondo Corporate Partners I",
-      "title_original": "CDP Venture Capital Sgr: Newlat Food e Terna Forward entrano nel fondo Corporate Partners I",
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": true,
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "other",
-      "ml_type_prob": 0.988,
-      "ml_type_confident": true,
-      "ml_confidence": 0.988,
-      "evidence_score": 1,
-      "quality_confidence": "low",
-      "confidence_score": 0.494,
-      "signal_types": [
-        "people_move"
-      ]
-    },
-    {
-      "id": "news-signal-20260205111509-fb1ed3df-51e0be45",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "signal_type": "people_move",
-      "title": "SNAM joins Tech 4 Planet, the national Technology Transfer hub for sustainability run by CDP Venture Capital SGR",
-      "what_changed": "",
-      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
-      "source_name": "CDP Venture Capital",
-      "published_at": null,
-      "observed_at": "2026-02-05T11:15:09.809809+00:00",
-      "created_at": "2026-02-05T11:15:09.809809+00:00",
-      "fingerprint": "fee2e8c4e153",
-      "extraction_source": "news_signal_generator",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "quality_score": 91,
-      "what_changed_original": "News: SNAM aderisce a Tech4Planet, il polo nazionale di trasferimento tecnologico per la sostenibilit\u00e0 di CDP Venture Capital Sgr",
-      "title_original": "SNAM aderisce a Tech4Planet, il polo nazionale di trasferimento tecnologico per la sostenibilit\u00e0 di CDP Venture Capital Sgr",
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": true,
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "other",
-      "ml_type_prob": 0.999,
-      "ml_type_confident": true,
-      "ml_confidence": 0.999,
-      "evidence_score": 1,
-      "quality_confidence": "low",
-      "confidence_score": 0.494,
-      "signal_types": [
-        "people_move"
-      ]
-    },
-    {
-      "id": "news-signal-20260205111509-fb1ed3df-512724d8",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "signal_type": "people_move",
-      "title": "CDP Venture Capital and Open AI join forces to promote the development of Artificial Intelligence in Italy",
-      "what_changed": "",
-      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
-      "source_name": "CDP Venture Capital",
-      "published_at": null,
-      "observed_at": "2026-02-05T11:15:09.808607+00:00",
-      "created_at": "2026-02-05T11:15:09.808607+00:00",
-      "fingerprint": "95d7ece6ca42",
-      "extraction_source": "news_signal_generator",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "quality_score": 91,
-      "what_changed_original": "News: CDP Venture Capital e OpenAI insieme per promuovere lo sviluppo dell'Intelligenza Artificiale in Italia",
-      "title_original": "CDP Venture Capital e OpenAI insieme per promuovere lo sviluppo dell'Intelligenza Artificiale in Italia",
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": true,
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "other",
-      "ml_type_prob": 0.999,
-      "ml_type_confident": true,
-      "ml_confidence": 0.999,
-      "evidence_score": 1,
-      "quality_confidence": "low",
-      "confidence_score": 0.494,
-      "signal_types": [
-        "people_move"
-      ]
-    },
-    {
-      "id": "web-signal-01716",
-      "fund_id": "",
-      "fund_slug": "fiee-sgr",
-      "signal_type": "people_move",
-      "title": "Rassegna Stampa: bebeez.it \u2013 Italy\u2019s private equity weekly roundup. News from Be Beez, Di Luccia & Partners, Bending Spoons, AOL, Yahoo, and more",
-      "what_changed": "",
-      "source_url": "https://www.fieesgr.com/2025/11/04/rassegna-stampa-bebeez-it-italys-private-equity-weekly-roundup-news-from-bebeez-di-luccia-partners-bending-spoons-aol-yahoo-and-more/",
-      "source_name": "FIEE SGR",
-      "published_at": "2025-11-04",
-      "observed_at": "2026-02-23T21:53:03.273589+00:00",
-      "created_at": "2026-02-23T21:53:03.273589+00:00",
-      "snapshot_id": "snap-20260223215302-988cdb3f",
-      "diff_summary": "New news item detected (dated 2025-11-04 T 00:00:00)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.4,
-      "relevance_reasons": [
-        "Italy mentioned (italy)"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Rassegna Stampa",
-          "Bending Spoons",
-          "Di Luccia"
-        ],
-        "locations": []
-      },
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.988,
-      "ml_keep_confidence": 0.988,
-      "ml_keep_confident": true,
-      "ml_type": "people_move",
-      "ml_type_prob": 0.871,
-      "ml_type_confident": true,
-      "ml_confidence": 0.871,
-      "quality_score": 91,
-      "evidence_score": 2,
-      "quality_confidence": "low",
-      "confidence_score": 0.574,
-      "signal_types": [
-        "people_move"
-      ]
-    },
-    {
-      "id": "web-signal-01276",
-      "fund_id": "",
-      "fund_slug": "the-equity-club",
-      "signal_type": "exit_announced",
-      "title": "Sun Pharma and Philogen enter into an Exclusive Distribution, License, and Supply Agreement for Commercializing specialty product, NIDLEGY\u2122 in Europe\u2026",
-      "what_changed": "Sun Pharma and Philogen enter into an Exclusive Distribution, License, and Supply Agreement for Commercializing specialty product, NIDLEGY\u2122 in Europe, Australia and New Zealand",
-      "source_url": "https://www.equityclub.eu/en/news",
-      "source_name": "The Equity Club",
-      "published_at": null,
-      "observed_at": "2026-02-12T17:57:50.760896+00:00",
-      "created_at": "2026-02-12T17:57:50.760896+00:00",
-      "snapshot_id": "snap-20260212175748-e32a3ab4",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Exclusive Distribution",
-          "Sun Pharma",
-          "New Zealand",
-          "Supply Agreement"
-        ],
-        "locations": []
-      },
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.799,
-      "ml_type_confident": true,
-      "ml_confidence": 0.799,
-      "quality_score": 91,
-      "evidence_score": 2,
-      "quality_confidence": "medium",
-      "confidence_score": 0.674,
-      "signal_types": [
-        "exit_announced"
-      ]
-    },
-    {
       "id": "news-signal-20260205105313-cc65210b-bd611625",
       "fund_id": "",
       "fund_slug": "capza",
       "signal_type": "deal_announced",
-      "title": "Audensiel acquires a stake in cognodata in Spain and mexico",
+      "title": "Audensiel acquires a stake in cognodata in Spain and Mexico",
       "what_changed": "",
       "source_url": "https://capza.co/news/audensiel-acquires-a-stake-in-cognodata-in-spain-and-mexico/",
       "source_name": "CAPZA",
@@ -10391,42 +10195,37 @@
       ]
     },
     {
-      "id": "web-signal-01549",
+      "id": "news-signal-20260205131640-38e5d7a5-7efa875d",
       "fund_id": "",
-      "fund_slug": "sagard",
+      "fund_slug": "invitalia",
       "signal_type": "deal_announced",
-      "title": "Bridewell and I-TRACING are entering into a strategic partnership to create the independent European leader in cybersecurity services",
+      "title": "Serenis Health, when therapy is online",
       "what_changed": "",
-      "source_url": "https://www.sagard.com/news/",
-      "source_name": "Sagard",
+      "source_url": "https://www.invitalia.it/news-media/storie/serenis-health-quando-la-terapia-e-online",
+      "source_name": "Invitalia",
       "published_at": null,
-      "observed_at": "2026-02-17T18:04:20.053476+00:00",
-      "created_at": "2026-02-17T18:04:20.053476+00:00",
-      "snapshot_id": "snap-20260217180419-eaf03b5f",
-      "diff_summary": "New news item detected",
+      "observed_at": "2026-02-05T13:16:40.932538+00:00",
+      "created_at": "2026-02-05T13:16:40.932538+00:00",
+      "fingerprint": "6b783a63b9b6",
+      "extraction_source": "news_signal_generator",
       "page_category": "NEWS",
       "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
+      "quality_score": 91,
+      "what_changed_original": "News: Serenis Health, quando la terapia \u00e8 online",
+      "title_original": "Serenis Health, quando la terapia \u00e8 online",
+      "_fund_geo_scope": "italy_focused",
       "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      },
-      "_fund_geo_scope": "europe_wide",
       "ml_keep": true,
       "ml_keep_prob": 1.0,
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "deal_announced",
-      "ml_type_prob": 0.828,
+      "ml_type_prob": 0.639,
       "ml_type_confident": true,
-      "ml_confidence": 0.828,
-      "quality_score": 91,
-      "evidence_score": 1,
+      "ml_confidence": 0.639,
+      "evidence_score": 2,
       "quality_confidence": "medium",
-      "confidence_score": 0.594,
+      "confidence_score": 0.674,
       "signal_types": [
         "deal_announced"
       ]
@@ -10458,42 +10257,6 @@
       "ml_type_prob": 1.0,
       "ml_type_confident": true,
       "ml_confidence": 1.0,
-      "evidence_score": 2,
-      "quality_confidence": "medium",
-      "confidence_score": 0.674,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "news-signal-20260205131640-38e5d7a5-7efa875d",
-      "fund_id": "",
-      "fund_slug": "invitalia",
-      "signal_type": "deal_announced",
-      "title": "Serenis Health, when therapy is online",
-      "what_changed": "",
-      "source_url": "https://www.invitalia.it/news-media/storie/serenis-health-quando-la-terapia-e-online",
-      "source_name": "Invitalia",
-      "published_at": null,
-      "observed_at": "2026-02-05T13:16:40.932538+00:00",
-      "created_at": "2026-02-05T13:16:40.932538+00:00",
-      "fingerprint": "6b783a63b9b6",
-      "extraction_source": "news_signal_generator",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "quality_score": 91,
-      "what_changed_original": "News: Serenis Health, quando la terapia \u00e8 online",
-      "title_original": "Serenis Health, quando la terapia \u00e8 online",
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": true,
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 0.639,
-      "ml_type_confident": true,
-      "ml_confidence": 0.639,
       "evidence_score": 2,
       "quality_confidence": "medium",
       "confidence_score": 0.674,
@@ -10547,6 +10310,51 @@
       "confidence_score": 0.666,
       "signal_types": [
         "deal_announced"
+      ]
+    },
+    {
+      "id": "web-signal-01673",
+      "fund_id": "",
+      "fund_slug": "teamsystem-capital-at-work-sgr",
+      "signal_type": "partnership",
+      "title": "Bff-TeamSystem partnership for the transfer of receivables to the Public Administration and National Health Service",
+      "what_changed": "",
+      "source_url": "https://www.tscawsgr.com/downloads/4697/114/4.Industriaitaliana.pdf",
+      "source_name": "TeamSystem Capital at Work SGR",
+      "published_at": null,
+      "observed_at": "2026-02-20T09:30:38.889614+00:00",
+      "created_at": "2026-02-20T09:30:38.889614+00:00",
+      "snapshot_id": "snap-20260220093038-ffdced9f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Partnership Bff"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Industriaitaliana: Partnership Bff-TeamSystem per cessione dei crediti a Pa e Ssn",
+      "title_original": "Industriaitaliana: Partnership Bff-TeamSystem per cessione dei crediti a Pa e Ssn",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.864,
+      "ml_type_confident": true,
+      "ml_confidence": 0.864,
+      "quality_score": 89,
+      "evidence_score": 1,
+      "quality_confidence": "low",
+      "confidence_score": 0.486,
+      "signal_types": [
+        "partnership"
       ]
     },
     {
@@ -10661,46 +10469,50 @@
       ]
     },
     {
-      "id": "web-signal-01870",
+      "id": "web-signal-01644",
       "fund_id": "",
-      "fund_slug": "icg",
-      "signal_type": "exit_announced",
-      "title": "Trade War Update: US-EU trade deal reduces policy uncertainty and downside growth risks",
+      "fund_slug": "finint-investments-sgr",
+      "signal_type": "debt_financing",
+      "title": "Trentino Minibond: Palazzo Stella celebrates the successful conclusion of the Trentino Alto-Adige Strategic Fund operation",
       "what_changed": "",
-      "source_url": "https://www.icgam.com/2025/07/30/trade-war-update-us-eu-trade-deal-reduces-policy-uncertainty-and-downside-growth-risks/",
-      "source_name": "ICG",
-      "published_at": null,
-      "observed_at": "2026-02-24T23:42:57.769056+00:00",
-      "created_at": "2026-02-24T23:42:57.769056+00:00",
-      "snapshot_id": "snap-20260224234255-fec4df7a",
-      "diff_summary": "New news item detected",
+      "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/5.2 CS Confindustria Trento_Finint Investments_Trentino Minibond.pdf",
+      "source_name": "Finint Investments SGR",
+      "published_at": "2026-02-05",
+      "observed_at": "2026-02-20T09:10:38.015157+00:00",
+      "created_at": "2026-02-20T09:10:38.015157+00:00",
+      "snapshot_id": "snap-20260220091037-2111bf67",
+      "diff_summary": "New news item detected (dated 2026-02-05)",
       "page_category": "NEWS",
       "page_type": "NEWS",
-      "relevance_score": 0.0,
+      "relevance_score": 0,
       "relevance_reasons": [],
       "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
         "people": [
-          "Trade War Update"
+          "Trentino Minibond",
+          "Fondo Strategico Trentino",
+          "Palazzo Stella"
         ],
         "locations": []
       },
-      "_fund_geo_scope": "mixed_or_global",
+      "what_changed_original": "New announcement: Trentino Minibond: a Palazzo Stella celebrata la conclusione positiva dell\u2019operazione del Fondo Strategico Trentino Alto-Adige",
+      "title_original": "Trentino Minibond: a Palazzo Stella celebrata la conclusione positiva dell\u2019operazione del Fondo Strategico Trentino Alto-Adige",
+      "_fund_geo_scope": "italy_focused",
       "ml_keep": false,
-      "ml_keep_prob": 0.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
+      "ml_keep_prob": 0.344,
+      "ml_keep_confidence": 0.656,
+      "ml_keep_confident": false,
       "ml_type": "exit_announced",
-      "ml_type_prob": 0.706,
+      "ml_type_prob": 0.999,
       "ml_type_confident": true,
-      "ml_confidence": 0.706,
+      "ml_confidence": 0.656,
       "quality_score": 88,
-      "evidence_score": 1,
-      "quality_confidence": "low",
-      "confidence_score": 0.532,
+      "evidence_score": 2,
+      "quality_confidence": "medium",
+      "confidence_score": 0.662,
       "signal_types": [
-        "exit_announced"
+        "debt_financing"
       ]
     },
     {
@@ -10918,93 +10730,6 @@
       "confidence_score": 0.738,
       "signal_types": [
         "other"
-      ]
-    },
-    {
-      "id": "rss-signal-00066",
-      "fund_id": "",
-      "fund_slug": "renaissance-partners",
-      "signal_type": "people_move",
-      "title": "Uteco Converting receives financing from Cherry Bank and Muzinich & Co., which subscribes to capital increase with Renaissance Partners (controlling\u2026",
-      "what_changed": "Uteco Converting receives refinancing and capital increase from Cherry Bank and Muzinich & Co.; Muzinich subscribes to capital increase with Renaissance Partners.",
-      "source_url": "https://bebeez.it/private-debt/uteco-converting-riceve-finanziamento-da-cherry-bank-e-muzinich-co-che-sottoscrive-aucap-con-renaissance-partners-socio-di-controllo/",
-      "source_name": "BeBeez",
-      "published_at": "2026-01-23T06:51:51+00:00",
-      "observed_at": "2026-02-12T10:53:24.152370+00:00",
-      "created_at": "2026-02-12T10:53:24.152370+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 86,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Uteco Converting"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "Uteco Converting riceve rifinanziamento e aumento di capitale da Cherry Bank e Muzinich & Co.; Muzinich sottoscrive aucap con Renaissance Partners.",
-      "title_original": "Uteco Converting riceve finanziamento da Cherry Bank e Muzinich & Co., che sottoscrive aucap con Renaissance Partners (socio di controllo)",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": false,
-      "ml_keep_prob": 0.018,
-      "ml_keep_confidence": 0.982,
-      "ml_keep_confident": true,
-      "ml_type": "people_move",
-      "ml_type_prob": 0.626,
-      "ml_type_confident": true,
-      "ml_confidence": 0.626,
-      "evidence_score": 2,
-      "quality_confidence": "low",
-      "confidence_score": 0.554,
-      "signal_types": [
-        "people_move",
-        "debt_financing"
-      ]
-    },
-    {
-      "id": "web-signal-01687-f9ccf947",
-      "fund_id": "",
-      "fund_slug": "teamsystem-capital-at-work-sgr",
-      "signal_type": "people_move",
-      "title": "Corriere L'Economia: More liquid SME s, so invoices are paid immediately",
-      "what_changed": "",
-      "source_url": "https://www.tscawsgr.com/downloads/3642/78/0604 Corriere Economia.pdf",
-      "source_name": "TeamSystem Capital at Work SGR",
-      "published_at": null,
-      "observed_at": "2026-02-20T09:30:38.889614+00:00",
-      "created_at": "2026-02-20T09:30:38.889614+00:00",
-      "snapshot_id": "snap-20260220093038-ffdced9f",
-      "diff_summary": "New news item detected",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: Corriere L'Economia: Pmi pi\u00f9 liquide, cos\u00ec la fattura si incassa subito",
-      "title_original": "Corriere L'Economia: Pmi pi\u00f9 liquide, cos\u00ec la fattura si incassa subito",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": false,
-      "ml_keep_prob": 0.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "people_move",
-      "ml_type_prob": 0.995,
-      "ml_type_confident": true,
-      "ml_confidence": 0.995,
-      "quality_score": 86,
-      "evidence_score": 1,
-      "quality_confidence": "low",
-      "confidence_score": 0.474,
-      "signal_types": [
-        "people_move"
       ]
     },
     {
@@ -11336,7 +11061,7 @@
       ],
       "signal_type": "portfolio_update",
       "title": "Limonta (owned by TIP) acquires 60% of Novares in and the entire share capital of Piran dello & Gregorin",
-      "what_changed": "Limonta spa, an Italian manufacturer of high-end fabrics (owned by Tamburi Investment Partners since 2021), has acquired 60% of Novares in spa and 100% of Piran dello & Gregorin srl from the Fumagalli family. The transaction took place in the textile/high fashion sector, with Arkios Italy acting as financial advisor for the sales.",
+      "what_changed": "Limonta S.p.A., an Italian manufacturer of high-end fabrics (owned by Tamburi Investment Partners since 2021), has acquired 60% of Novares in S.p.A. and 100% of Piran dello & Gregorin S.r.l. from the Fumagalli family. The transaction took place in the textile/high fashion sector, with Arkios Italy acting as financial advisor for the sales.",
       "source_url": "https://bebeez.it/private-equity/limonta-partecipato-da-tip-compra-il-60-di-novaresin-e-lintero-capitale-di-pirandello-gregorin/",
       "source_name": "BeBeez",
       "published_at": "2026-02-26T06:48:55+00:00",
@@ -11386,7 +11111,7 @@
       ],
       "signal_type": "portfolio_update",
       "title": "First transaction for F\u00fcrstenberg SGR, which acquires a majority stake in Noberasco S.p.A. (dried and dehydrated fruit)",
-      "what_changed": "F\u00fcrstenberg SGR has completed its first acquisition, buying a majority stake in Italian dried-fruit and dehydrated foods maker Noberasco spa via the illimity Credit & Corporate Turnaround Fund. The confirmed deal marks F\u00fcrstenberg\u2019s market entry; sellers and financial terms were not disclosed.",
+      "what_changed": "F\u00fcrstenberg SGR has completed its first acquisition, buying a majority stake in Italian dried-fruit and dehydrated foods maker Noberasco S.p.A. via the illimity Credit & Corporate Turnaround Fund. The confirmed deal marks F\u00fcrstenberg\u2019s market entry; sellers and financial terms were not disclosed.",
       "source_url": "https://bebeez.it/crisi-rilanci/prima-operazione-per-furstenberg-sgr-che-acquisisce-la-maggioranza-di-noberasco-spa-frutta-secca-e-disidratata/",
       "source_name": "BeBeez",
       "published_at": "2026-02-25T06:51:01+00:00",
@@ -11569,8 +11294,8 @@
         "h-i-g-capital"
       ],
       "signal_type": "portfolio_update",
-      "title": "Berardi Bullonerie (HIG Capital) acquires Fastpoint srl from the Carossa family, seventh M&A since private equity entered the capital",
-      "what_changed": "Berardi Bullonerie, controlled by HIG Capital via HIG Europe, has acquired Fastpoint srl from the Carossa family. The confirmed transaction is the seventh M&A since HIG\u2019s investment in Berar di and strengthens the Italian distributor of fastening elements and integrated logistics services; terms were not disclosed.",
+      "title": "Berardi Bullonerie (H.I.G. Capital) acquires Fastpoint S.r.l. from the Carossa family, seventh M&A since private equity entered the capital",
+      "what_changed": "Berardi Bullonerie, controlled by H.I.G. Capital via H.I.G. Europe, has acquired Fastpoint S.r.l. from the Carossa family. The confirmed transaction is the seventh M&A since HIG\u2019s investment in Berardi and strengthens the Italian distributor of fastening elements and integrated logistics services; terms were not disclosed.",
       "source_url": "https://bebeez.it/private-equity/berardi-bullonerie-hig-capital-acquisisce-fastpoint-srl-dalla-famiglia-carossa-settima-ma-dallingresso-del-private-equity-nel-capitale/",
       "source_name": "BeBeez",
       "published_at": "2026-02-25T06:47:17+00:00",
@@ -11614,7 +11339,7 @@
       "fund_slug": "f2i-sgr",
       "signal_type": "portfolio_update",
       "title": "Re Life (F2i) completes the acquisition of 100% of DomoLiving (home organization and garbage bags) from Cuki Cofresco",
-      "what_changed": "F2i\u2011controlled Re Life spa completed acquisition of 100% of DomoLiving from Cuki Cofresco.",
+      "what_changed": "F2i\u2011controlled Re Life S.p.A. completed acquisition of 100% of domo living from Cuki Cofresco.",
       "source_url": "https://bebeez.it/private-equity/relife-spa-f2i-perfeziona-lacquisto-del-100-di-domoliving-organizzazione-spazio-casa-e-sacchi-per-nettezza-da-cuki-cofresco/",
       "source_name": "BeBeez",
       "published_at": "2026-02-05T06:51:01+00:00",
@@ -11649,53 +11374,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.73,
       "signal_types": [
-        "portfolio_update",
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "rss-signal-00051",
-      "fund_id": "",
-      "fund_slug": "fiee-sgr",
-      "signal_type": "portfolio_update",
-      "title": "Fondo Italiano per l\u2019Efficienza Energetica (FIEE) SGR acquires Naturmet in Spain and enters the biomethane sector, investing \u20ac40M",
-      "what_changed": "FIEE SGR acquires Naturmet in Spain and enters the biomethane sector, investing \u20ac40M.",
-      "source_url": "https://bebeez.it/private-equity/fondo-italiano-per-lefficienza-energetica-fiee-sgr-rileva-in-spagna-naturmet-ed-entra-nel-settore-del-biometano-investendo-40-mln/",
-      "source_name": "BeBeez",
-      "published_at": "2026-01-28T06:52:50+00:00",
-      "observed_at": "2026-02-12T10:53:24.152370+00:00",
-      "created_at": "2026-02-12T10:53:24.152370+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 85,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Naturmet"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac40M",
-      "what_changed_original": "FIEE sgr rileva in Spagna Naturmet ed entra nel settore del biometano, investendo 40 mln euro.",
-      "title_original": "Fondo Italiano per l\u2019Efficienza Energetica (FIEE) sgr rileva in Spagna Naturmet ed entra nel settore del biometano, investendo 40 mln",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.81,
-      "signal_types": [
-        "portfolio_update",
-        "deal_announced"
+        "portfolio_update"
       ]
     },
     {
@@ -11791,8 +11470,8 @@
       "fund_id": "",
       "fund_slug": "aurora-growth-capital",
       "signal_type": "portfolio_update",
-      "title": "Nineteenth acquisition in a row for Finlogic (Credem Private Equity, Aurora Growth Capital, and PM&Partners SGR), which acquired 51% of Etichettificio Jolly\u2026",
-      "what_changed": "Finlogic spa, controlled by Credem Private Equity SGR with coinvestors Aurora Growth Capital and PM&Partners SGR, has acquired 51% of Etichettificio Jolly srl. The deal expands Finlogic\u2019s footprint in labeling and product traceability; the purchase price was not disclosed.",
+      "title": "Nineteenth acquisition in a row for finlogic (Credem Private Equity, Aurora Growth Capital, and PM&Partners SGR), which acquired 51% of etichettificio jolly\u2026",
+      "what_changed": "Finlogic S.p.A., controlled by Credem Private Equity SGR with coinvestors Aurora Growth Capital and PM&Partners SGR, has acquired 51% of Etichettificio Jolly S.r.l. The deal expands Finlogic\u2019s footprint in labeling and product traceability; the purchase price was not disclosed.",
       "source_url": "https://bebeez.it/private-equity/diciannovesima-acquisizione-di-fila-per-finlogic-credem-private-equity-aurora-growth-capital-e-pmpartners-sgr-che-ha-acquisito-il-51-di-etichettificio-jolly-srl/",
       "source_name": "BeBeez",
       "published_at": "2026-02-18T06:50:45+00:00",
@@ -11913,48 +11592,6 @@
       ]
     },
     {
-      "id": "rss-signal-00082",
-      "fund_id": "",
-      "fund_slug": "igi-private-equity",
-      "signal_type": "portfolio_update",
-      "title": "Meter ball bearings (IGI Private Equity-Amundi Private Equity Italia and banca ifis) acquire colzani ingranaggi group",
-      "what_changed": "",
-      "source_url": "https://bebeez.it/private-equity/i-cuscinetti-a-sfera-meter-igi-private-equity-amundi-private-equity-italia-e-banca-ifis-comprano-gruppo-colzani-ingranaggi/",
-      "source_name": "BeBeez",
-      "published_at": "2026-02-13T06:46:53+00:00",
-      "observed_at": "2026-02-13T14:32:40.644764+00:00",
-      "created_at": "2026-02-13T14:32:40.644764+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 85,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "I cuscinetti a sfera Meter (IGI Private Equity-Amundi Private Equity Italia e Banca Ifis) comprano Gruppo Colzani Ingranaggi",
-      "title_original": "I cuscinetti a sfera Meter (IGI Private Equity-Amundi Private Equity Italia e Banca Ifis) comprano Gruppo Colzani Ingranaggi",
-      "_fund_geo_scope": "europe_wide",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "evidence_score": 2,
-      "quality_confidence": "medium",
-      "confidence_score": 0.6,
-      "signal_types": [
-        "portfolio_update",
-        "deal_announced"
-      ]
-    },
-    {
       "id": "rss-signal-00083",
       "fund_id": "",
       "fund_slug": "nextalia-sgr",
@@ -12000,8 +11637,8 @@
       "fund_id": "",
       "fund_slug": "nextalia-sgr",
       "signal_type": "portfolio_update",
-      "title": "Third transaction for Nextalia Flexible Capital, which acquires a majority stake in Business Changers srl (IT consulting)",
-      "what_changed": "Nextalia Flexible Capital (Nextalia SGR) acquires a majority stake in Business Changers srl, an Italian IT consulting firm based in Rome.",
+      "title": "Third transaction for Nextalia Flexible Capital, which acquires a majority stake in Business Changers S.r.l. (IT consulting)",
+      "what_changed": "Nextalia Flexible Capital (Nextalia SGR) acquires a majority stake in Business Changers S.r.l., an Italian IT consulting firm based in Rome.",
       "source_url": "https://bebeez.it/private-equity/terza-operazione-per-nextalia-flexible-capital-che-acquisisce-la-maggioranza-di-business-changers-srl-consulenza-it/",
       "source_name": "BeBeez",
       "published_at": "2026-01-30T06:48:36+00:00",
@@ -12034,62 +11671,6 @@
       "evidence_score": 2,
       "quality_confidence": "medium",
       "confidence_score": 0.6,
-      "signal_types": [
-        "portfolio_update",
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "web-signal-01302",
-      "fund_id": "",
-      "fund_slug": "fvs-sgr",
-      "signal_type": "portfolio_update",
-      "title": "FVS SGR focuses on plant-based products and acquires a majority stake in Biolab. Seventh transaction for the SME Development Fund 2 in co-investment with\u2026",
-      "what_changed": "FVS SGR focuses on plant-based products and acquires a majority stake in Biolab Seventh transaction for the SME Development Fund 2 in co-investment with Banca Ifis. The aim of the transaction is to accelerate Biolab's development and acquisition plan. Gorizia, October 1,2025 \u2013 FVS SGR S.p.A. (FVS), a subsidiary of the regional financial company Veneto Sviluppo,",
-      "source_url": "https://fvs.nooostaging.com/2025/10/01/fvs-sgr-punta-sul-plant-based-e-acquisisce-la-maggioranza-di-biolab-settima-operazione-per-il-fondo-sviluppo-pmi-2-in-co-investimento-con-banca-ifis/",
-      "source_name": "FVS SGR",
-      "published_at": "2025-10-01",
-      "observed_at": "2026-02-12T17:58:24.118973+00:00",
-      "created_at": "2026-02-12T17:58:24.118973+00:00",
-      "snapshot_id": "snap-20260212175822-953c338c",
-      "diff_summary": "New news item detected (dated 2025-10-01)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.68,
-      "relevance_reasons": [
-        "Italian regions: Veneto",
-        "Italian entity types: SPA, SGR"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "FVS Sgr"
-        ],
-        "people": [
-          "Fondo Sviluppo",
-          "Veneto Sviluppo",
-          "Banca Ifis",
-          "Biolab Settima"
-        ],
-        "locations": [
-          "Veneto"
-        ]
-      },
-      "what_changed_original": "FVS SGR punta sul plant based e acquisisce la maggioranza di Biolab Settima operazione per il Fondo Sviluppo PMI 2 in co-investimento con Banca Ifis. Obiettivo dell\u2019operazione \u00e8 accelerare il piano di sviluppo e di acquisizioni di Biolab. Gorizia, 1 ottobre 2025 \u2013 FVS Sgr S.p.A. (FVS), societ\u00e0 controllata dalla finanziaria regionale Veneto Sviluppo, per Continua a leggere \u201cFVS SGR punta sul plant based e acquisisce la maggioranza di Biolab. Settima operazione per il Fondo Sviluppo PMI 2 in co-in",
-      "title_original": "Continua a leggere \u201cFVS SGR punta sul plant based e acquisisce la maggioranza di Biolab. Settima operazione per il Fondo Sviluppo PMI 2 in co-investimento con Banca Ifis.\u201d",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 85,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.81,
       "signal_types": [
         "portfolio_update",
         "deal_announced"
@@ -12234,6 +11815,49 @@
       ]
     },
     {
+      "id": "rss-signal-00021",
+      "fund_id": "",
+      "fund_slug": "abenex",
+      "signal_type": "portfolio_update",
+      "title": "PFC Family Office (Marzotto family) acquires stake in Zato (metal treatment and recovery), owned by Abenex Capital",
+      "what_changed": "PFC family office invested in zato S.p.A. alongside Abenex Capital.",
+      "source_url": "https://bebeez.it/private-equity/pfc-family-office-famiglia-marzotto-entra-nel-capitale-di-zato-spa-trattamento-e-il-recupero-di-metalli-che-fa-capo-ad-abenex-capital/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-05T06:48:47+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Zato spa"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "PFC Family Office (famiglia Marzotto) entra nel capitale di Zato (trattamento e il recupero di metalli), che fa capo ad Abenex Capital",
+      "_fund_geo_scope": "europe_wide",
+      "ml_keep": true,
+      "ml_keep_prob": 0.996,
+      "ml_keep_confidence": 0.996,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.974,
+      "ml_type_confident": true,
+      "ml_confidence": 0.974,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.73,
+      "signal_types": [
+        "portfolio_update",
+        "deal_announced"
+      ]
+    },
+    {
       "id": "rss-signal-00044",
       "fund_id": "",
       "fund_slug": "fsi",
@@ -12278,12 +11902,57 @@
       ]
     },
     {
+      "id": "rss-signal-00051",
+      "fund_id": "",
+      "fund_slug": "fiee-sgr",
+      "signal_type": "portfolio_update",
+      "title": "Fondo Italiano per l\u2019Efficienza Energetica (FIEE) SGR acquires Naturmet in Spain and enters the biomethane sector, investing \u20ac40M",
+      "what_changed": "FIEE SGR acquires Naturmet in Spain and enters the biomethane sector, investing \u20ac40M.",
+      "source_url": "https://bebeez.it/private-equity/fondo-italiano-per-lefficienza-energetica-fiee-sgr-rileva-in-spagna-naturmet-ed-entra-nel-settore-del-biometano-investendo-40-mln/",
+      "source_name": "BeBeez",
+      "published_at": "2026-01-28T06:52:50+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Naturmet"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac40M",
+      "what_changed_original": "FIEE sgr rileva in Spagna Naturmet ed entra nel settore del biometano, investendo 40 mln euro.",
+      "title_original": "Fondo Italiano per l\u2019Efficienza Energetica (FIEE) sgr rileva in Spagna Naturmet ed entra nel settore del biometano, investendo 40 mln",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.81,
+      "signal_types": [
+        "portfolio_update",
+        "deal_announced"
+      ]
+    },
+    {
       "id": "rss-signal-00054",
       "fund_id": "",
       "fund_slug": "apheon",
       "signal_type": "portfolio_update",
-      "title": "Apheon (formerly Ergon Capital Partners) has acquired a majority stake in BHB Italy through its subsidiary Salpa Special Food (Salpa & Cherubini srl).",
-      "what_changed": "Apheon (formerly Ergon Capital Partners) has acquired a majority stake in BHB Italy through Salpa Special Food (Salpa & Cherubini srl).",
+      "title": "Apheon (formerly Ergon Capital Partners) has acquired a majority stake in BHB Italy through its subsidiary Salpa Special Food (Salpa & Cherubini S.r.l.).",
+      "what_changed": "Apheon (formerly Ergon Capital Partners) has acquired a majority stake in BHB Italy through salpa special food (salpa & cherubini S.r.l.).",
       "source_url": "https://bebeez.it/private-equity/apheon-ex-ergon-capital-partners-ha-acquisito-la-maggioranza-in-bhb-italy-mediante-la-controllata-salpa-special-food-salpa-cherubini-srl/",
       "source_name": "BeBeez",
       "published_at": "2026-01-28T06:50:50+00:00",
@@ -12414,6 +12083,51 @@
       ]
     },
     {
+      "id": "web-signal-01044",
+      "fund_id": "",
+      "fund_slug": "xgen-venture-sgr",
+      "signal_type": "portfolio_update",
+      "title": "New investment: Epilepsy GTx (life sciences)",
+      "what_changed": "New portfolio investment: Epilepsy GTx in Life Sciences sector",
+      "source_url": "https://xgenventure.com/portfolio/",
+      "source_name": "XGen Venture SGR",
+      "published_at": null,
+      "observed_at": "2026-02-08T14:11:36.141750+00:00",
+      "created_at": "2026-02-08T14:11:36.141750+00:00",
+      "snapshot_id": "snap-20260208141132-97a816fa",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "Epilepsy GTx"
+        ],
+        "people": [
+          "Life Sciences Providing"
+        ],
+        "locations": []
+      },
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 85,
+      "evidence_score": 2,
+      "quality_confidence": "medium",
+      "confidence_score": 0.6,
+      "signal_types": [
+        "portfolio_update"
+      ]
+    },
+    {
       "id": "web-signal-00226",
       "fund_id": "",
       "fund_slug": "aksia-sgr",
@@ -12459,40 +12173,6 @@
       ]
     },
     {
-      "id": "hist-signal-00174",
-      "fund_id": "",
-      "fund_slug": "fvs-sgr",
-      "signal_type": "exit_announced",
-      "title": "Collaboration agreement signed between FVS SGR and Confindustria Udine",
-      "what_changed": "Historical",
-      "source_url": "https://fvs.nooostaging.com/2016/11/11/stipulato-accordo-di-collaborazione-tra-fvs-sgr-e-confindustria-udine/",
-      "source_name": "FVS SGR",
-      "published_at": null,
-      "observed_at": "2026-01-26T15:36:37.951041+00:00",
-      "created_at": "2026-01-26T15:36:37.951041+00:00",
-      "fingerprint": "ff68d820ab9a",
-      "extraction_source": "historical_extraction",
-      "what_changed_original": "Historical: Continua a leggere\u201cStipulato accordo di collaborazione tra FVS SGR e Confindustria Udine\u201d",
-      "title_original": "Continua a leggere\u201cStipulato accordo di collaborazione tra FVS SGR e Confindustria Udine\u201d",
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": true,
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.994,
-      "ml_type_confident": true,
-      "ml_confidence": 0.994,
-      "quality_score": 83,
-      "evidence_score": 2,
-      "quality_confidence": "medium",
-      "confidence_score": 0.642,
-      "signal_types": [
-        "exit_announced"
-      ]
-    },
-    {
       "id": "hist-signal-00172",
       "fund_id": "",
       "fund_slug": "fvs-sgr",
@@ -12527,75 +12207,11 @@
       ]
     },
     {
-      "id": "hist-signal-00167",
-      "fund_id": "",
-      "fund_slug": "fvs-sgr",
-      "signal_type": "deal_announced",
-      "title": "Offerta di stage",
-      "what_changed": "Historical",
-      "source_url": "https://fvs.nooostaging.com/2019/11/14/offerta-di-stage/",
-      "source_name": "FVS SGR",
-      "published_at": null,
-      "observed_at": "2026-01-26T15:36:37.950888+00:00",
-      "created_at": "2026-01-26T15:36:37.950888+00:00",
-      "fingerprint": "a86c3bdc1820",
-      "extraction_source": "historical_extraction",
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": true,
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 0.858,
-      "ml_type_confident": true,
-      "ml_confidence": 0.858,
-      "quality_score": 83,
-      "evidence_score": 1,
-      "quality_confidence": "low",
-      "confidence_score": 0.512,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "hist-signal-00166",
-      "fund_id": "",
-      "fund_slug": "fvs-sgr",
-      "signal_type": "deal_announced",
-      "title": "Invito a manifestare interesse per l\u2019affidamento in outsourcing della Funzione Unica di Controllo",
-      "what_changed": "Historical",
-      "source_url": "https://fvs.nooostaging.com/2019/11/27/invito-a-manifestare-interesse-per-laffidamento-in-outsourcing-della-funzione-unica-di-controllo/",
-      "source_name": "FVS SGR",
-      "published_at": null,
-      "observed_at": "2026-01-26T15:36:37.950881+00:00",
-      "created_at": "2026-01-26T15:36:37.950881+00:00",
-      "fingerprint": "b6d4a30039fe",
-      "extraction_source": "historical_extraction",
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": true,
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 0.825,
-      "ml_type_confident": true,
-      "ml_confidence": 0.825,
-      "quality_score": 83,
-      "evidence_score": 2,
-      "quality_confidence": "medium",
-      "confidence_score": 0.642,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
       "id": "hist-signal-00160",
       "fund_id": "",
       "fund_slug": "fvs-sgr",
       "signal_type": "deal_announced",
-      "title": "FVS SGR acquires stake in padua-based Liking Spa",
+      "title": "FVS SGR acquires stake in padua-based liking S.p.A.",
       "what_changed": "Historical",
       "source_url": "https://fvs.nooostaging.com/2022/02/17/fvs-sgr-entra-nel-capitale-della-padovana-liking-spa/",
       "source_name": "FVS SGR",
@@ -12993,33 +12609,32 @@
       ]
     }
   ],
-  "signal_count": 310,
-  "translated_at": "2026-02-27T11:05:17.860014+00:00",
-  "filtered_at": "2026-02-27T11:06:41.210556+00:00",
+  "signal_count": 301,
+  "filtered_at": "2026-02-27T12:39:10.005805+00:00",
   "filter_stats": {
-    "original_count": 2013,
-    "filtered_count": 310,
+    "original_count": 2020,
+    "filtered_count": 301,
     "removed_invalid_fund": 0,
-    "removed_duplicates": 252,
+    "removed_duplicates": 253,
     "resolved_duplicate_ids": 550,
-    "removed_strict_gate": 122,
-    "removed_garbage": 160,
-    "removed_low_quality": 96,
+    "removed_strict_gate": 125,
+    "removed_garbage": 161,
+    "removed_low_quality": 110,
     "removed_support_only": 1,
     "removed_junior_non_italy": 1,
-    "removed_geo_irrelevant": 556,
+    "removed_geo_irrelevant": 552,
     "removed_misattributed": 227,
-    "removed_too_old": 235,
+    "removed_too_old": 236,
     "removed_orphan_fund": 0,
     "removed_ml": 0,
     "removed_cross_page": 0,
     "kept_ml_override": 0,
-    "ml_type_overrides": 220,
+    "ml_type_overrides": 226,
     "min_quality_score": 80,
     "confidence_distribution": {
-      "high": 252,
-      "medium": 90,
-      "low": 21
+      "high": 251,
+      "medium": 93,
+      "low": 10
     }
   }
 }

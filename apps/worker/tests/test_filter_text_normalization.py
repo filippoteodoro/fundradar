@@ -55,3 +55,39 @@ def test_clean_signal_fields_keeps_tgcom24_token_intact():
     cleaned = _clean_signal_fields(signal)
     assert "TGCom24" in cleaned["title"]
     assert "TGC om 24" not in cleaned["title"]
+
+
+def test_clean_signal_fields_does_not_reintroduce_split_name_after_capitalization():
+    signal = {
+        "title": "Berardi Bullonerie acquires Fastpoint Srl",
+        "what_changed": "The deal strengthens operations since HIG’s investment in Berar di.",
+        "title_original": "Berardi Bullonerie acquires Fastpoint srl",
+        "what_changed_original": "The deal strengthens operations since HIG’s investment in Berar di.",
+        "extracted_entities": {"companies": ["Berardi Bullonerie"]},
+    }
+    cleaned = _clean_signal_fields(signal)
+    assert "Berar di" not in cleaned["what_changed"]
+    assert "Berardi" in cleaned["what_changed"]
+
+
+def test_clean_signal_fields_uses_target_companies_for_name_capitalization():
+    signal = {
+        "title": "Libraesva and cyber guru announce strategic combination",
+        "target_companies": [
+            {"name": "Libraesva"},
+            {"name": "Cyber Guru"},
+        ],
+    }
+    cleaned = _clean_signal_fields(signal)
+    assert "Cyber Guru" in cleaned["title"]
+
+
+def test_clean_signal_fields_normalizes_brand_and_bank_casing_without_entities():
+    signal = {
+        "title": "teamsystem capital@work and banco bpm launch a new initiative",
+        "what_changed": "banco bpm partners with teamsystem for SMEs",
+    }
+    cleaned = _clean_signal_fields(signal)
+    assert "TeamSystem" in cleaned["title"]
+    assert "Banco BPM" in cleaned["title"]
+    assert "TeamSystem" in cleaned["what_changed"]

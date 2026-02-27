@@ -176,6 +176,68 @@ class TestCleanDisplayText:
         assert "CDP Equity" in result
         assert "Cassa Depositi and Prestiti" not in result
 
+    def test_preserves_smes_plural(self):
+        result = clean_display_text(
+            "Smart Capital launches services for SMEs in Italy",
+            is_title=True,
+        )
+        assert "SMEs" in result
+        assert "SME s" not in result
+
+    def test_normalizes_legal_suffixes(self):
+        result = clean_display_text(
+            "Arca invests in Unifarco SPA and Fastpoint SRL",
+            is_title=True,
+        )
+        assert "S.p.A." in result
+        assert "S.r.l." in result
+
+    def test_normalizes_hig_brand_and_known_splits(self):
+        result = clean_display_text(
+            "Berardi Bullonerie, controlled by HIG Capital via HIG Europe, acquired Fastpoint Srl after Berar di integration",
+            is_title=False,
+        )
+        assert "H.I.G. Capital" in result
+        assert "H.I.G. Europe" in result
+        assert "Berardi" in result
+
+    def test_legal_suffixes_do_not_duplicate_periods(self):
+        result = clean_display_text(
+            "Limonta spa has acquired Fastpoint srl.",
+            is_title=False,
+        )
+        assert "S.p.A.." not in result
+        assert "S.r.l.." not in result
+
+    def test_normalizes_unicredit_spacing(self):
+        result = clean_display_text(
+            "the shareholders include uni credit and intesa sanpaolo",
+            is_title=False,
+        )
+        assert "UniCredit" in result
+
+    def test_capitalizes_name_after_csuite_role(self):
+        result = clean_display_text(
+            "Italian investment fund SGR, CIO giampaolo di dio leaves",
+            is_title=True,
+        )
+        assert "CIO Giampaolo Di Dio leaves" in result
+
+    def test_normalizes_bebeez_and_teamsystem_branding(self):
+        result = clean_display_text(
+            "Be Beez: Teamsystem Capital@Work launches FPAM 1 fund",
+            is_title=True,
+        )
+        assert "BeBeez" in result
+        assert "TeamSystem" in result
+
+    def test_repairs_rosario_word_split(self):
+        result = clean_display_text(
+            "Operations in Rosari to, Mexico from Vinventions",
+            is_title=False,
+        )
+        assert "Rosario, Mexico" in result
+
 
 # ── fix_spacing ───────────────────────────────────────────────────────────────
 

@@ -1047,6 +1047,11 @@ def apply_type_corrections(
         # that were demoted to other but clearly describe an appointment (e.g. "appointed ... CEO").
         if _RE_PEOPLE_APPOINTMENT_RESCUE.search(text_lower):
             return "people_move"
+        # Investment/acquisition language over-demoted to other → deal_announced.
+        # Guard against editorial/interview pieces that mention investing abstractly.
+        if _RE_INVEST_VERBS.search(text_lower):
+            if not _RE_EDITORIAL_STRATEGY.search(text_lower) and not _RE_INTERVIEW_EDITORIAL.search(text_lower):
+                return "deal_announced"
         # Standalone professional title signal: title IS the person + role, no PE verbs.
         # Catches "Michele Romualdi managing director, Head of Investor Relations" and similar
         # signals where a website lists personnel with no transactional verb.
@@ -1103,7 +1108,19 @@ def detect_all_signal_types(signal: dict) -> list[str]:
         _add_if_new("fundraise_announced")
 
     # people_move
-    if _RE_PEOPLE_TITLE.search(text) or _RE_PEOPLE_LANGUAGE.search(text):
+    _has_people = bool(_RE_PEOPLE_TITLE.search(text) or _RE_PEOPLE_LANGUAGE.search(text))
+    if _has_people:
+        # "join forces" is partnership language, not a personnel move.
+        _has_explicit_appointment = bool(
+            re.search(
+                r"\b(?:appoint\w+|nomin\w+|hired?|named?|promot\w+|resign\w+|leaves?|steps?\s+down|stepping\s+down)\b",
+                text,
+                re.IGNORECASE,
+            )
+        )
+        if re.search(r"\bjoin(?:s|ed)?\s+forces\b", text) and not _has_explicit_appointment:
+            _has_people = False
+    if _has_people:
         _add_if_new("people_move")
 
     # debt_financing
@@ -1111,7 +1128,13 @@ def detect_all_signal_types(signal: dict) -> list[str]:
         _add_if_new("debt_financing")
 
     # deal_announced
-    if _RE_ACQUISITION_VERBS.search(text) or _RE_INVEST_VERBS.search(text):
+    # Use verb-led deal evidence to avoid false positives from fund names like
+    # "Fondo Italiano d'Investimento" on non-deal signals (e.g. people moves).
+    if _RE_INVEST_VERBS.search(text) or re.search(
+        r"\b(?:acquir\w+|acquisizion\w+|rileva|buys?|compra|entra\s+(?:nel\s+capitale|in)\b)\b",
+        text,
+        re.IGNORECASE,
+    ):
         _add_if_new("deal_announced")
 
     return result

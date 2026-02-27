@@ -1220,6 +1220,10 @@ else:
 Run the deterministic internal QA agent right after the check above:
 
 ```bash
+# Sync actionable deal/exit signals into portfolio status before QA
+pnpm pipeline:signals-to-portfolio
+
+# Then run cross-fund deterministic QA
 python3 scripts/internal_quality_agent.py
 ```
 
@@ -1529,6 +1533,10 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 | Team profile cards or role openings show as signals | Static titles like `Name Head of X`, `Name investor relations`, `...Legal & Corporate Affairs Specialist`, and TEAM blurbs like `X is the parent company of Y` are demoted to `other` and filtered. If variants leak through, update `TEAM_ROLE_PROFILE_TITLE_RE` / `ROLE_OPENING_TITLE_RE` / `TEAM_STATIC_CORP_DESC_RE` in `filter_signals.py` and matching guards in `signalProcessing.ts` |
 | Departure news appears as Investment | If text has people transition verbs (`steps down`, `leaves`, `resigns`, `appointed`, etc.) with no deal/exit evidence, force `people_move` (worker `correct_deal()` + post-ML correction, web `reclassifySignalType()`) |
 | Co-investor names lose capitalization in summaries | Re-capitalize from `extracted_entities`, fund slugs, and title-cased company/fund phrases (`extract_company_like_entities()` + `capitalize_entities()` in worker clean paths) so strings like `capital dynamics`/`miura partners` stay properly cased |
+| Target company names stay lowercased (`cyber guru`, `casalini`) | Add `target_companies[].name` as capitalization hints in both filter and enricher cleanup passes so entity-case repairs persist for cached and fresh signals |
+| OCR/translation artifacts leak into feed text (`Be Beez`, `Teamsystem`, `Rosari to`) | Patch shared `clean_display_text()` / `fix_spacing()` regex rules in `signal_text_utils.py` instead of editing derived JSON so new runs auto-fix the same pattern family |
+| “X invests in Y to accelerate growth” gets tagged as accelerator/fund launch | Keep accelerator detection noun-based (`accelerator/incubator/program/hub`) and avoid matching the verb `accelerate`; then re-run post-ML shared corrections (`apply_type_corrections`) so `invests in` remains `deal_announced` |
+| “Join forces” partnership appears as People | Treat `join forces` as partnership in both primary classifier and `detect_all_signal_types()` (secondary badges), unless there is explicit appointment/hire language |
 | Fix works once but breaks on next pipeline run | The fix is data-only. Patch worker/web rules first, then rerun pipeline and backfill outputs; one-off JSON cleanup alone is not persistent |
 | **Claude Code blocks on long scripts** | **ALWAYS run Gemini/pipeline scripts with `run_in_background: true` and check progress with non-blocking `tail` commands. NEVER use blocking waits (`block=true`) on tasks that call Gemini APIs — a single fund can take 5+ minutes, batches can take hours. Use `ps aux \| grep scriptname` and `tail -N outputfile` to monitor progress instead.** |
 

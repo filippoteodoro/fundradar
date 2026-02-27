@@ -68,6 +68,7 @@ _RE_STRONG_EXIT_VERBS = re.compile(
 # Uses the BROADER version from filter_signals.py which includes additional patterns
 _RE_INVEST_VERBS = re.compile(
     r"\binveste\b|\binvestono\b|\bacquir\w+\b|\bacquisizion\w*\b|\brileva\b"
+    r"|\binvest(?:s|ing)?\s+(?:in|into|nel|nella|nei|nelle)\b"
     r"|\binvestiment[oi]\s+(?:di|da|in|nel|per)\b"
     r"|\bprende\s+il\s+controllo\b|\bingresso\s+(?:di|in|nel)\b"
     r"|\bentra\s+nel\s+capitale\b|\boperazion[ei]\s+di\s+(?:debito|credito)\b"
@@ -343,8 +344,10 @@ _RE_HAS_ANY_PE_VERB = re.compile(
 
 # Accelerator/program launch → other (fund's strategic initiative, NOT a fund vehicle)
 _RE_ACCELERATOR_LAUNCH = re.compile(
-    r"\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?|new|al\s+via)\b.*\b(?:accelerat\w*|polo|programma|hub)\b"
-    r"|\b(?:accelerat\w*|polo|programma|hub)\b.*\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?)\b",
+    r"\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?|avvia|al\s+via)\b"
+    r".*\b(?:accelerator(?:e)?|incubator(?:e)?|polo|programma|program|hub)\b"
+    r"|\b(?:accelerator(?:e)?|incubator(?:e)?|polo|programma|program|hub)\b"
+    r".*\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?|avvia|al\s+via)\b",
     re.IGNORECASE,
 )
 
