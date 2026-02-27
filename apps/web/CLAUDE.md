@@ -50,6 +50,24 @@ Falls back to `../../` if none match — **this fallback can be wrong** in non-s
 - File-not-found vs parse-error are not distinguished
 - Follow the existing pattern of whichever loader is closest to what you're adding
 
+## Fund Visibility — Gemini-Confirmed Zero-Italy Funds
+
+**Rule**: Funds confirmed by Gemini to have zero Italian assets must NOT appear on the website.
+
+A fund is "confirmed zero-Italy" when **all** of these are true:
+1. `completion_ready=True` in `gemini_fund_asset_audit.json` (audit ran fully)
+2. `italian_portfolio_count=0` (no existing Italian entries)
+3. `missing_assets=[]` (Gemini found nothing missing either)
+
+**Current confirmed list**: `gemini_fund_asset_zero_italy_verified.json` → `verified_slugs[]`
+As of 2026-02-27: `["canova-sgr"]`
+
+**Implementation needed** (not yet done): Filter `getAllFunds()` to exclude slugs in `verified_slugs`. Load `gemini_fund_asset_zero_italy_verified.json` at startup (add to the cache list), join against `getAllFunds()`, and strip the matching slugs before returning. The fund page at `/funds/[slug]` should 404 for hidden funds. `generateStaticParams()` must also exclude them.
+
+**Important**: only hide funds that are IN `verified_slugs`. Do NOT hide funds simply because they have 0 portfolio entries — those may not have been audited yet. The whitelist is the authoritative gate.
+
+**How to add a fund to the whitelist**: after a passing audit (`completion_ready=True`, `missing_assets=[]`, `italian_portfolio_count=0`), add its slug to `gemini_fund_asset_zero_italy_verified.json` manually. Re-run the audit script if unsure — it reads this file and uses it in completion checks.
+
 ## Exported Functions (data.ts)
 
 | Function | Returns | Source File(s) |

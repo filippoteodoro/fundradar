@@ -2584,7 +2584,6 @@ def main(slugs_filter: str | None = None):
     # type=other never reaches the final output regardless of LLM decision.
     _other_dropped = 0
     _historical_dropped = 0
-    _stale_dropped = 0
     _italian_fixed = 0
     for signal in signals:
         if signal.get("llm_keep") is not True:
@@ -2604,37 +2603,6 @@ def main(slugs_filter: str | None = None):
             signal["llm_keep_reason"] = "phase3: historical placeholder (no real content)"
             _historical_dropped += 1
             continue
-
-        # Drop stale signals: diff_summary mentions "dated YYYY" where YYYY is >24 months old
-        _diff = (signal.get("diff_summary") or "").lower()
-        _stale_match = re.search(r"dated\s+(\d{4})", _diff)
-        if _stale_match:
-            try:
-                _stale_year = int(_stale_match.group(1))
-                _cutoff_year = datetime.now().year - 2
-                if _stale_year < _cutoff_year:
-                    signal["llm_keep"] = False
-                    signal["llm_keep_reason"] = f"phase3: stale signal (dated {_stale_year}, >24 months old)"
-                    _stale_dropped += 1
-                    continue
-            except (ValueError, TypeError):
-                pass
-
-        # Drop signals with published_at >24 months old
-        _pub = signal.get("published_at") or ""
-        if _pub:
-            _pub_match = re.match(r"(\d{4})-", _pub)
-            if _pub_match:
-                try:
-                    _pub_year = int(_pub_match.group(1))
-                    _cutoff_year = datetime.now().year - 2
-                    if _pub_year < _cutoff_year:
-                        signal["llm_keep"] = False
-                        signal["llm_keep_reason"] = f"phase3: stale signal (published {_pub[:10]}, >24 months old)"
-                        _stale_dropped += 1
-                        continue
-                except (ValueError, TypeError):
-                    pass
 
         # Fix Italian titles when English enriched_summary is available
         _title = (signal.get("title") or "").lower()
@@ -2657,15 +2625,13 @@ def main(slugs_filter: str | None = None):
                 _other_dropped += 1
                 continue
 
-    _total_phase3 = _other_dropped + _historical_dropped + _stale_dropped
+    _total_phase3 = _other_dropped + _historical_dropped
     if _total_phase3 or _italian_fixed:
         parts = []
         if _other_dropped:
             parts.append(f"{_other_dropped} type=other/Italian")
         if _historical_dropped:
             parts.append(f"{_historical_dropped} historical")
-        if _stale_dropped:
-            parts.append(f"{_stale_dropped} stale (>24mo)")
         if _italian_fixed:
             parts.append(f"{_italian_fixed} Italian titles→English")
         print(f"  Phase 3 safety net: {', '.join(parts)}")

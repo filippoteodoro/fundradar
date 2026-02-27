@@ -55,6 +55,55 @@
       "signal_id": "rss-signal-00120",
       "signal_title": "Nineteenth acquisition in a row for finlogic (Credem Private Equity, Aurora Growth Capital, and PM&Partners SGR), which ",
       "alerted_at": "2026-02-27T15:48:22.665070+00:00"
+    },
+    {
+      "mention": "Generali Real Estate SGR",
+      "suggested_slug": "generali-real-estate",
+      "signal_id": "web-signal-01782",
+      "signal_title": "The Banca Finint Group and Savim invest in urban regeneration: the former Turin Public Prosecutor's Office will become a",
+      "alerted_at": "2026-02-27T17:40:52.855128+00:00"
+    },
+    {
+      "mention": "Hedge Invest SGR",
+      "suggested_slug": "hedge-invest",
+      "signal_id": "web-signal-01784",
+      "signal_title": "Finint Investments acquires Hedge Invest and consolidates its leadership in alternative investments in Italy and abroad",
+      "alerted_at": "2026-02-27T17:40:52.855128+00:00"
+    },
+    {
+      "mention": "Riello SGR",
+      "suggested_slug": "riello",
+      "signal_id": "web-signal-01374",
+      "signal_title": "Riello SGR avvia il fondo Buy&Build Opportunities.",
+      "alerted_at": "2026-02-27T17:40:52.855128+00:00"
+    },
+    {
+      "mention": "SME Development Fund FVS SGR",
+      "suggested_slug": "sme-development-fund-fvs",
+      "signal_id": "web-signal-01310",
+      "signal_title": "FVS SGR sells its stake in the IQT Group to Accenture. First divestment of the SME Development Fund",
+      "alerted_at": "2026-02-27T17:40:52.855128+00:00"
+    },
+    {
+      "mention": "ARMES FVS SGR",
+      "suggested_slug": "armes-fvs",
+      "signal_id": "web-signal-01322",
+      "signal_title": "FVS Sgr: Fundraise - ARMES",
+      "alerted_at": "2026-02-27T17:40:52.855128+00:00"
+    },
+    {
+      "mention": "Blackstone Private Equity Fund",
+      "suggested_slug": "blackstone-private-equity-fund",
+      "signal_id": "seed-signal-00025",
+      "signal_title": "Blackstone and UniCredit launch BXEF private equity fund distribution in Italy",
+      "alerted_at": "2026-02-27T17:40:52.855128+00:00"
+    },
+    {
+      "mention": "Kryalos SGR",
+      "suggested_slug": "kryalos",
+      "signal_id": "seed-signal-00029",
+      "signal_title": "EQT Real Estate acquires 12-building logistics portfolio in Northern Italy for \u20ac230M",
+      "alerted_at": "2026-02-27T17:40:52.855128+00:00"
     }
   ]
 }

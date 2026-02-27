@@ -1,0 +1,191 @@
+You are auditing one private-markets fund page for Fundradar (Italy feed).
+Current date: 2026-02-27.
+
+Goal:
+- Fix incompleteness and inaccuracy for this fund.
+- Keep output short, factual, English-only, source-backed.
+- Prioritize Italy relevance and importance over recency.
+- Valuable historical signals are allowed if still material for page completeness.
+
+Fund context:
+- fund_name: ICG
+- fund_slug: icg
+- website: https://www.icgam.com
+- aum_eur_current: 113000000000
+- category: multi_strategy
+- hq_city_current: London
+- description_current: FTSE 100-listed global alternative asset manager that pioneered the European mezzanine finance market in 1989, now providing flexible capital solutions across private debt, credit, and real estate.
+
+Current QA blockers:
+[
+  "top_aum_no_italy_assets_unverified",
+  "top_aum_signal_completeness:0/2"
+]
+
+Current counts:
+- portfolio_count: 3
+- italian_portfolio_count: 0
+- filtered_signals_count: 0
+- enriched_signals_count: 0
+- asset_audit_present: True
+
+Existing portfolio names in dataset (do NOT re-suggest as missing unless clearly wrong/duplicate label):
+[
+  "BioGroup",
+  "Dummen Orange",
+  "Courtepaille"
+]
+
+Existing likely-Italy portfolio entries:
+[]
+
+Recent raw observed signals sample (may include low-quality/non-Italy items):
+[
+  {
+    "date": "2026-02-24",
+    "signal_type": "other",
+    "title": "ICG and Amundi announce long-term strategic and equity partnership",
+    "source_url": "https://www.icgam.com/2025/11/18/icg-and-amundi-announce-long-term-strategic-and-equity-partnership/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "other",
+    "title": "Europe: a relatively favourable investment environment",
+    "source_url": "https://www.icgam.com/2025/09/25/europe-a-relatively-favourable-investment-environment/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "other",
+    "title": "CEO foreword to Sustainability and People Report 2025",
+    "source_url": "https://www.icgam.com/2025/06/20/ceo-foreword-to-sustainability-and-people-report-2025/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "other",
+    "title": "Scaling up and scaling out, enabling employees to reach new heights",
+    "source_url": "https://www.icgam.com/2025/04/10/scaling-up-and-scaling-out-enabling-employees-to-reach-new-heights/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "other",
+    "title": "2026 Macro and Private Markets Outlook: Sustained Resilience",
+    "source_url": "https://www.icgam.com/2026/01/23/2026-macro-and-private-markets-outlook-sustained-resilience/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "other",
+    "title": "Q3 trading statement for the period to 31 December 2025",
+    "source_url": "https://www.icgam.com/2026/01/21/q3-trading-statement-for-the-period-to-31-december-2025/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "people_move",
+    "title": "Commencement of Share Buyback Programme and Appointment of Non-Executive Director",
+    "source_url": "https://www.icgam.com/news-insights-analysis/#news"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "people_move",
+    "title": "ICG appoints Sujey Subramanian as Head of Asia-Pacific Corporate strategy",
+    "source_url": "https://www.icgam.com/2026/02/10/icg-appoints-sujey-subramanian-as-head-of-asia-pacific-corporate-strategy/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "other",
+    "title": "ICG Asia-Pacific Infrastructure partners with Ray8 Energy to scale its battery energy storage platform in Japan",
+    "source_url": "https://www.icgam.com/2026/01/22/icg-asia-pacific-infrastructure-partners-with-ray8-energy-to-scale-its-battery-energy-storage-platform-in-japan/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "other",
+    "title": "Recent US Credit Market Dislocation: Systemic or Idiosyncratic?",
+    "source_url": "https://www.icgam.com/2025/10/24/recent-us-credit-market-dislocation-systemic-or-idiosyncratic/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "other",
+    "title": "Remarkable Resilience: Global Economic and Private Markets Update",
+    "source_url": "https://www.icgam.com/2025/09/18/remarkable-resilience-global-economic-and-private-markets-update/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "deal_announced",
+    "title": "Trade War Update: US-EU trade deal reduces policy uncertainty and downside growth risks",
+    "source_url": "https://www.icgam.com/2025/07/30/trade-war-update-us-eu-trade-deal-reduces-policy-uncertainty-and-downside-growth-risks/"
+  }
+]
+
+Task:
+1) Validate Italy presence (materially active in Italy or not).
+2) Identify wrong entries and missing Italy assets (current or exited).
+3) Propose metadata corrections (AUM, HQ city, website, description) only when confidence is high.
+4) Propose up to 5 high-value Italy-relevant signal candidates (recent or historical), ranked by importance.
+5) Mark historical but important events explicitly so they are not discarded only by age.
+
+Return ONLY strict JSON object with this schema:
+{
+  "fund_slug": "icg",
+  "overall_status": "ok|needs_fixes|highly_incomplete",
+  "italy_presence_assessment": {
+    "materially_active_in_italy": "yes|no|uncertain",
+    "summary": "short",
+    "evidence": [
+      {"type": "office|portfolio|deal|team|other", "detail": "...", "year": "YYYY|unknown", "source_url": "https://..."}
+    ]
+  },
+  "metadata_corrections": {
+    "aum_eur": {"current": "number|null", "suggested": "number|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "hq_city": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "website": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "description": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]}
+  },
+  "entry_issues": [
+    {
+      "entry_name": "string",
+      "issue_type": "wrong_entry|duplicate_entry|wrong_status|wrong_sector|wrong_headquarters|wrong_description|other",
+      "severity": "critical|high|medium|low",
+      "reason": "short",
+      "current_value": {"status": "...", "sector": "...", "headquarters": "...", "description": "..."},
+      "suggested_fix": {"status": "current|exited|partial|unknown|null", "sector": "string|null", "headquarters": "string|null", "description": "string|null"},
+      "confidence": "high|medium|low",
+      "evidence_urls": ["https://..."]
+    }
+  ],
+  "missing_assets": [
+    {
+      "name": "string",
+      "status": "current|exited|unknown",
+      "sector": "string|null",
+      "headquarters": "string|null",
+      "description": "string|null",
+      "reason": "why missing",
+      "confidence": "high|medium|low",
+      "evidence_urls": ["https://..."]
+    }
+  ],
+  "signal_candidates": [
+    {
+      "signal_type": "deal_announced|portfolio_update|people_move|exit_announced|fundraise_announced|fundraise_closed|debt_financing|partnership|other",
+      "title": "single sentence",
+      "what_changed": "1-2 sentences",
+      "published_date": "YYYY-MM-DD",
+      "source_name": "string",
+      "source_url": "https://...",
+      "italy_relevant_reason": "short",
+      "importance": "high|medium|low",
+      "is_historical_but_important": true,
+      "confidence": "high|medium|low"
+    }
+  ],
+  "priority_actions": [
+    {"priority": 1, "action": "short", "layer": "extractor|filter|enrichment|signal_to_portfolio|metadata|manual_backfill"}
+  ]
+}
+
+Hard constraints:
+- English only.
+- No boilerplate.
+- No invented facts.
+- Every non-trivial claim must include a credible source URL.
+- Keep text concise and directly actionable.
+- Amount formatting in generated text: EUR amounts as €X.XK / €X.XM / €X.XB / €X.XT.

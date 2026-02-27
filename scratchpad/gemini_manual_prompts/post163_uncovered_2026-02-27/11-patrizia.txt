@@ -1,0 +1,220 @@
+You are auditing one private-markets fund page for Fundradar (Italy feed).
+Current date: 2026-02-27.
+
+Goal:
+- Fix incompleteness and inaccuracy for this fund.
+- Keep output short, factual, English-only, source-backed.
+- Prioritize Italy relevance and importance over recency.
+- Valuable historical signals are allowed if still material for page completeness.
+
+Fund context:
+- fund_name: PATRIZIA
+- fund_slug: patrizia
+- website: https://www.patrizia.ag
+- aum_eur_current: 57000000000
+- category: infra
+- hq_city_current: Augsburg
+- description_current: European investment manager in real assets with dedicated infrastructure strategies. In Italy, it has built a significant smart streetlighting platform through Atlantico, Ottima, and Selettra.
+
+Current QA blockers:
+[
+  "top_aum_signal_completeness:0/2"
+]
+
+Current counts:
+- portfolio_count: 8
+- italian_portfolio_count: 2
+- filtered_signals_count: 0
+- enriched_signals_count: 0
+- asset_audit_present: True
+
+Existing portfolio names in dataset (do NOT re-suggest as missing unless clearly wrong/duplicate label):
+[
+  "Atlantico",
+  "Greenthesis",
+  "Biomet",
+  "CiviSmart",
+  "Ecotermica Servizi S.p.A.",
+  "Ottima S.r.l.",
+  "Renergia",
+  "Selettra S.r.l."
+]
+
+Existing likely-Italy portfolio entries:
+[
+  {
+    "name": "Atlantico",
+    "status": "current",
+    "sector": "Water & Utilities",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Greenthesis",
+    "status": "current",
+    "sector": "Environmental Services",
+    "headquarters": "Segrate, Italy"
+  },
+  {
+    "name": "Biomet",
+    "status": "current",
+    "sector": "Renewable Energy / Bio-LNG",
+    "headquarters": "San Rocco al Porto, Italy"
+  },
+  {
+    "name": "CiviSmart",
+    "status": "current",
+    "sector": "Smart City / Infrastructure",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Ecotermica Servizi S.p.A.",
+    "status": "current",
+    "sector": "Energy / District Heating",
+    "headquarters": "Turin, Italy"
+  },
+  {
+    "name": "Ottima S.r.l.",
+    "status": "current",
+    "sector": "Smart City / Infrastructure",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Renergia",
+    "status": "current",
+    "sector": "Renewable Energy / Biomethane",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Selettra S.r.l.",
+    "status": "current",
+    "sector": "Smart City / Infrastructure",
+    "headquarters": "Potenza, Italy"
+  }
+]
+
+Recent raw observed signals sample (may include low-quality/non-Italy items):
+[
+  {
+    "date": "2026-02-27",
+    "signal_type": "deal_announced",
+    "title": "Acquisitions added to PATRIZIA portfolio",
+    "source_url": "https://www.patrizia.ag/"
+  },
+  {
+    "date": "2026-02-26",
+    "signal_type": "other",
+    "title": "PATRIZIA Real Insights - patrizia se",
+    "source_url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxQc25rX1pwV2hKbk5pMHM3VHBqM3VtQnFOcmxDM1V3UFVMMXM0dlF1ZkNZbTVidEthTnduak9xUnQwMDRkSDJpSlJFajJ3NHNkbUQ5Wkd5QkJ4cUE3NlFwdmdXZFRVZWRuajNCZ0EwOUFiRVRuSXFPbXVEa19yYXRkQVA1TUpsOXNyWGZ3MXlxcmdCRWhlSnlDaGhsMVdaTHZ4U0Q5RUE4cC1Ha2R4QTVXTWREbzhyMzZEZ3VEVnhQUFFiNUk4V05NbDk1MVZLWnp2aVR4Q05reGdzSWs2d29KZFVTQ1NEbzdfYlF6MFVqdXVXallzTUJYTXU0bDc4NkhpNHpyVGYxR1o2RWxa?oc=5"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "other",
+    "title": "PATRIZIA Real Insights - patrizia se",
+    "source_url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPLWx2NXR3WFRMcXhBZ3RoYllZbWdNWWRqcDdXZmsyRjE5emVoM29fVXZpT2dRM0FSamZadHJ3RUd3SW5qRXFSOFF3clNHdFljbFJUNnN1bjRIWU9xOG85WnFLZFpwdnp6dVYtWXpSZzR4Q3BHMnlGUFMxSGU0LUF6Q29TNDFTZlFQeDdSejZoMGw0V0k?oc=5"
+  },
+  {
+    "date": "2026-02-06",
+    "signal_type": "people_move",
+    "title": "PATRIZIA appoints Gus Wiseman to deepen alignment with UK investment policy and capital mobilisation",
+    "source_url": "https://www.patrizia.ag/en/news-detail/patrizia-appoints-gus-wiseman-to-deepen-alignment-with-uk-investment-policy-and-capital-mobilisation/"
+  },
+  {
+    "date": "2026-01-13",
+    "signal_type": "other",
+    "title": "PATRIZIAs Kinland adds 49 social infrastructure assets in ~EUR 170m Nordic bolt-on programme",
+    "source_url": "https://www.patrizia.ag/en/news-detail/patrizias-kinland-adds-49-social-infrastructure-assets-in-eur-170m-nordic-bolt-on-programme/"
+  },
+  {
+    "date": "2025-12-22",
+    "signal_type": "deal_announced",
+    "title": "PATRIZIA expands living platform with EUR 100 million+ acquisition of residential portfolio in Southern Germany",
+    "source_url": "https://www.patrizia.ag/en/news-detail/patrizia-expands-living-platform-with-eur-100-million-acquisition-of-residential-portfolio-in-southern-germany/"
+  },
+  {
+    "date": "2025-12-16",
+    "signal_type": "other",
+    "title": "PATRIZIA and Mitsui confirm new co-investment in Australian solar and battery platform",
+    "source_url": "https://www.patrizia.ag/en/news-detail/patrizia-and-mitsui-confirm-toho-gas-co-investment-in-australian-solar-and-battery-platform/"
+  },
+  {
+    "date": "2013-01-08",
+    "signal_type": "other",
+    "title": "PATRIZIA SE | A leading partner for global real assets. - patrizia se",
+    "source_url": "https://news.google.com/rss/articles/CBMiQEFVX3lxTFA5MGlwTVRtbVp2NEM1WHJ4VjhscWpkNjlLQW5vRjhIUVQzeXVXRXpQVlNwOThSTVdnZm50dnROUzQ?oc=5"
+  }
+]
+
+Task:
+1) Validate Italy presence (materially active in Italy or not).
+2) Identify wrong entries and missing Italy assets (current or exited).
+3) Propose metadata corrections (AUM, HQ city, website, description) only when confidence is high.
+4) Propose up to 5 high-value Italy-relevant signal candidates (recent or historical), ranked by importance.
+5) Mark historical but important events explicitly so they are not discarded only by age.
+
+Return ONLY strict JSON object with this schema:
+{
+  "fund_slug": "patrizia",
+  "overall_status": "ok|needs_fixes|highly_incomplete",
+  "italy_presence_assessment": {
+    "materially_active_in_italy": "yes|no|uncertain",
+    "summary": "short",
+    "evidence": [
+      {"type": "office|portfolio|deal|team|other", "detail": "...", "year": "YYYY|unknown", "source_url": "https://..."}
+    ]
+  },
+  "metadata_corrections": {
+    "aum_eur": {"current": "number|null", "suggested": "number|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "hq_city": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "website": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "description": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]}
+  },
+  "entry_issues": [
+    {
+      "entry_name": "string",
+      "issue_type": "wrong_entry|duplicate_entry|wrong_status|wrong_sector|wrong_headquarters|wrong_description|other",
+      "severity": "critical|high|medium|low",
+      "reason": "short",
+      "current_value": {"status": "...", "sector": "...", "headquarters": "...", "description": "..."},
+      "suggested_fix": {"status": "current|exited|partial|unknown|null", "sector": "string|null", "headquarters": "string|null", "description": "string|null"},
+      "confidence": "high|medium|low",
+      "evidence_urls": ["https://..."]
+    }
+  ],
+  "missing_assets": [
+    {
+      "name": "string",
+      "status": "current|exited|unknown",
+      "sector": "string|null",
+      "headquarters": "string|null",
+      "description": "string|null",
+      "reason": "why missing",
+      "confidence": "high|medium|low",
+      "evidence_urls": ["https://..."]
+    }
+  ],
+  "signal_candidates": [
+    {
+      "signal_type": "deal_announced|portfolio_update|people_move|exit_announced|fundraise_announced|fundraise_closed|debt_financing|partnership|other",
+      "title": "single sentence",
+      "what_changed": "1-2 sentences",
+      "published_date": "YYYY-MM-DD",
+      "source_name": "string",
+      "source_url": "https://...",
+      "italy_relevant_reason": "short",
+      "importance": "high|medium|low",
+      "is_historical_but_important": true,
+      "confidence": "high|medium|low"
+    }
+  ],
+  "priority_actions": [
+    {"priority": 1, "action": "short", "layer": "extractor|filter|enrichment|signal_to_portfolio|metadata|manual_backfill"}
+  ]
+}
+
+Hard constraints:
+- English only.
+- No boilerplate.
+- No invented facts.
+- Every non-trivial claim must include a credible source URL.
+- Keep text concise and directly actionable.
+- Amount formatting in generated text: EUR amounts as €X.XK / €X.XM / €X.XB / €X.XT.

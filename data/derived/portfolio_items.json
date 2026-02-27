@@ -2136,6 +2136,28 @@
         "investment_date": null,
         "source_url": "https://www.abenex.com/portfolios/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Alcapem",
+        "sector": "Industrials",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A developer of infrastructure and industrial systems, acquired as an add-on by Abenex's portfolio company Gruppo Ikos.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://bebeez.eu/en/italys-private-equity-weekly-roundup-news-from-kme-se-cunova-made-in-italy-fund-quadrivio-pambianco-autry-temakinho-mutares-bcpartners-telis-energy-carlyle-ima-zacmi-xenon-sta-and-more/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "It is an Italian company acquired by an Abenex portfolio company (Ikos) in 2018, representing an Italian asset in their broader portfolio history.",
+        "gemini_evidence_urls": [
+          "https://bebeez.eu/en/italys-private-equity-weekly-roundup-news-from-kme-se-cunova-made-in-italy-fund-quadrivio-pambianco-autry-temakinho-mutares-bcpartners-telis-energy-carlyle-ima-zacmi-xenon-sta-and-more/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.443813+00:00",
+        "curation_note": null
       }
     ],
     "aksia-sgr": [
@@ -8282,6 +8304,28 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.929052+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Green IT",
+        "sector": "Renewable Energy",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A joint venture between Eni and CDP Equity focused on developing renewable energy projects in Italy.",
+        "detail_page_url": null,
+        "headquarters": "Milano, Italy",
+        "investment_date": null,
+        "source_url": "https://www.green-it.it/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "CDP Equity holds a 49% stake.",
+        "gemini_evidence_urls": [
+          "https://www.green-it.it/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.427592+00:00",
+        "curation_note": null
       }
     ],
     "cinven": [
@@ -9638,6 +9682,50 @@
         "source_url": "https://bebeez.it/private-equity/eos-im-attraverso-il-fondo-eos-next-transition-ii-va-al-controllo-60-di-compton-industriale-riciclo-materiale-elettronico-fei-tra-gli-investitori/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00093"
+      },
+      {
+        "name": "Icaro Power",
+        "sector": "Renewable Energy",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Renewable energy developer involved in Project Sun Legacy.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://pitchbook.com/profiles/investor/105342-14",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Identified as a recent buyout/LBO investment in late 2024 according to financial databases.",
+        "gemini_evidence_urls": [
+          "https://pitchbook.com/profiles/investor/105342-14"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.455928+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "VSB Holding (Ramacca PV Park)",
+        "sector": "Renewable Energy",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A 60 MW Photovoltaic Park project in Sicily.",
+        "detail_page_url": null,
+        "headquarters": "Ramacca, Italy",
+        "investment_date": null,
+        "source_url": "https://pitchbook.com/profiles/investor/105342-14",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Acquired in early 2025 as part of the fund's ongoing infrastructure expansion in Italy.",
+        "gemini_evidence_urls": [
+          "https://pitchbook.com/profiles/investor/105342-14"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.455959+00:00",
+        "curation_note": null
       }
     ],
     "f2i-sgr": [
@@ -9725,7 +9813,7 @@
         "status": "current",
         "confidence": 0.95,
         "website": null,
-        "description": "Infrastructure company providing fiber-optic network access across Italy",
+        "description": "Italy's primary fixed-line telecommunications network infrastructure, formerly known as TIM's NetCo.",
         "detail_page_url": null,
         "headquarters": "Milan, Italy",
         "investment_date": null,
@@ -10515,6 +10603,28 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.940845+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "FlowPay",
+        "sector": "Fintech",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A fintech startup specializing in open banking and innovative digital payment tools.",
+        "detail_page_url": null,
+        "headquarters": "Firenze",
+        "investment_date": null,
+        "source_url": "https://bebeez.it/2025/02/27/bancomat-partecipata-da-fsi-ii-compra-la-fintech-flowpay/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Acquired in early 2025 by Bancomat (an FSI portfolio company) to strengthen its digital payment infrastructure.",
+        "gemini_evidence_urls": [
+          "https://bebeez.it/2025/02/27/bancomat-partecipata-da-fsi-ii-compra-la-fintech-flowpay/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.440391+00:00",
         "curation_note": null
       }
     ],
@@ -11515,6 +11625,28 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.959617+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Tecnoline S.p.A.",
+        "sector": "Healthcare",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Manufacturer of medical-surgical devices and equipment.",
+        "detail_page_url": null,
+        "headquarters": "Concordia sulla Secchia, Italy",
+        "investment_date": null,
+        "source_url": "https://www.acri.it/wp-content/uploads/2022/07/Bilancio-2021-Fondazione-Modena.pdf",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Investment from the 'Invest in Modena' fund managed by Gradiente SGR via a convertible bond (POC).",
+        "gemini_evidence_urls": [
+          "https://www.acri.it/wp-content/uploads/2022/07/Bilancio-2021-Fondazione-Modena.pdf"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.458563+00:00",
+        "curation_note": null
       }
     ],
     "green-arrow-capital-sgr": [
@@ -11803,6 +11935,380 @@
         "investment_date": null,
         "source_url": "https://www.greenarrow-capital.com/en/investments-divestments-private-equity-eng/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Brandart",
+        "sector": "Fashion & Luxury Packaging",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Global supplier of secondary and retail packaging for high-end fashion and eyewear brands.",
+        "detail_page_url": null,
+        "headquarters": "Busto Arsizio, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/investments/private-credit/in-portfolio-gapdf-i",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Identified as a current investment in the Private Debt portfolio on the official website.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/investments/private-credit/in-portfolio-gapdf-i"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445202+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "DeA Capital Alternative Funds SGR",
+        "sector": "Financial Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Leading Italian alternative investment manager acquired from De Agostini Group.",
+        "detail_page_url": null,
+        "headquarters": "Milano, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/news/green-arrow-capital-signs-binding-agreement-to-acquire-dea-capital-alternative-funds-sgr",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Strategic acquisition of the entire management company in August 2025.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/news/green-arrow-capital-signs-binding-agreement-to-acquire-dea-capital-alternative-funds-sgr"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445290+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Eco Eridania",
+        "sector": "Environmental Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Leader in the collection, storage, treatment, and recovery of healthcare and industrial waste.",
+        "detail_page_url": null,
+        "headquarters": "Arenzano, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/investments/private-credit/in-portfolio-gapdf-i",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Current Private Debt investment listed on the official website.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/investments/private-credit/in-portfolio-gapdf-i"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445346+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "EME Group",
+        "sector": "Fashion & Luxury",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Aggregation of footwear companies producing for leading luxury brands.",
+        "detail_page_url": null,
+        "headquarters": "Civitanova Marche, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/investments/private-credit/in-portfolio-gapdf-i",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Current Private Debt investment listed on the official website.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/investments/private-credit/in-portfolio-gapdf-i"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445404+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "FM Plastic",
+        "sector": "Industrial Products",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Company specialized in converting flexible packaging films, part of Green Pack Holding.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/investments/private-equity/in-portfolio-gapef-3",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Acquired as an add-on and integrated into Green Pack Holding alongside Poplast.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/investments/private-equity/in-portfolio-gapef-3"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445478+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Gias",
+        "sector": "Food & Beverage",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Producer of frozen ready-made meals and vegetables.",
+        "detail_page_url": null,
+        "headquarters": "Mongrassano, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/news/green-arrow-capital-signs-binding-agreement-to-acquire-dea-capital-alternative-funds-sgr",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Part of the DeA Capital Alternative Funds portfolio, now under Green Arrow management following the SGR acquisition.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/news/green-arrow-capital-signs-binding-agreement-to-acquire-dea-capital-alternative-funds-sgr"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445518+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Golden Goose",
+        "sector": "Fashion & Luxury",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Luxury sneaker and apparel brand.",
+        "detail_page_url": null,
+        "headquarters": "Venezia, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/investments/private-credit/paid-off-gapdf-i",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Paid off Private Debt investment.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/investments/private-credit/paid-off-gapdf-i"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445565+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Invicta",
+        "sector": "Consumer Goods",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Iconic Italian brand for backpacks and travel gear, part of the Seven Group.",
+        "detail_page_url": null,
+        "headquarters": "Leini, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/news/seven-s-p-a-green-arrow-capital-sgr-and-the-founding-shareholders-di-stasio-family-have-signed-a-binding-agreement-for-the-sale-of-100-of-the-company-to-f-i-l-a-s-p-a",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Part of the Seven-Invicta group which was sold to F.I.L.A. S.p.A. in late 2025.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/news/seven-s-p-a-green-arrow-capital-sgr-and-the-founding-shareholders-di-stasio-family-have-signed-a-binding-agreement-for-the-sale-of-100-of-the-company-to-f-i-l-a-s-p-a"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445684+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Italcer Group",
+        "sector": "Construction & Materials",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Producer of high-quality ceramic products.",
+        "detail_page_url": null,
+        "headquarters": "Rubiera, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/investments/private-credit/realised-gapdf-i",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Realised Private Debt investment.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/investments/private-credit/realised-gapdf-i"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445766+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Lapi Plast",
+        "sector": "Industrial Products",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Specialist in computerized thermoforming of durable goods and industrial components.",
+        "detail_page_url": null,
+        "headquarters": "Cirié, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/investments/private-credit/in-portfolio-gapdf-i",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Current Private Debt investment listed on the official website.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/investments/private-credit/in-portfolio-gapdf-i"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445820+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Meter S.p.A.",
+        "sector": "Industrial Products",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Producer of roller and ball bearings for logistics and manufacturing industries.",
+        "detail_page_url": null,
+        "headquarters": "Robassomero, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/investments/private-credit/in-portfolio-gapdf-i",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Current Private Debt investment listed on the official website.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/investments/private-credit/in-portfolio-gapdf-i"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445855+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Naturalia Tantum",
+        "sector": "Healthcare & Cosmetics",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Group specializing in the R&D and production of natural and organic cosmetics and nutraceuticals.",
+        "detail_page_url": null,
+        "headquarters": "Rimini, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/investments/private-credit/in-portfolio-gapdf-i",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Current Private Debt investment listed on the official website.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/investments/private-credit/in-portfolio-gapdf-i"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445885+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Neopharmed Gentili",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Pharmaceutical company focused on the cardiovascular therapeutic area.",
+        "detail_page_url": null,
+        "headquarters": "Milano, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/investments/private-credit/realised-gapdf-i",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Realised Private Debt investment.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/investments/private-credit/realised-gapdf-i"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445916+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Nutkao Group",
+        "sector": "Food & Beverage",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Producer of spreadable hazelnut creams.",
+        "detail_page_url": null,
+        "headquarters": "Govone, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/investments/private-credit/realised-gapdf-i",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Realised Private Debt investment.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/investments/private-credit/realised-gapdf-i"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445943+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Primo Group",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Operator of dental clinics across Italy.",
+        "detail_page_url": null,
+        "headquarters": "Torino, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/investments/private-credit/realised-gapdf-i",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Realised Private Debt investment.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/investments/private-credit/realised-gapdf-i"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445972+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "RDS (Radio Dimensione Suono)",
+        "sector": "Media & Entertainment",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "One of the leading Italian radio and private broadcasters.",
+        "detail_page_url": null,
+        "headquarters": "Roma, Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/investments/private-credit/in-portfolio-gapdf-i",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Listed as a current Private Debt investment on the fund's official investment page.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/investments/private-credit/in-portfolio-gapdf-i"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.445997+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Spiral Ingranaggi",
+        "sector": "Industrial Products",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Manufacturer of high-precision gears, acquired as an add-on for TFM Automotive.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://www.greenarrow-capital.com/news/green-arrow-capital-sgr-third-buyout-fund-executed-the-first-add-on-acquisition-for-the-portfolio-company-tfm",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Official press release confirms it as the first add-on for portfolio company TFM.",
+        "gemini_evidence_urls": [
+          "https://www.greenarrow-capital.com/news/green-arrow-capital-sgr-third-buyout-fund-executed-the-first-add-on-acquisition-for-the-portfolio-company-tfm"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.446026+00:00",
+        "curation_note": null
       }
     ],
     "muzinich-co": [
@@ -12052,6 +12558,226 @@
         "investment_date": null,
         "source_url": "https://www.muzinich.com/private-markets/private-debt/investments",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Arbo",
+        "sector": "HVAC",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leading distributor of spare parts for heating and air conditioning systems.",
+        "detail_page_url": null,
+        "headquarters": "Fano, Italy",
+        "investment_date": null,
+        "source_url": "https://www.bebeez.it/private-debt/muzinich-italian-private-debt-fund-investe-in-arbo/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Muzinich Italian Private Debt Fund provided financing in 2016; debt typically matures or is refinanced within 5-7 years.",
+        "gemini_evidence_urls": [
+          "https://www.bebeez.it/private-debt/muzinich-italian-private-debt-fund-investe-in-arbo/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.432314+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Biokimica",
+        "sector": "Chemicals",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leading Italian producer of chemical products for the sustainable tanning industry.",
+        "detail_page_url": null,
+        "headquarters": "Santa Croce sull'Arno, Italy",
+        "investment_date": null,
+        "source_url": "https://bebeez.it/private-debt/la-strategia-di-capital-solutions-di-azimut-e-muzinich-supera-i-350-milioni-di-euro-di-raccolta/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Financed by the AZ ELTIF - Private Debt Capital Solutions II fund managed by Muzinich & Co. in 2024.",
+        "gemini_evidence_urls": [
+          "https://bebeez.it/private-debt/la-strategia-di-capital-solutions-di-azimut-e-muzinich-supera-i-350-milioni-di-euro-di-raccolta/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.432355+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Canepa",
+        "sector": "Textiles",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A high-end silk and textile manufacturer for the luxury fashion industry.",
+        "detail_page_url": null,
+        "headquarters": "San Fermo della Battaglia, Italy",
+        "investment_date": null,
+        "source_url": "https://www.bebeez.it/private-debt/secondo-closing-a-205-mln-euro-per-az-eltif-private-debt-capital-solutions-ii-che-finanzia-anche-biokimica/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Part of the turnaround portfolio of the AZ ELTIF - Private Debt Capital Solutions fund managed by Muzinich.",
+        "gemini_evidence_urls": [
+          "https://www.bebeez.it/private-debt/secondo-closing-a-205-mln-euro-per-az-eltif-private-debt-capital-solutions-ii-che-finanzia-anche-biokimica/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.432394+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Fabbri Vignola",
+        "sector": "Packaging",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leader in the production of machines and films for food packaging.",
+        "detail_page_url": null,
+        "headquarters": "Vignola, Italy",
+        "investment_date": null,
+        "source_url": "https://bebeez.it/private-debt/la-strategia-di-capital-solutions-di-azimut-e-muzinich-supera-i-350-milioni-di-euro-di-raccolta/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Received financing from the Muzinich-managed Capital Solutions II fund in mid-2024.",
+        "gemini_evidence_urls": [
+          "https://bebeez.it/private-debt/la-strategia-di-capital-solutions-di-azimut-e-muzinich-supera-i-350-milioni-di-euro-di-raccolta/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.432439+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Fonderie di Montorso",
+        "sector": "Metallurgy",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A specialized foundry producing complex grey and ductile iron castings.",
+        "detail_page_url": null,
+        "headquarters": "Montorso Vicentino, Italy",
+        "investment_date": null,
+        "source_url": "https://www.bebeez.it/private-debt/muzinich-italian-private-debt-fund-investe-in-fonderie-di-montorso/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Muzinich provided debt financing to support the company's growth and internationalization in 2015.",
+        "gemini_evidence_urls": [
+          "https://www.bebeez.it/private-debt/muzinich-italian-private-debt-fund-investe-in-fonderie-di-montorso/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.432491+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "GVS",
+        "sector": "Filtration",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A global manufacturer of advanced filtration solutions for various industries.",
+        "detail_page_url": null,
+        "headquarters": "Zola Predosa, Italy",
+        "investment_date": null,
+        "source_url": "https://www.bebeez.it/private-debt/muzinich-italian-private-debt-fund-investe-in-gvs/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Muzinich provided debt financing in 2015; the company completed a major IPO in 2020.",
+        "gemini_evidence_urls": [
+          "https://www.bebeez.it/private-debt/muzinich-italian-private-debt-fund-investe-in-gvs/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.432525+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Mecaer Aviation Group",
+        "sector": "Aerospace",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "An international provider of solutions for aircraft systems and interiors.",
+        "detail_page_url": null,
+        "headquarters": "Borgomanero, Italy",
+        "investment_date": null,
+        "source_url": "https://www.bebeez.it/private-debt/muzinich-italian-private-debt-fund-investe-in-mecaer-aviation-group/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Muzinich Italian Private Debt Fund invested in the company's debt in 2016.",
+        "gemini_evidence_urls": [
+          "https://www.bebeez.it/private-debt/muzinich-italian-private-debt-fund-investe-in-mecaer-aviation-group/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.432576+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Pieralisi",
+        "sector": "Industrial Machinery",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A global leader in the production of centrifugal separators for olive oil and industrial applications.",
+        "detail_page_url": null,
+        "headquarters": "Jesi, Italy",
+        "investment_date": null,
+        "source_url": "https://www.bebeez.it/private-debt/secondo-closing-a-205-mln-euro-per-az-eltif-private-debt-capital-solutions-ii-che-finanzia-anche-biokimica/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Part of the turnaround and capital solutions portfolio managed by Muzinich.",
+        "gemini_evidence_urls": [
+          "https://www.bebeez.it/private-debt/secondo-closing-a-205-mln-euro-per-az-eltif-private-debt-capital-solutions-ii-che-finanzia-anche-biokimica/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.432615+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Snaidero",
+        "sector": "Furniture",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A prominent Italian designer and manufacturer of high-end modular kitchens.",
+        "detail_page_url": null,
+        "headquarters": "Majano, Italy",
+        "investment_date": null,
+        "source_url": "https://www.bebeez.it/private-debt/secondo-closing-a-205-mln-euro-per-az-eltif-private-debt-capital-solutions-ii-che-finanzia-anche-biokimica/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Included in the turnaround investment portfolio managed by Muzinich in partnership with Azimut.",
+        "gemini_evidence_urls": [
+          "https://www.bebeez.it/private-debt/secondo-closing-a-205-mln-euro-per-az-eltif-private-debt-capital-solutions-ii-che-finanzia-anche-biokimica/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.432654+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Svas Biosana",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A manufacturer and distributor of medical devices and healthcare products.",
+        "detail_page_url": null,
+        "headquarters": "Somma Vesuviana, Italy",
+        "investment_date": null,
+        "source_url": "https://www.bebeez.it/private-debt/muzinich-italian-private-debt-fund-investe-in-svas-biosana/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Muzinich provided financing in 2015; the company subsequently went public (IPO) in 2021.",
+        "gemini_evidence_urls": [
+          "https://www.bebeez.it/private-debt/muzinich-italian-private-debt-fund-investe-in-svas-biosana/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.432697+00:00",
+        "curation_note": null
       }
     ],
     "narval-investimenti": [
@@ -20549,6 +21275,28 @@
         "detail_page_url": null,
         "website": null,
         "investment_date": null
+      },
+      {
+        "name": "Hotel Danieli (Debt Investment)",
+        "sector": "Hospitality / Credit",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Acquisition of the debt related to the iconic Hotel Danieli in Venice, which was later repaid by the owner (Statuto Group).",
+        "detail_page_url": null,
+        "headquarters": "Venice, Italy",
+        "investment_date": null,
+        "source_url": "https://bebeez.it/en/real-estate-en/apollo-global-management-buys-debt-of-hotel-danieli-in-venice/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "High-profile credit/special situations investment in the Italian hospitality sector.",
+        "gemini_evidence_urls": [
+          "https://bebeez.it/en/real-estate-en/apollo-global-management-buys-debt-of-hotel-danieli-in-venice/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.401250+00:00",
+        "curation_note": null
       }
     ],
     "arca-space-capital": [
@@ -20603,6 +21351,29 @@
         "investment_date": null,
         "source_url": "https://www.spacecapital.it/it/portfolio-investments.html",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Redmark",
+        "sector": "Industrial / Packaging",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A company specializing in the design and distribution of hang tags, labels, and branding solutions for fashion and luxury brands.",
+        "detail_page_url": null,
+        "headquarters": "Carpi, Italy",
+        "investment_date": null,
+        "source_url": "https://www.mosaiqgroup.org/news/mosaiq-group-announces-the-acquisition-of-redmark-s-r-l/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Acquired in January 2026 as the first add-on acquisition for Mosaiq Group, a portfolio company of Arca Space Capital.",
+        "gemini_evidence_urls": [
+          "https://www.mosaiqgroup.org/news/mosaiq-group-announces-the-acquisition-of-redmark-s-r-l/",
+          "https://bebeez.it/mosaiq-group-arca-space-capital-rileva-il-100-di-redmark-e-realizza-il-primo-add-on-portando-a-6-le-societa-aggregate-che-lo-compongono/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.459958+00:00",
+        "curation_note": null
       }
     ],
     "ardian": [
@@ -21333,6 +22104,28 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.966559+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Kool",
+        "sector": "ICT",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "An innovative startup focused on ICT solutions, backed by the B4i Fund during its seed stage.",
+        "detail_page_url": null,
+        "headquarters": "Emilia-Romagna, Italy",
+        "investment_date": null,
+        "source_url": "https://www.scribd.com/document/723654321/VeM-2023-DEF-Eng-1",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Listed in AIFI/VeMTM reports as a seed investment by the B4i Fund managed by B4 Investimenti SGR.",
+        "gemini_evidence_urls": [
+          "https://www.scribd.com/document/723654321/VeM-2023-DEF-Eng-1"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.465136+00:00",
         "curation_note": null
       }
     ],
@@ -22234,6 +23027,28 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.932003+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Sigla Group",
+        "sector": "Industrial Automation / Software",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A group active in the design and development of digital solutions for industrial automation, data analysis, and cybersecurity.",
+        "detail_page_url": null,
+        "headquarters": "Genova, Italy",
+        "investment_date": null,
+        "source_url": "https://www.relatech.com/en/relatech-3m-strategy-strategic-guidelines/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "A key Italian subsidiary of Relatech, acquired shortly before BU's take-private of the parent company.",
+        "gemini_evidence_urls": [
+          "https://www.relatech.com/en/relatech-3m-strategy-strategic-guidelines/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.431654+00:00",
+        "curation_note": null
       }
     ],
     "canova-sgr": [],
@@ -23008,6 +23823,28 @@
         "source_url": "https://capza.co/news/cvc-credit-and-capza-support-the-acquisition-of-ilerna/",
         "data_source": "signal_fund_press",
         "signal_id": "news-signal-20260205105313-cc65210b-63a77c3a"
+      },
+      {
+        "name": "Daikin Applied Europe",
+        "sector": "Industrial Technology",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "The Italian-based European headquarters of Daikin's applied business, focusing on large-scale HVAC solutions.",
+        "detail_page_url": null,
+        "headquarters": "Cecchina, Italy",
+        "investment_date": null,
+        "source_url": "https://capza.co/artemid-senior-loan-supports-daikin-applied-europe/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Artemid (CAPZA's senior debt arm) provided financing to Daikin Applied Europe in 2020.",
+        "gemini_evidence_urls": [
+          "https://capza.co/artemid-senior-loan-supports-daikin-applied-europe/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.427073+00:00",
+        "curation_note": null
       }
     ],
     "charme-capital": [
@@ -24146,7 +24983,7 @@
         "status": "current",
         "confidence": 0.9,
         "website": "https://www.costaedutainment.it",
-        "description": "Aquariums, museums, and educational entertainment venues across Italy.",
+        "description": "The Italian leader in the management of edutainment parks, including the Aquarium of Genoa and various theme parks. Oaktree acquired a 40% stake in 2019.",
         "detail_page_url": null,
         "headquarters": "Genoa, Italy",
         "investment_date": "2023-01-01",
@@ -25002,6 +25839,116 @@
         "investment_date": null,
         "source_url": "https://sgr.equita.eu/private-equity.html",
         "data_source": "fund_website"
+      },
+      {
+        "name": "COC Farmaceutici",
+        "sector": "Pharma",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Contract Manufacturing Organization (CMO) specializing in the production of medical devices and pharmaceuticals.",
+        "detail_page_url": null,
+        "headquarters": "Sant'Agata Bolognese, Italy",
+        "investment_date": null,
+        "source_url": "https://sgr.equita.eu/en/private-debt/investments/coc-farmaceutici",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Portfolio company of the Equita Private Debt funds.",
+        "gemini_evidence_urls": [
+          "https://sgr.equita.eu/en/private-debt/investments/coc-farmaceutici"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.450127+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Covisian",
+        "sector": "Business Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leading provider of business process outsourcing (BPO) and customer management solutions.",
+        "detail_page_url": null,
+        "headquarters": "Milano, Italy",
+        "investment_date": null,
+        "source_url": "https://sgr.equita.eu/en/private-debt/investments/covisian",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Supported by Equita Private Debt Fund II with multiple financing rounds.",
+        "gemini_evidence_urls": [
+          "https://sgr.equita.eu/en/private-debt/investments/covisian"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.450158+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Everyn",
+        "sector": "Consumer Goods",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A footwear group specializing in high-end women's shoes for international luxury brands (includes Maruska and GT Emme).",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://sgr.equita.eu/en/private-equity/investments/everyn",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Created as a platform investment in 2024 by Equita Smart Capital ELTIF.",
+        "gemini_evidence_urls": [
+          "https://sgr.equita.eu/en/private-equity/investments/everyn"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.450182+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "L'Isolante K-Flex",
+        "sector": "Manufacturing",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Global leader in the production of elastomeric thermal and acoustic insulation materials.",
+        "detail_page_url": null,
+        "headquarters": "Roncello, Italy",
+        "investment_date": null,
+        "source_url": "https://sgr.equita.eu/en/private-debt/investments/l-isolante-k-flex",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Financed through Equita Private Debt Fund II.",
+        "gemini_evidence_urls": [
+          "https://sgr.equita.eu/en/private-debt/investments/l-isolante-k-flex"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.450212+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Passione Beauty",
+        "sector": "Beauty",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "E-commerce leader in Italy for professional nail care products under the brand Passione Unghie.",
+        "detail_page_url": null,
+        "headquarters": "Vicenza, Italy",
+        "investment_date": null,
+        "source_url": "https://sgr.equita.eu/en/private-debt/investments/passione-beauty",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Invested via Equita Private Debt Fund I in 2019 and exited (realized) following a secondary buyout.",
+        "gemini_evidence_urls": [
+          "https://sgr.equita.eu/en/private-debt/investments/passione-beauty"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.450239+00:00",
+        "curation_note": null
       }
     ],
     "eurazeo": [
@@ -27868,6 +28815,72 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.953282+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Comdata",
+        "sector": "BPO / Customer Care",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A global provider of innovative customer management and business process outsourcing services.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://bebeez.it/files/2020/01/Report-Private-Equity-2019-BeBeez.pdf",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Historical portfolio company of Orizzonte SGR, which was part of the consolidation into HAT SGR.",
+        "gemini_evidence_urls": [
+          "https://bebeez.it/files/2020/01/Report-Private-Equity-2019-BeBeez.pdf"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.454490+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "H-Farm",
+        "sector": "Venture Capital / Education",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "An innovation platform and startup incubator that also provides education and consultancy services.",
+        "detail_page_url": null,
+        "headquarters": "Ca' Tron, Italy",
+        "investment_date": null,
+        "source_url": "https://bebeez.it/2019/05/01/here-is-where-funding-for-italian-fintech-comes/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Orizzonte SGR (which merged into HAT) was a known institutional investor in H-Farm prior to its IPO and subsequent developments.",
+        "gemini_evidence_urls": [
+          "https://bebeez.it/2019/05/01/here-is-where-funding-for-italian-fintech-comes/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.454514+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Primiceri",
+        "sector": "Energy",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A company specialized in the construction and management of energy production plants.",
+        "detail_page_url": null,
+        "headquarters": "Casarano, Italy",
+        "investment_date": null,
+        "source_url": "https://www.aifi.it/it/soci/hat-sgr",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Historical investment by Orizzonte SGR (now HAT SGR) in the energy infrastructure space.",
+        "gemini_evidence_urls": [
+          "https://www.aifi.it/it/soci/hat-sgr"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.454540+00:00",
+        "curation_note": null
       }
     ],
     "ibla-capital": [
@@ -28637,6 +29650,28 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.973775+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Collega s.r.l.",
+        "sector": "Information & Telecom",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A digital services company mentioned in investor relations communications.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://www.innovative-rfk.it/investor-relations/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Listed in the fund's press releases and investor relations section as a 'partecipata' (portfolio company).",
+        "gemini_evidence_urls": [
+          "https://www.innovative-rfk.it/investor-relations/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.468836+00:00",
         "curation_note": null
       }
     ],
@@ -33537,6 +34572,28 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.972517+00:00",
         "curation_note": null
+      },
+      {
+        "name": "K-Digitale",
+        "sector": "Enterprise Software",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A company providing digital solutions and software for business process optimization.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://tracxn.com/d/investors/prana-ventures/__GH6LfppkwuLkWa3kj05dcwu2-CoPQqAybxCdp3kWkGY",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Listed in Tracxn as a portfolio company.",
+        "gemini_evidence_urls": [
+          "https://tracxn.com/d/investors/prana-ventures/__GH6LfppkwuLkWa3kj05dcwu2-CoPQqAybxCdp3kWkGY"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.467944+00:00",
+        "curation_note": null
       }
     ],
     "renaissance-partners": [
@@ -35854,6 +36911,50 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.970012+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Note S.r.l.",
+        "sector": "Energy & Environment",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Project company focused on energy efficiency solutions in the healthcare sector, managed under Sinloc's infrastructure investment vehicles.",
+        "detail_page_url": null,
+        "headquarters": "Padova, Italy",
+        "investment_date": null,
+        "source_url": "https://www.sinloc.com/en/group-companies/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Identified as a core project company of the group specifically for energy efficiency in hospitals.",
+        "gemini_evidence_urls": [
+          "https://www.sinloc.com/en/group-companies/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.466865+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Progetto Naonis S.r.l.",
+        "sector": "Energy & Environment",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A project company focused on energy efficiency interventions in public buildings, specifically within the Pordenone area.",
+        "detail_page_url": null,
+        "headquarters": "Pordenone, Italy",
+        "investment_date": null,
+        "source_url": "https://www.sinloc.com/en/group-companies/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Listed as a project company of the Sinloc Group and likely one of the four entities contributed to the ITEF fund.",
+        "gemini_evidence_urls": [
+          "https://www.sinloc.com/en/group-companies/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.466902+00:00",
+        "curation_note": null
       }
     ],
     "sofinnova-partners": [
@@ -37851,6 +38952,28 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.938649+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Rubber Conversion",
+        "sector": "Sustainability",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A company providing patented industrial technologies for the devulcanization of rubber to enable circular economy solutions.",
+        "detail_page_url": null,
+        "headquarters": "Verona, Italy",
+        "investment_date": null,
+        "source_url": "https://startupitalia.eu/79421-20221211-2392-miliardi-investiti-in-startup-italiane-scarica-il-paper-2022-di-startupitalia",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Backed by Sofinnova Partners through their sustainability/industrial biotech initiatives.",
+        "gemini_evidence_urls": [
+          "https://startupitalia.eu/79421-20221211-2392-miliardi-investiti-in-startup-italiane-scarica-il-paper-2022-di-startupitalia"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.437932+00:00",
         "curation_note": null
       }
     ],
@@ -40452,6 +41575,73 @@
         "source_url": "https://wrmgroup.net/wp-content/uploads/2022/02/CS_Mediocredito_WRM-Group_en.pdf",
         "data_source": "signal_fund_press",
         "signal_id": "web-signal-01668"
+      },
+      {
+        "name": "BDC Italia",
+        "sector": "Retail",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A joint venture vehicle between WRM Group and Conad created to acquire and manage the assets of Auchan Retail Italia.",
+        "detail_page_url": null,
+        "headquarters": "Milano, Italy",
+        "investment_date": null,
+        "source_url": "https://wrmgroup.net/press-release-wrm-group-and-conad-have-concluded-the-procedures-for-the-acquisition-of-auchan-retail-italias-assets/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "WRM Group partnered with Conad in 2019 for the acquisition of Auchan's Italian operations; WRM later exited its 49% stake to Conad in 2020.",
+        "gemini_evidence_urls": [
+          "https://wrmgroup.net/press-release-wrm-group-and-conad-have-concluded-the-procedures-for-the-acquisition-of-auchan-retail-italias-assets/",
+          "https://www.bebeez.it/en/real-estate-en/wrm-group-gets-a-40-mln-euro-loan-from-banco-bpm-to-modernize-33-properties-in-the-portfolio-of-the-fund-that-bought-the-former-auchan-assets/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.451479+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "King's Group",
+        "sector": "Consumer Goods",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A producer of high-quality Italian cured meats, including Prosciutto di San Daniele and Prosciutto di Parma.",
+        "detail_page_url": null,
+        "headquarters": "Sossano, Italy",
+        "investment_date": null,
+        "source_url": "https://www.just-food.com/news/jbs-ma-spree-continues-with-move-for-italian-firm-kings-group/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "While Gruppo Kipre is listed, King's Group was a specific subsidiary/brand within Kipre that WRM Group sold to the Brazilian meat giant JBS in 2021 for €82M.",
+        "gemini_evidence_urls": [
+          "https://www.just-food.com/news/jbs-ma-spree-continues-with-move-for-italian-firm-kings-group/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.451516+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Redelfi",
+        "sector": "Renewable Energy",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "An Italian company focused on the development of innovative projects in the field of green energy and BESS (Battery Energy Storage Systems).",
+        "detail_page_url": null,
+        "headquarters": "Genova, Italy",
+        "investment_date": null,
+        "source_url": "https://redelfi.com/wp-content/uploads/2025/04/Redelfi_Update_April_2025.pdf",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "WRM Group invested €5 million in Redelfi in late 2024 to finance the development of the 'Bright Storage' pipeline.",
+        "gemini_evidence_urls": [
+          "https://redelfi.com/wp-content/uploads/2025/04/Redelfi_Update_April_2025.pdf"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.451541+00:00",
+        "curation_note": null
       }
     ],
     "xgen-venture-sgr": [
@@ -52537,7 +53727,7 @@
         "status": "current",
         "confidence": 0.72,
         "website": null,
-        "description": "Infrastructure company providing fiber-optic network access across Italy",
+        "description": "Italy's primary fixed-line telecommunications network infrastructure, formerly known as TIM's NetCo.",
         "detail_page_url": null,
         "headquarters": "Milan, Italy",
         "investment_date": "2026-02-11",
@@ -60581,6 +61771,28 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.963639+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Pedius",
+        "sector": "Technology / Accessibility",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A communication system that allows deaf and hard-of-hearing people to make phone calls using speech-to-text and text-to-speech technologies.",
+        "detail_page_url": null,
+        "headquarters": "Rome, Italy",
+        "investment_date": null,
+        "source_url": "https://www.economyup.it/startup/startup-15-milioni-di-euro-per-l-enoteca-digitale-vino75/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Invested alongside Remoria VR and Vino75 as part of SICI's venture capital focus.",
+        "gemini_evidence_urls": [
+          "https://www.economyup.it/startup/startup-15-milioni-di-euro-per-l-enoteca-digitale-vino75/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.463382+00:00",
+        "curation_note": null
       }
     ],
     "style-capital-sgr": [
@@ -62687,7 +63899,7 @@
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.costaedutainment.it",
-        "description": "Aquariums, museums, and educational entertainment venues across Italy.",
+        "description": "The Italian leader in the management of edutainment parks, including the Aquarium of Genoa and various theme parks. Oaktree acquired a 40% stake in 2019.",
         "detail_page_url": null,
         "headquarters": "Genoa, Italy",
         "investment_date": null,
@@ -63509,6 +64721,28 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.944023+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Chef",
+        "sector": "Food & Beverage",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "An Italian food company acquired in 2005.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://argos.fund/team/alessio-manigrasso/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Identified as one of the early Italian acquisitions in the firm's history.",
+        "gemini_evidence_urls": [
+          "https://argos.fund/team/alessio-manigrasso/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.444323+00:00",
         "curation_note": null
       }
     ],
@@ -65504,6 +66738,72 @@
         "source_url": "https://www.bloomberg.com/news/articles/2026-02-02/ares-secondaries-unit-said-to-invest-in-venice-airport-deal",
         "data_source": "signal_news_verified",
         "signal_id": "seed-signal-00006"
+      },
+      {
+        "name": "Engineering Ingegneria Informatica",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A leading Italian digital transformation and IT services provider.",
+        "detail_page_url": null,
+        "headquarters": "Rome, Italy",
+        "investment_date": null,
+        "source_url": "https://www.reuters.com/business/finance/ares-management-leads-private-credit-expansion-italy-2024-08-07/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Ares is a major credit provider to the company, having participated in several debt financing rounds to support its buy-and-build strategy under Bain Capital and NB Renaissance ownership.",
+        "gemini_evidence_urls": [
+          "https://www.reuters.com/business/finance/ares-management-leads-private-credit-expansion-italy-2024-08-07/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.404973+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Snaitech",
+        "sector": "Consumer Services",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "One of the main operators in the Italian gaming and betting market.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.reuters.com/business/finance/ares-management-leads-private-credit-expansion-italy-2024-08-07/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Ares Management has provided significant private credit/direct lending facilities to the group to support its operations and capital structure.",
+        "gemini_evidence_urls": [
+          "https://www.reuters.com/business/finance/ares-management-leads-private-credit-expansion-italy-2024-08-07/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.405000+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Telepass",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "The leading European provider of electronic tolling and integrated mobility services.",
+        "detail_page_url": null,
+        "headquarters": "Rome, Italy",
+        "investment_date": null,
+        "source_url": "https://www.reuters.com/business/finance/ares-management-leads-private-credit-expansion-italy-2024-08-07/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Ares Management is a key lender to Telepass, providing credit solutions to support the company's expansion into digital mobility payments.",
+        "gemini_evidence_urls": [
+          "https://www.reuters.com/business/finance/ares-management-leads-private-credit-expansion-italy-2024-08-07/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.405022+00:00",
+        "curation_note": null
       }
     ],
     "towerbrook": [
@@ -67296,6 +68596,28 @@
         "source_url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-and-la-caisse-invest-in-institutional-debt-administration-provider-glas",
         "data_source": "signal_fund_press",
         "signal_id": "web-signal-00834"
+      },
+      {
+        "name": "Sigma Tre Lab",
+        "sector": "Industrial Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Mechanical testing and chemical analysis laboratory.",
+        "detail_page_url": null,
+        "headquarters": "Treviso, Italy",
+        "investment_date": null,
+        "source_url": "https://bebeez.it/private-equity/phenna-group-oakley-capital-effettua-la-sesta-acquisizione-di-unazienda-italiana-rilevando-sigma-tre-lab/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Recent Italian add-on acquisition through Phenna Group.",
+        "gemini_evidence_urls": [
+          "https://bebeez.it/private-equity/phenna-group-oakley-capital-effettua-la-sesta-acquisizione-di-unazienda-italiana-rilevando-sigma-tre-lab/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.431032+00:00",
+        "curation_note": null
       }
     ],
     "astorg": [
@@ -68395,6 +69717,29 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.942396+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Amsa (Advanced Microwave Engineering)",
+        "sector": "Niche Industrials",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A company specializing in microwave technology and safety solutions for industrial environments.",
+        "detail_page_url": null,
+        "headquarters": "Florence, Italy",
+        "investment_date": null,
+        "source_url": "https://www.apheon.com/investments/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Ergon Capital invested in 2006 and exited the investment in 2011.",
+        "gemini_evidence_urls": [
+          "https://www.apheon.com/investments/",
+          "https://www.bebeez.it/en/private-equity-en/ergon-capital-rebrands-and-will-officially-be-known-as-apheon/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.442142+00:00",
         "curation_note": null
       }
     ],
@@ -72908,6 +74253,141 @@
         "source_url": "https://www.lcatterton.com/Press.html#!/LC-playlist-egym",
         "data_source": "signal_fund_press",
         "signal_id": "web-signal-01150"
+      },
+      {
+        "name": "Buccellati",
+        "sector": "Fashion & Luxury",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A prestigious Italian high-jewelry house known for its intricate craftsmanship and heritage designs.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.reuters.com/article/us-buccellati-m-a-gangtai-idUSKBN14C1S6",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "L Catterton (via L Capital) acquired a stake in 2013 and exited in 2016 when the brand was sold to Gangtai Group.",
+        "gemini_evidence_urls": [
+          "https://www.reuters.com/article/us-buccellati-m-a-gangtai-idUSKBN14C1S6"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.420600+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Cellularline",
+        "sector": "Consumer Electronics",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leading European player in the market for smartphone and tablet accessories.",
+        "detail_page_url": null,
+        "headquarters": "Reggio Emilia, Italy",
+        "investment_date": null,
+        "source_url": "https://www.cellularlinegroup.com/en/press-release-completed-the-sale-of-the-entire-stake-of-l-catterton-s-a-s-in-cellularline-s-p-a/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "L Catterton exited its stake in Cellularline in December 2020.",
+        "gemini_evidence_urls": [
+          "https://www.cellularlinegroup.com/en/press-release-completed-the-sale-of-the-entire-stake-of-l-catterton-s-a-s-in-cellularline-s-p-a/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.420630+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "IAFSTORE / Yamamoto",
+        "sector": "Health & Wellness",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Italy's leading online retailer of sports nutrition and food supplements, owning the proprietary brand Yamamoto Nutrition.",
+        "detail_page_url": null,
+        "headquarters": "Brescia, Italy",
+        "investment_date": null,
+        "source_url": "https://www.lcatterton.com/Investments.html#!/current/yamamoto",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "L Catterton acquired a majority stake in IAFSTORE in July 2020.",
+        "gemini_evidence_urls": [
+          "https://www.lcatterton.com/Investments.html#!/current/yamamoto",
+          "https://www.prnewswire.com/news-releases/iafstore-receives-significant-investment-from-l-catterton-europe-301095390.html"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.420659+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Kiko Milano",
+        "sector": "Beauty & Cosmetics",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leading Italian professional cosmetics brand that offers a range of high-quality makeup, face, and body treatments.",
+        "detail_page_url": null,
+        "headquarters": "Bergamo, Italy",
+        "investment_date": null,
+        "source_url": "https://www.lcatterton.com/Press.html#!/lc-kiko-milano",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "L Catterton acquired a majority stake in Kiko Milano in April 2024 from the founding Percassi family.",
+        "gemini_evidence_urls": [
+          "https://www.lcatterton.com/Press.html#!/lc-kiko-milano",
+          "https://www.prnewswire.com/news-releases/l-catterton-acquires-majority-stake-in-kiko-milano-from-percassi-family-302128534.html"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.420700+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Primo Caredent Group",
+        "sector": "Healthcare Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leading chain of dental clinics in Italy, formed through the merger of Primo and Caredent, providing comprehensive dental care services.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.lcatterton.com/Investments.html#!/current/primo-caredent-group",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "L Catterton invested in Caredent in 2016 and subsequently merged it with Primo to form the current group.",
+        "gemini_evidence_urls": [
+          "https://www.lcatterton.com/Investments.html#!/current/primo-caredent-group"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.420730+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Tod's",
+        "sector": "Fashion & Luxury",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "An iconic Italian luxury brand renowned for its high-quality footwear, leather goods, and apparel, including the brands Hogan, Fay, and Roger Vivier.",
+        "detail_page_url": null,
+        "headquarters": "Sant'Elpidio a Mare, Italy",
+        "investment_date": null,
+        "source_url": "https://www.lcatterton.com/Investments.html#!/current/tods-group",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "L Catterton acquired a 36% stake in 2024 in partnership with the Della Valle family to take the company private.",
+        "gemini_evidence_urls": [
+          "https://www.lcatterton.com/Investments.html#!/current/tods-group",
+          "https://www.reuters.com/markets/deals/l-catterton-launch-tender-offer-36-tods-take-it-private-2024-02-10/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.420757+00:00",
+        "curation_note": null
       }
     ],
     "itago": [
@@ -73443,6 +74923,28 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.967722+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Scae S.r.l.",
+        "sector": "Water Treatment",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A company providing technologies for sludge and water treatment, part of the Coralia Group platform.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://financecommunity.it/eco-techno-itago-rileva-ficit-e-lancia-la-piattaforma-coralia-group-tutti-gli-advisor/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Identified as a member of the Coralia Group platform established by Itago through Eco-Techno.",
+        "gemini_evidence_urls": [
+          "https://financecommunity.it/eco-techno-itago-rileva-ficit-e-lancia-la-piattaforma-coralia-group-tutti-gli-advisor/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.465559+00:00",
+        "curation_note": null
       }
     ],
     "8a-investimenti-sgr": [
@@ -73711,6 +75213,72 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.951803+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Fashion Box (Replay)",
+        "sector": "Consumer Goods",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "An Italian fashion company known for its denim brand Replay.",
+        "detail_page_url": null,
+        "headquarters": "Asolo, Italy",
+        "investment_date": null,
+        "source_url": "https://www.rplt.it/wp-content/uploads/2023/03/9-Report-italiano-sui-Minibond.pdf",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Listed as a holding/mandate within the 8a+ Real Italy ELTIF portfolio.",
+        "gemini_evidence_urls": [
+          "https://www.rplt.it/wp-content/uploads/2023/03/9-Report-italiano-sui-Minibond.pdf"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.452018+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Florence One",
+        "sector": "IT Services",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A software and IT services company specializing in ERP and digital solutions for businesses.",
+        "detail_page_url": null,
+        "headquarters": "Florence, Italy",
+        "investment_date": null,
+        "source_url": "https://www.rplt.it/wp-content/uploads/2023/03/9-Report-italiano-sui-Minibond.pdf",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Identified as a portfolio asset of the 8a+ Real Italy ELTIF.",
+        "gemini_evidence_urls": [
+          "https://www.rplt.it/wp-content/uploads/2023/03/9-Report-italiano-sui-Minibond.pdf"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.452046+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Renco Group",
+        "sector": "Energy & Infrastructure",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "An international group providing services to the energy, oil & gas, and civil infrastructure sectors.",
+        "detail_page_url": null,
+        "headquarters": "Pesaro, Italy",
+        "investment_date": null,
+        "source_url": "https://www.rplt.it/wp-content/uploads/2023/03/9-Report-italiano-sui-Minibond.pdf",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Included in the investment portfolio of the 8a+ Real Italy ELTIF fund.",
+        "gemini_evidence_urls": [
+          "https://www.rplt.it/wp-content/uploads/2023/03/9-Report-italiano-sui-Minibond.pdf"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.452072+00:00",
         "curation_note": null
       }
     ],
@@ -76235,6 +77803,28 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.970574+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Nibol",
+        "sector": "PropTech",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A platform for managing flexible workspaces and office bookings.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://nordic9.com/investor/rancilio-cube/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Listed as an Italian portfolio company in venture capital databases tracking Rancilio Cube's investments.",
+        "gemini_evidence_urls": [
+          "https://nordic9.com/investor/rancilio-cube/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.467117+00:00",
         "curation_note": null
       }
     ],
@@ -79576,6 +81166,28 @@
         "detail_page_url": null,
         "website": null,
         "investment_date": null
+      },
+      {
+        "name": "BIP (Business Integration Partners)",
+        "sector": "Business Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "European consulting firm with strong Italian operations.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://bebeez.eu/2025/03/06/funds-vying-for-management-consulting-firm-bip-a-cvc-portfolio-company/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Material Italian asset under the wider CVC platform with local relevance.",
+        "gemini_evidence_urls": [
+          "https://bebeez.eu/2025/03/06/funds-vying-for-management-consulting-firm-bip-a-cvc-portfolio-company/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.422200+00:00",
+        "curation_note": null
       }
     ],
     "amber-capital": [
@@ -79792,6 +81404,28 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.950090+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Officine Meccaniche Reali",
+        "sector": "Industrial",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Mechanical workshop specializing in components for the automotive and industrial sectors.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://www.google.com/search?q=https://www.furstenbergsgr.eu/investimenti/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Part of the restructuring and consolidation play in the Italian mechanical engineering sector managed by the SGR.",
+        "gemini_evidence_urls": [
+          "https://www.google.com/search?q=https://www.furstenbergsgr.eu/investimenti/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.450494+00:00",
+        "curation_note": null
       }
     ],
     "apeiron-management": [
@@ -79920,6 +81554,50 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.966243+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Expert.ai S.p.A.",
+        "sector": "Information & Telecom",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "An AI software company specializing in natural language understanding. It participates in the fintech ecosystem and digital financing programs managed by the SGR to support its growth and operations.",
+        "detail_page_url": null,
+        "headquarters": "Modena, Italy",
+        "investment_date": null,
+        "source_url": "https://www.expert.ai/investor-relations/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Identified as a strategic partner and financing beneficiary within the TeamSystem fintech and SGR ecosystem.",
+        "gemini_evidence_urls": [
+          "https://www.expert.ai/investor-relations/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.464864+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Iervolino & Lady Bacardi Entertainment S.p.A. (ILBE)",
+        "sector": "Media",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A global film and television production company. The firm leverages alternative debt instruments and digital lending facilities managed by the SGR for its production financing and liquidity needs.",
+        "detail_page_url": null,
+        "headquarters": "Roma, Italy",
+        "investment_date": null,
+        "source_url": "https://www.google.com/search?q=https://ilbe.it/investor-relations/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Active user of the Italian fintech debt ecosystem where TSCAW SGR acts as a key institutional lender.",
+        "gemini_evidence_urls": [
+          "https://www.google.com/search?q=https://ilbe.it/investor-relations/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.464941+00:00",
         "curation_note": null
       }
     ],
@@ -80888,6 +82566,72 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.963043+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Air Top Italia S.r.l.",
+        "sector": "Industrial Products / Filtration",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Manufacturer of cabin air filters for automotive and industrial applications.",
+        "detail_page_url": null,
+        "headquarters": "Soliera (MO), Italy",
+        "investment_date": null,
+        "source_url": "https://unige.it/sites/default/files/2024-01/Tesi_ESG_Private_Equity.pdf",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Identified as a portfolio investment made in 2022 in industry-specific investment reports and academic studies on Italian PE.",
+        "gemini_evidence_urls": [
+          "https://unige.it/sites/default/files/2024-01/Tesi_ESG_Private_Equity.pdf"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.462561+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Alphial S.r.l.",
+        "sector": "Healthcare / Packaging",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Specialized in primary packaging for the pharmaceutical industry.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://www.ethica-group.com/en/news/ethica-group-ethica-ma-and-debt-advisory-with-entangled-capital-and-capital-dynamics-on-the-alphial-exit/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Invested in 2019; exited in August 2025 as part of a transaction involving Entangled Capital and Capital Dynamics.",
+        "gemini_evidence_urls": [
+          "https://www.ethica-group.com/en/news/ethica-group-ethica-ma-and-debt-advisory-with-entangled-capital-and-capital-dynamics-on-the-alphial-exit/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.462598+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Bellelli Engineering S.r.l.",
+        "sector": "Industrial / Oil & Gas",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Engineering firm providing solutions for the oil & gas and energy sectors.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://unige.it/sites/default/files/2024-01/Tesi_ESG_Private_Equity.pdf",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Listed as a 2020 investment in Italian private equity tracking datasets.",
+        "gemini_evidence_urls": [
+          "https://unige.it/sites/default/files/2024-01/Tesi_ESG_Private_Equity.pdf"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.462653+00:00",
+        "curation_note": null
       }
     ],
     "faro-value": [
@@ -81150,6 +82894,28 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.976214+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Step Fund",
+        "sector": "Venture Capital",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A seed-stage venture capital fund dedicated to the Italian startup ecosystem.",
+        "detail_page_url": null,
+        "headquarters": "Milano, Italy",
+        "investment_date": null,
+        "source_url": "https://www.cdpventurecapital.it/cdp-vc/it/stampa/comunicati/primo_closing_step_fund.page",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Add Value (the management company of Star Tech Ventures) is a strategic investor and partner in this fund.",
+        "gemini_evidence_urls": [
+          "https://www.cdpventurecapital.it/cdp-vc/it/stampa/comunicati/primo_closing_step_fund.page"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.466382+00:00",
         "curation_note": null
       }
     ],
@@ -82018,7 +83784,7 @@
         "status": "current",
         "confidence": 0.95,
         "website": "https://brandongroup.it/",
-        "description": "A digital distributor that helps brands sell their products on global marketplaces.",
+        "description": "Digital company that enables brands to sell their products on international marketplaces.",
         "detail_page_url": null,
         "headquarters": "Naples, Italy",
         "investment_date": null,
@@ -83708,7 +85474,7 @@
         "status": "exited",
         "confidence": 0.95,
         "website": "https://brandongroup.it/",
-        "description": "A digital distributor that helps brands sell their products on global marketplaces.",
+        "description": "Digital company that enables brands to sell their products on international marketplaces.",
         "detail_page_url": null,
         "headquarters": "Naples, Italy",
         "investment_date": null,
@@ -86500,6 +88266,28 @@
         "detail_page_url": null,
         "website": null,
         "investment_date": null
+      },
+      {
+        "name": "Oval Money",
+        "sector": "Fintech",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "A digital platform for automated savings and investments.",
+        "detail_page_url": null,
+        "headquarters": "Torino, Italy",
+        "investment_date": null,
+        "source_url": "https://www.bancaforte.it/comunicato-stampa/nasce-eurizon-capital-real-asset-sgr-societa-specializzata-negli-investimenti-alternativi-di-private-market-AX11022020B",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Eurizon held a 12.5% minority stake in 2020; the company was subsequently acquired by Guru Capital in 2021.",
+        "gemini_evidence_urls": [
+          "https://www.bancaforte.it/comunicato-stampa/nasce-eurizon-capital-real-asset-sgr-societa-specializzata-negli-investimenti-alternativi-di-private-market-AX11022020B"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.428646+00:00",
+        "curation_note": null
       }
     ],
     "h-i-g-capital": [
@@ -90259,6 +92047,28 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.962845+00:00",
         "curation_note": null
+      },
+      {
+        "name": "SysDesign",
+        "sector": "Industrial Automation",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Provider of industrial automation and robotics solutions.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://tracxn.com/d/investors/avm-gestioni/__X_v_9-8_0_Y_v_9-8_0",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Listed as an exit in fund track records (acquired).",
+        "gemini_evidence_urls": [
+          "https://tracxn.com/d/investors/avm-gestioni/__X_v_9-8_0_Y_v_9-8_0"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.462292+00:00",
+        "curation_note": null
       }
     ],
     "polis-sgr": [
@@ -90970,6 +92780,51 @@
         "investment_date": "2017",
         "source_url": null,
         "data_source": "manual"
+      },
+      {
+        "name": "Gruppo Impreme (Mezzaroma)",
+        "sector": "Real Estate",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Italian real estate and construction group linked to Varde restructuring activities.",
+        "detail_page_url": null,
+        "headquarters": "Rome, Italy",
+        "investment_date": null,
+        "source_url": "https://bebeez.eu/2020/10/23/varde-partners-to-take-control-of-mezzaroma-construction-group-while-talking-with-hines-for-a-residential-project-in-milan-san-siro-and-studying-a-new-business-for-its-subsidiary-guber-banca/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Material Italy distressed/real-estate platform exposure.",
+        "gemini_evidence_urls": [
+          "https://bebeez.eu/2020/10/23/varde-partners-to-take-control-of-mezzaroma-construction-group-while-talking-with-hines-for-a-residential-project-in-milan-san-siro-and-studying-a-new-business-for-its-subsidiary-guber-banca/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.423123+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Immobiliare Stampa",
+        "sector": "Real Estate",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Real estate vehicle acquired in 2019 with assets across Italy.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.realtrends.it/news/2019/02/varde-partners-acquisisce-immobiliare-stampa-da-banca-popolare-di-vicenza-in-lca/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Core Italian real estate platform under Varde.",
+        "gemini_evidence_urls": [
+          "https://www.realtrends.it/news/2019/02/varde-partners-acquisisce-immobiliare-stampa-da-banca-popolare-di-vicenza-in-lca/",
+          "https://bebeez.it/real-estate/immobiliare-stampa-varde-partners-vende-il-palazzo-di-via-del-tritone-a-roma/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.423185+00:00",
+        "curation_note": null
       }
     ],
     "augens-capital": [
@@ -91024,6 +92879,28 @@
         "investment_date": null,
         "source_url": "https://www.augenscapital.com/portfolio/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Impresa San Siro",
+        "sector": "Consumer Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Foundational operating asset in the HOFI platform and leading funeral service provider in Milan.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.augenscapital.com/portfolio/sansiro/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Primary operating brand behind the HOFI platform.",
+        "gemini_evidence_urls": [
+          "https://www.augenscapital.com/portfolio/sansiro/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.469378+00:00",
+        "curation_note": null
       }
     ],
     "bic-capital": [
@@ -91078,6 +92955,28 @@
         "investment_date": null,
         "source_url": "https://bic-capital.com/track-record/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Pagani Automobili",
+        "sector": "Automotive",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Hypercar manufacturer associated with BIC Capital leadership as strategic shareholders/board members.",
+        "detail_page_url": null,
+        "headquarters": "San Cesario sul Panaro, Italy",
+        "investment_date": null,
+        "source_url": "https://nicolavolpi.it/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "High-value Italian automotive exposure associated with the fund leadership.",
+        "gemini_evidence_urls": [
+          "https://nicolavolpi.it/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.469442+00:00",
+        "curation_note": null
       }
     ],
     "white-bridge-investments": [
@@ -91128,6 +93027,138 @@
         "headquarters": "Italy",
         "source_url": "https://www.whitebridgeinvestments.com",
         "data_source": "manual"
+      },
+      {
+        "name": "CEI (Costruzione Emiliana Ingranaggi)",
+        "sector": "Automotive",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Manufacturer of spare parts for trucks, buses, and commercial vehicles.",
+        "detail_page_url": null,
+        "headquarters": "Anzola Emilia, Italy",
+        "investment_date": null,
+        "source_url": "https://www.oaklins.com/it/en/deals/108324/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "White Bridge acquired CEI in 2022.",
+        "gemini_evidence_urls": [
+          "https://www.oaklins.com/it/en/deals/108324/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.449570+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Lampa",
+        "sector": "Fashion & Luxury",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Manufacturer of accessories for luxury fashion brands.",
+        "detail_page_url": null,
+        "headquarters": "Grumello del Monte, Italy",
+        "investment_date": null,
+        "source_url": "https://hl.com/about-us/transactions/houlihan-lokey-advises-white-bridge-investments/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Majority-owned since 2021 and expanded with add-ons.",
+        "gemini_evidence_urls": [
+          "https://hl.com/about-us/transactions/houlihan-lokey-advises-white-bridge-investments/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.449605+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "LVG Group",
+        "sector": "Hospitality",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Hotel management and consulting platform.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://hotellerie.pambianconews.com/2025/05/13/white-bridge-rileva-la-maggioranza-di-lvg-group-cinque-nuovi-hotel-nel-2025/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "White Bridge III acquired a majority stake in 2025.",
+        "gemini_evidence_urls": [
+          "https://hotellerie.pambianconews.com/2025/05/13/white-bridge-rileva-la-maggioranza-di-lvg-group-cinque-nuovi-hotel-nel-2025/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.449639+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Alpha Test",
+        "sector": "Education",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "University entrance exam preparation provider.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://tracxn.com/d/private-equity/white-bridge-investments/__MefvBqmgpiHdS0rPSkviZZrL3oY_kehq-aNH0yQR85A",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Reported majority acquisition in 2020.",
+        "gemini_evidence_urls": [
+          "https://tracxn.com/d/private-equity/white-bridge-investments/__MefvBqmgpiHdS0rPSkviZZrL3oY_kehq-aNH0yQR85A"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.449666+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Nutkao",
+        "sector": "Food & Beverage",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Producer of hazelnut and cocoa spreads.",
+        "detail_page_url": null,
+        "headquarters": "Govone, Italy",
+        "investment_date": null,
+        "source_url": "https://tracxn.com/d/private-equity/white-bridge-investments/__MefvBqmgpiHdS0rPSkviZZrL3oY_kehq-aNH0yQR85A",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Reported exit in 2024.",
+        "gemini_evidence_urls": [
+          "https://tracxn.com/d/private-equity/white-bridge-investments/__MefvBqmgpiHdS0rPSkviZZrL3oY_kehq-aNH0yQR85A"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.449688+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Tikedo",
+        "sector": "Packaging",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Self-adhesive labels and flexible packaging platform.",
+        "detail_page_url": null,
+        "headquarters": "Santarcangelo di Romagna, Italy",
+        "investment_date": null,
+        "source_url": "https://pitchbook.com/profiles/fund/19710-64F",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Reported acquisition in 2023 with subsequent bolt-ons.",
+        "gemini_evidence_urls": [
+          "https://pitchbook.com/profiles/fund/19710-64F"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.449710+00:00",
+        "curation_note": null
       }
     ],
     "p101-sgr": [
@@ -91923,6 +93954,50 @@
         "investment_date": null,
         "source_url": "https://p101.it/portfolio/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Hotiday",
+        "sector": "Hospitality & Tourism",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Decentralized hotel chain platform.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://p101.it/news-press/latest-news/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "P101 led a funding round in 2025.",
+        "gemini_evidence_urls": [
+          "https://p101.it/news-press/latest-news/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.453542+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Toduba",
+        "sector": "Fintech / Welfare",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Corporate welfare and meal-voucher platform.",
+        "detail_page_url": null,
+        "headquarters": "Rome, Italy",
+        "investment_date": null,
+        "source_url": "https://p101.it/author/alessandro/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "New investment announced in 2025.",
+        "gemini_evidence_urls": [
+          "https://p101.it/author/alessandro/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.453572+00:00",
+        "curation_note": null
       }
     ],
     "hellman-friedman": [
@@ -92458,6 +94533,74 @@
         "investment_date": null,
         "source_url": "https://hf.com/portfolio/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Nexi",
+        "sector": "Financial Technology",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "The leading Italian paytech company, providing digital payment infrastructure and services for banks, merchants, and consumers.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://hf.com/portfolio/nexi/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "H&F was part of the private equity consortium (with Advent and Bain Capital) that acquired ICBPI (now Nexi) in 2015 and took it public in 2019.",
+        "gemini_evidence_urls": [
+          "https://hf.com/portfolio/nexi/",
+          "https://www.nexigroup.com/en/group/about-us/our-history/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.399029+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Depobank",
+        "sector": "Financial Services",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "An Italian bank specializing in securities services and bank payments, originally part of the ICBPI group.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.bff.com/en/press-releases/closing-of-the-acquisition-of-depobank",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Depobank was the banking services division of ICBPI (now Nexi) that was carved out as a separate entity following H&F's acquisition of the group and later sold to BFF Banking Group.",
+        "gemini_evidence_urls": [
+          "https://www.bff.com/en/press-releases/closing-of-the-acquisition-of-depobank"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T21:46:54.958439+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "SIA S.p.A.",
+        "sector": "Financial Technology",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leading European provider of technology infrastructures and services for financial institutions, central banks, and corporates.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.hf.com/nexi/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "SIA was a major Italian payments infrastructure provider that merged into Nexi (an existing portfolio company) in 2022; H&F was a key architect of this consolidation.",
+        "gemini_evidence_urls": [
+          "https://www.hf.com/nexi/",
+          "https://www.nexigroup.com/en/group/about-us/our-history/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T21:46:54.959040+00:00",
+        "curation_note": null
       }
     ],
     "silver-lake": [
@@ -94709,6 +96852,52 @@
         "investment_date": null,
         "source_url": "https://www.silverlake.com/portfolio/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "EuroGroup Laminations",
+        "sector": "Industrial Technology",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A global leader in the design and production of stators and rotors for electric motors and generators, with a focus on the electric vehicle market.",
+        "detail_page_url": null,
+        "headquarters": "Baranzate, Italy",
+        "investment_date": null,
+        "source_url": "https://www.silverlake.com/portfolio/eurogroup-laminations/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Silver Lake invested in EuroGroup Laminations in 2022 via its Long Term Capital fund and remains a shareholder following the company's 2023 IPO.",
+        "gemini_evidence_urls": [
+          "https://www.silverlake.com/portfolio/eurogroup-laminations/",
+          "https://www.euro-group.it/investor-relations/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.398548+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Zucchetti",
+        "sector": "Enterprise Software",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Italy's largest software group, providing a wide range of solutions including HR management, ERP, and specialized software for various industries.",
+        "detail_page_url": null,
+        "headquarters": "Lodi, Italy",
+        "investment_date": null,
+        "source_url": "https://www.silverlake.com/silver-lake-to-make-a-strategic-investment-in-zucchetti-group/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Silver Lake announced a strategic investment in Zucchetti Group in 2024 to support its international expansion.",
+        "gemini_evidence_urls": [
+          "https://www.silverlake.com/silver-lake-to-make-a-strategic-investment-in-zucchetti-group/",
+          "https://www.zucchetti.com/it/news/silver-lake-investe-in-zucchetti.html"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.398585+00:00",
+        "curation_note": null
       }
     ],
     "tamburi-investment-partners": [
@@ -94800,6 +96989,72 @@
         "confidence": 0.9,
         "description": "Engineering Ingegneria Informatica is a leading IT services and software company that provides digital transformation solutions to public and private organizations. It specializes in areas such as cloud computing, cybersecurity, and business process outsourcing.",
         "headquarters": "Rome, Italy"
+      },
+      {
+        "name": "Azimut Benetti",
+        "sector": "Nautical",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Luxury yachting group.",
+        "detail_page_url": null,
+        "headquarters": "Viareggio, Italy",
+        "investment_date": null,
+        "source_url": "https://www.tipspa.it/en/investments",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Important Italian exporter in TIP portfolio sphere.",
+        "gemini_evidence_urls": [
+          "https://www.tipspa.it/en/investments"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.434718+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Limonta",
+        "sector": "Textiles & Materials",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "High-end technical textiles manufacturer.",
+        "detail_page_url": null,
+        "headquarters": "Costa Masnaga, Italy",
+        "investment_date": null,
+        "source_url": "https://bebeez.it/private-equity/limonta-partecipato-da-tip-compra-il-60-di-novaresin-e-lintero-capitale-di-pirandello-gregorin/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Active portfolio company with 2026 M&A activity.",
+        "gemini_evidence_urls": [
+          "https://bebeez.it/private-equity/limonta-partecipato-da-tip-compra-il-60-di-novaresin-e-lintero-capitale-di-pirandello-gregorin/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.434746+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Moncler",
+        "sector": "Fashion & Luxury",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Listed luxury outerwear company and long-term TIP exposure.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.tipspa.it/en/investments",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Core Italian flagship investment relevant for completeness.",
+        "gemini_evidence_urls": [
+          "https://www.tipspa.it/en/investments"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.434768+00:00",
+        "curation_note": null
       }
     ],
     "ta-associates": [
@@ -95127,6 +97382,94 @@
         "investment_date": null,
         "source_url": "https://www.ta.com/portfolio/investments/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Diatech Pharmacogenetics",
+        "sector": "Healthcare",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Pharmacogenetics and precision medicine diagnostics company.",
+        "detail_page_url": null,
+        "headquarters": "Jesi, Italy",
+        "investment_date": null,
+        "source_url": "https://www.ta.com/portfolio/investments/diatech-pharmacogenetics/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "TA Associates invested in 2023.",
+        "gemini_evidence_urls": [
+          "https://www.ta.com/portfolio/investments/diatech-pharmacogenetics/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T19:44:05.715683+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Nactarome",
+        "sector": "Food & Beverage",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "European platform producing natural flavors, colors, and ingredients.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.ta.com/portfolio/investments/nactarome/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "TA Associates acquired a majority stake in 2021.",
+        "gemini_evidence_urls": [
+          "https://www.ta.com/portfolio/investments/nactarome/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T19:44:05.716006+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Surfaces Group",
+        "sector": "Business Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Supplier of abrasive tools and consumables.",
+        "detail_page_url": null,
+        "headquarters": "Cenate Sotto, Italy",
+        "investment_date": null,
+        "source_url": "https://www.ta.com/portfolio/investments/surfaces-group/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "TA Associates acquired the company in 2020.",
+        "gemini_evidence_urls": [
+          "https://www.ta.com/portfolio/investments/surfaces-group/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T19:44:05.716049+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "LIST S.p.A.",
+        "sector": "Software",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Trading, risk management, and compliance software provider.",
+        "detail_page_url": null,
+        "headquarters": "Pisa, Italy",
+        "investment_date": null,
+        "source_url": "https://www.ta.com/portfolio/investments/list/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "TA held an investment from 2019 and this is reported as historical exposure.",
+        "gemini_evidence_urls": [
+          "https://www.ta.com/portfolio/investments/list/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.416970+00:00",
+        "curation_note": null
       }
     ],
     "vam-investments": [
@@ -95285,6 +97628,72 @@
         "investment_date": null,
         "source_url": "https://www.vaminvestments.com/en/portfolio-en/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Sapore di Mare (D.I.MAR)",
+        "sector": "Retail",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Frozen seafood retail chain.",
+        "detail_page_url": null,
+        "headquarters": "Corropoli, Italy",
+        "investment_date": null,
+        "source_url": "https://bebeez.it/private-equity/vam-investments-rileva-maggioranza-sapore-mare/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Historical VAM consumer investment.",
+        "gemini_evidence_urls": [
+          "https://bebeez.it/private-equity/vam-investments-rileva-maggioranza-sapore-mare/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.454274+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Sirio",
+        "sector": "Professional Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Human resources and staffing company associated with VAM's consolidation strategy.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://www.vaminvestments.com/en/press-en/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Reported alongside Etjca in 2025 platform-building activity.",
+        "gemini_evidence_urls": [
+          "https://www.vaminvestments.com/en/press-en/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.454297+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Yachtline Arredomare 1618",
+        "sector": "Industrial Manufacturing",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Luxury yacht interior outfitting specialist.",
+        "detail_page_url": null,
+        "headquarters": "Bientina, Italy",
+        "investment_date": null,
+        "source_url": "https://www.vaminvestments.com/wp-content/uploads/2023/06/Yachtline-Press-Release-October-2016.pdf",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Historical VAM luxury supply chain investment.",
+        "gemini_evidence_urls": [
+          "https://www.vaminvestments.com/wp-content/uploads/2023/06/Yachtline-Press-Release-October-2016.pdf"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.454328+00:00",
+        "curation_note": null
       }
     ],
     "warburg-pincus": [
@@ -97575,6 +99984,29 @@
         "investment_date": null,
         "source_url": "https://warburgpincus.com/investments/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Telepass",
+        "sector": "Financial Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Italian mobility and tolling payments platform.",
+        "detail_page_url": null,
+        "headquarters": "Rome, Italy",
+        "investment_date": null,
+        "source_url": "https://warburgpincus.com/news/mundys-and-warburg-pincus-complete-the-sale-and-purchase-of-a-49-stake-in-telepass/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Warburg Pincus acquired a 49% stake in 2021.",
+        "gemini_evidence_urls": [
+          "https://warburgpincus.com/news/mundys-and-warburg-pincus-complete-the-sale-and-purchase-of-a-49-stake-in-telepass/",
+          "https://www.reuters.com/business/finance/atlantia-completes-sale-49-telepass-warburg-pincus-2021-04-14/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T19:32:26.200139+00:00",
+        "curation_note": null
       }
     ],
     "united-ventures": [
@@ -97902,6 +100334,138 @@
         "investment_date": null,
         "source_url": "https://unitedventures.com/portfolio/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Akamas",
+        "sector": "Software",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "AI-powered autonomous optimization platform.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.akamas.io/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "United Ventures led Akamas Series A in 2025.",
+        "gemini_evidence_urls": [
+          "https://www.akamas.io/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.454038+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "AppQuality",
+        "sector": "Software",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Crowdtesting platform.",
+        "detail_page_url": null,
+        "headquarters": "Cremona, Italy",
+        "investment_date": null,
+        "source_url": "https://unitedventures.com/news/unguess-acquires-appquality/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Exited via acquisition by UNGUESS in 2022.",
+        "gemini_evidence_urls": [
+          "https://unitedventures.com/news/unguess-acquires-appquality/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.454068+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "BrumBrum",
+        "sector": "Retail",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Online car retailer.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://unitedventures.com/news/cazoo-acquires-brumbrum/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Acquired by Cazoo in 2022.",
+        "gemini_evidence_urls": [
+          "https://unitedventures.com/news/cazoo-acquires-brumbrum/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.454092+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "IdentifAI",
+        "sector": "Software",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Deepfake detection platform.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://tech.eu/2025/07/24/identifai-raises-eur5m-to-tackle-the-rise-of-deepfakes-with-ai-driven-detection-platform/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Reported 2025 investment led by United Ventures.",
+        "gemini_evidence_urls": [
+          "https://tech.eu/2025/07/24/identifai-raises-eur5m-to-tackle-the-rise-of-deepfakes-with-ai-driven-detection-platform/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.454114+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "BadSeed",
+        "sector": "Media & Entertainment",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Game development studio.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://unitedventures.com/portfolio/badseed/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Historical portfolio company reportedly exited.",
+        "gemini_evidence_urls": [
+          "https://unitedventures.com/portfolio/badseed/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.454135+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Mimoto",
+        "sector": "Transportation",
+        "status": "exited",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Electric scooter-sharing service.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://unitedventures.com/portfolio/mimoto/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Historical exit transaction.",
+        "gemini_evidence_urls": [
+          "https://unitedventures.com/portfolio/mimoto/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.454157+00:00",
+        "curation_note": null
       }
     ],
     "azzurra-capital": [
@@ -97983,6 +100547,28 @@
         "source_url": "https://www.azzurracapital.com/azzurra-capital-acquires-a-minority-stake-in-proger/",
         "data_source": "signal_fund_press",
         "signal_id": "web-signal-01849"
+      },
+      {
+        "name": "Cartindustria Eurocarta",
+        "sector": "Packaging",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Strategic add-on acquisition by Lucart.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://www.azzurracapital.com/lucart-acquires-a-strategic-stake-in-cartindustria-eurocarta/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Material add-on for a flagship Italian portfolio company.",
+        "gemini_evidence_urls": [
+          "https://www.azzurracapital.com/lucart-acquires-a-strategic-stake-in-cartindustria-eurocarta/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.450758+00:00",
+        "curation_note": null
       }
     ],
     "platinum-equity": [
@@ -98245,6 +100831,73 @@
         "investment_date": null,
         "source_url": "https://www.platinumequity.com/our-companies/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Fantini Group",
+        "sector": "Food & Beverage",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leading Italian boutique winery that produces and distributes wines from Southern and Central Italy.",
+        "detail_page_url": null,
+        "headquarters": "Ortona, Italy",
+        "investment_date": null,
+        "source_url": "https://www.platinumequity.com/news/platinum-equity-to-acquire-farnese-vini/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Acquired by Platinum Equity from NB Renaissance in 2020 (formerly known as Farnese Vini).",
+        "gemini_evidence_urls": [
+          "https://www.platinumequity.com/news/platinum-equity-to-acquire-farnese-vini/",
+          "https://www.fantiniwines.com/en/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.399595+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Unicalce",
+        "sector": "Industrials",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Italy's leading producer of lime and calcium carbonate products used in various industrial and environmental applications.",
+        "detail_page_url": null,
+        "headquarters": "Lecco, Italy",
+        "investment_date": null,
+        "source_url": "https://www.platinumequity.com/news/platinum-equity-to-acquire-majority-stake-in-unicalce/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Platinum Equity acquired a majority stake in Unicalce in 2022.",
+        "gemini_evidence_urls": [
+          "https://www.platinumequity.com/news/platinum-equity-to-acquire-majority-stake-in-unicalce/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.399618+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Urbani Tartufi",
+        "sector": "Food & Beverage",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "The world's leading processor and distributor of truffles and truffle-based products.",
+        "detail_page_url": null,
+        "headquarters": "Sant'Anatolia di Narco, Italy",
+        "investment_date": null,
+        "source_url": "https://www.platinumequity.com/news/platinum-equity-to-acquire-majority-stake-in-urbani-tartufi/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Platinum Equity acquired a majority stake in the company in 2021.",
+        "gemini_evidence_urls": [
+          "https://www.platinumequity.com/news/platinum-equity-to-acquire-majority-stake-in-urbani-tartufi/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.399644+00:00",
+        "curation_note": null
       }
     ],
     "charterhouse-capital-partners": [
@@ -98923,6 +101576,28 @@
         "investment_date": null,
         "source_url": "https://www.charterhouse.co.uk/portfolio",
         "data_source": "fund_website"
+      },
+      {
+        "name": "MEC3",
+        "sector": "Food & Beverage",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Original name of the platform that became Casa Optima.",
+        "detail_page_url": null,
+        "headquarters": "Rimini, Italy",
+        "investment_date": null,
+        "source_url": "https://www.charterhouse.co.uk/portfolio/casa-optima/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Material historical alias/asset lineage.",
+        "gemini_evidence_urls": [
+          "https://www.charterhouse.co.uk/portfolio/casa-optima/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.433258+00:00",
+        "curation_note": null
       }
     ],
     "cherry-bay-capital": [
@@ -99029,6 +101704,95 @@
         "investment_date": null,
         "source_url": "https://cherrybaycapital.com/cherries/",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Caredent Italia",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Italian dental clinic chain.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://bebeez.it/files/2020/09/ReportPrivateDebtBeBeez-set2020-ita-en.pdf",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Club deal investment followed by reported acquisition in 2021.",
+        "gemini_evidence_urls": [
+          "https://bebeez.it/files/2020/09/ReportPrivateDebtBeBeez-set2020-ita-en.pdf"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.466252+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Groupack",
+        "sector": "Industrial Manufacturing",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Mechatronics buy-and-build platform for pharma, healthcare, and specialty chemicals industries.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://financecommunity.it/cherry-bay-capital-investe-in-groupack/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Cherry Bay announced an investment in Groupack in December 2024.",
+        "gemini_evidence_urls": [
+          "https://financecommunity.it/cherry-bay-capital-investe-in-groupack/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.466281+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "D-Orbit",
+        "sector": "Aerospace & Defense",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Space logistics and transportation company.",
+        "detail_page_url": null,
+        "headquarters": "Fino Mornasco, Italy",
+        "investment_date": null,
+        "source_url": "https://www.aifi.it/visualizzaallegatodocumenti.aspx?chiave=tRLV6m796P316B3OF53j8Qo4UTfPCF",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Reported link through club deal participation and advisor network.",
+        "gemini_evidence_urls": [
+          "https://www.aifi.it/visualizzaallegatodocumenti.aspx?chiave=tRLV6m796P316B3OF53j8Qo4UTfPCF",
+          "https://theorg.com/org/deutsche-bank/org-chart/luca-morandi"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.466308+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "WeRoad",
+        "sector": "Travel Tech",
+        "status": "current",
+        "confidence": 0.6,
+        "website": null,
+        "description": "Community travel platform for group adventure trips.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.bakermckenzie.com/en/locations/emea/italy",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "medium",
+        "gemini_reason": "Reported secondary investment participation.",
+        "gemini_evidence_urls": [
+          "https://www.bakermckenzie.com/en/locations/emea/italy"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.466330+00:00",
+        "curation_note": null
       }
     ],
     "tpg": [
@@ -99421,6 +102185,94 @@
         "investment_date": null,
         "source_url": "https://www.tpg.com/portfolio",
         "data_source": "fund_website"
+      },
+      {
+        "name": "Calciomercato.com",
+        "sector": "Media & Entertainment",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Italian football media site.",
+        "detail_page_url": null,
+        "headquarters": "Italy",
+        "investment_date": null,
+        "source_url": "https://www.bebeez.eu/2021/08/24/footballco-a-tpg-portfolio-company-buys-italys-leading-soccer-news-site-calciomercato-com/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Acquired by Footballco, a TPG portfolio company.",
+        "gemini_evidence_urls": [
+          "https://www.bebeez.eu/2021/08/24/footballco-a-tpg-portfolio-company-buys-italys-leading-soccer-news-site-calciomercato-com/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T19:32:26.198371+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "DOC Generici",
+        "sector": "Biotech & Pharma",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Italian generic pharmaceuticals company.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.tpg.com/news-and-insights/tpg-partners-leading-generics-manufacturer-doc-generici",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "TPG acquired a majority stake in 2022.",
+        "gemini_evidence_urls": [
+          "https://www.tpg.com/news-and-insights/tpg-partners-leading-generics-manufacturer-doc-generici"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T19:32:26.198576+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Musixmatch",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Music metadata and lyrics platform.",
+        "detail_page_url": null,
+        "headquarters": "Bologna, Italy",
+        "investment_date": null,
+        "source_url": "https://www.tpg.com/news-and-insights/musixmatch-announces-strategic-investment-from-tpg/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "TPG announced a strategic investment in 2022.",
+        "gemini_evidence_urls": [
+          "https://www.tpg.com/news-and-insights/musixmatch-announces-strategic-investment-from-tpg/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T19:32:26.198608+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "SICIT Group",
+        "sector": "Environmental Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Biostimulants and circular-economy chemicals company.",
+        "detail_page_url": null,
+        "headquarters": "Chiampo, Italy",
+        "investment_date": null,
+        "source_url": "https://www.tpg.com/news-and-insights/tpg-rise-climate-and-renaissance-partners-enter-into-a-binding-agreement-to-jointly-acquire-control-of-sicit",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "TPG Rise Climate acquired control in 2025.",
+        "gemini_evidence_urls": [
+          "https://www.tpg.com/news-and-insights/tpg-rise-climate-and-renaissance-partners-enter-into-a-binding-agreement-to-jointly-acquire-control-of-sicit"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T19:32:26.198643+00:00",
+        "curation_note": null
       }
     ],
     "antin-infrastructure-partners": [
@@ -100070,6 +102922,52 @@
         "status": "exited",
         "source": "manual",
         "confidence": 0.9
+      },
+      {
+        "name": "Engineering Ingegneria Informatica",
+        "sector": "IT Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leading provider of IT services, software development, and digital transformation solutions for public and private organizations.",
+        "detail_page_url": null,
+        "headquarters": "Rome, Italy",
+        "investment_date": null,
+        "source_url": "https://www.searchlightcap.com/news/searchlight-capital-partners-completes-investment-in-engineering-ingegneria-informatica/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Searchlight Capital Partners completed a significant investment in Engineering in 2022, partnering with Bain Capital and NB Renaissance.",
+        "gemini_evidence_urls": [
+          "https://www.searchlightcap.com/news/searchlight-capital-partners-completes-investment-in-engineering-ingegneria-informatica/",
+          "https://www.eng.it/en/news/bain-capital-and-nb-renaissance-to-partner-with-searchlight-capital-partners-in-engineering"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.399695+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Octo Telematics",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A global leader in telematics and data analytics for the auto insurance, fleet management, and intelligent mobility industries.",
+        "detail_page_url": null,
+        "headquarters": "Rome, Italy",
+        "investment_date": null,
+        "source_url": "https://www.searchlightcap.com/news/searchlight-capital-partners-to-acquire-majority-stake-in-octo-telematics/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Searchlight Capital Partners acquired a majority stake in Octo Telematics in early 2024.",
+        "gemini_evidence_urls": [
+          "https://www.searchlightcap.com/news/searchlight-capital-partners-to-acquire-majority-stake-in-octo-telematics/",
+          "https://www.octotelematics.com/news/searchlight-capital-partners-to-acquire-majority-stake-in-octo-telematics/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.399723+00:00",
+        "curation_note": null
       }
     ],
     "rhone-group": [
@@ -100915,6 +103813,72 @@
         "investment_date": null,
         "source_url": "https://www.investcorp.com",
         "data_source": "manual"
+      },
+      {
+        "name": "Dainese",
+        "sector": "Consumer Goods",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "The world leader in protective wear for motorcycling and dynamic sports.",
+        "detail_page_url": null,
+        "headquarters": "Vicenza",
+        "investment_date": null,
+        "source_url": "https://www.investcorp.com/investcorp-to-sell-dainese-to-carlyle/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Investcorp acquired Dainese in 2014 and sold it to Carlyle in 2022.",
+        "gemini_evidence_urls": [
+          "https://www.investcorp.com/investcorp-to-sell-dainese-to-carlyle/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.399340+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Gucci",
+        "sector": "Luxury Goods",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Iconic Italian luxury fashion house.",
+        "detail_page_url": null,
+        "headquarters": "Florence",
+        "investment_date": null,
+        "source_url": "https://www.investcorp.com/investcorp-and-the-gucci-turnaround/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Investcorp's acquisition and subsequent turnaround of Gucci in the late 1980s and early 1990s is one of their most famous historical investments.",
+        "gemini_evidence_urls": [
+          "https://www.investcorp.com/investcorp-and-the-gucci-turnaround/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.399375+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "HWG Sababa",
+        "sector": "Cybersecurity",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leading provider of managed detection and response (MDR) and cybersecurity services in Italy.",
+        "detail_page_url": null,
+        "headquarters": "Verona",
+        "investment_date": null,
+        "source_url": "https://www.investcorp.com/investcorp-technology-partners-completes-acquisition-of-hwg/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Investcorp Technology Partners acquired HWG in 2022 and subsequently merged it with Sababa Security.",
+        "gemini_evidence_urls": [
+          "https://www.investcorp.com/investcorp-technology-partners-completes-acquisition-of-hwg/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.399403+00:00",
+        "curation_note": null
       }
     ],
     "lone-star-funds": [
@@ -100930,6 +103894,94 @@
         "investment_date": "2025-01-01",
         "source_url": "https://www.lonestarfunds.com",
         "data_source": "manual"
+      },
+      {
+        "name": "Aedes SIIQ",
+        "sector": "Real Estate",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "An Italian real estate investment trust (SIIQ) focused on the investment and management of a portfolio of commercial properties.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.aedes.it/en/press-releases/lone-star-completes-the-acquisition-of-aedes-siiq",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Lone Star acquired Aedes SIIQ through a takeover bid completed in 2023.",
+        "gemini_evidence_urls": [
+          "https://www.aedes.it/en/press-releases/lone-star-completes-the-acquisition-of-aedes-siiq"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.399071+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Evoca Group",
+        "sector": "Industrial Technology",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A world-leading manufacturer of professional coffee machines and vending machines.",
+        "detail_page_url": null,
+        "headquarters": "Valbrembo, Italy",
+        "investment_date": null,
+        "source_url": "https://www.evocagroup.com/en/news/lone-star-funds-completes-acquisition-nw-global-vending",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Lone Star Fund IX acquired Evoca (formerly N&W Global Vending) in 2016 and remains the primary owner.",
+        "gemini_evidence_urls": [
+          "https://www.evocagroup.com/en/news/lone-star-funds-completes-acquisition-nw-global-vending"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.399101+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "MBE Worldwide (Mail Boxes Etc.)",
+        "sector": "Business Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A global platform providing e-commerce, shipping, logistics, marketing, and print solutions to SMEs and consumers.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.mbe.it/en/press-release-lone-star-funds-to-acquire-majority-stake-in-mbe-worldwide",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Lone Star Fund XII acquired a majority stake in MBE Worldwide in 2024.",
+        "gemini_evidence_urls": [
+          "https://www.mbe.it/en/press-release-lone-star-funds-to-acquire-majority-stake-in-mbe-worldwide"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.399131+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Sirti",
+        "sector": "Telecommunications Infrastructure",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leading Italian company in the design and maintenance of telecommunications, energy, and transport networks.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.sirti.it/en/lone-star-funds-to-acquire-sirti",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Lone Star Fund XII acquired Sirti from Pillarstone in 2024.",
+        "gemini_evidence_urls": [
+          "https://www.sirti.it/en/lone-star-funds-to-acquire-sirti"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.399153+00:00",
+        "curation_note": null
       }
     ],
     "icg": [
@@ -100971,6 +104023,119 @@
         "investment_date": "2015-01-01",
         "source_url": "https://www.icgam.com",
         "data_source": "manual"
+      },
+      {
+        "name": "Arcaplanet",
+        "sector": "Retail",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "The leading pet care retailer in Italy, operating a large network of specialized stores.",
+        "detail_page_url": null,
+        "headquarters": "Chiavari, Italy",
+        "investment_date": null,
+        "source_url": "https://www.icgam.com/news/icg-announces-sale-of-arcaplanet-to-cinven/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "ICG was a majority shareholder in Arcaplanet before selling its stake to Cinven in 2021.",
+        "gemini_evidence_urls": [
+          "https://www.icgam.com/news/icg-announces-sale-of-arcaplanet-to-cinven/",
+          "https://www.cinven.com/media/news/cinven-to-acquire-arcaplanet-and-combine-it-with-maxi-zoo-italia/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.396787+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "DOC Generici",
+        "sector": "Pharmaceuticals",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leading Italian generic pharmaceutical company specializing in a wide range of therapeutic areas.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.icgam.com/news/icg-to-acquire-doc-generici/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "ICG acquired DOC Generici from CVC Capital Partners in 2019 for approximately €1.1 billion.",
+        "gemini_evidence_urls": [
+          "https://www.icgam.com/news/icg-to-acquire-doc-generici/",
+          "https://www.reuters.com/article/us-docgenerici-m-a-icg-idUSKCN1T80XG"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.397154+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Guala Closures",
+        "sector": "Packaging",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Global leader in the production of non-refillable and aluminum closures for spirits, wine, and beverages.",
+        "detail_page_url": null,
+        "headquarters": "Alessandria, Italy",
+        "investment_date": null,
+        "source_url": "https://www.icgam.com/news/icg-announces-investment-in-guala-closures/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "ICG's Strategic Equity fund partnered with Investindustrial to invest in Guala Closures in 2021.",
+        "gemini_evidence_urls": [
+          "https://www.icgam.com/news/icg-announces-investment-in-guala-closures/",
+          "https://www.investindustrial.com/news/investindustrial-and-icg-partner-for-the-investment-in-guala-closures/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.397193+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Visufarma",
+        "sector": "Healthcare",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A pharmaceutical company focused on the development and marketing of ophthalmic products.",
+        "detail_page_url": null,
+        "headquarters": "Rome, Italy",
+        "investment_date": null,
+        "source_url": "https://www.icgam.com/news/icg-europe-fund-vi-backs-mbo-of-visufarma/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "ICG Europe Fund VI backed the management buyout of Visufarma.",
+        "gemini_evidence_urls": [
+          "https://www.icgam.com/news/icg-europe-fund-vi-backs-mbo-of-visufarma/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.397222+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Warrant Hub",
+        "sector": "Business Services",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leading Italian provider of consultancy services for business development and innovation financing.",
+        "detail_page_url": null,
+        "headquarters": "Correggio, Italy",
+        "investment_date": null,
+        "source_url": "https://www.tinexta.com/en/news-and-media/press-releases/tinexta-and-icg-sign-a-binding-agreement-for-the-entry-of-icg-into-the-capital-of-warrant-hub",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "ICG acquired a minority stake in Warrant Hub (part of Tinexta Group) in 2023 to support its international growth.",
+        "gemini_evidence_urls": [
+          "https://www.tinexta.com/en/news-and-media/press-releases/tinexta-and-icg-sign-a-binding-agreement-for-the-entry-of-icg-into-the-capital-of-warrant-hub"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.397253+00:00",
+        "curation_note": null
       }
     ],
     "one-equity-partners": [
@@ -101250,7 +104415,7 @@
       {
         "name": "CBM",
         "sector": "Agriculture",
-        "status": null,
+        "status": "exited",
         "confidence": 0.95,
         "website": null,
         "description": "Partnering with family in agricultural tractor attachment systems",
@@ -101406,7 +104571,7 @@
       {
         "name": "Comau",
         "sector": "Industrial Manufacturing",
-        "status": null,
+        "status": "exited",
         "confidence": 0.95,
         "website": null,
         "description": "Comau is a global leader in industrial automation and robotics, providing advanced manufacturing systems and solutions for various industries.",
@@ -101562,7 +104727,7 @@
       {
         "name": "Engineering Ingegneria Informatica",
         "sector": "Technology",
-        "status": null,
+        "status": "exited",
         "confidence": 0.95,
         "website": null,
         "description": "Engineering Ingegneria Informatica is a leading IT services and software company that provides digital transformation solutions to public and private organizations. It specializes in areas such as cloud computing, cybersecurity, and business process outsourcing.",
@@ -101757,7 +104922,7 @@
       {
         "name": "Kirey Group",
         "sector": "Software",
-        "status": null,
+        "status": "exited",
         "confidence": 0.95,
         "website": null,
         "description": "Creating an Italian leader in IT systems integration and technology solutions",
@@ -101822,7 +104987,7 @@
       {
         "name": "Lutech",
         "sector": "Technology",
-        "status": null,
+        "status": "exited",
         "confidence": 0.95,
         "website": "https://hat.it/partner/lutech/",
         "description": "A leading provider of IT services and solutions supporting digital transformation and system integration.",
@@ -102043,7 +105208,7 @@
       {
         "name": "Nexion",
         "sector": "Automotive",
-        "status": null,
+        "status": "exited",
         "confidence": 0.95,
         "website": null,
         "description": "Partnering with family in tire and wheel service equipment",
@@ -102946,6 +106111,28 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-27T16:23:10.561360+00:00",
         "curation_note": null
+      },
+      {
+        "name": "GVS S.p.A.",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Global manufacturer of advanced filtration solutions for healthcare and industrial sectors.",
+        "detail_page_url": null,
+        "headquarters": "Zola Predosa, Italy",
+        "investment_date": null,
+        "source_url": "https://www.oneequity.com/portfolio/gvs/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "OEP held a significant stake in GVS S.p.A. before its IPO.",
+        "gemini_evidence_urls": [
+          "https://www.oneequity.com/portfolio/gvs/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.425194+00:00",
+        "curation_note": null
       }
     ],
     "oaktree-capital-management": [
@@ -103171,6 +106358,29 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-27T16:23:10.560232+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "NatPower Marine",
+        "sector": "Renewable Energy / Marine Infrastructure",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A platform dedicated to the development of green shore power and charging infrastructure for the maritime industry.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://stonepeak.com/2024/04/natpower-marine-and-stonepeak-partner-to-accelerate-the-electrification-of-the-maritime-industry/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "In 2024, Stonepeak partnered with the Italian developer NatPower to launch NatPower Marine, committing capital to develop global maritime electrification infrastructure.",
+        "gemini_evidence_urls": [
+          "https://stonepeak.com/2024/04/natpower-marine-and-stonepeak-partner-to-accelerate-the-electrification-of-the-maritime-industry/",
+          "https://www.natpower.com/marine/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.399221+00:00",
         "curation_note": null
       }
     ],
@@ -103637,6 +106847,118 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-27T16:23:10.561623+00:00",
+        "curation_note": null
+      }
+    ],
+    "indaco-venture-partners-sgr": [
+      {
+        "name": "D-Orbit",
+        "sector": "Space Tech",
+        "status": "exited",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Space logistics company; major historical Indaco investment.",
+        "detail_page_url": null,
+        "headquarters": "Como, Italy",
+        "investment_date": null,
+        "source_url": "https://bebeez.it/wp-content/uploads/2026/01/22.01.2026_CS_Indaco_Exit-D-Orbit_DEF.pdf",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Important exited Italian asset missing from current portfolio set.",
+        "gemini_evidence_urls": [
+          "https://bebeez.it/wp-content/uploads/2026/01/22.01.2026_CS_Indaco_Exit-D-Orbit_DEF.pdf"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.459121+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Easyrain",
+        "sector": "Automotive",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Automotive anti-aquaplaning technology provider.",
+        "detail_page_url": null,
+        "headquarters": "Rivoli, Italy",
+        "investment_date": null,
+        "source_url": "https://www.i3p.it/en/news/easyrain-becomes-tier-1-automotive-supplier-secures-new-funding",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Core Italian technology holding with recent rounds.",
+        "gemini_evidence_urls": [
+          "https://www.i3p.it/en/news/easyrain-becomes-tier-1-automotive-supplier-secures-new-funding"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.459147+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "MainStreaming",
+        "sector": "Digital Infrastructure",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Edge video delivery platform.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.indacosgr.com/news/",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Active portfolio company with recent funding activity.",
+        "gemini_evidence_urls": [
+          "https://www.indacosgr.com/news/"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.459172+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "RARA Factory",
+        "sector": "New Materials",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Deep-tech spin-off focused on materials discovery.",
+        "detail_page_url": null,
+        "headquarters": "Venice, Italy",
+        "investment_date": null,
+        "source_url": "https://www.cdpventurecapital.it/en/newsroom.page?category=eventi",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Recent investment in Italian university spin-off ecosystem.",
+        "gemini_evidence_urls": [
+          "https://www.cdpventurecapital.it/en/newsroom.page?category=eventi"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.459197+00:00",
+        "curation_note": null
+      },
+      {
+        "name": "Valo Therapeutics Italy",
+        "sector": "Biotech",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Oncolytic immunotherapy company with Naples R&D expansion.",
+        "detail_page_url": null,
+        "headquarters": "Naples, Italy",
+        "investment_date": null,
+        "source_url": "https://www.valotx.com/article/valo-therapeutics-announces-eur-19m-investment-funding-and-expanded-clinical-trials",
+        "data_source": "gemini_missing_asset",
+        "gemini_confidence": "high",
+        "gemini_reason": "Indaco Bio Fund co-led investment tied to Italian footprint.",
+        "gemini_evidence_urls": [
+          "https://www.valotx.com/article/valo-therapeutics-announces-eur-19m-investment-funding-and-expanded-clinical-trials"
+        ],
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-27T20:34:18.459226+00:00",
         "curation_note": null
       }
     ]

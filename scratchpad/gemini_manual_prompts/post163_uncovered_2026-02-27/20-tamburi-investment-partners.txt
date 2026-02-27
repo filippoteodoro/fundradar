@@ -1,0 +1,198 @@
+You are auditing one private-markets fund page for Fundradar (Italy feed).
+Current date: 2026-02-27.
+
+Goal:
+- Fix incompleteness and inaccuracy for this fund.
+- Keep output short, factual, English-only, source-backed.
+- Prioritize Italy relevance and importance over recency.
+- Valuable historical signals are allowed if still material for page completeness.
+
+Fund context:
+- fund_name: Tamburi Investment Partners
+- fund_slug: tamburi-investment-partners
+- website: https://www.tipspa.it
+- aum_eur_current: 5000000000
+- category: pe
+- hq_city_current: Milan
+- description_current: Publicly listed investment house utilizing a club-deal model backed by prominent entrepreneurial families to provide long-term capital to Italian champions like Interpump, Bending Spoons, and Eataly.
+
+Current QA blockers:
+[
+  "gemini_asset_audit_missing"
+]
+
+Current counts:
+- portfolio_count: 10
+- italian_portfolio_count: 0
+- filtered_signals_count: 1
+- enriched_signals_count: 1
+- asset_audit_present: False
+
+Existing portfolio names in dataset (do NOT re-suggest as missing unless clearly wrong/duplicate label):
+[
+  "Amplifon",
+  "Interpump Group",
+  "Eataly",
+  "Alpitour",
+  "Bending Spoons",
+  "OVS",
+  "Hugo Boss",
+  "Prysmian",
+  "Roche Bobois",
+  "Engineering Ingegneria Informatica"
+]
+
+Existing likely-Italy portfolio entries:
+[
+  {
+    "name": "Amplifon",
+    "status": "current",
+    "sector": "Healthcare",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Interpump Group",
+    "status": "current",
+    "sector": "Industrial Manufacturing",
+    "headquarters": "Sant'Ilario d'Enza, Italy"
+  },
+  {
+    "name": "Eataly",
+    "status": "current",
+    "sector": "Food & Beverage",
+    "headquarters": "Monticello d'Alba, Italy"
+  },
+  {
+    "name": "Alpitour",
+    "status": "current",
+    "sector": "Hospitality & Tourism",
+    "headquarters": "Turin, Italy"
+  },
+  {
+    "name": "Bending Spoons",
+    "status": "current",
+    "sector": "Technology",
+    "headquarters": "Milano, Italy"
+  },
+  {
+    "name": "OVS",
+    "status": "current",
+    "sector": "Fashion & Luxury",
+    "headquarters": "Mestre, Italy"
+  },
+  {
+    "name": "Prysmian",
+    "status": "current",
+    "sector": "Industrial Manufacturing",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Engineering Ingegneria Informatica",
+    "status": "current",
+    "sector": "Technology",
+    "headquarters": "Rome, Italy"
+  }
+]
+
+Recent raw observed signals sample (may include low-quality/non-Italy items):
+[
+  {
+    "date": "2026-02-26",
+    "signal_type": "deal_announced",
+    "title": "Limonta (owned by TIP) acquires 60% of Novaresin and the entire share capital of Pirandello & Gregorin",
+    "source_url": "https://bebeez.it/private-equity/limonta-partecipato-da-tip-compra-il-60-di-novaresin-e-lintero-capitale-di-pirandello-gregorin/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "other",
+    "title": "Share capital and dividends",
+    "source_url": "https://www.tipspa.it/en/page/5d24b682bac35e0a5a5eb2b8"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "other",
+    "title": "Annual and quarterly reports",
+    "source_url": "https://www.tipspa.it/en/page/5d24b682bac35e0a5a5eb2a1"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "other",
+    "title": "Warrant TIP 2015-2020",
+    "source_url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25a"
+  }
+]
+
+Task:
+1) Validate Italy presence (materially active in Italy or not).
+2) Identify wrong entries and missing Italy assets (current or exited).
+3) Propose metadata corrections (AUM, HQ city, website, description) only when confidence is high.
+4) Propose up to 5 high-value Italy-relevant signal candidates (recent or historical), ranked by importance.
+5) Mark historical but important events explicitly so they are not discarded only by age.
+
+Return ONLY strict JSON object with this schema:
+{
+  "fund_slug": "tamburi-investment-partners",
+  "overall_status": "ok|needs_fixes|highly_incomplete",
+  "italy_presence_assessment": {
+    "materially_active_in_italy": "yes|no|uncertain",
+    "summary": "short",
+    "evidence": [
+      {"type": "office|portfolio|deal|team|other", "detail": "...", "year": "YYYY|unknown", "source_url": "https://..."}
+    ]
+  },
+  "metadata_corrections": {
+    "aum_eur": {"current": "number|null", "suggested": "number|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "hq_city": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "website": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "description": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]}
+  },
+  "entry_issues": [
+    {
+      "entry_name": "string",
+      "issue_type": "wrong_entry|duplicate_entry|wrong_status|wrong_sector|wrong_headquarters|wrong_description|other",
+      "severity": "critical|high|medium|low",
+      "reason": "short",
+      "current_value": {"status": "...", "sector": "...", "headquarters": "...", "description": "..."},
+      "suggested_fix": {"status": "current|exited|partial|unknown|null", "sector": "string|null", "headquarters": "string|null", "description": "string|null"},
+      "confidence": "high|medium|low",
+      "evidence_urls": ["https://..."]
+    }
+  ],
+  "missing_assets": [
+    {
+      "name": "string",
+      "status": "current|exited|unknown",
+      "sector": "string|null",
+      "headquarters": "string|null",
+      "description": "string|null",
+      "reason": "why missing",
+      "confidence": "high|medium|low",
+      "evidence_urls": ["https://..."]
+    }
+  ],
+  "signal_candidates": [
+    {
+      "signal_type": "deal_announced|portfolio_update|people_move|exit_announced|fundraise_announced|fundraise_closed|debt_financing|partnership|other",
+      "title": "single sentence",
+      "what_changed": "1-2 sentences",
+      "published_date": "YYYY-MM-DD",
+      "source_name": "string",
+      "source_url": "https://...",
+      "italy_relevant_reason": "short",
+      "importance": "high|medium|low",
+      "is_historical_but_important": true,
+      "confidence": "high|medium|low"
+    }
+  ],
+  "priority_actions": [
+    {"priority": 1, "action": "short", "layer": "extractor|filter|enrichment|signal_to_portfolio|metadata|manual_backfill"}
+  ]
+}
+
+Hard constraints:
+- English only.
+- No boilerplate.
+- No invented facts.
+- Every non-trivial claim must include a credible source URL.
+- Keep text concise and directly actionable.
+- Amount formatting in generated text: EUR amounts as €X.XK / €X.XM / €X.XB / €X.XT.

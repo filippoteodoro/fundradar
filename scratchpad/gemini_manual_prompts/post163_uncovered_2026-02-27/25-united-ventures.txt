@@ -1,0 +1,266 @@
+You are auditing one private-markets fund page for Fundradar (Italy feed).
+Current date: 2026-02-27.
+
+Goal:
+- Fix incompleteness and inaccuracy for this fund.
+- Keep output short, factual, English-only, source-backed.
+- Prioritize Italy relevance and importance over recency.
+- Valuable historical signals are allowed if still material for page completeness.
+
+Fund context:
+- fund_name: United Ventures
+- fund_slug: united-ventures
+- website: https://unitedventures.com
+- aum_eur_current: 500000000
+- category: vc
+- hq_city_current: Milan
+- description_current: Founded by former Google Italy head Massimiliano Magrini, this independent firm specializes in technology-driven digital transformation with landmark investments in gaming platform Faceit and space logistics provider D-Orbit.
+
+Current QA blockers:
+[
+  "gemini_asset_audit_missing"
+]
+
+Current counts:
+- portfolio_count: 25
+- italian_portfolio_count: 0
+- filtered_signals_count: 1
+- enriched_signals_count: 1
+- asset_audit_present: False
+
+Existing portfolio names in dataset (do NOT re-suggest as missing unless clearly wrong/duplicate label):
+[
+  "Avaneidi",
+  "Cleafy",
+  "Cloud4Wi",
+  "Cyberwave",
+  "Datrix",
+  "D-Orbit",
+  "Electra Vehicles",
+  "Entando",
+  "Exein",
+  "Faceit",
+  "Fiscozen",
+  "Futura",
+  "InSilicoTrials",
+  "Mainstreaming",
+  "Mishipay",
+  "Moneyfarm",
+  "Musixmatch",
+  "Stema",
+  "Trustfull",
+  "Volume 2",
+  "Wallife",
+  "Xfarm",
+  "Young Platform",
+  "Zerynth"
+]
+
+Existing likely-Italy portfolio entries:
+[
+  {
+    "name": "Avaneidi",
+    "status": "current",
+    "sector": "Technology",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Cleafy",
+    "status": "current",
+    "sector": "Software",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Cyberwave",
+    "status": "current",
+    "sector": "Software",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Datrix",
+    "status": "current",
+    "sector": "Technology",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "D-Orbit",
+    "status": "current",
+    "sector": "Aerospace & Defense",
+    "headquarters": "Fino Mornasco, Italy"
+  },
+  {
+    "name": "Exein",
+    "status": "current",
+    "sector": "Software",
+    "headquarters": "Rome, Italy"
+  },
+  {
+    "name": "Fiscozen",
+    "status": "current",
+    "sector": "Financial Services",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Futura",
+    "status": "current",
+    "sector": "Education",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "InSilicoTrials",
+    "status": "current",
+    "sector": "Technology",
+    "headquarters": "Trieste, Italy"
+  },
+  {
+    "name": "Mainstreaming",
+    "status": "current",
+    "sector": "Technology",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Musixmatch",
+    "status": "current",
+    "sector": "Technology",
+    "headquarters": "Bologna, Italy"
+  },
+  {
+    "name": "Stema",
+    "status": "current",
+    "sector": "Professional Services",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Trustfull",
+    "status": "current",
+    "sector": "Software",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Volume 2",
+    "status": "current",
+    "sector": "Media & Entertainment",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Wallife",
+    "status": "current",
+    "sector": "Insurance",
+    "headquarters": "Rome, Italy"
+  },
+  {
+    "name": "Xfarm",
+    "status": "current",
+    "sector": "Agriculture",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "Young Platform",
+    "status": "current",
+    "sector": "Financial Services",
+    "headquarters": "Turin, Italy"
+  },
+  {
+    "name": "Zerynth",
+    "status": "current",
+    "sector": "Software",
+    "headquarters": "Pisa, Italy"
+  },
+  {
+    "name": "D-Orbit",
+    "status": "exited",
+    "sector": "Aerospace & Defense",
+    "headquarters": "Fino Mornasco, Italy"
+  }
+]
+
+Recent raw observed signals sample (may include low-quality/non-Italy items):
+[
+  {
+    "date": "2026-02-26",
+    "signal_type": "fundraise_closed",
+    "title": "Cleafy cybersecurity raises 11.9 million in new funding round led by United Ventures SGR and Ecapital V Technologies Fonds",
+    "source_url": "https://bebeez.it/venture-capital/la-cybersecurity-di-cleafy-incassa-nuovo-round-da-119-mln-euro-lo-guidano-united-ventures-sgr-e-ecapital-v-technologies-fonds/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "deal_announced",
+    "title": "D Orbit added to United Ventures portfolio",
+    "source_url": "https://unitedventures.com/portfolio/"
+  }
+]
+
+Task:
+1) Validate Italy presence (materially active in Italy or not).
+2) Identify wrong entries and missing Italy assets (current or exited).
+3) Propose metadata corrections (AUM, HQ city, website, description) only when confidence is high.
+4) Propose up to 5 high-value Italy-relevant signal candidates (recent or historical), ranked by importance.
+5) Mark historical but important events explicitly so they are not discarded only by age.
+
+Return ONLY strict JSON object with this schema:
+{
+  "fund_slug": "united-ventures",
+  "overall_status": "ok|needs_fixes|highly_incomplete",
+  "italy_presence_assessment": {
+    "materially_active_in_italy": "yes|no|uncertain",
+    "summary": "short",
+    "evidence": [
+      {"type": "office|portfolio|deal|team|other", "detail": "...", "year": "YYYY|unknown", "source_url": "https://..."}
+    ]
+  },
+  "metadata_corrections": {
+    "aum_eur": {"current": "number|null", "suggested": "number|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "hq_city": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "website": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "description": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]}
+  },
+  "entry_issues": [
+    {
+      "entry_name": "string",
+      "issue_type": "wrong_entry|duplicate_entry|wrong_status|wrong_sector|wrong_headquarters|wrong_description|other",
+      "severity": "critical|high|medium|low",
+      "reason": "short",
+      "current_value": {"status": "...", "sector": "...", "headquarters": "...", "description": "..."},
+      "suggested_fix": {"status": "current|exited|partial|unknown|null", "sector": "string|null", "headquarters": "string|null", "description": "string|null"},
+      "confidence": "high|medium|low",
+      "evidence_urls": ["https://..."]
+    }
+  ],
+  "missing_assets": [
+    {
+      "name": "string",
+      "status": "current|exited|unknown",
+      "sector": "string|null",
+      "headquarters": "string|null",
+      "description": "string|null",
+      "reason": "why missing",
+      "confidence": "high|medium|low",
+      "evidence_urls": ["https://..."]
+    }
+  ],
+  "signal_candidates": [
+    {
+      "signal_type": "deal_announced|portfolio_update|people_move|exit_announced|fundraise_announced|fundraise_closed|debt_financing|partnership|other",
+      "title": "single sentence",
+      "what_changed": "1-2 sentences",
+      "published_date": "YYYY-MM-DD",
+      "source_name": "string",
+      "source_url": "https://...",
+      "italy_relevant_reason": "short",
+      "importance": "high|medium|low",
+      "is_historical_but_important": true,
+      "confidence": "high|medium|low"
+    }
+  ],
+  "priority_actions": [
+    {"priority": 1, "action": "short", "layer": "extractor|filter|enrichment|signal_to_portfolio|metadata|manual_backfill"}
+  ]
+}
+
+Hard constraints:
+- English only.
+- No boilerplate.
+- No invented facts.
+- Every non-trivial claim must include a credible source URL.
+- Keep text concise and directly actionable.
+- Amount formatting in generated text: EUR amounts as €X.XK / €X.XM / €X.XB / €X.XT.

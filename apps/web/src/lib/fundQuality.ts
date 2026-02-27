@@ -78,12 +78,6 @@ function pct(count: number, total: number): number {
   return count / total;
 }
 
-function monthsAgo(n: number): Date {
-  const d = new Date();
-  d.setMonth(d.getMonth() - n);
-  return d;
-}
-
 // ─── Section A: Profile Score (max 100) ─────────────────────────────
 
 function scoreProfile(fund: Fund): SectionScore {
@@ -564,29 +558,20 @@ function scoreSignals(fund: Fund): SectionScore {
     }
   }
 
-  // ── Freshness (25 pts) ──
+  // ── Signal availability and sourcing (25 pts) ──
 
   if (signals.length > 0) {
-    const sixMonthsAgo = monthsAgo(6);
-    const twelveMonthsAgo = monthsAgo(12);
-
-    const mostRecent = signals
-      .map(s => s.published_at || s.observed_at)
-      .filter(Boolean)
-      .sort()
-      .pop();
-
-    const recentDate = mostRecent ? new Date(mostRecent) : null;
-
-    if (recentDate && recentDate >= sixMonthsAgo) {
+    // Award based on signal availability, not recency:
+    // high-value historical signals should still count for completeness.
+    if (signals.length >= 2) {
       earned += 15;
-      details.push('+15 signal within 6 months');
-    } else if (recentDate && recentDate >= twelveMonthsAgo) {
+      details.push(`+15 signal availability (${signals.length} signals)`);
+    } else if (signals.length === 1) {
       earned += 5;
-      details.push('+5  signal within 12 months');
+      details.push('+5  signal availability (1 signal)');
     } else {
-      details.push('  0 no recent signals');
-      redFlags.push('No signals in 12 months');
+      details.push('  0 no signals');
+      redFlags.push('No signals');
     }
 
     // All have source_url (5 pts)

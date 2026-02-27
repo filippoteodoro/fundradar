@@ -1,0 +1,136 @@
+You are auditing one private-markets fund page for Fundradar (Italy feed).
+Current date: 2026-02-27.
+
+Goal:
+- Fix incompleteness and inaccuracy for this fund.
+- Keep output short, factual, English-only, source-backed.
+- Prioritize Italy relevance and importance over recency.
+- Valuable historical signals are allowed if still material for page completeness.
+
+Fund context:
+- fund_name: Investcorp
+- fund_slug: investcorp
+- website: https://www.investcorp.com
+- aum_eur_current: 55000000000
+- category: multi_strategy
+- hq_city_current: Manama
+- description_current: Established in 1982 to bridge Gulf capital with Western markets, this manager is recognized for its historic turnarounds of luxury icons Tiffany & Co. and Gucci while operating a global multi-asset platform.
+
+Current QA blockers:
+[
+  "top_aum_signal_completeness:0/2"
+]
+
+Current counts:
+- portfolio_count: 3
+- italian_portfolio_count: 3
+- filtered_signals_count: 0
+- enriched_signals_count: 0
+- asset_audit_present: True
+
+Existing portfolio names in dataset (do NOT re-suggest as missing unless clearly wrong/duplicate label):
+[
+  "CloudCare",
+  "Corneliani",
+  "Vivaticket"
+]
+
+Existing likely-Italy portfolio entries:
+[
+  {
+    "name": "CloudCare",
+    "status": "current",
+    "sector": "Technology",
+    "headquarters": "Rome, Italy"
+  },
+  {
+    "name": "Corneliani",
+    "status": "current",
+    "sector": "Fashion & Luxury",
+    "headquarters": "Mantova, Italy"
+  },
+  {
+    "name": "Vivaticket",
+    "status": "current",
+    "sector": "Technology",
+    "headquarters": "Bologna, Italy"
+  }
+]
+
+Recent raw observed signals sample (may include low-quality/non-Italy items):
+[]
+
+Task:
+1) Validate Italy presence (materially active in Italy or not).
+2) Identify wrong entries and missing Italy assets (current or exited).
+3) Propose metadata corrections (AUM, HQ city, website, description) only when confidence is high.
+4) Propose up to 5 high-value Italy-relevant signal candidates (recent or historical), ranked by importance.
+5) Mark historical but important events explicitly so they are not discarded only by age.
+
+Return ONLY strict JSON object with this schema:
+{
+  "fund_slug": "investcorp",
+  "overall_status": "ok|needs_fixes|highly_incomplete",
+  "italy_presence_assessment": {
+    "materially_active_in_italy": "yes|no|uncertain",
+    "summary": "short",
+    "evidence": [
+      {"type": "office|portfolio|deal|team|other", "detail": "...", "year": "YYYY|unknown", "source_url": "https://..."}
+    ]
+  },
+  "metadata_corrections": {
+    "aum_eur": {"current": "number|null", "suggested": "number|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "hq_city": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "website": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "description": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]}
+  },
+  "entry_issues": [
+    {
+      "entry_name": "string",
+      "issue_type": "wrong_entry|duplicate_entry|wrong_status|wrong_sector|wrong_headquarters|wrong_description|other",
+      "severity": "critical|high|medium|low",
+      "reason": "short",
+      "current_value": {"status": "...", "sector": "...", "headquarters": "...", "description": "..."},
+      "suggested_fix": {"status": "current|exited|partial|unknown|null", "sector": "string|null", "headquarters": "string|null", "description": "string|null"},
+      "confidence": "high|medium|low",
+      "evidence_urls": ["https://..."]
+    }
+  ],
+  "missing_assets": [
+    {
+      "name": "string",
+      "status": "current|exited|unknown",
+      "sector": "string|null",
+      "headquarters": "string|null",
+      "description": "string|null",
+      "reason": "why missing",
+      "confidence": "high|medium|low",
+      "evidence_urls": ["https://..."]
+    }
+  ],
+  "signal_candidates": [
+    {
+      "signal_type": "deal_announced|portfolio_update|people_move|exit_announced|fundraise_announced|fundraise_closed|debt_financing|partnership|other",
+      "title": "single sentence",
+      "what_changed": "1-2 sentences",
+      "published_date": "YYYY-MM-DD",
+      "source_name": "string",
+      "source_url": "https://...",
+      "italy_relevant_reason": "short",
+      "importance": "high|medium|low",
+      "is_historical_but_important": true,
+      "confidence": "high|medium|low"
+    }
+  ],
+  "priority_actions": [
+    {"priority": 1, "action": "short", "layer": "extractor|filter|enrichment|signal_to_portfolio|metadata|manual_backfill"}
+  ]
+}
+
+Hard constraints:
+- English only.
+- No boilerplate.
+- No invented facts.
+- Every non-trivial claim must include a credible source URL.
+- Keep text concise and directly actionable.
+- Amount formatting in generated text: EUR amounts as €X.XK / €X.XM / €X.XB / €X.XT.

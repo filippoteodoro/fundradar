@@ -284,11 +284,11 @@ def main() -> int:
 
     # Forwarded worker settings
     parser.add_argument("--model", default="gemini-3-flash-preview")
-    parser.add_argument("--chunk-size", type=int, default=40)
-    parser.add_argument("--chunk-split-sizes", type=str, default="40,20,8,1")
+    parser.add_argument("--chunk-size", type=int, default=20)
+    parser.add_argument("--chunk-split-sizes", type=str, default="20,8,1")
     parser.add_argument("--max-entries-per-fund", type=int, default=0)
-    parser.add_argument("--max-existing-names-in-missing-prompt", type=int, default=500)
-    parser.add_argument("--missing-name-caps", type=str, default="500,300,150,60")
+    parser.add_argument("--max-existing-names-in-missing-prompt", type=int, default=60)
+    parser.add_argument("--missing-name-caps", type=str, default="60,20,1")
     parser.add_argument("--sleep-seconds", type=float, default=3.0)
     parser.add_argument("--timeout-sec", type=int, default=120)
     parser.add_argument("--hard-timeout-sec", type=int, default=150)

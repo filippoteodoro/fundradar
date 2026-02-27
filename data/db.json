@@ -21,14 +21,14 @@
         "Software",
         "Professional Services"
       ],
-      "description": "Founded in 1992 by Alessandro Benetton, this firm leverages its industrial heritage to partner with family-owned mid-market companies in Italy and France, with notable investments including Witor’s and Omega Pharma.",
+      "description": "Founded in 1992 by Alessandro Benetton, this firm leverages its industrial heritage to partner with family-owned mid-market companies in Italy and France, with notable investments including Witor\u2019s and Omega Pharma.",
       "geographies": [
         "Europe",
         "Italy",
         "France"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -78,7 +78,7 @@
         "Worldwide"
       ],
       "average_investment": [
-        "€5-20m"
+        "\u20ac5-20m"
       ],
       "asset_class": [
         "Private-Debt",
@@ -132,7 +132,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [],
       "contact_name": "Antonio Catalli",
@@ -180,7 +180,7 @@
         "Worldwide"
       ],
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "asset_class": [
         "Private equity"
@@ -237,7 +237,7 @@
     {
       "id": "aksia-sgr",
       "slug": "aksia-sgr",
-      "name": "AKSÌA SGR",
+      "name": "AKS\u00ccA SGR",
       "category": "pe",
       "hq_city": "Milan",
       "hq_region": "Italy",
@@ -257,7 +257,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -306,7 +306,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -452,7 +452,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -548,7 +548,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -571,7 +571,7 @@
       "data_confidence": "high",
       "hq_lat": 45.469242,
       "hq_lng": 9.188487,
-      "hq_address": "1/A, Via Monte di Pietà",
+      "hq_address": "1/A, Via Monte di Piet\u00e0",
       "description_source": "gemini"
     },
     {
@@ -648,7 +648,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -701,7 +701,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -753,7 +753,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€7m-€20m"
+        "\u20ac7m-\u20ac20m"
       ],
       "asset_class": [
         "Private-Debt"
@@ -805,8 +805,8 @@
         "Italy"
       ],
       "average_investment": [
-        "€0-1m",
-        "€1-5m"
+        "\u20ac0-1m",
+        "\u20ac1-5m"
       ],
       "asset_class": [
         "Private-Debt"
@@ -831,7 +831,7 @@
       "hq_address": "68, Corso di Porta Romana",
       "investment_max_eur": 50000000,
       "data_sources": [
-        "Investment max estimated at €50M based on private debt/expansion strategy and AUM scale (€2.7B)"
+        "Investment max estimated at \u20ac50M based on private debt/expansion strategy and AUM scale (\u20ac2.7B)"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "description_source": "gemini"
@@ -864,7 +864,7 @@
         "USA"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -941,7 +941,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private-Debt"
@@ -984,12 +984,12 @@
         "Fashion & Luxury",
         "Healthcare"
       ],
-      "description": "Evolved from Ergon Capital with roots in Groupe Bruxelles Lambert, this pan-European firm targets niche market leaders, recently closing its sixth flagship fund at a €1.25 billion hard cap to back family-led businesses.",
+      "description": "Evolved from Ergon Capital with roots in Groupe Bruxelles Lambert, this pan-European firm targets niche market leaders, recently closing its sixth flagship fund at a \u20ac1.25 billion hard cap to back family-led businesses.",
       "geographies": [
         "Europe"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [],
       "contact_name": "-",
@@ -1046,7 +1046,7 @@
         "Asia-Pacific"
       ],
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "asset_class": [
         "Private Equity",
@@ -1188,14 +1188,14 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Infrastructure",
         "Private equity",
         "Venture-Capital"
       ],
-      "contact_name": "Nicolò Saidelli",
+      "contact_name": "Nicol\u00f2 Saidelli",
       "contact_email": "milano.pe@ardian.com",
       "contact_phone": "+39 / 02 58442401",
       "created_at": "2026-01-25T17:42:32.507Z",
@@ -1233,7 +1233,7 @@
         {
           "city": "Paris",
           "country": "France",
-          "address": "20, Place Vendôme",
+          "address": "20, Place Vend\u00f4me",
           "postal_code": "75001",
           "phone": null,
           "lat": 48.8566,
@@ -1268,7 +1268,7 @@
         "Energy",
         "Industrial Manufacturing"
       ],
-      "description": "Spun off from Apollo in 1997, this alternative investment leader leverages its massive credit platform to anchor landmark deals like the ‐2 billion stake in Eni's Plenitude and infrastructure investments in Venice Airport.",
+      "description": "Spun off from Apollo in 1997, this alternative investment leader leverages its massive credit platform to anchor landmark deals like the \u20102 billion stake in Eni's Plenitude and infrastructure investments in Venice Airport.",
       "geographies": [
         "North America",
         "Europe",
@@ -1277,7 +1277,7 @@
         "South America"
       ],
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "asset_class": [
         "Credit",
@@ -1357,7 +1357,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -1386,7 +1386,7 @@
     {
       "id": "armonia-sgr",
       "slug": "armonia-sgr",
-      "name": "Armònia SGR",
+      "name": "Arm\u00f2nia SGR",
       "category": "pe",
       "hq_city": "Rome",
       "hq_region": "Italy",
@@ -1406,7 +1406,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€5-20m"
+        "\u20ac5-20m"
       ],
       "asset_class": [
         "Private equity"
@@ -1458,7 +1458,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€10m-€50m"
+        "\u20ac10m-\u20ac50m"
       ],
       "asset_class": [
         "Private-Equity"
@@ -1515,7 +1515,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -1579,7 +1579,7 @@
         "Real Estate",
         "Automotive"
       ],
-      "description": "Joint venture between sustainability consultancy Avanzi and Etica Sgr, backing early-stage startups with high social and environmental impact, including circular fashion brand Rifò and biotech firm Genome Up.",
+      "description": "Joint venture between sustainability consultancy Avanzi and Etica Sgr, backing early-stage startups with high social and environmental impact, including circular fashion brand Rif\u00f2 and biotech firm Genome Up.",
       "geographies": [
         "Europe"
       ],
@@ -1603,7 +1603,7 @@
       "data_confidence": "high",
       "hq_lat": 45.481553,
       "hq_lng": 9.226663,
-      "hq_address": "61/a, Via Andrea Maria Ampère",
+      "hq_address": "61/a, Via Andrea Maria Amp\u00e8re",
       "investment_max_eur": null,
       "data_sources": [
         "https://k4g.it/associati/avanzi-etica-sicaf-euveca/"
@@ -1634,7 +1634,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€500k-5m"
+        "\u20ac500k-5m"
       ],
       "asset_class": [
         "Private equity",
@@ -1655,7 +1655,7 @@
       "aifi_scraped_at": "2026-02-02T19:54:57.074912+00:00",
       "data_source": "pem_extracted",
       "data_confidence": "high",
-      "legal_name": "AVM SGR SpA Gestore EuVECA Società Benefit",
+      "legal_name": "AVM SGR SpA Gestore EuVECA Societ\u00e0 Benefit",
       "hq_lat": 45.464194,
       "hq_lng": 9.189635,
       "hq_address": "14, Via Borgonuovo",
@@ -1690,7 +1690,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€1-5m"
+        "\u20ac1-5m"
       ],
       "asset_class": [
         "Private-Debt",
@@ -1745,7 +1745,7 @@
         "Energy",
         "Food & Beverage"
       ],
-      "description": "Functions as the private markets platform of Azimut Group, providing retail and institutional investors access to Italian SME buyouts and infrastructure projects like Italcer and Acque Minerali d’Italia.",
+      "description": "Functions as the private markets platform of Azimut Group, providing retail and institutional investors access to Italian SME buyouts and infrastructure projects like Italcer and Acque Minerali d\u2019Italia.",
       "geographies": [
         "Italy"
       ],
@@ -1779,7 +1779,7 @@
         "https://www.azimutliberaimpresa.it/en/homepage",
         "https://www.bloomberg.com/profile/company/0628075D:IM",
         "https://en.wikipedia.org/wiki/Azimut_Holding",
-        "Estimated as subset of parent Azimut Holding AUM (€103.4B)"
+        "Estimated as subset of parent Azimut Holding AUM (\u20ac103.4B)"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "description_source": "gemini"
@@ -1855,7 +1855,7 @@
         "Worldwide"
       ],
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "asset_class": [
         "Private equity"
@@ -1932,7 +1932,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€5m-€20m"
+        "\u20ac5m-\u20ac20m"
       ],
       "asset_class": [
         "Private-Equity"
@@ -2036,7 +2036,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -2112,7 +2112,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -2165,7 +2165,7 @@
         "USA"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Infrastructure",
@@ -2225,7 +2225,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -2318,13 +2318,13 @@
         "Europe"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Infrastructure",
         "Private equity"
       ],
-      "contact_name": "Robert H. Berlé, Federico Braguglia",
+      "contact_name": "Robert H. Berl\u00e9, Federico Braguglia",
       "contact_email": "info@capdyn.com",
       "contact_phone": "+39 / 02 3031771",
       "created_at": "2026-01-25T17:42:32.507Z",
@@ -2382,7 +2382,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private-Debt",
@@ -2432,7 +2432,7 @@
         "Worldwide"
       ],
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "asset_class": [
         "Private equity"
@@ -2507,12 +2507,12 @@
         "Healthcare",
         "Professional Services"
       ],
-      "description": "Operates as the strategic investment arm of Italy’s National Promotional Institution, taking significant equity stakes in national champions like Fincantieri and Open Fiber to support sovereign industrial policy.",
+      "description": "Operates as the strategic investment arm of Italy\u2019s National Promotional Institution, taking significant equity stakes in national champions like Fincantieri and Open Fiber to support sovereign industrial policy.",
       "geographies": [
         "Italy"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Infrastructure",
@@ -2571,7 +2571,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€1-5m"
+        "\u20ac1-5m"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -2632,7 +2632,7 @@
         "Spain"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -2738,12 +2738,12 @@
         "USA"
       ],
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "asset_class": [
         "Private equity"
       ],
-      "contact_name": "Matteo Corà",
+      "contact_name": "Matteo Cor\u00e0",
       "contact_email": "info@cinven.com",
       "contact_phone": "+39 02 32111700",
       "created_at": "2026-01-25T17:42:32.507Z",
@@ -2818,7 +2818,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€1-5m"
+        "\u20ac1-5m"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -2868,7 +2868,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -2916,7 +2916,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€100k-€500k"
+        "\u20ac100k-\u20ac500k"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -2940,7 +2940,7 @@
       "hq_address": "11, Via per Cernobbio",
       "num_funds": 2,
       "data_sources": [
-        "Estimated from AUM (€1.5M) and portfolio size (6 companies)",
+        "Estimated from AUM (\u20ac1.5M) and portfolio size (6 companies)",
         "Investment range derived from existing min/max values"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
@@ -2970,7 +2970,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -3018,7 +3018,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€5-20m"
+        "\u20ac5-20m"
       ],
       "asset_class": [
         "Private equity"
@@ -3069,7 +3069,7 @@
         "Worldwide"
       ],
       "average_investment": [
-        "€10-50m"
+        "\u20ac10-50m"
       ],
       "asset_class": [
         "Private equity"
@@ -3149,7 +3149,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private Equity"
@@ -3170,7 +3170,7 @@
       "data_confidence": "high",
       "hq_lat": 45.464194,
       "hq_lng": 9.189635,
-      "hq_address": "via Gaetano Negri 4 - 6° piano",
+      "hq_address": "via Gaetano Negri 4 - 6\u00b0 piano",
       "aum_eur": 300000000,
       "num_sfdr_article_8": 0,
       "data_sources": [
@@ -3196,12 +3196,12 @@
         "Healthcare",
         "Industrial Manufacturing"
       ],
-      "description": "Alternative investment arm of the De Agostini Group, managing specialized thematic vehicles such as Taste of Italy, Europe’s first agrifood-focused fund, with a portfolio including Alice Pizza and Costa Edutainment.",
+      "description": "Alternative investment arm of the De Agostini Group, managing specialized thematic vehicles such as Taste of Italy, Europe\u2019s first agrifood-focused fund, with a portfolio including Alice Pizza and Costa Edutainment.",
       "geographies": [
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -3248,7 +3248,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€1-5m"
+        "\u20ac1-5m"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -3302,7 +3302,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Infrastructure",
@@ -3370,8 +3370,8 @@
         "Italy"
       ],
       "average_investment": [
-        "€5-20m",
-        "€50-100m"
+        "\u20ac5-20m",
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -3417,7 +3417,7 @@
         "Worldwide"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Infrastructure",
@@ -3470,7 +3470,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Infrastructure",
@@ -3536,7 +3536,7 @@
         "USA"
       ],
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "asset_class": [
         "Private equity"
@@ -3614,7 +3614,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -3680,7 +3680,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Infrastructure",
@@ -3736,7 +3736,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Infrastructure",
@@ -3795,7 +3795,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Infrastructure",
@@ -3911,7 +3911,7 @@
         "Worldwide"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Private Equity",
@@ -4018,7 +4018,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -4042,7 +4042,7 @@
       "aum_eur": 180000000,
       "num_funds": 2,
       "data_sources": [
-        "Calculated from portfolio size (6 companies × €30M avg ticket = €180M AUM)"
+        "Calculated from portfolio size (6 companies \u00d7 \u20ac30M avg ticket = \u20ac180M AUM)"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "description_source": "gemini"
@@ -4070,7 +4070,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Infrastructure"
@@ -4167,12 +4167,12 @@
         "Construction",
         "Renewable Energy"
       ],
-      "description": "Acts as Italy's first dedicated energy efficiency fund, focusing on infrastructure for the energy transition and circular economy. Notable holdings include City Green Light and a recent €40 million expansion into Spanish biomethane.",
+      "description": "Acts as Italy's first dedicated energy efficiency fund, focusing on infrastructure for the energy transition and circular economy. Notable holdings include City Green Light and a recent \u20ac40 million expansion into Spanish biomethane.",
       "geographies": [
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Infrastructure"
@@ -4197,7 +4197,7 @@
       "hq_lng": 12.492599,
       "hq_address": "9, Via Saverio Mercadante",
       "description_source": "gemini",
-      "legal_name": "Fondo Italiano per l’Efficienza Energetica SGR"
+      "legal_name": "Fondo Italiano per l\u2019Efficienza Energetica SGR"
     },
     {
       "id": "finint-investments-sgr",
@@ -4218,19 +4218,19 @@
         "Industrial Manufacturing",
         "Retail"
       ],
-      "description": "Asset management arm of Banca Finint leveraging deep roots in Italy’s North-East to support SMEs via buyouts and private debt, with notable investments in luxury tailor Isaia and winery Feudi di San Gregorio.",
+      "description": "Asset management arm of Banca Finint leveraging deep roots in Italy\u2019s North-East to support SMEs via buyouts and private debt, with notable investments in luxury tailor Isaia and winery Feudi di San Gregorio.",
       "geographies": [
         "Italy"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Private-Debt",
         "Private equity",
         "Venture-Capital"
       ],
-      "contact_name": "Mauro Sbroggiò, Vania Serena",
+      "contact_name": "Mauro Sbroggi\u00f2, Vania Serena",
       "contact_email": "sales@finint.com; team_private_debt@finint.com; team.FE4G@finint.com",
       "contact_phone": "+39 / 0438 360407",
       "created_at": "2026-01-25T17:42:32.507Z",
@@ -4255,7 +4255,7 @@
     {
       "id": "fondo-italiano-d-investimento-sgr",
       "slug": "fondo-italiano-d-investimento-sgr",
-      "name": "Fondo Italiano d’Investimento SGR",
+      "name": "Fondo Italiano d\u2019Investimento SGR",
       "category": "debt",
       "hq_city": "Milan",
       "hq_region": "Italy",
@@ -4278,7 +4278,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€5-20m"
+        "\u20ac5-20m"
       ],
       "asset_class": [
         "Private-Debt",
@@ -4378,7 +4378,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -4407,7 +4407,7 @@
     {
       "id": "furstenberg-sgr",
       "slug": "furstenberg-sgr",
-      "name": "Fürstenberg SGR",
+      "name": "F\u00fcrstenberg SGR",
       "category": "debt",
       "hq_city": "Milan",
       "hq_region": "Italy",
@@ -4423,7 +4423,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€5-20m"
+        "\u20ac5-20m"
       ],
       "asset_class": [
         "Private-Debt"
@@ -4566,13 +4566,13 @@
         "Industrial Manufacturing",
         "Professional Services"
       ],
-      "description": "Independent platform founded by Eugenio de Blasio, focusing on the Italian real economy. It expanded its footprint by acquiring Quadrivio Capital SGR in 2018 and recently exited the frozen bakery leader Forno d’Asolo.",
+      "description": "Independent platform founded by Eugenio de Blasio, focusing on the Italian real economy. It expanded its footprint by acquiring Quadrivio Capital SGR in 2018 and recently exited the frozen bakery leader Forno d\u2019Asolo.",
       "geographies": [
         "Europe",
         "Italy"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Infrastructure",
@@ -4624,7 +4624,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [],
       "contact_name": "Raffaele Legnani",
@@ -4672,7 +4672,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -4712,10 +4712,10 @@
       ],
       "sector_tags": [
         "Technology",
-        "Industrial Manufacturing",
         "Software",
         "Healthcare",
-        "Automotive"
+        "Financial Services",
+        "Retail"
       ],
       "description": "Pioneered the Sicaf investment model in Italy to drive digital transformation within traditional SMEs, executing buyouts and expansion rounds in the healthcare and industrial manufacturing sectors.",
       "geographies": [
@@ -4769,7 +4769,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [],
       "contact_name": "Marco Bernardi",
@@ -4796,7 +4796,7 @@
       "num_sfdr_article_8": 1,
       "data_sources": [
         "https://www.hld.fr/",
-        "Calculated AUM from portfolio size (22 companies) × avg ticket (€150M)",
+        "Calculated AUM from portfolio size (22 companies) \u00d7 avg ticket (\u20ac150M)",
         "Estimated 3-5 funds based on AUM scale and portfolio concentration"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
@@ -4826,7 +4826,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€1-5m"
+        "\u20ac1-5m"
       ],
       "asset_class": [
         "Private equity"
@@ -4875,7 +4875,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -4974,7 +4974,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€10-50m"
+        "\u20ac10-50m"
       ],
       "asset_class": [
         "Private equity"
@@ -5024,8 +5024,8 @@
         "Italy"
       ],
       "average_investment": [
-        "€5-20m",
-        "€50-100m"
+        "\u20ac5-20m",
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -5220,7 +5220,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -5270,7 +5270,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€1-10m"
+        "\u20ac1-10m"
       ],
       "asset_class": [
         "Private Equity"
@@ -5321,7 +5321,7 @@
         "Worldwide"
       ],
       "average_investment": [
-        "€50k-€10m"
+        "\u20ac50k-\u20ac10m"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -5346,7 +5346,7 @@
       "aum_eur": 140000000,
       "num_sfdr_article_8": 0,
       "data_sources": [
-        "Calculated from portfolio size (56 companies × €2.5M avg early-stage ticket = €140M AUM)"
+        "Calculated from portfolio size (56 companies \u00d7 \u20ac2.5M avg early-stage ticket = \u20ac140M AUM)"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "description_source": "gemini"
@@ -5376,7 +5376,7 @@
         "Worldwide"
       ],
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "asset_class": [
         "Infrastructure",
@@ -5400,7 +5400,7 @@
       "average_investment_source": "openai_enriched",
       "hq_lat": 51.507446,
       "hq_lng": -0.127765,
-      "hq_address": "28, Ropemaker Street – Ropemaker Place",
+      "hq_address": "28, Ropemaker Street \u2013 Ropemaker Place",
       "num_sfdr_article_8": 2,
       "data_sources": [
         "https://www.macquarie.com/us/en/about/company/macquarie-asset-management/institutional-investor/sustainability/sustainable-finance-disclosure-regulation.html",
@@ -5445,12 +5445,12 @@
         "Italy"
       ],
       "average_investment": [
-        "€4m-€7m"
+        "\u20ac4m-\u20ac7m"
       ],
       "asset_class": [
         "Private Debt"
       ],
-      "contact_name": "Ludovica Marzocchi; Niccolò Tanini",
+      "contact_name": "Ludovica Marzocchi; Niccol\u00f2 Tanini",
       "contact_email": "info@meritosgr.it",
       "contact_phone": "-",
       "created_at": "2026-01-25T17:42:32.507Z",
@@ -5498,7 +5498,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -5571,7 +5571,7 @@
       "aum_eur": 60000000,
       "data_sources": [
         "https://mitotech.eu/",
-        "Calculated from portfolio size (24 companies × €2M avg early-stage ticket + reserves = €60M AUM)"
+        "Calculated from portfolio size (24 companies \u00d7 \u20ac2M avg early-stage ticket + reserves = \u20ac60M AUM)"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "description_source": "gemini"
@@ -5601,7 +5601,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -5651,7 +5651,7 @@
         "Spain"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -5705,7 +5705,7 @@
         "USA"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private-Debt"
@@ -5754,7 +5754,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -5804,7 +5804,7 @@
         "USA"
       ],
       "average_investment": [
-        "€1-5m"
+        "\u20ac1-5m"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -5866,7 +5866,7 @@
         "Private equity",
         "Venture-Capital"
       ],
-      "contact_name": "Niccolò Bussolati",
+      "contact_name": "Niccol\u00f2 Bussolati",
       "contact_email": "ir@nextaliasgr.com",
       "contact_phone": "+39 0238 2841",
       "created_at": "2026-01-25T17:42:32.507Z",
@@ -5913,7 +5913,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€500k-3m"
+        "\u20ac500k-3m"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -5940,7 +5940,7 @@
       "aum_eur": 55000000,
       "data_sources": [
         "http://www.oltreimpact.com",
-        "Calculated from portfolio size (8 companies × €5M avg impact VC ticket + reserves = €55M AUM)"
+        "Calculated from portfolio size (8 companies \u00d7 \u20ac5M avg impact VC ticket + reserves = \u20ac55M AUM)"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "description_source": "gemini"
@@ -5967,7 +5967,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€0.2m-€2m"
+        "\u20ac0.2m-\u20ac2m"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -6020,7 +6020,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private-Debt"
@@ -6064,13 +6064,13 @@
         "Professional Services",
         "Aerospace & Defense"
       ],
-      "description": "Tracing its roots to the investment arm of Paribas, this manager specializes in complex pan-European buyouts and operates major global platforms like the Nestlé-partnered ice cream giant Froneri.",
+      "description": "Tracing its roots to the investment arm of Paribas, this manager specializes in complex pan-European buyouts and operates major global platforms like the Nestl\u00e9-partnered ice cream giant Froneri.",
       "geographies": [
         "Europe",
         "USA"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Private equity"
@@ -6112,7 +6112,7 @@
         {
           "city": "Paris",
           "country": "France",
-          "address": "1 Rue Paul Cézanne",
+          "address": "1 Rue Paul C\u00e9zanne",
           "postal_code": "75008",
           "phone": null,
           "lat": 48.8740268,
@@ -6150,7 +6150,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -6201,7 +6201,7 @@
         "Worldwide"
       ],
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "asset_class": [
         "Infrastructure",
@@ -6254,9 +6254,9 @@
       "sector_tags": [
         "Technology",
         "Financial Services",
-        "Fashion & Luxury",
         "Healthcare",
-        "Biotech & Pharma"
+        "Biotech & Pharma",
+        "Fashion & Luxury"
       ],
       "description": "Tracing its roots back to Schroder Ventures in 1985, this global buyout specialist is renowned for transforming premium consumer brands like Valentino and Golden Goose into international powerhouses.",
       "geographies": [
@@ -6265,7 +6265,7 @@
         "USA"
       ],
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "asset_class": [
         "Private equity"
@@ -6399,7 +6399,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -6446,7 +6446,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private Equity",
@@ -6498,7 +6498,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -6547,7 +6547,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€500k-€3m"
+        "\u20ac500k-\u20ac3m"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -6640,7 +6640,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -6689,7 +6689,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -6739,7 +6739,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -6782,13 +6782,13 @@
         "Healthcare",
         "Real Estate"
       ],
-      "description": "Leverages the Rancilio family’s industrial legacy to back early-stage European startups with high social or environmental impact, including notable investments in Casavo and Treedom.",
+      "description": "Leverages the Rancilio family\u2019s industrial legacy to back early-stage European startups with high social or environmental impact, including notable investments in Casavo and Treedom.",
       "geographies": [
         "Italy",
         "Europe"
       ],
       "average_investment": [
-        "€1-5m"
+        "\u20ac1-5m"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -6838,7 +6838,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Infrastructure"
@@ -6883,16 +6883,16 @@
         "Aerospace & Defense",
         "Biotech & Pharma"
       ],
-      "description": "Established through the spin-off of Intesa Sanpaolo’s private equity activities, this firm specializes in scaling Italian 'champions' like Bending Spoons and U-Power through international buyouts.",
+      "description": "Established through the spin-off of Intesa Sanpaolo\u2019s private equity activities, this firm specializes in scaling Italian 'champions' like Bending Spoons and U-Power through international buyouts.",
       "geographies": [
         "Italy"
       ],
       "average_investment": [
-        "€0-1m",
-        "€1-5m",
-        "€5-20m",
-        "€50-100m",
-        "€20-50m"
+        "\u20ac0-1m",
+        "\u20ac1-5m",
+        "\u20ac5-20m",
+        "\u20ac50-100m",
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Private equity"
@@ -6943,14 +6943,14 @@
         "Italy"
       ],
       "average_investment": [
-        "€5-20m"
+        "\u20ac5-20m"
       ],
       "asset_class": [
         "Private-Debt",
         "Private equity",
         "Venture-Capital"
       ],
-      "contact_name": "Andrea Tomaschù, Federica Loconsolo",
+      "contact_name": "Andrea Tomasch\u00f9, Federica Loconsolo",
       "contact_email": "info@rielloinvestimenti.it",
       "contact_phone": "+39 / 02 80504178",
       "created_at": "2026-01-25T17:42:32.507Z",
@@ -6998,8 +6998,8 @@
         "France"
       ],
       "average_investment": [
-        "€5-20m",
-        "€50-100m"
+        "\u20ac5-20m",
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity",
@@ -7044,12 +7044,12 @@
         "Consumer Goods",
         "Construction"
       ],
-      "description": "Rebranded from Gilde Buy Out Partners in 2022, one of Continental Europe’s oldest private equity firms specializes in complex carve-outs and succession-led buyouts for established mid-market enterprises.",
+      "description": "Rebranded from Gilde Buy Out Partners in 2022, one of Continental Europe\u2019s oldest private equity firms specializes in complex carve-outs and succession-led buyouts for established mid-market enterprises.",
       "geographies": [
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -7090,13 +7090,13 @@
         "Software",
         "Industrial Manufacturing"
       ],
-      "description": "Acts as the European mid-market buyout arm of the Desmarais family’s Power Corporation of Canada, focusing on scaling industrial and software leaders like DiliTrust and GV3-Venpa through cross-border consolidation.",
+      "description": "Acts as the European mid-market buyout arm of the Desmarais family\u2019s Power Corporation of Canada, focusing on scaling industrial and software leaders like DiliTrust and GV3-Venpa through cross-border consolidation.",
       "geographies": [
         "Italy",
         "France"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [],
       "contact_name": "Andrea Bertoncello",
@@ -7142,7 +7142,7 @@
         "Real Estate",
         "Energy"
       ],
-      "description": "Operates as Arrow Global’s Italian platform, specializing in complex illiquid asset classes including distressed credit, real estate, and industrial turnarounds such as the restructuring of Samp S.p.A.",
+      "description": "Operates as Arrow Global\u2019s Italian platform, specializing in complex illiquid asset classes including distressed credit, real estate, and industrial turnarounds such as the restructuring of Samp S.p.A.",
       "geographies": [
         "Italy"
       ],
@@ -7196,7 +7196,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€200k-5m"
+        "\u20ac200k-5m"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -7243,12 +7243,12 @@
         "Italy"
       ],
       "average_investment": [
-        "€800k-€4m"
+        "\u20ac800k-\u20ac4m"
       ],
       "asset_class": [
         "Venture-Capital"
       ],
-      "contact_name": "Sara D’Aulerio",
+      "contact_name": "Sara D\u2019Aulerio",
       "contact_email": "info@sefeaimpact.it",
       "contact_phone": "+39 / 349 7549881",
       "created_at": "2026-01-25T17:42:32.507Z",
@@ -7297,7 +7297,7 @@
         "France"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -7322,7 +7322,7 @@
       "hq_address": "Corso Giacomo Matteotti 3",
       "aum_eur": 150000000,
       "data_sources": [
-        "Calculated from portfolio size (3 companies × €50M avg mid-market buyout ticket = €150M AUM)"
+        "Calculated from portfolio size (3 companies \u00d7 \u20ac50M avg mid-market buyout ticket = \u20ac150M AUM)"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "description_source": "gemini"
@@ -7348,7 +7348,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€3-€12m"
+        "\u20ac3-\u20ac12m"
       ],
       "asset_class": [
         "Infrastructure"
@@ -7373,7 +7373,7 @@
       "aum_eur": 70000000,
       "num_sfdr_article_8": 1,
       "data_sources": [
-        "Calculated from portfolio size (9 companies × €7M avg infrastructure ticket = €63M, rounded to €70M)"
+        "Calculated from portfolio size (9 companies \u00d7 \u20ac7M avg infrastructure ticket = \u20ac63M, rounded to \u20ac70M)"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "description_source": "gemini"
@@ -7449,7 +7449,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€1-15m"
+        "\u20ac1-15m"
       ],
       "asset_class": [
         "Private equity"
@@ -7475,7 +7475,7 @@
       "num_sfdr_article_8": 0,
       "data_sources": [
         "http://www.smart-cap.it/",
-        "Calculated AUM from portfolio size (17 companies) × avg ticket (€8M)",
+        "Calculated AUM from portfolio size (17 companies) \u00d7 avg ticket (\u20ac8M)",
         "Investment range from existing min/max values"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
@@ -7504,7 +7504,7 @@
         "USA"
       ],
       "average_investment": [
-        "€1-5m"
+        "\u20ac1-5m"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -7567,7 +7567,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -7661,7 +7661,7 @@
         "Worldwide"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -7757,7 +7757,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Infrastructure"
@@ -7912,7 +7912,7 @@
         "Spain"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -7967,7 +7967,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private-Debt",
@@ -8017,7 +8017,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€250k-€1m"
+        "\u20ac250k-\u20ac1m"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -8042,7 +8042,7 @@
       "aum_eur": 15000000,
       "num_sfdr_article_8": 0,
       "data_sources": [
-        "Calculated from portfolio size (19 companies × €600K avg very early-stage ticket = €11M, rounded to €15M)"
+        "Calculated from portfolio size (19 companies \u00d7 \u20ac600K avg very early-stage ticket = \u20ac11M, rounded to \u20ac15M)"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "description_source": "gemini"
@@ -8070,7 +8070,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -8123,7 +8123,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private-Debt",
@@ -8173,7 +8173,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -8219,14 +8219,14 @@
         "Hospitality & Tourism",
         "Real Estate"
       ],
-      "description": "Spun out of Cargill’s financial markets group in 1993, this global credit specialist targets deep-value opportunities in distressed debt and illiquid assets, focusing on financial services and real estate restructurings.",
+      "description": "Spun out of Cargill\u2019s financial markets group in 1993, this global credit specialist targets deep-value opportunities in distressed debt and illiquid assets, focusing on financial services and real estate restructurings.",
       "geographies": [
         "North America",
         "Europe",
         "Asia-Pacific"
       ],
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "asset_class": [
         "Private-Debt",
@@ -8342,7 +8342,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "asset_class": [
         "Private equity"
@@ -8389,12 +8389,12 @@
         "Europe"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Private equity"
       ],
-      "contact_name": "Fabrizio Boaron/David Calò",
+      "contact_name": "Fabrizio Boaron/David Cal\u00f2",
       "contact_email": "info@wrmgroup.net",
       "contact_phone": "+39 / 02 47923020",
       "created_at": "2026-01-25T17:42:32.507Z",
@@ -8434,7 +8434,7 @@
         "Italy"
       ],
       "average_investment": [
-        "€500k-5m"
+        "\u20ac500k-5m"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -8459,7 +8459,7 @@
       "investment_min_eur": 500000,
       "investment_max_eur": 5000000,
       "data_sources": [
-        "Investment range derived from existing average_investment field (€500k-5m)"
+        "Investment range derived from existing average_investment field (\u20ac500k-5m)"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "description_source": "gemini"
@@ -8485,7 +8485,7 @@
         "Europe"
       ],
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "asset_class": [
         "Private equity"
@@ -8512,7 +8512,7 @@
       "investment_max_eur": 80000000,
       "data_sources": [
         "http://www.yarpa.it",
-        "Calculated from existing AUM (€800M ÷ €45M avg ticket = 18 portfolio companies)"
+        "Calculated from existing AUM (\u20ac800M \u00f7 \u20ac45M avg ticket = 18 portfolio companies)"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "description_source": "gemini"
@@ -8533,12 +8533,12 @@
         "Financial Services",
         "Technology"
       ],
-      "description": "Born from the merger of LVenture Group and Digital Magics, this Euronext-listed operator manages a vast portfolio of Italian tech startups and recently led a €2 million investment in the grant-funding platform Bandosubito.",
+      "description": "Born from the merger of LVenture Group and Digital Magics, this Euronext-listed operator manages a vast portfolio of Italian tech startups and recently led a \u20ac2 million investment in the grant-funding platform Bandosubito.",
       "geographies": [
         "Europe"
       ],
       "average_investment": [
-        "€50k-€500k"
+        "\u20ac50k-\u20ac500k"
       ],
       "asset_class": [
         "Venture-Capital"
@@ -8563,7 +8563,7 @@
       "hq_address": "29H, Via Marsala",
       "num_sfdr_article_8": 0,
       "data_sources": [
-        "Investment range derived from existing min/max values (€48.5K-€500K)"
+        "Investment range derived from existing min/max values (\u20ac48.5K-\u20ac500K)"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "description_source": "gemini"
@@ -8588,7 +8588,7 @@
         "Real Estate",
         "Financial Services"
       ],
-      "description": "Established in 1985 by former Lehman Brothers executives, the world’s largest alternative asset manager executes massive deals like the Mundys privatization and the record €1.3 billion sale of Milan’s Via Montenapoleone 8.",
+      "description": "Established in 1985 by former Lehman Brothers executives, the world\u2019s largest alternative asset manager executes massive deals like the Mundys privatization and the record \u20ac1.3 billion sale of Milan\u2019s Via Montenapoleone 8.",
       "created_at": "2026-01-26T15:27:27.989701+00:00",
       "updated_at": "2026-01-26T15:27:27.989701+00:00",
       "aum_eur": 1100000000000,
@@ -8600,7 +8600,7 @@
       "data_source": "gemini_generated",
       "data_confidence": "medium",
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "average_investment_source": "openai_enriched",
       "legal_name": "Blackstone",
@@ -8672,7 +8672,7 @@
         "Professional Services",
         "Water & Utilities"
       ],
-      "description": "Founded in 1976 as a pioneer of the leveraged buyout model, this global firm executed the historic RJR Nabisco takeover and recently completed the landmark €22 billion acquisition of Telecom Italia’s fixed-line network.",
+      "description": "Founded in 1976 as a pioneer of the leveraged buyout model, this global firm executed the historic RJR Nabisco takeover and recently completed the landmark \u20ac22 billion acquisition of Telecom Italia\u2019s fixed-line network.",
       "created_at": "2026-01-26T15:27:27.990306+00:00",
       "updated_at": "2026-01-26T15:27:27.990306+00:00",
       "aum_eur": 552920000000,
@@ -8684,7 +8684,7 @@
       "data_source": "gemini_generated",
       "data_confidence": "medium",
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "average_investment_source": "openai_enriched",
       "hq_lat": 40.712728,
@@ -8762,7 +8762,7 @@
       "data_source": "gemini_generated",
       "data_confidence": "medium",
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "average_investment_source": "openai_enriched",
       "hq_lat": 51.507446,
@@ -8832,7 +8832,7 @@
       "data_source": "gemini_generated",
       "data_confidence": "medium",
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "average_investment_source": "openai_enriched",
       "hq_lat": 40.712728,
@@ -8927,7 +8927,7 @@
       "data_source": "gemini_generated",
       "data_confidence": "medium",
       "average_investment": [
-        "€50-100m"
+        "\u20ac50-100m"
       ],
       "average_investment_source": "openai_enriched",
       "hq_lat": 48.85889,
@@ -8992,7 +8992,7 @@
       "data_source": "gemini_generated",
       "data_confidence": "medium",
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "average_investment_source": "openai_enriched",
       "hq_lat": 51.507446,
@@ -9068,7 +9068,7 @@
       "data_source": "gemini_generated",
       "data_confidence": "medium",
       "average_investment": [
-        "€20-50m"
+        "\u20ac20-50m"
       ],
       "average_investment_source": "openai_enriched",
       "hq_lat": 51.507446,
@@ -9128,7 +9128,7 @@
         "Transportation & Logistics",
         "Healthcare"
       ],
-      "description": "Functions as CVC’s dedicated infrastructure platform following a 2024 acquisition, targeting mid-market energy transition and transport assets like Norwegian ferry operator Fjord1 and water utility Saur.",
+      "description": "Functions as CVC\u2019s dedicated infrastructure platform following a 2024 acquisition, targeting mid-market energy transition and transport assets like Norwegian ferry operator Fjord1 and water utility Saur.",
       "created_at": "2026-01-26T15:27:27.990417+00:00",
       "updated_at": "2026-01-26T15:27:27.990417+00:00",
       "aum_eur": 19000000000,
@@ -9140,7 +9140,7 @@
       "data_source": "gemini_generated",
       "data_confidence": "medium",
       "average_investment": [
-        "€100m+"
+        "\u20ac100m+"
       ],
       "average_investment_source": "openai_enriched",
       "hq_lat": 52.37308,
@@ -9232,7 +9232,7 @@
       "investment_min_eur": 20000000,
       "investment_max_eur": 200000000,
       "average_investment": [
-        "€20m-€200m"
+        "\u20ac20m-\u20ac200m"
       ],
       "contact_name": "Investor Relations",
       "num_sfdr_article_8": 0,
@@ -10000,7 +10000,7 @@
         "Retail",
         "Automotive"
       ],
-      "description": "Named after Olivetti’s first personal computer, this firm leverages founder Andrea Di Camillo’s digital expertise to scale Italian tech champions like Tannico and Musixmatch.",
+      "description": "Named after Olivetti\u2019s first personal computer, this firm leverages founder Andrea Di Camillo\u2019s digital expertise to scale Italian tech champions like Tannico and Musixmatch.",
       "geographies": [
         "Italy",
         "Europe"
@@ -10389,7 +10389,7 @@
         "Industrial Manufacturing",
         "Technology"
       ],
-      "description": "Italian venture capital firm focused on deep-tech and science-based startups in electronics, robotics, new materials, medtech, biotech, and digital sectors. Manages over €250M across five funds including the TT Venture fund family.",
+      "description": "Italian venture capital firm focused on deep-tech and science-based startups in electronics, robotics, new materials, medtech, biotech, and digital sectors. Manages over \u20ac250M across five funds including the TT Venture fund family.",
       "geographies": [
         "Italy",
         "Europe"
@@ -10593,7 +10593,7 @@
         "Technology",
         "Healthcare",
         "Software",
-        "Packaging"
+        "Chemicals"
       ],
       "description": "Middle-market private equity firm investing in transformational combinations across industrial, healthcare, and technology sectors. In Italy, it has executed transactions including Digital Value and CBM.",
       "geographies": [
@@ -10647,10 +10647,11 @@
         "Private Equity"
       ],
       "sector_tags": [
-        "Financial Services",
         "Healthcare",
-        "Industrial Manufacturing",
-        "Technology"
+        "Automotive",
+        "Energy",
+        "Food & Beverage",
+        "Industrial Manufacturing"
       ],
       "description": "Italian private markets manager formerly known as Credem Private Equity SGR. It manages private equity and venture capital vehicles for institutional and private investors with a primary focus on Italy.",
       "geographies": [

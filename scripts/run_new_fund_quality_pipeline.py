@@ -305,7 +305,17 @@ def main() -> int:
             ),
         ),
         ("enrich_fund_metadata_gemini", f"python3 scripts/enrich-fund-metadata-gemini.py --slugs {slug_csv}"),
-        ("audit_fund_assets_gemini", f"python3 scripts/audit-fund-assets-gemini.py --slugs {slug_csv}"),
+        (
+            "audit_fund_assets_gemini",
+            (
+                "python3 scripts/audit-fund-assets-gemini.py "
+                f"--slugs {slug_csv} "
+                "--no-grounding "
+                "--chunk-size 20 --chunk-split-sizes 20,8,1 "
+                "--max-existing-names-in-missing-prompt 60 --missing-name-caps 60,20,1 "
+                "--sleep-seconds 1 --timeout-sec 90 --hard-timeout-sec 120 --retries 3"
+            ),
+        ),
     ]
 
     results: list[StageResult] = []

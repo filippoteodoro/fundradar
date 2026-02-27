@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-02-27T19:36:13.567772+00:00",
+  "status": "passed",
+  "slugs": [
+    "test-fund"
+  ],
+  "args": {
+    "force_extract": true,
+    "apply_missing_assets": false,
+    "apply_backfill": true,
+    "backfill_top_n": 25,
+    "backfill_min_signals": 2,
+    "stop_on_fail": true,
+    "dry_run": true
+  },
+  "stages": [
+    {
+      "stage": "pipeline",
+      "command": "pnpm pipeline --slugs test-fund --force-extract",
+      "status": "passed",
+      "started_at": "2026-02-27T19:36:13.567349+00:00",
+      "finished_at": "2026-02-27T19:36:13.567654+00:00",
+      "exit_code": 0,
+      "note": null
+    },
+    {
+      "stage": "enrich_portfolio_gemini",
+      "command": "cd apps/worker && . .venv/bin/activate && python3 scripts/enrich_portfolio_gemini_full.py --slugs test-fund --limit 0",
+      "status": "passed",
+      "started_at": "2026-02-27T19:36:13.567668+00:00",
+      "finished_at": "2026-02-27T19:36:13.567674+00:00",
+      "exit_code": 0,
+      "note": null
+    },
+    {
+      "stage": "enrich_fund_metadata_gemini",
+      "command": "python3 scripts/enrich-fund-metadata-gemini.py --slugs test-fund",
+      "status": "passed",
+      "started_at": "2026-02-27T19:36:13.567680+00:00",
+      "finished_at": "2026-02-27T19:36:13.567685+00:00",
+      "exit_code": 0,
+      "note": null
+    },
+    {
+      "stage": "audit_fund_assets_gemini",
+      "command": "python3 scripts/audit-fund-assets-gemini.py --slugs test-fund --no-grounding --chunk-size 20 --chunk-split-sizes 20,8,1 --max-existing-names-in-missing-prompt 60 --missing-name-caps 60,20,1 --sleep-seconds 1 --timeout-sec 90 --hard-timeout-sec 120 --retries 3",
+      "status": "passed",
+      "started_at": "2026-02-27T19:36:13.567690+00:00",
+      "finished_at": "2026-02-27T19:36:13.567697+00:00",
+      "exit_code": 0,
+      "note": null
+    },
+    {
+      "stage": "signals_to_portfolio",
+      "command": "pnpm pipeline:signals-to-portfolio",
+      "status": "passed",
+      "started_at": "2026-02-27T19:36:13.567719+00:00",
+      "finished_at": "2026-02-27T19:36:13.567726+00:00",
+      "exit_code": 0,
+      "note": null
+    },
+    {
+      "stage": "verify_completion",
+      "command": "python3 scripts/verify_new_fund_completion.py --slugs test-fund --output data/derived/new_fund_completion_report.json",
+      "status": "passed",
+      "started_at": "2026-02-27T19:36:13.567732+00:00",
+      "finished_at": "2026-02-27T19:36:13.567737+00:00",
+      "exit_code": 0,
+      "note": null
+    },
+    {
+      "stage": "backfill_top_aum_signals",
+      "command": "python3 scripts/backfill_top_aum_signals.py --slugs test-fund --top-n 25 --min-signals 2 --apply",
+      "status": "passed",
+      "started_at": "2026-02-27T19:36:13.567744+00:00",
+      "finished_at": "2026-02-27T19:36:13.567749+00:00",
+      "exit_code": 0,
+      "note": null
+    },
+    {
+      "stage": "verify_completion_after_backfill",
+      "command": "python3 scripts/verify_new_fund_completion.py --slugs test-fund --output data/derived/new_fund_completion_report.json",
+      "status": "passed",
+      "started_at": "2026-02-27T19:36:13.567757+00:00",
+      "finished_at": "2026-02-27T19:36:13.567764+00:00",
+      "exit_code": 0,
+      "note": null
+    }
+  ]
+}

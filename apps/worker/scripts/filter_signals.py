@@ -2821,23 +2821,6 @@ def _passes_strict_quality_gates(
         if signal_type not in {"other", "website_change"} and not role_noise:
             override = True
 
-    # Recency gate: drop stale signals (override cannot bypass)
-    # - >2 years: drop unless hard deal evidence (keyword + amount)
-    # - >3 years: drop unconditionally
-    date_val = (
-        signal.get("enriched_date")
-        or signal.get("published_at")
-        or signal.get("observed_at")
-        or signal.get("created_at")
-    )
-    parsed_date = _parse_signal_date(date_val if isinstance(date_val, str) else None)
-    if parsed_date:
-        age_days = (datetime.now(timezone.utc) - parsed_date).days
-        if age_days > 365 * 3:
-            return False
-        if age_days > 365 * 2 and not (_has_deal_keyword(text) and _has_amount(text)):
-            return False
-
     # Non-overridable noise gates — run before any fund-scope early return
     if _is_portfolio_extraction_only(signal, text):
         return False
@@ -3125,26 +3108,6 @@ def calculate_quality_score(
     elif signal.get("observed_at"):
         # Only observed_at (no published date) — less reliable timestamp
         score += 3
-
-    # Recency boost / penalty
-    now = datetime.now(timezone.utc)
-    date_val = (
-        signal.get("enriched_date")
-        or signal.get("published_at")
-        or signal.get("observed_at")
-        or signal.get("created_at")
-    )
-    parsed_date = _parse_signal_date(date_val if isinstance(date_val, str) else None)
-    if parsed_date:
-        age_days = (now - parsed_date).days
-        if age_days <= 30:
-            score += 10
-        elif age_days <= 180:
-            score += 5
-        elif age_days > 365 * 7:
-            score -= 30
-        elif age_days > 365 * 3:
-            score -= 15
 
     # Confidence bonus
     confidence = signal.get("enrichment_confidence", "")
@@ -3455,7 +3418,6 @@ def main():
     removed_junior_non_italy = 0
     removed_geo_irrelevant = 0
     removed_misattributed = 0
-    removed_too_old = 0
     removed_orphan_fund = 0
     removed_strict_gate = 0
     removed_invalid_fund = 0
@@ -3572,20 +3534,6 @@ def main():
         if _is_misattributed_signal(signal, fund=fund):
             removed_misattributed += 1
             continue
-
-        # Reject signals older than 6 months (stale data)
-        signal_date_str = signal.get("published_at") or signal.get("observed_at") or ""
-        if signal_date_str:
-            try:
-                signal_date = datetime.fromisoformat(signal_date_str.replace("Z", "+00:00"))
-                if signal_date.tzinfo is None:
-                    signal_date = signal_date.replace(tzinfo=timezone.utc)
-                age_days = (datetime.now(timezone.utc) - signal_date).days
-                if age_days > 180:
-                    removed_too_old += 1
-                    continue
-            except (ValueError, TypeError):
-                pass
 
         # Reject signals with titles too short to be useful
         clean_title = (signal.get("title") or "").strip()
@@ -4213,24 +4161,6 @@ def main():
             3,
         )
 
-        # Hard age cutoff — NOT overridable by ML or quality score
-        # >3 years: always drop. >2 years: only keep with deal keyword + amount
-        _age_date = (
-            signal.get("enriched_date")
-            or signal.get("published_at")
-            or signal.get("observed_at")
-            or signal.get("created_at")
-        )
-        _age_parsed = _parse_signal_date(_age_date if isinstance(_age_date, str) else None)
-        if _age_parsed:
-            _age_days = (datetime.now(timezone.utc) - _age_parsed).days
-            if _age_days > 365 * 3:
-                removed_strict_gate += 1
-                continue
-            if _age_days > 365 * 2 and not (_has_deal_keyword(text) and _has_amount(text)):
-                removed_strict_gate += 1
-                continue
-
         if not _passes_strict_quality_gates(signal, text, summary, pre_score=score, evidence_score=evidence_score):
             if _ml_override_keep(signal):
                 kept_ml_override += 1
@@ -4307,7 +4237,6 @@ def main():
         "removed_junior_non_italy": removed_junior_non_italy,
         "removed_geo_irrelevant": removed_geo_irrelevant,
         "removed_misattributed": removed_misattributed,
-        "removed_too_old": removed_too_old,
         "removed_orphan_fund": removed_orphan_fund,
         "removed_ml": removed_ml,
         "removed_cross_page": removed_cross_page,
@@ -4355,7 +4284,6 @@ def main():
     print(f"  Removed (junior non-Italy): {removed_junior_non_italy}")
     print(f"  Removed (non Europe/Italy): {removed_geo_irrelevant}")
     print(f"  Removed (misattributed): {removed_misattributed}")
-    print(f"  Removed (older than 180 days): {removed_too_old}")
     print(f"  Kept (ML override): {kept_ml_override}")
     print(f"  ML type overrides: {ml_type_overrides}")
     print(f"  Kept: {len(filtered)}")

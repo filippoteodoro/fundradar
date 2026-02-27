@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-02-27T16:03:10.245194+00:00",
-  "scope": "antin-infrastructure-partners,astorg,augens-capital,azzurra-capital,bic-capital,blackstone,charterhouse-capital-partners,cherry-bay-capital,credem-euromobiliare-private-asset-sgr,cvc-dif,hellman-friedman,icg,indaco-venture-partners-sgr,investcorp,investindustrial,kkr,lone-star-funds,oakley-capital,oaktree-capital-management,one-equity-partners,p101-sgr,patrizia,perwyn,platinum-equity,rhone-group,searchlight-capital-partners,silver-lake,sosteneo,stirling-square-capital-partners,stonepeak,ta-associates,tamburi-investment-partners,tdr-capital,towerbrook,tpg,united-ventures,vam-investments,varde-partners,warburg-pincus,white-bridge-investments",
+  "checked_at": "2026-02-27T17:47:06.343925+00:00",
+  "scope": "kkr",
   "strict_network_mode": true,
   "llm_connection_fallbacks": 0,
   "translation_network_errors": 0,

@@ -93,8 +93,8 @@ Gemini anti-blocking defaults (aligned with pipeline best practices):
 - `3s` delay between calls (`--sleep-seconds`).
 - Retry with exponential backoff + jitter (`--retries`, `--min-backoff-sec`, `--max-backoff-sec`).
 - HTTP timeout + hard SIGALRM timeout (`--timeout-sec`, `--hard-timeout-sec`).
-- Auto-split for failed chunk audits (`--chunk-split-sizes`, default `40,20,8,1`).
-- Missing-assets prompt fallback with smaller existing-name caps (`--missing-name-caps`, default `500,300,150,60`).
+- Auto-split for failed chunk audits (`--chunk-split-sizes`, default `20,8,1`).
+- Missing-assets prompt fallback with smaller existing-name caps (`--missing-name-caps`, default `60,20,1`).
 - Native structured output mode (`responseMimeType=application/json` + `responseSchema`) for chunk and missing-assets calls.
 - Automatic grounding fallback: if `google_search` is rejected, retries without grounding.
 

@@ -1,0 +1,372 @@
+You are auditing one private-markets fund page for Fundradar (Italy feed).
+Current date: 2026-02-27.
+
+Goal:
+- Fix incompleteness and inaccuracy for this fund.
+- Keep output short, factual, English-only, source-backed.
+- Prioritize Italy relevance and importance over recency.
+- Valuable historical signals are allowed if still material for page completeness.
+
+Fund context:
+- fund_name: Silver Lake
+- fund_slug: silver-lake
+- website: https://www.silverlake.com
+- aum_eur_current: 103000000000
+- category: pe
+- hq_city_current: Menlo Park
+- description_current: Renowned for orchestrating the landmark $24 billion privatization of Dell, this global leader specializes in large-scale technology buyouts. Its portfolio spans transformative tech giants including Alibaba, Airbnb, and Skype.
+
+Current QA blockers:
+[
+  "top_aum_signal_completeness:0/2"
+]
+
+Current counts:
+- portfolio_count: 173
+- italian_portfolio_count: 2
+- filtered_signals_count: 0
+- enriched_signals_count: 0
+- asset_audit_present: True
+
+Existing portfolio names in dataset (do NOT re-suggest as missing unless clearly wrong/duplicate label):
+[
+  "A Place for Mom",
+  "Achievers",
+  "Airbnb",
+  "Airtable",
+  "Alchemy",
+  "Alibaba Group",
+  "Allyes",
+  "Altera",
+  "AMC",
+  "Ancestry",
+  "Ant Group",
+  "Aras",
+  "Australian Professional Leagues",
+  "Avago",
+  "Avaya",
+  "AVI-SPL",
+  "Blackhawk Network",
+  "BlackLine",
+  "Blue Danube System",
+  "Broadcom",
+  "Byjus",
+  "Carbon",
+  "Caris Life Sciences",
+  "Carta",
+  "Cast & Crew",
+  "CDW",
+  "Cegid",
+  "Celonis",
+  "City Football Group",
+  "Clari",
+  "Con-Pearl",
+  "Convenience Bee",
+  "Cornerstone",
+  "Credit Karma",
+  "Crystal Decisions / Business Objects",
+  "Ctrip",
+  "Datek Online / Ameritrade",
+  "Dell Technologies",
+  "Diamond Baseball Holdings",
+  "Didi Chuxing",
+  "eConnections",
+  "Eka",
+  "Endeavor Group Holdings",
+  "Enterasys",
+  "Entrata",
+  "Equinox",
+  "EverCommerce",
+  "Exact",
+  "Expedia Group",
+  "Facile.it",
+  "Fanatics Collectibles",
+  "Fanatics, Inc",
+  "FATHOM",
+  "First Advantage",
+  "Flextronics",
+  "Flix",
+  "ForeFlight",
+  "G42",
+  "Gartner",
+  "Genies",
+  "Gerson Lehrman Group",
+  "Getir",
+  "Global Blue",
+  "Global Payments",
+  "GlobalFoundries",
+  "GoDaddy",
+  "GoodRx",
+  "Groupe Meilleurtaux",
+  "Groupon",
+  "Grupo BC",
+  "Hillstone Networks",
+  "Hyla Mobile",
+  "Imagine Learning",
+  "Instinet",
+  "Integrity Marketing Group",
+  "Intelsat",
+  "Interactive Data Corporation",
+  "IonQ",
+  "IPC",
+  "Island / Instinet Group",
+  "Iterable",
+  "IVC Evidensia",
+  "Jio Platforms",
+  "Khazna Data Centers",
+  "Klarna",
+  "Koubei",
+  "LEARFIELD",
+  "LightBox",
+  "Locaweb",
+  "Madison Square Garden Sports",
+  "MCI",
+  "Mercury Healthcare",
+  "Mercury Payment Systems",
+  "Mirakl",
+  "Motorola Solutions",
+  "MultiPlan",
+  "N-Able",
+  "Nasdaq",
+  "Network General / NetScout",
+  "New Zealand Rugby",
+  "Nobao Renewable Energy",
+  "Noom",
+  "NortonLifeLock",
+  "NXP",
+  "Oak View Group",
+  "Omio",
+  "Opera Solutions",
+  "Outspoken",
+  "Peloton",
+  "Plaid",
+  "Power-One",
+  "PrimeSense",
+  "ProService",
+  "Qualtrics",
+  "Quorum Software",
+  "RAC",
+  "Relativity",
+  "Reliance Retail",
+  "Renovate America",
+  "Riverstone Networks",
+  "Root",
+  "Sabre",
+  "Seagate",
+  "Sensata Technologies",
+  "SenseTime",
+  "Serena",
+  "ServiceMax",
+  "Shadowbox Studios",
+  "Silae",
+  "Skype",
+  "SMART Global Holdings",
+  "SMART Storage Systems",
+  "SoFi",
+  "Software AG",
+  "SolarCity",
+  "SolarWinds",
+  "Spansion",
+  "Splunk",
+  "Spreadtrum",
+  "Stripe",
+  "SubmitOrder",
+  "SunGard",
+  "TAL Education Group",
+  "Talend",
+  "Tandberg",
+  "TeamSystem",
+  "TEG",
+  "Terremark",
+  "Tesla",
+  "Thomson",
+  "Thrasio",
+  "TikTok USDS JV",
+  "Tintri",
+  "Twitter",
+  "UFC",
+  "UGS",
+  "UiPath",
+  "Unity",
+  "Unitymedia",
+  "Vacasa",
+  "Vantage Data Centers",
+  "Velocity Technology Solutions",
+  "Verily",
+  "Virtu Financial",
+  "VMware",
+  "Waymo",
+  "WP Engine",
+  "Xoriant",
+  "Xplor Technologies",
+  "ZPG",
+  "Zuora",
+  "Zynga"
+]
+
+Existing likely-Italy portfolio entries:
+[
+  {
+    "name": "Facile.it",
+    "status": "current",
+    "sector": "Financial Services",
+    "headquarters": "Milan, Italy"
+  },
+  {
+    "name": "TeamSystem",
+    "status": "current",
+    "sector": "Software",
+    "headquarters": "Pesaro, Italy"
+  }
+]
+
+Recent raw observed signals sample (may include low-quality/non-Italy items):
+[
+  {
+    "date": "2026-02-24",
+    "signal_type": "deal_announced",
+    "title": "A platform unlike any other, built on an accelerating breadth and depth of vision, expertise and relationships added to Silver Lake portfolio",
+    "source_url": "https://www.silverlake.com/portfolio/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "deal_announced",
+    "title": "Equinox Group added to Silver Lake portfolio",
+    "source_url": "https://www.silverlake.com/portfolio/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "deal_announced",
+    "title": "Fanatics, Inc. added to Silver Lake portfolio",
+    "source_url": "https://www.silverlake.com/portfolio/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "deal_announced",
+    "title": "i2 added to Silver Lake portfolio",
+    "source_url": "https://www.silverlake.com/portfolio/"
+  },
+  {
+    "date": "2026-02-24",
+    "signal_type": "deal_announced",
+    "title": "Mission Pet Health added to Silver Lake portfolio",
+    "source_url": "https://www.silverlake.com/portfolio/"
+  },
+  {
+    "date": "2026-02-02",
+    "signal_type": "other",
+    "title": "Accelerating our global growth: Waymo raises $16 billion investment round",
+    "source_url": "https://www.silverlake.com/accelerating-our-global-growth-waymo-raises-16-billion-investment-round/"
+  },
+  {
+    "date": "2026-01-22",
+    "signal_type": "people_move",
+    "title": "TikTok USDS Joint Venture LLC Established in Compliance with U.S. Regulatory Requirements",
+    "source_url": "https://www.silverlake.com/tiktok-usds-joint-venture-llc-established-in-compliance-with-u-s-regulatory-requirements/"
+  },
+  {
+    "date": "2025-09-29",
+    "signal_type": "deal_announced",
+    "title": "EA Announces Agreement to be Acquired by PIF, Silver Lake, and Affinity Partners for $55 Billion",
+    "source_url": "https://www.silverlake.com/ea-announces-agreement-to-be-acquired-by-pif-silver-lake-and-affinity-partners-for-55-billion/"
+  },
+  {
+    "date": "2025-09-15",
+    "signal_type": "fundraise_announced",
+    "title": "Altera Closes Silver Lake Investment to Become Worlds Largest Pure-play FPGA Solutions Provider",
+    "source_url": "https://www.silverlake.com/altera-closes-silver-lake-investment-to-become-worlds-largest-pure-play-fpga-solutions-provider/"
+  },
+  {
+    "date": "2025-08-08",
+    "signal_type": "other",
+    "title": "Silver Lake Launches $400 Million Digital Infrastructure Platform with Adam Fisher and Peter Rumbold",
+    "source_url": "https://www.silverlake.com/silver-lake-launches-400-million-digital-infrastructure-platform-with-adam-fisher-and-peter-rumbold/"
+  },
+  {
+    "date": "2025-04-17",
+    "signal_type": "other",
+    "title": "Silver Lake Enhances Executive Leadership Team",
+    "source_url": "https://www.silverlake.com/silver-lake-enhances-executive-leadership-team/"
+  },
+  {
+    "date": "2025-04-14",
+    "signal_type": "other",
+    "title": "Intel Announces Strategic Investment by Silver Lake in Altera",
+    "source_url": "https://www.silverlake.com/intel-announces-strategic-investment-by-silver-lake-in-altera/"
+  }
+]
+
+Task:
+1) Validate Italy presence (materially active in Italy or not).
+2) Identify wrong entries and missing Italy assets (current or exited).
+3) Propose metadata corrections (AUM, HQ city, website, description) only when confidence is high.
+4) Propose up to 5 high-value Italy-relevant signal candidates (recent or historical), ranked by importance.
+5) Mark historical but important events explicitly so they are not discarded only by age.
+
+Return ONLY strict JSON object with this schema:
+{
+  "fund_slug": "silver-lake",
+  "overall_status": "ok|needs_fixes|highly_incomplete",
+  "italy_presence_assessment": {
+    "materially_active_in_italy": "yes|no|uncertain",
+    "summary": "short",
+    "evidence": [
+      {"type": "office|portfolio|deal|team|other", "detail": "...", "year": "YYYY|unknown", "source_url": "https://..."}
+    ]
+  },
+  "metadata_corrections": {
+    "aum_eur": {"current": "number|null", "suggested": "number|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "hq_city": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "website": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "description": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]}
+  },
+  "entry_issues": [
+    {
+      "entry_name": "string",
+      "issue_type": "wrong_entry|duplicate_entry|wrong_status|wrong_sector|wrong_headquarters|wrong_description|other",
+      "severity": "critical|high|medium|low",
+      "reason": "short",
+      "current_value": {"status": "...", "sector": "...", "headquarters": "...", "description": "..."},
+      "suggested_fix": {"status": "current|exited|partial|unknown|null", "sector": "string|null", "headquarters": "string|null", "description": "string|null"},
+      "confidence": "high|medium|low",
+      "evidence_urls": ["https://..."]
+    }
+  ],
+  "missing_assets": [
+    {
+      "name": "string",
+      "status": "current|exited|unknown",
+      "sector": "string|null",
+      "headquarters": "string|null",
+      "description": "string|null",
+      "reason": "why missing",
+      "confidence": "high|medium|low",
+      "evidence_urls": ["https://..."]
+    }
+  ],
+  "signal_candidates": [
+    {
+      "signal_type": "deal_announced|portfolio_update|people_move|exit_announced|fundraise_announced|fundraise_closed|debt_financing|partnership|other",
+      "title": "single sentence",
+      "what_changed": "1-2 sentences",
+      "published_date": "YYYY-MM-DD",
+      "source_name": "string",
+      "source_url": "https://...",
+      "italy_relevant_reason": "short",
+      "importance": "high|medium|low",
+      "is_historical_but_important": true,
+      "confidence": "high|medium|low"
+    }
+  ],
+  "priority_actions": [
+    {"priority": 1, "action": "short", "layer": "extractor|filter|enrichment|signal_to_portfolio|metadata|manual_backfill"}
+  ]
+}
+
+Hard constraints:
+- English only.
+- No boilerplate.
+- No invented facts.
+- Every non-trivial claim must include a credible source URL.
+- Keep text concise and directly actionable.
+- Amount formatting in generated text: EUR amounts as €X.XK / €X.XM / €X.XB / €X.XT.

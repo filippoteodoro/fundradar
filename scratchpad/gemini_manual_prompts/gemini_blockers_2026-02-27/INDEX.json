@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-02-27T18:16:00.710644+00:00",
+  "target_count": 28,
+  "generated_count": 28,
+  "skipped_count": 0,
+  "generated_slugs": [
+    "tpg",
+    "oaktree-capital-management",
+    "icg",
+    "silver-lake",
+    "hellman-friedman",
+    "lone-star-funds",
+    "stonepeak",
+    "warburg-pincus",
+    "ta-associates",
+    "patrizia",
+    "investcorp",
+    "platinum-equity",
+    "cvc-dif",
+    "tdr-capital",
+    "varde-partners",
+    "one-equity-partners",
+    "searchlight-capital-partners",
+    "rhone-group",
+    "oakley-capital",
+    "tamburi-investment-partners",
+    "stirling-square-capital-partners",
+    "white-bridge-investments",
+    "p101-sgr",
+    "united-ventures",
+    "vam-investments",
+    "indaco-venture-partners-sgr",
+    "credem-euromobiliare-private-asset-sgr",
+    "cherry-bay-capital"
+  ],
+  "skipped_slugs": [],
+  "output_dir": "/Users/filippoteodoro/Library/Mobile Documents/com~apple~CloudDocs/Code/Fundradar/scratchpad/gemini_manual_prompts/gemini_blockers_2026-02-27",
+  "instructions": [
+    "Open each .md file and paste into Gemini.",
+    "Save Gemini JSON reply as data/derived/gemini_fund_asset_logs/manual_responses/<slug>.json",
+    "Run scripts/import-manual-gemini-fund-responses.py, then rerun recovery script."
+  ]
+}

@@ -763,14 +763,50 @@ After the pipeline has populated portfolio data and the fund description is gene
 ### Run the audit
 
 ```bash
-# Single fund
-python3 scripts/audit-fund-assets-gemini.py --slugs {fund-slug}
+# Single fund (recommended stable settings)
+python3 scripts/audit-fund-assets-gemini.py \
+  --slugs {fund-slug} \
+  --no-grounding \
+  --chunk-size 20 \
+  --chunk-split-sizes 20,8,1 \
+  --max-existing-names-in-missing-prompt 60 \
+  --missing-name-caps 60,20,1 \
+  --sleep-seconds 1 \
+  --timeout-sec 90 \
+  --hard-timeout-sec 120 \
+  --retries 3
 
 # Multiple funds
-python3 scripts/audit-fund-assets-gemini.py --slugs fund-a,fund-b,fund-c
+python3 scripts/audit-fund-assets-gemini.py \
+  --slugs fund-a,fund-b,fund-c \
+  --no-grounding \
+  --chunk-size 20 \
+  --chunk-split-sizes 20,8,1 \
+  --max-existing-names-in-missing-prompt 60 \
+  --missing-name-caps 60,20,1 \
+  --sleep-seconds 1 \
+  --timeout-sec 90 \
+  --hard-timeout-sec 120 \
+  --retries 3
 
 # Dry run (preview, no API calls)
 python3 scripts/audit-fund-assets-gemini.py --slugs {fund-slug} --dry-run
+```
+
+For large queues (resume-safe shards), prefer:
+
+```bash
+python3 scripts/run-audit-fund-assets-gemini-parallel.py \
+  --workers 4 \
+  --no-grounding \
+  --chunk-size 20 \
+  --chunk-split-sizes 20,8,1 \
+  --max-existing-names-in-missing-prompt 60 \
+  --missing-name-caps 60,20,1 \
+  --sleep-seconds 1 \
+  --timeout-sec 90 \
+  --hard-timeout-sec 120 \
+  --retries 3
 ```
 
 ### Apply audit findings
@@ -1145,6 +1181,96 @@ PY
 If any host fails, run outside DNS-restricted sandbox mode.  
 `pipeline:new-fund-quality` now performs this preflight automatically and fails fast with a clear error.
 
+### 18.0.2 — Manual Gemini Prompts (copy/paste fallback)
+
+If automation is blocked (DNS/sandbox/API outage) or you want a second opinion on a specific fund page, use these prompts directly in Gemini and paste the result back into your review notes.
+
+Rules:
+- Always ask for **English-only output**.
+- Require **source URLs** for every factual claim.
+- Treat Gemini output as audit input, not auto-truth: only apply changes if sources are credible and Italy-relevant.
+
+Prompt A — fund page quality/completeness audit:
+
+```text
+You are auditing a private-markets fund profile for Italy relevance and data quality.
+
+Fund name: {FUND_NAME}
+Fund slug: {FUND_SLUG}
+AUM (EUR): {AUM_EUR_OR_UNKNOWN}
+
+Current Fundradar snapshot:
+- Italy portfolio count: {ITALY_PORTFOLIO_COUNT}
+- Signals count: {SIGNAL_COUNT}
+- Portfolio entries (paste top entries here):
+{PORTFOLIO_SNIPPET}
+- Signals shown on page (paste recent signals here):
+{SIGNALS_SNIPPET}
+
+Task:
+1) Identify factual inaccuracies, missing major Italy assets, weak/irrelevant signals, and non-English or malformed text.
+2) Flag anything not Italy-relevant that should not be on the Italy feed.
+3) Suggest only concrete fixes that are systemic (would hold on future pipeline runs), not one-off wording tweaks.
+4) Keep output short and direct.
+
+Output JSON only:
+{
+  "overall_status": "ok|needs_fixes|highly_incomplete",
+  "critical_issues": [{"type":"...", "detail":"...", "why_it_matters":"..."}],
+  "missing_italy_assets": [{"name":"...", "status":"current|exited", "why":"...", "sources":["https://..."]}],
+  "signal_issues": [{"signal_or_pattern":"...", "issue":"...", "fix_direction":"..."}],
+  "systemic_fix_recommendations": [{"layer":"extractor|filter|enrichment|signal_to_portfolio|normalizer", "action":"..."}]
+}
+
+Constraints:
+- English only.
+- Include source URLs for every asset or factual correction.
+- Do not invent data.
+```
+
+Prompt B — specific fund Italy-presence validation (fast check):
+
+```text
+Validate whether this fund is materially active in Italy and whether the following summary looks incomplete.
+
+Fund: {FUND_NAME}
+Known Fundradar summary:
+{PASTE_CURRENT_SUMMARY_OR_PAGE_TEXT}
+
+Return:
+1) A yes/no on "materially active in Italy".
+2) Top 5 Italy-relevant assets/deals that should appear (if missing), with year and source URL.
+3) Short verdict: "all good" or "incomplete".
+
+Constraints:
+- English only.
+- Only factual claims with source URLs.
+- Prefer official fund sites and reputable financial press.
+```
+
+Prompt C — generate candidate historical signals for page completeness:
+
+```text
+For fund {FUND_NAME}, propose up to 5 Italy-relevant historical events suitable for an Italy private-markets signals feed.
+
+For each event provide:
+- signal_type (investment|exit|people|fund|portfolio|debt|partnership)
+- concise title (single sentence, English)
+- what_changed (1-2 sentences, factual)
+- event_date (YYYY-MM-DD if known)
+- source_name
+- source_url
+- italy_relevant_reason
+
+Hard constraints:
+- No boilerplate language.
+- No non-Italy events.
+- No duplicate events.
+- Do not output events without verifiable source URLs.
+```
+
+Example (ICG quick check): use Prompt B with `Fund: ICG (Intermediate Capital Group)` and paste the current ICG fund page content.
+
 What this does:
 - runs pipeline (+ force extract by default)
 - runs Gemini portfolio enrichment
@@ -1371,13 +1497,76 @@ python3 scripts/enrich-fund-metadata-gemini.py --slugs {fund-slug}
 Run the asset audit to find missing Italian companies and verify data accuracy:
 
 ```bash
-python3 scripts/audit-fund-assets-gemini.py --slugs {fund-slug}
+python3 scripts/audit-fund-assets-gemini.py \
+  --slugs {fund-slug} \
+  --no-grounding \
+  --chunk-size 20 \
+  --chunk-split-sizes 20,8,1 \
+  --max-existing-names-in-missing-prompt 60 \
+  --missing-name-caps 60,20,1 \
+  --sleep-seconds 1 \
+  --timeout-sec 90 \
+  --hard-timeout-sec 120 \
+  --retries 3
 ```
 
 Then apply findings:
 ```bash
 pnpm pipeline:new-fund-quality --slugs {fund-slug} --apply-missing-assets
 ```
+
+### 18.4.1 — If Gemini Chat Works But API Script Fails
+
+This is usually a **format/reliability issue**, not a permissions issue.
+
+Typical causes:
+- API flow requires strict machine-parseable JSON; chat UI tolerates formatting noise.
+- Prompts become too large (many portfolio names/entries), increasing malformed JSON risk.
+- Grounding (`google_search`) can add unstable response wrappers.
+- Long-running audits get interrupted mid-run (local stop/timeout), leaving partial coverage.
+
+Required mitigation order:
+1. Re-run with the stable command above (`--no-grounding`, smaller chunk sizes, smaller name caps).
+2. If still failing, use per-fund manual prompts and import flow:
+   `generate-gemini-manual-fund-prompts.py` → save `manual_responses/<slug>.json` → `import-manual-gemini-fund-responses.py` → `rebuild-gemini-audit-from-canonical.py`.
+3. Never run manual import and rebuild concurrently; run them sequentially to avoid race/overwrite on canonical JSONL.
+
+> **CRITICAL — `rebuild-gemini-audit-from-canonical.py` WIPES API RUN DATA**
+>
+> `rebuild-gemini-audit-from-canonical.py` completely replaces `gemini_fund_asset_audit.json` using only the canonical JSONL as source.
+> The canonical JSONL contains only AI Studio manual exports — **API runs (via `audit-fund-assets-gemini.py`) are NOT written to the JSONL.**
+>
+> **Do NOT run `rebuild-gemini-audit-from-canonical.py` if `gemini_fund_asset_audit.json` already contains good API run data.**
+> The rebuild is for disaster recovery only (when the output file is corrupted or lost entirely).
+>
+> Safe workflow when patching a single fund via manual import while the rest of the audit is from API runs:
+> 1. Run `import-manual-gemini-fund-responses.py` (updates JSONL only — audit JSON is untouched) ✓
+> 2. Re-run `audit-fund-assets-gemini.py --slugs <the-problem-slug>` to merge the manual data into the live audit JSON ✓
+> 3. **Do NOT run `rebuild-gemini-audit-from-canonical.py`** ✗
+
+### 18.4.2 — After the audit: check if the fund should be hidden
+
+After the Gemini asset audit completes, check whether the fund qualifies as "confirmed zero-Italy":
+
+```bash
+python3 -c "
+import json
+slug = 'YOUR-SLUG'
+audit = json.loads(open('data/derived/gemini_fund_asset_audit.json').read())
+f = next((x for x in audit['funds'] if x['slug'] == slug), None)
+if f:
+    print('completion_ready:', f.get('completion_ready'))
+    print('italian_portfolio_count:', f.get('italian_portfolio_count'))
+    print('missing_assets:', len(f.get('missing_assets') or []))
+"
+```
+
+If all three are `True / 0 / 0`, the fund has **no Italian assets** and should be hidden from the website:
+
+1. Add the slug to `data/derived/gemini_fund_asset_zero_italy_verified.json` → `verified_slugs[]`
+2. The web filter in `getAllFunds()` (implementation pending — see `apps/web/CLAUDE.md`) will exclude it from all pages automatically
+
+Do NOT hide funds without a complete audit (`completion_ready=False`). The whitelist is the authoritative gate — a fund with 0 portfolio entries that hasn't been audited stays visible.
 
 ### 18.5 — Verification loop (MANDATORY for ALL additions)
 
@@ -1421,6 +1610,11 @@ For top-AUM funds, page completeness is mandatory even if recent live signals ar
 - Target set: top 25 funds by `aum_eur`
 - Minimum: at least 2 visible signals per fund
 - If below minimum, add vetted historical Italy-relevant signals through:
+
+Recency policy:
+- **Do not drop a signal only because it is old.**
+- Valuable historical Italy-relevant signals are valid and should remain visible.
+- Filtering/enrichment must use quality + relevance, not age cutoffs.
 
 ```bash
 # Dry run

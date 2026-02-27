@@ -14,8 +14,8 @@ Workflow:
 Gemini hardening:
 - paced sequential calls (3s default) + retry with jittered backoff
 - hard timeout guard (SIGALRM) in addition to HTTP timeout
-- auto-split for failed chunk audits (40 -> 20 -> 8 -> 1)
-- smaller prompt fallback for missing-assets pass (500 -> 300 -> 150 -> 60 names)
+- auto-split for failed chunk audits (20 -> 8 -> 1)
+- smaller prompt fallback for missing-assets pass (120 -> 60 -> 20 -> 1 names)
 
 Outputs:
   data/derived/gemini_fund_asset_audit.json
@@ -58,8 +58,8 @@ ZERO_ITALY_VERIFIED_PATH = DERIVED_DIR / "gemini_fund_asset_zero_italy_verified.
 DEFAULT_MODEL = "gemini-3-flash-preview"
 GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 RETRYABLE_HTTP_STATUS = {408, 409, 429, 500, 502, 503, 504}
-DEFAULT_CHUNK_SPLIT_SIZES = [40, 20, 8, 1]
-DEFAULT_MISSING_NAME_CAPS = [500, 300, 150, 60]
+DEFAULT_CHUNK_SPLIT_SIZES = [20, 8, 1]
+DEFAULT_MISSING_NAME_CAPS = [60, 20, 1]
 DEFAULT_SLEEP_SECONDS = 3.0
 DEFAULT_TIMEOUT_SEC = 120
 DEFAULT_HARD_TIMEOUT_SEC = 150
@@ -147,15 +147,48 @@ def strip_markdown_fences(text: str) -> str:
     return text
 
 
+def _extract_first_json_object_fragment(text: str) -> str | None:
+    """Extract the first balanced JSON object from arbitrary model text."""
+    s = text.strip()
+    if not s:
+        return None
+
+    for i, ch in enumerate(s):
+        if ch != "{":
+            continue
+        depth = 0
+        in_str = False
+        escaped = False
+        for j in range(i, len(s)):
+            c = s[j]
+            if in_str:
+                if escaped:
+                    escaped = False
+                elif c == "\\":
+                    escaped = True
+                elif c == '"':
+                    in_str = False
+                continue
+            if c == '"':
+                in_str = True
+            elif c == "{":
+                depth += 1
+            elif c == "}":
+                depth -= 1
+                if depth == 0:
+                    return s[i:j + 1]
+    return None
+
+
 def parse_json_from_model_text(text: str) -> dict[str, Any]:
     cleaned = strip_markdown_fences(text)
     try:
         parsed = json.loads(cleaned)
-    except json.JSONDecodeError:
-        match = re.search(r"\{.*\}", cleaned, re.DOTALL)
-        if not match:
-            raise
-        parsed = json.loads(match.group(0))
+    except json.JSONDecodeError as e:
+        fragment = _extract_first_json_object_fragment(cleaned)
+        if not fragment:
+            raise e
+        parsed = json.loads(fragment)
     if not isinstance(parsed, dict):
         raise ValueError("Model response JSON is not an object")
     return parsed
@@ -550,6 +583,14 @@ def call_gemini_json(
 
         except json.JSONDecodeError as e:
             last_error = f"JSON decode failed: {e}"
+            # Grounding sometimes injects malformed wrappers around the JSON body.
+            # Retry without grounding before normal retry/backoff handling.
+            if used_grounding:
+                payload.pop("tools", None)
+                used_grounding = False
+                if attempt < retries:
+                    _sleep_with_jitter(1.0, 0.5)
+                    continue
             if attempt < retries:
                 _sleep_with_jitter(
                     _compute_backoff(
@@ -1050,7 +1091,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Audit fund assets with Gemini 3 Flash (AUM desc, one-by-one).")
     parser.add_argument("--model", default=DEFAULT_MODEL, help="Gemini model (default: gemini-3-flash-preview)")
     parser.add_argument("--limit-funds", type=int, default=0, help="Max funds to process (0 = all)")
-    parser.add_argument("--chunk-size", type=int, default=40, help="Entries per chunk for existing-entry audit")
+    parser.add_argument("--chunk-size", type=int, default=20, help="Entries per chunk for existing-entry audit")
     parser.add_argument(
         "--chunk-split-sizes",
         type=str,
@@ -1058,7 +1099,7 @@ def main() -> int:
         help="Fallback split sizes for failed chunk calls (largest->smallest)",
     )
     parser.add_argument("--max-entries-per-fund", type=int, default=0, help="Limit entries audited per fund (0 = all)")
-    parser.add_argument("--max-existing-names-in-missing-prompt", type=int, default=500, help="Cap existing names passed to missing-assets prompt")
+    parser.add_argument("--max-existing-names-in-missing-prompt", type=int, default=60, help="Cap existing names passed to missing-assets prompt")
     parser.add_argument(
         "--missing-name-caps",
         type=str,

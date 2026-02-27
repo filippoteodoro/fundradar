@@ -1,0 +1,327 @@
+You are auditing one private-markets fund page for Fundradar (Italy feed).
+Current date: 2026-02-27.
+
+Goal:
+- Fix incompleteness and inaccuracy for this fund.
+- Keep output short, factual, English-only, source-backed.
+- Prioritize Italy relevance and importance over recency.
+- Valuable historical signals are allowed if still material for page completeness.
+
+Fund context:
+- fund_name: TowerBrook
+- fund_slug: towerbrook
+- website: https://www.towerbrook.com
+- aum_eur_current: 8300000000
+- category: pe
+- hq_city_current: New York
+- description_current: Spun out of Soros Private Equity Partners in 2005, this firm is the first mainstream private equity house to achieve B Corp certification, specializing in complex buyouts and corporate carve-outs.
+
+Current QA blockers:
+[
+  "portfolio_enrichment_incomplete:110/111"
+]
+
+Current counts:
+- portfolio_count: 111
+- italian_portfolio_count: 4
+- filtered_signals_count: 0
+- enriched_signals_count: 0
+- asset_audit_present: True
+
+Existing portfolio names in dataset (do NOT re-suggest as missing unless clearly wrong/duplicate label):
+[
+  "Acacium Group",
+  "ACPS Automotive",
+  "Aernnova",
+  "AIM Aviation",
+  "Amylu Foods",
+  "ApplePie SPV",
+  "AQUAchiara",
+  "Archimica",
+  "AustroCel Hallein",
+  "Auto Europe",
+  "Autodistribution",
+  "Axil",
+  "Azzurri",
+  "Battea",
+  "BevMo!",
+  "Braas Monier",
+  "BRG",
+  "Bruneau",
+  "Cablecom GmbH",
+  "Capquest",
+  "CarTrawler",
+  "CAVU Investment Partners",
+  "CBTS",
+  "Coaction",
+  "Compassus",
+  "CSTV Networks, Inc",
+  "Demakes Enterprises",
+  "Dialogic",
+  "DISA",
+  "ECIT",
+  "EFESO",
+  "Eircom",
+  "EisnerAmper",
+  "Envevo",
+  "EPSA",
+  "Equals + Railsr",
+  "FloWorks",
+  "Fortiva",
+  "Fuze Health",
+  "GBA",
+  "GMC",
+  "Gravity Media",
+  "GSE",
+  "GSF",
+  "Hayfin",
+  "IDAK",
+  "Ignite Fitness",
+  "InfoPro Communications",
+  "Infopro Digital",
+  "InStar",
+  "IntraLinks",
+  "Ironshore",
+  "IZIPIZI",
+  "J. Jill",
+  "Jimmy Choo",
+  "JJA",
+  "JSM",
+  "Kaporal",
+  "KeHE",
+  "Kevins Natural Foods",
+  "La Maison Bleue",
+  "Ladder Capital Finance",
+  "Langan",
+  "LiftWerx",
+  "Metallo",
+  "Newtek-TSO II",
+  "Odlo",
+  "Orchid",
+  "OVHcloud",
+  "Pack2Pack",
+  "Phase Eight",
+  "PolymerLatex",
+  "Precede Capital",
+  "Premium Credit",
+  "PT Solutions",
+  "Rave Cinemas",
+  "Regent Surgical Health",
+  "Rewards Network",
+  "RLX Technologies",
+  "RYDGE",
+  "Sabena technics",
+  "Sateba Group",
+  "Solis",
+  "Sound Physicians",
+  "Spheris",
+  "Sports Capital Holdings LLC",
+  "Stonebridge",
+  "Studio Movie Grill",
+  "Swissport",
+  "Talan",
+  "The Broadlane Group",
+  "The Independents",
+  "The Learning Network",
+  "TRIMEDX",
+  "Trule Religion",
+  "TXO Systems",
+  "Unison Site Management",
+  "Uperio",
+  "US AcuteCare",
+  "Validity Finance",
+  "Van Geloven",
+  "Vistage",
+  "Volution",
+  "VytlOne",
+  "WellCare",
+  "Wilton",
+  "True Religion",
+  "Margherita Srl",
+  "MSA Mizar"
+]
+
+Existing likely-Italy portfolio entries:
+[
+  {
+    "name": "Archimica",
+    "status": "current",
+    "sector": "Chemicals",
+    "headquarters": "Lodi, Italy"
+  },
+  {
+    "name": "Azzurri",
+    "status": "current",
+    "sector": "Food & Beverage",
+    "headquarters": "London, United Kingdom"
+  },
+  {
+    "name": "Azzurri",
+    "status": "exited",
+    "sector": "Food & Beverage",
+    "headquarters": "London, United Kingdom"
+  },
+  {
+    "name": "Margherita Srl",
+    "status": "current",
+    "sector": "Consumer Products & Services",
+    "headquarters": "Fregona, Italy"
+  },
+  {
+    "name": "MSA Mizar",
+    "status": "current",
+    "sector": "Financial Services",
+    "headquarters": "Milan, Italy"
+  }
+]
+
+Recent raw observed signals sample (may include low-quality/non-Italy items):
+[
+  {
+    "date": "2026-02-24",
+    "signal_type": "deal_announced",
+    "title": "Azzurri Group added to TowerBrook portfolio",
+    "source_url": "https://www.towerbrook.com/investments/"
+  },
+  {
+    "date": "2026-02-21",
+    "signal_type": "deal_announced",
+    "title": "GMC added to TowerBrook portfolio",
+    "source_url": "https://www.towerbrook.com/investments/"
+  },
+  {
+    "date": "2026-02-12",
+    "signal_type": "deal_announced",
+    "title": "AA added to TowerBrook portfolio",
+    "source_url": "https://www.towerbrook.com/investments/"
+  },
+  {
+    "date": "2026-02-12",
+    "signal_type": "deal_announced",
+    "title": "Autodistribution Group added to TowerBrook portfolio",
+    "source_url": "https://www.towerbrook.com/investments/"
+  },
+  {
+    "date": "2026-02-12",
+    "signal_type": "deal_announced",
+    "title": "PennantPark-TSO Senior Loan Fund added to TowerBrook portfolio",
+    "source_url": "https://www.towerbrook.com/investments/"
+  },
+  {
+    "date": "2026-02-12",
+    "signal_type": "deal_announced",
+    "title": "R1 added to TowerBrook portfolio",
+    "source_url": "https://www.towerbrook.com/investments/"
+  },
+  {
+    "date": "2026-02-12",
+    "signal_type": "deal_announced",
+    "title": "Team EIFFEL added to TowerBrook portfolio",
+    "source_url": "https://www.towerbrook.com/investments/"
+  },
+  {
+    "date": "2026-02-09",
+    "signal_type": "deal_announced",
+    "title": "New investment: AA",
+    "source_url": "https://www.towerbrook.com/investments/"
+  },
+  {
+    "date": "2026-02-09",
+    "signal_type": "deal_announced",
+    "title": "New investment: R1",
+    "source_url": "https://www.towerbrook.com/investments/"
+  },
+  {
+    "date": "2026-02-09",
+    "signal_type": "deal_announced",
+    "title": "New investment: Team EIFFEL",
+    "source_url": "https://www.towerbrook.com/investments/"
+  },
+  {
+    "date": "2026-02-05",
+    "signal_type": "people_move",
+    "title": "New team members: Championing Talent (+4 more)",
+    "source_url": "https://www.towerbrook.com/our-team/"
+  },
+  {
+    "date": "2026-02-05",
+    "signal_type": "deal_announced",
+    "title": "TowerBrook Capital Partners: Acquisition - MSA Mizar through a strategic partnership with Columna Capital and Giovanni Campus",
+    "source_url": "https://www.towerbrook.com/towerbrook-acquires-a-majority-interest-in-msa-mizar-through-a-strategic-partnership-with-columna-capital-and-giovanni-campus/"
+  }
+]
+
+Task:
+1) Validate Italy presence (materially active in Italy or not).
+2) Identify wrong entries and missing Italy assets (current or exited).
+3) Propose metadata corrections (AUM, HQ city, website, description) only when confidence is high.
+4) Propose up to 5 high-value Italy-relevant signal candidates (recent or historical), ranked by importance.
+5) Mark historical but important events explicitly so they are not discarded only by age.
+
+Return ONLY strict JSON object with this schema:
+{
+  "fund_slug": "towerbrook",
+  "overall_status": "ok|needs_fixes|highly_incomplete",
+  "italy_presence_assessment": {
+    "materially_active_in_italy": "yes|no|uncertain",
+    "summary": "short",
+    "evidence": [
+      {"type": "office|portfolio|deal|team|other", "detail": "...", "year": "YYYY|unknown", "source_url": "https://..."}
+    ]
+  },
+  "metadata_corrections": {
+    "aum_eur": {"current": "number|null", "suggested": "number|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "hq_city": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "website": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]},
+    "description": {"current": "string|null", "suggested": "string|null", "reason": "...", "confidence": "high|medium|low", "evidence_urls": ["https://..."]}
+  },
+  "entry_issues": [
+    {
+      "entry_name": "string",
+      "issue_type": "wrong_entry|duplicate_entry|wrong_status|wrong_sector|wrong_headquarters|wrong_description|other",
+      "severity": "critical|high|medium|low",
+      "reason": "short",
+      "current_value": {"status": "...", "sector": "...", "headquarters": "...", "description": "..."},
+      "suggested_fix": {"status": "current|exited|partial|unknown|null", "sector": "string|null", "headquarters": "string|null", "description": "string|null"},
+      "confidence": "high|medium|low",
+      "evidence_urls": ["https://..."]
+    }
+  ],
+  "missing_assets": [
+    {
+      "name": "string",
+      "status": "current|exited|unknown",
+      "sector": "string|null",
+      "headquarters": "string|null",
+      "description": "string|null",
+      "reason": "why missing",
+      "confidence": "high|medium|low",
+      "evidence_urls": ["https://..."]
+    }
+  ],
+  "signal_candidates": [
+    {
+      "signal_type": "deal_announced|portfolio_update|people_move|exit_announced|fundraise_announced|fundraise_closed|debt_financing|partnership|other",
+      "title": "single sentence",
+      "what_changed": "1-2 sentences",
+      "published_date": "YYYY-MM-DD",
+      "source_name": "string",
+      "source_url": "https://...",
+      "italy_relevant_reason": "short",
+      "importance": "high|medium|low",
+      "is_historical_but_important": true,
+      "confidence": "high|medium|low"
+    }
+  ],
+  "priority_actions": [
+    {"priority": 1, "action": "short", "layer": "extractor|filter|enrichment|signal_to_portfolio|metadata|manual_backfill"}
+  ]
+}
+
+Hard constraints:
+- English only.
+- No boilerplate.
+- No invented facts.
+- Every non-trivial claim must include a credible source URL.
+- Keep text concise and directly actionable.
+- Amount formatting in generated text: EUR amounts as €X.XK / €X.XM / €X.XB / €X.XT.
