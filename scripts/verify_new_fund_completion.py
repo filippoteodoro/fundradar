@@ -18,6 +18,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from gemini_audit_completion import load_verified_zero_italy_slugs
 
 ROOT = Path(__file__).resolve().parents[1]
 DERIVED = ROOT / "data" / "derived"
@@ -27,12 +28,20 @@ PORTFOLIO_PATH = DERIVED / "portfolio_items.json"
 FILTERED_PATH = DERIVED / "detected_signals_filtered.json"
 ENRICHED_PATH = DERIVED / "detected_signals_enriched.json"
 ASSET_AUDIT_PATH = DERIVED / "gemini_fund_asset_audit.json"
+ZERO_ITALY_VERIFIED_PATH = DERIVED / "gemini_fund_asset_zero_italy_verified.json"
 REPORT_PATH = DERIVED / "new_fund_completion_report.json"
 
 
 def _load_json(path: Path) -> dict[str, Any]:
     with open(path, encoding="utf-8") as f:
         return json.load(f)
+
+
+def _resolve_repo_path(raw: str) -> Path:
+    path = Path(raw)
+    if path.is_absolute():
+        return path
+    return ROOT / path
 
 
 def _parse_slugs(raw: str | None) -> list[str]:
@@ -65,12 +74,62 @@ def _signal_ids(rows: list[dict[str, Any]], slug: str) -> set[str]:
     return {str(r.get("id")) for r in rows if r.get("fund_slug") == slug and r.get("id")}
 
 
+def _as_non_negative_int(value: Any) -> int:
+    if isinstance(value, bool):
+        return 0
+    if isinstance(value, int):
+        return max(value, 0)
+    if isinstance(value, float):
+        return max(int(value), 0)
+    if isinstance(value, str):
+        raw = value.strip()
+        if not raw:
+            return 0
+        try:
+            if "." in raw:
+                return max(int(float(raw)), 0)
+            return max(int(raw), 0)
+        except ValueError:
+            return 0
+    return 0
+
+
+def _top_aum_italy_assets_blocker(
+    *,
+    slug: str,
+    top_slugs: set[str],
+    audit_entry: dict[str, Any] | None,
+    verified_zero_italy_slugs: set[str],
+) -> str | None:
+    if slug not in top_slugs or not audit_entry:
+        return None
+    italian_portfolio_count = _as_non_negative_int(audit_entry.get("italian_portfolio_count"))
+    if italian_portfolio_count == 0 and slug not in verified_zero_italy_slugs:
+        return "top_aum_no_italy_assets_unverified"
+    return None
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Verify hard-gate completion for newly added funds")
     parser.add_argument("--slugs", type=str, default="", help="Comma-separated fund slugs; default auto-detect")
     parser.add_argument("--top-n", type=int, default=25, help="Top AUM set for minimum-signal completeness")
     parser.add_argument("--min-signals", type=int, default=2, help="Minimum filtered signals for top-AUM funds")
     parser.add_argument("--output", type=str, default=str(REPORT_PATH), help="JSON report output path")
+    parser.add_argument(
+        "--zero-italy-verified-path",
+        type=str,
+        default=str(ZERO_ITALY_VERIFIED_PATH.relative_to(ROOT)),
+        help="Verified whitelist for funds with no Italian assets",
+    )
+    parser.add_argument(
+        "--require-top-aum-italy-assets",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help=(
+            "For top-AUM funds, require italian_portfolio_count>0 in Gemini asset audit, "
+            "or a whitelist entry in --zero-italy-verified-path"
+        ),
+    )
     args = parser.parse_args()
 
     db = _load_json(DB_PATH)
@@ -78,6 +137,9 @@ def main() -> int:
     filtered_rows = _load_json(FILTERED_PATH).get("signals", [])
     enriched_rows = _load_json(ENRICHED_PATH).get("signals", [])
     asset_audit = _load_json(ASSET_AUDIT_PATH).get("funds", [])
+    verified_zero_italy_slugs = load_verified_zero_italy_slugs(
+        _resolve_repo_path(args.zero_italy_verified_path)
+    )
 
     funds: list[dict[str, Any]] = db.get("funds", [])
     funds_by_slug = {str(f.get("slug")): f for f in funds if f.get("slug")}
@@ -127,6 +189,7 @@ def main() -> int:
                 blockers.append(f"portfolio_enrichment_incomplete:{complete}/{len(companies)}")
 
         audit_entry = audit_by_slug.get(slug)
+        italian_portfolio_count = 0
         if not audit_entry:
             blockers.append("gemini_asset_audit_missing")
         else:
@@ -134,6 +197,17 @@ def main() -> int:
                 blockers.append(f"gemini_asset_audit_status:{audit_entry.get('status')}")
             if not bool(audit_entry.get("completion_ready")):
                 blockers.append("gemini_asset_audit_not_completion_ready")
+            italian_portfolio_count = _as_non_negative_int(audit_entry.get("italian_portfolio_count"))
+
+            if args.require_top_aum_italy_assets and slug in top_slugs:
+                italy_blocker = _top_aum_italy_assets_blocker(
+                    slug=slug,
+                    top_slugs=top_slugs,
+                    audit_entry=audit_entry,
+                    verified_zero_italy_slugs=verified_zero_italy_slugs,
+                )
+                if italy_blocker:
+                    blockers.append(italy_blocker)
 
         f_ids = _signal_ids(filtered_rows, slug)
         e_ids = _signal_ids(enriched_rows, slug)
@@ -163,6 +237,8 @@ def main() -> int:
                     "portfolio_complete_ratio": round(completion_ratio, 4),
                     "top_aum_target": slug in top_slugs,
                     "asset_audit_present": bool(audit_entry),
+                    "italian_portfolio_count": italian_portfolio_count,
+                    "zero_italy_verified": slug in verified_zero_italy_slugs,
                 },
             }
         )
@@ -177,11 +253,12 @@ def main() -> int:
             "passed": len(fund_reports) - len(failed),
             "top_n": args.top_n,
             "min_signals": args.min_signals,
+            "require_top_aum_italy_assets": args.require_top_aum_italy_assets,
         },
         "funds": fund_reports,
     }
 
-    out_path = Path(args.output)
+    out_path = _resolve_repo_path(args.output)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2, ensure_ascii=False)
         f.write("\n")

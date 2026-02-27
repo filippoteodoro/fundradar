@@ -154,6 +154,7 @@ NAV_PATTERNS = [
         r"^[a-z]+-$",
         r"_$",
         r"^portafoglio$",
+        r"^elenco\s+investiment[oi]$",
         r"^portale\s+",
         r"^scafalatura\s",
         r"^investimenti\b",

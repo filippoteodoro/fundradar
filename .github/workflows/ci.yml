@@ -7,6 +7,32 @@ on:
     branches: [main]
 
 jobs:
+  new-fund-quality-gate:
+    name: New Fund Completion Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run deterministic new-fund gate
+        run: |
+          BASE_REF=""
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE_REF="${{ github.event.pull_request.base.sha }}"
+          else
+            BASE_REF="${{ github.event.before }}"
+          fi
+
+          python3 scripts/check_new_fund_gate.py \
+            --base-ref "$BASE_REF" \
+            --head-ref "${{ github.sha }}"
+
   lint-and-test-ts:
     name: Lint & Test (TypeScript)
     runs-on: ubuntu-latest

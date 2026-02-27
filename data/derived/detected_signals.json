@@ -54637,7 +54637,46 @@
         "people": [],
         "locations": []
       }
+    },
+    {
+      "id": "web-signal-02015",
+      "fund_id": "",
+      "fund_slug": "azzurra-capital",
+      "signal_type": "people_move",
+      "title": "New team members: Anthony Los (+11 more)",
+      "what_changed": "New team members added: Anthony Los, Antonio Cantatore, Carlo Balbo, Carlo Marsaglia, Federica Mannucci (+7 more)",
+      "source_url": "https://www.azzurracapital.com/team/",
+      "source_name": "Website Monitor",
+      "published_at": null,
+      "observed_at": "2026-02-27T15:58:55.149033+00:00",
+      "created_at": "2026-02-27T15:58:55.149033+00:00",
+      "snapshot_id": "snap-20260227155848-13d429d6",
+      "diff_summary": "12 new team members detected",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Anthony Los",
+          "Antonio Cantatore",
+          "Carlo Balbo",
+          "Carlo Marsaglia",
+          "Federica Mannucci",
+          "Francesca Perfetti",
+          "GianErnesto Bernardi",
+          "Gianluca Cagnato",
+          "Jayesh Soneji",
+          "Jorge Delclaux",
+          "Lorenzo Mirone",
+          "Stefano Marsaglia"
+        ],
+        "locations": []
+      }
     }
   ],
-  "signal_count": 2014
+  "signal_count": 2015,
+  "translated_at": "2026-02-27T16:01:22.925997+00:00"
 }

@@ -98,7 +98,11 @@
     "oaktree-capital": "oaktree-capital-management",
     "stonepeak-capital": "stonepeak",
     "patrizia-ag": "patrizia",
-    "one-equity": "one-equity-partners"
+    "one-equity": "one-equity-partners",
+    "credem-private-equity-sgr": "credem-euromobiliare-private-asset-sgr",
+    "credem-private-equity": "credem-euromobiliare-private-asset-sgr",
+    "credem-euromobiliare-private-asset": "credem-euromobiliare-private-asset-sgr",
+    "credem-europrivateasset": "credem-euromobiliare-private-asset-sgr"
   },
   "reverse_lookup": {
     "21-invest": [
@@ -335,6 +339,12 @@
     ],
     "one-equity-partners": [
       "one-equity"
+    ],
+    "credem-euromobiliare-private-asset-sgr": [
+      "credem-private-equity-sgr",
+      "credem-private-equity",
+      "credem-euromobiliare-private-asset",
+      "credem-europrivateasset"
     ]
   },
   "invalid_slugs": [
@@ -354,8 +364,6 @@
     "investimento-sgr",
     "edg-alcedo-sgr",
     "partners-sgr",
-    "credem-private-equity-sgr",
-    "credem-private-equity",
     "investimento",
     "edg-alcedo",
     "partners"

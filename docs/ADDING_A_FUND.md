@@ -570,10 +570,12 @@ Expected: No import errors, correct domain, URLS paths, and extractor function n
 ### 5.2 — Run the monitor for this fund only
 
 ```bash
-pnpm worker:monitor --limit 1 --slugs {fund-slug}
+pnpm worker:monitor --slugs {fund-slug}
 ```
 
 This fetches the fund's website, runs your extractor, and writes output to `data/derived/portfolio_items.json`.
+
+> Do not combine `--limit` with `--slugs` for extractor URL checks. URL limiting is applied before slug filtering, which can exclude your target fund entirely.
 
 ### 5.3 — Check the output
 
@@ -776,7 +778,7 @@ python3 scripts/audit-fund-assets-gemini.py --slugs {fund-slug} --dry-run
 After the audit completes, review the output in `data/derived/gemini_fund_asset_audit.json`, then apply confirmed findings:
 
 ```bash
-python3 scripts/apply-gemini-missing-assets.py --slugs {fund-slug}
+pnpm pipeline:new-fund-quality --slugs {fund-slug} --apply-missing-assets
 ```
 
 This:
@@ -1102,6 +1104,59 @@ Fundradar auto-deploys from `main` on Vercel:
 
 This is a **mandatory** verification step. Do NOT consider the fund "done" until all checks pass.
 
+### 18.0 — Mandatory One-Command Workflow
+
+Run this command for every added/changed fund before commit:
+
+```bash
+pnpm pipeline:new-fund-quality --slugs {fund-slug}
+```
+
+Recommended for full remediation (includes missing-asset apply):
+
+```bash
+pnpm pipeline:new-fund-quality --slugs {fund-slug} --apply-missing-assets
+```
+
+Batch remediation for all newly-added/outlier funds:
+
+```bash
+pnpm pipeline:new-fund-quality --auto-detect-new --apply-missing-assets
+```
+
+### 18.0.1 — Network Preflight (avoid sandbox DNS failures)
+
+This workflow is network-heavy (fund websites + Gemini API). If DNS/network is restricted, quality checks will fail for the wrong reason.
+
+Quick preflight:
+
+```bash
+python3 - <<'PY'
+import socket
+for host in ['generativelanguage.googleapis.com', 'www.blackstone.com', 'bebeez.it']:
+    try:
+        socket.getaddrinfo(host, 443)
+        print('OK ', host)
+    except Exception as e:
+        print('FAIL', host, '-', e)
+PY
+```
+
+If any host fails, run outside DNS-restricted sandbox mode.  
+`pipeline:new-fund-quality` now performs this preflight automatically and fails fast with a clear error.
+
+What this does:
+- runs pipeline (+ force extract by default)
+- runs Gemini portfolio enrichment
+- runs Gemini metadata enrichment
+- runs Gemini fund-asset audit
+- runs signal-to-portfolio sync
+- runs completion verifier
+- applies top-AUM historical backfill and re-verifies
+- writes summary JSON to `data/derived/new_fund_quality_pipeline_summary.json`
+
+Use the manual sub-steps below only for debugging/recovery.
+
 ### 18.1 — Automated data check
 
 Run this verification script for every new fund before committing:
@@ -1224,7 +1279,7 @@ Hard-gate verifier (recommended, replaces the ad-hoc inline check above):
 pnpm verify:new-fund-completion
 
 # Or verify specific slugs
-pnpm verify:new-fund-completion -- --slugs patrizia,oaktree-capital-management,silver-lake
+pnpm verify:new-fund-completion --slugs patrizia,oaktree-capital-management,silver-lake
 ```
 
 This command fails (`exit 1`) if any fund is incomplete on mandatory gates:
@@ -1233,6 +1288,17 @@ This command fails (`exit 1`) if any fund is incomplete on mandatory gates:
 - missing or non-complete Gemini asset audit result
 - filtered/enriched signal parity mismatch
 - top-AUM fund below minimum signal completeness threshold
+- top-AUM fund with `italian_portfolio_count=0` without verified-zero whitelist
+
+CI hard gate (deterministic, no network) now enforces this on PRs:
+
+```bash
+pnpm verify:new-fund-gate --base-ref <base_sha> --head-ref <head_sha>
+```
+
+The gate requires updated tracked artifacts in the same diff:
+- `data/derived/new_fund_completion_report.json`
+- `data/derived/gemini_fund_asset_audit.json`
 
 Run the deterministic internal QA agent right after the check above:
 
@@ -1310,7 +1376,7 @@ python3 scripts/audit-fund-assets-gemini.py --slugs {fund-slug}
 
 Then apply findings:
 ```bash
-python3 scripts/apply-gemini-missing-assets.py --slugs {fund-slug}
+pnpm pipeline:new-fund-quality --slugs {fund-slug} --apply-missing-assets
 ```
 
 ### 18.5 — Verification loop (MANDATORY for ALL additions)
@@ -1710,9 +1776,14 @@ Add manual signals to **both** `data/derived/detected_signals_filtered.json` and
 |---|---|
 | Look up fund slug | `python3 -c "import json; [print(f['slug'], f['name']) for f in json.load(open('data/db.json'))['funds'] if 'TERM' in f.get('name','').lower()]"` |
 | Test extractor loads | `cd apps/worker && python -c "from fundradar_worker.strategies.extractors.{slug} import *; print(EXTRACTORS)"` |
-| Monitor single fund | `pnpm worker:monitor --limit 1 --slugs {slug}` |
+| Monitor single fund | `pnpm worker:monitor --slugs {slug}` |
 | Full pipeline for fund | `pnpm pipeline --slugs {slug}` |
 | Force re-extraction | `pnpm pipeline --slugs {slug} --force-extract` |
+| Full mandatory new-fund workflow | `pnpm pipeline:new-fund-quality --slugs {slug}` |
+| Full workflow + scoped missing-asset apply | `pnpm pipeline:new-fund-quality --slugs {slug} --apply-missing-assets` |
+| Batch workflow for all new/outlier funds | `pnpm pipeline:new-fund-quality --auto-detect-new --apply-missing-assets` |
+| Network preflight (DNS) | Use the snippet in §18.0.1 |
+| Deterministic PR hard gate | `pnpm verify:new-fund-gate --base-ref <base_sha> --head-ref <head_sha>` |
 | Filter + enrich only | `pnpm pipeline:signals` |
 | Check portfolio output | `python3 -c "import json; d=json.load(open('data/derived/portfolio_items.json')); print(len(d.get('fund_portfolios',{}).get('{slug}',[])))"` |
 | Check filtered/enriched parity for slug | `python3 -c "import json; slug='{slug}'; f=[s for s in json.load(open('data/derived/detected_signals_filtered.json')).get('signals',[]) if s.get('fund_slug')==slug]; e=[s for s in json.load(open('data/derived/detected_signals_enriched.json')).get('signals',[]) if s.get('fund_slug')==slug]; fi={s.get('id') for s in f}; ei={s.get('id') for s in e}; print('filtered',len(f),'enriched',len(e),'missing_in_enriched',len(fi-ei),'stale_in_enriched',len(ei-fi))"` |

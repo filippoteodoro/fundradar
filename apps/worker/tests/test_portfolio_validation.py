@@ -30,6 +30,11 @@ def test_rejects_generic_single_word_labels():
     assert not is_valid_portfolio_entry("Podcast", slug)
 
 
+def test_rejects_generic_italian_portfolio_heading():
+    slug = "credem-euromobiliare-private-asset-sgr"
+    assert not is_valid_portfolio_entry("Elenco investimenti", slug)
+
+
 def test_keeps_real_company_names():
     slug = "stonepeak"
     assert is_valid_portfolio_entry("ReliaQuest", slug)
