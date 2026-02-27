@@ -113,6 +113,21 @@ FUND_LAUNCH_CLASSIFY_PATTERNS = None
 PEOPLE_CLASSIFY_PATTERNS = None
 
 
+# Explicit departure/transition verbs that indicate a personnel change event.
+_RE_PEOPLE_DEPARTURE_TRANSITION = re.compile(
+    r"\b(?:steps?\s+down|stepping\s+down|leaves?|left|resign\w*|depart\w*"
+    r"|dimission\w*|lascia|lasciat\w+|abbandona|succession\w*|succeed\w*|replac\w+)\b",
+    re.IGNORECASE,
+)
+
+# Senior-role hints to avoid rescuing generic non-people text with "leave/depart".
+_RE_SENIOR_ROLE_HINT = re.compile(
+    r"\b(?:ceo|cfo|coo|cio|cto|chief\s+\w+\s+officer|managing\s+director|director"
+    r"|head\s+of|partner|president|chair(?:man|woman)?)\b",
+    re.IGNORECASE,
+)
+
+
 def _matches_deal(text_lower: str) -> bool:
     """Check if text has deal/acquisition language."""
     return bool(
@@ -788,12 +803,11 @@ def correct_people_move(text_lower: str, title_lower: str, page_category: str = 
     _has_transition_verb = bool(
         _RE_APPOINTMENT_VERBS.search(text_lower)
         or re.search(
-            r"\b(?:named?\s+as|hired?|promot\w+|new\s+(?:hire|appointment)"
-            r"|steps?\s+down|stepping\s+down|leaves?|left|resign\w*|depart\w*"
-            r"|dimission\w*|lascia|lasciat\w+|abbandona)\b",
+            r"\b(?:named?\s+as|hired?|promot\w+|new\s+(?:hire|appointment))\b",
             text_lower,
             re.IGNORECASE,
         )
+        or _RE_PEOPLE_DEPARTURE_TRANSITION.search(text_lower)
     )
     title_norm = re.sub(r"([a-zà-öø-ÿ])([A-Z])", r"\1 \2", title_lower or "")
 
@@ -821,6 +835,10 @@ def correct_people_move(text_lower: str, title_lower: str, page_category: str = 
 
     # Team strengthening with no deal → keep people_move
     if _RE_TEAM_STRENGTHENING.search(text_lower) and not _matches_deal(text_lower):
+        return "people_move"
+
+    # Explicit senior departure is always a people move even if report language is present.
+    if _RE_PEOPLE_DEPARTURE_TRANSITION.search(text_lower) and _RE_SENIOR_ROLE_HINT.search(text_lower):
         return "people_move"
 
     # Report patterns → report
@@ -1032,12 +1050,11 @@ def apply_type_corrections(
         has_people_transition = bool(
             _RE_APPOINTMENT_VERBS.search(text_lower)
             or re.search(
-                r"\b(?:named?\s+as|hired?|promot\w+|new\s+(?:hire|appointment)"
-                r"|steps?\s+down|stepping\s+down|leaves?|left|resign\w*|depart\w*"
-                r"|dimission\w*|lascia|lasciat\w+|abbandona)\b",
+                r"\b(?:named?\s+as|hired?|promot\w+|new\s+(?:hire|appointment))\b",
                 text_lower,
                 re.IGNORECASE,
             )
+            or _RE_PEOPLE_DEPARTURE_TRANSITION.search(text_lower)
         )
         is_team_profile_noise = bool(
             page_category == "TEAM" and _RE_TEAM_PROFILE_NOISE.search(title_norm)
@@ -1054,6 +1071,16 @@ def apply_type_corrections(
         )
         if (is_team_profile_noise or is_role_opening_noise or is_team_static_desc) and not has_people_transition:
             return "other"
+
+        has_senior_departure = bool(
+            _RE_PEOPLE_DEPARTURE_TRANSITION.search(text_lower)
+            and (
+                _RE_SENIOR_ROLE_HINT.search(text_lower)
+                or _RE_SENIOR_ROLE_HINT.search(title_norm)
+            )
+        )
+        if has_senior_departure:
+            return "people_move"
 
         # "names/appoints/appointed/hired ... [role]" → people_move rescue for over-demoted signals.
         # Broader than _RE_PEOPLE_LANGUAGE (loose .* gap) — intentional: this rescues signals

@@ -560,6 +560,22 @@ class TestApplyTypeCorrections:
         )
         assert result == "people_move"
 
+    def test_other_departure_with_senior_role_rescued_to_people_move(self):
+        result = apply_type_corrections(
+            "other",
+            "fiber cop reports €449m ebitda shortfall, ceo luigi ferraris resigns after 7 months",
+            "fiber cop ceo resigns",
+        )
+        assert result == "people_move"
+
+    def test_other_generic_leave_without_role_stays_other(self):
+        result = apply_type_corrections(
+            "other",
+            "the company leaves the market after weak quarterly results",
+            "company leaves market",
+        )
+        assert result == "other"
+
     def test_other_team_profile_stays_other(self):
         result = apply_type_corrections(
             "other",

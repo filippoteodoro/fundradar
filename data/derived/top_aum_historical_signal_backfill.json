@@ -23,6 +23,28 @@
       "quality_score": 88
     },
     {
+      "fund_slug": "patrizia",
+      "signal_type": "deal_announced",
+      "published_date": "2025-03-31",
+      "title": "PATRIZIA expands Italian logistics platform with Tuscany acquisition",
+      "what_changed": "PATRIZIA acquired two Grade A logistics assets in Tuscany, Italy, for about €30M, strengthening its Italian logistics footprint.",
+      "source_name": "PATRIZIA",
+      "source_url": "https://www.patrizia.ag/en/news-detail/patrizia-strengthens-logistics-footprint-in-italy-with-acquisition-of-premium-assets-in-tuscany",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 90
+    },
+    {
+      "fund_slug": "patrizia",
+      "signal_type": "deal_announced",
+      "published_date": "2024-06-25",
+      "title": "PATRIZIA closes ~€70M investment in Italy’s logistics ‘golden triangle’",
+      "what_changed": "PATRIZIA invested around €70M in industrial assets between Verona and Bologna in Italy, expanding its domestic logistics platform.",
+      "source_name": "PATRIZIA",
+      "source_url": "https://www.patrizia.ag/en/news-detail/patrizia-continues-expansion-of-pan-european-logistics-platform-with-major-investment-in-italys-golden-triangle-sub-market/",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 89
+    },
+    {
       "fund_slug": "oaktree-capital-management",
       "signal_type": "deal_announced",
       "published_date": "2024-05-22",
