@@ -395,6 +395,138 @@
       "source_url": "https://www.ta.com/portfolio/investments/diatech-pharmacogenetics/",
       "relevance_basis": "explicit_italy_text",
       "quality_score": 88
+    },
+    {
+      "fund_slug": "icg",
+      "signal_type": "deal_announced",
+      "published_date": "2025-01-15",
+      "title": "ICG Real Estate acquires €222m Coop retail grocery portfolio in Italy",
+      "what_changed": "ICG Real Estate completed a sale-and-leaseback acquisition of 22 Coop supermarkets and hypermarkets in Italy, adding mission-critical grocery assets in Emilia Romagna.",
+      "source_name": "ICG",
+      "source_url": "https://www.icgam.com/2025/01/15/icg-real-estate-acquires-e222m-coop-italian-retail-grocery-portfolio/",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 90
+    },
+    {
+      "fund_slug": "hellman-friedman",
+      "signal_type": "deal_announced",
+      "published_date": "2015-12-07",
+      "title": "Hellman & Friedman acquires controlling interest in TeamSystem in Italy",
+      "what_changed": "Hellman & Friedman acquired a controlling stake in TeamSystem, a leading Italian business software platform, starting a long-term Italy technology buyout position.",
+      "source_name": "Hellman & Friedman",
+      "source_url": "https://hf.com/hellman-friedman-acquires-controlling-interest-in-teamsystem-holding-spa-from-hgcapital-bain-capital-icg-and-management/",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 90
+    },
+    {
+      "fund_slug": "lone-star-funds",
+      "signal_type": "deal_announced",
+      "published_date": "2025-02-24",
+      "title": "Lone Star signs agreement to acquire RadiciGroup specialty chemicals businesses in Italy",
+      "what_changed": "Lone Star announced an agreement to acquire RadiciGroup's Specialty Chemicals and High Performance Polymers businesses, anchored in Bergamo, Italy.",
+      "source_name": "Lone Star Funds",
+      "source_url": "https://www.lonestarfunds.com/lone-star-funds-announces-agreement-to-acquire-the-specialty-chemicals-and-high-performance-polymers-business-areas-of-radicigroup/",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 90
+    },
+    {
+      "fund_slug": "stonepeak",
+      "signal_type": "deal_announced",
+      "published_date": "2024-12-16",
+      "title": "Stonepeak agrees to acquire Italy-headquartered Forgital Group from Carlyle",
+      "what_changed": "Stonepeak signed a definitive agreement to acquire Forgital Group, a manufacturer headquartered in Italy, expanding its industrial infrastructure exposure.",
+      "source_name": "Stonepeak",
+      "source_url": "https://stonepeak.com/news/stonepeak-to-acquire-forgital-group-from-carlyle",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 90
+    },
+    {
+      "fund_slug": "investcorp",
+      "signal_type": "deal_announced",
+      "published_date": "2016-06-21",
+      "title": "Investcorp acquires majority stake in Italian luxury menswear brand Corneliani",
+      "what_changed": "Investcorp acquired a majority stake in Corneliani, an Italian luxury menswear company, at approximately $100m enterprise value.",
+      "source_name": "Investcorp",
+      "source_url": "https://www.investcorp.com/investcorp-acquires-majority-stake-in-italian-luxury-brand-corneliani/",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 90
+    },
+    {
+      "fund_slug": "platinum-equity",
+      "signal_type": "deal_announced",
+      "published_date": "2024-12-13",
+      "title": "Platinum Equity completes acquisition of Polli, an Italian food producer",
+      "what_changed": "Platinum Equity completed the majority acquisition of F.lli Polli, an Italian producer of pasta condiments and vegetable preserves with operations in Italy.",
+      "source_name": "Platinum Equity",
+      "source_url": "https://www.platinumequity.com/news/platinum-equity-completes-acquisition-of-polli-italian-producer-of-pasta-condiments-and-vegetable-preserves/",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 90
+    },
+    {
+      "fund_slug": "l-catterton",
+      "signal_type": "deal_announced",
+      "published_date": "2024-04-26",
+      "title": "L Catterton acquires majority stake in Italian beauty brand KIKO Milano",
+      "what_changed": "L Catterton entered a definitive agreement to acquire a majority stake in KIKO Milano, an Italian beauty company founded in Bergamo.",
+      "source_name": "PR Newswire",
+      "source_url": "https://www.prnewswire.com/news-releases/l-catterton-acquires-majority-stake-in-kiko-milano-from-percassi-family-302128682.html",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 89
+    },
+    {
+      "fund_slug": "pai-partners",
+      "signal_type": "deal_announced",
+      "published_date": "2024-03-18",
+      "title": "PAI Partners agrees to acquire majority stake in Beautynova in Italy",
+      "what_changed": "PAI Partners agreed to acquire a controlling stake in Beautynova, an Italy-headquartered professional haircare platform.",
+      "source_name": "PAI Partners",
+      "source_url": "https://www.paipartners.com/mediaitem/pai-partners-to-acquire-majority-stake-in-beautynova/",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 90
+    },
+    {
+      "fund_slug": "triton",
+      "signal_type": "exit_announced",
+      "published_date": "2024-12-11",
+      "title": "Triton completes sale of Bormioli Pharma, an Italy-rooted packaging group",
+      "what_changed": "Triton completed the sale of Bormioli Pharma, following its ownership of the Italian pharma packaging business carved out from Bormioli Rocco.",
+      "source_name": "Triton",
+      "source_url": "https://www.triton-partners.com/media/news/triton-completes-sale-of-blitz-luxco-sarl-the-holding-company-of-the-bormioli-pharma-group/",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 90
+    },
+    {
+      "fund_slug": "varde-partners",
+      "signal_type": "deal_announced",
+      "published_date": "2017-04-18",
+      "title": "Värde Partners acquires 33% stake in Italian servicer Guber",
+      "what_changed": "Värde Partners acquired a 33% stake in Guber, an Italian non-performing loan servicer based in Brescia, expanding its Italy credit platform.",
+      "source_name": "Värde Partners",
+      "source_url": "https://varde.com/varde-partners-acquires-stake-in-guber-sees-significant-opportunity-in-management-of-italys-non-performing-loans/",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 90
+    },
+    {
+      "fund_slug": "tdr-capital",
+      "signal_type": "deal_announced",
+      "published_date": "2024-10-22",
+      "title": "TDR Capital completes majority acquisition of Acqua & Sapone in Italy",
+      "what_changed": "TDR Capital completed acquisition of a majority stake in Acqua & Sapone, Italy's leading non-food discount retailer.",
+      "source_name": "TDR Capital",
+      "source_url": "https://www.tdrcapital.com/tdr-capital-v-acquires-acqua-sapone/",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 90
+    },
+    {
+      "fund_slug": "entrust-global",
+      "signal_type": "deal_announced",
+      "published_date": "2021-10-21",
+      "title": "EnTrust Global completes acquisition of Maas Capital, adding Italian shipping exposure",
+      "what_changed": "EnTrust Global's Blue Ocean strategy completed the acquisition of Maas Capital from ABN AMRO, adding a maritime portfolio that includes partnerships with Italian shipping groups.",
+      "source_name": "Business Wire",
+      "source_url": "https://www.businesswire.com/news/home/20211021005268/en/EnTrust-Global-Completes-Acquisition-of-Maas-Capital-From-ABN-AMRO",
+      "relevance_basis": "explicit_italy_text",
+      "quality_score": 90
     }
   ]
 }
