@@ -223,6 +223,30 @@ class TestCleanDisplayText:
         )
         assert "CIO Giampaolo Di Dio leaves" in result
 
+    def test_capitalizes_surname_before_appointment_verb(self):
+        """Reverse person-name pattern: 'Claudia pingue appointed' → 'Claudia Pingue appointed'."""
+        result = clean_display_text(
+            "Fund SGR - subfund: Claudia pingue appointed Head of Technology Transfer",
+            is_title=True,
+        )
+        assert "Claudia Pingue appointed" in result
+
+    def test_lowercases_of_between_capitals(self):
+        """'Head Of Fund' → 'Head of Fund' (title-case over-capitalization)."""
+        result = clean_display_text(
+            "Fund SGR: Manager appointed Head Of Technology Transfer",
+            is_title=True,
+        )
+        assert "Head of Technology" in result
+
+    def test_lowercases_and_between_role_parts(self):
+        """'CEO And General Manager' → 'CEO and General Manager'."""
+        result = clean_display_text(
+            "Fund SGR: Emanuele levi appointed CEO And General Manager",
+            is_title=True,
+        )
+        assert " and General Manager" in result or " and General" in result
+
     def test_normalizes_bebeez_and_teamsystem_branding(self):
         result = clean_display_text(
             "Be Beez: Teamsystem Capital@Work launches FPAM 1 fund",

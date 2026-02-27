@@ -1059,3 +1059,50 @@ class TestPeopleMoveDeparture:
             "market commentary",
         )
         assert result == "other"
+
+
+class TestFundLaunchVsDeal:
+    """Fund launch signals must not be misclassified as deal_announced.
+
+    Before fix (Feb 2026 audit): 'TeamSystem Capital@Work launches FPAM 1 fund
+    to invest in invoices' was classified deal_announced because 'invest in'
+    triggered the acquisition verb check. The fund launch verb + vehicle pattern
+    now takes priority in correct_deal().
+    """
+
+    def test_launches_fund_is_fund_launch_not_deal(self):
+        """'launches X fund to invest in Y' = fund_launch, not deal_announced."""
+        result = apply_type_corrections(
+            "deal_announced",
+            "teamsystem capital@work launches fpam 1 fund to invest in invoices owed by the public administration",
+            "teamsystem capital@work launches fpam 1 fund",
+        )
+        assert result == "fund_launch"
+
+    def test_lancia_fondo_is_fund_launch(self):
+        """Italian 'lancia fondo' from deal_announced → fund_launch."""
+        result = apply_type_corrections(
+            "deal_announced",
+            "il gestore lancia un nuovo fondo per investimenti in pmi italiane",
+            "lancia nuovo fondo",
+        )
+        assert result == "fund_launch"
+
+    def test_invests_in_company_stays_deal(self):
+        """'fund invests in company' without launch verb → stays deal_announced."""
+        result = apply_type_corrections(
+            "deal_announced",
+            "arca space capital invests in unifarco spa a leading pharmaceutical company",
+            "arca space capital invests in unifarco",
+        )
+        assert result == "deal_announced"
+
+    def test_closing_of_fund_stays_fundraise(self):
+        """'closing of fund' pattern → fundraise_closed (not fund_launch)."""
+        result = apply_type_corrections(
+            "deal_announced",
+            "announces the closing of fund iii at €800m exceeding the target",
+            "closing of fund iii",
+        )
+        # Closes-fund pattern → fundraise_closed (not affected by new fund_launch rule)
+        assert result == "fundraise_closed"

@@ -1452,6 +1452,19 @@ def _cdt_normalize_casing(text: str, is_title: bool) -> str:
         flags=re.IGNORECASE,
     )
 
+    # Capitalize person surname when it directly PRECEDES an appointment verb.
+    # Forward pattern above catches "appointed claudia pingue"; this reverse pattern
+    # catches "Claudia pingue appointed" where the name comes first.
+    # Requires a capitalized first name so we don't false-positive on fund/company names.
+    cleaned = re.sub(
+        r"\b([A-Z][a-z\u00C0-\u00D6\u00D8-\u00DE]{2,18})\s+"
+        r"([a-z\u00E0-\u00F6\u00F8-\u00FF][a-z\u00E0-\u00F6\u00F8-\u00FF\-'']{2,20})\s+"
+        r"(?=(?:appointed|appoints|names|named|elects|elected|hires|hired|nominat[oa]"
+        r"|joins?|joined|promoted|leaves?|resign\w*|steps?\s+down)\b)",
+        lambda m: m.group(1) + " " + m.group(2).capitalize() + " ",
+        cleaned,
+    )
+
     # Capitalize surname at start of text when followed immediately by a job-title word.
     # Pattern: "FirstName lastname managing director..." → "FirstName Lastname managing director..."
     # Safe guard: requires a known job-title word in the 3rd position.
@@ -1521,6 +1534,20 @@ def _cdt_normalize_casing(text: str, is_title: bool) -> str:
         cleaned,
         flags=re.IGNORECASE,
     )
+
+    # Lowercase articles/prepositions that were over-capitalized by title-case passes.
+    # "Head Of Fund" → "Head of Fund", "CEO And General Manager" → "CEO and General Manager"
+    # Only fires when the small word sits between two title-cased words, so it's safe
+    # to apply even when sentence-case conversion was skipped (mixed-language titles).
+    cleaned = re.sub(
+        r"(?<=[A-Za-z])\s+(Of|And|Or|In|At|To|By|From|With|The)\s+(?=[A-Z])",
+        lambda m: " " + m.group(1).lower() + " ",
+        cleaned,
+    )
+
+    # Capitalize compound role words that sentence-case partially lowercased.
+    # "General manager" → "General Manager" (common for AI-generated titles)
+    cleaned = re.sub(r"\bGeneral\s+manager\b", "General Manager", cleaned)
 
     return cleaned
 

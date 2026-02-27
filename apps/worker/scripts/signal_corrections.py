@@ -572,6 +572,16 @@ def correct_deal(text_lower: str, title_lower: str, diff_summary_lower: str = ""
     if _RE_CHIUDE_RACCOLTA.search(text_lower):
         return "fundraise_closed"
 
+    # Fund launch verbs + fund vehicle → fund_launch
+    # "TeamSystem Capital@Work launches FPAM 1 fund to invest in invoices" is a fund
+    # launch, not a deal — the "invest in" describes the fund's mandate, not a transaction.
+    if re.search(
+        r"\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?|avvia|al\s+via)\b.{0,80}\b(?:fondo|fund|comparto|veicolo|vehicle)\b",
+        text_lower,
+        re.IGNORECASE,
+    ):
+        return "fund_launch"
+
     return "deal_announced"
 
 

@@ -281,6 +281,14 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 
 `apply_type_corrections()` `other` rescue — in addition to the existing "names/appoints X as role" rescue, a **standalone professional title** rescue fires when the title contains managing director / head of / chief * officer / etc. with no PE fund/investment language. Catches "Michele Romualdi managing director, Head of Investor Relations" type signals.
 
+`correct_deal()` fund_launch rescue (Feb 2026) — when a `deal_announced` signal contains explicit fund-launch verbs (`launches/lancia/nasce/avvia`) followed by a fund vehicle word (`fund/fondo/comparto/vehicle`) within 80 chars, it is reclassified to `fund_launch`. This prevents "TeamSystem Capital@Work launches FPAM 1 fund to invest in invoices" from being tagged as a deal (the "invests in" describes the fund's mandate, not an investment transaction). Runs AFTER the fundraise-closing checks so `fundraise_closed` signals are correctly handled first.
+
+`_cdt_normalize_casing()` person-name casing (Feb 2026) — two patterns for person names in appointment context:
+1. **Forward** (line ~1447): `(appointed|...) [lowercase name]` → capitalizes the name after the verb.
+2. **Reverse** (line ~1455): `[Capital first] [lowercase surname] (appointed|...)` → capitalizes the surname before the verb. Needed when the name precedes the verb (e.g. "Claudia pingue appointed").
+
+`_cdt_normalize_casing()` small-word lowercasing (Feb 2026) — after all role-word capitalization rules, a regex lowercases articles/prepositions (`Of`, `And`, `Or`, `In`, `At`, `To`, `By`, `From`, `With`, `The`) when they sit between two title-cased words. Fixes "Head Of Fund" → "Head of Fund", "CEO And General Manager" → "CEO and General Manager". Safe to apply even when `_is_title_cased()` returns False (mixed-language titles from AI enrichment that bypass sentence-case conversion).
+
 `_passes_strict_quality_gates()` in `filter_signals.py` — **noise gates run BEFORE the `italy_focused` early return**. This order is intentional: bare portfolio extraction signals (just a company name, no context) must be caught even for italy-focused funds that otherwise get a pass on geo checks.
 
 `italy_relevant=True` reliability: the flag is trustworthy only when `relevance_score > 0` OR `relevance_reasons` is non-empty. A signal with `italy_relevant=True`, `relevance_score=0`, and no `relevance_reasons` means the flag was set as an upstream default — treat as unreliable. Non-italy-focused funds in this state fall through to text-based geo checks.
