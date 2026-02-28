@@ -956,6 +956,25 @@ class TestFeb2026AuditRegressions:
         # No fund name in parentheses → can't classify as portfolio_update, stays deal
         assert result == "deal_announced"
 
+    def test_portfolio_capex_geography_paren_stays_deal(self):
+        """Geography qualifier in parentheses AFTER the capex keywords → stays deal_announced.
+        '(Italy)' comes after 'facility', so it's a location tag, not fund attribution."""
+        result = apply_type_corrections(
+            "deal_announced",
+            "italcer invests 50 million euros in new manufacturing facility (italy)",
+            "italcer invests in manufacturing facility (italy)",
+        )
+        assert result == "deal_announced"
+
+    def test_portfolio_capex_series_b_paren_stays_deal(self):
+        """'(Series B)' parenthetical → stays deal_announced (financing round, not fund owner)."""
+        result = apply_type_corrections(
+            "deal_announced",
+            "company invests in new data center (series b)",
+            "company invests in data center (series b)",
+        )
+        assert result == "deal_announced"
+
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 9. SEMANTIC BOUNDARY TESTS — the exact decision lines

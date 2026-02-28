@@ -612,8 +612,21 @@ def correct_deal(text_lower: str, title_lower: str, diff_summary_lower: str = ""
             text_lower,
         )
     )
-    if _is_capex and re.search(r"\(\s*[a-zA-Z][a-zA-Z\s&,]{2,30}\s*\)", text_lower):
-        return "portfolio_update"
+    # Fund attribution parenthetical must come BEFORE the capex keyword in the text.
+    # Pattern: "[Company] (FundName) invests in [plant]" — fund name precedes the action.
+    # Contrast: "Italcer invests in manufacturing facility (Italy)" — geography comes after.
+    # This position-aware check prevents false positives like "(Italy)", "(Series B)".
+    if _is_capex:
+        _paren_m = re.search(r"\(\s*[a-zA-Z][a-zA-Z\s&,]{1,29}\s*\)", text_lower)
+        if _paren_m:
+            # Verify capex keywords appear AFTER the closing paren (= attribution, not location)
+            _after_paren = text_lower[_paren_m.end():]
+            if re.search(
+                r"\b(?:invest\w*|plant|facility|facilities|production|impianto|stabilimento|"
+                r"infrastruttur\w+|site|manufacturing|centre|center|capacity|expansion|hub)\b",
+                _after_paren,
+            ):
+                return "portfolio_update"
 
     return "deal_announced"
 
@@ -1149,9 +1162,18 @@ def apply_type_corrections(
             )
         )
         if _is_capex_invest:
-            # Only reclassify when there's a parenthetical fund reference = existing portfolio company
-            if re.search(r"\(\s*[a-zA-Z][a-zA-Z\s&,]{2,30}\s*\)", text_lower):
-                return "portfolio_update"
+            # Fund attribution parenthetical must come BEFORE the capex keyword (not after).
+            # "[Company] (Fund) invests in plant" → portfolio_update.
+            # "invests in facility (Italy)" → stays other (geography comes after action).
+            _paren_m2 = re.search(r"\(\s*[a-zA-Z][a-zA-Z\s&,]{1,29}\s*\)", text_lower)
+            if _paren_m2:
+                _after2 = text_lower[_paren_m2.end():]
+                if re.search(
+                    r"\b(?:invest\w*|plant|facility|facilities|production|impianto|stabilimento|"
+                    r"infrastruttur\w+|site|manufacturing|centre|center|capacity|expansion|hub)\b",
+                    _after2,
+                ):
+                    return "portfolio_update"
 
         # Investment/acquisition language over-demoted to other → deal_announced.
         # Guard against editorial/interview pieces that mention investing abstractly.

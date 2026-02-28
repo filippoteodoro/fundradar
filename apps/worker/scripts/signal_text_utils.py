@@ -331,8 +331,10 @@ def fix_spacing(text: str) -> str:
     cleaned = re.sub(r"\bTommas\s+in\s+Utensili\b", "Tommasin Utensili", cleaned)
     cleaned = re.sub(r"\bSaa\s+S\s*solutions\b", "SaaS solutions", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"\bAcceler\s+ORA\b", "AccelerORA", cleaned)
-    # OCR verb corruption: "integers BIA" → "enters BIA" (scraping artifact)
-    cleaned = re.sub(r"\bintegers\s+([A-Z])", r"enters \1", cleaned)
+    # OCR verb corruption: "integers BIA" → "enters BIA" (scraping artifact from specific fund site)
+    # Scoped to known Italian company/market abbreviations to avoid corrupting tech signals
+    # that legitimately use the word "integers" (data types, programming context).
+    cleaned = re.sub(r"\bintegers\s+(BIA|BV|SPA|SRL|NV|AG|SA)\b", r"enters \1", cleaned)
     cleaned = re.sub(r"\bTeamsystem\b", "TeamSystem", cleaned, flags=re.IGNORECASE)
     # Italian word splits from OCR/PDF
     cleaned = re.sub(r"\b([Tt]rasferimen)\s+(to)\b", r"\1\2", cleaned)

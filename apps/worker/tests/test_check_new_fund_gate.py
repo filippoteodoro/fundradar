@@ -35,3 +35,12 @@ def test_is_trigger_change_detects_extractor_paths():
     mod = _load_gate_module()
     assert mod._is_trigger_change("apps/worker/fundradar_worker/strategies/extractors/icg.py")
     assert not mod._is_trigger_change("docs/ADDING_A_FUND.md")
+
+
+def test_fund_aliases_not_a_trigger_change():
+    """fund_aliases.json must NOT be a trigger change.
+    Changes to invalid_slugs produce no candidate slugs and must not cause
+    the gate to error with "triggering files changed but no candidates detected".
+    Active-fund alias changes are detected via _detect_alias_target_changes() instead."""
+    mod = _load_gate_module()
+    assert not mod._is_trigger_change("data/derived/fund_aliases.json")

@@ -30,7 +30,12 @@ REPORT_REL = Path("data/derived/new_fund_completion_report.json")
 ASSET_AUDIT_REL = Path("data/derived/gemini_fund_asset_audit.json")
 EXTRACTOR_DIR_PREFIX = "apps/worker/fundradar_worker/strategies/extractors/"
 
-TRIGGER_RELATIVE_PATHS = {str(DB_REL), str(ALIASES_REL)}
+# ALIASES_REL is intentionally NOT in TRIGGER_RELATIVE_PATHS.
+# Changes to fund_aliases.json that affect active funds are detected via
+# _detect_alias_target_changes() producing non-empty candidate slugs.
+# Changes to the invalid_slugs list (exclusions) produce no candidates and
+# should not trigger the gate — including them here caused false positives.
+TRIGGER_RELATIVE_PATHS = {str(DB_REL)}
 REQUIRED_REFRESH_ARTIFACTS = {str(REPORT_REL), str(ASSET_AUDIT_REL)}
 EXTRACTOR_PATH_RE = re.compile(
     r"^apps/worker/fundradar_worker/strategies/extractors/(?P<module>[a-z0-9_]+)\.py$"

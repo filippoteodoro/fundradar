@@ -298,7 +298,7 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 
 The following fixes were applied during a full signal quality audit (Feb 2026). Each persists on future pipeline runs.
 
-**`io_utils.py` `sanitize_url()`** — URL space encoding: `url = url.replace(" ", "%20")` added after `url.strip()`. Fixes broken source links from Wise Equity, Finint, Riello extractors (spaces in href attributes). Affects all 3 fund extractors globally.
+**`io_utils.py` `sanitize_url()`** — URL space encoding: `unquote(url).replace(" ", "%20")` (idempotent — decodes existing `%20` first before re-encoding, preventing `%2520` double-encoding). Fixes broken source links from Wise Equity, Finint, Riello extractors (spaces in href attributes). Affects all 3 fund extractors globally.
 
 **`signal_text_utils.py` `_cdt_strip_datelines_and_navigation()`** — Extended boilerplate stripping:
 - `Article in [Publication]:` meta-summary prefix stripping (enricher system prompt also blocks these)
@@ -311,7 +311,7 @@ The following fixes were applied during a full signal quality audit (Feb 2026). 
 - `Tommas in Utensili` → `Tommasin Utensili`
 - `Saa S solutions` → `SaaS solutions`
 - `Acceler ORA` → `AccelerORA`
-- `integers [Capital]` → `enters [Capital]` (PDF word-split corruption)
+- `integers BIA/BV/SPA/SRL/NV/AG/SA` → `enters [abbreviation]` (PDF word-split corruption, scoped to Italian company form abbreviations only — do NOT broaden to `integers [A-Z]` which would corrupt tech/fintech signals that legitimately use the word "integers")
 
 **`signal_corrections.py` `correct_people_move()`** — Board resolution approving financial results → `report` (not `people_move`). Pattern: board of directors + financial results/statements keywords.
 
@@ -407,11 +407,16 @@ When a **portfolio company** invests in a plant, production facility, manufactur
 **Classification wired in `correct_deal()` in `signal_corrections.py`** — fires at the end of `correct_deal()`, just before the final `return "deal_announced"`:
 ```python
 # signals like "Kedrion Biopharma (Permira) invests €150M for new plasma fractionation plant"
-if _is_capex and re.search(r"\(\s*[a-zA-Z][a-zA-Z\s&,]{2,30}\s*\)", text_lower):
-    return "portfolio_update"
+# Position-aware: parenthetical must come BEFORE the capex keyword (fund attribution, not location)
+if _is_capex:
+    _paren_m = re.search(r"\([a-zA-Z][a-zA-Z\s&,]{1,29}\)", text_lower)
+    if _paren_m:
+        _after_paren = text_lower[_paren_m.end():]
+        if re.search(r"\b(?:invest\w*|plant|facility|...)\b", _after_paren):
+            return "portfolio_update"
 ```
 
-The parenthetical match `\([a-zA-Z...]{2,30}\)` distinguishes portfolio capex (fund name in parentheses) from new fund investments where the company name stands alone. **Also present in `apply_type_corrections()` `other` rescue block** for signals that arrive as `other`.
+**Position-aware check is critical**: `(Italy)` or `(Series B)` appearing AFTER the capex keywords are geographic/round qualifiers — not fund attribution. The fund attribution `(Permira)` always precedes the investment verb in real signal text. Using a simple parenthetical regex without position check would cause false positives (any text with location/round qualifiers in parens). **Also present in `apply_type_corrections()` `other` rescue block** for signals that arrive as `other`.
 
 ### Shared Utility Functions — NEVER Re-implement Inline
 

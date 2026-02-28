@@ -174,8 +174,11 @@ def sanitize_url(url: str | None) -> str | None:
     if not url:
         return None
 
-    # Encode unescaped spaces (common in href attributes from fund websites)
-    url = url.replace(" ", "%20")
+    # Encode unescaped spaces (common in href attributes from fund websites).
+    # Decode first to prevent double-encoding URLs that already contain %20.
+    if " " in url:
+        from urllib.parse import unquote
+        url = unquote(url).replace(" ", "%20")
 
     # Prefix bare domains (e.g., "example.com/path")
     if not url.startswith(("http://", "https://", "//")):
