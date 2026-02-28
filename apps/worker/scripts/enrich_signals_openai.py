@@ -2369,10 +2369,18 @@ def main(slugs_filter: str | None = None):
     print(f"  Resolved locally: {enriched_count}")
     print(f"  Need LLM enrichment: {len(needs_llm)}")
 
-    # Prioritize: signals with no decision yet (llm_keep is None) come first,
-    # then company extraction retries. This ensures truly new signals are
-    # processed before the deadline, not cut off by retry backlog.
-    needs_llm.sort(key=lambda item: (0 if item[1].get("llm_keep") is None else 1))
+    # Priority order:
+    # (0,0) needs company extraction + no keep decision (new deal/exit signals)
+    # (0,1) needs company extraction, keep already decided by ML (e.g. llm_keep=False but target_companies=None)
+    # (1,0) no extraction needed, no keep decision (new non-deal signals)
+    # (1,1) no extraction needed, keep already decided
+    # This ensures deal/exit signals missing target_companies are never pushed to the back
+    # of the queue and silently abandoned before the pipeline deadline fires.
+    _EXTRACTION_TYPES = {"deal_announced", "exit_announced", "exit"}
+    needs_llm.sort(key=lambda item: (
+        0 if item[1].get("target_companies") is None and item[1].get("signal_type") in _EXTRACTION_TYPES else 1,
+        0 if item[1].get("llm_keep") is None else 1,
+    ))
 
     # ══════════════════════════════════════════════════════════════════════════
     # PHASE 2: Concurrent LLM enrichment
