@@ -12,8 +12,7 @@ export const metadata: Metadata = {
     default: 'Fundradar',
     template: '%s | Fundradar',
   },
-  description:
-    'Browse PE/VC funds activity in italy for free. Track deals, exits, fundraises, and key signals in Italy from public sources.',
+  description: 'Browse PE/VC funds activity in italy for free',
   openGraph: {
     type: 'website',
     siteName: 'Fundradar',

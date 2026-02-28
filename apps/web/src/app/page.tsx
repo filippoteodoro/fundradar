@@ -8,8 +8,7 @@ import {
 import { HomeContent } from './components/HomeContent';
 import { getBaseUrl } from '@/lib/baseUrl';
 
-const HOME_SHARE_DESCRIPTION =
-  'Browse PE/VC funds activity in italy for free. Track deals, exits, fundraises, and key signals in Italy from public sources.';
+const HOME_SHARE_DESCRIPTION = 'Browse PE/VC funds activity in italy for free';
 const HOME_OG_IMAGE_URL = '/opengraph-image?ver=orig-card-20260228a';
 
 export const metadata: Metadata = {
