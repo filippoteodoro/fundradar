@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     default: 'Fundradar',
     template: '%s | Fundradar',
   },
-  description: 'Free Italian funds directory built using publicly available data.',
+  description: 'Browse PE/VC funds activity in italy for free',
   openGraph: {
     type: 'website',
     siteName: 'Fundradar',

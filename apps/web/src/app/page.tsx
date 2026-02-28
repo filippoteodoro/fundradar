@@ -8,10 +8,32 @@ import {
 import { HomeContent } from './components/HomeContent';
 import { getBaseUrl } from '@/lib/baseUrl';
 
+const HOME_SHARE_DESCRIPTION = 'Browse PE/VC funds activity in italy for free';
+
 export const metadata: Metadata = {
   title: 'Fundradar',
-  description: 'Browse funds activity in Italy for free',
+  description: HOME_SHARE_DESCRIPTION,
   alternates: { canonical: '/' },
+  openGraph: {
+    title: 'Fundradar',
+    description: HOME_SHARE_DESCRIPTION,
+    type: 'website',
+    url: '/',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Fundradar',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Fundradar',
+    description: HOME_SHARE_DESCRIPTION,
+    images: ['/opengraph-image'],
+  },
 };
 
 export default function HomePage() {
