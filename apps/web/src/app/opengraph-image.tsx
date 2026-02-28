@@ -5,25 +5,32 @@ export const alt = 'Fundradar';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
-export default function Image() {
+export default async function Image() {
+  const interBold = await fetch(
+    new URL('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZhrib2Bg-4.ttf')
+  ).then((res) => res.arrayBuffer());
+
+  const interRegular = await fetch(
+    new URL('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZhrib2Bg-4.ttf')
+  ).then((res) => res.arrayBuffer());
+
   return new ImageResponse(
     (
       <div
         style={{
-          background: '#1d4ed8',
+          background: '#1a1a2e',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif',
+          fontFamily: 'Inter',
         }}
       >
         <div
           style={{
-            fontSize: 168,
+            fontSize: 96,
             fontWeight: 700,
-            lineHeight: 1,
             color: '#ffffff',
             letterSpacing: '-1px',
           }}
@@ -32,6 +39,12 @@ export default function Image() {
         </div>
       </div>
     ),
-    size
+    {
+      ...size,
+      fonts: [
+        { name: 'Inter', data: interBold, weight: 700, style: 'normal' },
+        { name: 'Inter', data: interRegular, weight: 400, style: 'normal' },
+      ],
+    }
   );
 }
