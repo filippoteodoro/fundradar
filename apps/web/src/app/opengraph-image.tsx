@@ -21,13 +21,14 @@ export default function Image() {
       >
         <div
           style={{
-            fontSize: 420,
+            fontSize: 168,
             fontWeight: 700,
             lineHeight: 1,
             color: '#ffffff',
+            letterSpacing: '-1px',
           }}
         >
-          F
+          Fundradar
         </div>
       </div>
     ),
