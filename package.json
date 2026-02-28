@@ -37,5 +37,8 @@
   },
   "devDependencies": {
     "typescript": "^5.3.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "unrs-resolver"]
   }
 }
