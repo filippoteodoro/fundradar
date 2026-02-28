@@ -10,6 +10,7 @@ import { getBaseUrl } from '@/lib/baseUrl';
 
 const HOME_SHARE_DESCRIPTION =
   'Browse PE/VC funds activity in italy for free. Track deals, exits, fundraises, and key signals in Italy from public sources.';
+const HOME_OG_IMAGE_URL = '/opengraph-image?ver=orig-card-20260228a';
 
 export const metadata: Metadata = {
   title: 'Fundradar',
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     url: '/',
     images: [
       {
-        url: '/opengraph-image',
+        url: HOME_OG_IMAGE_URL,
         width: 1200,
         height: 630,
         alt: 'Fundradar',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Fundradar',
     description: HOME_SHARE_DESCRIPTION,
-    images: ['/opengraph-image'],
+    images: [HOME_OG_IMAGE_URL],
   },
 };
 
