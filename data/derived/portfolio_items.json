@@ -17573,6 +17573,19 @@
         "detail_page_url": null,
         "website": null,
         "investment_date": null
+      },
+      {
+        "name": "Palazzo di Via Montenapoleone 8",
+        "sector": "Real Estate",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Historic palazzo at Via Montenapoleone 8, Milan (11,800 sqm). Acquired by Blackstone as part of the Reale Compagnia Italiana portfolio (~€1.1B, 2021–22) and sold to Kering for €1.3B in April 2024 — the largest single real estate asset transaction ever recorded in Italy.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": "2022-01-01",
+        "source_url": "https://bebeez.it/real-estate-2/supercolpo-di-blackstone-a-milano-venduto-il-palazzo-di-via-montenapoleone-8-a-kering-per-13-mld-euro/",
+        "data_source": "fund_website"
       }
     ],
     "investindustrial": [
