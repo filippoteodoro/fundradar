@@ -174,6 +174,9 @@ def sanitize_url(url: str | None) -> str | None:
     if not url:
         return None
 
+    # Encode unescaped spaces (common in href attributes from fund websites)
+    url = url.replace(" ", "%20")
+
     # Prefix bare domains (e.g., "example.com/path")
     if not url.startswith(("http://", "https://", "//")):
         # Check if it looks like a domain (has a dot, no spaces, no colon prefix)

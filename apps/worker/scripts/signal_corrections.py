@@ -599,6 +599,22 @@ def correct_deal(text_lower: str, title_lower: str, diff_summary_lower: str = ""
     ):
         return "fund_launch"
 
+    # Portfolio company capex investment → portfolio_update (not a new fund deal)
+    # "Kedrion Biopharma (Permira) invests €150M for new plasma fractionation plant in Tuscany"
+    # The fund already owns the company; this is a capex expansion, not a new acquisition.
+    _is_capex = bool(
+        re.search(
+            r"\binvest\w*\b.{0,80}\b(?:plant|facility|facilities|production|impianto|stabilimento|infrastruttur\w+|site|manufacturing|centre|center|capacity|expansion|hub)\b",
+            text_lower,
+        )
+        or re.search(
+            r"\b(?:plant|facility|facilities|production|impianto|stabilimento)\b.{0,60}\binvest\w*\b",
+            text_lower,
+        )
+    )
+    if _is_capex and re.search(r"\(\s*[a-zA-Z][a-zA-Z\s&,]{2,30}\s*\)", text_lower):
+        return "portfolio_update"
+
     return "deal_announced"
 
 
@@ -769,6 +785,19 @@ def correct_fundraise(text_lower: str, title_lower: str) -> str:
 
 def correct_people_move(text_lower: str, title_lower: str, page_category: str = "") -> str:
     """Correct people_move signals. Returns corrected type."""
+    # Board resolution approving financial statements/results → report, not a people move.
+    # "The board of directors approves the net financial position for Q3 2022"
+    if re.search(
+        r"\bboard\s+of\s+directors?\s+(?:approves?|reviews?|examines?|met|meeting)\b",
+        text_lower,
+    ) and re.search(
+        r"\b(?:financial\s+(?:position|statements?|results?|report)|"
+        r"net\s+(?:financial|revenue|profit|loss)|quarterly|half[\s\-]year|"
+        r"bilancio|rendiconto|semestrale|trimestrale)\b",
+        text_lower,
+    ):
+        return "report"
+
     # "join forces" / "join forces to promote" → partnership (not a person move)
     if re.search(r"\bjoin\s+forces\b", text_lower):
         return "partnership"
@@ -1096,6 +1125,33 @@ def apply_type_corrections(
             re.IGNORECASE,
         ):
             return "fund_launch"
+
+        # Office/presence opening → people_move (strategic geographic expansion signal).
+        # "Eurazeo opens Milan office", "Fund opens new office in Rome"
+        if re.search(
+            r"\bopen(?:s|ed|ing)?\s+(?:a\s+|new\s+|its\s+)?(?:\w+\s+)?(?:office|presenza|sede|branch)\b",
+            text_lower,
+        ):
+            return "people_move"
+
+        # Portfolio company invests in own capex (plant, facility, production line) → portfolio_update.
+        # "Kedrion Biopharma (Permira) invests €150M for new plasma fractionation plant in Tuscany"
+        # The investee is an existing portfolio company making a capital expenditure.
+        # text_lower is already lowercase — use case-insensitive flag for the parenthetical check.
+        _is_capex_invest = bool(
+            re.search(
+                r"\binvest\w*\b.{0,80}\b(?:plant|facility|facilities|production|impianto|stabilimento|"
+                r"infrastruttur\w+|site|manufacturing|centre|center|capacity|expansion|hub)\b",
+                text_lower,
+            ) or re.search(
+                r"\b(?:plant|facility|facilities|production|impianto|stabilimento)\b.{0,60}\binvest\w*\b",
+                text_lower,
+            )
+        )
+        if _is_capex_invest:
+            # Only reclassify when there's a parenthetical fund reference = existing portfolio company
+            if re.search(r"\(\s*[a-zA-Z][a-zA-Z\s&,]{2,30}\s*\)", text_lower):
+                return "portfolio_update"
 
         # Investment/acquisition language over-demoted to other → deal_announced.
         # Guard against editorial/interview pieces that mention investing abstractly.

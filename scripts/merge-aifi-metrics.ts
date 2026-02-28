@@ -50,6 +50,8 @@ const EXCLUDED_SLUGS = new Set([
   'generali-investments',
   'simest',
   'sienna-investment-managers-italia-sgr',
+  // Public promotional institutions (not PE/VC funds)
+  'invitalia',
   // Insufficient data or out of scope
   'aks-a-sgr',
   'arm-nia-sgr',

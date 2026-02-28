@@ -167,6 +167,10 @@ GARBAGE_PATTERNS = [
         r"\bfeatured news press review\b",
         # LinkedIn newsletter navigation artifacts: "Title | Deals com Person Name"
         r"\|\s*deals?\s+com\s+\w",
+        # Generic team page copy — no event content
+        r"^the\s+management\s+team\s+is\s+composed\s+of\s+professionals",
+        # Board financial-results approval signals — not PE/VC intelligence
+        r"^(?:the\s+)?board\s+of\s+directors?\s+(?:approves?|examines?)\s+(?:the\s+)?(?:net\s+)?financial\s+(?:position|statements?|results?)",
     ]
 ]
 
@@ -1590,6 +1594,14 @@ NON_EU_TEXT_PATTERNS = [
 # Filter-specific patterns (not in signal_patterns)
 _RE_INVESTIMENTI_PORTFOLIO = re.compile(r"\binvestimenti\s+portfolio\b")
 _RE_HAS_AMOUNT = re.compile(r"€\s*\d+(?:[.,]\d+)?|\$\s*\d+(?:[.,]\d+)?|\b\d+(\.\d+)?\s*(milion|million|mln|m€|bn|billion|miliardi|milioni)\b", re.IGNORECASE)
+# Extracts the first compact currency amount from a text string for deal_amount backfill.
+# Matches: €1.3B, $28M, €460M, €7M, £150M, €3B, €2.9B, $500M etc.
+_RE_EXTRACT_AMOUNT = re.compile(
+    r"[€$£]\s*\d+(?:[.,]\d+)?\s*(?:B|M|K|T|bn|mn|mln|mld)\b"
+    r"|[€$£]\s*\d{1,3}(?:[.,]\d{3})+(?:\s*(?:B|M|K))?"
+    r"|\b\d+(?:[.,]\d+)?\s*(?:billion|miliard[io]?|million|milion[ei]?|mln|mld)\s*(?:di\s+)?(?:euro[s]?|EUR|dollars?)?\b",
+    re.IGNORECASE,
+)
 _RE_HAS_DEAL_KEYWORD = re.compile(r"\bacquis\w+|\binvest\w+|\bexit\b|\bipo\b|\bfundrais\w+|\bclosing\b|\bround\b|\bseries\b|\bmerg\w+|\bsell\b|\bsold\b|\bsale\b|\bdivest\w+|\baumento di capitale\b|\bfinanziamento\b|\bentra nel capitale\b|\bentra in\b|\brileva\b|\bristrutturazion\w+|\bconcordat\w+|\bomologa\b|\brestructur\w+|\baccordo di ristrutturazione\b|\bcarve[\-\s]?out\b|\bjoint\s+venture\b|\bm&a\b|\btakeover\b|\bbuyout\b|\blbo\b|\boperazione\b|\bvendita\b|\bcessione\b|\boversubscribed\b|\bcapital\s+raise\b|\bquotazion\w+\b|\badd-on\b|\bbolt[\-\s]?on\b", re.IGNORECASE)
 _RE_STRONG_DEAL_EVIDENCE = re.compile(r"\bacquis\w+|\bcompra\b|\brileva\b|\bentra nel capitale\b|\bentra in\b|\binvest(?:s|ed|ing)?\s+(?:in|nel)\b|\binvest\w+\s+(?:in|nel|nella|nei|nelle|nell[''])\b|\binvest\w+\b.{0,40}\b(?:in|nel|nella|nei|nelle|nell[''])\b|\bround\b|\bseries\b|\bfinanziamento\b|\baumento di capitale\b|\bclosing\b|\bfundrais\w+\b|\bristrutturazion\w+|\bconcordat\w+|\bomologa\b|\brestructur\w+|\baccordo di ristrutturazione\b|\bmerg(?:er|e|ed|ing)\b|\bcarve[\-\s]?out\b|\bjoint\s+venture\b|\btakeover\b|\bbuyout\b|\blbo\b|\boversubscribed\b|\bsecur(?:es?|ing)\b.{0,40}\b(?:investment|funding|financing)\b|\binvestitore\s+unic\w*\s+al\s+fianco\s+di\b|\bsole\s+investor\s+(?:backing|alongside)\b", re.IGNORECASE)
 _RE_COMPANY_LEGAL_SUFFIX = re.compile(r"\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+(?:S\.?r\.?l\.?|S\.?p\.?A\.?|S\.?A\.?|SAS|SARL|Ltd|Inc|LLC|GmbH|AG|AB|BV|NV|SGR)")
@@ -2203,6 +2215,19 @@ def _clean_signal_fields(signal: dict) -> dict:
     # Normalize deal_amount field to consistent currency format
     if signal.get("deal_amount"):
         signal["deal_amount"] = normalize_monetary_values(signal["deal_amount"])
+    # Backfill deal_amount from title/what_changed when field is empty.
+    # Many news-type and seed signals have amounts in their text but no structured field.
+    if not signal.get("deal_amount"):
+        _amount_source = signal.get("title") or signal.get("what_changed") or ""
+        if _amount_source:
+            _amount_match = _RE_EXTRACT_AMOUNT.search(_amount_source)
+            if _amount_match:
+                _raw_amount = _amount_match.group(0).strip()
+                _normalized = normalize_monetary_values(_raw_amount)
+                if _normalized and _normalized != _raw_amount:
+                    signal["deal_amount"] = _normalized
+                elif _normalized:
+                    signal["deal_amount"] = _normalized
     return signal
 
 
@@ -3180,6 +3205,24 @@ def calculate_quality_score(
         if not _is_senior_title(summary) and not _is_senior_title(title):
             score = min(score, 82)
 
+    # Stale signal penalty — signals older than 24 months are deprioritized on the feed.
+    # Use published_at first, fall back to enriched_date. Seed/historical signals are exempt
+    # if they have valuable deal content (evidence_score >= 3) to preserve historical records.
+    _pub_date = signal.get("published_at") or signal.get("enriched_date")
+    if _pub_date and isinstance(_pub_date, str):
+        try:
+            from datetime import datetime, timezone as _tz
+            _pub_dt = datetime.fromisoformat(_pub_date.replace("Z", "+00:00"))
+            _age_months = (datetime.now(_tz.utc) - _pub_dt).days / 30.4
+            if _age_months > 24:
+                _evidence = signal.get("evidence_score") or 0
+                if _evidence < 3:
+                    score -= 25  # Hard penalty: push below MIN_QUALITY_SCORE threshold
+                else:
+                    score -= 10  # Soft penalty: historical deal data stays visible but ranked lower
+        except (ValueError, TypeError):
+            pass
+
     # Cap score
     return max(0, min(100, score))
 
@@ -3330,6 +3373,55 @@ def _semantic_dedup(signals: list[dict]) -> list[dict]:
 
         result.extend(sig for sig, _, _, _ in kept)
 
+    return result
+
+
+def _cross_fund_url_dedup(signals: list[dict]) -> list[dict]:
+    """Suppress cross-fund duplicate signals sourced from the exact same URL.
+
+    When the same article is matched to multiple funds (e.g. a round covered by two
+    co-investing funds), keep only the highest-quality signal. The winning signal gets a
+    `co_fund_slugs` list with the slugs that were merged in, so context is preserved.
+
+    Exact source_url match only — title-similarity dedup is handled by _semantic_dedup.
+    """
+    from collections import defaultdict
+    by_url: dict[str, list[dict]] = defaultdict(list)
+    no_url: list[dict] = []
+
+    for s in signals:
+        url = (s.get("source_url") or "").strip().lower()
+        if url:
+            by_url[url].append(s)
+        else:
+            no_url.append(s)
+
+    result = list(no_url)
+    suppressed = 0
+
+    for url, group in by_url.items():
+        if len(group) == 1:
+            result.append(group[0])
+            continue
+        # Keep the signal with highest quality_score; tie-break by deal type priority
+        _TYPE_PRIORITY = {"exit_announced": 5, "deal_announced": 4, "fund_launch": 3,
+                          "fundraise_closed": 3, "fundraise_announced": 2, "people_move": 1}
+        group.sort(
+            key=lambda s: (s.get("quality_score", 0), _TYPE_PRIORITY.get(s.get("signal_type", ""), 0)),
+            reverse=True,
+        )
+        winner = group[0]
+        losers = group[1:]
+        # Attach co-investor fund slugs to the winner so the UI can reference all funds
+        co_slugs = [s.get("fund_slug") for s in losers if s.get("fund_slug") and s.get("fund_slug") != winner.get("fund_slug")]
+        if co_slugs:
+            existing = winner.get("co_fund_slugs") or []
+            winner["co_fund_slugs"] = list({*existing, *co_slugs})
+        result.append(winner)
+        suppressed += len(losers)
+
+    if suppressed:
+        print(f"  Cross-fund URL dedup: suppressed {suppressed} duplicate signals (same source URL, different funds)")
     return result
 
 
@@ -4211,6 +4303,9 @@ def main():
     removed_semantic_dedup = pre_semantic_dedup - len(filtered)
     if removed_semantic_dedup:
         print(f"  Semantic dedup: suppressed {removed_semantic_dedup} near-duplicate signals")
+
+    # Cross-fund URL dedup: suppress signals from different funds pointing to the exact same article
+    filtered = _cross_fund_url_dedup(filtered)
 
     # Cross-page dedup: suppress PORTFOLIO signals when NEWS covers same company
     pre_cross_dedup = len(filtered)

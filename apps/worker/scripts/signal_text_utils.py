@@ -327,6 +327,12 @@ def fix_spacing(text: str) -> str:
     cleaned = re.sub(r"\bGT\s*x\b", "GTx", cleaned)
     cleaned = re.sub(r"\bFounta\s*in\s*Vest\b", "FountainVest", cleaned)
     cleaned = re.sub(r"\bXG\s+en\b", "XGen", cleaned)
+    # Company name OCR/line-break artifacts (word split mid-name)
+    cleaned = re.sub(r"\bTommas\s+in\s+Utensili\b", "Tommasin Utensili", cleaned)
+    cleaned = re.sub(r"\bSaa\s+S\s*solutions\b", "SaaS solutions", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\bAcceler\s+ORA\b", "AccelerORA", cleaned)
+    # OCR verb corruption: "integers BIA" → "enters BIA" (scraping artifact)
+    cleaned = re.sub(r"\bintegers\s+([A-Z])", r"enters \1", cleaned)
     cleaned = re.sub(r"\bTeamsystem\b", "TeamSystem", cleaned, flags=re.IGNORECASE)
     # Italian word splits from OCR/PDF
     cleaned = re.sub(r"\b([Tt]rasferimen)\s+(to)\b", r"\1\2", cleaned)
@@ -1564,9 +1570,35 @@ def _cdt_strip_datelines_and_navigation(text: str) -> str:
     # Strip leading list-number artifacts ("1. ", "2. ")
     cleaned = re.sub(r"^\d+\.\s+", "", cleaned)
 
+    # Strip "Article in [Publication]:" meta-summary prefix (enricher occasionally outputs
+    # this when summarizing an article instead of its content).
+    cleaned = re.sub(
+        r"^Article\s+in\s+[\w\s]+:\s*",
+        "", cleaned, flags=re.IGNORECASE,
+    )
+
+    # Strip "is pleased to announce" PR boilerplate wherever it appears near the start.
+    # "H.I.G. Capital ("H.I.G.") is pleased to announce that an affiliate has signed..."
+    # → strip up through "announce that" and keep everything after.
+    cleaned = re.sub(
+        r"^.{0,120}?\bis\s+pleased\s+to\s+announce\s+that\s+",
+        "", cleaned, flags=re.IGNORECASE,
+    )
+
+    # Strip "Events: City, City – Month DD, YYYY –" dateline (Faro Value / event press releases)
+    cleaned = re.sub(
+        r"^[Ee]vents?\s*:\s*[\w,\s]+\s*[\u2013\-]\s*\w+\s+\d{1,2},?\s*\d{4}\s*[\u2013\-]\s*",
+        "", cleaned,
+    )
+
     # Strip press release dateline: "City (XX), date - "
     cleaned = re.sub(
         r"^[A-Z][a-z]+(?:\s+\([A-Z]{2,4}\))?,\s*\d{1,2}\s+\w+\s+\d{4}\s*[-\u2013\u2014]\s*",
+        "", cleaned,
+    )
+    # Strip multi-city dateline: "City/City, Month DD, YYYY –" (e.g. "Conegliano/Rome, April 23,2025 –")
+    cleaned = re.sub(
+        r"^[A-Z][a-zA-Z]+(?:/[A-Z][a-zA-Z]+)?,\s*\w+\s+\d{1,2},?\s*\d{4}\s*[\u2013\-\u2014]+\s*",
         "", cleaned,
     )
     # Strip ALL-CAPS city dateline: "MILAN - November 25,2025 -"
@@ -1575,6 +1607,13 @@ def _cdt_strip_datelines_and_navigation(text: str) -> str:
         "",
         cleaned,
         flags=re.IGNORECASE,
+    )
+
+    # Strip mid-text city/date dateline embedded after an ALL-CAPS headline:
+    # "FUND INVESTS IN X Montecchio Maggiore (VI), December 21,2023 - rest of text"
+    cleaned = re.sub(
+        r"\s+[A-Z][a-zA-Z\s]+\([A-Z]{2,3}\),\s*\w+\s+\d{1,2},?\s*\d{4}\s*[-\u2013\u2014]+\s*",
+        " ", cleaned,
     )
 
     # Strip "Featured News Press Review" header artifact

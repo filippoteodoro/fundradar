@@ -1586,6 +1586,8 @@ Rules:
 - If you can't determine the exact date, use null.
 - CRITICAL: Do NOT include observation/publication dates in the summary. Never write "announced on YYYY-MM-DD", "published on", "observed on", "as of [date]", "according to a [source] dated [date]", or any reference to when or where you found the information. The summary should read as a news headline, not a data entry log.
 - CRITICAL: Maximum 150 characters for the summary. Be concise. One or two sentences maximum.
+- CRITICAL: Capitalize all company names, fund names, and proper nouns exactly as they appear in the source. Never lowercase a proper name (e.g. "italcer" must be "Italcer", "primomiglio" must be "Primomiglio").
+- CRITICAL: Never start the summary with "Article in [Publication]:" or describe the article itself. Summarize the event, not the source document.
 - Set keep=false for: generic website updates, navigation/footer text, cookie/privacy/legal notices,
   or non-Italy/Europe content (especially if the fund is global).
 - Job postings can be valuable; keep them if they are relevant to PE/VC (investment, portfolio, strategy, senior ops)

@@ -294,6 +294,49 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 
 `_cdt_normalize_casing()` small-word lowercasing (Feb 2026) — after all role-word capitalization rules, a regex lowercases articles/prepositions (`Of`, `And`, `Or`, `In`, `At`, `To`, `By`, `From`, `With`, `The`) when they sit between two title-cased words. Fixes "Head Of Fund" → "Head of Fund", "CEO And General Manager" → "CEO and General Manager". Safe to apply even when `_is_title_cased()` returns False (mixed-language titles from AI enrichment that bypass sentence-case conversion).
 
+### Feb 2026 Signal Quality Audit — Systemic Fixes
+
+The following fixes were applied during a full signal quality audit (Feb 2026). Each persists on future pipeline runs.
+
+**`io_utils.py` `sanitize_url()`** — URL space encoding: `url = url.replace(" ", "%20")` added after `url.strip()`. Fixes broken source links from Wise Equity, Finint, Riello extractors (spaces in href attributes). Affects all 3 fund extractors globally.
+
+**`signal_text_utils.py` `_cdt_strip_datelines_and_navigation()`** — Extended boilerplate stripping:
+- `Article in [Publication]:` meta-summary prefix stripping (enricher system prompt also blocks these)
+- `[Entity] is pleased to announce that` PR boilerplate (non-greedy, capped at 120 chars before "is pleased")
+- `Events: City – date –` event dateline stripping
+- `City/City, Month DD, YYYY –` multi-city dateline stripping
+- Mid-text city/date datelines embedded after ALL-CAPS headlines
+
+**`signal_text_utils.py` `fix_spacing()`** — OCR/PDF artifact corrections:
+- `Tommas in Utensili` → `Tommasin Utensili`
+- `Saa S solutions` → `SaaS solutions`
+- `Acceler ORA` → `AccelerORA`
+- `integers [Capital]` → `enters [Capital]` (PDF word-split corruption)
+
+**`signal_corrections.py` `correct_people_move()`** — Board resolution approving financial results → `report` (not `people_move`). Pattern: board of directors + financial results/statements keywords.
+
+**`signal_corrections.py` `apply_type_corrections()` `other` rescue** — Two new rescues:
+- Office/presence opening → `people_move` (not `other`)
+- Portfolio company capex → `portfolio_update` (see Portfolio Company Capex rule below)
+
+**`signal_corrections.py` `correct_deal()`** — Portfolio company capex → `portfolio_update` (new rule, fires before final `return "deal_announced"`). See "Portfolio Company Capex / Infrastructure Investments" in the Classification Rules section.
+
+**`filter_signals.py` `_normalize_signal_fields()`** — Deal amount backfill: when `deal_amount` is empty, extract amount from title/what_changed using `_RE_EXTRACT_AMOUNT`. Increased signals with structured deal_amount from ~30 to 78.
+
+**`filter_signals.py` `_cross_fund_url_dedup()`** — New function, called after `_semantic_dedup()`. Same article matched to multiple funds → keep highest `quality_score` copy, attach `co_fund_slugs` to winner. Eliminates cross-fund duplicate signals from shared news sources.
+
+**`filter_signals.py` `GARBAGE_PATTERNS`** — Two new patterns:
+- Generic team page copy: `the management team is composed of professionals`
+- Board financial results approval: `board of directors approves.*financial (position|statements?|results?)`
+
+**`filter_signals.py` scoring** — Stale signal penalty: signals >24 months old get `-25` quality score (low evidence) or `-10` (strong evidence). Prevents decade-old historical records from surfacing as recent news.
+
+**`scripts/merge-aifi-metrics.ts` `EXCLUDED_SLUGS`** + **`fund_aliases.json` `invalid_slugs`** — Added `invitalia` (public promotional institution, not PE/VC). All Invitalia signals now filtered.
+
+**`enrich_signals_openai.py` system prompt** — Two new CRITICAL rules:
+- Capitalize all proper nouns exactly as in source (prevents `italcer` → `Italcer` hallucinations)
+- Never start summary with "Article in [Publication]:" (prevent meta-summaries)
+
 `_passes_strict_quality_gates()` in `filter_signals.py` — **noise gates run BEFORE the `italy_focused` early return**. This order is intentional: bare portfolio extraction signals (just a company name, no context) must be caught even for italy-focused funds that otherwise get a pass on geo checks.
 
 `italy_relevant=True` reliability: the flag is trustworthy only when `relevance_score > 0` OR `relevance_reasons` is non-empty. A signal with `italy_relevant=True`, `relevance_score=0`, and no `relevance_reasons` means the flag was set as an upstream default — treat as unreliable. Non-italy-focused funds in this state fall through to text-based geo checks.
@@ -334,9 +377,11 @@ Overwrites the 3 `.joblib` files and `signal_feature_meta.json`. No pipeline res
 
 **When NOT to retrain**: the ML classifier is confidence-gated. If `type_confident=False` the filter falls back to rule-based classification. Low macro-F1 on small classes is correct behavior — rules are the primary classification path for rare types.
 
-### Portfolio Company M&A Classification Rule
+### Portfolio Company Classification Rules
 
 **CRITICAL**: `deal_announced` = fund deploys capital. `portfolio_update` = portfolio company acts.
+
+#### Portfolio Company M&A (add-on acquisitions)
 
 When a **portfolio company** makes an acquisition, it's **always `portfolio_update`** — the fund is not making a new investment, its existing portfolio company is growing via add-on M&A.
 
@@ -352,6 +397,21 @@ When a **portfolio company** makes an acquisition, it's **always `portfolio_upda
 **Negatives (stay `deal_announced`)**:
 - `[Fund] acquires [Company]` — fund is the subject, no "backed" modifier
 - `[Fund]-backed acquisition of X` — "backed" modifies the abstract noun "acquisition", no company between backed and the verb
+
+#### Portfolio Company Capex / Infrastructure Investments (Feb 2026)
+
+When a **portfolio company** invests in a plant, production facility, manufacturing site, or infrastructure, it's **`portfolio_update`** — the fund already owns the company; this is capex, not a new acquisition.
+
+**Pattern**: `[Company] (Fund) invests €Xm for new [plant/facility/hub/...]` — parenthetical fund attribution signals existing ownership.
+
+**Classification wired in `correct_deal()` in `signal_corrections.py`** — fires at the end of `correct_deal()`, just before the final `return "deal_announced"`:
+```python
+# signals like "Kedrion Biopharma (Permira) invests €150M for new plasma fractionation plant"
+if _is_capex and re.search(r"\(\s*[a-zA-Z][a-zA-Z\s&,]{2,30}\s*\)", text_lower):
+    return "portfolio_update"
+```
+
+The parenthetical match `\([a-zA-Z...]{2,30}\)` distinguishes portfolio capex (fund name in parentheses) from new fund investments where the company name stands alone. **Also present in `apply_type_corrections()` `other` rescue block** for signals that arrive as `other`.
 
 ### Shared Utility Functions — NEVER Re-implement Inline
 

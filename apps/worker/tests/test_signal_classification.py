@@ -933,6 +933,29 @@ class TestFeb2026AuditRegressions:
         )
         assert result == "people_move"
 
+    # Fixed: deal_announced → portfolio_update (portfolio company capex, Feb 2026)
+
+    def test_seed_signal_00036_kedrion_permira_capex(self):
+        """seed-signal-00036: Kedrion (Permira) invests €150M for plasma fractionation plant.
+        Fund already owns Kedrion — this is capex, not a new PE investment."""
+        result = apply_type_corrections(
+            "deal_announced",
+            "kedrion biopharma (permira) invests 150 million euros for new plasma fractionation plant in tuscany",
+            "kedrion biopharma invests for new plasma fractionation plant",
+        )
+        assert result == "portfolio_update"
+
+    def test_portfolio_capex_without_parenthetical_stays_deal(self):
+        """Capex pattern without parenthetical fund attribution → stays deal_announced.
+        Without fund name in parens, we can't distinguish portfolio capex from new deal."""
+        result = apply_type_corrections(
+            "deal_announced",
+            "italcer invests 50 million euros in new manufacturing facility",
+            "italcer invests in manufacturing facility",
+        )
+        # No fund name in parentheses → can't classify as portfolio_update, stays deal
+        assert result == "deal_announced"
+
 
 # ──────────────────────────────────────────────────────────────────────────────
 # 9. SEMANTIC BOUNDARY TESTS — the exact decision lines
