@@ -30,9 +30,9 @@ export async function POST(request: Request) {
     const acceptedAtClient = typeof body?.acceptedAt === 'string'
       ? body.acceptedAt.trim()
       : '';
-    const acceptedFrom = typeof body?.acceptedFrom === 'string'
-      ? body.acceptedFrom.trim().slice(0, 64)
-      : 'subscribe_page';
+    const _ALLOWED_FROM = new Set(['subscribe_page', 'email', 'social', 'ads']);
+    const _fromRaw = typeof body?.acceptedFrom === 'string' ? body.acceptedFrom.trim() : '';
+    const acceptedFrom = _ALLOWED_FROM.has(_fromRaw) ? _fromRaw : 'subscribe_page';
     const acceptedImmediateAccess = body?.acceptedImmediateAccess === true;
     const acceptedWithdrawalAcknowledgement = body?.acceptedWithdrawalAcknowledgement === true;
 
@@ -43,7 +43,9 @@ export async function POST(request: Request) {
     const currentUser = await getCurrentUser();
     const acceptedAtServer = new Date().toISOString();
 
-    const email = typeof body.email === 'string' && body.email.includes('@') ? body.email.toLowerCase() : undefined;
+    const _emailRaw = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
+    const _emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const email = _emailRegex.test(_emailRaw) ? _emailRaw : undefined;
 
     const baseUrl = getBaseUrl();
 

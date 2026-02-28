@@ -29,7 +29,7 @@ export const LEGAL_DIGEST_UNSUBSCRIBE_EMAIL =
   process.env.NEXT_PUBLIC_LEGAL_DIGEST_UNSUBSCRIBE_EMAIL || LEGAL_CONTROLLER_EMAIL;
 
 export const LEGAL_BILLING_PORTAL_URL =
-  process.env.NEXT_PUBLIC_LEGAL_BILLING_PORTAL_URL || 'https://billing.stripe.com/p/login/3cIeVcalm8hwfmz6ac57W00';
+  process.env.NEXT_PUBLIC_LEGAL_BILLING_PORTAL_URL || '';
 
 // Bump when legal docs with contractual/privacy impact are materially changed.
 export const LEGAL_BUNDLE_VERSION =

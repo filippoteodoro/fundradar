@@ -108,7 +108,7 @@ export default function RootLayout({
             gap: '10px',
             flexWrap: 'wrap',
           }}>
-            <span>All data verified through public sources. Data is updated daily.</span>
+            <span>All data verified through public sources and updated daily.</span>
             <Link href="/terms-and-conditions" style={{ color: '#666', textDecoration: 'underline' }}>
               Terms
             </Link>
