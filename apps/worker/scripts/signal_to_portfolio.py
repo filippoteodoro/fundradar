@@ -369,6 +369,16 @@ def process_fund_signals(
 
     for s in signals:
         sid = s["id"]
+
+        # Skip signals explicitly flagged as not Italy-relevant.
+        # The filter sets this based on geography evidence — if it's False,
+        # the signal is about non-Italian entities and shouldn't create
+        # portfolio entries for Italian funds.
+        if s.get("italy_relevant") is False:
+            stats["skipped_other"] += 1
+            processed_ids.append(sid)
+            continue
+
         target_companies = s.get("target_companies")
 
         if target_companies is None:

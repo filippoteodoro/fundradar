@@ -347,6 +347,12 @@ The following fixes were applied during a full signal quality audit (Feb 2026). 
 
 **`signal_text_utils.py` `_is_garbage_summary()`** — Expanded Italian stop-word list with PE-specific content words (acquista, controllata, investendo, tratta, maggioranza, venduta, ceduta, punta su, lancia, nasce, avvia, etc.). Catches Italian summaries from signals where the enricher received untranslated Italian titles and generated Italian-language summaries.
 
+**`filter_signals.py` `_is_misattributed_signal()`** — Ecosystem newsroom check now applies to ALL signal sources, not just signals from the fund's own website domain. Previously, RSS aggregator signals (BeBeez, etc.) bypassed the check because `is_same_domain()` gated it. Now: any signal attributed to an `is_ecosystem_newsroom` fund must contain the fund's distinctive slug keyword (e.g. "cdp" for CDP Venture Capital) in title/what_changed, regardless of source domain. Fixes: Proxima Fusion (German company) wrongly attributed to CDP VC from BeBeez RSS.
+
+**`filter_signals.py` italy_relevant correction** — Negative geography downgrade: when `italy_relevant=True` was set as an upstream default (relevance_score=0, no relevance_reasons) AND signal text explicitly mentions non-Italian EU geography (Bavaria, Munich, Germany, etc.) WITHOUT mentioning Italy, `italy_relevant` is flipped to `False`. Added Bavaria/Bavarian/Hamburg to `_NON_ITALY_EU_COUNTRIES_RE`. Catches RSS aggregator signals that default `italy_relevant=True` for all articles.
+
+**`signal_to_portfolio.py`** — Added `italy_relevant` check: signals with `italy_relevant=False` are skipped for portfolio entry creation. Belt-and-suspenders defense against non-Italian companies entering fund portfolios. Previously, signal_to_portfolio blindly trusted all signals that passed the filter.
+
 ### Enricher "processed but missing" signals — Root Cause and Fix
 
 **Symptom**: Signals in `processed_ids` in `signal_enrichment_progress.json` that are absent from `detected_signals_enriched.json`. Shows up as `signal_parity_missing_in_enriched` in CI gate reports.

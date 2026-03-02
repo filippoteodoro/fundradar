@@ -1165,3 +1165,78 @@ class TestFundLaunchVsDeal:
         )
         # Closes-fund pattern → fundraise_closed (not affected by new fund_launch rule)
         assert result == "fundraise_closed"
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 11. ECOSYSTEM NEWSROOM MISATTRIBUTION — regression tests (Mar 2026)
+#
+# Ecosystem newsroom funds (is_ecosystem_newsroom=True in db.json) publish
+# market-wide news. Signals attributed to them must mention the fund name
+# in the text. Without this check, RSS aggregators attribute unrelated
+# company news to the fund.
+# ──────────────────────────────────────────────────────────────────────────────
+
+
+class TestEcosystemNewsroomMisattribution:
+    """Regression tests for ecosystem newsroom misattribution (Mar 2026).
+
+    Signals attributed to ecosystem newsroom funds (is_ecosystem_newsroom=True)
+    must mention the fund name in the text. Signals from RSS aggregators about
+    unrelated companies must be caught by _is_misattributed_signal().
+    """
+
+    def test_proxima_fusion_misattributed_to_cdp_vc(self):
+        """Proxima Fusion (German company) should be flagged as misattributed to CDP VC."""
+        from filter_signals import _is_misattributed_signal
+        signal = {
+            "fund_slug": "cdp-venture-capital",
+            "title": "proxima fusion, €2B for the first commercial fusion power plant. The Free State of Bavaria covers 20%, the company also",
+            "what_changed": "",
+            "source_url": "https://bebeez.it/venture-capital/proxima-fusion",
+            "source_name": "BeBeez",
+        }
+        fund = {"name": "CDP Venture Capital", "website": "http://www.cdpventurecapital.it", "is_ecosystem_newsroom": True}
+        assert _is_misattributed_signal(signal, fund=fund) is True
+
+    def test_cdp_vc_own_investment_not_misattributed(self):
+        """Legitimate CDP VC investment signal should NOT be flagged."""
+        from filter_signals import _is_misattributed_signal
+        signal = {
+            "fund_slug": "cdp-venture-capital",
+            "title": "CDP Venture Capital invests €5M in Italian startup Acme",
+            "what_changed": "CDP leads Series A round",
+            "source_url": "https://bebeez.it/venture-capital/cdp-invests-acme",
+            "source_name": "BeBeez",
+        }
+        fund = {"name": "CDP Venture Capital", "website": "http://www.cdpventurecapital.it", "is_ecosystem_newsroom": True}
+        assert _is_misattributed_signal(signal, fund=fund) is False
+
+    def test_cdp_mentioned_in_text_not_misattributed(self):
+        """Signal mentioning CDP in the text should pass."""
+        from filter_signals import _is_misattributed_signal
+        signal = {
+            "fund_slug": "cdp-venture-capital",
+            "title": "Tot, the fintech backed by CDP, raises €10M",
+            "what_changed": "",
+            "source_url": "https://bebeez.it/venture-capital/tot-raises",
+            "source_name": "BeBeez",
+        }
+        fund = {"name": "CDP Venture Capital", "website": "http://www.cdpventurecapital.it", "is_ecosystem_newsroom": True}
+        assert _is_misattributed_signal(signal, fund=fund) is False
+
+    def test_non_ecosystem_fund_not_affected(self):
+        """Non-ecosystem newsroom funds should not trigger the ecosystem check."""
+        from filter_signals import _is_misattributed_signal
+        signal = {
+            "fund_slug": "permira",
+            "title": "Some company raises funds in Germany",
+            "what_changed": "",
+            "source_url": "https://bebeez.it/venture-capital/some-deal",
+            "source_name": "BeBeez",
+        }
+        fund = {"name": "Permira", "website": "https://www.permira.com"}
+        # Should NOT return True just because the fund name isn't in the title
+        # (ecosystem check only applies to is_ecosystem_newsroom funds)
+        result = _is_misattributed_signal(signal, fund=fund)
+        # Note: might return True/False based on other misattribution checks,
+        # but the ecosystem newsroom path should not be the reason

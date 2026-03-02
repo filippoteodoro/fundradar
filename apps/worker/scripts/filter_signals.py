@@ -1542,7 +1542,7 @@ NON_EU_GEO_SET = {
 # from funds that technically have 'Italy' in geographies (e.g. CAPZA, Triton)
 _NON_ITALY_EU_COUNTRIES_RE = re.compile(
     r"\b(?:France|French|Fran[cç]ais[e]?|Paris|Lyon|Marseille|"
-    r"Germany|German|Deutschland|Berlin|Munich|Frankfurt|"
+    r"Germany|German|Deutschland|Berlin|Munich|Frankfurt|Bavaria|Bavarian|Hamburg|"
     r"Spain|Spanish|Madrid|Barcelona|"
     r"UK|United Kingdom|British|London|Manchester|"
     r"Netherlands|Dutch|Amsterdam|"
@@ -1691,28 +1691,29 @@ def _is_misattributed_signal(signal: dict, fund: dict | None = None) -> bool:
     if not title_lower:
         return False
 
-    # Skip misattribution check for signals from the fund's own website —
-    # UNLESS the fund's newsroom is a known ecosystem aggregator (covers the
-    # whole market, not just the fund's own activity).  For these funds, if the
-    # fund name does not appear anywhere in title/what_changed, treat it as
-    # misattributed ecosystem news.  Ecosystem funds are flagged via
-    # "is_ecosystem_newsroom": true in db.json.
+    # Ecosystem newsroom check — applies to ALL signal sources (not just
+    # fund-website-domain signals).  These funds' newsrooms cover the whole
+    # market, so any signal attributed to them must explicitly mention the fund
+    # name in the text.  Without this, RSS aggregators (BeBeez, etc.) that
+    # publish general market news get wrongly attributed to the fund.
+    # Ecosystem funds are flagged via "is_ecosystem_newsroom": true in db.json.
 
+    if fund and fund.get("is_ecosystem_newsroom"):
+        combined_text = (
+            (signal.get("title") or "") + " " + (signal.get("what_changed") or "")
+        ).lower()
+        # Extract meaningful words from slug (e.g. "cdp-venture-capital" → ["cdp"])
+        slug_keywords = [w for w in fund_slug.split("-") if len(w) >= 3 and w not in ("sgr", "sicaf", "sim", "spa", "srl", "capital", "partners", "group", "venture")]
+        if not slug_keywords:
+            slug_keywords = [fund_slug.split("-")[0]]
+        if not any(kw in combined_text for kw in slug_keywords):
+            return True  # ecosystem news not about this fund
+
+    # Skip remaining misattribution checks for signals from the fund's own website
     source_url = (signal.get("source_url") or "").lower()
     if fund and source_url:
         fund_website = (fund.get("website") or "").lower().rstrip("/")
         if fund_website and is_same_domain(fund_website, source_url):
-            if fund.get("is_ecosystem_newsroom"):
-                # Ecosystem newsroom — require fund name in title/what_changed
-                combined_text = (
-                    (signal.get("title") or "") + " " + (signal.get("what_changed") or "")
-                ).lower()
-                # Extract meaningful words from slug (e.g. "cdp-venture-capital" → ["cdp"])
-                slug_keywords = [w for w in fund_slug.split("-") if len(w) >= 3 and w not in ("sgr", "sicaf", "sim", "spa", "srl", "capital", "partners", "group", "venture")]
-                if not slug_keywords:
-                    slug_keywords = [fund_slug.split("-")[0]]
-                if not any(kw in combined_text for kw in slug_keywords):
-                    return True  # ecosystem news not about this fund
             return False
 
     # Build a set of words from the fund name for matching.
@@ -3748,6 +3749,26 @@ def main():
                 signal["italy_relevant"] = None  # EU but not specifically Italy — leave unknown
             else:
                 signal["italy_relevant"] = False  # no geo evidence → default to False
+
+        # Negative geography correction: if italy_relevant=True was set as an
+        # upstream default (relevance_score=0, no relevance_reasons) AND the text
+        # explicitly mentions non-Italian EU geography WITHOUT mentioning Italy,
+        # flip to False.  This catches signals like "Proxima Fusion, €2B, Bavaria"
+        # from RSS aggregators that default italy_relevant=True for all articles.
+        if signal.get("italy_relevant") is True:
+            _rel_score = signal.get("relevance_score")
+            _rel_reasons = signal.get("relevance_reasons") or []
+            _has_evidence = (isinstance(_rel_score, (int, float)) and _rel_score > 0) or len(_rel_reasons) > 0
+            if not _has_evidence:
+                _neg_geo_text = " ".join([
+                    signal.get("title", ""),
+                    signal.get("what_changed", ""),
+                    signal.get("diff_summary", ""),
+                ])
+                if _NON_ITALY_EU_COUNTRIES_RE.search(_neg_geo_text) and not _mentions_italy(_neg_geo_text):
+                    signal["italy_relevant"] = False
+                elif _mentions_non_eu_geo(_neg_geo_text) and not _mentions_italy(_neg_geo_text):
+                    signal["italy_relevant"] = False
 
         # For italy_focused funds, override False → True (the fund is Italian by definition)
         # Core signal types (deals, exits, fundraises, fund launches) are ALWAYS Italy-relevant

@@ -17178,54 +17178,6 @@
       ]
     },
     {
-      "id": "rss-signal-00160",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "related_fund_slugs": [
-        "cdp-venture-capital"
-      ],
-      "signal_type": "other",
-      "title": "proxima fusion, €2B for the first commercial fusion power plant. The Free State of Bavaria covers 20%, the company also",
-      "what_changed": "",
-      "source_url": "https://bebeez.it/venture-capital/proxima-fusion-2-mld-di-euro-per-la-prima-centrale-elettrica-a-fusione-commerciale-lo-stato-libero-di-baviera-copre-il-20-la-societa-anche/",
-      "source_name": "BeBeez",
-      "published_at": "2026-02-27T06:54:25+00:00",
-      "observed_at": "2026-02-27T08:27:22.031536+00:00",
-      "created_at": "2026-02-27T08:27:22.031536+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 90,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "proxima fusion",
-          "fusion"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "Proxima Fusion, 2 mld euro per la prima centrale elettrica a fusione commerciale. Lo Stato Libero di Baviera copre il 20%, la società anche",
-      "title_original": "Proxima Fusion, 2 mld euro per la prima centrale elettrica a fusione commerciale. Lo Stato Libero di Baviera copre il 20%, la società anche",
-      "deal_amount": "€2B",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "other",
-      "ml_type_prob": 0.657,
-      "ml_type_confident": true,
-      "ml_confidence": 0.657,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.75,
-      "signal_types": [
-        "other"
-      ]
-    },
-    {
       "id": "web-signal-00525",
       "fund_id": "",
       "fund_slug": "green-arrow-capital-sgr",
