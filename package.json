@@ -1,7 +1,6 @@
 {
   "name": "fundradar",
   "private": true,
-  "packageManager": "pnpm@9.15.9",
   "scripts": {
     "dev": "pnpm -F web dev",
     "build": "pnpm -F @fundradar/shared build && pnpm -F web build",
