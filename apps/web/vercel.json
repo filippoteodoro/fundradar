@@ -1,4 +1,4 @@
 {
-  "installCommand": "corepack enable && cd ../.. && pnpm install --frozen-lockfile",
+  "installCommand": "corepack enable && cd ../.. && pnpm install --no-frozen-lockfile",
   "buildCommand": "cd ../.. && pnpm -F @fundradar/shared build && pnpm -F web build"
 }
