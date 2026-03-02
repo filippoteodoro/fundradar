@@ -5,6 +5,7 @@ import {
   getAllRealAnalytics,
   getManualLinkedinProfileFundSlugs,
 } from '@/lib/data';
+import { loadUnifiedSignals, type UnifiedSignal } from '@/lib/signals_unified';
 import { HomeContent } from './components/HomeContent';
 import { getBaseUrl } from '@/lib/baseUrl';
 
@@ -43,6 +44,20 @@ export default function HomePage() {
   const realAnalytics = getAllRealAnalytics();
   const manualLinkedinProfileFundSlugs = getManualLinkedinProfileFundSlugs();
 
+  let recentSignals: UnifiedSignal[] = [];
+  let signalsLast30Days = 0;
+  try {
+    const { signals } = loadUnifiedSignals();
+    const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000;
+    signalsLast30Days = signals.filter(s => {
+      const ts = s.published_at || s.observed_at;
+      return ts ? new Date(ts).getTime() > cutoff : false;
+    }).length;
+    recentSignals = signals.slice(0, 100);
+  } catch {
+    // silently hide section if signals unavailable
+  }
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -58,7 +73,12 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div style={{ marginBottom: '24px' }}>
-        <h1 style={{ margin: '0 0 8px 0', fontSize: '24px' }}>Funds in Italy</h1>
+        <h1 style={{ margin: '0 0 4px 0', fontSize: '24px' }}>Funds in Italy</h1>
+        {signalsLast30Days > 0 && (
+          <p style={{ margin: '0 0 6px 0', fontSize: '13px', color: '#999' }}>
+            {signalsLast30Days} signals tracked in the last 30 days
+          </p>
+        )}
         <p style={{ margin: 0, color: '#666' }}>
           Tracking PE/VC funds activity in Italy using publicly available data. Click on a fund to see details. Not a complete database.
         </p>
@@ -69,6 +89,7 @@ export default function HomePage() {
         portfolioCompanyNames={portfolioCompanyNames}
         realAnalytics={realAnalytics}
         manualLinkedinProfileFundSlugs={manualLinkedinProfileFundSlugs}
+        recentSignals={recentSignals}
       />
     </div>
   );

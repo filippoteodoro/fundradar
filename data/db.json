@@ -172,8 +172,8 @@
         "Technology",
         "Financial Services",
         "Hospitality & Tourism",
-        "Professional Services",
-        "Aerospace & Defense"
+        "Aerospace & Defense",
+        "Professional Services"
       ],
       "description": "Established in 1984 as a spinoff from TA Associates, this global firm pioneered a sector-specialized approach to complex buyouts. Notable Italian transactions include the landmark consolidation of Nexi and the take-private of Tinexta.",
       "geographies": [
@@ -1265,8 +1265,8 @@
         "Healthcare",
         "Retail",
         "Consumer Goods",
-        "Energy",
-        "Industrial Manufacturing"
+        "Technology",
+        "Energy"
       ],
       "description": "Spun off from Apollo in 1997, this alternative investment leader leverages its massive credit platform to anchor landmark deals like the \u20102 billion stake in Eni's Plenitude and infrastructure investments in Venice Airport.",
       "geographies": [
@@ -2670,11 +2670,11 @@
         "Minority Expansion"
       ],
       "sector_tags": [
+        "Healthcare",
+        "Industrial Manufacturing",
         "Aerospace & Defense",
         "Automotive",
-        "Biotech & Pharma",
-        "Fashion & Luxury",
-        "Financial Services"
+        "Biotech & Pharma"
       ],
       "description": "Private investment office and club deal platform founded in Monaco in 2018, connecting Italian family assets to exclusive minority expansion opportunities in high-growth companies such as Bending Spoons and aerospace specialist Poggipolini.",
       "geographies": [
@@ -3671,9 +3671,9 @@
       "sector_tags": [
         "Industrial Manufacturing",
         "Biotech & Pharma",
+        "Consumer Goods",
         "Fashion & Luxury",
-        "Healthcare",
-        "Professional Services"
+        "Healthcare"
       ],
       "description": "Operates as a multi-asset platform within the listed Equita Group ecosystem, bridging institutional capital and Italian SMEs through private equity, debt, and infrastructure investments like the Digital 360 buyout.",
       "geographies": [
@@ -4560,11 +4560,11 @@
         "Real-Estate"
       ],
       "sector_tags": [
-        "Consumer Goods",
         "Food & Beverage",
+        "Consumer Goods",
         "Hospitality & Tourism",
-        "Industrial Manufacturing",
-        "Professional Services"
+        "Fashion & Luxury",
+        "Healthcare"
       ],
       "description": "Independent platform founded by Eugenio de Blasio, focusing on the Italian real economy. It expanded its footprint by acquiring Quadrivio Capital SGR in 2018 and recently exited the frozen bakery leader Forno d\u2019Asolo.",
       "geographies": [
@@ -4663,9 +4663,9 @@
       "sector_tags": [
         "Technology",
         "Industrial Manufacturing",
+        "Energy",
         "Renewable Energy",
-        "Software",
-        "Automotive"
+        "Software"
       ],
       "description": "Independent private equity firm specializing in the digital transition of European SMEs, notably backing the global expansion of luxury retailer Luisa Via Roma and healthcare technology provider GPI.",
       "geographies": [
@@ -5014,9 +5014,9 @@
       ],
       "sector_tags": [
         "Industrial Manufacturing",
-        "Food & Beverage",
         "Technology",
-        "Environmental Services",
+        "Food & Beverage",
+        "Professional Services",
         "Healthcare"
       ],
       "description": "Formed by a veteran team of partners from Alcedo to target buyouts of niche market leaders in Northern Italy, specializing in complex generational handovers for companies like CVS Ferrari and the recently exited Panificio San Francesco.",
@@ -5695,8 +5695,8 @@
         "Industrial Manufacturing",
         "Consumer Goods",
         "Healthcare",
-        "Professional Services",
-        "Chemicals"
+        "Chemicals",
+        "Packaging"
       ],
       "description": "Global credit specialist founded in 1988 that pioneered institutional lending to mid-sized companies. It acts as a key liquidity provider for Italian SMEs, recently financing Uteco Converting and backing leaders like Jakala and AEB.",
       "geographies": [
@@ -6061,8 +6061,8 @@
         "Food & Beverage",
         "Healthcare",
         "Hospitality & Tourism",
-        "Professional Services",
-        "Aerospace & Defense"
+        "Industrial Manufacturing",
+        "Professional Services"
       ],
       "description": "Tracing its roots to the investment arm of Paribas, this manager specializes in complex pan-European buyouts and operates major global platforms like the Nestl\u00e9-partnered ice cream giant Froneri.",
       "geographies": [
@@ -6880,8 +6880,8 @@
         "Industrial Manufacturing",
         "Healthcare",
         "Technology",
-        "Aerospace & Defense",
-        "Biotech & Pharma"
+        "Biotech & Pharma",
+        "Consumer Goods"
       ],
       "description": "Established through the spin-off of Intesa Sanpaolo\u2019s private equity activities, this firm specializes in scaling Italian 'champions' like Bending Spoons and U-Power through international buyouts.",
       "geographies": [
@@ -8215,9 +8215,9 @@
         "Real-Estate"
       ],
       "sector_tags": [
+        "Real Estate",
         "Financial Services",
-        "Hospitality & Tourism",
-        "Real Estate"
+        "Hospitality & Tourism"
       ],
       "description": "Spun out of Cargill\u2019s financial markets group in 1993, this global credit specialist targets deep-value opportunities in distressed debt and illiquid assets, focusing on financial services and real estate restructurings.",
       "geographies": [
@@ -8381,8 +8381,10 @@
       ],
       "sector_tags": [
         "Financial Services",
+        "Consumer Goods",
         "Hospitality & Tourism",
-        "Telecommunications"
+        "Renewable Energy",
+        "Retail"
       ],
       "description": "Specializes in complex corporate restructurings and opportunistic turnarounds, notably executing the acquisition of Auchan Retail Italia and leading strategic interventions in listed entities like Banca Carige and Retelit.",
       "geographies": [
@@ -8584,8 +8586,8 @@
       "sector_tags": [
         "Technology",
         "Industrial Manufacturing",
-        "Media & Entertainment",
         "Real Estate",
+        "Media & Entertainment",
         "Financial Services"
       ],
       "description": "Established in 1985 by former Lehman Brothers executives, the world\u2019s largest alternative asset manager executes massive deals like the Mundys privatization and the record \u20ac1.3 billion sale of Milan\u2019s Via Montenapoleone 8.",
@@ -8817,8 +8819,8 @@
         "Financial Services",
         "Healthcare",
         "Professional Services",
-        "Media & Entertainment",
-        "Food & Beverage"
+        "Food & Beverage",
+        "Media & Entertainment"
       ],
       "description": "Spun out of Soros Private Equity Partners in 2005, this firm is the first mainstream private equity house to achieve B Corp certification, specializing in complex buyouts and corporate carve-outs.",
       "created_at": "2026-01-26T15:27:27.990348+00:00",
@@ -8976,9 +8978,10 @@
       ],
       "sector_tags": [
         "Technology",
-        "Healthcare",
         "Professional Services",
-        "Financial Services"
+        "Healthcare",
+        "Financial Services",
+        "Hospitality & Tourism"
       ],
       "description": "Backed by the Perrodo family, this firm leverages an evergreen capital structure to pursue long-term growth and buyout investments in European mid-market leaders such as Miss Group and Crosta & Mollica.",
       "created_at": "2026-01-26T15:27:27.990377+00:00",
@@ -9260,10 +9263,10 @@
       ],
       "sector_tags": [
         "Real Estate",
+        "Biotech & Pharma",
         "Financial Services",
         "Hospitality & Tourism",
-        "Biotech & Pharma",
-        "Education"
+        "Environmental Services"
       ],
       "description": "Established in 1992 to execute the landmark Continental Airlines turnaround, this firm pioneered large-scale impact investing via The Rise Fund and manages a diverse platform spanning private equity, credit, and real estate.",
       "geographies": [
@@ -9318,8 +9321,8 @@
         "Buy-Out"
       ],
       "sector_tags": [
-        "Software",
         "Financial Services",
+        "Software",
         "Media & Entertainment",
         "Technology",
         "Insurance"
@@ -9379,9 +9382,11 @@
         "Secondaries"
       ],
       "sector_tags": [
+        "Healthcare",
         "Agriculture",
         "Food & Beverage",
-        "Healthcare"
+        "Packaging",
+        "Retail"
       ],
       "description": "FTSE 100-listed global alternative asset manager that pioneered the European mezzanine finance market in 1989, now providing flexible capital solutions across private debt, credit, and real estate.",
       "geographies": [
@@ -9499,7 +9504,8 @@
         "Distressed"
       ],
       "sector_tags": [
-        "Chemicals"
+        "Chemicals",
+        "Real Estate"
       ],
       "description": "Established by John Grayken in 1995, this firm specializes in acquiring distressed debt and non-performing loan portfolios from financial institutions during periods of market volatility.",
       "geographies": [
@@ -9617,8 +9623,8 @@
         "Software",
         "Financial Services",
         "Healthcare",
-        "Professional Services",
-        "Education"
+        "Food & Beverage",
+        "Professional Services"
       ],
       "description": "Pioneered the growth equity model since its 1968 founding, having backed over 500 companies including FedEx and Biogen. The firm specializes in scaling profitable leaders in technology, healthcare, and financial services.",
       "geographies": [
@@ -9677,6 +9683,7 @@
       ],
       "sector_tags": [
         "Technology",
+        "Consumer Goods",
         "Fashion & Luxury"
       ],
       "description": "Established in 1982 to bridge Gulf capital with Western markets, this manager is recognized for its historic turnarounds of luxury icons Tiffany & Co. and Gucci while operating a global multi-asset platform.",
@@ -9733,10 +9740,10 @@
         "Buy-Out"
       ],
       "sector_tags": [
+        "Food & Beverage",
         "Industrial Manufacturing",
         "Professional Services",
         "Consumer Goods",
-        "Food & Beverage",
         "Media & Entertainment"
       ],
       "description": "Utilizes a signature M&A&O strategy to manage complex corporate carve-outs and operational turnarounds. Founded by Tom Gores in 1995, the firm is known for high-velocity dealmaking and the $7.2 billion acquisition of Ingram Micro.",
@@ -9795,8 +9802,8 @@
         "Education",
         "Professional Services",
         "Biotech & Pharma",
-        "Financial Services",
-        "Food & Beverage"
+        "Food & Beverage",
+        "Financial Services"
       ],
       "description": "Originating from a 1934 merchant bank, this firm executes a high-conviction strategy targeting European mid-market leaders. Notable successes include the transformation and exit of data provider Bureau Van Dijk and nursery brand Avent.",
       "geographies": [
@@ -9890,7 +9897,10 @@
       ],
       "sector_tags": [
         "Food & Beverage",
-        "Healthcare"
+        "Healthcare",
+        "Automotive",
+        "Education",
+        "Fashion & Luxury"
       ],
       "description": "Led by veterans from major international private equity firms, this firm executes buy-and-build strategies in the Italian mid-market, notably consolidating the nutraceutical sector to form the Named Group.",
       "geographies": [
@@ -9934,10 +9944,10 @@
         "Buy-Out"
       ],
       "sector_tags": [
+        "Packaging",
         "Biotech & Pharma",
         "Consumer Goods",
         "Industrial Manufacturing",
-        "Packaging",
         "Professional Services"
       ],
       "description": "Founded by Stefano Bonfiglio, the firm targets mid-market Italian leaders and corporate carve-outs, recently partnering with SIIC on environmental tech and backing established groups like Lucart and Proger.",
@@ -9997,8 +10007,8 @@
         "Software",
         "Technology",
         "Food & Beverage",
-        "Retail",
-        "Automotive"
+        "Hospitality & Tourism",
+        "Retail"
       ],
       "description": "Named after Olivetti\u2019s first personal computer, this firm leverages founder Andrea Di Camillo\u2019s digital expertise to scale Italian tech champions like Tannico and Musixmatch.",
       "geographies": [
@@ -10047,7 +10057,7 @@
         "Technology",
         "Financial Services",
         "Media & Entertainment",
-        "Aerospace & Defense"
+        "Retail"
       ],
       "description": "Founded by former Google Italy head Massimiliano Magrini, this independent firm specializes in technology-driven digital transformation with landmark investments in gaming platform Faceit and space logistics provider D-Orbit.",
       "geographies": [
@@ -10092,11 +10102,11 @@
         "Growth"
       ],
       "sector_tags": [
+        "Professional Services",
         "Fashion & Luxury",
         "Financial Services",
-        "Professional Services",
-        "Environmental Services",
-        "Healthcare"
+        "Industrial Manufacturing",
+        "Environmental Services"
       ],
       "description": "Specializes in the consolidation of 'Made in Italy' supply chains under the leadership of luxury veteran Francesco Trapani, notably through the creation of the Gruppo Florence fashion manufacturing platform.",
       "geographies": [
@@ -10143,7 +10153,8 @@
         "Transportation & Logistics",
         "Energy",
         "Construction",
-        "Technology"
+        "Technology",
+        "Real Estate"
       ],
       "description": "European infrastructure investment firm managing EUR 33 billion across five flagship funds. In Italy, owns Hippocrates (460+ pharmacy network) and previously held Grandi Stazioni Retail (exited 2024 at 2.6x).",
       "geographies": [
@@ -10194,8 +10205,8 @@
         "Special Situations"
       ],
       "sector_tags": [
-        "Industrial Manufacturing",
-        "Technology"
+        "Technology",
+        "Industrial Manufacturing"
       ],
       "description": "Private equity firm managing approximately USD 15 billion across special situations and buyout strategies. Key Italian investment was EOLO, Italy's leading fixed wireless broadband provider serving 300K+ customers, exited to Partners Group in 2021.",
       "geographies": [
@@ -10385,9 +10396,7 @@
         "Deep-Tech"
       ],
       "sector_tags": [
-        "Healthcare",
-        "Industrial Manufacturing",
-        "Technology"
+        "Automotive"
       ],
       "description": "Italian venture capital firm focused on deep-tech and science-based startups in electronics, robotics, new materials, medtech, biotech, and digital sectors. Manages over \u20ac250M across five funds including the TT Venture fund family.",
       "geographies": [
@@ -10647,11 +10656,11 @@
         "Private Equity"
       ],
       "sector_tags": [
+        "Industrial Manufacturing",
+        "Food & Beverage",
         "Healthcare",
         "Automotive",
-        "Energy",
-        "Food & Beverage",
-        "Industrial Manufacturing"
+        "Consumer Goods"
       ],
       "description": "Italian private markets manager formerly known as Credem Private Equity SGR. It manages private equity and venture capital vehicles for institutional and private investors with a primary focus on Italy.",
       "geographies": [

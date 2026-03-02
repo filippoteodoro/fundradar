@@ -52519,7 +52519,7 @@
         "fondo-italiano-d-investimento-sgr"
       ],
       "signal_type": "people_move",
-      "title": "Fondo Italiano d'Investimento sgr, CIO Giampaolo Di Dio leaves",
+      "title": "Giampaolo Di Dio, CIO of Fondo Italiano d'Investimento SGR, has left.",
       "what_changed": "Giampaolo Di Dio is stepping down as CIO of Fondo Italiano d'Investimento SGR, a management company with over \u20ac4B in assets, 55% owned by CDP Equity (Cassa Depositi and Prestiti) and partly owned by UniCredit, Intesa Sanpaolo, ENPAM/ENPAIA Foundations, ABI, Banco BPM, and BPER Banca.",
       "source_url": "https://bebeez.it/manager-2/fondo-italiano-dinvestimento-sgr-il-cio-giampaolo-di-dio-se-ne-va/",
       "source_name": "BeBeez",
@@ -52545,7 +52545,7 @@
         "locations": []
       },
       "what_changed_original": "Giampaolo Di Dio lascia il ruolo di CIO di Fondo Italiano d\u2019Investimento sgr, societ\u00e0 di gestione con oltre \u20ac4 miliardi di asset controllata al 55% da CDP Equity (Cassa Depositi e Prestiti) e partecipata da UniCredit, Intesa Sanpaolo, Fondazioni ENPAM/ENPAIA, ABI, Banco BPM e BPER Banca. Notizia su un cambio manageriale, non un\u2019operazione M&A.",
-      "title_original": "Fondo Italiano d\u2019Investimento sgr, CIO Giampaolo Di Dio leaves"
+      "title_original": "Fondo Italiano d'Investimento sgr, CIO Giampaolo Di Dio leaves"
     },
     {
       "id": "rss-signal-00154",
@@ -54702,8 +54702,356 @@
         ],
         "locations": []
       }
+    },
+    {
+      "id": "web-signal-02017",
+      "fund_id": "",
+      "fund_slug": "capital-dynamics-sgr",
+      "signal_type": "exit_announced",
+      "title": "FundsPeople - Private Equity: complexity is the new normal - Capital Dynamics",
+      "what_changed": "New announcement: FundsPeople - Private Equity: complexity is the new normal - Capital Dynamics",
+      "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOa0J0ZzZkWE05UXQweGxsUU5BbEtYMm5KWXJpenRTNTRjNzJtSnJfVC1RQlE2ZWtua1J2THB4Q1ljY3paVnBwc1oyMW56ZEpCUlFoa0U3d0NUSWxQcEhHMHZPVWV1NWJFV3l1N3A5RUY4c1V3T1F1dW96ODhxQVA1WTdWUVhtQTZhQ0l5WQ?oc=5",
+      "source_name": "Capital Dynamics SGR",
+      "published_at": "2026-02-05",
+      "observed_at": "2026-03-02T08:12:07.503710+00:00",
+      "created_at": "2026-03-02T08:12:07.503710+00:00",
+      "snapshot_id": "snap-20260302081206-0b1e545e",
+      "diff_summary": "New news item detected (dated 2026-02-05)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Private Equity",
+          "Capital Dynamics"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02018",
+      "fund_id": "",
+      "fund_slug": "capital-dynamics-sgr",
+      "signal_type": "other",
+      "title": "TiAM Fund Research: Energy infrastructure is as essential as clean drinking water - Capital Dynamics",
+      "what_changed": "New announcement: TiAM Fund Research: Energy infrastructure is as essential as clean drinking water - Capital Dynamics",
+      "source_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPLVFYN0NJUzJlZ0ZUWFd2NlBsdUFjZ0ZxTmJjUFRVanVTNFNZUTV5c3JoUTlTNXdsQjZPUG1mOHlNOTh5aXl4MF9mWnJmNXF1ekdEOXdyXzhjTWhDazBDNlkxZll5OFJPenRQMkNYcHNQZ01HQS05LVdNc2VPNzY1LTNVMVJkZTlReXl4aHdJbndJdEZlbVhxMVd0Wms1VFg4UndmSFRhNWhub2NfTmc?oc=5",
+      "source_name": "Capital Dynamics SGR",
+      "published_at": "2026-02-18",
+      "observed_at": "2026-03-02T08:12:07.503710+00:00",
+      "created_at": "2026-03-02T08:12:07.503710+00:00",
+      "snapshot_id": "snap-20260302081206-0b1e545e",
+      "diff_summary": "New news item detected (dated 2026-02-18)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Fund Research",
+          "Capital Dynamics"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02019",
+      "fund_id": "",
+      "fund_slug": "alkemia-sgr",
+      "signal_type": "other",
+      "title": "Contents: Qatar Makes First Italian Investment in Digital Marketing Scale-up with 7M Funding Round",
+      "what_changed": "New announcement: Contents: Qatar Makes First Italian Investment in Digital Marketing Scale-up with 7M Funding Round",
+      "source_url": "https://www.alkemiacapital.com/en/news",
+      "source_name": "Alkemia SGR",
+      "published_at": "2026-02-23",
+      "observed_at": "2026-03-02T08:12:10.240761+00:00",
+      "created_at": "2026-03-02T08:12:10.240761+00:00",
+      "snapshot_id": "snap-20260302081209-0973386f",
+      "diff_summary": "New news item detected (dated 2026-02-23)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italian)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Funding Round",
+          "Digital Marketing Scale",
+          "Qatar Makes First",
+          "Italian Investment"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02020",
+      "fund_id": "",
+      "fund_slug": "apax-partners",
+      "signal_type": "people_move",
+      "title": "New team member: Anirudh JainPrincipal",
+      "what_changed": "New team member: Anirudh JainPrincipal",
+      "source_url": "https://www.apax.com/people/our-team/",
+      "source_name": "Apax Partners",
+      "published_at": null,
+      "observed_at": "2026-03-02T08:12:12.981947+00:00",
+      "created_at": "2026-03-02T08:12:12.981947+00:00",
+      "snapshot_id": "snap-20260302081212-32965e26",
+      "diff_summary": "1 new team member via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Anirudh JainPrincipal"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02021",
+      "fund_id": "",
+      "fund_slug": "axon-partners-group",
+      "signal_type": "deal_announced",
+      "title": "Groditech added to Axon Partners Group portfolio",
+      "what_changed": "Groditech added to Axon Partners Group portfolio",
+      "source_url": "https://axonpartnersgroup.com/portfolio/",
+      "source_name": "Axon Partners Group",
+      "published_at": null,
+      "observed_at": "2026-03-02T08:12:29.068919+00:00",
+      "created_at": "2026-03-02T08:12:29.068919+00:00",
+      "snapshot_id": "snap-20260302081219-06ed244c",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Groditech"
+        ],
+        "people": [
+          "Groditech We"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02022",
+      "fund_id": "",
+      "fund_slug": "l-catterton",
+      "signal_type": "people_move",
+      "title": "New team members: Morgan Novikoff (+1 more)",
+      "what_changed": "New team members: Morgan Novikoff (Investment and Operating Team), Leo Plattner (Investment and Operating Team)",
+      "source_url": "https://www.lcatterton.com/People.html",
+      "source_name": "L Catterton",
+      "published_at": null,
+      "observed_at": "2026-03-02T08:14:36.463665+00:00",
+      "created_at": "2026-03-02T08:14:36.463665+00:00",
+      "snapshot_id": "snap-20260302081435-c9110584",
+      "diff_summary": "2 new team members via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Morgan Novikoff",
+          "Leo Plattner"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02023",
+      "fund_id": "",
+      "fund_slug": "sofinnova-partners",
+      "signal_type": "other",
+      "title": "Boehringer Ingelheim licenses novel oral therapeutics program for immune diseases from Sitryx Therapeutics",
+      "what_changed": "New announcement: Boehringer Ingelheim licenses novel oral therapeutics program for immune diseases from Sitryx Therapeutics",
+      "source_url": "https://sofinnovapartners.com/news/boehringer-ingelheim-licenses-novel-oral-therapeutics-program-for-immune-diseases-from-sitryx-therapeutics",
+      "source_name": "Sofinnova Partners",
+      "published_at": "2026-02-26",
+      "observed_at": "2026-03-02T08:15:51.934074+00:00",
+      "created_at": "2026-03-02T08:15:51.934074+00:00",
+      "snapshot_id": "snap-20260302081551-bbe621ef",
+      "diff_summary": "New news item detected (dated 26 February, 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Sitryx Therapeutics",
+          "Boehringer Ingelheim"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02024",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "other",
+      "title": "Stonepeak Announces Investment in Aura Holdings",
+      "what_changed": "New announcement: Stonepeak Announces Investment in Aura Holdings",
+      "source_url": "https://stonepeak.com/news/stonepeak-announces-investment-in-aura-holdings",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-03-02T08:15:53.959629+00:00",
+      "created_at": "2026-03-02T08:15:53.959629+00:00",
+      "snapshot_id": "snap-20260302081553-490bd811",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Stonepeak Announces Investment",
+          "Aura Holdings"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02025",
+      "fund_id": "",
+      "fund_slug": "sagard",
+      "signal_type": "people_move",
+      "title": "New team members: Anthony Farthing (+3 more)",
+      "what_changed": "New team members: Anthony Farthing, Antwan Gad, Chhavi Jain, Shana Mosher",
+      "source_url": "https://www.sagard.com/team/",
+      "source_name": "Sagard",
+      "published_at": null,
+      "observed_at": "2026-03-02T08:15:54.594810+00:00",
+      "created_at": "2026-03-02T08:15:54.594810+00:00",
+      "snapshot_id": "snap-20260302081538-7b8d5d9d",
+      "diff_summary": "4 new team members via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Anthony Farthing",
+          "Antwan Gad",
+          "Chhavi Jain",
+          "Shana Mosher"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02026",
+      "fund_id": "",
+      "fund_slug": "varde-partners",
+      "signal_type": "other",
+      "title": "Announcements\u2013 2/06/2026V\u00e4rde Recognized by Octus as One of the Leading India Private Credit Lenders in 2025MUMBAI \u2013 V\u00e4rde Partners is pleased to be recognized by Octus as one of the leading private",
+      "what_changed": "MUMBAI \u2013 V\u00e4rde Partners is pleased to be recognized by Octus as one of the leading private credit lenders in India in 2025.",
+      "source_url": "https://varde.com/varde-recognized-by-octus-as-one-of-the-leading-india-private-credit-lenders-in-2025/",
+      "source_name": "Varde Partners",
+      "published_at": null,
+      "observed_at": "2026-03-02T08:16:03.305295+00:00",
+      "created_at": "2026-03-02T08:16:03.305295+00:00",
+      "snapshot_id": "snap-20260302081602-fff1d4cf",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Leading India Private",
+          "Credit Lenders"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00163",
+      "fund_id": "",
+      "fund_slug": "tikehau-capital",
+      "related_fund_slugs": [
+        "tikehau-capital"
+      ],
+      "signal_type": "other",
+      "title": "Tikehau continues to soar (+10.5%) amid the storm surrounding American BDCs",
+      "what_changed": "Tikehau Capital\u2019s share price rose 10.5% after record results, according to BeBeez; the article discusses market dynamics amid US BDC turbulence and the French investor\u2019s performance in private markets. This is market coverage, not a PE transaction; no deal, companies, or deal amounts involving Italy are reported.",
+      "source_url": "https://bebeez.it/private-equity-breakfast/prosegue-il-volo-di-tikehau-105-nella-tempesta-delle-bdc-americane/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-02T06:30:24+00:00",
+      "observed_at": "2026-03-02T08:18:54.406865+00:00",
+      "created_at": "2026-03-02T08:18:54.406865+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Tikehau Capital"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Prosegue il volo di Tikehau (+10,5%) nella tempesta delle BDC americane"
+    },
+    {
+      "id": "rss-signal-00164",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "Milan-based Alomana's AI raised \u20ac4 million in a round led by CDP Venture Capital",
+      "what_changed": "Milan-based AI startup Alomana has raised \u20ac4 million in a round led by CDP Venture Capital (Corporate Partners I \u2013 ServiceTech fund), with participation from Founders Factory, Kairos Ventures ESG One, IAG, and others. The funding will support Alo, an operational level of artificial intelligence, confirming a VC deal in Italy.",
+      "source_url": "https://startupitalia.eu/startup/alomana-startup-4-milioni-di-euro/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-02-27T17:42:59+00:00",
+      "observed_at": "2026-03-02T08:19:15.417897+00:00",
+      "created_at": "2026-03-02T08:19:15.417897+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Alomana"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "4 milioni di euro",
+      "what_changed_original": "Milano-based AI startup Alomana ha raccolto 4 milioni di euro in un round guidato da CDP Venture Capital (Corporate Partners I \u2013 fondo ServiceTech), con la partecipazione di Founders Factory, Kairos Ventures ESG One, IAG e altri. Il finanziamento soster\u00e0 Alo, un livello operativo di intelligenza artificiale, confermando un deal VC in Italia.",
+      "title_original": "L\u2019AI della milanese Alomana ha raccolto 4 milioni di euro in un round guidato da CDP Venture Capital"
     }
   ],
-  "signal_count": 2016,
-  "translated_at": "2026-02-27T17:20:56.732880+00:00"
+  "signal_count": 2026,
+  "translated_at": "2026-03-02T08:19:46.206177+00:00"
 }

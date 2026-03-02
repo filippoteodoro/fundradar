@@ -4,7 +4,9 @@ import { useState, useMemo, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import type { TeamAnalytics } from '@fundradar/shared';
 import type { FundSlim } from '@/lib/data';
+import type { UnifiedSignal } from '@/lib/signals_unified';
 import { FundsTable } from './FundsTable';
+import { HomeSignalsSnapshot } from './HomeSignalsSnapshot';
 import { CARD_STYLE, CARD_PADDING } from '@/lib/ui';
 
 const TeamAnalyticsCharts = dynamic(
@@ -25,6 +27,7 @@ interface HomeContentProps {
   realAnalytics: Record<string, TeamAnalytics>;
   // Source of truth for Italy-only profile coverage note.
   manualLinkedinProfileFundSlugs: string[];
+  recentSignals: UnifiedSignal[];
 }
 
 function aggregateAnalytics(
@@ -139,6 +142,7 @@ export function HomeContent({
   portfolioCompanyNames,
   realAnalytics,
   manualLinkedinProfileFundSlugs,
+  recentSignals,
 }: HomeContentProps) {
   const manualLinkedinProfileFundSlugsSet = useMemo(
     () => new Set(manualLinkedinProfileFundSlugs),
@@ -174,6 +178,7 @@ export function HomeContent({
   );
 
   const isFiltered = filteredSlugs.length < allSlugs.length;
+  const filteredSlugsSet = useMemo(() => new Set(filteredSlugs), [filteredSlugs]);
 
   return (
     <>
@@ -204,6 +209,10 @@ export function HomeContent({
             )}
           </div>
         </div>
+      )}
+
+      {recentSignals.length > 0 && (
+        <HomeSignalsSnapshot signals={recentSignals} filteredSlugSet={filteredSlugsSet} />
       )}
     </>
   );

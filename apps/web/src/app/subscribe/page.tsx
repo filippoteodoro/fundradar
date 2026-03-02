@@ -170,9 +170,15 @@ export default async function SubscribePage() {
   ];
 
   let sampleSignals: UnifiedSignal[] = [];
+  let signalsLast30Days = 0;
   try {
     const { signals } = loadUnifiedSignals();
     sampleSignals = pickSampleSignals(signals);
+    const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000;
+    signalsLast30Days = signals.filter(s => {
+      const ts = s.published_at || s.observed_at;
+      return ts ? new Date(ts).getTime() > cutoff : false;
+    }).length;
   } catch {
     // If signals fail to load, the section is simply hidden
   }
@@ -200,7 +206,9 @@ export default async function SubscribePage() {
             €{formattedPrice}
             <span style={{ fontSize: '15px', fontWeight: 400, color: '#888' }}>/month</span>
           </div>
-          <p style={{ fontSize: '13px', color: '#888', margin: '4px 0 0 0' }}>Cancel anytime</p>
+          <p style={{ fontSize: '13px', color: '#888', margin: '4px 0 0 0' }}>
+            Cancel anytime{signalsLast30Days > 0 && ` · ${signalsLast30Days} signals in the last 30 days`}
+          </p>
         </div>
 
         <ul style={{

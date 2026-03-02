@@ -6,6 +6,7 @@ import type { Company, CompanyInvestment, Signal } from '@fundradar/shared';
 import { CARD_STYLE, CARD_PADDING, badgeStyle, STATUS_STYLES, SOURCE_STYLES } from '@/lib/ui';
 import { canonicalizeSectorTag, SECTOR_TO_GROUP, getSectorGroupColor } from '@/lib/sectorGroups';
 import { SignalCard } from '@/components/SignalCard';
+import { SubscribeBanner } from '@/components/SubscribeBanner';
 
 interface CompanySignal extends Signal {
   fund_name: string;
@@ -206,6 +207,8 @@ export function CompanyDetail({ company, signals = [] }: CompanyDetailProps) {
           </table>
         </div>
       </div>
+
+      {company.investments.length > 0 && <SubscribeBanner />}
 
       {/* Signals section — only shown when there are matching signals */}
       {signals.length > 0 && (

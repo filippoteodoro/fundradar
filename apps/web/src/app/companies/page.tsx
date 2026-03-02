@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getAllCompaniesSlim } from '@/lib/data';
 import { CompaniesTable } from './CompaniesTable';
+import { SubscribeBanner } from '@/components/SubscribeBanner';
 import { getBaseUrl } from '@/lib/baseUrl';
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function CompaniesPage() {
         </p>
       </div>
       <CompaniesTable companies={companies} />
+      <SubscribeBanner />
     </div>
   );
 }

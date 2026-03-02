@@ -109,6 +109,9 @@ export default function RootLayout({
             flexWrap: 'wrap',
           }}>
             <span>All data verified through public sources and updated daily.</span>
+            <Link href="/subscribe" style={{ color: '#444', textDecoration: 'underline', fontWeight: 500 }}>
+              Get weekly signals →
+            </Link>
             <Link href="/terms-and-conditions" style={{ color: '#666', textDecoration: 'underline' }}>
               Terms
             </Link>

@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import type { Signal } from '@fundradar/shared';
 import { SignalCard } from '@/components/SignalCard';
+import { SubscribeBanner } from '@/components/SubscribeBanner';
 
 interface SignalsCompactProps {
   signals: Signal[];
@@ -40,8 +41,13 @@ export function SignalsCompact({ signals }: SignalsCompactProps) {
   return (
     <>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {paginatedSignals.map((signal) => (
-          <SignalCard key={signal.id} signal={signal} />
+        {paginatedSignals.map((signal, i) => (
+          <div key={signal.id}>
+            <SignalCard signal={signal} />
+            {pageIndex === 0 && (i === 2 || (i === paginatedSignals.length - 1 && i < 2)) && (
+              <SubscribeBanner />
+            )}
+          </div>
         ))}
       </div>
 
