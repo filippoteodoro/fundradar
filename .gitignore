@@ -57,6 +57,8 @@ Thumbs.db
 # Derived data — worker-internal state (ignored)
 /data/derived/blobs/
 /data/derived/backups/
+# Timestamped in-place backup files (e.g. detected_signals_filtered.2026-02-21T200952.json)
+/data/derived/*.20[0-9][0-9]-*.json
 /data/derived/backups_rename/
 /data/derived/snapshots.json
 /data/derived/snapshots_html/
