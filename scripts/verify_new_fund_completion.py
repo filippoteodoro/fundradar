@@ -130,6 +130,16 @@ def main() -> int:
             "or a whitelist entry in --zero-italy-verified-path"
         ),
     )
+    parser.add_argument(
+        "--established-slugs",
+        type=str,
+        default="",
+        help=(
+            "Comma-separated slugs for funds already in db.json before this change set. "
+            "Skips data-completeness checks (portfolio enrichment, signal completeness, "
+            "signal parity, top-AUM Italy assets) that are only required for newly added funds."
+        ),
+    )
     args = parser.parse_args()
 
     db = _load_json(DB_PATH)
@@ -153,6 +163,7 @@ def main() -> int:
     top_slugs = {str(f.get("slug")) for f in ranked[: max(args.top_n, 0)] if f.get("slug")}
 
     audit_by_slug = {str(f.get("slug")): f for f in asset_audit if isinstance(f, dict) and f.get("slug")}
+    established_slugs = _parse_slugs(args.established_slugs)
     now_iso = datetime.now(timezone.utc).isoformat()
 
     fund_reports: list[dict[str, Any]] = []
@@ -160,6 +171,10 @@ def main() -> int:
         fund = funds_by_slug.get(slug)
         blockers: list[str] = []
         warnings: list[str] = []
+        # Established funds (already in db before this change set) skip data-completeness
+        # checks that are only meaningful for newly added funds. Core metadata and audit
+        # checks still apply to all funds.
+        is_established = slug in established_slugs
 
         if not fund:
             blockers.append("missing_in_db")
@@ -185,7 +200,7 @@ def main() -> int:
         else:
             complete = sum(1 for c in companies if _is_complete_portfolio_entry(c))
             completion_ratio = complete / len(companies)
-            if completion_ratio < 1.0:
+            if not is_established and completion_ratio < 1.0:
                 blockers.append(f"portfolio_enrichment_incomplete:{complete}/{len(companies)}")
 
         audit_entry = audit_by_slug.get(slug)
@@ -199,7 +214,7 @@ def main() -> int:
                 blockers.append("gemini_asset_audit_not_completion_ready")
             italian_portfolio_count = _as_non_negative_int(audit_entry.get("italian_portfolio_count"))
 
-            if args.require_top_aum_italy_assets and slug in top_slugs:
+            if not is_established and args.require_top_aum_italy_assets and slug in top_slugs:
                 italy_blocker = _top_aum_italy_assets_blocker(
                     slug=slug,
                     top_slugs=top_slugs,
@@ -213,13 +228,13 @@ def main() -> int:
         e_ids = _signal_ids(enriched_rows, slug)
         missing_in_enriched = sorted(f_ids - e_ids)
         stale_in_enriched = sorted(e_ids - f_ids)
-        if missing_in_enriched:
+        if not is_established and missing_in_enriched:
             blockers.append(f"signal_parity_missing_in_enriched:{len(missing_in_enriched)}")
-        if stale_in_enriched:
+        if not is_established and stale_in_enriched:
             blockers.append(f"signal_parity_stale_in_enriched:{len(stale_in_enriched)}")
 
         filtered_count = len(f_ids)
-        if slug in top_slugs and filtered_count < args.min_signals:
+        if not is_established and slug in top_slugs and filtered_count < args.min_signals:
             blockers.append(f"top_aum_signal_completeness:{filtered_count}/{args.min_signals}")
 
         status = "passed" if not blockers else "failed"

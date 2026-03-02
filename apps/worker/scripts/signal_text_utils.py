@@ -86,7 +86,7 @@ PRESS_RELEASE_PREFIX_RE = re.compile(
 LEADING_LABEL_RE = re.compile(
     r"^\s*(?:news|update|announcement|new announcement|team update|"
     r"fundraising update|fund close|press release|comunicato stampa|"
-    r"news release)\b\s*(?:[:\-–]|\s+\d|\d)\s*",
+    r"news release|contents)\b\s*(?:[:\-–]|\s+\d|\d)\s*",
     re.IGNORECASE,
 )
 
@@ -732,6 +732,14 @@ def normalize_monetary_values(text: str) -> str:
     result = re.sub(r"\$(\d[\d.,]*)\s+million\b", lambda m: f"${m.group(1)}M", result, flags=re.IGNORECASE)
     result = re.sub(r"€(\d[\d.,]*)\s+billion\b", lambda m: f"€{m.group(1)}B", result, flags=re.IGNORECASE)
     result = re.sub(r"\$(\d[\d.,]*)\s+billion\b", lambda m: f"${m.group(1)}B", result, flags=re.IGNORECASE)
+    # "X m Funding/Investment/Round/Raise/Deal" (no currency symbol) → €XM
+    # Handles patterns like "7 m Funding Round" from translated press releases that drop the
+    # currency symbol. Only fires in financial context to avoid false positives on other "m" words.
+    result = re.sub(
+        r'\b(\d+(?:[.,]\d+)?)\s+m\b(?=\s+(?:Funding|Investment|Round|Raise|Deal)\b)',
+        lambda m: _format_amount(m.group(1), "M") or m.group(0),
+        result, flags=re.IGNORECASE,
+    )
 
     # Safety: ensure separator between compact amount and following letters
     result = re.sub(
@@ -1825,9 +1833,23 @@ def is_garbage_summary(summary: str) -> bool:
     if _longest_token >= MAX_SUMMARY_TOKEN_LEN:
         return True
 
-    # Italian-language summary detection: if summary contains multiple Italian stop words,
-    # it's untranslated and should be cleared
-    _italian_stops = len(re.findall(r"\b(?:della|nella|degli|alle|sono|anche|questo|quella|stato|dopo|prima|verso|ogni|essere|avere|fatto|anno|presentata?|girata?)\b", text, re.IGNORECASE))
+    # Italian-language summary detection: if summary contains multiple Italian stop words
+    # or content words, it's untranslated and should be cleared.
+    # List includes both stop words (prepositions, articles) and content words (verbs,
+    # nouns) that are uniquely Italian and won't appear in English text.
+    _italian_stops = len(re.findall(
+        r"\b(?:della|nella|degli|alle|sono|anche|questo|quella|stato|dopo|prima|verso|ogni|essere|avere|fatto|anno|"
+        r"presentata?|girata?|"
+        # Italian verbs (3rd person present, gerunds, past participles) not in English:
+        r"acquista|acquisto|acquistano|investendo|controllata?|controllato|"
+        r"tratta|trattano|maggioranza|venduta?|ceduta?|ceduto|"
+        r"punta\s+su[ll]?|punta\s+a|lancia|nasce|avvia|"
+        # Italian preposition contractions (uniquely Italian):
+        r"sull[aei]?'|dell[aei]?'|nell[aei']|"
+        # Italian financial terms left untranslated:
+        r"partecipazione|operazione|finanziamento|raccolta|aumento\s+di\s+capitale)\b",
+        text, re.IGNORECASE
+    ))
     if _italian_stops >= ITALIAN_STOP_WORD_THRESHOLD:
         return True
 

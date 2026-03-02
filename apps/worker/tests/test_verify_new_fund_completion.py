@@ -58,3 +58,11 @@ def test_as_non_negative_int_handles_strings_and_invalid_values():
     assert mod._as_non_negative_int("7.9") == 7
     assert mod._as_non_negative_int("-2") == 0
     assert mod._as_non_negative_int("not-a-number") == 0
+
+
+def test_is_complete_portfolio_entry_requires_sector_desc_hq():
+    mod = _load_verify_module()
+    assert mod._is_complete_portfolio_entry({"sector": "Tech", "description": "Desc", "headquarters": "Milan"})
+    assert not mod._is_complete_portfolio_entry({"sector": "Tech", "description": "Desc"})
+    assert not mod._is_complete_portfolio_entry({"sector": "Tech", "headquarters": "Milan"})
+    assert not mod._is_complete_portfolio_entry({"description": "Desc", "headquarters": "Milan"})

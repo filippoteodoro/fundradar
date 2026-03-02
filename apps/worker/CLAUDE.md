@@ -337,6 +337,29 @@ The following fixes were applied during a full signal quality audit (Feb 2026). 
 - Capitalize all proper nouns exactly as in source (prevents `italcer` → `Italcer` hallucinations)
 - Never start summary with "Article in [Publication]:" (prevent meta-summaries)
 
+### Mar 2026 Signal Quality Audit — Systemic Fixes
+
+**`filter_signals.py` `calculate_quality_score()`** — Italian title penalty: signals where `title_original` is absent (translation never attempted) AND the title contains 2+ Italian-specific content words (tratta, acquista, controllata, maggioranza, venduta, nella, etc.) in a short title (≤15 words) get `-30` quality score. Pushes untranslated Italian signals below the 80-point filter threshold. Primary fix is in `translate_signals.py`; this is the fallback defense for translation failures.
+
+**`signal_text_utils.py` `LEADING_LABEL_RE`** — Added `contents` to the boilerplate prefix stripping pattern. Fixes signals prefixed with "Contents: [title]" from website scrapers that label page sections.
+
+**`signal_text_utils.py` `normalize_monetary_values()`** — Added "X m Funding/Investment/Round/Raise/Deal" → €XM rule. Handles press-release patterns where currency symbol is dropped ("7 m Funding Round" → "€7M Funding Round").
+
+**`signal_text_utils.py` `_is_garbage_summary()`** — Expanded Italian stop-word list with PE-specific content words (acquista, controllata, investendo, tratta, maggioranza, venduta, ceduta, punta su, lancia, nasce, avvia, etc.). Catches Italian summaries from signals where the enricher received untranslated Italian titles and generated Italian-language summaries.
+
+### Enricher "processed but missing" signals — Root Cause and Fix
+
+**Symptom**: Signals in `processed_ids` in `signal_enrichment_progress.json` that are absent from `detected_signals_enriched.json`. Shows up as `signal_parity_missing_in_enriched` in CI gate reports.
+
+**Root cause**: The enricher was run with `--slugs` flag for specific funds. The `_merge_output_signals()` function preserves non-target signals from the EXISTING enriched file. If the enriched file was subsequently regenerated (full pipeline run) without including those signals (e.g., they were newly filtered in after the enricher ran), they appear in `processed_ids` but not in the output.
+
+**Fix pattern** (free, no API calls):
+1. Copy the missing signals from `detected_signals_filtered.json` → `detected_signals_enriched.json` directly
+2. Remove their IDs from `processed_ids` in `signal_enrichment_progress.json`
+3. On next full pipeline run, the enricher will add proper LLM summaries to them
+
+**Do NOT** re-run the enricher to fix this — costs ~$0.30/run. Direct JSON edits are free.
+
 `_passes_strict_quality_gates()` in `filter_signals.py` — **noise gates run BEFORE the `italy_focused` early return**. This order is intentional: bare portfolio extraction signals (just a company name, no context) must be caught even for italy-focused funds that otherwise get a pass on geo checks.
 
 `italy_relevant=True` reliability: the flag is trustworthy only when `relevance_score > 0` OR `relevance_reasons` is non-empty. A signal with `italy_relevant=True`, `relevance_score=0`, and no `relevance_reasons` means the flag was set as an upstream default — treat as unreliable. Non-italy-focused funds in this state fall through to text-based geo checks.

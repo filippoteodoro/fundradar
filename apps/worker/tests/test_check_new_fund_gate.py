@@ -44,3 +44,17 @@ def test_fund_aliases_not_a_trigger_change():
     Active-fund alias changes are detected via _detect_alias_target_changes() instead."""
     mod = _load_gate_module()
     assert not mod._is_trigger_change("data/derived/fund_aliases.json")
+
+
+def test_collect_candidate_slugs_explicit_yields_empty_established():
+    """Explicit --slugs override should treat all slugs as new (empty established set)."""
+    mod = _load_gate_module()
+    # Simulate explicit slugs override (no git comparison needed)
+    candidates, established = mod._collect_candidate_slugs(
+        base_ref="",
+        changed_files=[],
+        db_now={"funds": [{"slug": "kkr"}]},
+        explicit_slugs={"kkr"},
+    )
+    assert "kkr" in candidates
+    assert len(established) == 0

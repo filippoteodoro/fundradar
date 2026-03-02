@@ -3223,6 +3223,24 @@ def calculate_quality_score(
         except (ValueError, TypeError):
             pass
 
+    # Italian title penalty — signal title appears untranslated (title_original is absent/empty,
+    # meaning translation was never attempted or the translator skipped it). Signals with 2+
+    # Italian-specific content words in a short title (≤15 words) are likely untranslated Italian.
+    # Push them below the quality threshold so they don't surface to end users.
+    # Note: this is a fallback for translation failures. The primary fix is in translate_signals.py.
+    _title_for_it_check = signal.get("title") or ""
+    if not signal.get("title_original") and len(_title_for_it_check.split()) <= 15:
+        _it_word_count = len(re.findall(
+            r"\b(?:tratta|trattano|acquista|acquisto|acquistano|investendo|"
+            r"controllata|controllato|controllati|controllate|"
+            r"maggioranza|venduta|venduto|ceduta|ceduto|"
+            r"sull[aei]?'?|nella\b|nell[aei']|punta\s+su[ll]?[aei]?|"
+            r"lanc[ia]|nasce|avvia|avviano|avviate)\b",
+            _title_for_it_check, re.IGNORECASE,
+        ))
+        if _it_word_count >= 2:
+            score -= 30
+
     # Cap score
     return max(0, min(100, score))
 

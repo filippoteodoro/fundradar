@@ -136,15 +136,23 @@ def _extract_domain_from_file(path: Path) -> str | None:
     return _normalize_domain(match.group(1))
 
 
-def _detect_db_changed_slugs(base_ref: str, db_now: dict[str, Any]) -> set[str]:
+def _detect_db_changed_slugs(
+    base_ref: str, db_now: dict[str, Any]
+) -> tuple[set[str], set[str]]:
+    """Return (new_slugs, changed_slugs).
+
+    new_slugs: funds added for the first time (no prior db entry).
+    changed_slugs: funds whose db entry changed but already existed.
+    Both sets together form the full candidate set for the gate.
+    """
     db_before = _load_json_from_git_ref(base_ref, DB_REL) if base_ref else None
     if not db_before:
-        return set()
+        return set(), set()
 
     before_funds = db_before.get("funds")
     now_funds = db_now.get("funds")
     if not isinstance(before_funds, list) or not isinstance(now_funds, list):
-        return set()
+        return set(), set()
 
     before_by_slug = {
         str(f.get("slug")): f
@@ -157,17 +165,17 @@ def _detect_db_changed_slugs(base_ref: str, db_now: dict[str, Any]) -> set[str]:
         if isinstance(f, dict) and f.get("slug")
     }
 
-    changed: set[str] = set()
+    new_slugs: set[str] = set()
+    changed_slugs: set[str] = set()
     for slug, now_row in now_by_slug.items():
         before_row = before_by_slug.get(slug)
         if before_row is None:
-            changed.add(slug)
-            continue
-        if json.dumps(before_row, sort_keys=True, ensure_ascii=False) != json.dumps(
+            new_slugs.add(slug)
+        elif json.dumps(before_row, sort_keys=True, ensure_ascii=False) != json.dumps(
             now_row, sort_keys=True, ensure_ascii=False
         ):
-            changed.add(slug)
-    return changed
+            changed_slugs.add(slug)
+    return new_slugs, changed_slugs
 
 
 def _detect_alias_target_changes(base_ref: str) -> set[str]:
@@ -242,16 +250,27 @@ def _collect_candidate_slugs(
     changed_files: list[str],
     db_now: dict[str, Any],
     explicit_slugs: set[str],
-) -> set[str]:
+) -> tuple[set[str], set[str]]:
+    """Return (candidate_slugs, established_slugs).
+
+    established_slugs are funds already present in db.json before this change set.
+    These skip data-completeness checks (portfolio enrichment, signal completeness)
+    that are only required when a fund is first added. Core metadata and Gemini
+    audit checks still apply to all candidates.
+    """
     if explicit_slugs:
-        return explicit_slugs
+        # Explicit overrides are always treated as new (full checks apply).
+        return explicit_slugs, set()
 
     db_funds = db_now.get("funds") if isinstance(db_now.get("funds"), list) else []
-    candidates: set[str] = set()
-    candidates |= _detect_db_changed_slugs(base_ref, db_now)
-    candidates |= _detect_alias_target_changes(base_ref)
-    candidates |= _detect_extractor_slugs(changed_files, db_funds)
-    return candidates
+    new_db_slugs, changed_db_slugs = _detect_db_changed_slugs(base_ref, db_now)
+    alias_slugs = _detect_alias_target_changes(base_ref)
+    extractor_slugs = _detect_extractor_slugs(changed_files, db_funds)
+
+    # Alias/extractor-derived slugs are existing funds being reconfigured, not newly added.
+    established_slugs = changed_db_slugs | alias_slugs | extractor_slugs
+    all_candidates = new_db_slugs | established_slugs
+    return all_candidates, established_slugs
 
 
 def _is_trigger_change(relative_path: str) -> bool:
@@ -260,7 +279,12 @@ def _is_trigger_change(relative_path: str) -> bool:
     return relative_path.startswith(EXTRACTOR_DIR_PREFIX)
 
 
-def _run_verify(slugs: set[str], top_n: int, min_signals: int) -> tuple[int, str, str, dict[str, Any]]:
+def _run_verify(
+    slugs: set[str],
+    top_n: int,
+    min_signals: int,
+    established_slugs: set[str] | None = None,
+) -> tuple[int, str, str, dict[str, Any]]:
     with tempfile.NamedTemporaryFile(mode="w+", suffix=".json", delete=False) as tmp:
         report_path = Path(tmp.name)
 
@@ -276,6 +300,8 @@ def _run_verify(slugs: set[str], top_n: int, min_signals: int) -> tuple[int, str
         "--output",
         str(report_path),
     ]
+    if established_slugs:
+        cmd.extend(["--established-slugs", ",".join(sorted(established_slugs))])
     try:
         proc = subprocess.run(
             cmd,
@@ -316,7 +342,7 @@ def main() -> int:
 
     db_now = _load_json(ROOT / DB_REL)
     explicit_slugs = _parse_slugs(args.slugs)
-    candidate_slugs = _collect_candidate_slugs(
+    candidate_slugs, established_slugs = _collect_candidate_slugs(
         base_ref=args.base_ref.strip(),
         changed_files=changed_files,
         db_now=db_now,
@@ -329,6 +355,7 @@ def main() -> int:
         if isinstance(f, dict) and isinstance(f.get("slug"), str) and f.get("slug")
     }
     candidate_slugs = {slug for slug in candidate_slugs if slug in db_slugs}
+    established_slugs = {slug for slug in established_slugs if slug in db_slugs}
 
     if not candidate_slugs:
         if trigger_changed:
@@ -344,7 +371,12 @@ def main() -> int:
         print("No relevant fund-quality changes detected; skipping new-fund gate.")
         return 0
 
+    new_slugs = candidate_slugs - established_slugs
     print(f"Candidate slugs: {', '.join(sorted(candidate_slugs))}")
+    if new_slugs:
+        print(f"  New (strict checks): {', '.join(sorted(new_slugs))}")
+    if established_slugs & candidate_slugs:
+        print(f"  Established (relaxed checks): {', '.join(sorted(established_slugs & candidate_slugs))}")
 
     if not args.skip_artifact_freshness:
         missing_refresh = sorted(REQUIRED_REFRESH_ARTIFACTS - changed_set)
@@ -360,6 +392,7 @@ def main() -> int:
         candidate_slugs,
         top_n=args.top_n,
         min_signals=args.min_signals,
+        established_slugs=established_slugs & candidate_slugs,
     )
     if stdout.strip():
         print(stdout.strip())
