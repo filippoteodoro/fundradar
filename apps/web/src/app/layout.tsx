@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { BetaBadge } from '@/components/BetaBadge';
 import { BetaBanner } from '@/components/BetaBanner';
 import { HeaderNav } from '@/components/HeaderNav';
@@ -127,6 +128,7 @@ export default function RootLayout({
           </div>
         </footer>
         <ConsentManager />
+        <SpeedInsights />
       </body>
     </html>
   );

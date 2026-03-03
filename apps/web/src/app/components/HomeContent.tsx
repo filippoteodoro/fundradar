@@ -6,8 +6,12 @@ import type { TeamAnalytics } from '@fundradar/shared';
 import type { FundSlim } from '@/lib/data';
 import type { UnifiedSignal } from '@/lib/signals_unified';
 import { FundsTable } from './FundsTable';
-import { HomeSignalsSnapshot } from './HomeSignalsSnapshot';
 import { CARD_STYLE, CARD_PADDING } from '@/lib/ui';
+
+const HomeSignalsSnapshot = dynamic(
+  () => import('./HomeSignalsSnapshot').then(mod => ({ default: mod.HomeSignalsSnapshot })),
+  { ssr: false },
+);
 
 const TeamAnalyticsCharts = dynamic(
   () => import('@/components/TeamAnalyticsCharts').then(mod => ({ default: mod.TeamAnalyticsCharts })),
