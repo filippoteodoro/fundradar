@@ -3281,15 +3281,12 @@
       "name": "Eiffel Investment Group",
       "category": "infra",
       "hq_city": "Paris",
-      "hq_region": "Italy",
+      "hq_region": "\u00cele-de-France",
       "website": "https://www.eiffel-ig.com",
       "strategy_tags": [
-        "Buy-Out",
-        "Early-Stage",
-        "Expansion",
-        "Impact-Investing",
         "Infrastructure",
-        "Private-Debt"
+        "Private-Debt",
+        "Impact-Investing"
       ],
       "sector_tags": [
         "Renewable Energy",
@@ -3297,7 +3294,7 @@
         "Packaging",
         "Software"
       ],
-      "description": "Originally established within the Louis Dreyfus Group, this specialist in energy transition bridge financing and impact-driven private debt partners with the EIB to accelerate European renewable infrastructure.",
+      "description": "Specialist in infrastructure and private debt, managing approximately \u20ac8bn split equally between the two strategies. Partners with the EIB on energy transition and impact-driven financing across European renewable infrastructure and private credit.",
       "geographies": [
         "Europe"
       ],
@@ -3306,8 +3303,7 @@
       ],
       "asset_class": [
         "Infrastructure",
-        "Private-Debt",
-        "Private equity"
+        "Private-Debt"
       ],
       "contact_name": "javascript:__doPostBack('ctl00$ctl18$rptaderentiassociati$ctl09$lnkDettaglio','')",
       "contact_email": "https://www.eiffel-ig.com/",
@@ -3322,12 +3318,10 @@
       "investment_max_eur": 200000000,
       "aifi_url": "https://www.aifi.it/en/full-members",
       "aifi_scraped_at": "2026-02-02T20:00:57.826991+00:00",
-      "aum_eur": 4500000000,
+      "aum_eur": 8000000000,
       "data_source": "aifi_scraped",
       "data_confidence": "high",
-      "gemini_enriched_fields": [
-        "aum_eur"
-      ],
+      "gemini_enriched_fields": [],
       "average_investment_source": "openai_enriched",
       "hq_lat": 48.869247,
       "hq_lng": 2.306606,
@@ -3346,7 +3340,7 @@
           "source_name": "Manual curation (Focus su transition energy e private debt in Italia.)"
         }
       ],
-      "description_source": "gemini"
+      "description_source": "insider_verified"
     },
     {
       "id": "entangled-capital-sgr",

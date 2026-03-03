@@ -183,7 +183,9 @@ export function CompanyDetail({ company, signals = [] }: CompanyDetailProps) {
                     </td>
                     <td style={{ padding: '10px 12px', borderBottom: '1px solid #eee' }}>
                       {(() => {
-                        if (!inv.data_source && !inv.source_url && !inv.source_label) {
+                        const normalizedLabel = inv.source_label?.trim().toLowerCase() || '';
+                        const isUnknown = normalizedLabel === 'unknown' || (!inv.source_url && !normalizedLabel);
+                        if (isUnknown) {
                           return <span style={{ color: '#999' }}>-</span>;
                         }
                         return inv.source_url ? (

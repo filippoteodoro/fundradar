@@ -76,6 +76,86 @@ NEWS_DOMAINS = {
 # Company name normalization — delegates to entity_resolver (single source of truth)
 from fundradar_worker.entity_resolver import normalize_company_name
 
+# ─── Organizer fund detection ───────────────────────────────────────────────
+# In Italian PE/VC, a fund that "organizes" or "leads" a club deal IS a direct
+# investor (lead investor role). The LLM enricher often marks is_direct_investment=False
+# for organizers because "organized by" reads as a placement/arranging role.
+# These patterns detect that context locally so we can override is_direct.
+
+# "organized/arranged/led/orchestrated by [Fund]" — Fund appears after the verb
+_RE_ORGANIZED_BY = re.compile(
+    r"\b(?:organized?|arranged?|led|orchestrated|promoted|curato|organizzato|promosso)\s+by\s+"
+    r"([A-Z][A-Za-z0-9\s&.',\-]{1,50}?)(?=\s*[.;,]|\s+(?:and|which|with|for|to|exit|the)\b|$)",
+    re.IGNORECASE,
+)
+
+# "[Fund] organizes/leads [deal type]" — Fund appears as subject before the verb
+_RE_ORGANIZER_SUBJECT = re.compile(
+    r"([A-Z][A-Za-z0-9\s&.',\-]{1,50?})\s+"
+    r"(?:organizes?|arranges?|leads?|orchestrates?|promotes?|ha\s+organizzato|ha\s+guidato)\s+"
+    r"(?:a |the |un |una |il |la )?"
+    r"(?:club\s+deal|funding\s+round|investment\s+round|round|deal|operazione)\b",
+    re.IGNORECASE,
+)
+
+
+def _find_organizer_slugs(
+    signal: dict,
+    funds_by_slug: dict,
+    primary_slug: str,
+) -> list[str]:
+    """
+    Scan deal signal text for fund names appearing in an organizer/lead role.
+
+    Returns slugs of funds that organized/led this deal (excluding primary_slug).
+    These funds are direct investors — organizing a club deal in Italian PE/VC
+    context means leading the investment, not merely arranging it.
+
+    Zero API calls — purely local text matching against db.json fund names.
+    """
+    text = " ".join(filter(None, [
+        signal.get("title"),
+        signal.get("what_changed"),
+        signal.get("enriched_summary"),
+    ]))
+    if not text:
+        return []
+
+    found: list[str] = []
+
+    for slug, fund in funds_by_slug.items():
+        if slug == primary_slug or slug in found:
+            continue
+        name = (fund.get("name") or "").strip()
+        if not name or len(name) < 4:
+            continue
+
+        # Build a pattern that matches the full name OR the first word (if ≥6 chars)
+        first_word = name.split()[0]
+        if len(first_word) >= 6:
+            name_pat = rf"(?:{re.escape(name)}|{re.escape(first_word)})"
+        else:
+            name_pat = re.escape(name)
+
+        # Pattern 1: "organized/led/arranged by ... [Fund]"
+        if re.search(
+            rf"\b(?:organized?|arranged?|led|orchestrated|promoted|curato|organizzato|promosso)"
+            rf"\s+by\s+(?:[A-Za-z&\s]{{0,20}})?{name_pat}\b",
+            text, re.IGNORECASE,
+        ):
+            found.append(slug)
+            continue
+
+        # Pattern 2: "[Fund] organizes/leads/arranges [deal type]"
+        if re.search(
+            rf"\b{name_pat}\s+(?:organizes?|arranges?|leads?|orchestrates?|promotes?|ha\s+organizzato|ha\s+guidato)"
+            rf"\s+(?:a |the |un |una |il |la )?(?:club\s+deal|funding\s+round|investment\s+round|round|deal|operazione)\b",
+            text, re.IGNORECASE,
+        ):
+            found.append(slug)
+
+    return found
+
 
 def _token_overlap(a: str, b: str) -> float:
     """Jaccard token overlap between two normalized name strings."""
@@ -340,12 +420,17 @@ def process_fund_signals(
     existing_entries: list[dict],
     fund_domain: str | None,
     dry_run: bool = False,
+    organizer_signal_ids: set[str] | None = None,
 ) -> tuple[dict, list[str]]:
     """
     Process signals for a single fund — purely local, no API calls.
 
     Reads target_companies from pre-enriched signals (extracted by step 7).
     Dedup results, add new entries, update exits.
+
+    organizer_signal_ids: signal IDs where this fund organized/led the deal.
+      For these, is_direct_investment is overridden to True and action to
+      "investment" — organizing a club deal in Italian PE/VC = direct investor.
 
     Returns (stats_dict, successfully_processed_signal_ids).
     """
@@ -403,6 +488,17 @@ def process_fund_signals(
 
             is_direct = tc.get("is_direct_investment", False)
             action = tc.get("action", "other")
+
+            # Organizer override: a fund that organized/led a club deal is a
+            # direct investor even when the LLM marked is_direct_investment=False.
+            # "Organized by [Fund]" in Italian PE news = fund led the investment.
+            if organizer_signal_ids and sid in organizer_signal_ids:
+                if not is_direct:
+                    is_direct = True
+                    print(f"    ORGANIZER override: {fund_slug} organized this deal "
+                          f"→ is_direct=True (signal: {sid})")
+                if action in ("exit", "other"):
+                    action = "investment"  # organizer invests, does not exit
 
             # Skip add-on acquisitions by portfolio companies
             if not is_direct:
@@ -676,11 +772,33 @@ def main():
         print("\n  No new signals to process. Done.")
         return
 
-    # Group by fund
+    # Group by fund (primary fund_slug) + organizer routing
+    # When a deal signal text contains "organized/led by [Fund]", that fund
+    # also receives the signal so it can add the company to its own portfolio.
     by_fund: dict[str, list[dict]] = {}
+    organizer_ids_by_fund: dict[str, set[str]] = {}  # slug → signal IDs where this fund is organizer
+
     for s in deal_signals:
         slug = s["fund_slug"]
         by_fund.setdefault(slug, []).append(s)
+
+    # Organizer detection: scan text for "organized by [Fund]" patterns
+    organizer_routed = 0
+    for s in deal_signals:
+        org_slugs = _find_organizer_slugs(s, funds_by_slug, s["fund_slug"])
+        for org_slug in org_slugs:
+            if org_slug not in funds_by_slug:
+                continue
+            # Add signal to organizer fund's queue (avoid duplicates)
+            existing_queue = by_fund.setdefault(org_slug, [])
+            if s not in existing_queue:
+                existing_queue.append(s)
+                organizer_routed += 1
+            organizer_ids_by_fund.setdefault(org_slug, set()).add(s["id"])
+
+    if organizer_routed:
+        print(f"  Organizer routing: {organizer_routed} signal(s) routed to organizer fund(s) "
+              f"({len(organizer_ids_by_fund)} fund(s))")
 
     print(f"  Funds with signals: {len(by_fund)}")
 
@@ -717,6 +835,7 @@ def main():
             existing_entries=existing,
             fund_domain=fund_domain,
             dry_run=args.dry_run,
+            organizer_signal_ids=organizer_ids_by_fund.get(fund_slug),
         )
 
         # Update portfolio reference (process_fund_signals modifies existing_entries in place)

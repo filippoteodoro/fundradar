@@ -32,6 +32,7 @@ monitor → rss → translate → normalize_sectors → normalize_portfolio → 
    - Reconciliation behavior: previously processed signals are automatically reprocessed when portfolio sync is still unresolved (investment target still missing or exit target not exited). This prevents progress-state drift.
    - Exit updates apply to entries with non-exited status (including `null`) and across normalized name variants.
    - Target company names are cleaned/validated with `portfolio_validation` before insert to block navigation/noise terms.
+   - **Organizer fund routing** (`_find_organizer_slugs()`): for each deal signal, scans text for "organized/led/arranged by [Fund]" and "[Fund] organizes/leads [deal]" patterns. Matched funds are routed the signal with an `organizer_signal_ids` override: `is_direct_investment=True`, `action="investment"`. This fixes the structural gap where a fund organizing a club deal (= lead investor in Italian PE) was invisible to the pipeline because `fund_slug` pointed to a co-investor. Zero API calls — purely regex against fund names from db.json.
 
 Run all: `pnpm pipeline`
 Run filter+enrich only: `pnpm pipeline:signals`
