@@ -76,6 +76,145 @@ NEWS_DOMAINS = {
 # Company name normalization — delegates to entity_resolver (single source of truth)
 from fundradar_worker.entity_resolver import normalize_company_name
 
+# ─── Cross-portfolio knowledge base ─────────────────────────────────────────
+
+def build_company_knowledge_base(fund_portfolios: dict, exclude_slug: str | None = None) -> dict[str, dict]:
+    """
+    Build a lookup of known company data (sector, headquarters, description, website)
+    from all existing portfolio entries across all funds.
+
+    When a new signal-derived entry is created for a company we already know
+    (e.g. D-Orbit exists in 12 other fund portfolios), we copy the enriched
+    fields directly instead of waiting for Gemini to re-look it up.
+
+    For description: only entries WITHOUT a signal_id contribute — these are
+    Gemini-enriched company bios. Signal-derived descriptions are deal-event
+    text ("Company raises €Xm..."), not company bios, and must not pollute the KB.
+
+    Returns {normalized_name: {sector, headquarters, description, website}}
+    with the most complete/canonical values across all fund entries.
+    """
+    from collections import Counter
+
+    by_name: dict[str, dict[str, list]] = {}
+    for slug, entries in fund_portfolios.items():
+        if slug == exclude_slug:
+            continue
+        for e in entries:
+            name = (e.get("name") or "").strip()
+            if not name:
+                continue
+            norm = normalize_company_name(name)
+            if not norm:
+                continue
+            bucket = by_name.setdefault(norm, {"sector": [], "headquarters": [], "description": [], "website": []})
+            is_signal_derived = bool(e.get("signal_id"))
+            for field in ("sector", "headquarters", "website"):
+                val = (e.get(field) or "").strip()
+                if val:
+                    bucket[field].append(val)
+            # Description: only from non-signal entries (Gemini-enriched company bios)
+            if not is_signal_derived:
+                val = (e.get("description") or "").strip()
+                if val:
+                    bucket["description"].append(val)
+
+    # sector/headquarters/website → most common non-null value
+    # For sector specifically: prefer taxonomy values over non-standard ones.
+    #   If any value is in SECTOR_SET, pick the most common SECTOR_SET value.
+    #   Fall back to most-common of any value only if none are in SECTOR_SET.
+    # description → longest (most informative Gemini bio)
+    kb: dict[str, dict] = {}
+    for norm, fields in by_name.items():
+        entry: dict = {}
+        for field in ("headquarters", "website"):
+            vals = fields[field]
+            if vals:
+                entry[field] = Counter(vals).most_common(1)[0][0]
+        sector_vals = fields["sector"]
+        if sector_vals:
+            taxonomy_vals = [v for v in sector_vals if v in SECTOR_SET]
+            if taxonomy_vals:
+                entry["sector"] = Counter(taxonomy_vals).most_common(1)[0][0]
+            else:
+                entry["sector"] = Counter(sector_vals).most_common(1)[0][0]
+        descs = fields["description"]
+        if descs:
+            entry["description"] = max(descs, key=len)
+        if entry:
+            kb[norm] = entry
+    return kb
+
+
+def _enrich_from_kb(entry: dict, kb: dict[str, dict]) -> bool:
+    """
+    Fill missing fields on a portfolio entry from the cross-portfolio knowledge base.
+
+    Two modes:
+    1. Gap-fill: if field is empty and KB has a value → fill it.
+    2. Sector upgrade: if entry sector is non-standard (not in SECTOR_SET) but KB
+       canonical IS in SECTOR_SET → overwrite with canonical. Fixes variants like
+       "Spacetech" / "Space Tech" / "Space Technology" → "Aerospace & Defense".
+
+    Returns True if any field was changed.
+    """
+    name = (entry.get("name") or "").strip()
+    if not name:
+        return False
+    norm = normalize_company_name(name)
+    known = kb.get(norm)
+    if not known:
+        return False
+    changed = False
+    for field in ("sector", "headquarters", "description", "website"):
+        existing = (entry.get(field) or "").strip()
+        canon = (known.get(field) or "").strip()
+        if not canon:
+            continue
+        if not existing:
+            # Gap-fill
+            entry[field] = canon
+            changed = True
+        elif field == "sector" and existing not in SECTOR_SET and canon in SECTOR_SET:
+            # Upgrade non-standard sector to canonical taxonomy value
+            entry[field] = canon
+            changed = True
+    return changed
+
+
+def check_portfolio_consistency(fund_portfolios: dict, kb: dict[str, dict]) -> list[dict]:
+    """
+    Check for cross-fund data conflicts: entries where sector/headquarters
+    differs from the KB canonical value (majority vote across all funds).
+
+    Returns a list of conflict dicts for reporting. These are entries that
+    have an explicit value that DISAGREES with the KB canonical — not just
+    missing values (those are handled by _enrich_from_kb).
+    """
+    conflicts: list[dict] = []
+    for slug, entries in fund_portfolios.items():
+        for entry in entries:
+            name = (entry.get("name") or "").strip()
+            if not name:
+                continue
+            norm = normalize_company_name(name)
+            canonical = kb.get(norm)
+            if not canonical:
+                continue
+            for field in ("sector", "headquarters"):
+                existing = (entry.get(field) or "").strip()
+                canon_val = (canonical.get(field) or "").strip()
+                if existing and canon_val and existing.lower() != canon_val.lower():
+                    conflicts.append({
+                        "company": name,
+                        "fund": slug,
+                        "field": field,
+                        "value": existing,
+                        "canonical": canon_val,
+                    })
+    return conflicts
+
+
 # ─── Organizer fund detection ───────────────────────────────────────────────
 # In Italian PE/VC, a fund that "organizes" or "leads" a club deal IS a direct
 # investor (lead investor role). The LLM enricher often marks is_direct_investment=False
@@ -421,6 +560,7 @@ def process_fund_signals(
     fund_domain: str | None,
     dry_run: bool = False,
     organizer_signal_ids: set[str] | None = None,
+    company_kb: dict[str, dict] | None = None,
 ) -> tuple[dict, list[str]]:
     """
     Process signals for a single fund — purely local, no API calls.
@@ -569,6 +709,13 @@ def process_fund_signals(
                 "data_source": data_source,
                 "signal_id": sid,
             }
+
+            # Fill sector/HQ/website/description from cross-portfolio KB.
+            # If the company isn't in KB yet, leave description null — Gemini
+            # will enrich it on the next pipeline run with a proper company bio.
+            # Signal text (deal event) is NOT used for description.
+            if company_kb:
+                _enrich_from_kb(new_entry, company_kb)
 
             if dry_run:
                 print(f"    [dry-run] ADD: {company_name} (conf={confidence}, source={data_source}, signal={sid})")
@@ -802,6 +949,10 @@ def main():
 
     print(f"  Funds with signals: {len(by_fund)}")
 
+    # Build cross-portfolio knowledge base once — used for all funds in this run
+    company_kb = build_company_knowledge_base(fund_portfolios)
+    print(f"  Company knowledge base: {len(company_kb)} known companies")
+
     # Process each fund
     total_stats = {
         "added": 0, "exits_updated": 0, "skipped_addon": 0,
@@ -836,6 +987,7 @@ def main():
             fund_domain=fund_domain,
             dry_run=args.dry_run,
             organizer_signal_ids=organizer_ids_by_fund.get(fund_slug),
+            company_kb=company_kb,
         )
 
         # Update portfolio reference (process_fund_signals modifies existing_entries in place)
@@ -882,6 +1034,86 @@ def main():
             "stats": total_stats,
         }
         save_progress(progress)
+
+    # ── Backfill pass: fill missing fields on ALL signal-derived portfolio entries ──
+    # Runs on every execution — self-healing for entries created before these fixes.
+    # Priority: cross-portfolio KB (free, exact data) > signal text (for description).
+    # Never overwrites an existing non-empty value.
+    signals_by_id = {s["id"]: s for s in all_signals if s.get("id")}
+    backfilled = 0
+    backfill_changed_slugs: set[str] = set()
+
+    # Reload fresh portfolio to pick up all changes from this run
+    fresh_portfolio = load_portfolio()
+    fresh_portfolios = fresh_portfolio.get("fund_portfolios", {})
+
+    # Rebuild KB from fresh portfolio so newly added entries are included
+    fresh_kb = build_company_knowledge_base(fresh_portfolios)
+
+    for slug, entries in fresh_portfolios.items():
+        for entry in entries:
+            changed = False
+            is_signal_derived = bool(entry.get("signal_id"))
+
+            # Fill missing sector/HQ/website from KB for ALL entries —
+            # enforces canonical values company-wide (same sector for D-Orbit
+            # under every fund). Never overwrites an existing non-empty value.
+            if _enrich_from_kb(entry, fresh_kb):
+                changed = True
+
+            # Description: only for signal-derived entries.
+            # Non-signal entries already have Gemini company bios — don't touch.
+            if is_signal_derived:
+                sid = entry.get("signal_id")
+                sig = signals_by_id.get(sid) if sid else None
+                signal_texts = ({
+                    (sig.get("enriched_summary") or "").strip(),
+                    (sig.get("what_changed") or "").strip(),
+                } - {""}) if sig else set()
+                current_desc = (entry.get("description") or "").strip()
+                norm_name = normalize_company_name(entry.get("name", ""))
+                kb_desc = (fresh_kb.get(norm_name) or {}).get("description", "")
+                if kb_desc and (not current_desc or current_desc in signal_texts):
+                    if not args.dry_run:
+                        entry["description"] = kb_desc
+                    changed = True
+                # No KB description → leave null; Gemini fills on next pipeline run
+
+            if changed:
+                backfilled += 1
+                backfill_changed_slugs.add(slug)
+                if args.dry_run:
+                    print(f"    [dry-run] NORMALIZE: {entry.get('name')} ({slug})")
+
+    if backfilled and not args.dry_run:
+        fresh_portfolio["fund_portfolios"] = fresh_portfolios
+        save_portfolio(fresh_portfolio)
+        print(f"\n  Normalized entries: {backfilled} across "
+              f"{len(backfill_changed_slugs)} fund(s)")
+    elif backfilled:
+        print(f"\n  [dry-run] Would normalize: {backfilled} entries")
+
+    # ── Consistency check: report cross-fund conflicts (sector/HQ disagree with canonical) ──
+    # These are entries with EXISTING values that differ from the KB majority vote.
+    # They cannot be fixed automatically without risking data regression (Gemini may
+    # have set a fund-specific label intentionally). Report for manual review.
+    conflicts = check_portfolio_consistency(fresh_portfolios, fresh_kb)
+    if conflicts:
+        from collections import defaultdict
+        by_company: dict[str, list[dict]] = defaultdict(list)
+        for c in conflicts:
+            by_company[c["company"]].append(c)
+        print(f"\n  ⚠  Cross-fund conflicts ({len(by_company)} companies, {len(conflicts)} entries):")
+        for company, items in sorted(by_company.items())[:10]:  # cap at 10 to avoid wall-of-text
+            fields_seen = {i["field"] for i in items}
+            for field in sorted(fields_seen):
+                field_items = [i for i in items if i["field"] == field]
+                canonical = field_items[0]["canonical"]
+                variants = {i["value"]: i["fund"] for i in field_items}
+                variant_str = ", ".join(f'"{v}" ({f})' for v, f in list(variants.items())[:3])
+                print(f"    {company}: {field}={canonical!r} (canonical) ≠ {variant_str}")
+        if len(by_company) > 10:
+            print(f"    ... and {len(by_company) - 10} more companies with conflicts")
 
     # Summary
     elapsed = time.time() - start_time
