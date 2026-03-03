@@ -10,10 +10,10 @@ export function SubscribeBanner() {
       textAlign: 'center',
     }}>
       <p style={{ color: 'white', fontSize: '15px', fontWeight: 600, margin: '0 0 4px 0' }}>
-        Get the weekly Italian PE/VC digest
+        Get these signals delivered weekly
       </p>
       <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', margin: '0 0 14px 0' }}>
-        Never miss a deal, exit, fundraise, or key hire from funds active in Italy.
+        Deals, exits, fundraises, and key hires from funds active in Italy — straight to your inbox.
       </p>
       <Link href="/subscribe" style={{
         display: 'inline-flex',

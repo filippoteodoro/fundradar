@@ -14,7 +14,7 @@ import { FilterBar } from '@/components/filters/FilterBar';
 import { FilterChips, type ChipItem } from '@/components/filters/FilterChips';
 import { FilterDropdown } from '@/components/filters/FilterDropdown';
 import { FilterPanel } from '@/components/filters/FilterPanel';
-import { LEGAL_BUNDLE_VERSION } from '@/lib/legal';
+import { SubscribeBanner } from '@/components/SubscribeBanner';
 
 export interface FundMeta {
   category: FundCategory;
@@ -145,8 +145,6 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
   const [search, setSearch] = useState('');
   const [showFilters, setShowFilters] = useState(false);
   const [page, setPage] = useState(0);
-  const [checkoutLoading, setCheckoutLoading] = useState(false);
-  const [checkoutError, setCheckoutError] = useState('');
   const pageSize = 20;
 
   // Reset page when filters change
@@ -186,40 +184,6 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
       setInvMaxFilter(invRangeMax);
     }
   }, [invMaxFilter, invRangeMax]);
-
-  async function handleCheckoutClick() {
-    if (checkoutLoading) return;
-    setCheckoutError('');
-    setCheckoutLoading(true);
-    try {
-      const res = await fetch('/api/stripe/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          acceptedLegal: true,
-          acceptedLegalVersion: LEGAL_BUNDLE_VERSION,
-          acceptedAt: new Date().toISOString(),
-          acceptedFrom: 'signals_page',
-          acceptedImmediateAccess: true,
-          acceptedWithdrawalAcknowledgement: true,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        setCheckoutError(data.error || 'Something went wrong');
-        return;
-      }
-      if (data.url) {
-        window.location.href = data.url;
-        return;
-      }
-      setCheckoutError('Failed to start checkout. Please try again.');
-    } catch {
-      setCheckoutError('An error occurred. Please try again.');
-    } finally {
-      setCheckoutLoading(false);
-    }
-  }
 
   const hasFundMetadata = fundMetaForSignals.length > 0;
   const hasActiveInvestment = invMinFilter > 0 || (Number.isFinite(invMaxFilter) && invMaxFilter < invRangeMax);
@@ -567,47 +531,7 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
           {paginatedSignals.map((signal, i) => (
             <div key={signal.id}>
               <SignalCard signal={signal} showFundLink />
-              {i === 4 && page === 0 && (
-                <div style={{
-                  marginTop: '16px',
-                  padding: '20px 24px',
-                  background: 'linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%)',
-                  borderRadius: '12px',
-                  textAlign: 'center',
-                }}>
-                  <p style={{ color: 'white', fontSize: '15px', fontWeight: 600, margin: '0 0 4px 0' }}>
-                    Get these signals delivered weekly
-                  </p>
-                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', margin: '0 0 14px 0' }}>
-                    Deals, exits, fundraises, and key hires — straight to your inbox.
-                  </p>
-                  <button
-                    onClick={handleCheckoutClick}
-                    disabled={checkoutLoading}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      padding: '10px 22px',
-                      background: checkoutLoading ? '#6b7280' : '#2563eb',
-                      color: 'white',
-                      border: 'none',
-                      borderRadius: '8px',
-                      fontSize: '14px',
-                      fontWeight: 600,
-                      textDecoration: 'none',
-                      cursor: checkoutLoading ? 'not-allowed' : 'pointer',
-                    }}
-                  >
-                    {checkoutLoading ? 'Redirecting to checkout...' : 'Get Signals'}
-                  </button>
-                  {checkoutError && (
-                    <p style={{ color: '#fecaca', fontSize: '12px', margin: '10px 0 0 0' }}>
-                      {checkoutError}
-                    </p>
-                  )}
-                </div>
-              )}
+              {i === 4 && page === 0 && <SubscribeBanner />}
             </div>
           ))}
         </div>
