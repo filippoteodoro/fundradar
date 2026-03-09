@@ -450,21 +450,24 @@ def main() -> int:
         )
         return 1
 
-    audit_now = _load_json(ROOT / ASSET_AUDIT_REL)
-    audit_rows = audit_now.get("funds") if isinstance(audit_now.get("funds"), list) else []
-    audit_slugs = {
-        str(row.get("slug"))
-        for row in audit_rows
-        if isinstance(row, dict) and isinstance(row.get("slug"), str) and row.get("slug")
-    }
-    missing_audit = sorted(candidate_slugs - audit_slugs)
-    if missing_audit:
-        print(
-            "New-fund gate failed: tracked Gemini asset audit is missing slugs: "
-            f"{', '.join(missing_audit)}",
-            file=sys.stderr,
-        )
-        return 1
+    # Audit file is gitignored — only check it when new funds are in the diff.
+    # Established-only changesets never have this file on CI.
+    if new_slugs:
+        audit_now = _load_json(ROOT / ASSET_AUDIT_REL)
+        audit_rows = audit_now.get("funds") if isinstance(audit_now.get("funds"), list) else []
+        audit_slugs = {
+            str(row.get("slug"))
+            for row in audit_rows
+            if isinstance(row, dict) and isinstance(row.get("slug"), str) and row.get("slug")
+        }
+        missing_audit = sorted(new_slugs - audit_slugs)
+        if missing_audit:
+            print(
+                "New-fund gate failed: tracked Gemini asset audit is missing slugs: "
+                f"{', '.join(missing_audit)}",
+                file=sys.stderr,
+            )
+            return 1
 
     print("New-fund gate passed.")
     return 0

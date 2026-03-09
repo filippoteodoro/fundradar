@@ -47,59 +47,24 @@ from filter_signals import (
     EXIT_CLASSIFY_PATTERNS,
 )
 from signal_patterns import (
-    BULK_TEAM_EXTRACTION_THRESHOLD,
-    GENERIC_PORTFOLIO_NAME_TOKENS,
     GENERIC_PORTFOLIO_TARGET_PATTERNS,
-    PORTFOLIO_DELTA_EVIDENCE_PATTERNS,
-    PORTFOLIO_EXTRACTION_PATTERNS,
-    _RE_ACCELERATOR_LAUNCH,
-    _RE_BOARD_APPOINT,
     _RE_BOND_EXCLUDE,
     _RE_BOND_ISSUANCE as _RE_BOND,
-    _RE_CHIUDE_FONDO,
     _RE_CHIUDE_RACCOLTA,
     _RE_CLOSE_VERBS,
-    _RE_COMPANY_ROUND,
     _RE_CREDIT_FACILITY,
     _RE_DEBT_FINANCING_BROAD,
-    _RE_DEBT_RESTRUCTURING,
-    _RE_EVENT_ATTENDANCE,
-    _RE_EVENT_INSIGHTS,
-    _RE_EVENT_RECAP_ITALIAN,
-    _RE_EVENT_TITLE,
     _RE_EXIT_VERBS,
-    _RE_EXITED_FROM_PORTFOLIO,
-    _RE_EXPLICIT_SELLER,
-    _RE_FINALIZZAT,
     _RE_FUND_LAUNCH_STRICT,
-    _RE_FUND_LEVEL_FUNDRAISE,
-    _RE_FUNDRAISE_CLOSING,
-    _RE_FUNDRAISE_MILESTONE,
-    _RE_HAS_ANY_PE_VERB,
     _RE_INVEST_VERBS,
-    _RE_INVESTOR_MEETING,
     _RE_JOB_SELECTION,
     _RE_LAUNCH_FUND,
-    _RE_LP_COMMITMENT,
     _RE_MERGER,
-    _RE_ORDINAL_INVESTMENT,
-    _RE_OUTSOURCING,
-    _RE_PARTNERSHIP,
-    _RE_PARTNERSHIP_EXCLUDE,
-    _RE_PEOPLE_TITLE as _RE_SENIOR_PEOPLE,
     _RE_PORTFOLIO_UPDATE,
     _RE_PROJECT_FINANCING,
     _RE_REPORT,
-    _RE_RESEARCH,
-    _RE_ROUND_INVEST,
     _RE_STRONG_DEAL,
-    _RE_STRONG_EXIT_VERBS,
-    _RE_VALUE_CREATION,
     _RE_VC_ROUND_BROAD,
-    _extract_portfolio_company_name,
-    _is_generic_portfolio_name,
-    _strip_read_time,
-    _strip_urls,
 )
 
 from signal_text_utils import (
@@ -112,7 +77,7 @@ from signal_text_utils import (
 
 # Paths (shared)
 from fundradar_worker.paths import (
-    PROJECT_ROOT, DATA_DIR, WORKER_DIR,
+    DATA_DIR,
     SIGNALS_FILE as SIGNALS_FILE_RAW,
     FILTERED_SIGNALS_FILE as SIGNALS_FILE_FILTERED,
     ENRICHED_SIGNALS_FILE as OUTPUT_FILE,
@@ -1411,8 +1376,6 @@ Rules:
 
 from fundradar_worker.translator import (
     is_italian_text as _is_italian_text,
-    is_french_text as _is_french_text,
-    is_network_error_message as _is_network_error_message,
     translate_signals_inplace,
 )
 
@@ -1783,10 +1746,6 @@ def main(slugs_filter: str | None = None):
                 ml_result = None
 
             if ml_result is not None:
-                signal["ml_keep"] = ml_result.keep
-                signal["ml_keep_prob"] = round(ml_result.keep_prob, 3)
-                signal["ml_keep_confidence"] = round(ml_result.keep_confidence, 3)
-                signal["ml_keep_confident"] = ml_result.keep_confident
                 signal["ml_type"] = ml_result.type_label
                 signal["ml_type_prob"] = round(ml_result.type_prob, 3)
                 signal["ml_type_confident"] = ml_result.type_confident

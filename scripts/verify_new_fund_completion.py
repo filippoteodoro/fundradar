@@ -32,9 +32,14 @@ ZERO_ITALY_VERIFIED_PATH = DERIVED / "gemini_fund_asset_zero_italy_verified.json
 REPORT_PATH = DERIVED / "new_fund_completion_report.json"
 
 
-def _load_json(path: Path) -> dict[str, Any]:
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
+def _load_json(path: Path, default: dict[str, Any] | None = None) -> dict[str, Any]:
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        if default is not None:
+            return default
+        raise
 
 
 def _resolve_repo_path(raw: str) -> Path:
@@ -146,7 +151,7 @@ def main() -> int:
     portfolio = _load_json(PORTFOLIO_PATH).get("fund_portfolios", {})
     filtered_rows = _load_json(FILTERED_PATH).get("signals", [])
     enriched_rows = _load_json(ENRICHED_PATH).get("signals", [])
-    asset_audit = _load_json(ASSET_AUDIT_PATH).get("funds", [])
+    asset_audit = _load_json(ASSET_AUDIT_PATH, default={"funds": []}).get("funds", [])
     verified_zero_italy_slugs = load_verified_zero_italy_slugs(
         _resolve_repo_path(args.zero_italy_verified_path)
     )
@@ -206,7 +211,8 @@ def main() -> int:
         audit_entry = audit_by_slug.get(slug)
         italian_portfolio_count = 0
         if not audit_entry:
-            blockers.append("gemini_asset_audit_missing")
+            if not is_established:
+                blockers.append("gemini_asset_audit_missing")
         else:
             if str(audit_entry.get("status") or "").lower() != "ok":
                 blockers.append(f"gemini_asset_audit_status:{audit_entry.get('status')}")

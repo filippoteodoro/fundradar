@@ -323,7 +323,7 @@ def _portfolio_enrichment_status() -> dict | None:
 
         fund_stats: list[dict] = []
         total_remaining = 0
-        for slug, entries in sorted(portfolio.get("fund_portfolios", {}).items()):
+        for slug, entries in portfolio.get("fund_portfolios", {}).items():
             needs = {"count": 0, "sector": 0, "hq": 0, "desc": 0}
             for e in entries:
                 key = f"{slug}::{e.get('name', '')}"
