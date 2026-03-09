@@ -378,7 +378,11 @@ def main() -> int:
     if established_slugs & candidate_slugs:
         print(f"  Established (relaxed checks): {', '.join(sorted(established_slugs & candidate_slugs))}")
 
-    if not args.skip_artifact_freshness:
+    # Freshness check only applies when genuinely new funds are in the diff.
+    # Established funds (routine db.json/extractor updates) don't require the
+    # audit artifacts to be re-committed — those files are gitignored and can
+    # never appear in the diff for non-new-fund changes.
+    if not args.skip_artifact_freshness and new_slugs:
         missing_refresh = sorted(REQUIRED_REFRESH_ARTIFACTS - changed_set)
         if missing_refresh:
             print(
