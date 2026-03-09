@@ -45,7 +45,7 @@ _EN_STOPWORDS = {
 }
 _IT_STRONG_RE = re.compile(
     r"\b(?:annuncia|annunciato|annunciata|chiude|chiuso|chiusa|raccoglie|raccolta|acquisisce|acquisita"
-    r"|acquisito|cede|cessione|investe|investimento|finanziamento|nomina|partnership|accordo|milioni"
+    r"|acquisito|cede|cessione|investe|finanziamento|nomina|partnership|accordo|milioni"
     r"|cartolarizzazione|partecipazione|sottoscritto|sottoscrive)\b",
     re.IGNORECASE,
 )
@@ -549,8 +549,11 @@ def translate_signals_inplace(
                 continue
 
         for (s, field, orig_field, original), translated_text in zip(batch, translated_texts):
-            if not translated_text or translated_text == original:
+            if not translated_text:
                 unresolved.append((s, field, orig_field, original))
+                continue
+            if translated_text == original:
+                # Translator detected text is already English — trust it, don't retry.
                 continue
             s[orig_field] = original
             s[field] = translated_text
@@ -579,8 +582,11 @@ def translate_signals_inplace(
                     azure_unresolved.extend(azure_batch)
                     continue
             for (s, field, orig_field, original), translated_text in zip(azure_batch, azure_translated):
-                if not translated_text or translated_text == original:
+                if not translated_text:
                     azure_unresolved.append((s, field, orig_field, original))
+                    continue
+                if translated_text == original:
+                    # Already English — trust the translator, don't forward to OpenAI.
                     continue
                 s[orig_field] = original
                 s[field] = translated_text

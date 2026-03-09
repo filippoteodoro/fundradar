@@ -7,7 +7,9 @@ DOMAIN = "www.apax.com"
 
 
 
-# URL paths for monitoring - verified against live site
+# URL paths verified against live site navigation.
+# NOTE: subpages currently return HTTP 500 — website is temporarily down, not bot detection.
+# Do NOT set to None — these are correct paths, restore when site recovers.
 URLS = {
     "portfolio": "/partnerships/",
     "team": "/people/our-team/",

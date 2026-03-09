@@ -964,12 +964,18 @@ def main(
             datetime.now(timezone.utc).isoformat()
         )
 
-    if not dry_run:
-        # Merge new signals into detected_signals.json
-        merged = merge_into_signals(all_new_signals)
-        stats["signals_merged"] = merged
+        if not dry_run:
+            # Commit this feed's signals and seen_urls immediately.
+            # If the pipeline kills rss mid-run, already-processed feeds
+            # won't be re-processed next time (no spiral of repeated work).
+            merged_feed = merge_into_signals(new_signals)
+            stats["signals_merged"] = stats.get("signals_merged", 0) + merged_feed
+            state["seen_urls"] = seen_urls
+            save_state(state)
 
-        # Save state
+    if not dry_run:
+        # Final save to ensure last_fetch is written (feeds without new signals
+        # still update last_fetch above but we flush once more for safety).
         state["seen_urls"] = seen_urls
         save_state(state)
 

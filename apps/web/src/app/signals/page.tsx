@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { loadUnifiedSignals } from '@/lib/signals_unified';
+import { loadUnifiedSignals, countSignalsLast30Days } from '@/lib/signals_unified';
 import { getAllFunds } from '@/lib/data';
 import { SignalsFeed, type FundMeta } from './SignalsFeed';
 
@@ -13,6 +13,7 @@ export default async function SignalsPage() {
   // Load signals from Website Monitor (PEM excluded - historical data)
   // All signals are now Italy-only (AIFI funds + manual additions)
   const { signals, fundPriorityScores } = loadUnifiedSignals();
+  const signalsLast30Days = countSignalsLast30Days(signals);
 
   // Build fund metadata map for fund-level filters on signals
   const funds = getAllFunds();
@@ -33,9 +34,14 @@ export default async function SignalsPage() {
   return (
     <div>
       <div style={{ marginBottom: '24px' }}>
-        <h1 style={{ margin: '0 0 8px 0', fontSize: '24px' }}>
-          Italy Signals Feed
-        </h1>
+        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '4px', marginBottom: '4px' }}>
+          <h1 style={{ margin: 0, fontSize: '24px' }}>Italy Signals Feed</h1>
+          {signalsLast30Days > 0 && (
+            <p style={{ margin: 0, fontSize: '13px', color: '#999', whiteSpace: 'nowrap' }}>
+              {signalsLast30Days} signals tracked in the last 30 days
+            </p>
+          )}
+        </div>
         <p style={{ margin: 0, color: '#666' }}>
           Latest publicly observed events from funds active in Italy.
         </p>

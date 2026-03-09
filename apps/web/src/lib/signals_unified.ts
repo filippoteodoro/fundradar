@@ -433,6 +433,16 @@ let cachedResult: { signals: UnifiedSignal[]; fundPriorityScores: Record<string,
  * Load signals from Website Monitor only
  * PEM signals are excluded as they provide historical data, not current updates
  */
+const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
+
+export function countSignalsLast30Days(signals: Pick<UnifiedSignal, 'published_at' | 'observed_at'>[]): number {
+  const cutoff = Date.now() - THIRTY_DAYS_MS;
+  return signals.filter((s) => {
+    const ts = s.published_at || s.observed_at;
+    return ts ? new Date(ts).getTime() > cutoff : false;
+  }).length;
+}
+
 export function loadUnifiedSignals(): { signals: UnifiedSignal[]; fundPriorityScores: Record<string, number> } {
   if (cachedResult) return cachedResult;
   // Load funds for reference (needed for fund names)

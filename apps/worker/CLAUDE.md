@@ -27,7 +27,7 @@ monitor → rss → translate → normalize_sectors → normalize_portfolio → 
    - Shared modules: imports patterns from `signal_patterns.py`, corrections from `signal_corrections.py`
    - Exit detection uses proper domain matching via `fund.get("website")` from db.json (not slug heuristics)
    - Ecosystem newsrooms flagged via `fund.get("is_ecosystem_newsroom")` in db.json (not hardcoded)
-8. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). Also extracts `target_companies` for deal/exit signals (used by step 9). **DO NOT use ChatGPT 4o** — it hallucinates too frequently. Use `gpt-5-mini` or better. Contains a safety-net translation pass for any Italian that survived step 3 (e.g., LLM-generated Italian summaries). **enriched_summary coverage is intentionally <100%** — signals where the LLM summary is title-redundant (85%+ word overlap) get `enriched_summary=""` and the frontend falls back to displaying the title. This is correct behavior, not data loss. Progress tracking (`signal_enrichment_progress.json`) still marks them as processed, so re-runs skip them.
+8. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). Also extracts `target_companies` for deal/exit signals (used by step 9). **DO NOT use ChatGPT 4o** — it hallucinates too frequently. Use `gpt-5-mini` or better. Contains a safety-net translation pass for any Italian that survived step 3 (e.g., LLM-generated Italian summaries). **enriched_summary coverage is intentionally <100%** — signals where the LLM summary is title-redundant (85%+ word overlap) get `enriched_summary=""` and the frontend falls back to displaying the title. This is correct behavior, not data loss. Progress tracking (`signal_enrichment_progress.json`) still marks them as processed, so re-runs skip them. **No keep/drop filtering** — the enricher does NOT drop signals; `filter_signals.py` (step 7) is the sole quality gate. The "done" marker is `enriched_at` (set on every processed signal).
 9. **signal_to_portfolio** (`signal_to_portfolio.py`) — Convert deal/exit signals into portfolio entries. **Purely local, zero API calls** — reads `target_companies` pre-extracted by step 8 (OpenAI enrichment). Trust hierarchy: fund press (0.90) > verified news (0.80) > news (0.75) > other (0.70) > rumor (0.60). Progress tracked to avoid re-processing. Also updates exit status for existing entries when exit signals match.
    - Reconciliation behavior: previously processed signals are automatically reprocessed when portfolio sync is still unresolved (investment target still missing or exit target not exited). This prevents progress-state drift.
    - Exit updates apply to entries with non-exited status (including `null`) and across normalized name variants.
@@ -155,8 +155,23 @@ Many extractors were auto-generated with template paths like `/investments`, `/m
 4. **Single-page sites**: use `"/"` only if the homepage contains a real structured portfolio/team list
 5. **No public portfolio index**: set `URLS["portfolio"] = None` and keep data manual/PEM-derived. Do **not** use homepage `"/"` as a placeholder; generic extraction will create sentence/news-title garbage companies.
 6. **Check `url_status.json`** for known working paths for a domain (search by domain name)
+7. **NEVER set URLS to None because the site is temporarily down.** A 500/503 today does not mean the URL is wrong — it means the site is having issues. Keep good URLs intact. Only set to `None` if the page genuinely does not exist or has been permanently removed. Known temporarily-down sites (as of Mar 2026): `www.apax.com` (subpages `/partnerships/`, `/people/our-team/`, `/news-views/` return 500), `www.aimpact.org` (`/portafoglio`, `/en/news` return 503). URLs are correct — wait for recovery.
 
 The `# auto-generated from fund_urls.json` comment in URLS blocks indicates paths that may not have been verified. Replace with `# verified against live site` after checking.
+
+### When an Extractor Breaks or Doesn't Exist — Fallback Tools
+
+Two libraries to reach for when a hand-written BeautifulSoup extractor breaks after a site redesign, or when a new fund has a complex/unusual page layout:
+
+**[Scrapling](https://github.com/D4Vinci/Scrapling)** — drop-in BeautifulSoup replacement with **auto-match**: builds a structural fingerprint of an element and re-finds it even after the surrounding DOM changes. Use for:
+- New extractors where you want resilience to future redesigns
+- Existing extractors that keep breaking when the fund updates their site
+
+**[LangExtract](https://github.com/google/langextract)** (Google) — structured extraction from **text** using LLMs (Gemini/OpenAI), with source grounding (every extraction maps back to its exact position in the source). Use when CSS/DOM-based extraction fails entirely:
+1. Fetch the page, strip HTML to plain text (BeautifulSoup `.get_text()` or `sanitize_text()`)
+2. Run LangExtract with a prompt + 1-2 examples of what a portfolio company entry looks like
+3. Get structured `{name, sector, description}` dicts back
+Works with `GEMINI_MODEL` from `paths.py` — no extra API key needed. Most useful for: no-extractor funds, heavily JS-rendered sites after Playwright fetch, and pages where the structure is inconsistent.
 
 ### Portfolio Status Detection — CRITICAL
 
@@ -370,6 +385,19 @@ The following fixes were applied during a full signal quality audit (Feb 2026). 
 
 **Do NOT** re-run the enricher to fix this — costs ~$0.30/run. Direct JSON edits are free.
 
+### Enricher `gpt-5-mini` empty response fix (Mar 2026)
+
+**`gpt-5-mini` is a reasoning model** — it uses internal chain-of-thought tokens before generating visible output. With `max_completion_tokens=1024`, complex signals exhaust the token budget on reasoning before producing any JSON, returning `finish_reason=length` with empty `message.content`. **Fix**: detect `finish_reason == "length"` on empty response and double `max_completion_tokens` on retry (1024 → 2048). This adds <$0.001 per affected signal.
+
+### Enricher `llm_keep` system — REMOVED (Mar 2026)
+
+The enricher previously had a keep/drop decision system (`llm_keep`, `llm_keep_reason`, `llm_keep_confidence`, `llm_keep_source` fields). The LLM was asked to decide whether each signal was worth keeping, and in "hard" filter mode, `llm_keep=False` signals were excluded from the enriched output. This was **removed** because:
+- Only 3/285 signals were actually dropped by it (the filter step is the real quality gate)
+- It added schema complexity, retry logic, and "signals without decision" noise in pipeline reports
+- Real enricher value is `enriched_summary` (43% of signals) and `target_companies` (133 portfolio entries)
+
+The new "done" check is `enriched_at is not None` (set on every processed signal). The pipeline no longer tracks "signals without decision" — if the enricher ran, all signals have been processed.
+
 `_passes_strict_quality_gates()` in `filter_signals.py` — **noise gates run BEFORE the `italy_focused` early return**. This order is intentional: bare portfolio extraction signals (just a company name, no context) must be caught even for italy-focused funds that otherwise get a pass on geo checks.
 
 `italy_relevant=True` reliability: the flag is trustworthy only when `relevance_score > 0` OR `relevance_reasons` is non-empty. A signal with `italy_relevant=True`, `relevance_score=0`, and no `relevance_reasons` means the flag was set as an upstream default — treat as unreliable. Non-italy-focused funds in this state fall through to text-based geo checks.
@@ -559,6 +587,8 @@ The scraped LinkedIn data in `data/derived/linkedin/raw/` is **irreplaceable** w
 2. Verify the fund exists in `db.json` with a matching `website` field (check against `data/AIFI/all.csv`)
 3. Run `pnpm worker:monitor --limit 1` to test
 4. Restart web dev server (`pnpm dev`) to see results
+
+If the portfolio page is complex or the structure keeps changing: consider **Scrapling** (auto-match CSS selectors) or **LangExtract** (text → structured extraction via Gemini) instead of hand-writing BeautifulSoup selectors. See "When an Extractor Breaks or Doesn't Exist" above.
 
 ### Key Architecture Notes for Fund Setup
 

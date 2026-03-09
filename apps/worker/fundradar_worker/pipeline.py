@@ -69,7 +69,7 @@ STEPS = [
             DATA_DIR / "detected_signals.json",
         ],
         "optional": True,
-        "timeout": 5 * 60,  # 5 min
+        "timeout": 15 * 60,  # 15 min — LLM classification of new articles across 6 feeds
     },
     {
         "name": "translate",
@@ -237,7 +237,6 @@ def write_summary_report() -> dict | None:
             "count": len(enriched.get("signals", [])) if enriched else None,
             "exists": bool(enriched),
             "enriched_at": enriched.get("enriched_at") if enriched else None,
-            "llm_filter_stats": enriched.get("llm_filter_stats") if enriched else None,
         },
     }
 
@@ -284,27 +283,9 @@ def write_summary_report() -> dict | None:
 
     if enriched and isinstance(enriched.get("signals"), list):
         signals = enriched.get("signals", [])
-        llm_keep_counts = {
-            "true": sum(1 for s in signals if s.get("llm_keep") is True),
-            "false": sum(1 for s in signals if s.get("llm_keep") is False),
-            "none": sum(1 for s in signals if s.get("llm_keep") is None),
-        }
-        llm_keep_source = {}
-        for s in signals:
-            src = s.get("llm_keep_source") or "none"
-            llm_keep_source[src] = llm_keep_source.get(src, 0) + 1
         italy_relevant = sum(1 for s in signals if s.get("italy_relevant") is True)
-        llm_filtered_out = 0
-        llm_filter_stats = enriched.get("llm_filter_stats") if enriched else None
-        if isinstance(llm_filter_stats, dict):
-            llm_filtered_out = llm_filter_stats.get("filtered_out") or 0
-        llm_keep_false_retained = max(0, llm_keep_counts.get("false", 0) - llm_filtered_out)
-
         report["enriched"].update({
-            "llm_keep_counts": llm_keep_counts,
-            "llm_keep_source": llm_keep_source,
             "italy_relevant_true": italy_relevant,
-            "llm_keep_false_retained": llm_keep_false_retained,
         })
 
     if filtered and isinstance(filtered.get("signals"), list):
@@ -425,27 +406,15 @@ def _suggest_reruns(report: dict | None) -> list[tuple[str, str]]:
     # Check signal enrichment gaps
     if report:
         enriched = report.get("enriched", {})
-        llm_counts = enriched.get("llm_keep_counts") or {}
-        none_count = llm_counts.get("none", 0)
-        if none_count > 0:
-            suggestions.append((
-                f"Signal enrichment incomplete ({none_count} signals without keep/drop decision)",
-                "python apps/worker/scripts/enrich_signals_openai.py",
-            ))
-
         # Check for filtered-but-no-enriched gap
         filtered_count = report.get("filtered", {}).get("count") or 0
         enriched_count = enriched.get("count") or 0
         gap = filtered_count - enriched_count
         if gap > 5:
-            llm_stats = enriched.get("llm_filter_stats") or {}
-            hard_filtered = llm_stats.get("filtered_out", 0)
-            unexplained = gap - hard_filtered
-            if unexplained > 2:
-                suggestions.append((
-                    f"Filtered→Enriched gap: {gap} signals lost ({hard_filtered} LLM-filtered, {unexplained} unexplained)",
-                    "python apps/worker/scripts/enrich_signals_openai.py",
-                ))
+            suggestions.append((
+                f"Filtered→Enriched gap: {gap} signals missing from enriched output",
+                "python apps/worker/scripts/enrich_signals_openai.py",
+            ))
 
     return suggestions
 
@@ -498,21 +467,13 @@ def _send_pipeline_alert(
 
     if report:
         enriched = report.get("enriched", {})
-        llm_counts = enriched.get("llm_keep_counts") or {}
-        none_count = llm_counts.get("none", 0)
-        if none_count > 5:
-            remaining_work.append(
-                f"Signal enrichment: {none_count} signals without decision"
-            )
         # Check filtered→enriched gap
         filtered_count = report.get("filtered", {}).get("count") or 0
         enriched_count = enriched.get("count") or 0
         gap = filtered_count - enriched_count
-        llm_filtered = (enriched.get("llm_filter_stats") or {}).get("filtered_out", 0)
-        unexplained = gap - llm_filtered
-        if unexplained > 5:
+        if gap > 5:
             remaining_work.append(
-                f"Filtered→Enriched gap: {gap} signals ({unexplained} unexplained)"
+                f"Filtered→Enriched gap: {gap} signals missing from enriched output"
             )
 
     has_issues = has_issues or bool(remaining_work)
@@ -786,9 +747,6 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
                 print(f"  Raw signals: {raw.get('count')}")
                 print(f"  Filtered signals: {filtered.get('count')}")
                 print(f"  Enriched signals: {enriched.get('count')}")
-                llm_counts = enriched.get("llm_keep_counts") or {}
-                print(f"  LLM keep: true={llm_counts.get('true')} false={llm_counts.get('false')} none={llm_counts.get('none')}")
-
                 # Coverage summary
                 coverage = report.get("coverage", {})
                 if coverage:
@@ -799,12 +757,6 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
                         print(f"  No raw signals: {no_raw} funds (need extractors)")
                     if raw_but_filtered:
                         print(f"  All filtered out: {raw_but_filtered} funds (signals exist but below quality threshold)")
-
-                # Enrichment source breakdown
-                llm_source = enriched.get("llm_keep_source") or {}
-                if llm_source:
-                    parts = [f"{src}={cnt}" for src, cnt in sorted(llm_source.items())]
-                    print(f"  Enrichment sources: {', '.join(parts)}")
 
                 print(f"  Report saved: {SUMMARY_REPORT_PATH}")
 
@@ -828,13 +780,7 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
                 print(f"  Portfolio enrichment: COMPLETE")
 
             if report:
-                enriched_info = report.get("enriched", {})
-                llm_counts = enriched_info.get("llm_keep_counts") or {}
-                none_count = llm_counts.get("none", 0)
-                if none_count > 0:
-                    print(f"  Signal enrichment: {none_count} signals without decision")
-                else:
-                    print(f"  Signal enrichment: COMPLETE")
+                print(f"  Signal enrichment: COMPLETE")
 
             stp_status = _signal_to_portfolio_status()
             if stp_status:
@@ -851,11 +797,10 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
 
             has_remaining = (
                 (portfolio_status and portfolio_status.get("remaining_entries", 0) > 0)
-                or (report and (report.get("enriched", {}).get("llm_keep_counts") or {}).get("none", 0) > 0)
                 or (stp_status and stp_status.get("remaining", 0) > 0)
             )
             if has_remaining:
-                print(f"  Pipeline: has remaining work (re-run to continue)")
+                print(f"  Pipeline: has remaining work (run `pnpm pipeline:signals` to finish)")
             else:
                 print(f"  Pipeline: fully self-healed")
 

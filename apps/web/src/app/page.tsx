@@ -5,7 +5,7 @@ import {
   getAllRealAnalytics,
   getManualLinkedinProfileFundSlugs,
 } from '@/lib/data';
-import { loadUnifiedSignals, type UnifiedSignal } from '@/lib/signals_unified';
+import { loadUnifiedSignals, countSignalsLast30Days, type UnifiedSignal } from '@/lib/signals_unified';
 import { HomeContent } from './components/HomeContent';
 import { getBaseUrl } from '@/lib/baseUrl';
 
@@ -48,11 +48,7 @@ export default function HomePage() {
   let signalsLast30Days = 0;
   try {
     const { signals } = loadUnifiedSignals();
-    const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000;
-    signalsLast30Days = signals.filter(s => {
-      const ts = s.published_at || s.observed_at;
-      return ts ? new Date(ts).getTime() > cutoff : false;
-    }).length;
+    signalsLast30Days = countSignalsLast30Days(signals);
     recentSignals = signals.slice(0, 100);
   } catch {
     // silently hide section if signals unavailable

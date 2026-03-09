@@ -47994,7 +47994,7 @@
       "fund_id": "",
       "fund_slug": "fondo-italiano-d-investimento-sgr",
       "signal_type": "deal_announced",
-      "title": "Mecaer Aviation Group added to Fondo Italiano d\u2019Investimento SGR portfolio (Aeronautics)",
+      "title": "Mecaer Aviation Group added to Fondo Italiano d\u2019Investimento SGR's portfolio (Aeronautics)",
       "what_changed": "Mecaer Aviation Group added to Fondo Italiano d\u2019Investimento SGR portfolio (Aeronautics)",
       "source_url": "https://www.fondoitaliano.it/investimenti-diretti/",
       "source_name": "Fondo Italiano d\u2019Investimento SGR",
@@ -48018,7 +48018,7 @@
         "locations": []
       },
       "what_changed_original": "Mecaer Aviation Group added to Fondo Italiano d\u2019Investimento SGR portfolio (Aeronautica)",
-      "title_original": "Mecaer Aviation Group added to Fondo Italiano d\u2019Investimento SGR portfolio (Aeronautica)"
+      "title_original": "Mecaer Aviation Group added to Fondo Italiano d\u2019Investimento SGR portfolio (Aeronautics)"
     },
     {
       "id": "web-signal-01787",
@@ -52482,7 +52482,7 @@
         "fondo-italiano-d-investimento-sgr"
       ],
       "signal_type": "people_move",
-      "title": "Fondo Italiano d'Investimento SGR: CIO Giampaolo Di Dio leaves",
+      "title": "Fondo Italiano d'Investimento SGR: CIO Giampaolo Di Dio resigns",
       "what_changed": "Giampaolo Di Dio is stepping down as CIO of Fondo Italiano d'Investimento sgr, a management company with over \u20ac4 billion in assets, 55% owned by CDP Equity (Cassa Depositi e Prestiti) and partly owned by UniCredit, Intesa Sanpaolo, ENPAM/ENPAIA Foundations, ABI, Banco BPM, and BPER Banca. This is news of a management change, not an M&A transaction.",
       "source_url": "https://bebeez.it/manager-2/fondo-italiano-dinvestimento-sgr-il-cio-giampaolo-di-dio-se-ne-va/",
       "source_name": "BeBeez",
@@ -52508,7 +52508,7 @@
         "locations": []
       },
       "what_changed_original": "Giampaolo Di Dio lascia il ruolo di CIO di Fondo Italiano d\u2019Investimento sgr, societ\u00e0 di gestione con oltre \u20ac4 miliardi di asset controllata al 55% da CDP Equity (Cassa Depositi e Prestiti) e partecipata da UniCredit, Intesa Sanpaolo, Fondazioni ENPAM/ENPAIA, ABI, Banco BPM e BPER Banca. Notizia su un cambio manageriale, non un\u2019operazione M&A.",
-      "title_original": "Fondo Italiano d'Investimento SGR, CIO Giampaolo Di Dio leaves"
+      "title_original": "Fondo Italiano d'Investimento SGR: CIO Giampaolo Di Dio departs"
     },
     {
       "id": "rss-signal-00153",
@@ -57174,8 +57174,414 @@
         ],
         "locations": []
       }
+    },
+    {
+      "id": "web-signal-02103",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Onetag , a Wise Equity portfolio company, acquires Aryel to create a new Value Exchange in Programmatic Advertising",
+      "what_changed": "New announcement: Onetag , a Wise Equity portfolio company, acquires Aryel to create a new Value Exchange in Programmatic Advertising",
+      "source_url": "https://www.wisesgr.com/web/content/27180/CS%20ENG_Wise%20Onetag%20Aryel%20PR.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2026-03-02",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2026-03-02)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Programmatic Advertising",
+          "Wise Equity",
+          "Value Exchange"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02104",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "other",
+      "title": "Wise Equity and FAS International together to drive growth in retail tech",
+      "what_changed": "New announcement: Wise Equity and FAS International together to drive growth in retail tech",
+      "source_url": "https://www.wisesgr.com/web/content/27182/26.02.2026_Press%20release_WISE%20Equity_FAS%20vENG.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2026-02-26",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2026-02-26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02105",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "other",
+      "title": "Wise Equity invests in Marullo to support its growth",
+      "what_changed": "New announcement: Wise Equity invests in Marullo to support its growth",
+      "source_url": "https://www.wisesgr.com/web/content/27290/WISE%20EQUITY%20INVESTS%20IN%20MARULLO%20TO%20SUPPORT%20ITS%20GROWTH.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-12-15",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-12-15)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02106",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "NTC , backed by Wise Equity, completes the acquisition of Pharmathen 's ophthalmology business",
+      "what_changed": "New announcement: NTC , backed by Wise Equity, completes the acquisition of Pharmathen 's ophthalmology business",
+      "source_url": "https://www.wisesgr.com/web/content/27291/NTC%20COMPLETES%20THE%20ACQUISITION%20OF%20PHARMATHEN\u2019S%20OPHTHALMOLOGY%20BUSINESS.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-12-10",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-12-10)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02107",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Wise Equity doubles down in the sustainable agriculture sector through its portfolio company Greenexta , by acquiring Alba Milagro",
+      "what_changed": "New announcement: Wise Equity doubles down in the sustainable agriculture sector through its portfolio company Greenexta , by acquiring Alba Milagro",
+      "source_url": "https://www.wisesgr.com/web/content/27292/WISE%20EQUITY%20DOUBLES%20DOWN%20IN%20THE%20SUSTAINABLE%20AGRICULTURE%20SECTOR%20THROUGH%20ITS%20PORTFOLIO%20COMPANY%20GREENEXTA%20BY%20ACQUIRING%20ALBA%20MILAGRO.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-07-31",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-07-31)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity",
+          "Alba Milagro"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02108",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Wise Equity and Casa della Piada , invest in pinsa with the acquisition of Pizze Vincenti",
+      "what_changed": "New announcement: Wise Equity and Casa della Piada , invest in pinsa with the acquisition of Pizze Vincenti",
+      "source_url": "https://www.wisesgr.com/web/content/27293/Wise%20Equity%20and%20Casa%20della%20Piada%20invest%20in%20pinsa%20with%20the%20acquisition%20of%20Pizze%20Vincenti.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-07-24",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-07-24)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity",
+          "Pizze Vincenti"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02109",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Almac , a Wise Equity portfolio company, and EASY LIFT join forces for growth",
+      "what_changed": "New announcement: Almac , a Wise Equity portfolio company, and EASY LIFT join forces for growth",
+      "source_url": "https://www.wisesgr.com/web/content/27294/ALMAC%20ACQUIRES%20EASY%20LIFT.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-07-15",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-07-15)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02110",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Special Flanges acquires 100% of Vilmar",
+      "what_changed": "New announcement: Special Flanges acquires 100% of Vilmar",
+      "source_url": "https://www.wisesgr.com/web/content/27295/SPECIAL%20FLANGES%20ACQUIRES%20100%%20OF%20VILMAR.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-06-19",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-06-19)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Special Flanges"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02111",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "other",
+      "title": "MEP strengthens its partnership with Promostar",
+      "what_changed": "New announcement: MEP strengthens its partnership with Promostar",
+      "source_url": "https://www.wisesgr.com/web/content/27296/MEP%20strengthens%20its%20partnership%20with%20Promostar.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2025-02-20",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2025-02-20)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02112",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "other",
+      "title": "Wisequity IV sells Innovery to NEVERHACK",
+      "what_changed": "New announcement: Wisequity IV sells Innovery to NEVERHACK",
+      "source_url": "https://www.wisesgr.com/web/content/27297/Wisequity%20IV%20sells%20Innovery%20to%20NEVERHACK.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2024-09-27",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2024-09-27)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02113",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "other",
+      "title": "Wise Equity and Absolute chart path for growth together",
+      "what_changed": "New announcement: Wise Equity and Absolute chart path for growth together",
+      "source_url": "https://www.wisesgr.com/web/content/27304/Wise%20Equity%20and%20Absolute%20chart%20path%20for%20growth%20together%20-%2025_06_24.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2024-06-25",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2024-06-25)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02114",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "exit_announced",
+      "title": "Wise Equity and Aks\u00eca announce the signing of an agreement for the sale of Casa della Piada",
+      "what_changed": "New announcement: Wise Equity and Aks\u00eca announce the signing of an agreement for the sale of Casa della Piada",
+      "source_url": "https://www.wisesgr.com/web/content/27298/WISE%20EQUITY%20AND%20AKS\u00ccA%20ANNOUNCE%20THE%20SIGNING%20OF%20AN%20AGREEMENT%20FOR%20THE%20SALE%20OF%20CASA%20DELLA%20PIADA.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2024-05-16",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2024-05-16)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02115",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "other",
+      "title": "Wise Equity and MEP together for growth",
+      "what_changed": "New announcement: Wise Equity and MEP together for growth",
+      "source_url": "https://www.wisesgr.com/web/content/27299/Wise%20Equity%20invests%20in%20MEP.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2024-01-19",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2024-01-19)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02116",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Wise Equity acquires a majority interest in Wanho",
+      "what_changed": "New announcement: Wise Equity acquires a majority interest in Wanho",
+      "source_url": "https://www.wisesgr.com/web/content/27300/Press%20release%20-%20Wise%20Equity%20acquires%20WANHO.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2023-11-13",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2023-11-13)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02117",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Wise Equity acquires 100% of Hertecant Flanges",
+      "what_changed": "New announcement: Wise Equity acquires 100% of Hertecant Flanges",
+      "source_url": "https://www.wisesgr.com/web/content/27301/Press%20release%20-%20Wise%20Equity%20acquires%20SF_Hertecant.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2023-11-10",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2023-11-10)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity",
+          "Hertecant Flanges"
+        ],
+        "locations": []
+      }
     }
   ],
-  "signal_count": 2102,
-  "translated_at": "2026-03-09T10:13:16.258114+00:00"
+  "signal_count": 2117,
+  "translated_at": "2026-03-09T16:01:39.678696+00:00"
 }
