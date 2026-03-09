@@ -1,0 +1,22 @@
+{
+  "statuses": {
+    "https://www.investindustrial.com/about-us/team.html": {
+      "url": "https://www.investindustrial.com/about-us/team.html",
+      "status": "404",
+      "status_code": 404,
+      "error_message": null,
+      "last_checked_at": "2026-02-05T13:24:21.900055+00:00",
+      "consecutive_failures": 2,
+      "next_check_after": "2026-02-05T13:39:21.900055+00:00"
+    },
+    "https://www.investindustrial.com/our-portfolio.html": {
+      "url": "https://www.investindustrial.com/our-portfolio.html",
+      "status": "404",
+      "status_code": 404,
+      "error_message": null,
+      "last_checked_at": "2026-02-05T13:24:22.395503+00:00",
+      "consecutive_failures": 2,
+      "next_check_after": "2026-02-05T13:39:22.395503+00:00"
+    }
+  }
+}

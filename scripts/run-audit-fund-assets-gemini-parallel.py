@@ -22,6 +22,8 @@ from typing import Any
 from gemini_audit_completion import is_fund_result_complete, load_verified_zero_italy_slugs
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+import sys; sys.path.insert(0, str(REPO_ROOT / "apps" / "worker"))
+from fundradar_worker.paths import GEMINI_MODEL
 DERIVED = REPO_ROOT / "data" / "derived"
 DB_PATH = REPO_ROOT / "data" / "db.json"
 PORTFOLIO_PATH = DERIVED / "portfolio_items.json"
@@ -150,7 +152,7 @@ def merge_results(
     else:
         master_output = {
             "generated_at": now_iso(),
-            "model": "gemini-3-flash-preview",
+            "model": GEMINI_MODEL,
             "funds": [],
             "summary": {},
         }
@@ -283,7 +285,7 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true", help="Only print planned shards")
 
     # Forwarded worker settings
-    parser.add_argument("--model", default="gemini-3-flash-preview")
+    parser.add_argument("--model", default=GEMINI_MODEL)
     parser.add_argument("--chunk-size", type=int, default=20)
     parser.add_argument("--chunk-split-sizes", type=str, default="20,8,1")
     parser.add_argument("--max-entries-per-fund", type=int, default=0)

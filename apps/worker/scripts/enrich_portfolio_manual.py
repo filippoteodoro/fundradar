@@ -49,7 +49,7 @@ CANONICAL_SECTORS = [
 ]
 SECTOR_SET = set(CANONICAL_SECTORS)
 
-MODEL = "gpt-5-mini"
+from fundradar_worker.paths import OPENAI_MODEL as MODEL
 
 
 def verify_url(url: str) -> bool:

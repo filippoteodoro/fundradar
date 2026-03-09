@@ -37,7 +37,7 @@ from dotenv import load_dotenv
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, ENRICHED_SIGNALS_FILE, PORTFOLIO_FILE, ROOT_ENV_PATH
+from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, ENRICHED_SIGNALS_FILE, PORTFOLIO_FILE, COMPANY_PROFILES_FILE, ROOT_ENV_PATH
 from fundradar_worker.portfolio_validation import clean_portfolio_name, is_valid_portfolio_entry
 from fundradar_worker.url_utils import extract_domain, is_same_domain
 
@@ -91,12 +91,21 @@ def build_company_knowledge_base(fund_portfolios: dict, exclude_slug: str | None
     Gemini-enriched company bios. Signal-derived descriptions are deal-event
     text ("Company raises €Xm..."), not company bios, and must not pollute the KB.
 
-    Returns {normalized_name: {sector, headquarters, description, website}}
+    Gemini-sourced values take priority: entries with data_source containing "gemini"
+    (i.e. gemini_verified, gemini_global_enrichment, gemini_missing_asset — whole entries
+    created by Gemini audit scripts) are preferred for sector/HQ/website/description.
+    NOTE: enrich_portfolio_gemini_full.py (step 6) fills fields on existing fund_website
+    entries WITHOUT changing data_source, so step-6 enrichments are NOT Gemini-detected
+    here. Taxonomy-preference for sector handles most of those cases anyway.
+
+    Returns {normalized_name: {name, sector, headquarters, description, website}}
     with the most complete/canonical values across all fund entries.
     """
     from collections import Counter
 
     by_name: dict[str, dict[str, list]] = {}
+    display_names: dict[str, str] = {}
+
     for slug, entries in fund_portfolios.items():
         if slug == exclude_slug:
             continue
@@ -107,48 +116,83 @@ def build_company_knowledge_base(fund_portfolios: dict, exclude_slug: str | None
             norm = normalize_company_name(name)
             if not norm:
                 continue
-            bucket = by_name.setdefault(norm, {"sector": [], "headquarters": [], "description": [], "website": []})
+            # Track longest display name
+            if norm not in display_names or len(name) > len(display_names[norm]):
+                display_names[norm] = name
+            bucket = by_name.setdefault(norm, {
+                "sector": [], "headquarters": [], "description": [], "website": [],
+                "sector_gemini": [], "headquarters_gemini": [], "website_gemini": [],
+                "description_gemini": [],
+            })
             is_signal_derived = bool(e.get("signal_id"))
+            is_gemini = "gemini" in (e.get("data_source") or "").lower()
             for field in ("sector", "headquarters", "website"):
                 val = (e.get(field) or "").strip()
                 if val:
                     bucket[field].append(val)
+                    if is_gemini:
+                        bucket[f"{field}_gemini"].append(val)
             # Description: only from non-signal entries (Gemini-enriched company bios)
             if not is_signal_derived:
                 val = (e.get("description") or "").strip()
                 if val:
                     bucket["description"].append(val)
+                    if is_gemini:
+                        bucket["description_gemini"].append(val)
 
-    # sector/headquarters/website → most common non-null value
-    # For sector specifically: prefer taxonomy values over non-standard ones.
-    #   If any value is in SECTOR_SET, pick the most common SECTOR_SET value.
-    #   Fall back to most-common of any value only if none are in SECTOR_SET.
-    # description → longest (most informative Gemini bio)
+    # Build canonical values with Gemini-source preference.
+    # sector: Gemini+taxonomy > any taxonomy > most-common
+    # HQ/website: Gemini > most-common
+    # description: longest Gemini bio > longest non-signal bio
     kb: dict[str, dict] = {}
     for norm, fields in by_name.items():
-        entry: dict = {}
+        entry: dict = {"name": display_names.get(norm, norm)}
+
+        # HQ and website: prefer Gemini-sourced, then most-common
         for field in ("headquarters", "website"):
-            vals = fields[field]
-            if vals:
-                entry[field] = Counter(vals).most_common(1)[0][0]
-        sector_vals = fields["sector"]
-        if sector_vals:
-            taxonomy_vals = [v for v in sector_vals if v in SECTOR_SET]
+            gemini_vals = fields[f"{field}_gemini"]
+            all_vals = fields[field]
+            if gemini_vals:
+                entry[field] = Counter(gemini_vals).most_common(1)[0][0]
+            elif all_vals:
+                entry[field] = Counter(all_vals).most_common(1)[0][0]
+
+        # Sector: Gemini+taxonomy > any taxonomy > most-common
+        sector_gemini = fields["sector_gemini"]
+        sector_all = fields["sector"]
+        if sector_gemini:
+            taxonomy_vals = [v for v in sector_gemini if v in SECTOR_SET]
             if taxonomy_vals:
                 entry["sector"] = Counter(taxonomy_vals).most_common(1)[0][0]
             else:
-                entry["sector"] = Counter(sector_vals).most_common(1)[0][0]
-        descs = fields["description"]
-        if descs:
-            entry["description"] = max(descs, key=len)
-        if entry:
+                entry["sector"] = Counter(sector_gemini).most_common(1)[0][0]
+        elif sector_all:
+            taxonomy_vals = [v for v in sector_all if v in SECTOR_SET]
+            if taxonomy_vals:
+                entry["sector"] = Counter(taxonomy_vals).most_common(1)[0][0]
+            else:
+                entry["sector"] = Counter(sector_all).most_common(1)[0][0]
+
+        # Description: prefer longest Gemini bio, then longest non-signal bio
+        gemini_descs = fields["description_gemini"]
+        all_descs = fields["description"]
+        if gemini_descs:
+            entry["description"] = max(gemini_descs, key=len)
+        elif all_descs:
+            entry["description"] = max(all_descs, key=len)
+
+        if any(entry.get(f) for f in ("sector", "headquarters", "description", "website")):
             kb[norm] = entry
     return kb
 
 
 def _enrich_from_kb(entry: dict, kb: dict[str, dict]) -> bool:
     """
-    Fill missing fields on a portfolio entry from the cross-portfolio knowledge base.
+    Fill missing fields on a newly created portfolio entry from the cross-portfolio KB.
+
+    Used ONLY during signal processing (process_fund_signals) as a within-run pre-warm:
+    so newly created entries get reasonable values immediately rather than waiting for
+    the end-of-run backfill. The backfill pass will overwrite these fields anyway.
 
     Two modes:
     1. Gap-fill: if field is empty and KB has a value → fill it.
@@ -444,6 +488,15 @@ def save_portfolio(data: dict):
     from fundradar_worker.io_utils import safe_json_write, backup_before_write
     backup_before_write(PORTFOLIO_FILE)
     safe_json_write(PORTFOLIO_FILE, data)
+
+
+def save_company_profiles(profiles: dict[str, dict]):
+    """Write company_profiles.json atomically."""
+    from fundradar_worker.io_utils import safe_json_write
+    safe_json_write(COMPANY_PROFILES_FILE, {
+        "companies": profiles,
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+    })
 
 
 def build_existing_names(entries: list[dict]) -> tuple[set[str], set[str]]:
@@ -1035,14 +1088,6 @@ def main():
         }
         save_progress(progress)
 
-    # ── Backfill pass: fill missing fields on ALL signal-derived portfolio entries ──
-    # Runs on every execution — self-healing for entries created before these fixes.
-    # Priority: cross-portfolio KB (free, exact data) > signal text (for description).
-    # Never overwrites an existing non-empty value.
-    signals_by_id = {s["id"]: s for s in all_signals if s.get("id")}
-    backfilled = 0
-    backfill_changed_slugs: set[str] = set()
-
     # Reload fresh portfolio to pick up all changes from this run
     fresh_portfolio = load_portfolio()
     fresh_portfolios = fresh_portfolio.get("fund_portfolios", {})
@@ -1050,34 +1095,48 @@ def main():
     # Rebuild KB from fresh portfolio so newly added entries are included
     fresh_kb = build_company_knowledge_base(fresh_portfolios)
 
+    # ── Consistency check: report pre-fix cross-fund conflicts (sector/HQ disagree with canonical) ──
+    # Run BEFORE the overwrite pass so we can see how many conflicts will be resolved.
+    # After the overwrite, all entries will agree — running this check post-overwrite always gives 0.
+    conflicts = check_portfolio_consistency(fresh_portfolios, fresh_kb)
+    if conflicts:
+        from collections import defaultdict
+        by_company: dict[str, list[dict]] = defaultdict(list)
+        for c in conflicts:
+            by_company[c["company"]].append(c)
+        print(f"\n  Cross-fund conflicts to resolve ({len(by_company)} companies, {len(conflicts)} entries):")
+        for company, items in sorted(by_company.items())[:10]:  # cap at 10 to avoid wall-of-text
+            fields_seen = {i["field"] for i in items}
+            for field in sorted(fields_seen):
+                field_items = [i for i in items if i["field"] == field]
+                canonical = field_items[0]["canonical"]
+                variants = {i["value"]: i["fund"] for i in field_items}
+                variant_str = ", ".join(f'"{v}" ({f})' for v, f in list(variants.items())[:3])
+                print(f"    {company}: {field}={canonical!r} (canonical) ≠ {variant_str}")
+        if len(by_company) > 10:
+            print(f"    ... and {len(by_company) - 10} more companies with conflicts")
+
+    # ── Backfill pass: overwrite company-level fields on ALL portfolio entries from KB ──
+    # Runs on every execution — self-healing for entries created before these fixes.
+    # Full overwrite (not just gap-fill): canonical value from KB always wins.
+    # This ensures all fund entries for the same company are identical (no conflicts).
+    backfilled = 0
+    backfill_changed_slugs: set[str] = set()
+
     for slug, entries in fresh_portfolios.items():
         for entry in entries:
             changed = False
-            is_signal_derived = bool(entry.get("signal_id"))
-
-            # Fill missing sector/HQ/website from KB for ALL entries —
-            # enforces canonical values company-wide (same sector for D-Orbit
-            # under every fund). Never overwrites an existing non-empty value.
-            if _enrich_from_kb(entry, fresh_kb):
-                changed = True
-
-            # Description: only for signal-derived entries.
-            # Non-signal entries already have Gemini company bios — don't touch.
-            if is_signal_derived:
-                sid = entry.get("signal_id")
-                sig = signals_by_id.get(sid) if sid else None
-                signal_texts = ({
-                    (sig.get("enriched_summary") or "").strip(),
-                    (sig.get("what_changed") or "").strip(),
-                } - {""}) if sig else set()
-                current_desc = (entry.get("description") or "").strip()
-                norm_name = normalize_company_name(entry.get("name", ""))
-                kb_desc = (fresh_kb.get(norm_name) or {}).get("description", "")
-                if kb_desc and (not current_desc or current_desc in signal_texts):
+            norm = normalize_company_name(entry.get("name", ""))
+            profile = fresh_kb.get(norm)
+            if not profile:
+                continue
+            # OVERWRITE all company-level fields from canonical profile
+            for field in ("sector", "headquarters", "website", "description"):
+                canon = (profile.get(field) or "").strip()
+                if canon and entry.get(field) != canon:
                     if not args.dry_run:
-                        entry["description"] = kb_desc
+                        entry[field] = canon
                     changed = True
-                # No KB description → leave null; Gemini fills on next pipeline run
 
             if changed:
                 backfilled += 1
@@ -1093,27 +1152,20 @@ def main():
     elif backfilled:
         print(f"\n  [dry-run] Would normalize: {backfilled} entries")
 
-    # ── Consistency check: report cross-fund conflicts (sector/HQ disagree with canonical) ──
-    # These are entries with EXISTING values that differ from the KB majority vote.
-    # They cannot be fixed automatically without risking data regression (Gemini may
-    # have set a fund-specific label intentionally). Report for manual review.
-    conflicts = check_portfolio_consistency(fresh_portfolios, fresh_kb)
-    if conflicts:
-        from collections import defaultdict
-        by_company: dict[str, list[dict]] = defaultdict(list)
-        for c in conflicts:
-            by_company[c["company"]].append(c)
-        print(f"\n  ⚠  Cross-fund conflicts ({len(by_company)} companies, {len(conflicts)} entries):")
-        for company, items in sorted(by_company.items())[:10]:  # cap at 10 to avoid wall-of-text
-            fields_seen = {i["field"] for i in items}
-            for field in sorted(fields_seen):
-                field_items = [i for i in items if i["field"] == field]
-                canonical = field_items[0]["canonical"]
-                variants = {i["value"]: i["fund"] for i in field_items}
-                variant_str = ", ".join(f'"{v}" ({f})' for v, f in list(variants.items())[:3])
-                print(f"    {company}: {field}={canonical!r} (canonical) ≠ {variant_str}")
-        if len(by_company) > 10:
-            print(f"    ... and {len(by_company) - 10} more companies with conflicts")
+    # ── Write canonical company profiles to disk ──
+    # Build profiles with last_updated timestamp for each entry.
+    if not args.dry_run:
+        now_iso = datetime.now(timezone.utc).isoformat()
+        profiles_to_write: dict[str, dict] = {}
+        for norm, kb_entry in fresh_kb.items():
+            profile: dict = {"last_updated": now_iso}
+            for field in ("name", "sector", "headquarters", "website", "description"):
+                val = kb_entry.get(field)
+                if val:
+                    profile[field] = val
+            profiles_to_write[norm] = profile
+        save_company_profiles(profiles_to_write)
+        print(f"\n  Company profiles written: {len(profiles_to_write)}")
 
     # Summary
     elapsed = time.time() - start_time

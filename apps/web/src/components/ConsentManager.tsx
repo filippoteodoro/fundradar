@@ -6,7 +6,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 type ConsentState = 'accepted' | 'rejected' | null;
 
-const GTM_ID = 'GTM-P6LBQD4B';
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? 'GTM-P6LBQD4B';
 const CONSENT_KEY = 'fundradar_cookie_consent_v1';
 const CONSENT_MAX_AGE_MS = 180 * 24 * 60 * 60 * 1000; // 6 months
 

@@ -20,6 +20,7 @@ cachedFilteredSignals → detected_signals_filtered.json
 cachedPortfolios      → portfolio_items.json (includes fund_source_urls)
 cachedLinkedInUrls    → linkedin/fund_linkedin_urls.json
 cachedTeamAnalytics   → fund_people_stats.json
+cachedCompanyProfiles → company_profiles.json (canonical sector/HQ/description/website per company)
 ```
 
 ### What NOT To Do
@@ -80,10 +81,27 @@ As of 2026-02-27: `["canova-sgr"]`
 | `getPortfolioForFund(slug)` | `PortfolioCompany[]` | website + PEM merge (see below) |
 | `getPortfolioGeoScope(slug)` | `string` | `portfolio_items.json` |
 | `getAllPortfolioCompanyNames()` | `Record<string, string[]>` | `portfolio_items.json` |
+| `getAllCompanies()` | `Company[]` | aggregated from all funds' `getPortfolioForFund()` |
+| `getCompanyBySlug(slug)` | `Company \| undefined` | via `getAllCompanies()` |
 | `getTeamAnalyticsForFund(slug)` | `TeamAnalytics \| null` | `fund_people_stats.json` |
 | `isMegaFund(slug)` | `boolean` | `MEGA_FUNDS` set in `data.ts` |
 | `getManualLinkedinProfileFundSlugs()` | `string[]` | `linkedin/manual_profiles.json` (+ alias normalization) |
 | `isManualLinkedinProfileFund(slug)` | `boolean` | via `getManualLinkedinProfileFundSlugs()` |
+
+### Company Page Data — `getAllCompanies()` aggregation
+
+Company pages (`/companies/[slug]`) display a single `Company` object aggregated from all fund portfolio entries for that company. The `getAllCompanies()` function iterates every fund's portfolio and groups entries by `compactName(normalizeCompanyName(name))`.
+
+**Merge behavior (first-fund-wins with gap-fill)**:
+- First fund encountered sets the canonical sector/HQ/description/website
+- Subsequent funds only contribute if the first had `null` — gap-fill only
+- **No quality preference in the web layer** — it relies on `portfolio_items.json` already having canonical, consistent values before it runs
+
+**Why this works now**: `signal_to_portfolio.py` runs a KB normalization pass on every pipeline execution that ensures all fund portfolio entries for the same company have the same sector/HQ/website (filling gaps and upgrading non-standard sectors). By the time `getAllCompanies()` runs, first-fund-wins is harmless because all funds agree.
+
+**Before KB normalization**: company pages showed whatever the first db.json-ordered fund had — arbitrary, no quality preference. D-Orbit's company page sector was "Spacetech" or "Space Technology" depending on which fund appeared first in `getAllFunds()`.
+
+**Remaining limitation**: HQ in the KB is selected by most-common vote (not Gemini-source-aware). If a wrong HQ from scraping appears in more funds than the Gemini-correct one, the web page will show the wrong one. Current workaround: manual fix in `portfolio_items.json` for the conflicting entries (they show up in the `signal_to_portfolio.py` conflict report). Improvement path: weight entries with `headquarters_source_url` set higher in the KB vote.
 
 ## LinkedIn People Analytics Source-of-Truth
 
@@ -101,6 +119,9 @@ As of 2026-02-27: `["canova-sgr"]`
 | `/funds/[slug]` | `getDealsForFund()` | `pem_deals.json` |
 | `/funds/[slug]` | `getTeamAnalyticsForFund()` | `fund_people_stats.json` |
 | `/funds/[slug]` | `getSignalsForFund()` | `detected_signals_filtered.json` ONLY |
+| `/companies` | `getAllCompanies()` | aggregated from all `getPortfolioForFund()` |
+| `/companies/[slug]` | `getCompanyBySlug()` | aggregated from all `getPortfolioForFund()` |
+| `/companies/[slug]` | `getSignalsForCompany()` | `detected_signals_enriched.json` (company-matched) |
 | `/signals` | `loadUnifiedSignals()` | enriched → filtered → raw (via `signals_unified.ts`) |
 | `/subscribe` | Stripe checkout | — |
 | `/login`, `/signup`, `/watchlists` | Redirect to `/subscribe` | — |

@@ -73,12 +73,14 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div style={{ marginBottom: '24px' }}>
-        <h1 style={{ margin: '0 0 4px 0', fontSize: '24px' }}>Funds in Italy</h1>
-        {signalsLast30Days > 0 && (
-          <p style={{ margin: '0 0 6px 0', fontSize: '13px', color: '#999' }}>
-            {signalsLast30Days} signals tracked in the last 30 days
-          </p>
-        )}
+        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '4px', marginBottom: '4px' }}>
+          <h1 style={{ margin: 0, fontSize: '24px' }}>Funds in Italy</h1>
+          {signalsLast30Days > 0 && (
+            <p style={{ margin: 0, fontSize: '13px', color: '#999', whiteSpace: 'nowrap' }}>
+              {signalsLast30Days} signals tracked in the last 30 days
+            </p>
+          )}
+        </div>
         <p style={{ margin: 0, color: '#666' }}>
           Tracking PE/VC funds activity in Italy using publicly available data. Click on a fund to see details. Not a complete database.
         </p>

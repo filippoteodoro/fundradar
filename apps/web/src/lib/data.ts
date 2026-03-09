@@ -1812,6 +1812,50 @@ export function getSortedOffices(fund: Fund): Office[] {
 
 let cachedCompanies: Company[] | null = null;
 
+interface CompanyProfileData {
+  name: string;
+  sector: string | null;
+  headquarters: string | null;
+  website: string | null;
+  description: string | null;
+}
+
+let cachedCompanyProfiles: Map<string, CompanyProfileData> | null = null;
+
+function loadCompanyProfiles(): Map<string, CompanyProfileData> {
+  if (cachedCompanyProfiles) return cachedCompanyProfiles;
+  const filePath = join(getRepoRoot(), 'data', 'derived', 'company_profiles.json');
+  if (!existsSync(filePath)) {
+    cachedCompanyProfiles = new Map();
+    return cachedCompanyProfiles;
+  }
+  try {
+    const raw = readFileSync(filePath, 'utf-8');
+    const data = JSON.parse(raw) as { companies: Record<string, { name?: string; sector?: string; headquarters?: string; website?: string; description?: string }> };
+    const map = new Map<string, CompanyProfileData>();
+    for (const [, profile] of Object.entries(data.companies || {})) {
+      if (!profile.name) continue;
+      // Re-derive the lookup key using the same normalizeCompanyName+compactName pipeline
+      // as getAllCompanies(). This avoids cross-language key format mismatches — Python and
+      // TypeScript normalizers may differ on edge cases, but both agree on a display name.
+      const lookupKey = compactName(normalizeCompanyName(profile.name));
+      if (lookupKey) {
+        map.set(lookupKey, {
+          name: profile.name,
+          sector: profile.sector || null,
+          headquarters: profile.headquarters || null,
+          website: profile.website || null,
+          description: profile.description || null,
+        });
+      }
+    }
+    cachedCompanyProfiles = map;
+  } catch {
+    cachedCompanyProfiles = new Map();
+  }
+  return cachedCompanyProfiles;
+}
+
 /**
  * Aggregate all portfolio companies across all funds into deduplicated Company entries.
  * Uses existing getPortfolioForFund() (already cached) for each fund.
@@ -1876,6 +1920,20 @@ export function getAllCompanies(): Company[] {
           investments: [investment],
         });
       }
+    }
+  }
+
+  // Apply canonical company profiles as an override pass.
+  // Profiles (written by signal_to_portfolio.py) are the single source of truth for
+  // sector/HQ/description/website — they win over first-fund-wins from portfolio entries.
+  const profiles = loadCompanyProfiles();
+  for (const [key, data] of companyMap) {
+    const profile = profiles.get(key);
+    if (profile) {
+      if (profile.sector) data.sector = profile.sector;
+      if (profile.website) data.website = profile.website;
+      if (profile.description) data.description = profile.description;
+      if (profile.headquarters) data.headquarters = profile.headquarters;
     }
   }
 

@@ -23,6 +23,8 @@ from pathlib import Path
 from typing import Any
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
+
+from fundradar_worker.paths import OPENAI_MODEL
 DATA_DIR = PROJECT_ROOT / "data" / "derived"
 DEEPL_QUOTA_FILE = DATA_DIR / "deepl_quota_state.json"
 
@@ -308,7 +310,7 @@ def translate_text_with_openai(client: Any, text: str) -> str:
     for attempt in range(2):
         try:
             resp = client.chat.completions.create(
-                model="gpt-5-mini",
+                model=OPENAI_MODEL,
                 messages=[
                     {"role": "system", "content": "You are a precise financial translator. Return only the translated text."},
                     {"role": "user", "content": prompt},
@@ -344,7 +346,7 @@ def translate_batch_with_openai(client: Any, texts: list[str]) -> list[str]:
     for attempt in range(2):
         try:
             resp = client.chat.completions.create(
-                model="gpt-5-mini",
+                model=OPENAI_MODEL,
                 messages=[
                     {"role": "system", "content": "You are a precise financial translator. Return only a JSON array of translated strings."},
                     {"role": "user", "content": prompt},

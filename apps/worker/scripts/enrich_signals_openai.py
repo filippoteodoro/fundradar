@@ -129,8 +129,7 @@ for _env_path in (ROOT_ENV_PATH, WORKER_ENV_PATH):
         for _key in _TRANSLATION_KEYS:
             if not os.environ.get(_key) and _env_vars.get(_key):
                 os.environ[_key] = _env_vars[_key]
-# Model to use - GPT-5 mini: faster/cheaper GPT-5 variant for well-defined tasks
-MODEL = "gpt-5-mini"
+from fundradar_worker.paths import OPENAI_MODEL as MODEL
 
 # LLM filtering (last-mile quality gate)
 LLM_FILTER_MODE = os.environ.get("LLM_FILTER_MODE", "hard").lower()  # soft | hard

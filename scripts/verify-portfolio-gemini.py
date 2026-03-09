@@ -32,13 +32,15 @@ from typing import Any
 import requests
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+import sys; sys.path.insert(0, str(REPO_ROOT / "apps" / "worker"))
+from fundradar_worker.paths import GEMINI_MODEL
 DATA_DIR = REPO_ROOT / "data"
 DERIVED_DIR = DATA_DIR / "derived"
 PORTFOLIO_PATH = DERIVED_DIR / "portfolio_items.json"
 DB_PATH = DATA_DIR / "db.json"
 VERIFICATION_PATH = DERIVED_DIR / "portfolio_verification.json"
 
-DEFAULT_MODEL = "gemini-3-flash-preview"
+DEFAULT_MODEL = GEMINI_MODEL
 GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 
 DEFAULT_SLEEP_SECONDS = 4.5

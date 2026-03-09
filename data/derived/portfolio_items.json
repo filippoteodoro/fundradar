@@ -1710,7 +1710,7 @@
       },
       {
         "name": "Naturellement Gourmand",
-        "sector": "Food & Beverage",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/naturellement-gourmand/",
@@ -1905,7 +1905,7 @@
       },
       {
         "name": "Vulcanic",
-        "sector": "Industrial Manufacturing",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/vulcanic/",
@@ -1970,7 +1970,7 @@
       },
       {
         "name": "Hild",
-        "sector": "Construction",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/hild/",
@@ -1996,7 +1996,7 @@
       },
       {
         "name": "Buffalo Grill",
-        "sector": "Hospitality & Tourism",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/buffalo-grill/",
@@ -2061,7 +2061,7 @@
       },
       {
         "name": "Outinord",
-        "sector": "Construction",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/outinord/",
@@ -7092,6 +7092,19 @@
         "data_source": "fund_website"
       },
       {
+        "name": "ISAAC",
+        "sector": "Construction",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://isaacantisismica.com/",
+        "description": "Company specialize in the development of smart technologies to protect buildings and infrastructure from swaying and vibrations,",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://axonpartnersgroup.com/portfolio/",
+        "data_source": "fund_website"
+      },
+      {
         "name": "ISR",
         "sector": "Technology",
         "status": "current",
@@ -7484,7 +7497,7 @@
       {
         "name": "PLD Space",
         "sector": "Aerospace & Defense",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.95,
         "website": "https://pldspace.com/es/",
         "description": "Reusable rockets to provide commercial access to small satellites in a faster, safer and more viable way.",
@@ -8670,7 +8683,7 @@
       },
       {
         "name": "MasOrange",
-        "sector": "Technology",
+        "sector": "Professional Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.masorange.es/en",
@@ -21535,19 +21548,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "RENAISSANCE",
-        "sector": "Real Estate",
-        "status": "current",
-        "confidence": 0.95,
-        "website": null,
-        "description": "Ardian Real Estate, prime investor for the refurbishment of the former Europe 1 headquarters",
-        "detail_page_url": null,
-        "headquarters": "Paris, France",
-        "investment_date": null,
-        "source_url": "https://www.ardian.com/expertise/our-portfolio",
-        "data_source": "fund_website"
-      },
-      {
         "name": "CLS",
         "sector": "Environmental Services",
         "status": "current",
@@ -21580,6 +21580,19 @@
         "confidence": 0.95,
         "website": null,
         "description": "Alvest is the world leader in airport Ground Support Equipment (\u201cGSE\u201d) full-lifecycle solutions",
+        "detail_page_url": null,
+        "headquarters": "Paris, France",
+        "investment_date": null,
+        "source_url": "https://www.ardian.com/expertise/our-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "RENAISSANCE",
+        "sector": "Real Estate",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Ardian Real Estate, prime investor for the refurbishment of the former Europe 1 headquarters",
         "detail_page_url": null,
         "headquarters": "Paris, France",
         "investment_date": null,
@@ -22708,19 +22721,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Stp",
-        "sector": "Software",
-        "status": "current",
-        "confidence": 0.95,
-        "website": null,
-        "description": "Legal technology and practice management",
-        "detail_page_url": null,
-        "headquarters": "Karlsruhe, Germany",
-        "investment_date": null,
-        "source_url": "https://www.bu-partners.com/investments/",
-        "data_source": "fund_website"
-      },
-      {
         "name": "Woom",
         "sector": "Consumer Goods",
         "status": "current",
@@ -22846,6 +22846,19 @@
         "description": "High-end automotive interior trim",
         "detail_page_url": null,
         "headquarters": "Vorbach, Germany",
+        "investment_date": null,
+        "source_url": "https://www.bu-partners.com/investments/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Stp",
+        "sector": "Software",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Legal technology and practice management",
+        "detail_page_url": null,
+        "headquarters": "Karlsruhe, Germany",
         "investment_date": null,
         "source_url": "https://www.bu-partners.com/investments/",
         "data_source": "fund_website"
@@ -46157,27 +46170,27 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Mirta",
-        "sector": "Retail",
+        "name": "Mirta exit",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.mirta.com",
-        "description": "B2B wholesale platform for artisans",
+        "description": null,
         "detail_page_url": null,
-        "headquarters": "Milan, Italy",
+        "headquarters": null,
         "investment_date": null,
         "source_url": "https://www.nevasgr.com/content/neva/en/portfolio.html",
         "data_source": "fund_website"
       },
       {
-        "name": "Casavo",
-        "sector": "Real Estate",
+        "name": "Casavo exit",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://casavo.com",
-        "description": "Italian PropTech startup for instant home buying. One of ~120 companies in Rancilio Cube portfolio. Source: Press",
+        "description": null,
         "detail_page_url": null,
-        "headquarters": "Milan, Italy",
+        "headquarters": null,
         "investment_date": null,
         "source_url": "https://www.nevasgr.com/content/neva/en/portfolio.html",
         "data_source": "fund_website"
@@ -46443,9 +46456,35 @@
         "data_source": "fund_website"
       },
       {
+        "name": "Mirta",
+        "sector": "Retail",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.mirta.com",
+        "description": "B2B wholesale platform for artisans",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.nevasgr.com/content/neva/en/portfolio.html",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Casavo",
+        "sector": "Real Estate",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://casavo.com",
+        "description": "Italian PropTech startup for instant home buying. One of ~120 companies in Rancilio Cube portfolio. Source: Press",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.nevasgr.com/content/neva/en/portfolio.html",
+        "data_source": "fund_website"
+      },
+      {
         "name": "D-Orbit",
         "sector": "Aerospace & Defense",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.95,
         "website": "https://www.dorbit.space",
         "description": "Space logistics and transportation company providing services for satellite deployment and space debris removal.",
@@ -46571,6 +46610,19 @@
     ],
     "advent-international": [
       {
+        "name": "tbi bank",
+        "sector": "Financial Services",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "A leading tech-led challenger bank in Southeast Europe and regional leader in payment plan solutions",
+        "detail_page_url": null,
+        "headquarters": "Sofia, Bulgaria",
+        "investment_date": null,
+        "source_url": "https://www.adventinternational.com/investments/",
+        "data_source": "fund_website"
+      },
+      {
         "name": "Vestacy",
         "sector": "Consumer",
         "status": "current",
@@ -46690,7 +46742,7 @@
       {
         "name": "Attalon (formerly Coherent)",
         "sector": "Aerospace & Defense",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.95,
         "website": null,
         "description": "Provider of optical systems and components for strategic aerospace and space platforms",
@@ -48820,7 +48872,7 @@
       {
         "name": "Nexi",
         "sector": "Financial Services",
-        "status": "exited",
+        "status": "current",
         "confidence": 0.95,
         "website": null,
         "description": "A leading European paytech company (formerly ICBPI) providing digital payment services for banks, businesses, and public administrations.",
@@ -50996,7 +51048,7 @@
         "sector": "Industrial Manufacturing",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://borealismaritime.com",
+        "website": "https://www.borealismaritime.com",
         "description": "New maritime leading platform in Asia",
         "detail_page_url": null,
         "headquarters": "Singapore",
@@ -51721,7 +51773,7 @@
       },
       {
         "name": "MasOrange",
-        "sector": "Technology",
+        "sector": "Professional Services",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.masorange.es/en",
@@ -52309,7 +52361,7 @@
         "sector": "Industrial Manufacturing",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://proten.com.au/",
+        "website": "https://www.proten.com.au/",
         "description": "ProTen is a company that develops, owns and operates grower farm infrastructure in Australia\u2019s poultry supply chain.",
         "detail_page_url": null,
         "headquarters": "Sydney, Australia",
@@ -56445,19 +56497,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Allee Center",
-        "sector": "Real Estate",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/allee-center",
-        "description": "Operates a large shopping center in Budapest",
-        "detail_page_url": null,
-        "headquarters": "Leipzig, Germany",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
         "name": "Am-Pharma",
         "sector": "Biotech & Pharma",
         "status": "current",
@@ -56583,6 +56622,19 @@
         "description": "Develops radiopharmaceuticals for the diagnosis and treatment of cancer",
         "detail_page_url": null,
         "headquarters": "Berlin, Germany",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Ariston Education",
+        "sector": "Education",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/ariston-education",
+        "description": "Ariston Education is a leading provider of premium K-12 education services in China, focusing on high-quality academic programs and student development.",
+        "detail_page_url": null,
+        "headquarters": "Shanghai, China",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -57207,19 +57259,6 @@
         "description": "Operates K-12 international schools in Vietnam",
         "detail_page_url": null,
         "headquarters": "Melbourne, Australia",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
-        "name": "Concept",
-        "sector": "Real Estate",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/concept",
-        "description": "Provides student housing and co-living accommodation",
-        "detail_page_url": null,
-        "headquarters": "Clichy, France",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -58473,19 +58512,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Kodiak Gas Services",
-        "sector": "Environmental Services",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/kodiak-gas-services",
-        "description": "Provides natural gas contract compression services",
-        "detail_page_url": null,
-        "headquarters": "The Woodlands, United States",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
         "name": "Kota",
         "sector": "Financial Services",
         "status": "current",
@@ -58889,19 +58915,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Minerva",
-        "sector": "Real Estate",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/minerva",
-        "description": "Develops and manages luxury residential properties",
-        "detail_page_url": null,
-        "headquarters": "Northern Italy, Italy",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
         "name": "MinervaX",
         "sector": "Biotech & Pharma",
         "status": "current",
@@ -59014,19 +59027,6 @@
         "description": "Provides a hormone-free digital contraceptive app",
         "detail_page_url": null,
         "headquarters": "Stockholm, Sweden",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
-        "name": "Nest",
-        "sector": "Real Estate",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/nest",
-        "description": "Manages co-living and student accommodation properties",
-        "detail_page_url": null,
-        "headquarters": "Paris, France",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -59838,19 +59838,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Saturn",
-        "sector": "Real Estate",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/saturn",
-        "description": "Portfolio of residential and commercial property assets across Europe",
-        "detail_page_url": null,
-        "headquarters": "London, United Kingdom",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
         "name": "SAUR",
         "sector": "Environmental Services",
         "status": "current",
@@ -60007,19 +59994,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Smart Parc",
-        "sector": "Real Estate",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/smart-parc",
-        "description": "Develops sustainable, high-tech food manufacturing and logistics parks",
-        "detail_page_url": null,
-        "headquarters": "Courbevoie, France",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
         "name": "SNIPR Biome",
         "sector": "Biotech & Pharma",
         "status": "current",
@@ -60041,19 +60015,6 @@
         "description": "Provides data and software for risk and asset management in automotive",
         "detail_page_url": null,
         "headquarters": "Westlake, United States",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
-        "name": "Southside",
-        "sector": "Real Estate",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/southside",
-        "description": "Portfolio of residential and commercial property assets in Germany",
-        "detail_page_url": null,
-        "headquarters": "Stockholm, Sweden",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -60145,19 +60106,6 @@
         "description": "Develops flexible energy generation and battery storage assets",
         "detail_page_url": null,
         "headquarters": "London, United Kingdom",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
-        "name": "Stend\u00f6rren",
-        "sector": "Real Estate",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/stendorren",
-        "description": "Owns and manages industrial and warehouse properties in Scandinavia",
-        "detail_page_url": null,
-        "headquarters": "Stockholm, Sweden",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -60262,19 +60210,6 @@
         "description": "Provides open-source enterprise Linux and Kubernetes solutions",
         "detail_page_url": null,
         "headquarters": "Luxembourg City, Luxembourg",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
-        "name": "Svenska Verksamhetsfastigheter",
-        "sector": "Real Estate",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/svenska-verksamhetsfastigheter",
-        "description": "Manages industrial and commercial properties in the Swedish market",
-        "detail_page_url": null,
-        "headquarters": "Stockholm, Sweden",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -60496,19 +60431,6 @@
         "description": "Workplace mental health and employee wellbeing platform",
         "detail_page_url": null,
         "headquarters": "London, United Kingdom",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
-        "name": "Unum",
-        "sector": "Real Estate",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/unum",
-        "description": "Operates residential property development and asset management",
-        "detail_page_url": null,
-        "headquarters": "Stockholm, Sweden",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -60852,19 +60774,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "WASH",
-        "sector": "Social",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/wash",
-        "description": "Commercial laundry facilities",
-        "detail_page_url": null,
-        "headquarters": "Torrance, United States",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
         "name": "Waystar",
         "sector": "Healthcare",
         "status": "current",
@@ -61042,6 +60951,162 @@
         "description": "Online retailer for pet food and accessories across Europe",
         "detail_page_url": null,
         "headquarters": "Munich, Germany",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Allee Center",
+        "sector": "Real Estate",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/allee-center",
+        "description": "Operates a large shopping center in Budapest",
+        "detail_page_url": null,
+        "headquarters": "Leipzig, Germany",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Concept",
+        "sector": "Real Estate",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/concept",
+        "description": "Provides student housing and co-living accommodation",
+        "detail_page_url": null,
+        "headquarters": "Clichy, France",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Kodiak Gas Services",
+        "sector": "Environmental Services",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/kodiak-gas-services",
+        "description": "Provides natural gas contract compression services",
+        "detail_page_url": null,
+        "headquarters": "The Woodlands, United States",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Minerva",
+        "sector": "Real Estate",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/minerva",
+        "description": "Develops and manages luxury residential properties",
+        "detail_page_url": null,
+        "headquarters": "Northern Italy, Italy",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Nest",
+        "sector": "Real Estate",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/nest",
+        "description": "Manages co-living and student accommodation properties",
+        "detail_page_url": null,
+        "headquarters": "Paris, France",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Saturn",
+        "sector": "Real Estate",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/saturn",
+        "description": "Portfolio of residential and commercial property assets across Europe",
+        "detail_page_url": null,
+        "headquarters": "London, United Kingdom",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Smart Parc",
+        "sector": "Real Estate",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/smart-parc",
+        "description": "Develops sustainable, high-tech food manufacturing and logistics parks",
+        "detail_page_url": null,
+        "headquarters": "Courbevoie, France",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Southside",
+        "sector": "Real Estate",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/southside",
+        "description": "Portfolio of residential and commercial property assets in Germany",
+        "detail_page_url": null,
+        "headquarters": "Stockholm, Sweden",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Stend\u00f6rren",
+        "sector": "Real Estate",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/stendorren",
+        "description": "Owns and manages industrial and warehouse properties in Scandinavia",
+        "detail_page_url": null,
+        "headquarters": "Stockholm, Sweden",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Svenska Verksamhetsfastigheter",
+        "sector": "Real Estate",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/svenska-verksamhetsfastigheter",
+        "description": "Manages industrial and commercial properties in the Swedish market",
+        "detail_page_url": null,
+        "headquarters": "Stockholm, Sweden",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Unum",
+        "sector": "Real Estate",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/unum",
+        "description": "Operates residential property development and asset management",
+        "detail_page_url": null,
+        "headquarters": "Stockholm, Sweden",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "WASH",
+        "sector": "Social",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/wash",
+        "description": "Commercial laundry facilities",
+        "detail_page_url": null,
+        "headquarters": "Torrance, United States",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -69924,6 +69989,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.942551+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Alomana",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-03-02",
+        "source_url": "https://startupitalia.eu/startup/alomana-startup-4-milioni-di-euro/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00164"
       }
     ],
     "eiffel": [
@@ -82851,7 +82930,7 @@
         "status": "current",
         "confidence": 0.95,
         "website": null,
-        "description": "Froneri is a leading global ice cream player.",
+        "description": "Froneri is a leading global ice-cream player.",
         "detail_page_url": null,
         "headquarters": "Leeming Bar, United Kingdom",
         "investment_date": null,
@@ -86520,6 +86599,20 @@
         "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
         "data_source": "signal_fund_press",
         "signal_id": "news-signal-20260205111509-fb1ed3df-17b5afb0"
+      },
+      {
+        "name": "Alomana",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-03-02",
+        "source_url": "https://startupitalia.eu/startup/alomana-startup-4-milioni-di-euro/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00164"
       }
     ],
     "equiter": [
@@ -100355,6 +100448,19 @@
     ],
     "azzurra-capital": [
       {
+        "name": "Proger",
+        "sector": "Professional Services",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Proger is an international engineering and management consulting firm providing services in sectors like infrastructure, energy, and oil & gas.",
+        "detail_page_url": null,
+        "headquarters": "Pescara, Italy",
+        "investment_date": null,
+        "source_url": "https://www.azzurracapital.com/portfolio/",
+        "data_source": "fund_website"
+      },
+      {
         "name": "Nextchem",
         "sector": "Renewable Energy",
         "status": "current",
@@ -100418,20 +100524,6 @@
         "investment_date": null,
         "source_url": "https://www.azzurracapital.com/portfolio/",
         "data_source": "fund_website"
-      },
-      {
-        "name": "Proger",
-        "sector": "Professional Services",
-        "status": "current",
-        "confidence": 0.9,
-        "website": null,
-        "description": "Proger is an international engineering and management consulting firm providing services in sectors like infrastructure, energy, and oil & gas.",
-        "detail_page_url": null,
-        "headquarters": "Pescara, Italy",
-        "investment_date": "2026-02-24",
-        "source_url": "https://www.azzurracapital.com/azzurra-capital-acquires-a-minority-stake-in-proger/",
-        "data_source": "signal_fund_press",
-        "signal_id": "web-signal-01849"
       },
       {
         "name": "Cartindustria Eurocarta",
@@ -103167,6 +103259,32 @@
     ],
     "stirling-square-capital-partners": [
       {
+        "name": "Filter by",
+        "sector": null,
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": null,
+        "source_url": "https://www.stirlingsquare.com/investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Iconsulting",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Italy's largest independent Data & AI specialist with EUR 50M revenue and 500+ employees.",
+        "detail_page_url": null,
+        "headquarters": "Bologna, Italy",
+        "investment_date": null,
+        "source_url": "https://www.stirlingsquare.com/investments",
+        "data_source": "fund_website"
+      },
+      {
         "name": "GTT",
         "sector": "Energy",
         "status": "current",
@@ -103646,17 +103764,6 @@
         "investment_date": null,
         "source_url": "https://www.stirlingsquare.com/investments",
         "data_source": "fund_website"
-      },
-      {
-        "name": "Iconsulting",
-        "sector": "Technology",
-        "status": "exited",
-        "confidence": 0.9,
-        "website": "https://www.iconsulting.biz",
-        "description": "Italy's largest independent Data & AI specialist with EUR 50M revenue and 500+ employees.",
-        "detail_page_url": null,
-        "headquarters": "Bologna, Italy",
-        "investment_date": "2025-11-26"
       }
     ],
     "investcorp": [

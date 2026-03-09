@@ -36,6 +36,8 @@ import requests
 from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeout
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+import sys; sys.path.insert(0, str(REPO_ROOT / "apps" / "worker"))
+from fundradar_worker.paths import GEMINI_MODEL
 DATA_DIR = REPO_ROOT / "data"
 DERIVED_DIR = DATA_DIR / "derived"
 
@@ -43,7 +45,7 @@ DB_PATH = DATA_DIR / "db.json"
 PORTFOLIO_PATH = DERIVED_DIR / "portfolio_items.json"
 PROGRESS_PATH = DERIVED_DIR / "top_fund_portfolio_enrichment_progress.json"
 
-DEFAULT_MODEL = "gemini-3-flash-preview"
+DEFAULT_MODEL = GEMINI_MODEL
 GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 RETRYABLE_HTTP_STATUS = {408, 409, 429, 500, 502, 503, 504}
 

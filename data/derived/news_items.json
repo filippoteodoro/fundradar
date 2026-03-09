@@ -196,6 +196,24 @@
         "fingerprint": "220a141ba3a5"
       },
       {
+        "title": "ISAAC chiude un round da \u20ac14M: potenziamento della tecnologia, presidio del mercato della sismica e internazionalizzazione tra gli obiettivi dei prossimi anni",
+        "date": null,
+        "url": null,
+        "fingerprint": "bc8f92572eda"
+      },
+      {
+        "title": "Al via il terzo closing del fondo di venture debt Atempo Growth II con l\u2019ingresso di CDP Venture Capital per rafforzare la presenza in Italia. Commitment complessivo: \u20ac455M",
+        "date": null,
+        "url": null,
+        "fingerprint": "c70c973508ff"
+      },
+      {
+        "title": "Gyala chiude un round da \u20ac4M",
+        "date": null,
+        "url": null,
+        "fingerprint": "4e4065e41d24"
+      },
+      {
         "title": "Sinergy Flow chiude un round late seed da \u20ac7M e accelera la transizione verso la scala industriale della sue batterie per accumulo a lunga durata",
         "date": null,
         "url": null,
@@ -206,24 +224,6 @@
         "date": null,
         "url": null,
         "fingerprint": "6f176b173183"
-      },
-      {
-        "title": "Axelera AI ottiene oltre $250Mdi finanziamenti per la crescita commerciale globale",
-        "date": null,
-        "url": null,
-        "fingerprint": "884d4fe4c294"
-      },
-      {
-        "title": "Materiali ultra-refrattari: K3RX raccoglie \u20ac1,65M, guidano Deep Ocean Capital SGR e RoboIT, Polo di Trasferimento Tecnologico di CDP Venture Capital",
-        "date": null,
-        "url": null,
-        "fingerprint": "d4e17af25670"
-      },
-      {
-        "title": "NANDO raccoglie \u20ac3,3M per rivoluzionare la gestione di rifiuti con l'AI",
-        "date": null,
-        "url": null,
-        "fingerprint": "f885a4313dc5"
       },
       {
         "title": "Italy VC Monitor - Report di CDP Venture Capital e Pitchbook",
@@ -254,6 +254,24 @@
         "date": null,
         "url": null,
         "fingerprint": "2bad18e8d64b"
+      },
+      {
+        "title": "Axelera AI ottiene oltre $250Mdi finanziamenti per la crescita commerciale globale",
+        "date": null,
+        "url": null,
+        "fingerprint": "884d4fe4c294"
+      },
+      {
+        "title": "Materiali ultra-refrattari: K3RX raccoglie \u20ac1,65M, guidano Deep Ocean Capital SGR e RoboIT, Polo di Trasferimento Tecnologico di CDP Venture Capital",
+        "date": null,
+        "url": null,
+        "fingerprint": "d4e17af25670"
+      },
+      {
+        "title": "NANDO raccoglie \u20ac3,3M per rivoluzionare la gestione di rifiuti con l'AI",
+        "date": null,
+        "url": null,
+        "fingerprint": "f885a4313dc5"
       },
       {
         "title": "Kampaay chiude un\u2019estensione del round A da oltre \u20ac2M",
@@ -646,16 +664,16 @@
         "fingerprint": "24f9e098d945"
       },
       {
-        "title": "Round da 5 milioni di euro per la startup tech Resilco",
-        "date": null,
-        "url": null,
-        "fingerprint": "c417d3850b6c"
-      },
-      {
         "title": "Round da 5M\u20ac per Resilco, per la trasformazione dei rifiuti",
         "date": null,
         "url": null,
         "fingerprint": "f991802f2151"
+      },
+      {
+        "title": "Round da 5 milioni di euro per la startup tech Resilco",
+        "date": null,
+        "url": null,
+        "fingerprint": "c417d3850b6c"
       },
       {
         "title": "Sofinnova Partners raccoglie 165 milioni di euro per il proprio fondo di accelerazione biotech, il pi\u00f9 grande in Europa, superando il proprio target anche grazie ad un particolare contributo dell\u2019industria farmaceutica",
@@ -1967,10 +1985,22 @@
     ],
     "https://www.groupehld.com/en/news/": [
       {
+        "title": "Exosens takes another major step forward in the United States.",
+        "date": "2026-03-01",
+        "url": "https://www.groupehld.com/en/news/exosens-takes-another-major-step-forward-in-the-united-states",
+        "fingerprint": "8287f73b81e7"
+      },
+      {
         "title": "A new stage for Entoria",
         "date": "2026-02-01",
         "url": "https://www.groupehld.com/en/news/a-new-stage-for-entoria",
         "fingerprint": "f2cbe54f0d7a"
+      },
+      {
+        "title": "Wholesale broker, insurance expert for professionals and self-employed workers",
+        "date": "2026-02-01",
+        "url": "https://www.groupehld.com/en/news/wholesale-broker-insurance-expert-for-professionals-and-self-employed-workers",
+        "fingerprint": "d92aa9ad27f7"
       },
       {
         "title": "Squared: a strategic milestone for 52 Entertainment",
@@ -4539,6 +4569,12 @@
     ],
     "https://www.anderapartners.com/en/news": [
       {
+        "title": "Andera Partners accelerates its development in Spain and appoints Joaqu\u00edn Gonzalo for its sponsorles\u2026",
+        "date": "05.03.2026",
+        "url": "https://www.anderapartners.com/en/andera-partners-accelerates-its-development-in-spain-and-appoints-joaquin-gonzalo-for-its-sponsorless-mezzanine-strategy/",
+        "fingerprint": "abfaa68d544c"
+      },
+      {
         "title": "S4BT acquires HotelHub to become the ultimate powerhouse in global business travel.",
         "date": "26.02.2026",
         "url": "https://www.anderapartners.com/en/s4bt-acquires-hotelhub-to-become-the-ultimate-powerhouse-in-global-business-travel/",
@@ -6122,6 +6158,12 @@
     "https://www.fondofsi.it/en/news": [
       {
         "title": "Masismiliano Romano",
+        "date": "2026-03-04",
+        "url": "https://www.fondofsi.it/en/author/massimiliano/",
+        "fingerprint": "b9c8bb2be9f4"
+      },
+      {
+        "title": "Masismiliano Romano",
         "date": "2024-09-14",
         "url": "https://www.fondofsi.it/en/author/massimiliano/",
         "fingerprint": "4aaaef9b7fc4"
@@ -6185,12 +6227,6 @@
         "date": "2020-06-26",
         "url": "https://www.fondofsi.it/en/author/massimiliano/",
         "fingerprint": "9d3b7231e9a3"
-      },
-      {
-        "title": "Masismiliano Romano",
-        "date": "2020-05-05",
-        "url": "https://www.fondofsi.it/en/author/massimiliano/",
-        "fingerprint": "c1cd4cb77d91"
       }
     ],
     "https://www.innovative-rfk.it/news": [
@@ -6732,10 +6768,10 @@
     ],
     "https://www.clessidragroup.it/news/": [
       {
-        "title": "Clessidra cede la propria partecipazione in MGM",
-        "date": "2025-12-16",
-        "url": "https://www.clessidragroup.it/clessidra-cede-la-propria-partecipazione-in-mgm/",
-        "fingerprint": "9b8af01b5bd3"
+        "title": "Clessidra Private Debt II: oltre cento milioni di euro nel primo closing con il supporto del FEI come investitore cornerstone",
+        "date": "2026-03-02",
+        "url": "https://www.clessidragroup.it/clessidra-private-debt-ii-oltre-cento-milioni-di-euro-nel-primo-closing-con-il-supporto-del-fei-come-investitore-cornerstone/",
+        "fingerprint": "ad9b5972806d"
       },
       {
         "title": "Prosegue la crescita nel terzo trimestre del 2025, utile netto a 5,2 milioni",
@@ -6748,6 +6784,12 @@
         "date": "2025-11-13",
         "url": "https://www.clessidragroup.it/primo-investimento-di-clessidra-capital-partners-green-harvest-acquisita-la-maggioranza-di-laurieri/",
         "fingerprint": "3fa930506d08"
+      },
+      {
+        "title": "Clessidra cede la propria partecipazione in MGM",
+        "date": "2025-12-16",
+        "url": "https://www.clessidragroup.it/clessidra-cede-la-propria-partecipazione-in-mgm/",
+        "fingerprint": "9b8af01b5bd3"
       },
       {
         "title": "Clessidra Capital Credit accompagna l\u2019investimento in Health Italia di Giovanni Giuliani e Stefano Pellegrino",
@@ -6796,12 +6838,6 @@
         "date": "2025-05-08",
         "url": "https://www.clessidragroup.it/human-company-finalizzata-la-partnership-con-hines-affiancata-da-apollo-e-clessidra/",
         "fingerprint": "a58b53e58084"
-      },
-      {
-        "title": "Clessidra Private Equity acquisisce MiCROTEC. Partnership con il fondatore Federico Giudiceandrea, per guidare l\u2019innovazione e la crescita futura",
-        "date": "2025-04-17",
-        "url": "https://www.clessidragroup.it/clessidra-private-equity-acquisisce-microtec/",
-        "fingerprint": "8a1a5a7a4ef5"
       },
       {
         "title": "+39 02 869.522.1",
@@ -8839,83 +8875,227 @@
     "https://www.equiterspa.com/news/": [
       {
         "title": "Equiter News",
-        "date": "2025-12-18",
+        "date": "2026-03-02",
         "url": "https://www.equiterspa.com/category/equiter-news/",
-        "fingerprint": "5826a8ae3646"
+        "fingerprint": "c94915efbaad"
       }
     ],
     "https://www.eqtgroup.com/news": [
       {
-        "title": "EQT exits remaining stake in Azelis Group",
+        "title": "Private Capital",
         "date": null,
-        "url": "https://www.eqtgroup.com/news/eqt-exits-remaining-stake-in-azelis-group-2026-02-26",
-        "fingerprint": "497a3863b93d"
+        "url": "https://www.eqtgroup.com/news/private-capital",
+        "fingerprint": "a5e07a5a50a0"
       },
       {
-        "title": "EQT and Blackstone Infrastructure to acquire Urbaser, a leading waste management infrastructure platform",
+        "title": "Healthcare Growth",
         "date": null,
-        "url": "https://www.eqtgroup.com/news/eqt-and-blackstone-infrastructure-to-acquire-urbaser-a-leading-waste-management-infrastructure-platform-2026-02-12",
-        "fingerprint": "7c6f66227b8b"
+        "url": "https://www.eqtgroup.com/news/private-capital/eqt-healthcare-growth",
+        "fingerprint": "3539a4d22963"
       },
       {
-        "title": "EQT Foundation announces Rare Disease Science Grant recipients",
+        "title": "Life Sciences",
         "date": null,
-        "url": "https://www.eqtgroup.com/news/eqt-foundation-announces-rare-disease-science-grant-recipients",
-        "fingerprint": "770fe0806cb3"
+        "url": "https://www.eqtgroup.com/news/private-capital/eqt-life-sciences",
+        "fingerprint": "a51c1c8af0fa"
       },
       {
-        "title": "EQT Life Sciences co-leads USD 39 million Series A in Aerska to help systematically deliver RNA medicines to the brain",
+        "title": "Private Capital Asia",
         "date": null,
-        "url": "https://www.eqtgroup.com/news/eqt-life-sciences-co-leads-usd-39-million-series-a-in-aerska-to-help-systematically-deliver-rna-medicines-to-the-brain-2026-02-09",
-        "fingerprint": "21cd0dd17f93"
+        "url": "https://www.eqtgroup.com/news/eqt-private-capital-asia",
+        "fingerprint": "d1695bf5dae7"
       },
       {
-        "title": "Transaction between EQT and Eutelsat to carve out satellite ground infrastructure into SatPort Infrastructure will not proceed",
+        "title": "Large-Cap Buyout",
         "date": null,
-        "url": "https://www.eqtgroup.com/news/transaction-between-eqt-and-eutelsat-to-carve-out-satellite-ground-infrastructure-into-satport-infrastructure-will-not-proceed",
-        "fingerprint": "9c10e80641ae"
+        "url": "https://www.eqtgroup.com/news/eqt-private-capital-asia/eqt-asian-large-cap-buyout",
+        "fingerprint": "c0b9f0ed7beb"
       },
       {
-        "title": "EQT Foundation opens applications for breakthrough science grants to reduce dependence on critical minerals for the green transition",
+        "title": "Mid-Market Buyout",
         "date": null,
-        "url": "https://www.eqtgroup.com/news/eqt-foundation-opens-applications-for-breakthrough-science-grants-to-reduce-dependence-on-critical-minerals-for-the-green-transition-2026-01-27",
-        "fingerprint": "242392922736"
+        "url": "https://www.eqtgroup.com/news/eqt-private-capital-asia/eqt-asian-mid-market-buyout",
+        "fingerprint": "a152bb224155"
       },
       {
-        "title": "EQT to Launch USD 371 million Tender Offer for MAMEZO",
+        "title": "Infrastructure",
         "date": null,
-        "url": "https://www.eqtgroup.com/news/eqt-to-launch-usd-371-million-tender-offer-for-mamezo-2026-01-23",
-        "fingerprint": "b2425814e90b"
+        "url": "https://www.eqtgroup.com/news/infrastructure",
+        "fingerprint": "c0496e0093e0"
       },
       {
-        "title": "EQT AB (publ) Year-end Report 2025",
+        "title": "Value-Add Infrastructure",
         "date": null,
-        "url": "https://www.eqtgroup.com/news/eqt-ab-publ-year-end-report-2025-2026-01-22",
-        "fingerprint": "55f7bfdfd2f2"
+        "url": "https://www.eqtgroup.com/news/infrastructure/eqt-value-add-infrastructure",
+        "fingerprint": "24be9467df00"
       },
       {
-        "title": "EQT to combine with Coller Capital to enter secondaries, marking the next step in EQT\u2019s strategic evolution",
+        "title": "Active Core Infrastructure",
         "date": null,
-        "url": "https://www.eqtgroup.com/news/eqt-to-combine-with-coller-capital-to-enter-secondaries-marking-the-next-step-in-eqts-strategic-evolution-2026-01-22",
-        "fingerprint": "d1553322d5e2"
+        "url": "https://www.eqtgroup.com/news/infrastructure/eqt-active-core-infrastructure",
+        "fingerprint": "aa59218cbcea"
       },
       {
-        "title": "EQT Life Sciences co-leads EUR 51 million Series B in Exciva to advance its Alzheimer\u2019s therapy into clinical Phase 2",
+        "title": "Transition Infrastructure",
         "date": null,
-        "url": "https://www.eqtgroup.com/news/eqt-life-sciences-co-leads-eur-51-million-series-b-in-exciva-to-advance-its-alzheimers-therapy-into-clinical-phase-2-2026-01-20",
-        "fingerprint": "118f7a29dba3"
+        "url": "https://www.eqtgroup.com/news/infrastructure/eqt-transition-infrastructure",
+        "fingerprint": "c9b4a63fd48a"
       },
       {
-        "title": "EQT Life Sciences backs Kinaset Therapeutics\u2019 USD103 million Series B to advance inhaled therapeutic for treatment of respiratory diseases",
+        "title": "Real Estate",
         "date": null,
-        "url": "https://www.eqtgroup.com/news/eqt-life-sciences-backs-kinaset-therapeutics-usd103-million-series-b-to-advance-inhaled-therapeutic-for-treatment-of-respiratory-diseases-2026-01-12",
-        "fingerprint": "407bc008c350"
+        "url": "https://www.eqtgroup.com/news/real-estate",
+        "fingerprint": "bf13e85aa12d"
       },
       {
-        "title": "EQT Real Estate acquires a portfolio of four high-quality logistics assets in Northern Italy",
+        "title": "Private Wealth",
         "date": null,
-        "url": "https://www.eqtgroup.com/news/eqt-real-estate-acquires-a-portfolio-of-four-high-quality-logistics-assets-in-northern-italy-2026-01-12",
-        "fingerprint": "3e663ac0ba26"
+        "url": "https://www.eqtgroup.com/news/private-wealth",
+        "fingerprint": "2f5cba7a9ae9"
+      },
+      {
+        "title": "2025 IPO Index Two Decades of Future Proofing Companies Read now",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/thinq/private-markets/ipo-report-2025",
+        "fingerprint": "facf790310df"
+      },
+      {
+        "title": "Education What is a Private Equity Fund?",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/thinq/Education/what-is-a-private-equity-fund",
+        "fingerprint": "c99b41b87204"
+      },
+      {
+        "title": "Intro to EQT",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/about",
+        "fingerprint": "72d5a04aeb0a"
+      },
+      {
+        "title": "Current portfolio",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/about/current-portfolio",
+        "fingerprint": "ff8e056e6c79"
+      },
+      {
+        "title": "Value Creation",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/value-creation",
+        "fingerprint": "d773858fc8d5"
+      },
+      {
+        "title": "Digitalization",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/about/digitalization",
+        "fingerprint": "c3475ae79739"
+      },
+      {
+        "title": "Governance Model",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/about/governance",
+        "fingerprint": "072896be9d90"
+      },
+      {
+        "title": "EQT Network",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/about/eqt-network",
+        "fingerprint": "474e753fba43"
+      },
+      {
+        "title": "Motherbrain",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/about/motherbrain",
+        "fingerprint": "ee1140ae5002"
+      },
+      {
+        "title": "Our purpose and values",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/about/statements-of-purpose",
+        "fingerprint": "fd0f048b9fa6"
+      },
+      {
+        "title": "Sustainability",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/about/sustainability",
+        "fingerprint": "549fffe88487"
+      },
+      {
+        "title": "Partnerships",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/about/partnerships",
+        "fingerprint": "59546474924c"
+      },
+      {
+        "title": "EQT Foundation",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/eqt-foundation",
+        "fingerprint": "4b8318b0127f"
+      },
+      {
+        "title": "Corporate Governance",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/shareholders/corporate-governance",
+        "fingerprint": "0f914c5b0551"
+      },
+      {
+        "title": "\u201cDoing as We're Told Could've Cost EQT \u20ac50B\u201d Lennart Blecher Chairperson of EQT Real Assets",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/thinq/infrastructure/how-we-launched-eqt-infrastructure-despite-being-told-not-to",
+        "fingerprint": "7a6691dcfd0f"
+      },
+      {
+        "title": "Thought leadership Discover Our Latest Insights on ThinQ by EQT Read now",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/thinq/about-thinq/About-thinq-by-eqt",
+        "fingerprint": "6dd54f8be23f"
+      },
+      {
+        "title": "The EQT Share",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/shareholders/the-eqt-share",
+        "fingerprint": "94a9e23bc49b"
+      },
+      {
+        "title": "Bondholders",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/shareholders/bondholders",
+        "fingerprint": "4656eec6343f"
+      },
+      {
+        "title": "Reports & Presentations",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/shareholders/reports-and-presentations",
+        "fingerprint": "dd0d92502573"
+      },
+      {
+        "title": "Financial Calendar",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/shareholders/financial-calendar",
+        "fingerprint": "65c33527b84d"
+      },
+      {
+        "title": "Shareholder Structure",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/shareholders/the-eqt-share#shareholder-structure-id",
+        "fingerprint": "9c2ed2489e64"
+      },
+      {
+        "title": "Bond Information",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/shareholders/bondholders#bonds-outstanding-id",
+        "fingerprint": "1a11530a0ab8"
+      },
+      {
+        "title": "Corporate Documents",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/shareholders/corporate-governance#corporate-documents-id",
+        "fingerprint": "604f9ccbafc5"
+      },
+      {
+        "title": "Call switchboard",
+        "date": null,
+        "url": "https://www.eqtgroup.com/news/tel:+46850655300",
+        "fingerprint": "0c6f23f2285b"
       }
     ],
     "https://www.fvssgr.it/notizie": [
@@ -9338,6 +9518,12 @@
     ],
     "https://www.portobellocapital.es/en/actualidad/": [
       {
+        "title": "SuperReturn International 2026",
+        "date": null,
+        "url": "https://www.portobellocapital.es/en/superreturn-international-2026/",
+        "fingerprint": "9d5f188370d7"
+      },
+      {
         "title": "Portobello Capital Drives Value Creation with BLUESEA Hotels",
         "date": null,
         "url": "https://www.portobellocapital.es/en/portobello-capital-drives-value-creation-with-bluesea-hotels/",
@@ -9630,15 +9816,15 @@
         "date": null,
         "url": "https://www.portobellocapital.es/en/portobello-acquires-plenoil/",
         "fingerprint": "b788e3c6a1fa"
-      },
-      {
-        "title": "\u201cSustainable management in the private equity sector: The road to a strong ESG culture\u201d",
-        "date": null,
-        "url": "https://www.portobellocapital.es/en/sustainable-management-in-the-private-equity-sector-the-road-to-a-strong-esg-culture/",
-        "fingerprint": "639a07f174ed"
       }
     ],
     "https://www.threehills.com/media/": [
+      {
+        "title": "Three Hills Impact Closes Above Target at \u20ac300 million",
+        "date": null,
+        "url": "https://www.threehills.com/three-hills-impact-closes-above-target-at-e300-million/",
+        "fingerprint": "f48ef9e481ad"
+      },
       {
         "title": "Three Hills partners with Smartbox Group alongside CareTech and Verdane",
         "date": null,
@@ -9668,12 +9854,6 @@
         "date": null,
         "url": "https://www.threehills.com/three-hills-welcomes-bci-in-its-shareholder-structure/",
         "fingerprint": "525c3b3d9de5"
-      },
-      {
-        "title": "Tim Pointer of Three Hills tops HR Magazine\u2019s 2025 HR Most Influential list",
-        "date": null,
-        "url": "https://www.threehills.com/tim-pointer-of-three-hills-tops-hr-magazines-2025-hr-most-influential-list/",
-        "fingerprint": "f3f9953c2835"
       }
     ],
     "https://www.trilanticeurope.com/news.html": [
@@ -10150,6 +10330,12 @@
     ],
     "https://www.apollo.com/insights-news/pressreleases": [
       {
+        "title": "Apollo Announces 2026 Annual Meeting of Stockholders",
+        "date": null,
+        "url": "https://www.apollo.com/insights-news/pressreleases/2026/03/apollo-announces-2026-annual-meeting-of-stockholders-3248979",
+        "fingerprint": "0e5003e5a50b"
+      },
+      {
         "title": "Apollo Provides $1 Billion Hybrid Capital Solution to Aldar",
         "date": null,
         "url": "https://www.apollo.com/insights-news/pressreleases/2026/02/apollo-provides-1-billion-hybrid-capital-solution-to-aldar-3241678",
@@ -10202,12 +10388,6 @@
         "date": null,
         "url": "https://www.apollo.com/insights-news/pressreleases/2026/01/apollo-provides-900-million-refinancing-for-pan-european-logistics-and-industrial-portfolio-owned-by-cerberus-and-arrow-capital-partners-3228240",
         "fingerprint": "635915656eb2"
-      },
-      {
-        "title": "Apollo Backs $5.4 Billion Valor and xAI Data Center Compute Infrastructure Transaction with $3.5 Billion Capital Solution",
-        "date": null,
-        "url": "https://www.apollo.com/insights-news/pressreleases/2026/01/apollo-backs-5-4-billion-valor-and-xai-data-center-compute-infrastructure-transaction-with-3-5-billion-capital-solution-3214463",
-        "fingerprint": "6fc211246679"
       }
     ],
     "https://www.ardian.com/news-insights": [
@@ -10230,28 +10410,10 @@
         "fingerprint": "18302d85f595"
       },
       {
-        "title": "Ardian & Alvest: Pioneering innovation in ground support equipment",
+        "title": "Ardian & Sicer: Innovating ceramic surfaces with quality and sustainability at the core",
         "date": null,
         "url": null,
-        "fingerprint": "699f13e35c34"
-      },
-      {
-        "title": "Ardian makes the case for European AI sovereignty",
-        "date": null,
-        "url": null,
-        "fingerprint": "743c70f1e7a8"
-      },
-      {
-        "title": "The data advantage in secondaries (Part 1 of 2): Sourcing deals",
-        "date": null,
-        "url": null,
-        "fingerprint": "f338bacb2e82"
-      },
-      {
-        "title": "Inside IBIP: Ardian\u2019s proprietary database for Secondaries",
-        "date": null,
-        "url": null,
-        "fingerprint": "5c61cc4f00fa"
+        "fingerprint": "85c8ce91e509"
       },
       {
         "title": "Ardian Digital Catalyst: Connecting ideas & driving transformation",
@@ -10260,10 +10422,34 @@
         "fingerprint": "2cc5db0c8a31"
       },
       {
-        "title": "Ardian & Alvest | Pioneering innovation in airport ground support equipment",
+        "title": "The data advantage in secondaries (Part 1 of 2): Sourcing deals",
         "date": null,
         "url": null,
-        "fingerprint": "7d27fd0d6a9f"
+        "fingerprint": "f338bacb2e82"
+      },
+      {
+        "title": "The data advantage in secondaries (Part 2 of 2): Picking the best assets",
+        "date": null,
+        "url": null,
+        "fingerprint": "e947078416e2"
+      },
+      {
+        "title": "Inside IBIP: Ardian\u2019s proprietary database for Secondaries",
+        "date": null,
+        "url": null,
+        "fingerprint": "5c61cc4f00fa"
+      },
+      {
+        "title": "MasterGrid & Ardian: Supporting the future of energy supply",
+        "date": null,
+        "url": null,
+        "fingerprint": "12d1bc99395d"
+      },
+      {
+        "title": "Ardian Corporate Brochure",
+        "date": null,
+        "url": null,
+        "fingerprint": "338c95ba537f"
       },
       {
         "title": "Ardian 2024 Integrated Report",
@@ -10279,6 +10465,12 @@
       }
     ],
     "https://axonpartnersgroup.com/insights/": [
+      {
+        "title": "ISAAC closes a \u20ac14 million investment round: technology enhancement, expansion in the seismic safety market, and international growth among the company\u2019s key goals for the coming years",
+        "date": null,
+        "url": "https://axonpartnersgroup.com/isaac-closes-a-e14-million-investment-round-technology-enhancement-expansion-in-the-seismic-safety-market-and-international-growth-among-the-companys-key-goals-for-the-coming-years/",
+        "fingerprint": "ba4deea4a7c6"
+      },
       {
         "title": "Beyond Capital: What it really takes to scale tech in Europe",
         "date": null,
@@ -10344,12 +10536,6 @@
         "date": null,
         "url": "https://axonpartnersgroup.com/technology-with-impact-2025-strategic-deep-tech-investment-with-purpose/",
         "fingerprint": "c1ab795d0f27"
-      },
-      {
-        "title": "Article: 6G: Can it really shape the future of connectivity",
-        "date": null,
-        "url": "https://axonpartnersgroup.com/article-6g-can-it-really-shape-the-future-of-connectivity/",
-        "fingerprint": "f9905aeeff2a"
       }
     ],
     "https://www.bu-partners.it/news": [],
@@ -10587,6 +10773,12 @@
         "date": null,
         "url": "https://montefiore.eu/en/montefiore-investment-strengthens-its-dedicated-tourism-team-with-the-appointment-of-christian-mantei-as-senior-advisor/",
         "fingerprint": "0e5f92642d0b"
+      },
+      {
+        "title": "Montefiore Investment recognised at the Private Equity Exchange & Awards 2025 for the 15th consecutive year",
+        "date": null,
+        "url": "https://montefiore.eu/en/montefiore-investment-recognised-at-the-private-equity-exchange-awards-2025-for-the-15th-consecutive-year/",
+        "fingerprint": "617e4a3ad655"
       },
       {
         "title": "Mistertemp\u2019 group announces reorganization of its capital: Andera Partners succeeds Montefiore Investment",
@@ -11137,6 +11329,12 @@
     ],
     "https://www.oakleycapital.com/news-and-insights/": [
       {
+        "title": "Oakley Capital strengthens platform with promotions including four new Partners",
+        "date": "03.03.26",
+        "url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-strengthens-platform-with-promotions-including-four-new-partners",
+        "fingerprint": "d8267fe8364a"
+      },
+      {
         "title": "From Local Champions to Market Leaders: Unlocking the DACH Business Services sector",
         "date": "26.02.26",
         "url": "https://www.oakleycapital.com/news-and-insights/from-local-champions-to-market-leaders-unlocking-the-dach-business-services-sector",
@@ -11189,12 +11387,6 @@
         "date": "15.10.25",
         "url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-invests-in-premium-padel-equipment-brand-nox",
         "fingerprint": "0e2280e858f4"
-      },
-      {
-        "title": "Oakley Capital invests in leading Italian healthcare insurance service provider ONHC",
-        "date": "14.10.25",
-        "url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-invests-in-leading-italian-healthcare-insurance-service-provider-onhc",
-        "fingerprint": "5df720d7bf74"
       }
     ],
     "https://sofinnovapartners.com/news": [
@@ -11333,6 +11525,12 @@
         "fingerprint": "64f1e82ccd04"
       },
       {
+        "title": "BASKET BOND PIEMONTE: AL VIA IL NUOVO MODELLO REGIONALE STRUTTURATO E GESTITO DA SINLOC INVESTIMENTI SGR",
+        "date": null,
+        "url": "https://sinlocinvestimentisgr.com/2026/03/basket-bond-piemonte-al-via-il-nuovo-modello-regionale-strutturato-e-gestito-da-sinloc-investimenti-sgr/",
+        "fingerprint": "5751f2113725"
+      },
+      {
         "title": "SINLOC INVESTIMENTI SGR ASSUME LA GESTIONE DIRETTA DI \u201cTRANSITION ENERGY FUND\u201d",
         "date": null,
         "url": "https://sinlocinvestimentisgr.com/2026/01/sinloc-investimenti-sgr-assume-la-gestione-diretta-di-transition-energy-fund/",
@@ -11409,6 +11607,12 @@
     ],
     "https://www.triton-partners.com/media/news/": [
       {
+        "title": "Royal Reesink to sell Nicolaisen & Larsen to Br\u00f8ns Group",
+        "date": "27/02/2026",
+        "url": "https://www.triton-partners.com/media/news/royal-reesink-to-sell-nicolaisen-larsen-to-brons-group/",
+        "fingerprint": "c4d47d1cde2d"
+      },
+      {
         "title": "Triton establishes nationwide architecture and engineering group formicon",
         "date": "19/01/2026",
         "url": "https://www.triton-partners.com/media/news/triton-establishes-nationwide-architecture-and-engineering-group-formicon/",
@@ -11437,12 +11641,6 @@
         "date": "07/01/2026",
         "url": "https://www.triton-partners.com/media/news/triton-to-sell-ramudden-global-to-i-squared-capital/",
         "fingerprint": "55c6bf40b828"
-      },
-      {
-        "title": "Triton Smaller Mid-Cap Private Equity team announces first UK deal",
-        "date": "15/12/2025",
-        "url": "https://www.triton-partners.com/media/news/triton-forms-new-technical-services-platform-in-the-united-kingdom/",
-        "fingerprint": "87b69ed8db5f"
       }
     ],
     "https://www.vercapital.com/news_and_events/": [
@@ -13779,6 +13977,12 @@
     ],
     "https://www.abenex.com/wp-json/wp/v2/posts?per_page=20&_fields=id,title,date,link,excerpt": [
       {
+        "title": "Origin Seal strengthens its European footprint with the joint acquisition of Polson and MBC Group in the Netherlands",
+        "date": "2026-03-03T14:00:35",
+        "url": "https://www.abenex.com/origin-seal-strengthens-its-european-footprint-with-the-joint-acquisition-of-polson-and-mbc-group-in-the-netherlands/",
+        "fingerprint": "73b7cd9c499f"
+      },
+      {
         "title": "Abenex strengthens its Small Cap team with the appointment of Julien Vagner",
         "date": "2026-02-06T10:04:59",
         "url": "https://www.abenex.com/abenex-appoints-julien-vagner-small-cap-team/",
@@ -13891,12 +14095,6 @@
         "date": "2025-01-08T12:26:23",
         "url": "https://www.abenex.com/di-marco-pizzami-gluten-free-acquisition/",
         "fingerprint": "19d5a810d3d2"
-      },
-      {
-        "title": "Aerow significantly strengthens its Microsoft and Salesforce expertise by joining forces with Abalon and bizKor",
-        "date": "2024-12-16T17:09:18",
-        "url": "https://www.abenex.com/aerow-significantly-strengthens-its-microsoft-and-salesforce-expertise-by-joining-forces-with-abalon-and-bizkor/",
-        "fingerprint": "13fa0782a476"
       }
     ],
     "https://www.equinox-investments.com/news": [
@@ -14635,6 +14833,12 @@
         "fingerprint": "375ade57bd25"
       },
       {
+        "title": "Partners Group announces credit rating from Moody's Ratings",
+        "date": null,
+        "url": "https://www.partnersgroup.com/news-and-views/press-releases/corporate-news/detail?news_id=30c2dddc-7aa1-4734-80cb-3e452834abb1",
+        "fingerprint": "ca63639fce22"
+      },
+      {
         "title": "Partners Group announces planned office in Kuwait, expanding its presence in the GCC",
         "date": null,
         "url": "https://www.partnersgroup.com/news-and-views/press-releases/corporate-news/detail?news_id=dae28cc7-1a29-48e7-8c00-545722204086",
@@ -14747,12 +14951,6 @@
         "date": null,
         "url": "https://www.partnersgroup.com/news-and-views/press-releases/corporate-news/detail?news_id=90a2a952-3ba7-4f65-8565-00862aaa4c59",
         "fingerprint": "65335c9d2524"
-      },
-      {
-        "title": "Partners Group hires Chief Investment Strategist for its Private Wealth and Retirement business",
-        "date": null,
-        "url": "https://www.partnersgroup.com/news-and-views/press-releases/corporate-news/detail?news_id=c86353e9-3e4f-4725-b75c-73fed15aa333",
-        "fingerprint": "db8186b77a9b"
       }
     ],
     "https://www.partnersgroup.com/en/news-and-views/firm-updates": [
@@ -14782,6 +14980,12 @@
       }
     ],
     "https://www.cinven.com/news-insights/": [
+      {
+        "title": "Executing Excellence: Inside the playbook of top private equity dealmakers",
+        "date": null,
+        "url": "https://www.cinven.com/news-insights/executing-excellence-inside-the-playbook-of-top-private-equity-dealmakers/",
+        "fingerprint": "affd9d130c8a"
+      },
       {
         "title": "From uncertainty to resurgence \u2013 Cinven x Master Builders Solutions",
         "date": null,
@@ -14835,12 +15039,6 @@
         "date": null,
         "url": "https://www.cinven.com/news-insights/why-founders-choose-cinven/",
         "fingerprint": "d3d0bf5301c6"
-      },
-      {
-        "title": "Cinven to acquire Universidad Alfonso X el Sabio Group from CVC Funds",
-        "date": null,
-        "url": "https://www.cinven.com/news-insights/cinven-to-acquire-universidad-alfonso-x-el-sabio-group-from-cvc-funds/",
-        "fingerprint": "d3d030bbdcd5"
       }
     ],
     "https://www.ardian.com/news-insights/press-releases": [
@@ -14889,6 +15087,30 @@
     ],
     "https://www.permira.com/news-and-insights/in-the-news/": [
       {
+        "title": "Permira was named Large-Cap Firm of the Year (EMEA) in the 2025 Private Equity International Awards",
+        "date": "2 Mar 2026",
+        "url": "https://www.privateequityinternational.com/pei-awards-2025-emea-winners/",
+        "fingerprint": "b0e657f7d860"
+      },
+      {
+        "title": "Permira was named CLO Manager of the Year (Europe) in the 2025 Private Debt Investor Awards",
+        "date": "2 Mar 2026",
+        "url": "https://www.privatedebtinvestor.com/pdi-awards-2025-europe-winners/",
+        "fingerprint": "785b911c3ed7"
+      },
+      {
+        "title": "Permira was named Large-Cap Private Equity Firm of the Year (ESG) in the 2025 New Private Markets Awards",
+        "date": "23 Feb 2026",
+        "url": "https://www.newprivatemarkets.com/new-private-markets-global-awards-2025-esg-in-fund-management-winners/",
+        "fingerprint": "1a09bd873624"
+      },
+      {
+        "title": "Chris Pell spoke to PE Hub to reflect on our journey with Evelyn Partners and what it reveals about the evolution of UK wealth management MA",
+        "date": "23 Feb 2026",
+        "url": "https://www.pehub.com/permiras-long-evelyn-hold-showcases-uk-wealth-managements-ma-evolution/",
+        "fingerprint": "4ec669cafb18"
+      },
+      {
         "title": "Adinah Shackleton spoke to NPM about the firm refining its approach to sustainability-linked loans and strengthening its focus on human rights in portfolio supply chains",
         "date": "3 Feb 2026",
         "url": "https://www.newprivatemarkets.com/view-from-the-sustainability-office-permiras-shackleton-on-ratchets-revenue-and-human-rights/",
@@ -14911,30 +15133,6 @@
         "date": "16 Dec 2025",
         "url": "https://www.pehub.com/permiras-philip-muelder-valuations-growing-for-a-grade-services-companies/",
         "fingerprint": "d949b8d4c6a0"
-      },
-      {
-        "title": "Kurt Bj\u00f6rklund joined Merryn Talks Money to discuss the fundamentals of private equity investing and its attractiveness for the wealth channel",
-        "date": "15 Dec 2025",
-        "url": "https://www.bloomberg.com/news/audio/2025-12-14/merryn-talks-money-private-equity-s-next-cycle-podcast",
-        "fingerprint": "a141547d5041"
-      },
-      {
-        "title": "Kurt Bj\u00f6rklund joined Bloomberg TV live from Dubai to discuss how we\u2019re navigating today\u2019s private markets",
-        "date": "4 Dec 2025",
-        "url": "https://www.bloomberg.com/news/videos/2025-12-03/permira-focused-on-monetizing-driving-exits-video",
-        "fingerprint": "6696f2fbd25a"
-      },
-      {
-        "title": "Permira Credit Co-Head David Hirschmann joined Bloomberg TV to discuss the strength of the European private credit market",
-        "date": "28 Nov 2025",
-        "url": "https://vimeo.com/manage/videos/1141414282",
-        "fingerprint": "f71e8eb9dd76"
-      },
-      {
-        "title": "Riccardo Basile spoke to PEI on how AI is reshaping competition, and why companies that act early and embed AI into their operations will be best positioned to lead",
-        "date": "17 Nov 2025",
-        "url": "https://www.privateequityinternational.com/moving-beyond-the-ai-hype-to-create-real-value/",
-        "fingerprint": "5df74626fc1c"
       }
     ],
     "https://www.permira.com/news-and-insights/announcements/": [
@@ -14943,6 +15141,12 @@
         "date": "26 Feb 2026",
         "url": "https://www.permira.com/news-and-insights/announcements/permira-appoints-giorgio-dinaro-as-head-of-milan/",
         "fingerprint": "ff70dac0717b"
+      },
+      {
+        "title": "Quotient Sciences Extends Commercial Manufacturing Partnership for Ultra-Rare Disease Treatment",
+        "date": "26 Feb 2026",
+        "url": "https://www.permira.com/news-and-insights/announcements/quotient-sciences-extends-commercial-manufacturing-partnership-for-ultra-rare-disease-treatment/",
+        "fingerprint": "32d3bed0195a"
       },
       {
         "title": "Seismic announces intent to merge with Highspot",
@@ -14979,12 +15183,6 @@
         "date": "8 Jan 2026",
         "url": "https://www.permira.com/news-and-insights/announcements/permira-foundation-launches-its-growth-fund/",
         "fingerprint": "465d7bd164f9"
-      },
-      {
-        "title": "Clearwater Analytics to Be Acquired for $8.4 Billion by Permira and Warburg Pincus, Supported by Francisco Partners and With Participation From Temasek",
-        "date": "21 Dec 2025",
-        "url": "https://www.permira.com/news-and-insights/announcements/clearwater-analytics-to-be-acquired-for-84-billion-by-permira-and-warburg-pincus-supported-by-francisco-partners-and-with-participation-from-temasek/",
-        "fingerprint": "a9bfcede9925"
       }
     ],
     "https://www.blackstone.com/news/press/": [
@@ -15005,6 +15203,18 @@
         "date": "2025-03-10",
         "url": "https://www.blackstone.com/news/press/blackstone-announces-sec-effectiveness-for-private-multi-asset-credit-and-income-fund-bmacx/",
         "fingerprint": "5242bc039c44"
+      },
+      {
+        "title": "Teva and Blackstone Life Sciences Announce $400 Million Strategic Growth Capital Agreement to Advance duvakitug",
+        "date": "2026-03-03",
+        "url": "https://www.blackstone.com/news/press/teva-and-blackstone-life-sciences-announce-400-million-strategic-growth-capital-agreement-to-advance-duvakitug/",
+        "fingerprint": "af93bbdbe5ab"
+      },
+      {
+        "title": "Blackstone Credit & Insurance Announces Upsize to Midstream Joint Venture with EQT Corporation",
+        "date": "2026-03-02",
+        "url": "https://www.blackstone.com/news/press/blackstone-credit-insurance-announces-upsize-to-midstream-joint-venture-with-eqt-corporation/",
+        "fingerprint": "a8af80f8158c"
       },
       {
         "title": "Blackstone Life Sciences Announces a Co-funding Agreement for Acute Myeloid Leukemia",
@@ -15065,26 +15275,32 @@
         "date": "2026-01-06",
         "url": "https://www.blackstone.com/news/press/blackstone-announces-fourth-quarter-and-full-year-2025-investor-call/",
         "fingerprint": "89a437bb0e6f"
-      },
-      {
-        "title": "Blackstone Energy Transition Partners Announces Acquisition of Alliance Technical Group",
-        "date": "2026-01-06",
-        "url": "https://www.blackstone.com/news/press/blackstone-energy-transition-partners-announces-acquisition-of-alliance-technical-group/",
-        "fingerprint": "1252a00ee2ae"
-      },
-      {
-        "title": "Willis Lease Finance Corporation Announces Aircraft Engine Leasing Partnership with Blackstone Credit & Insurance",
-        "date": "2026-01-05",
-        "url": "https://www.blackstone.com/news/press/willis-lease-finance-corporation-announces-aircraft-engine-leasing-partnership-with-blackstone-credit-insurance/",
-        "fingerprint": "d8a0d3e1b236"
       }
     ],
     "https://www.blackstone.com/en/news": [
+      {
+        "title": "Propelling the Growth of Leading Franchisors",
+        "date": "2026-03-06",
+        "url": null,
+        "fingerprint": "2d7b0ec99527"
+      },
+      {
+        "title": "Market Views: Dealmaking, Disruption, and Real Estate\u2019s Recovery",
+        "date": "2026-02-09",
+        "url": null,
+        "fingerprint": "849f353d9829"
+      },
       {
         "title": "Why Should You Care About Data Centers?",
         "date": "2026-01-15",
         "url": null,
         "fingerprint": "41f65b65c8f2"
+      },
+      {
+        "title": "2026 Investment Perspectives",
+        "date": "2026-01-12",
+        "url": null,
+        "fingerprint": "def8ab32c7df"
       },
       {
         "title": "Real Estate Enters the Next Phase of the Cycle",
@@ -15133,27 +15349,21 @@
         "date": "2025-10-30",
         "url": null,
         "fingerprint": "1975b45ac9d4"
-      },
-      {
-        "title": "Steve Schwarzman & Jon Gray in Conversation",
-        "date": "2025-10-29",
-        "url": null,
-        "fingerprint": "64a9755f37a3"
-      },
-      {
-        "title": "Powering the Future: Blackstone\u2019s Investments across the Energy Value Chain",
-        "date": "2025-10-01",
-        "url": null,
-        "fingerprint": "dd248d8d8d88"
-      },
-      {
-        "title": "Supporting Opportunity Through Shared Ownership",
-        "date": "2025-10-01",
-        "url": null,
-        "fingerprint": "6a6354992f1e"
       }
     ],
     "https://www.macquarie.com/it/en/about/news.html": [
+      {
+        "title": "Macquarie unlocks fee-free rental payments for Australians with the launch of PayID\u00ae on DEFT",
+        "date": "2026-03-06",
+        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-unlocks-fee-free-rental-payments-for-australians-with-the-launch-of-payid-on-deft.html",
+        "fingerprint": "2084e07195dc"
+      },
+      {
+        "title": "Macquarie Asset Management and Gabia form strategic partnership to develop next generation hyperscale data centre platform in South Korea",
+        "date": "2026-03-03",
+        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-and-gabia-form-strategic-partnership-to-develop-next-generation-hyperscale-data-centre-platform-in-south-korea.html",
+        "fingerprint": "998b925462b0"
+      },
       {
         "title": "Macquarie Asset Management announces sale of Macquarie AirFinance",
         "date": "2026-02-26",
@@ -15171,18 +15381,6 @@
         "date": "2026-02-16",
         "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-led-consortium-enters-binding-agreement-to-acquire-qube.html",
         "fingerprint": "6092991ad14b"
-      },
-      {
-        "title": "Macquarie Group 2026 Operational Briefing",
-        "date": "2026-02-10",
-        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-group-2026-operational-briefing.html",
-        "fingerprint": "0ea9a2c868ad"
-      },
-      {
-        "title": "Macquarie Asset Management announces financial close of sale of DIG Airgas to Air Liquide",
-        "date": "2026-02-05",
-        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-announces-financial-close-of-sale-of-dig-airgas-to-air-liquide.html",
-        "fingerprint": "f5449411b4ba"
       }
     ],
     "https://www.macquarie.com/it/en/about/company/macquarie-asset-management/news.html": [
@@ -15203,6 +15401,18 @@
         "date": "2025-01-01",
         "url": "https://www.macquarie.com/it/en/about/news/2025/mam-closes-first-investment-in-partnership-with-applied-digital-providing-up-to-us5billion-in-funding-to-support-high-performance-computing-growth.html",
         "fingerprint": "dfd33674fe03"
+      },
+      {
+        "title": "Macquarie unlocks fee-free rental payments for Australians with the launch of PayID\u00ae on DEFT",
+        "date": "2026-03-06",
+        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-unlocks-fee-free-rental-payments-for-australians-with-the-launch-of-payid-on-deft.html",
+        "fingerprint": "2084e07195dc"
+      },
+      {
+        "title": "Macquarie Asset Management and Gabia form strategic partnership to develop next generation hyperscale data centre platform in South Korea",
+        "date": "2026-03-03",
+        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-and-gabia-form-strategic-partnership-to-develop-next-generation-hyperscale-data-centre-platform-in-south-korea.html",
+        "fingerprint": "998b925462b0"
       },
       {
         "title": "Macquarie Asset Management announces sale of Macquarie AirFinance",
@@ -15311,18 +15521,6 @@
         "date": "2025-11-25",
         "url": "https://www.macquarie.com/it/en/about/news/2025/australian-savings-held-by-macquarie-bank-surpass-200-billion.html",
         "fingerprint": "631c09c30959"
-      },
-      {
-        "title": "Macquarie Asset Management agrees to sale of interests in Arqiva",
-        "date": "2025-11-25",
-        "url": "https://www.macquarie.com/it/en/about/news/2025/macquarie-asset-management-agrees-to-sale-of-interests-in-arqiva.html",
-        "fingerprint": "74dadb521820"
-      },
-      {
-        "title": "Macquarie expands mobile banking experience for business customers",
-        "date": "2025-11-17",
-        "url": "https://www.macquarie.com/it/en/about/news/2025/macquarie-expands-mobile-banking-experience-for-business-customers.html",
-        "fingerprint": "6cdf07a8dd3a"
       }
     ],
     "https://www.equityclub.eu/en/news": [
@@ -16291,6 +16489,12 @@
     ],
     "https://www.astorg.com/news": [
       {
+        "title": "Astorg Portfolio Company Solabia accelerates expansion plan with three strategic acquisitionsIndustrials05 March 2026",
+        "date": null,
+        "url": "https://www.astorg.com/news/astorg-portfolio-company-solabia-accelerates-expansion-plan-with-three-strategic-acquisitions",
+        "fingerprint": "9f077c842f07"
+      },
+      {
         "title": "Astorg and Nordic Capital Announce Agreement to Sell Clario to Thermo Fisher ScientificHealthcare29 October 2025",
         "date": null,
         "url": "https://www.astorg.com/news/astorg-and-nordic-capital-announce-agreement-to-sell-clario-to-thermo-fisher-scientific",
@@ -16331,12 +16535,6 @@
         "date": null,
         "url": "https://www.astorg.com/news/iq-eq-enters-the-anz-market-with-amal-group-acquisition",
         "fingerprint": "7907a6f40e71"
-      },
-      {
-        "title": "Astorg Unveils, Nexpring Health, the New Brand Identity of its Global MedTech Company in Assisted Reproductive TechnologyHealthcare31 March 2025",
-        "date": null,
-        "url": "https://www.astorg.com/news/astorg-unveils-nexpring-health-the-new-brand-identity-of-its-global-medtech-company-in-assisted-reproductive-technology",
-        "fingerprint": "ec60bc83178e"
       }
     ],
     "https://www.higeurope.com/news/": [
@@ -16639,6 +16837,12 @@
     ],
     "https://www.carlyle.com/media-room/news-release-archive": [
       {
+        "title": "Carlyle agrees to acquire SUGIKO",
+        "date": "2026-03-04",
+        "url": "https://www.carlyle.com/media-room/news-release-archive/carlyle-agrees-acquire-sugiko",
+        "fingerprint": "6d13187ed0fa"
+      },
+      {
         "title": "Carlyle Presents Growth Outlook at 2026 Shareholder Update",
         "date": "2026-02-26",
         "url": "https://www.carlyle.com/media-room/news-release-archive/carlyle-presents-growth-outlook-2026-shareholder-update",
@@ -16667,12 +16871,6 @@
         "date": "2026-02-02",
         "url": "https://www.carlyle.com/media-room/news-release-archive/carlyle-host-2026-shareholder-update",
         "fingerprint": "64325176b1a4"
-      },
-      {
-        "title": "Carlyle to sell Iwasaki Electric to Stanley Electric",
-        "date": "2026-01-29",
-        "url": "https://www.carlyle.com/media-room/news-release-archive/carlyle-sell-iwasaki-electric-stanley-electric",
-        "fingerprint": "7fcf819f1a60"
       }
     ],
     "https://news.google.com/rss/search?q=site%3Aalgebris.com+Algebris+when%3A30d&hl=en-US&gl=US&ceid=US:en": [
@@ -16683,10 +16881,16 @@
         "fingerprint": "4ee750eb67fb"
       },
       {
-        "title": "GLOBAL CREDIT BULLETS | Monday, 16 February 2026 - Algebris Investments",
-        "date": "2026-02-16",
-        "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNYVA4dnA5T0FncVFZTjk1ZFlNSU0xeDRoS0RuU3FIbEtESzg5VnVzalNCczJQc3p0R2s4TldoTU9vTW1kVkZyRVdGcnhFZFdrUmZBbVdCd3VrOE9fT2V4RzlvREpTTlYzUFE5bllFc3RtZWdRajh2d05sTDA5YkNsaFRkVmxvNWJSU3Vmbg?oc=5",
-        "fingerprint": "b739cbdd9a80"
+        "title": "GLOBAL CREDIT BULLETS | Monday, 2 March 2026 - Algebris Investments",
+        "date": "2026-03-02",
+        "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPbDNqLWNPWFhRNURSSTBwMDBsTFY4VGZSY1dGVk91RjZtMHhyYjJFbWlBZ2JhSzE0X2ktNkRvQWhvU1FWVDBST3p1aVpfQlA4TThZMjNVZTVUVnZfOXlLd0hQcXFiVjA4RWxSd2RwWW9QSUQyR2Qwc2p0Y0pQdTlvRDZDcEx0Qjg?oc=5",
+        "fingerprint": "321912ca923f"
+      },
+      {
+        "title": "Policies and Complaints - Algebris Investments",
+        "date": "2026-03-06",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE91aWlYQ3Mwa2ZENVh2VFFSZjJ3al9FOTlzYXREN2E1aXpXR1pNLVRfYkFVNktMZDBDUmlDblVKX0tNNjE5anFReXkwVmotQTEta3BheEpwXzBSOVhfNkE?oc=5",
+        "fingerprint": "fa8e31f76c70"
       },
       {
         "title": "GLOBAL CREDIT BULLETS | Monday, 23 February 2026 - Algebris Investments",
@@ -16695,24 +16899,18 @@
         "fingerprint": "788656ee339c"
       },
       {
-        "title": "Clean Alpha | \u20ac22 billion to admit the obvious: Customers are not ready for EVs - Algebris Investments",
-        "date": "2026-02-09",
-        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOREtWNU54d3dFaUUxZ1FOWW9TS2c4S2Etenl5dTJmLUlOUUswTFhTLUh6MlNZQ1l4QXhwVDliVEZBUnhLSGZUeVUwYWpBN19rNGZoUEU2NU1zNGp0ZGFRb2RxQjNpUHFSOUNhZ0VtSW85aG9BVFY4b0M1R2JJcDFQb2VuYW90NmVfVGJjajhNQnl5X256b29uQ2lFdWlxa25ibC12MWplLXo5ekdrUXJONWQzREs?oc=5",
-        "fingerprint": "af86cfe659ff"
+        "title": "GLOBAL CREDIT BULLETS | Monday, 16 February 2026 - Algebris Investments",
+        "date": "2026-02-16",
+        "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNYVA4dnA5T0FncVFZTjk1ZFlNSU0xeDRoS0RuU3FIbEtESzg5VnVzalNCczJQc3p0R2s4TldoTU9vTW1kVkZyRVdGcnhFZFdrUmZBbVdCd3VrOE9fT2V4RzlvREpTTlYzUFE5bllFc3RtZWdRajh2d05sTDA5YkNsaFRkVmxvNWJSU3Vmbg?oc=5",
+        "fingerprint": "b739cbdd9a80"
       }
     ],
     "https://news.google.com/rss/search?q=site%3Acapdyn.com+%22Capital+Dynamics%22+when%3A30d&hl=en-US&gl=US&ceid=US:en": [
       {
-        "title": "SuperReturn Secondaries Europe 3/10/2026 - Capital Dynamics",
-        "date": "2026-02-25",
-        "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5jMklWSVFldUtoVXlfQ2ItNUpCT0NWWm1HLUJQekNrdjVyekpCeEJ5MDltWWYxbFl1VFJHSUFVbmFETmpXNjFSQUJTWUFGOXc2U0JCQVhTWVhhZmNvSEFrRnhmQXoyTlZkZWcwbzhn?oc=5",
-        "fingerprint": "6d50b9b1332b"
-      },
-      {
-        "title": "FundsPeople - Private Equity: complexity is the new normal - Capital Dynamics",
-        "date": "2026-02-05",
-        "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOa0J0ZzZkWE05UXQweGxsUU5BbEtYMm5KWXJpenRTNTRjNzJtSnJfVC1RQlE2ZWtua1J2THB4Q1ljY3paVnBwc1oyMW56ZEpCUlFoa0U3d0NUSWxQcEhHMHZPVWV1NWJFV3l1N3A5RUY4c1V3T1F1dW96ODhxQVA1WTdWUVhtQTZhQ0l5WQ?oc=5",
-        "fingerprint": "0547d492a1a1"
+        "title": "J-Money Conference - Private Aset Management in a World of Rising Rates 4/9/2026 - Capital Dynamics",
+        "date": "2026-03-05",
+        "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOeWxWUXdkT2lDWUtEemIzZEoxazVfUmRSVVNjSE96dkkyTjFnaFE4WUlxRzlMbEpLLTJKY2FfT1BLRFBUUVJkejhxTm9jeVgtLU5FV0pqcGRiMElXcDRncDRyNW54Sy02SzZNaDQzNTA2OFlpNkZmUkVCcjZiMmJuNVc4OTNLT3ktRS00QTlBbUprbDlxNG9rVVVkeENLSFk?oc=5",
+        "fingerprint": "1a7f5d179afc"
       },
       {
         "title": "Photovoltaics in Italy: Record installations ahead \u2013 and continued investor confidence - Capital Dynamics",
@@ -16721,16 +16919,10 @@
         "fingerprint": "91c6db93262b"
       },
       {
-        "title": "TiAM Fund Research: Energy infrastructure is as essential as clean drinking water - Capital Dynamics",
-        "date": "2026-02-18",
-        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPLVFYN0NJUzJlZ0ZUWFd2NlBsdUFjZ0ZxTmJjUFRVanVTNFNZUTV5c3JoUTlTNXdsQjZPUG1mOHlNOTh5aXl4MF9mWnJmNXF1ekdEOXdyXzhjTWhDazBDNlkxZll5OFJPenRQMkNYcHNQZ01HQS05LVdNc2VPNzY1LTNVMVJkZTlReXl4aHdJbndJdEZlbVhxMVd0Wms1VFg4UndmSFRhNWhub2NfTmc?oc=5",
-        "fingerprint": "9b36b20190fb"
-      },
-      {
-        "title": "Emiliano Vovard Featured in New Private Markets Article on Energy Transition - Capital Dynamics",
-        "date": "2026-02-05",
-        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQOVVpaFNRc1lhRTRDNlFPTDVGUXBzbEVlcjM2TjVxeW1ieUtRUmIyV2FieUJJWmhQMW5waVV3aG5oN1J0ak9sMjczYS15VTlQUFIwR3pUclM2dDA4b0Jkd01tLUZNN0NIUm1qQzlLQXJSbFNZd09EcVdMLUdZZmxvSUdlVlZWUkMxVFZZa2QtUDZJaGZyNVZKa25uenRaQzNnRVBsM28xeVM?oc=5",
-        "fingerprint": "4b2b5e6d6476"
+        "title": "Investment Partnerships - Capital Dynamics",
+        "date": "2018-11-14",
+        "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9EeXhNRGpnMTJfY0gyVThkRkdta0hBU0swWHYzamg2b1ZBR05rdkp3QS0xZDZxQmxpT1h1U0ZrbzdRZ216Y1pCd0xCeXU?oc=5",
+        "fingerprint": "09ee02a96b31"
       },
       {
         "title": "News, Research & Events - Capital Dynamics",
@@ -16751,12 +16943,6 @@
         "date": null,
         "url": null,
         "fingerprint": "d83febc485d5"
-      },
-      {
-        "title": "LENDLEASE CONCLUDE LA PRIMA FASE DI SVILUPPO Nuove aree di MIND aperte alla citt\u00e0 e avviati i nuovi cantieri nel WESTGATE",
-        "date": null,
-        "url": null,
-        "fingerprint": "8af843d89015"
       }
     ],
     "https://www.finintinvestments.com/it/press/comunicati-stampa.php": [
@@ -17843,10 +18029,28 @@
         "fingerprint": "72e1f6a7463e"
       },
       {
-        "title": "2025 BC Partners Year in Review",
-        "date": "2025-12-17",
-        "url": "https://www.bcpartners.com/news/2025-bc-partners-year-in-review/",
-        "fingerprint": "2792c705a8cc"
+        "title": "PEI: BC Partners \u2013 Tariffs are number one risk factor for PE industry",
+        "date": "2026-03-03",
+        "url": "https://www.bcpartners.com/news/pei-bc-partners-tariffs-are-number-one-risk-factor-for-pe-industry/",
+        "fingerprint": "6dd836c4e52f"
+      },
+      {
+        "title": "Real Deals: Economic contraction fuels shift to mission-critical midmarket assets",
+        "date": "2026-03-06",
+        "url": "https://www.bcpartners.com/news/4723/",
+        "fingerprint": "e850a8a3a680"
+      },
+      {
+        "title": "Fortidia completes strategic partnership with BC Partners",
+        "date": "2026-03-06",
+        "url": "https://www.bcpartners.com/news/fortidia-completes-strategic-partnership-with-bc-partners/",
+        "fingerprint": "d603bb1a9c0a"
+      },
+      {
+        "title": "PE News: The software referendum \u2013 Private equity\u2019s tech spree faces a vote of confidence",
+        "date": "2026-03-03",
+        "url": "https://www.bcpartners.com/news/pe-news-the-software-referendum-private-equitys-tech-spree-faces-a-vote-of-confidence/",
+        "fingerprint": "9de00cf4726d"
       },
       {
         "title": "Proprium Capital Partners enhances European Real Estate capabilities with BC Partners Real Estate team, adding $1bn AuM",
@@ -17873,34 +18077,16 @@
         "fingerprint": "d963fe2e4304"
       },
       {
+        "title": "2025 BC Partners Year in Review",
+        "date": "2025-12-17",
+        "url": "https://www.bcpartners.com/news/2025-bc-partners-year-in-review/",
+        "fingerprint": "2792c705a8cc"
+      },
+      {
         "title": "BC Partners publishes annual Sustainability Report \u2013 2025",
         "date": "2025-12-10",
         "url": "https://www.bcpartners.com/news/bc-partners-publishes-annual-sustainability-report-2025/",
         "fingerprint": "ec0abc8d55de"
-      },
-      {
-        "title": "ContextLogic to Acquire US Salt from Emerald Lake in $907.5 Million Transaction, Creating New Business Ownership Platform in Partnership with Abrams Capital and BC Partners Credit",
-        "date": "2025-12-08",
-        "url": "https://www.bcpartners.com/news/contextlogic-to-acquire-us-salt-from-emerald-lake-in-907-5-million-transaction-creating-new-business-ownership-platform-in-partnership-with-abrams-capital-and-bc-partners-credit/",
-        "fingerprint": "9458f478d64c"
-      },
-      {
-        "title": "BC Partners Real Estate and its local partner FREO Complete Exit of Repositioned Barcelona Office Asset \u2018Monumento\u2019",
-        "date": "2025-12-03",
-        "url": "https://www.bcpartners.com/news/bc-partners-real-estate-and-its-local-partner-freo-complete-exit-of-repositioned-barcelona-office-asset-monumento/",
-        "fingerprint": "ef21e5806441"
-      },
-      {
-        "title": "Bloomberg: BC Partners Inks SCM Insurance Deal to Form \u00a33.25 Billion Group",
-        "date": "2025-11-11",
-        "url": "https://www.bcpartners.com/news/bc-partners-inks-scm-insurance-deal-to-form-3-25-billion-group/",
-        "fingerprint": "10cb027772cf"
-      },
-      {
-        "title": "Davies inks deal to acquire Canada\u2019s largest claims processing & risk solutions business, SCM Insurance Services, in its biggest strategic M&A to date",
-        "date": "2025-11-10",
-        "url": "https://www.bcpartners.com/news/davies-inks-deal-to-acquire-canadas-largest-claims-processing-risk-solutions-business-scm-insurance-services-in-its-biggest-strategic-ma-to-date/",
-        "fingerprint": "501881eca205"
       }
     ],
     "https://canovasgr.it/blog-canova/": [
@@ -19307,6 +19493,12 @@
     ],
     "https://hf.com/news/": [
       {
+        "title": "Private Equity International Large-Cap Firm of the Year in the Americas",
+        "date": "March 2nd, 2026",
+        "url": "https://hf.com/large-cap-firm-of-the-year/",
+        "fingerprint": "b92a85f43385"
+      },
+      {
         "title": "Recommended Cash and Share Acquisition of Allfunds Group plc by Deutsche B\u00f6rse AG",
         "date": "January 21st, 2026",
         "url": "https://allfunds.com/en/investors/financial/deutsche-borse-group-offer",
@@ -19341,12 +19533,6 @@
         "date": "August 6th, 2025",
         "url": "https://hf.com/portfolio/enverus/",
         "fingerprint": "5ea6422df247"
-      },
-      {
-        "title": "Genesys Announces $1.5 Billion Investment by Salesforce and ServiceNow",
-        "date": "July 31st, 2025",
-        "url": "https://hf.com/portfolio/genesys/",
-        "fingerprint": "3d4f5559af2c"
       }
     ],
     "https://p101.it/news-press/latest-news/": [
@@ -19407,6 +19593,12 @@
     ],
     "https://www.tpg.com/news-and-insights/news": [
       {
+        "title": "TPG Partners with Findhelp to Expand Access to Essential Services for Underserved Populations",
+        "date": "2026-03-03T13:28:46",
+        "url": "https://www.tpg.com/news-and-insights/tpg-partners-with-findhelp-to-expand-access-to-essential-services-for-underserved-populations",
+        "fingerprint": "c23aa05b6bcc"
+      },
+      {
         "title": "TPG Peppertree and Telecom Infrastructure Industry Veteran Bernard Borghei Announce Billion Dollar Investment Partnership",
         "date": "2026-02-17T15:48:58",
         "url": "https://www.tpg.com/news-and-insights/tpg-peppertree-and-telecom-infrastructure-industry-veteran-bernard-borghei-announce-billion-dollar-investment-partnership",
@@ -19420,9 +19612,9 @@
       },
       {
         "title": "TPG Reports Fourth Quarter and Full Year 2025 Results",
-        "date": "2026-02-05T13:00:23",
+        "date": null,
         "url": "https://www.tpg.com/news-and-insights/tpg-reports-fourth-quarter-and-full-year-2025-results",
-        "fingerprint": "0d41bd80c085"
+        "fingerprint": "87939b3732d2"
       },
       {
         "title": "TPG Recapitalizes Large Office Portfolio in Dallas\u2019 Harwood District",
@@ -19471,12 +19663,6 @@
         "date": null,
         "url": "https://www.tpg.com/news-and-insights/tpg-makes-significant-investment-in-trustwell-a-market-leader-in-supply-chain-software-for-the-food-industry",
         "fingerprint": "acb102174486"
-      },
-      {
-        "title": "TPG to Acquire Majority Stake in Conservice",
-        "date": null,
-        "url": "https://www.tpg.com/news-and-insights/tpg-to-acquire-majority-stake-in-conservice",
-        "fingerprint": "e5c9b06a953e"
       }
     ],
     "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c": [
@@ -19889,10 +20075,10 @@
         "fingerprint": "4bbca9c501cf"
       },
       {
-        "title": "2026 Macro and Private Markets Outlook: Sustained Resilience",
+        "title": "Middle East Conflict: Potential Macro Impact",
         "date": null,
-        "url": "https://www.icgam.com/2026/01/23/2026-macro-and-private-markets-outlook-sustained-resilience/",
-        "fingerprint": "73d7eec27b15"
+        "url": "https://www.icgam.com/2026/03/04/middle-east-conflict-potential-macro-impact/",
+        "fingerprint": "8a65471847dd"
       },
       {
         "title": "Q3 trading statement for the period to 31 December 2025",
@@ -19903,14 +20089,20 @@
       {
         "title": "Commencement of Share Buyback Programme and Appointment of Non-Executive Director",
         "date": null,
-        "url": "https://www.icgam.com/news-insights-analysis/#news",
-        "fingerprint": "306e7fa4545c"
+        "url": "https://www.icgam.com/2026/02/19/commencement-of-share-buyback-programme-and-appointment-of-non-executive-director/",
+        "fingerprint": "733d2a979656"
       },
       {
         "title": "ICG appoints Sujey Subramanian as Head of Asia-Pacific Corporate strategy",
         "date": null,
         "url": "https://www.icgam.com/2026/02/10/icg-appoints-sujey-subramanian-as-head-of-asia-pacific-corporate-strategy/",
         "fingerprint": "1d621caf1943"
+      },
+      {
+        "title": "2026 Macro and Private Markets Outlook: Sustained Resilience",
+        "date": null,
+        "url": "https://www.icgam.com/2026/01/23/2026-macro-and-private-markets-outlook-sustained-resilience/",
+        "fingerprint": "73d7eec27b15"
       },
       {
         "title": "ICG\u3001\u30ec\u30a4\u30a8\u30a4\u30c8\u30a8\u30ca\u30b8\u30fc\u3068\u63d0\u643a\u3057\u3001\u65e5\u672c\u306b\u304a\u3051\u308b\u7cfb\u7d71\u7528\u84c4\u96fb\u6c60\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0\u306e\u62e1\u5927\u3092\u63a8\u9032",
@@ -19943,12 +20135,6 @@
         "fingerprint": "e4ad11cae4fa"
       },
       {
-        "title": "Trade War Views: Implications for the Economic Outlook and Business Operating Environment",
-        "date": null,
-        "url": "https://www.icgam.com/2025/04/16/trade-war-views-implications-for-the-economic-outlook-and-business-operating-environment/",
-        "fingerprint": "eee64b8b39a9"
-      },
-      {
         "title": "The ABF market is just getting started",
         "date": null,
         "url": "https://www.icgam.com/2025/10/02/the-abf-market-is-just-getting-started/",
@@ -19975,10 +20161,22 @@
         "fingerprint": "cb70e6c032ec"
       },
       {
+        "title": "Lone Star Funds Announces Agreement to Acquire the Capsules & Health Ingredients Division of Lonza Group AG",
+        "date": null,
+        "url": "https://www.lonestarfunds.com/lone-star-funds-announces-agreement-to-acquire-the-capsules-health-ingredients-division-of-lonza-group-ag/",
+        "fingerprint": "59c90ecdf7b1"
+      },
+      {
+        "title": "Lone Star Funds Completes Sale of SPX FLOW to ITT Inc.",
+        "date": null,
+        "url": null,
+        "fingerprint": "03e4891332df"
+      },
+      {
         "title": "Lone Star Agrees to Acquire Central London Office Building",
         "date": null,
-        "url": "https://www.lonestarfunds.com/lone-star-agrees-to-acquire-central-london-office-building/",
-        "fingerprint": "9701ab5ea5ce"
+        "url": null,
+        "fingerprint": "ffd7c600098a"
       },
       {
         "title": "Lone Star Completes Acquisition of Hillenbrand",
@@ -20015,18 +20213,6 @@
         "date": null,
         "url": null,
         "fingerprint": "3ea3e0c04d6a"
-      },
-      {
-        "title": "Lone Star Announces Sale of SPX FLOW to ITT Inc.",
-        "date": null,
-        "url": null,
-        "fingerprint": "5496309d8f51"
-      },
-      {
-        "title": "Lone Star Acquires Multi-Asset Real Estate Portfolio from St. James\u2019s Place",
-        "date": null,
-        "url": null,
-        "fingerprint": "c642ecedb15f"
       }
     ],
     "https://www.oaktreecapital.com/insights/": [
@@ -20038,6 +20224,12 @@
       }
     ],
     "https://stonepeak.com/news/": [
+      {
+        "title": "Stonepeak Wins Transport Investor of the Year, Global and North America",
+        "date": null,
+        "url": "https://stonepeak.com/news/stonepeak-wins-transport-investor-of-the-year-global-and-north-america",
+        "fingerprint": "16b0e8a660c7"
+      },
       {
         "title": "Stonepeak Announces Investment in Aura Holdings",
         "date": null,
@@ -20091,12 +20283,6 @@
         "date": null,
         "url": "https://stonepeak.com/news/ifco-welcomes-stonepeak-as-new-co-investor-alongside-triton",
         "fingerprint": "919aa6585f66"
-      },
-      {
-        "title": "Stonepeak Launches Peregrine Cold Logistics",
-        "date": null,
-        "url": "https://stonepeak.com/news/stonepeak-launches-peregrine-cold-logistics",
-        "fingerprint": "94869f0ee0f8"
       }
     ],
     "https://www.oneequity.com/news/": [
@@ -21311,28 +21497,28 @@
     ],
     "https://www.patrizia.ag/en/press-releases-pr/": [
       {
+        "title": "PATRIZIA launches EUR 500m Berlin residential development programme as part of its pan-European Living strategy",
+        "date": "2026-03-09",
+        "url": "https://www.patrizia.ag/en/news-detail/patrizia-launches-eur-500m-berlin-residential-development-programme-as-part-of-its-pan-european-living-strategy/",
+        "fingerprint": "d90f3825c876"
+      },
+      {
+        "title": "PATRIZIA FY 2025 financial results: Strong EBITDA growth and increase in dividend per share",
+        "date": "2026-03-04",
+        "url": "https://www.patrizia.ag/en/news-detail/patrizia-fy-2025-financial-results-strong-ebitda-growth-and-increase-in-dividend-per-share-1/",
+        "fingerprint": "29f1c44afe71"
+      },
+      {
+        "title": "PATRIZIA strengthens European decarbonisation platform with c. EUR 175 million refinancing of Norwegian district heating business SAREN Energy",
+        "date": "2026-03-04",
+        "url": "https://www.patrizia.ag/en/news-detail/patrizia-strengthens-european-decarbonisation-platform-with-c-eur-175-million-refinancing-of-norwegian-district-heating-business-saren-energy/",
+        "fingerprint": "77cc7cb2ffc8"
+      },
+      {
         "title": "PATRIZIA appoints Gus Wiseman to deepen alignment with UK investment policy and capital mobilisation",
         "date": "2026-02-06",
         "url": "https://www.patrizia.ag/en/news-detail/patrizia-appoints-gus-wiseman-to-deepen-alignment-with-uk-investment-policy-and-capital-mobilisation/",
         "fingerprint": "97f30493df58"
-      },
-      {
-        "title": "PATRIZIA\u2019s Kinland adds 49 social infrastructure assets in ~EUR 170m Nordic bolt-on programme",
-        "date": "2026-01-13",
-        "url": "https://www.patrizia.ag/en/news-detail/patrizias-kinland-adds-49-social-infrastructure-assets-in-eur-170m-nordic-bolt-on-programme/",
-        "fingerprint": "e2671767fbc2"
-      },
-      {
-        "title": "PATRIZIA expands living platform with EUR 100 million+ acquisition of residential portfolio in Southern Germany",
-        "date": "2025-12-22",
-        "url": "https://www.patrizia.ag/en/news-detail/patrizia-expands-living-platform-with-eur-100-million-acquisition-of-residential-portfolio-in-southern-germany/",
-        "fingerprint": "790cb513cae4"
-      },
-      {
-        "title": "PATRIZIA and Mitsui confirm new co-investment in Australian solar and battery platform",
-        "date": "2025-12-16",
-        "url": "https://www.patrizia.ag/en/news-detail/patrizia-and-mitsui-confirm-toho-gas-co-investment-in-australian-solar-and-battery-platform/",
-        "fingerprint": "ec534bf6425a"
       }
     ]
   }

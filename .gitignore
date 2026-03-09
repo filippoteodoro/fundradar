@@ -50,7 +50,7 @@ Thumbs.db
 /data/watchlists.json
 /data/subscribers.json
 /data/snapshots.json
-/data/url_status.json
+# /data/url_status.json  ← dead entry; file lives at data/derived/url_status.json (committed)
 /data/audits/
 /data/AIFI/*.htm
 /data/AIFI/*_files/
@@ -69,6 +69,8 @@ Thumbs.db
 /data/derived/digest/
 /data/derived/linkedin/raw/
 /data/derived/*_progress*.json
+# Exception: signal_enrichment_progress.json is committed — losing it costs ~$2-5 in API re-enrichment
+!/data/derived/signal_enrichment_progress.json
 /data/derived/*_queue*.json
 /data/derived/circuit_state.json
 /data/derived/monitor_checkpoint.json
@@ -98,7 +100,7 @@ Thumbs.db
 /data/derived/gemini_fund_asset_manual_review.json
 /data/derived/gemini_fund_asset_remaining_slugs.txt
 /data/derived/gemini_fund_asset_triage.json
-/data/derived/gemini_fund_asset_zero_italy_verified.json
+# /data/derived/gemini_fund_asset_zero_italy_verified.json  ← committed (controls website fund visibility)
 /data/derived/asset_status_evidence.json
 /data/derived/fund_coordinates.json
 /data/derived/linkedin/scrape_progress.json

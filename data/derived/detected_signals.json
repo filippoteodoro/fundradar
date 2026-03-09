@@ -52482,7 +52482,7 @@
         "fondo-italiano-d-investimento-sgr"
       ],
       "signal_type": "people_move",
-      "title": "Fondo Italiano d'Investimento SGR, CIO Giampaolo Di Dio leaves",
+      "title": "Fondo Italiano d'Investimento SGR: CIO Giampaolo Di Dio leaves",
       "what_changed": "Giampaolo Di Dio is stepping down as CIO of Fondo Italiano d'Investimento sgr, a management company with over \u20ac4 billion in assets, 55% owned by CDP Equity (Cassa Depositi e Prestiti) and partly owned by UniCredit, Intesa Sanpaolo, ENPAM/ENPAIA Foundations, ABI, Banco BPM, and BPER Banca. This is news of a management change, not an M&A transaction.",
       "source_url": "https://bebeez.it/manager-2/fondo-italiano-dinvestimento-sgr-il-cio-giampaolo-di-dio-se-ne-va/",
       "source_name": "BeBeez",
@@ -52508,7 +52508,7 @@
         "locations": []
       },
       "what_changed_original": "Giampaolo Di Dio lascia il ruolo di CIO di Fondo Italiano d\u2019Investimento sgr, societ\u00e0 di gestione con oltre \u20ac4 miliardi di asset controllata al 55% da CDP Equity (Cassa Depositi e Prestiti) e partecipata da UniCredit, Intesa Sanpaolo, Fondazioni ENPAM/ENPAIA, ABI, Banco BPM e BPER Banca. Notizia su un cambio manageriale, non un\u2019operazione M&A.",
-      "title_original": "Fondo Italiano d'Investimento sgr, CIO Giampaolo Di Dio leaves"
+      "title_original": "Fondo Italiano d'Investimento SGR, CIO Giampaolo Di Dio leaves"
     },
     {
       "id": "rss-signal-00153",
@@ -52519,7 +52519,7 @@
         "fondo-italiano-d-investimento-sgr"
       ],
       "signal_type": "people_move",
-      "title": "Giampaolo Di Dio, CIO of Fondo Italiano d'Investimento SGR, has left.",
+      "title": "Giampaolo Di Dio, CIO of Fondo Italiano d'Investimento SGR, has left the firm.",
       "what_changed": "Giampaolo Di Dio is stepping down as CIO of Fondo Italiano d'Investimento SGR, a management company with over \u20ac4B in assets, 55% owned by CDP Equity (Cassa Depositi and Prestiti) and partly owned by UniCredit, Intesa Sanpaolo, ENPAM/ENPAIA Foundations, ABI, Banco BPM, and BPER Banca.",
       "source_url": "https://bebeez.it/manager-2/fondo-italiano-dinvestimento-sgr-il-cio-giampaolo-di-dio-se-ne-va/",
       "source_name": "BeBeez",
@@ -52545,7 +52545,7 @@
         "locations": []
       },
       "what_changed_original": "Giampaolo Di Dio lascia il ruolo di CIO di Fondo Italiano d\u2019Investimento sgr, societ\u00e0 di gestione con oltre \u20ac4 miliardi di asset controllata al 55% da CDP Equity (Cassa Depositi e Prestiti) e partecipata da UniCredit, Intesa Sanpaolo, Fondazioni ENPAM/ENPAIA, ABI, Banco BPM e BPER Banca. Notizia su un cambio manageriale, non un\u2019operazione M&A.",
-      "title_original": "Fondo Italiano d'Investimento sgr, CIO Giampaolo Di Dio leaves"
+      "title_original": "Giampaolo Di Dio, CIO of Fondo Italiano d'Investimento SGR, has left."
     },
     {
       "id": "rss-signal-00154",
@@ -55050,8 +55050,2132 @@
       "deal_amount": "4 milioni di euro",
       "what_changed_original": "Milano-based AI startup Alomana ha raccolto 4 milioni di euro in un round guidato da CDP Venture Capital (Corporate Partners I \u2013 fondo ServiceTech), con la partecipazione di Founders Factory, Kairos Ventures ESG One, IAG e altri. Il finanziamento soster\u00e0 Alo, un livello operativo di intelligenza artificiale, confermando un deal VC in Italia.",
       "title_original": "L\u2019AI della milanese Alomana ha raccolto 4 milioni di euro in un round guidato da CDP Venture Capital"
+    },
+    {
+      "id": "web-signal-02027",
+      "fund_id": "",
+      "fund_slug": "algebris",
+      "signal_type": "other",
+      "title": "GLOBAL CREDIT BULLETS | Monday, 2 March 2026 - Algebris Investments",
+      "what_changed": "New announcement: GLOBAL CREDIT BULLETS | Monday, 2 March 2026 - Algebris Investments",
+      "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPbDNqLWNPWFhRNURSSTBwMDBsTFY4VGZSY1dGVk91RjZtMHhyYjJFbWlBZ2JhSzE0X2ktNkRvQWhvU1FWVDBST3p1aVpfQlA4TThZMjNVZTVUVnZfOXlLd0hQcXFiVjA4RWxSd2RwWW9QSUQyR2Qwc2p0Y0pQdTlvRDZDcEx0Qjg?oc=5",
+      "source_name": "Algebris",
+      "published_at": "2026-03-02",
+      "observed_at": "2026-03-09T10:00:59.948276+00:00",
+      "created_at": "2026-03-09T10:00:59.948276+00:00",
+      "snapshot_id": "snap-20260309100059-decd999b",
+      "diff_summary": "New news item detected (dated 2026-03-02)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Algebris Investments"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02028",
+      "fund_id": "",
+      "fund_slug": "algebris",
+      "signal_type": "other",
+      "title": "Policies and Complaints - Algebris Investments",
+      "what_changed": "New announcement: Policies and Complaints - Algebris Investments",
+      "source_url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE91aWlYQ3Mwa2ZENVh2VFFSZjJ3al9FOTlzYXREN2E1aXpXR1pNLVRfYkFVNktMZDBDUmlDblVKX0tNNjE5anFReXkwVmotQTEta3BheEpwXzBSOVhfNkE?oc=5",
+      "source_name": "Algebris",
+      "published_at": "2026-03-06",
+      "observed_at": "2026-03-09T10:00:59.948276+00:00",
+      "created_at": "2026-03-09T10:00:59.948276+00:00",
+      "snapshot_id": "snap-20260309100059-decd999b",
+      "diff_summary": "New news item detected (dated 2026-03-06)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Algebris Investments"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02029",
+      "fund_id": "",
+      "fund_slug": "capital-dynamics-sgr",
+      "signal_type": "other",
+      "title": "J-Money Conference - Private Aset Management in a World of Rising Rates 4/9/2026 - Capital Dynamics",
+      "what_changed": "New announcement: J-Money Conference - Private Aset Management in a World of Rising Rates 4/9/2026 - Capital Dynamics",
+      "source_url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOeWxWUXdkT2lDWUtEemIzZEoxazVfUmRSVVNjSE96dkkyTjFnaFE4WUlxRzlMbEpLLTJKY2FfT1BLRFBUUVJkejhxTm9jeVgtLU5FV0pqcGRiMElXcDRncDRyNW54Sy02SzZNaDQzNTA2OFlpNkZmUkVCcjZiMmJuNVc4OTNLT3ktRS00QTlBbUprbDlxNG9rVVVkeENLSFk?oc=5",
+      "source_name": "Capital Dynamics SGR",
+      "published_at": "2026-03-05",
+      "observed_at": "2026-03-09T10:01:01.666936+00:00",
+      "created_at": "2026-03-09T10:01:01.666936+00:00",
+      "snapshot_id": "snap-20260309100101-0b1e545e",
+      "diff_summary": "New news item detected (dated 2026-03-05)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Rising Rates",
+          "Private Aset Management",
+          "Capital Dynamics",
+          "Money Conference"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02030",
+      "fund_id": "",
+      "fund_slug": "capital-dynamics-sgr",
+      "signal_type": "other",
+      "title": "Investment Partnerships - Capital Dynamics",
+      "what_changed": "New announcement: Investment Partnerships - Capital Dynamics",
+      "source_url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9EeXhNRGpnMTJfY0gyVThkRkdta0hBU0swWHYzamg2b1ZBR05rdkp3QS0xZDZxQmxpT1h1U0ZrbzdRZ216Y1pCd0xCeXU?oc=5",
+      "source_name": "Capital Dynamics SGR",
+      "published_at": "2018-11-14",
+      "observed_at": "2026-03-09T10:01:01.666936+00:00",
+      "created_at": "2026-03-09T10:01:01.666936+00:00",
+      "snapshot_id": "snap-20260309100101-0b1e545e",
+      "diff_summary": "New news item detected (dated 2018-11-14)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Capital Dynamics",
+          "Investment Partnerships"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02031",
+      "fund_id": "",
+      "fund_slug": "advent-international",
+      "signal_type": "deal_announced",
+      "title": "tbi bank added to Advent International portfolio (Business & financial services)",
+      "what_changed": "tbi bank added to Advent International portfolio (Business & financial services)",
+      "source_url": "https://www.adventinternational.com/investments/",
+      "source_name": "Advent International",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:01:03.098693+00:00",
+      "created_at": "2026-03-09T10:01:03.098693+00:00",
+      "snapshot_id": "snap-20260309100100-f5461bc6",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "tbi bank"
+        ],
+        "people": [
+          "Southeast Europe"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02032",
+      "fund_id": "",
+      "fund_slug": "apollo",
+      "signal_type": "other",
+      "title": "Apollo Announces 2026 Annual Meeting of Stockholders",
+      "what_changed": "New announcement: Apollo Announces 2026 Annual Meeting of Stockholders",
+      "source_url": "https://www.apollo.com/insights-news/pressreleases/2026/03/apollo-announces-2026-annual-meeting-of-stockholders-3248979",
+      "source_name": "Apollo",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:01:08.904436+00:00",
+      "created_at": "2026-03-09T10:01:08.904436+00:00",
+      "snapshot_id": "snap-20260309100108-76d10fe8",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Annual Meeting",
+          "Apollo Announces"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02033",
+      "fund_id": "",
+      "fund_slug": "abenex",
+      "signal_type": "deal_announced",
+      "title": "Origin Seal strengthens its European footprint with the joint acquisition of Polson and MBC Group in the Netherlands",
+      "what_changed": "Origin Seal announces the joint acquisition of Polson and MBC Group, two recognised specialists in industrial sealing and insulation solutions With more than 60 years of experience, Polson and MBC Group serve a wide range of industrial applications with a strong expertise in maritime applicat",
+      "source_url": "https://www.abenex.com/origin-seal-strengthens-its-european-footprint-with-the-joint-acquisition-of-polson-and-mbc-group-in-the-netherlands/",
+      "source_name": "Abenex",
+      "published_at": "2026-03-03",
+      "observed_at": "2026-03-09T10:01:15.108753+00:00",
+      "created_at": "2026-03-09T10:01:15.108753+00:00",
+      "snapshot_id": "snap-20260309100115-6a2925a7",
+      "diff_summary": "New news item detected (dated 2026-03-03T14:00:35)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Netherlands Origin Seal",
+          "Origin Seal"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02034",
+      "fund_id": "",
+      "fund_slug": "andera-partners",
+      "signal_type": "people_move",
+      "title": "Andera Partners accelerates its development in Spain and appoints Joaqu\u00edn Gonzalo for its sponsorles\u2026",
+      "what_changed": "andera Acto | Press releases",
+      "source_url": "https://www.anderapartners.com/en/andera-partners-accelerates-its-development-in-spain-and-appoints-joaquin-gonzalo-for-its-sponsorless-mezzanine-strategy/",
+      "source_name": "Andera Partners",
+      "published_at": "2026-03-05",
+      "observed_at": "2026-03-09T10:01:16.195961+00:00",
+      "created_at": "2026-03-09T10:01:16.195961+00:00",
+      "snapshot_id": "snap-20260309100114-b2f977d3",
+      "diff_summary": "New news item detected (dated 05.03.2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Andera Partners accelerates its development in"
+        ],
+        "people": [
+          "Andera Partners"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02035",
+      "fund_id": "",
+      "fund_slug": "astorg",
+      "signal_type": "deal_announced",
+      "title": "Astorg Portfolio Company Solabia accelerates expansion plan with three strategic acquisitionsIndustrials05 March 2026",
+      "what_changed": "New announcement: Astorg Portfolio Company Solabia accelerates expansion plan with three strategic acquisitionsIndustrials05 March 2026",
+      "source_url": "https://www.astorg.com/news/astorg-portfolio-company-solabia-accelerates-expansion-plan-with-three-strategic-acquisitions",
+      "source_name": "Astorg",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:01:17.719214+00:00",
+      "created_at": "2026-03-09T10:01:17.719214+00:00",
+      "snapshot_id": "snap-20260309100117-86c00ea0",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Astorg Portfolio Company"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02036",
+      "fund_id": "",
+      "fund_slug": "axon-partners-group",
+      "signal_type": "deal_announced",
+      "title": "ISAAC added to Axon Partners Group portfolio",
+      "what_changed": "ISAAC added to Axon Partners Group portfolio",
+      "source_url": "https://axonpartnersgroup.com/portfolio/",
+      "source_name": "Axon Partners Group",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:01:30.612378+00:00",
+      "created_at": "2026-03-09T10:01:30.612378+00:00",
+      "snapshot_id": "snap-20260309100119-06ed244c",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "ISAAC"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02037",
+      "fund_id": "",
+      "fund_slug": "axon-partners-group",
+      "signal_type": "fundraise_announced",
+      "title": "ISAAC closes a \u20ac14 million investment round: technology enhancement, expansion in the seismic safety market, and international growth among the company\u2019s key goals for the coming years",
+      "what_changed": "New announcement: ISAAC closes a \u20ac14 million investment round: technology enhancement, expansion in the seismic safety market, and international growth among the company\u2019s key goals for the coming years",
+      "source_url": "https://axonpartnersgroup.com/isaac-closes-a-e14-million-investment-round-technology-enhancement-expansion-in-the-seismic-safety-market-and-international-growth-among-the-companys-key-goals-for-the-coming-years/",
+      "source_name": "Axon Partners Group",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:01:36.702326+00:00",
+      "created_at": "2026-03-09T10:01:36.702326+00:00",
+      "snapshot_id": "snap-20260309100134-af53b23e",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02038",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "other",
+      "title": "Teva and Blackstone Life Sciences Announce $400 Million Strategic Growth Capital Agreement to Advance duvakitug",
+      "what_changed": "New announcement: Teva and Blackstone Life Sciences Announce $400 Million Strategic Growth Capital Agreement to Advance duvakitug",
+      "source_url": "https://www.blackstone.com/news/press/teva-and-blackstone-life-sciences-announce-400-million-strategic-growth-capital-agreement-to-advance-duvakitug/",
+      "source_name": "Blackstone",
+      "published_at": "2026-03-03",
+      "observed_at": "2026-03-09T10:01:44.201296+00:00",
+      "created_at": "2026-03-09T10:01:44.201296+00:00",
+      "snapshot_id": "snap-20260309100143-5bc8ee81",
+      "diff_summary": "New news item detected (dated 2026-03-03)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Million Strategic Growth",
+          "Blackstone Life Sciences",
+          "Capital Agreement"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02039",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "people_move",
+      "title": "Blackstone Credit & Insurance Announces Upsize to Midstream Joint Venture with EQT Corporation",
+      "what_changed": "New announcement: Blackstone Credit & Insurance Announces Upsize to Midstream Joint Venture with EQT Corporation",
+      "source_url": "https://www.blackstone.com/news/press/blackstone-credit-insurance-announces-upsize-to-midstream-joint-venture-with-eqt-corporation/",
+      "source_name": "Blackstone",
+      "published_at": "2026-03-02",
+      "observed_at": "2026-03-09T10:01:44.201296+00:00",
+      "created_at": "2026-03-09T10:01:44.201296+00:00",
+      "snapshot_id": "snap-20260309100143-5bc8ee81",
+      "diff_summary": "New news item detected (dated 2026-03-02)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Blackstone Credit",
+          "Insurance Announces Upsize",
+          "Midstream Joint Venture"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02040",
+      "fund_id": "",
+      "fund_slug": "bc-partners",
+      "signal_type": "other",
+      "title": "PEI: BC Partners \u2013 Tariffs are number one risk factor for PE industry",
+      "what_changed": "New announcement: PEI: BC Partners \u2013 Tariffs are number one risk factor for PE industry",
+      "source_url": "https://www.bcpartners.com/news/pei-bc-partners-tariffs-are-number-one-risk-factor-for-pe-industry/",
+      "source_name": "BC Partners",
+      "published_at": "2026-03-03",
+      "observed_at": "2026-03-09T10:01:48.571111+00:00",
+      "created_at": "2026-03-09T10:01:48.571111+00:00",
+      "snapshot_id": "snap-20260309100148-6176308d",
+      "diff_summary": "New news item detected (dated 2026-03-03)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02041",
+      "fund_id": "",
+      "fund_slug": "bc-partners",
+      "signal_type": "deal_announced",
+      "title": "Real Deals: Economic contraction fuels shift to mission-critical midmarket assets",
+      "what_changed": "New announcement: Real Deals: Economic contraction fuels shift to mission-critical midmarket assets",
+      "source_url": "https://www.bcpartners.com/news/4723/",
+      "source_name": "BC Partners",
+      "published_at": "2026-03-06",
+      "observed_at": "2026-03-09T10:01:48.571111+00:00",
+      "created_at": "2026-03-09T10:01:48.571111+00:00",
+      "snapshot_id": "snap-20260309100148-6176308d",
+      "diff_summary": "New news item detected (dated 2026-03-06)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Real Deals"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02042",
+      "fund_id": "",
+      "fund_slug": "bc-partners",
+      "signal_type": "other",
+      "title": "Fortidia completes strategic partnership with BC Partners",
+      "what_changed": "New announcement: Fortidia completes strategic partnership with BC Partners",
+      "source_url": "https://www.bcpartners.com/news/fortidia-completes-strategic-partnership-with-bc-partners/",
+      "source_name": "BC Partners",
+      "published_at": "2026-03-06",
+      "observed_at": "2026-03-09T10:01:48.571111+00:00",
+      "created_at": "2026-03-09T10:01:48.571111+00:00",
+      "snapshot_id": "snap-20260309100148-6176308d",
+      "diff_summary": "New news item detected (dated 2026-03-06)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02043",
+      "fund_id": "",
+      "fund_slug": "bc-partners",
+      "signal_type": "other",
+      "title": "PE News: The software referendum \u2013 Private equity\u2019s tech spree faces a vote of confidence",
+      "what_changed": "New announcement: PE News: The software referendum \u2013 Private equity\u2019s tech spree faces a vote of confidence",
+      "source_url": "https://www.bcpartners.com/news/pe-news-the-software-referendum-private-equitys-tech-spree-faces-a-vote-of-confidence/",
+      "source_name": "BC Partners",
+      "published_at": "2026-03-03",
+      "observed_at": "2026-03-09T10:01:48.571111+00:00",
+      "created_at": "2026-03-09T10:01:48.571111+00:00",
+      "snapshot_id": "snap-20260309100148-6176308d",
+      "diff_summary": "New news item detected (dated 2026-03-03)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02044",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "other",
+      "title": "Propelling the Growth of Leading Franchisors",
+      "what_changed": "New announcement: Propelling the Growth of Leading Franchisors",
+      "source_url": "https://www.blackstone.com/en/news",
+      "source_name": "Blackstone",
+      "published_at": "2026-03-06",
+      "observed_at": "2026-03-09T10:01:49.938844+00:00",
+      "created_at": "2026-03-09T10:01:49.938844+00:00",
+      "snapshot_id": "snap-20260309100148-3b6323a1",
+      "diff_summary": "New news item detected (dated 2026-03-06)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Leading Franchisors"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02045",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "deal_announced",
+      "title": "Market Views: Dealmaking, Disruption, and Real Estate\u2019s Recovery",
+      "what_changed": "New announcement: Market Views: Dealmaking, Disruption, and Real Estate\u2019s Recovery",
+      "source_url": "https://www.blackstone.com/en/news",
+      "source_name": "Blackstone",
+      "published_at": "2026-02-09",
+      "observed_at": "2026-03-09T10:01:49.938844+00:00",
+      "created_at": "2026-03-09T10:01:49.938844+00:00",
+      "snapshot_id": "snap-20260309100148-3b6323a1",
+      "diff_summary": "New news item detected (dated 2026-02-09)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Real Estate",
+          "Market Views"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02046",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "other",
+      "title": "2026 Investment Perspectives",
+      "what_changed": "New announcement: 2026 Investment Perspectives",
+      "source_url": "https://www.blackstone.com/en/news",
+      "source_name": "Blackstone",
+      "published_at": "2026-01-12",
+      "observed_at": "2026-03-09T10:01:49.938844+00:00",
+      "created_at": "2026-03-09T10:01:49.938844+00:00",
+      "snapshot_id": "snap-20260309100148-3b6323a1",
+      "diff_summary": "New news item detected (dated 2026-01-12)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Investment Perspectives"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02047",
+      "fund_id": "",
+      "fund_slug": "ardian",
+      "signal_type": "other",
+      "title": "Ardian & Sicer: Innovating ceramic surfaces with quality and sustainability at the core",
+      "what_changed": "New announcement: Ardian & Sicer: Innovating ceramic surfaces with quality and sustainability at the core",
+      "source_url": "https://www.ardian.com/news-insights",
+      "source_name": "Ardian",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:02:08.292727+00:00",
+      "created_at": "2026-03-09T10:02:08.292727+00:00",
+      "snapshot_id": "snap-20260309100207-efd0aeb4",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02048",
+      "fund_id": "",
+      "fund_slug": "ardian",
+      "signal_type": "other",
+      "title": "The data advantage in secondaries (Part 2 of 2): Picking the best assets",
+      "what_changed": "New announcement: The data advantage in secondaries (Part 2 of 2): Picking the best assets",
+      "source_url": "https://www.ardian.com/news-insights",
+      "source_name": "Ardian",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:02:08.292727+00:00",
+      "created_at": "2026-03-09T10:02:08.292727+00:00",
+      "snapshot_id": "snap-20260309100207-efd0aeb4",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02049",
+      "fund_id": "",
+      "fund_slug": "ardian",
+      "signal_type": "other",
+      "title": "MasterGrid & Ardian: Supporting the future of energy supply",
+      "what_changed": "New announcement: MasterGrid & Ardian: Supporting the future of energy supply",
+      "source_url": "https://www.ardian.com/news-insights",
+      "source_name": "Ardian",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:02:08.292727+00:00",
+      "created_at": "2026-03-09T10:02:08.292727+00:00",
+      "snapshot_id": "snap-20260309100207-efd0aeb4",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02050",
+      "fund_id": "",
+      "fund_slug": "ardian",
+      "signal_type": "other",
+      "title": "Ardian Corporate Brochure",
+      "what_changed": "New announcement: Ardian Corporate Brochure",
+      "source_url": "https://www.ardian.com/news-insights",
+      "source_name": "Ardian",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:02:08.292727+00:00",
+      "created_at": "2026-03-09T10:02:08.292727+00:00",
+      "snapshot_id": "snap-20260309100207-efd0aeb4",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Ardian Corporate Brochure"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02051",
+      "fund_id": "",
+      "fund_slug": "capza",
+      "signal_type": "people_move",
+      "title": "New team members: Christophe Karvelis Senn (+1 more)",
+      "what_changed": "New team members: Christophe Karvelis Senn, Hugo Villain",
+      "source_url": "https://www.capza.co/teams/",
+      "source_name": "CAPZA",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:02:24.953011+00:00",
+      "created_at": "2026-03-09T10:02:24.953011+00:00",
+      "snapshot_id": "snap-20260309100212-e64e2a2f",
+      "diff_summary": "2 new team members via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Christophe Karvelis Senn",
+          "Hugo Villain"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02052",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "other",
+      "title": "ISAAC closes \u20ac14 million funding round: technology enhancement, seismic market leadership, and internationalization among the objectives for the coming years",
+      "what_changed": "New announcement: ISAAC closes \u20ac14 million funding round: technology enhancement, seismic market leadership, and internationalization among the objectives for the coming years",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "Cdp Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:02:31.068252+00:00",
+      "created_at": "2026-03-09T10:02:31.068252+00:00",
+      "snapshot_id": "snap-20260309100226-1bc451c2",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: ISAAC chiude un round da \u20ac14M: potenziamento della tecnologia, presidio del mercato della sismica e internazionalizzazione tra gli obiettivi dei prossimi anni",
+      "title_original": "ISAAC chiude un round da \u20ac14M: potenziamento della tecnologia, presidio del mercato della sismica e internazionalizzazione tra gli obiettivi dei prossimi anni"
+    },
+    {
+      "id": "web-signal-02053",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "fundraise_announced",
+      "title": "The third closing of the Atempo Growth II venture debt fund is underway, with CDP Venture Capital joining to strengthen its presence in Italy. Total commitment: \u20ac455 million.",
+      "what_changed": "New announcement: The third closing of the Atempo Growth II venture debt fund is underway, with CDP Venture Capital joining to strengthen its presence in Italy. Total commitment: \u20ac455 million.",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "Cdp Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:02:31.068252+00:00",
+      "created_at": "2026-03-09T10:02:31.068252+00:00",
+      "snapshot_id": "snap-20260309100226-1bc451c2",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.65,
+      "relevance_reasons": [
+        "Italy mentioned (italia)",
+        "Italian business context: CDP"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Venture Capital",
+          "Atempo Growth"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Al via il terzo closing del fondo di venture debt Atempo Growth II con l\u2019ingresso di CDP Venture Capital per rafforzare la presenza in Italia. Commitment complessivo: \u20ac455M",
+      "title_original": "Al via il terzo closing del fondo di venture debt Atempo Growth II con l\u2019ingresso di CDP Venture Capital per rafforzare la presenza in Italia. Commitment complessivo: \u20ac455M"
+    },
+    {
+      "id": "web-signal-02054",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "other",
+      "title": "Gyala closes \u20ac4 million funding round",
+      "what_changed": "New announcement: Gyala closes a \u20ac4M round",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "Cdp Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:02:31.068252+00:00",
+      "created_at": "2026-03-09T10:02:31.068252+00:00",
+      "snapshot_id": "snap-20260309100226-1bc451c2",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Gyala chiude un round da \u20ac4M",
+      "what_changed_original": "New announcement: Gyala chiude un round da \u20ac4M"
+    },
+    {
+      "id": "web-signal-02055",
+      "fund_id": "",
+      "fund_slug": "clessidra-sgr",
+      "signal_type": "other",
+      "title": "Clessidra Holding is the parent company of Clessidra.",
+      "what_changed": "Clessidra Holding is the parent company of Clessidra.",
+      "source_url": "https://www.clessidragroup.it/team_member/sabrina-goi/",
+      "source_name": "Clessidra SGR",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:02:44.338731+00:00",
+      "created_at": "2026-03-09T10:02:44.338731+00:00",
+      "snapshot_id": "snap-20260309100238-5355a035",
+      "diff_summary": "New content extracted from team page",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Clessidra Holding"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "Clessidra Holding \u00e8 la societ\u00e0 capogruppo di Clessidra",
+      "title_original": "Clessidra Holding \u00e8 la societ\u00e0 capogruppo di Clessidra"
+    },
+    {
+      "id": "web-signal-02056",
+      "fund_id": "",
+      "fund_slug": "clessidra-sgr",
+      "signal_type": "other",
+      "title": "Giulio PesentiCorporate Strategy & Business Development",
+      "what_changed": "Giulio PesentiCorporate Strategy & Business Development",
+      "source_url": "https://www.clessidragroup.it/team_member/giulio-pesenti-holding/",
+      "source_name": "Clessidra SGR",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:02:44.338731+00:00",
+      "created_at": "2026-03-09T10:02:44.338731+00:00",
+      "snapshot_id": "snap-20260309100238-5355a035",
+      "diff_summary": "New content extracted from team page",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Business Development"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02057",
+      "fund_id": "",
+      "fund_slug": "clessidra-sgr",
+      "signal_type": "fundraise_announced",
+      "title": "Clessidra Private Debt II: over \u20ac100 million raised in first closing with EIF as cornerstone investor",
+      "what_changed": "New announcement: Clessidra Private Debt II: over \u20ac100 million raised in first closing with EIF as cornerstone investor",
+      "source_url": "https://www.clessidragroup.it/clessidra-private-debt-ii-oltre-cento-milioni-di-euro-nel-primo-closing-con-il-supporto-del-fei-come-investitore-cornerstone/",
+      "source_name": "Clessidra SGR",
+      "published_at": "2026-03-02",
+      "observed_at": "2026-03-09T10:02:46.703535+00:00",
+      "created_at": "2026-03-09T10:02:46.703535+00:00",
+      "snapshot_id": "snap-20260309100246-51d9d6e8",
+      "diff_summary": "New news item detected (dated 2026-03-02)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Clessidra Private Debt"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Clessidra Private Debt II: oltre cento milioni di euro nel primo closing con il supporto del FEI come investitore cornerstone",
+      "title_original": "Clessidra Private Debt II: oltre cento milioni di euro nel primo closing con il supporto del FEI come investitore cornerstone"
+    },
+    {
+      "id": "web-signal-02058",
+      "fund_id": "",
+      "fund_slug": "cinven",
+      "signal_type": "deal_announced",
+      "title": "Executing Excellence: Inside the playbook of top private equity dealmakers",
+      "what_changed": "New announcement: Executing Excellence: Inside the playbook of top private equity dealmakers",
+      "source_url": "https://www.cinven.com/news-insights/executing-excellence-inside-the-playbook-of-top-private-equity-dealmakers/",
+      "source_name": "Cinven",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:02:51.999822+00:00",
+      "created_at": "2026-03-09T10:02:51.999822+00:00",
+      "snapshot_id": "snap-20260309100251-6217b1a0",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Executing Excellence"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02059",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "signal_type": "other",
+      "title": "Private Equity International Large-Cap Firm of the Year in the Americas",
+      "what_changed": "March 2nd, 2026",
+      "source_url": "https://hf.com/large-cap-firm-of-the-year/",
+      "source_name": "Hellman & Friedman",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:03:40.251174+00:00",
+      "created_at": "2026-03-09T10:03:40.251174+00:00",
+      "snapshot_id": "snap-20260309100339-2839c2f4",
+      "diff_summary": "New news item detected (dated March 2nd, 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Private Equity International",
+          "Americas March",
+          "Cap Firm"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02060",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "other",
+      "title": "Middle East Conflict: Potential Macro Impact",
+      "what_changed": "New announcement: Middle East Conflict: Potential Macro Impact",
+      "source_url": "https://www.icgam.com/2026/03/04/middle-east-conflict-potential-macro-impact/",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:03:43.794129+00:00",
+      "created_at": "2026-03-09T10:03:43.794129+00:00",
+      "snapshot_id": "snap-20260309100342-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Middle East Conflict",
+          "Potential Macro Impact"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02061",
+      "fund_id": "",
+      "fund_slug": "icg",
+      "signal_type": "people_move",
+      "title": "Commencement of Share Buyback Programme and Appointment of Non-Executive Director",
+      "what_changed": "New announcement: Commencement of Share Buyback Programme and Appointment of Non-Executive Director",
+      "source_url": "https://www.icgam.com/2026/02/19/commencement-of-share-buyback-programme-and-appointment-of-non-executive-director/",
+      "source_name": "ICG",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:03:43.794129+00:00",
+      "created_at": "2026-03-09T10:03:43.794129+00:00",
+      "snapshot_id": "snap-20260309100342-fec4df7a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Share Buyback Programme",
+          "Executive Director"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02062",
+      "fund_id": "",
+      "fund_slug": "hld",
+      "signal_type": "other",
+      "title": "Exosens takes another major step forward in the United States.",
+      "what_changed": "New announcement: Exosens takes another major step forward in the United States.",
+      "source_url": "https://www.groupehld.com/en/news/exosens-takes-another-major-step-forward-in-the-united-states",
+      "source_name": "HLD",
+      "published_at": "2026-03-01",
+      "observed_at": "2026-03-09T10:03:51.334732+00:00",
+      "created_at": "2026-03-09T10:03:51.334732+00:00",
+      "snapshot_id": "snap-20260309100348-d139a796",
+      "diff_summary": "New news item detected (dated 2026-03-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "United States"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02063",
+      "fund_id": "",
+      "fund_slug": "hld",
+      "signal_type": "other",
+      "title": "Wholesale broker, insurance expert for professionals and self-employed workers",
+      "what_changed": "New announcement: Wholesale broker, insurance expert for professionals and self-employed workers",
+      "source_url": "https://www.groupehld.com/en/news/wholesale-broker-insurance-expert-for-professionals-and-self-employed-workers",
+      "source_name": "HLD",
+      "published_at": "2026-02-01",
+      "observed_at": "2026-03-09T10:03:51.334732+00:00",
+      "created_at": "2026-03-09T10:03:51.334732+00:00",
+      "snapshot_id": "snap-20260309100348-d139a796",
+      "diff_summary": "New news item detected (dated 2026-02-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02064",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "deal_announced",
+      "title": "Ariston Education added to EQT portfolio (Education)",
+      "what_changed": "Ariston Education added to EQT portfolio (Education)",
+      "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:04:00.881088+00:00",
+      "created_at": "2026-03-09T10:04:00.881088+00:00",
+      "snapshot_id": "snap-20260309100301-6500e4d6",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Ariston Education"
+        ],
+        "people": [
+          "Ariston Education Education"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02065",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "other",
+      "title": "Private Capital Asia",
+      "what_changed": "New announcement: Private Capital Asia",
+      "source_url": "https://www.eqtgroup.com/news/eqt-private-capital-asia",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:04:04.535087+00:00",
+      "created_at": "2026-03-09T10:04:04.535087+00:00",
+      "snapshot_id": "snap-20260309100401-be32a7d6",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Private Capital Asia"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02066",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "other",
+      "title": "Value-Add Infrastructure",
+      "what_changed": "New announcement: Value-Add Infrastructure",
+      "source_url": "https://www.eqtgroup.com/news/infrastructure/eqt-value-add-infrastructure",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:04:04.535087+00:00",
+      "created_at": "2026-03-09T10:04:04.535087+00:00",
+      "snapshot_id": "snap-20260309100401-be32a7d6",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Add Infrastructure"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02067",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "other",
+      "title": "Active Core Infrastructure",
+      "what_changed": "New announcement: Active Core Infrastructure",
+      "source_url": "https://www.eqtgroup.com/news/infrastructure/eqt-active-core-infrastructure",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:04:04.535087+00:00",
+      "created_at": "2026-03-09T10:04:04.535087+00:00",
+      "snapshot_id": "snap-20260309100401-be32a7d6",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Active Core Infrastructure"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02068",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "other",
+      "title": "Transition Infrastructure",
+      "what_changed": "New announcement: Transition Infrastructure",
+      "source_url": "https://www.eqtgroup.com/news/infrastructure/eqt-transition-infrastructure",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:04:04.535087+00:00",
+      "created_at": "2026-03-09T10:04:04.535087+00:00",
+      "snapshot_id": "snap-20260309100401-be32a7d6",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Transition Infrastructure"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02069",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "exit_announced",
+      "title": "2025 IPO Index Two Decades of Future Proofing Companies Read now",
+      "what_changed": "New announcement: 2025 IPO Index Two Decades of Future Proofing Companies Read now",
+      "source_url": "https://www.eqtgroup.com/news/thinq/private-markets/ipo-report-2025",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:04:04.535087+00:00",
+      "created_at": "2026-03-09T10:04:04.535087+00:00",
+      "snapshot_id": "snap-20260309100401-be32a7d6",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Future Proofing Companies",
+          "Index Two Decades"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02070",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "other",
+      "title": "Education What is a Private Equity Fund?",
+      "what_changed": "New announcement: Education What is a Private Equity Fund?",
+      "source_url": "https://www.eqtgroup.com/news/thinq/Education/what-is-a-private-equity-fund",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:04:04.535087+00:00",
+      "created_at": "2026-03-09T10:04:04.535087+00:00",
+      "snapshot_id": "snap-20260309100401-be32a7d6",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Private Equity Fund",
+          "Education What"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02071",
+      "fund_id": "",
+      "fund_slug": "lone-star-funds",
+      "signal_type": "deal_announced",
+      "title": "Lone Star Funds Announces Agreement to Acquire the Capsules & Health Ingredients Division of Lonza Group AG",
+      "what_changed": "March 6, 2026",
+      "source_url": "https://www.lonestarfunds.com/lone-star-funds-announces-agreement-to-acquire-the-capsules-health-ingredients-division-of-lonza-group-ag/",
+      "source_name": "Lone Star Funds",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:04:05.518350+00:00",
+      "created_at": "2026-03-09T10:04:05.518350+00:00",
+      "snapshot_id": "snap-20260309100405-b4e23d80",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Health Ingredients Division",
+          "Announces Agreement",
+          "Lonza Group",
+          "Lone Star Funds"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02072",
+      "fund_id": "",
+      "fund_slug": "lone-star-funds",
+      "signal_type": "exit_announced",
+      "title": "Lone Star Funds Completes Sale of SPX FLOW to ITT Inc.",
+      "what_changed": "March 2, 2026",
+      "source_url": "https://www.lonestarfunds.com/news/",
+      "source_name": "Lone Star Funds",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:04:05.518350+00:00",
+      "created_at": "2026-03-09T10:04:05.518350+00:00",
+      "snapshot_id": "snap-20260309100405-b4e23d80",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Completes Sale",
+          "Lone Star Funds"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02073",
+      "fund_id": "",
+      "fund_slug": "lone-star-funds",
+      "signal_type": "deal_announced",
+      "title": "Lone Star Agrees to Acquire Central London Office Building",
+      "what_changed": "February 26, 2026",
+      "source_url": "https://www.lonestarfunds.com/news/",
+      "source_name": "Lone Star Funds",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:04:05.518350+00:00",
+      "created_at": "2026-03-09T10:04:05.518350+00:00",
+      "snapshot_id": "snap-20260309100405-b4e23d80",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Office Building February",
+          "Acquire Central London",
+          "Lone Star Agrees"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02074",
+      "fund_id": "",
+      "fund_slug": "neva-sgr",
+      "signal_type": "deal_announced",
+      "title": "Mirta exit added to Neva SGR portfolio",
+      "what_changed": "Mirta exit added to Neva SGR portfolio",
+      "source_url": "https://www.nevasgr.com/content/neva/en/portfolio.html",
+      "source_name": "Neva SGR",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:04:20.360607+00:00",
+      "created_at": "2026-03-09T10:04:20.360607+00:00",
+      "snapshot_id": "snap-20260309100419-bab53d55",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Mirta exit"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02075",
+      "fund_id": "",
+      "fund_slug": "neva-sgr",
+      "signal_type": "deal_announced",
+      "title": "Casavo exit added to Neva SGR portfolio",
+      "what_changed": "Casavo exit added to Neva SGR portfolio",
+      "source_url": "https://www.nevasgr.com/content/neva/en/portfolio.html",
+      "source_name": "Neva SGR",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:04:20.360607+00:00",
+      "created_at": "2026-03-09T10:04:20.360607+00:00",
+      "snapshot_id": "snap-20260309100419-bab53d55",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Casavo exit"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02076",
+      "fund_id": "",
+      "fund_slug": "l-catterton",
+      "signal_type": "people_move",
+      "title": "New team member: Kazuki Sho",
+      "what_changed": "New team member: Kazuki Sho (Investment and Operating Team)",
+      "source_url": "https://www.lcatterton.com/People.html",
+      "source_name": "L Catterton",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:04:21.243775+00:00",
+      "created_at": "2026-03-09T10:04:21.243775+00:00",
+      "snapshot_id": "snap-20260309100419-c9110584",
+      "diff_summary": "1 new team member via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Kazuki Sho"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02077",
+      "fund_id": "",
+      "fund_slug": "montefiore",
+      "signal_type": "other",
+      "title": "Montefiore Investment recognised at the Private Equity Exchange & Awards 2025 for the 15th consecutive year",
+      "what_changed": "New announcement: Montefiore Investment recognised at the Private Equity Exchange & Awards 2025 for the 15th consecutive year",
+      "source_url": "https://montefiore.eu/en/montefiore-investment-recognised-at-the-private-equity-exchange-awards-2025-for-the-15th-consecutive-year/",
+      "source_name": "Montefiore Investment",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:04:21.938958+00:00",
+      "created_at": "2026-03-09T10:04:21.938958+00:00",
+      "snapshot_id": "snap-20260309100421-33f8db9a",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Montefiore Investment",
+          "Private Equity Exchange"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02078",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "signal_type": "other",
+      "title": "Macquarie unlocks fee-free rental payments for Australians with the launch of PayID\u00ae on DEFT",
+      "what_changed": "New announcement: Macquarie unlocks fee-free rental payments for Australians with the launch of PayID\u00ae on DEFT",
+      "source_url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-unlocks-fee-free-rental-payments-for-australians-with-the-launch-of-payid-on-deft.html",
+      "source_name": "Macquarie",
+      "published_at": "2026-03-06",
+      "observed_at": "2026-03-09T10:04:28.836698+00:00",
+      "created_at": "2026-03-09T10:04:28.836698+00:00",
+      "snapshot_id": "snap-20260309100428-6f55edda",
+      "diff_summary": "New news item detected (dated 2026-03-06)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02079",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "signal_type": "other",
+      "title": "Macquarie Asset Management and Gabia form strategic partnership to develop next generation hyperscale data centre platform in South Korea",
+      "what_changed": "New announcement: Macquarie Asset Management and Gabia form strategic partnership to develop next generation hyperscale data centre platform in South Korea",
+      "source_url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-and-gabia-form-strategic-partnership-to-develop-next-generation-hyperscale-data-centre-platform-in-south-korea.html",
+      "source_name": "Macquarie",
+      "published_at": "2026-03-03",
+      "observed_at": "2026-03-09T10:04:28.836698+00:00",
+      "created_at": "2026-03-09T10:04:28.836698+00:00",
+      "snapshot_id": "snap-20260309100428-6f55edda",
+      "diff_summary": "New news item detected (dated 2026-03-03)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "South Korea",
+          "Macquarie Asset Management"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02080",
+      "fund_id": "",
+      "fund_slug": "patrizia",
+      "signal_type": "other",
+      "title": "PATRIZIA launches EUR 500m Berlin residential development programme as part of its pan-European Living strategy",
+      "what_changed": "PATRIZIA has launched a Berlin residential development programme through a new joint venture, targeting a total development volume of up to EUR 500 million.",
+      "source_url": "https://www.patrizia.ag/en/news-detail/patrizia-launches-eur-500m-berlin-residential-development-programme-as-part-of-its-pan-european-living-strategy/",
+      "source_name": "PATRIZIA",
+      "published_at": "2026-03-09",
+      "observed_at": "2026-03-09T10:04:51.178320+00:00",
+      "created_at": "2026-03-09T10:04:51.178320+00:00",
+      "snapshot_id": "snap-20260309100450-168e4ed5",
+      "diff_summary": "New news item detected (dated 2026-03-09)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "European Living"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02081",
+      "fund_id": "",
+      "fund_slug": "patrizia",
+      "signal_type": "other",
+      "title": "PATRIZIA FY 2025 financial results: Strong EBITDA growth and increase in dividend per share",
+      "what_changed": "PATRIZIA today published preliminary, unaudited financial results for FY 2025.",
+      "source_url": "https://www.patrizia.ag/en/news-detail/patrizia-fy-2025-financial-results-strong-ebitda-growth-and-increase-in-dividend-per-share-1/",
+      "source_name": "PATRIZIA",
+      "published_at": "2026-03-04",
+      "observed_at": "2026-03-09T10:04:51.178320+00:00",
+      "created_at": "2026-03-09T10:04:51.178320+00:00",
+      "snapshot_id": "snap-20260309100450-168e4ed5",
+      "diff_summary": "New news item detected (dated 2026-03-04)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02082",
+      "fund_id": "",
+      "fund_slug": "patrizia",
+      "signal_type": "other",
+      "title": "PATRIZIA strengthens European decarbonisation platform with c. EUR 175 million refinancing of Norwegian district heating business SAREN Energy",
+      "what_changed": "PATRIZIA has secured approximately EUR 175 million in new senior and junior debt financing for the Norwegian waste-to-energy platform, SAREN Energy.",
+      "source_url": "https://www.patrizia.ag/en/news-detail/patrizia-strengthens-european-decarbonisation-platform-with-c-eur-175-million-refinancing-of-norwegian-district-heating-business-saren-energy/",
+      "source_name": "PATRIZIA",
+      "published_at": "2026-03-04",
+      "observed_at": "2026-03-09T10:04:51.178320+00:00",
+      "created_at": "2026-03-09T10:04:51.178320+00:00",
+      "snapshot_id": "snap-20260309100450-168e4ed5",
+      "diff_summary": "New news item detected (dated 2026-03-04)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02083",
+      "fund_id": "",
+      "fund_slug": "carlyle",
+      "signal_type": "deal_announced",
+      "title": "Carlyle agrees to acquire SUGIKO",
+      "what_changed": "New announcement: Carlyle agrees to acquire SUGIKO",
+      "source_url": "https://www.carlyle.com/media-room/news-release-archive/carlyle-agrees-acquire-sugiko",
+      "source_name": "Carlyle",
+      "published_at": "2026-03-04",
+      "observed_at": "2026-03-09T10:05:00.604687+00:00",
+      "created_at": "2026-03-09T10:05:00.604687+00:00",
+      "snapshot_id": "snap-20260309100459-b3e9bc2c",
+      "diff_summary": "New news item detected (dated 2026-03-04)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02084",
+      "fund_id": "",
+      "fund_slug": "partners-group",
+      "signal_type": "other",
+      "title": "Partners Group announces credit rating from Moody's Ratings",
+      "what_changed": "New announcement: Partners Group announces credit rating from Moody's Ratings",
+      "source_url": "https://www.partnersgroup.com/news-and-views/press-releases/corporate-news/detail?news_id=30c2dddc-7aa1-4734-80cb-3e452834abb1",
+      "source_name": "Partners Group",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:05:02.871022+00:00",
+      "created_at": "2026-03-09T10:05:02.871022+00:00",
+      "snapshot_id": "snap-20260309100502-b7711bcf",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Partners Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02085",
+      "fund_id": "",
+      "fund_slug": "oakley-capital",
+      "signal_type": "other",
+      "title": "Oakley Capital strengthens platform with promotions including four new Partners",
+      "what_changed": "New announcement: Oakley Capital strengthens platform with promotions including four new Partners",
+      "source_url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-strengthens-platform-with-promotions-including-four-new-partners",
+      "source_name": "Oakley Capital",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:05:02.890644+00:00",
+      "created_at": "2026-03-09T10:05:02.890644+00:00",
+      "snapshot_id": "snap-20260309100502-9c409e53",
+      "diff_summary": "New news item detected (dated 03.03.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Oakley Capital"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02086",
+      "fund_id": "",
+      "fund_slug": "quadrivio-group",
+      "signal_type": "people_move",
+      "title": "New team members: Francesco Profumo (+32 more)",
+      "what_changed": "New team members: Francesco Profumo (Presidente), Philippe Franchet (Managing Partner), Fabio Boschi (Managing Partner), Filippo Cavalli (Partner), Martino Rocca (COO e Senior Investment Manager di Quadrivio Group) (+28 more)",
+      "source_url": "https://www.quadriviogroup.com/it/about/people",
+      "source_name": "Quadrivio Group",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:05:11.273384+00:00",
+      "created_at": "2026-03-09T10:05:11.273384+00:00",
+      "snapshot_id": "snap-20260309100507-1b7f4e5a",
+      "diff_summary": "33 new team members via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Francesco Profumo",
+          "Philippe Franchet",
+          "Fabio Boschi",
+          "Filippo Cavalli",
+          "Martino Rocca",
+          "Vincenzo Esposito",
+          "Riccardo Bruno",
+          "Marco De Alfaro",
+          "Michael Von Liechtenstein",
+          "Riccardo Palmisano",
+          "Giovanni Ronca",
+          "Alberto Sangiovanni Vincentelli",
+          "Giorgio Metta",
+          "Christian Parmigiani",
+          "Diego Chiavarelli",
+          "Marco Massini",
+          "Valentina Di Rienzo",
+          "Giacomo Gerosa",
+          "Flavio Ponticello",
+          "Federico Cracco",
+          "Valerio Neri",
+          "Massimo Fontana",
+          "Leonardo Zorza",
+          "Giovanni Maria Pagano",
+          "Oliver Ghezzi",
+          "Alix Robinson",
+          "Simona Spinelli",
+          "Tarek Elkhereiji",
+          "Elisabetta Marchiolo",
+          "Alessandro D'Orazio",
+          "Gianluca Piccioni",
+          "Francesco Alfano",
+          "Claudine Cosulich"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02087",
+      "fund_id": "",
+      "fund_slug": "portobello-capital",
+      "signal_type": "other",
+      "title": "SuperReturn International 2026",
+      "what_changed": "New announcement: SuperReturn International 2026",
+      "source_url": "https://www.portobellocapital.es/en/superreturn-international-2026/",
+      "source_name": "Portobello Capital",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:05:16.982488+00:00",
+      "created_at": "2026-03-09T10:05:16.982488+00:00",
+      "snapshot_id": "snap-20260309100510-426bd5c8",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02088",
+      "fund_id": "",
+      "fund_slug": "scientifica-vc",
+      "signal_type": "people_move",
+      "title": "New team members: Manuel Roveri (+1 more)",
+      "what_changed": "New team members: Manuel Roveri (Milan Polytechnic), Giuseppe Falci (University of Catania)",
+      "source_url": "https://scientifica.vc/team/?fr_src=fundradar",
+      "source_name": "Scientifica VC",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:05:27.755441+00:00",
+      "created_at": "2026-03-09T10:05:27.755441+00:00",
+      "snapshot_id": "snap-20260309100521-98a0bec2",
+      "diff_summary": "2 new team members via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.275,
+      "relevance_reasons": [
+        "Italian cities: Catania, Milano"
+      ],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Manuel Roveri",
+          "Giuseppe Falci"
+        ],
+        "locations": [
+          "Catania",
+          "Milano"
+        ]
+      },
+      "what_changed_original": "New team members: Manuel Roveri (Politecnico di Milano), Giuseppe Falci (Universit\u00e0 di Catania)"
+    },
+    {
+      "id": "web-signal-02089",
+      "fund_id": "",
+      "fund_slug": "sagitta-sgr",
+      "signal_type": "people_move",
+      "title": "New team members: Daniela Saliani (+1 more)",
+      "what_changed": "New team members: Daniela Saliani (Real Estate Asset Manager), Real Estate Asset Manager (Daniela Saliani)",
+      "source_url": "https://www.sagittasgr.it/chi-siamo/il-team/",
+      "source_name": "Sagitta SGR",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:05:31.552513+00:00",
+      "created_at": "2026-03-09T10:05:31.552513+00:00",
+      "snapshot_id": "snap-20260309100518-68a02d42",
+      "diff_summary": "2 new team members via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Daniela Saliani",
+          "Real Estate Asset Manager"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02090",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "other",
+      "title": "Stonepeak Wins Transport Investor of the Year, Global and North America",
+      "what_changed": "New announcement: Stonepeak Wins Transport Investor of the Year, Global and North America",
+      "source_url": "https://stonepeak.com/news/stonepeak-wins-transport-investor-of-the-year-global-and-north-america",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:05:35.883935+00:00",
+      "created_at": "2026-03-09T10:05:35.883935+00:00",
+      "snapshot_id": "snap-20260309100535-490bd811",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Stonepeak Wins Transport",
+          "North America"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02091",
+      "fund_id": "",
+      "fund_slug": "sinloc-investimenti-sgr",
+      "signal_type": "deal_announced",
+      "title": "BASKET BOND PIEMONTE: LAUNCH OF THE NEW REGIONAL MODEL STRUCTURED AND MANAGED BY SINLOC INVESTIMENTI SGR",
+      "what_changed": "New announcement: BASKET BOND PIEMONTE: LAUNCH OF THE NEW REGIONAL MODEL STRUCTURED AND MANAGED BY SINLOC INVESTIMENTI SGR",
+      "source_url": "https://sinlocinvestimentisgr.com/2026/03/basket-bond-piemonte-al-via-il-nuovo-modello-regionale-strutturato-e-gestito-da-sinloc-investimenti-sgr/",
+      "source_name": "Sinloc Investimenti SGR",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:05:37.529811+00:00",
+      "created_at": "2026-03-09T10:05:37.529811+00:00",
+      "snapshot_id": "snap-20260309100536-26ffef2f",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.5,
+      "relevance_reasons": [
+        "Italian regions: Piemonte",
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": [
+          "Piemonte"
+        ]
+      },
+      "what_changed_original": "New announcement: BASKET BOND PIEMONTE: AL VIA IL NUOVO MODELLO REGIONALE STRUTTURATO E GESTITO DA SINLOC INVESTIMENTI SGR",
+      "title_original": "BASKET BOND PIEMONTE: AL VIA IL NUOVO MODELLO REGIONALE STRUTTURATO E GESTITO DA SINLOC INVESTIMENTI SGR"
+    },
+    {
+      "id": "web-signal-02092",
+      "fund_id": "",
+      "fund_slug": "sagard",
+      "signal_type": "people_move",
+      "title": "New team members: Jonathan d'Auvergne (+1 more)",
+      "what_changed": "New team members: Jonathan d'Auvergne (Vice President of Distribution, Western Canada), Jimmy Sestilio",
+      "source_url": "https://www.sagard.com/team/",
+      "source_name": "Sagard",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:05:37.897113+00:00",
+      "created_at": "2026-03-09T10:05:37.897113+00:00",
+      "snapshot_id": "snap-20260309100522-7b8d5d9d",
+      "diff_summary": "2 new team members via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Jonathan d'Auvergne",
+          "Jimmy Sestilio"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02093",
+      "fund_id": "",
+      "fund_slug": "permira",
+      "signal_type": "other",
+      "title": "Quotient Sciences Extends Commercial Manufacturing Partnership for Ultra-Rare Disease Treatment",
+      "what_changed": "New announcement: Quotient Sciences Extends Commercial Manufacturing Partnership for Ultra-Rare Disease Treatment",
+      "source_url": "https://www.permira.com/news-and-insights/announcements/quotient-sciences-extends-commercial-manufacturing-partnership-for-ultra-rare-disease-treatment/",
+      "source_name": "Permira",
+      "published_at": "2026-02-26",
+      "observed_at": "2026-03-09T10:05:43.082233+00:00",
+      "created_at": "2026-03-09T10:05:43.082233+00:00",
+      "snapshot_id": "snap-20260309100542-efaed21f",
+      "diff_summary": "New news item detected (dated 26 Feb 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Quotient Sciences Extends",
+          "Commercial Manufacturing Partnership",
+          "Rare Disease Treatment"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02094",
+      "fund_id": "",
+      "fund_slug": "stirling-square-capital-partners",
+      "signal_type": "exit_announced",
+      "title": "Filter by exited from Stirling Square Capital Partners portfolio",
+      "what_changed": "Filter by exited from Stirling Square Capital Partners portfolio",
+      "source_url": "https://www.stirlingsquare.com/investments",
+      "source_name": "Stirling Square Capital Partners",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:05:45.849201+00:00",
+      "created_at": "2026-03-09T10:05:45.849201+00:00",
+      "snapshot_id": "snap-20260309100533-fe9fc1fa",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Filter by"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02095",
+      "fund_id": "",
+      "fund_slug": "three-hills",
+      "signal_type": "fundraise_announced",
+      "title": "Three Hills Impact Closes Above Target at \u20ac300 million",
+      "what_changed": "New announcement: Three Hills Impact Closes Above Target at \u20ac300 million",
+      "source_url": "https://www.threehills.com/three-hills-impact-closes-above-target-at-e300-million/",
+      "source_name": "Three Hills",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:05:46.557892+00:00",
+      "created_at": "2026-03-09T10:05:46.557892+00:00",
+      "snapshot_id": "snap-20260309100546-7d24ed46",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Three Hills Impact",
+          "Closes Above Target"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02096",
+      "fund_id": "",
+      "fund_slug": "triton",
+      "signal_type": "other",
+      "title": "Royal Reesink to sell Nicolaisen & Larsen to Br\u00f8ns Group",
+      "what_changed": "New announcement: Royal Reesink to sell Nicolaisen & Larsen to Br\u00f8ns Group",
+      "source_url": "https://www.triton-partners.com/media/news/royal-reesink-to-sell-nicolaisen-larsen-to-brons-group/",
+      "source_name": "Triton",
+      "published_at": "2026-02-27",
+      "observed_at": "2026-03-09T10:05:50.248003+00:00",
+      "created_at": "2026-03-09T10:05:50.248003+00:00",
+      "snapshot_id": "snap-20260309100549-660aaafc",
+      "diff_summary": "New news item detected (dated 27/02/2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Royal Reesink"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02097",
+      "fund_id": "",
+      "fund_slug": "permira",
+      "signal_type": "other",
+      "title": "Permira was named Large-Cap Firm of the Year (EMEA) in the 2025 Private Equity International Awards",
+      "what_changed": "New announcement: Permira was named Large-Cap Firm of the Year (EMEA) in the 2025 Private Equity International Awards",
+      "source_url": "https://www.privateequityinternational.com/pei-awards-2025-emea-winners/",
+      "source_name": "Permira",
+      "published_at": "2026-03-02",
+      "observed_at": "2026-03-09T10:05:55.099177+00:00",
+      "created_at": "2026-03-09T10:05:55.099177+00:00",
+      "snapshot_id": "snap-20260309100554-7f91dce7",
+      "diff_summary": "New news item detected (dated 2 Mar 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Private Equity International",
+          "Cap Firm"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02098",
+      "fund_id": "",
+      "fund_slug": "permira",
+      "signal_type": "other",
+      "title": "Permira was named CLO Manager of the Year (Europe) in the 2025 Private Debt Investor Awards",
+      "what_changed": "New announcement: Permira was named CLO Manager of the Year (Europe) in the 2025 Private Debt Investor Awards",
+      "source_url": "https://www.privatedebtinvestor.com/pdi-awards-2025-europe-winners/",
+      "source_name": "Permira",
+      "published_at": "2026-03-02",
+      "observed_at": "2026-03-09T10:05:55.099177+00:00",
+      "created_at": "2026-03-09T10:05:55.099177+00:00",
+      "snapshot_id": "snap-20260309100554-7f91dce7",
+      "diff_summary": "New news item detected (dated 2 Mar 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Private Debt Investor"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02099",
+      "fund_id": "",
+      "fund_slug": "permira",
+      "signal_type": "other",
+      "title": "Permira was named Large-Cap Private Equity Firm of the Year (ESG) in the 2025 New Private Markets Awards",
+      "what_changed": "New announcement: Permira was named Large-Cap Private Equity Firm of the Year (ESG) in the 2025 New Private Markets Awards",
+      "source_url": "https://www.newprivatemarkets.com/new-private-markets-global-awards-2025-esg-in-fund-management-winners/",
+      "source_name": "Permira",
+      "published_at": "2026-02-23",
+      "observed_at": "2026-03-09T10:05:55.099177+00:00",
+      "created_at": "2026-03-09T10:05:55.099177+00:00",
+      "snapshot_id": "snap-20260309100554-7f91dce7",
+      "diff_summary": "New news item detected (dated 23 Feb 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "New Private Markets",
+          "Cap Private Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02100",
+      "fund_id": "",
+      "fund_slug": "permira",
+      "signal_type": "other",
+      "title": "Chris Pell spoke to PE Hub to reflect on our journey with Evelyn Partners and what it reveals about the evolution of UK wealth management MA",
+      "what_changed": "New announcement: Chris Pell spoke to PE Hub to reflect on our journey with Evelyn Partners and what it reveals about the evolution of UK wealth management MA",
+      "source_url": "https://www.pehub.com/permiras-long-evelyn-hold-showcases-uk-wealth-managements-ma-evolution/",
+      "source_name": "Permira",
+      "published_at": "2026-02-23",
+      "observed_at": "2026-03-09T10:05:55.099177+00:00",
+      "created_at": "2026-03-09T10:05:55.099177+00:00",
+      "snapshot_id": "snap-20260309100554-7f91dce7",
+      "diff_summary": "New news item detected (dated 23 Feb 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Evelyn Partners",
+          "Chris Pell"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02101",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "other",
+      "title": "TPG Partners with Findhelp to Expand Access to Essential Services for Underserved Populations",
+      "what_changed": "New announcement: TPG Partners with Findhelp to Expand Access to Essential Services for Underserved Populations",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-partners-with-findhelp-to-expand-access-to-essential-services-for-underserved-populations",
+      "source_name": "TPG",
+      "published_at": "2026-03-03",
+      "observed_at": "2026-03-09T10:05:57.548333+00:00",
+      "created_at": "2026-03-09T10:05:57.548333+00:00",
+      "snapshot_id": "snap-20260309100557-c8b13c68",
+      "diff_summary": "New news item detected (dated 2026-03-03T13:28:46)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Essential Services",
+          "Underserved Populations",
+          "Expand Access"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02102",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "other",
+      "title": "TPG Reports Fourth Quarter and Full Year 2025 Results",
+      "what_changed": "New announcement: TPG Reports Fourth Quarter and Full Year 2025 Results",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-reports-fourth-quarter-and-full-year-2025-results",
+      "source_name": "TPG",
+      "published_at": null,
+      "observed_at": "2026-03-09T10:05:57.548333+00:00",
+      "created_at": "2026-03-09T10:05:57.548333+00:00",
+      "snapshot_id": "snap-20260309100557-c8b13c68",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Full Year",
+          "Reports Fourth Quarter"
+        ],
+        "locations": []
+      }
     }
   ],
-  "signal_count": 2026,
-  "translated_at": "2026-03-02T08:19:46.206177+00:00"
+  "signal_count": 2102,
+  "translated_at": "2026-03-09T10:13:16.258114+00:00"
 }

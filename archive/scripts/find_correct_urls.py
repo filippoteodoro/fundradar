@@ -4,13 +4,14 @@ Script to find correct news/portfolio URLs for Italian PE/VC funds using Gemini 
 """
 
 import json
+import os
 import time
 import requests
 from pathlib import Path
 from urllib.parse import urlparse
 
 # Gemini API configuration
-GEMINI_API_KEY = "REDACTED_GEMINI_KEY"
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent"
 
 # Priority funds to check (by deal count, deduplicated by slug)

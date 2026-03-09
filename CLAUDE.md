@@ -35,21 +35,43 @@ Blocked via `invalid_slugs` in `fund_aliases.json` and `EXCLUDED_SLUGS` in `merg
 
 ## Project Structure
 
+Folder-level only — individual extractors and scripts are not listed (they change frequently).
+
 ```
-apps/web/                     Next.js frontend (see apps/web/CLAUDE.md)
-  src/lib/data.ts               ALL data loading, multiple caches
-  src/lib/signals_unified.ts    Signal aggregation for /signals page
-  src/lib/signalProcessing.ts   Shared signal processing (both paths)
-apps/worker/                  Python workers (see apps/worker/CLAUDE.md)
-  fundradar_worker/
-    strategies/extractors/      Fund-specific extractors (with URLS dicts)
-data/                         Data files
-  derived/                      Worker output (JSON consumed by web)
-  AIFI/                         AIFI scraped data
-  pem/                          PEM PDF source files (DO NOT Read())
-packages/shared/              Shared TypeScript types
-  src/types.ts                  Fund, Signal, Deal, etc.
-scripts/                      TS seed/parse utilities
+apps/
+  web/                          Next.js frontend (see apps/web/CLAUDE.md)
+    src/
+      app/                        Next.js App Router routes (pages, API routes)
+      components/                 React components
+      lib/                        ALL data loading + signal processing (data.ts, signals_unified.ts, signalProcessing.ts)
+  worker/                       Python pipeline (see apps/worker/CLAUDE.md)
+    fundradar_worker/             Core importable package
+      strategies/
+        extractors/               Fund-specific extractors — one .py per fund (DO NOT list individually)
+      linkedin/                   LinkedIn scraping modules (Apify, HarvestAPI)
+    scripts/                      Standalone pipeline scripts (filter, enrich, translate, signal_to_portfolio, …)
+    tests/                        pytest test suite
+
+data/
+  derived/                      Worker output JSON — committed to git, consumed by web
+  AIFI/                         AIFI member source data (all.csv is authoritative for fund URLs)
+  models/                       ML classifier joblib files
+  pem/                          PEM PDF source files — NEVER Read() these
+
+packages/
+  shared/src/                   Shared TypeScript types (types.ts: Fund, Signal, Deal, …)
+
+scripts/                        Gemini audit + data maintenance Python scripts (one-off / manual runs)
+  audit-fund-assets-gemini.py   Canonical Gemini fund audit runner
+  run-audit-fund-assets-gemini-parallel.py  Parallel shard runner
+  enrich-fund-metadata-gemini.py
+  generate-fund-descriptions-gemini.py
+  enrich-top-fund-portfolios-gemini.py
+  verify-portfolio-gemini.py
+  import-manual-gemini-fund-responses.py
+  reconcile-gemini-fund-asset-audit.py
+  recover-gemini-fund-asset-audit-from-logs.py
+  (+ audit/validation helpers)
 ```
 
 ## Commands
@@ -93,8 +115,8 @@ Python writes dicts to JSON with no schema validation. TypeScript types are comp
 Every signal MUST have: `source_url`, `source_name`, `published_at` (if known), `observed_at`. All enrichment must have a verifiable `{field}_source_url`. AI is a data collection aid, not a data source — never store "ai_inferred" as a source.
 
 ### 5. Model Policy
-- **OpenAI**: Use `gpt-5-mini` or better. NEVER use ChatGPT 4o (hallucinates too much).
-- **Gemini**: ALWAYS use `gemini-3-flash-preview`. NEVER use any `gemini-2.x` model.
+- **OpenAI**: Model is centralised in `OPENAI_MODEL` in `apps/worker/fundradar_worker/paths.py` — always import from there, never hardcode. Current value: `gpt-5-mini`. NEVER use ChatGPT 4o (hallucinates too much).
+- **Gemini**: Model is centralised in `GEMINI_MODEL` in `apps/worker/fundradar_worker/paths.py` — always import from there, never hardcode. Current value: `gemini-3-flash-preview`. NEVER use `gemini-2.x` (hallucinates more). NEVER use Flash-Lite variants for data enrichment — Flash-Lite is optimised for throughput, not accuracy; fact-extraction quality is meaningfully lower.
 
 ### 6. File-Based Architecture
 - All data in JSON files — worker writes to `data/derived/` via `safe_json_write()` (atomic)
@@ -287,6 +309,35 @@ Intentional tradeoffs — don't "fix" without explicit request:
 | CDP Venture Capital | `cdp-venture-capital` | |
 
 Lookup: `python3 -c "import json; [print(f['slug'], f['name']) for f in json.load(open('data/db.json'))['funds'] if 'SEARCH' in f.get('name','').lower()]"`
+
+## Data Safety & Backup
+
+The repo lives under iCloud Drive, so the effective backup tiers are:
+
+| Tier | What | Where |
+|------|------|-------|
+| 1 | Local working copy | `~/Library/Mobile Documents/…/Fundradar/` |
+| 2 | Cloud sync | iCloud (Apple servers, near-real-time) |
+| 3 | Git remote | GitHub (`filippoteodoro/fundradar`) — offsite, versioned |
+
+**Committed files** (all three tiers): source code, `data/db.json`, `data/derived/portfolio_items.json`, `data/derived/detected_signals_*.json`, `data/derived/pem_deals.json`, `data/derived/fund_people_stats.json`, `data/derived/gemini_fund_asset_zero_italy_verified.json`.
+
+**Gitignored files** (iCloud only — tiers 1+2, NOT on GitHub):
+
+| File / Pattern | Why gitignored | Risk if lost |
+|----------------|---------------|-------------|
+| `data/derived/linkedin/raw/` | Sensitive scraped data, Apify cost to regenerate | **HIGH — known 3-2-1 gap, no GitHub copy** |
+| `data/derived/gemini_fund_asset_audit*.json` | Large/noisy intermediate audit output | Medium — months of audit work, but derived output (`zero_italy_verified.json`) is committed |
+| `data/models/` | ML classifier joblib files | Low — can be retrained |
+| `data/pem/*.pdf` | Large PDFs | Low — physical source docs |
+
+**`signal_enrichment_progress.json` is committed** (exception to the `*_progress*` glob) — losing it forces full re-enrichment of all signals at ~$2–5 API cost.
+
+**Known gap — `linkedin/raw/`**: This is the one file set with no GitHub copy. iCloud is the only offsite backup. Do not delete these files without an explicit off-iCloud backup. `git clean -fdx` will wipe them permanently.
+
+**IMPORTANT — "NEVER DELETE" warnings in these docs apply to gitignored files.** They are NOT recoverable from GitHub. iCloud Versions (right-click → Revert To) is the only safety net. A `git clean -fdx` will wipe them permanently.
+
+**`gemini_fund_asset_zero_italy_verified.json` is committed** — it controls which funds are hidden from the website and must survive a fresh clone.
 
 ## Where to Start
 

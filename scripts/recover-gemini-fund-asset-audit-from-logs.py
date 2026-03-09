@@ -21,6 +21,8 @@ from typing import Any
 from gemini_audit_completion import is_fund_result_complete, load_verified_zero_italy_slugs
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+import sys; sys.path.insert(0, str(REPO_ROOT / "apps" / "worker"))
+from fundradar_worker.paths import GEMINI_MODEL
 DERIVED = REPO_ROOT / "data" / "derived"
 DB_PATH = REPO_ROOT / "data" / "db.json"
 PORTFOLIO_PATH = DERIVED / "portfolio_items.json"
@@ -728,7 +730,7 @@ def main() -> int:
             "unresolved_entries_after_split": 0,
             "call_diagnostics": state["call_diagnostics"],
             "checked_at": state.get("last_call_time") or now_iso(),
-            "model": "gemini-3-flash-preview",
+            "model": GEMINI_MODEL,
             "status": "partial_failure" if per_fund_failed else "ok",
             "recovered_from_logs": True,
             "recovery_parse_failed_calls": state["parse_failed_calls"],
@@ -778,7 +780,7 @@ def main() -> int:
 
     output = {
         "generated_at": now_iso(),
-        "model": "gemini-3-flash-preview",
+        "model": GEMINI_MODEL,
         "run_recovered_at": now_iso(),
         "funds": recovered_funds,
         "summary": {

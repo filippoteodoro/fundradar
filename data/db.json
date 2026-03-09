@@ -68,6 +68,7 @@
       "sector_tags": [
         "Financial Services",
         "Consumer Goods",
+        "Construction",
         "Environmental Services",
         "Healthcare"
       ],
@@ -121,11 +122,7 @@
         "Buy-Out"
       ],
       "sector_tags": [
-        "Real Estate",
-        "Construction",
-        "Food & Beverage",
-        "Hospitality & Tourism",
-        "Industrial Manufacturing"
+        "Real Estate"
       ],
       "description": "Originally the French private equity arm of ABN AMRO before a 2008 management buyout, this firm specializes in mid-market transformations, recently acquiring Italian metal recycling specialist Zato.",
       "geographies": [
@@ -250,7 +247,7 @@
         "Industrial Manufacturing",
         "Food & Beverage",
         "Fashion & Luxury",
-        "Software"
+        "Education"
       ],
       "description": "Pioneer of the Italian mid-market since 1997, specializing in succession-driven buyouts and internationalization of family-owned SMEs in the food, healthcare, and industrial manufacturing sectors.",
       "geographies": [
@@ -298,8 +295,8 @@
         "Industrial Manufacturing",
         "Food & Beverage",
         "Agriculture",
-        "Packaging",
-        "Automotive"
+        "Healthcare",
+        "Packaging"
       ],
       "description": "Focuses on succession-driven buyouts and growth capital for family-owned SMEs in Northern Italy. The firm targets niche leaders in the food and industrial sectors, recently acquiring Marino Belotti and exiting Gourmet Italian Food.",
       "geographies": [
@@ -490,7 +487,8 @@
         "Private-Debt"
       ],
       "sector_tags": [
-        "Renewable Energy"
+        "Renewable Energy",
+        "Healthcare"
       ],
       "description": "Manages Italy's first impact fund dedicated to energy transition and circular economy infrastructure, targeting sub-utility scale renewable energy and energy efficiency projects across the country.",
       "geographies": [
@@ -541,7 +539,7 @@
         "Industrial Manufacturing",
         "Consumer Goods",
         "Fashion & Luxury",
-        "Healthcare"
+        "Biotech & Pharma"
       ],
       "description": "Independent firm established in 2000 that partners with Italian family businesses to navigate succession and international growth, managing investments in brands such as Gallo and security door manufacturer Dierre.",
       "geographies": [
@@ -587,7 +585,9 @@
       ],
       "sector_tags": [
         "Consumer Goods",
-        "Hospitality & Tourism"
+        "Hospitality & Tourism",
+        "Industrial Manufacturing",
+        "Transportation & Logistics"
       ],
       "description": "Employs an activist-oriented investment strategy founded by Joseph Oughourlian, targeting corporate governance improvements in European mid-caps such as Italian Exhibition Group and Banca Popolare di Sondrio.",
       "geographies": [
@@ -797,8 +797,8 @@
       "sector_tags": [
         "Food & Beverage",
         "Fashion & Luxury",
-        "Renewable Energy",
-        "Industrial Manufacturing"
+        "Industrial Manufacturing",
+        "Renewable Energy"
       ],
       "description": "Independent asset manager specializing in private debt for Italian SMEs through its BIT fund series, supporting the growth of domestic champions such as Cigierre and Brazzale.",
       "geographies": [
@@ -1181,7 +1181,7 @@
         "Energy",
         "Food & Beverage",
         "Industrial Manufacturing",
-        "Aerospace & Defense"
+        "Construction"
       ],
       "description": "Spun off from AXA in 2013, this employee-owned firm manages a diverse portfolio ranging from global infrastructure like Heathrow to Italian digital transformation leaders such as Jakala.",
       "geographies": [
@@ -1265,8 +1265,8 @@
         "Healthcare",
         "Retail",
         "Consumer Goods",
-        "Technology",
-        "Energy"
+        "Media & Entertainment",
+        "Technology"
       ],
       "description": "Spun off from Apollo in 1997, this alternative investment leader leverages its massive credit platform to anchor landmark deals like the \u20102 billion stake in Eni's Plenitude and infrastructure investments in Venice Airport.",
       "geographies": [
@@ -1397,9 +1397,9 @@
       "sector_tags": [
         "Fashion & Luxury",
         "Industrial Manufacturing",
+        "Construction",
         "Food & Beverage",
-        "Healthcare",
-        "Packaging"
+        "Healthcare"
       ],
       "description": "Independent private equity firm founded by seasoned Italian financiers to partner with family-owned SMEs, focusing on succession-led buyouts for iconic brands like Aspesi and specialized leaders like Quick Group.",
       "geographies": [
@@ -1506,9 +1506,9 @@
       "sector_tags": [
         "Healthcare",
         "Industrial Manufacturing",
+        "Technology",
         "Consumer Goods",
-        "Environmental Services",
-        "Fashion & Luxury"
+        "Environmental Services"
       ],
       "description": "Founded by former Wise Equity partners, the firm scales high-potential Italian SMEs through buyouts and expansion capital, with a portfolio featuring luxury manufacturing group Eurmoda and pharmaceutical player Genetic.",
       "geographies": [
@@ -1679,9 +1679,9 @@
         "Impact-Investing"
       ],
       "sector_tags": [
+        "Technology",
         "Software",
         "Energy",
-        "Technology",
         "Renewable Energy",
         "Hospitality & Tourism"
       ],
@@ -1740,10 +1740,10 @@
       ],
       "sector_tags": [
         "Industrial Manufacturing",
-        "Construction",
         "Software",
-        "Energy",
-        "Food & Beverage"
+        "Construction",
+        "Technology",
+        "Aerospace & Defense"
       ],
       "description": "Functions as the private markets platform of Azimut Group, providing retail and institutional investors access to Italian SME buyouts and infrastructure projects like Italcer and Acque Minerali d\u2019Italia.",
       "geographies": [
@@ -1980,7 +1980,9 @@
       "sector_tags": [
         "Financial Services",
         "Technology",
-        "Professional Services"
+        "Professional Services",
+        "Real Estate",
+        "Retail"
       ],
       "description": "Leverages the banking heritage of the Sella Group to back fintech and digital transformation startups, supported by its proprietary ecosystem including the Fintech District and open banking leader Fabrick.",
       "geographies": [
@@ -2027,9 +2029,9 @@
       "sector_tags": [
         "Healthcare",
         "Industrial Manufacturing",
+        "Food & Beverage",
         "Professional Services",
-        "Technology",
-        "Food & Beverage"
+        "Retail"
       ],
       "description": "Established in 1986 as a spinoff from Baring Brothers, this pioneer of the European buyout market executes large-cap transactions across an integrated platform, including landmark deals like PetSmart and Springer Nature.",
       "geographies": [
@@ -2103,8 +2105,8 @@
       "sector_tags": [
         "Consumer Goods",
         "Food & Beverage",
-        "Fashion & Luxury",
         "Retail",
+        "Fashion & Luxury",
         "Packaging"
       ],
       "description": "Founded in 2007 by former Investcorp partners, this specialist investor focuses on mid-market consumer brands, famously leading the turnaround and eventual sale of the iconic Liberty London department store.",
@@ -2310,7 +2312,8 @@
         "Infrastructure"
       ],
       "sector_tags": [
-        "Renewable Energy"
+        "Renewable Energy",
+        "Industrial Manufacturing"
       ],
       "description": "Specializes in the full lifecycle management of unsubsidized clean energy infrastructure, notably large-scale solar and agrivoltaic developments like the 187 MW Sicily portfolio.",
       "geographies": [
@@ -2504,8 +2507,8 @@
         "Construction",
         "Industrial Manufacturing",
         "Technology",
-        "Healthcare",
-        "Professional Services"
+        "Financial Services",
+        "Healthcare"
       ],
       "description": "Operates as the strategic investment arm of Italy\u2019s National Promotional Institution, taking significant equity stakes in national champions like Fincantieri and Open Fiber to support sovereign industrial policy.",
       "geographies": [
@@ -2730,7 +2733,7 @@
         "Financial Services",
         "Healthcare",
         "Industrial Manufacturing",
-        "Retail"
+        "Food & Beverage"
       ],
       "description": "Originally the British Coal pension investment arm, this firm leads large-cap European buyouts. It maintains a deep Italian presence, recently exiting pet retailer Arcaplanet and acquiring Milan-based fintech Objectway.",
       "geographies": [
@@ -3056,11 +3059,11 @@
         "Buy-Out"
       ],
       "sector_tags": [
+        "Financial Services",
         "Retail",
         "Technology",
-        "Financial Services",
         "Healthcare",
-        "Professional Services"
+        "Industrial Manufacturing"
       ],
       "description": "Originally the European arm of Citicorp Venture Capital, this firm executes complex global buyouts and is known for landmark deals in professional sports, financial services, and technology.",
       "geographies": [
@@ -3240,6 +3243,7 @@
       ],
       "sector_tags": [
         "Technology",
+        "Aerospace & Defense",
         "Biotech & Pharma"
       ],
       "description": "Specializes in commercializing Italian deep tech and robotics research as the manager of the RoboIT National Technology Transfer Hub, backing university spin-offs in AI, space tech, and industrial automation.",
@@ -3517,8 +3521,8 @@
         "All-Stages"
       ],
       "sector_tags": [
-        "Technology",
         "Biotech & Pharma",
+        "Technology",
         "Professional Services",
         "Healthcare",
         "Financial Services"
@@ -3663,9 +3667,9 @@
         "Private-Debt"
       ],
       "sector_tags": [
+        "Consumer Goods",
         "Industrial Manufacturing",
         "Biotech & Pharma",
-        "Consumer Goods",
         "Fashion & Luxury",
         "Healthcare"
       ],
@@ -3954,8 +3958,8 @@
         "Early-Stage"
       ],
       "sector_tags": [
-        "Technology",
         "Healthcare",
+        "Technology",
         "Energy",
         "Biotech & Pharma",
         "Chemicals"
@@ -4001,9 +4005,9 @@
         "Buy-Out"
       ],
       "sector_tags": [
+        "Industrial Manufacturing",
         "Automotive",
         "Chemicals",
-        "Industrial Manufacturing",
         "Consumer Goods",
         "Energy"
       ],
@@ -4057,7 +4061,7 @@
         "Telecommunications",
         "Energy",
         "Construction",
-        "Hospitality & Tourism"
+        "Healthcare"
       ],
       "description": "Italy's largest independent infrastructure manager, established in 2007 by Cassa Depositi e Prestiti and major banks. It manages strategic national assets across energy, telecom, and transport, including FiberCop and EI Towers.",
       "geographies": [
@@ -4108,6 +4112,7 @@
         "Expansion"
       ],
       "sector_tags": [
+        "Consumer Goods",
         "Fashion & Luxury",
         "Professional Services"
       ],
@@ -4208,6 +4213,7 @@
         "Real-Estate"
       ],
       "sector_tags": [
+        "Financial Services",
         "Food & Beverage",
         "Industrial Manufacturing",
         "Retail"
@@ -4506,8 +4512,8 @@
       "sector_tags": [
         "Industrial Manufacturing",
         "Consumer Goods",
-        "Fashion & Luxury",
         "Packaging",
+        "Fashion & Luxury",
         "Food & Beverage"
       ],
       "description": "Independent manager promoted by Fondazione Cariparo that targets Italian SMEs, often facilitating generational turnover and international expansion across the industrial, luxury, and food sectors.",
@@ -4556,9 +4562,9 @@
       "sector_tags": [
         "Food & Beverage",
         "Consumer Goods",
+        "Industrial Manufacturing",
         "Hospitality & Tourism",
-        "Fashion & Luxury",
-        "Healthcare"
+        "Retail"
       ],
       "description": "Independent platform founded by Eugenio de Blasio, focusing on the Italian real economy. It expanded its footprint by acquiring Quadrivio Capital SGR in 2018 and recently exited the frozen bakery leader Forno d\u2019Asolo.",
       "geographies": [
@@ -4709,7 +4715,7 @@
         "Software",
         "Healthcare",
         "Financial Services",
-        "Retail"
+        "Food & Beverage"
       ],
       "description": "Pioneered the Sicaf investment model in Italy to drive digital transformation within traditional SMEs, executing buyouts and expansion rounds in the healthcare and industrial manufacturing sectors.",
       "geographies": [
@@ -4753,9 +4759,9 @@
       ],
       "sector_tags": [
         "Professional Services",
+        "Industrial Manufacturing",
         "Consumer Goods",
         "Healthcare",
-        "Industrial Manufacturing",
         "Aerospace & Defense"
       ],
       "description": "Operates as an evergreen investment group backed by prominent European industrial families, providing permanent capital to market leaders like Kiloutou and Ba&sh without the constraints of traditional fund lifecycles.",
@@ -4960,8 +4966,8 @@
         "Healthcare",
         "Aerospace & Defense",
         "Automotive",
-        "Food & Beverage",
-        "Packaging"
+        "Consumer Goods",
+        "Fashion & Luxury"
       ],
       "description": "Owned by the Italian Ministry of Economy and Finance, this national agency executes industrial policy through strategic turnarounds and equity investments in key sectors like aerospace and green manufacturing.",
       "geographies": [
@@ -5008,10 +5014,10 @@
       ],
       "sector_tags": [
         "Industrial Manufacturing",
-        "Technology",
         "Food & Beverage",
-        "Professional Services",
-        "Healthcare"
+        "Technology",
+        "Healthcare",
+        "Professional Services"
       ],
       "description": "Formed by a veteran team of partners from Alcedo to target buyouts of niche market leaders in Northern Italy, specializing in complex generational handovers for companies like CVS Ferrari and the recently exited Panificio San Francesco.",
       "geographies": [
@@ -5058,9 +5064,10 @@
       ],
       "sector_tags": [
         "Healthcare",
+        "Financial Services",
         "Technology",
-        "Energy",
-        "Hospitality & Tourism"
+        "Consumer Goods",
+        "Energy"
       ],
       "description": "Leverages the asset management expertise of the Kairos Group to target ESG-compliant startups in deep tech and healthcare, with high-profile investments in nuclear energy pioneer Newcleo and fintech firm Viceversa.",
       "geographies": [
@@ -5257,7 +5264,8 @@
       ],
       "sector_tags": [
         "Renewable Energy",
-        "Food & Beverage"
+        "Food & Beverage",
+        "Fashion & Luxury"
       ],
       "description": "Independent asset manager operating specialized vehicles for renewable energy infrastructure and the 'Italian Food & Lifestyle' sector, backing high-growth consumer brands like Poke House and Velasca.",
       "geographies": [
@@ -5431,8 +5439,9 @@
       "sector_tags": [
         "Consumer Goods",
         "Food & Beverage",
+        "Technology",
         "Industrial Manufacturing",
-        "Technology"
+        "Professional Services"
       ],
       "description": "Specializes in flexible debt capital for high-growth Italian SMEs, facilitating international expansion and industrial modernization for companies like Trevi Group and Fine Food Group.",
       "geographies": [
@@ -5532,9 +5541,9 @@
       "sector_tags": [
         "Technology",
         "Energy",
+        "Automotive",
         "Agriculture",
-        "Biotech & Pharma",
-        "Mining & Metals"
+        "Biotech & Pharma"
       ],
       "description": "Operates as a strategic bridge between Italian academia and the market, focusing on the commercialization of intellectual property and patents through its dedicated technology transfer funds.",
       "geographies": [
@@ -5689,8 +5698,8 @@
         "Industrial Manufacturing",
         "Consumer Goods",
         "Healthcare",
-        "Chemicals",
-        "Packaging"
+        "Aerospace & Defense",
+        "Chemicals"
       ],
       "description": "Global credit specialist founded in 1988 that pioneered institutional lending to mid-sized companies. It acts as a key liquidity provider for Italian SMEs, recently financing Uteco Converting and backing leaders like Jakala and AEB.",
       "geographies": [
@@ -5740,8 +5749,8 @@
         "Consumer Goods",
         "Financial Services",
         "Healthcare",
-        "Renewable Energy",
-        "Retail"
+        "Industrial Manufacturing",
+        "Renewable Energy"
       ],
       "description": "Functions as the private investment vehicle of the Costamagna family, focusing on long-term development and buyouts of Italian industrial champions like Desa and Gruppo Florence.",
       "geographies": [
@@ -5788,8 +5797,8 @@
         "Software",
         "Biotech & Pharma",
         "Financial Services",
-        "Aerospace & Defense",
-        "Technology"
+        "Technology",
+        "Aerospace & Defense"
       ],
       "description": "Wholly owned by Intesa Sanpaolo, this firm leverages the group's network to back global deep-tech and life science leaders, with notable positions in Commonwealth Fusion Systems and AAVantgarde Bio.",
       "geographies": [
@@ -5897,8 +5906,8 @@
       ],
       "sector_tags": [
         "Energy",
-        "Healthcare",
         "Financial Services",
+        "Healthcare",
         "Real Estate",
         "Retail"
       ],
@@ -5953,6 +5962,7 @@
       ],
       "sector_tags": [
         "Healthcare",
+        "Financial Services",
         "Hospitality & Tourism",
         "Telecommunications"
       ],
@@ -6187,8 +6197,8 @@
         "Technology",
         "Healthcare",
         "Industrial Manufacturing",
-        "Biotech & Pharma",
-        "Professional Services"
+        "Real Estate",
+        "Biotech & Pharma"
       ],
       "description": "Leverages a global Swiss platform to execute landmark Italian deals like Telepass and Bending Spoons. It distinguishes itself by integrating private market solutions into the local banking landscape through strategic alliances with Mediobanca and Sella.",
       "geographies": [
@@ -6433,6 +6443,7 @@
         "Healthcare",
         "Chemicals",
         "Fashion & Luxury",
+        "Industrial Manufacturing",
         "Packaging"
       ],
       "description": "Leverages a shareholder base of major Italian banks to execute industrial consolidation and succession-led buyouts for high-growth SMEs, including notable investments like veterinary wholesaler Demas.",
@@ -6531,10 +6542,10 @@
       ],
       "sector_tags": [
         "Software",
+        "Technology",
         "Consumer Goods",
-        "Financial Services",
-        "Insurance",
-        "Media & Entertainment"
+        "Energy",
+        "Financial Services"
       ],
       "description": "Founded by digital entrepreneur Alessio Semoli, this operational venture capital firm provides hands-on execution support to seed-stage technology companies like Cyber Guru and Serenis.",
       "geographies": [
@@ -6771,6 +6782,7 @@
         "Early-Stage"
       ],
       "sector_tags": [
+        "Technology",
         "Consumer Goods",
         "Environmental Services",
         "Healthcare",
@@ -6874,8 +6886,8 @@
         "Industrial Manufacturing",
         "Healthcare",
         "Technology",
-        "Biotech & Pharma",
-        "Consumer Goods"
+        "Aerospace & Defense",
+        "Biotech & Pharma"
       ],
       "description": "Established through the spin-off of Intesa Sanpaolo\u2019s private equity activities, this firm specializes in scaling Italian 'champions' like Bending Spoons and U-Power through international buyouts.",
       "geographies": [
@@ -7082,7 +7094,8 @@
       ],
       "sector_tags": [
         "Software",
-        "Industrial Manufacturing"
+        "Industrial Manufacturing",
+        "Professional Services"
       ],
       "description": "Acts as the European mid-market buyout arm of the Desmarais family\u2019s Power Corporation of Canada, focusing on scaling industrial and software leaders like DiliTrust and GV3-Venpa through cross-border consolidation.",
       "geographies": [
@@ -7134,7 +7147,8 @@
       ],
       "sector_tags": [
         "Real Estate",
-        "Energy"
+        "Energy",
+        "Industrial Manufacturing"
       ],
       "description": "Operates as Arrow Global\u2019s Italian platform, specializing in complex illiquid asset classes including distressed credit, real estate, and industrial turnarounds such as the restructuring of Samp S.p.A.",
       "geographies": [
@@ -7229,8 +7243,10 @@
       ],
       "sector_tags": [
         "Financial Services",
+        "Education",
         "Food & Beverage",
-        "Professional Services"
+        "Healthcare",
+        "Media & Entertainment"
       ],
       "description": "Leverages a legacy in the European ethical finance movement to provide impact-driven expansion capital for Italian social enterprises and SMEs, including fair trade leader Altromercato and microfinance pioneer PerMicro.",
       "geographies": [
@@ -7388,8 +7404,8 @@
         "Biotech & Pharma",
         "Healthcare",
         "Environmental Services",
-        "Food & Beverage",
-        "Renewable Energy"
+        "Renewable Energy",
+        "Food & Beverage"
       ],
       "description": "Prioritizes research-intensive university spin-offs in life sciences and agri-food, backing ventures like EggPlant and Postbiotica that transform laboratory discoveries into scalable industrial applications.",
       "geographies": [
@@ -7436,7 +7452,10 @@
       ],
       "sector_tags": [
         "Automotive",
-        "Food & Beverage"
+        "Energy",
+        "Food & Beverage",
+        "Industrial Manufacturing",
+        "Technology"
       ],
       "description": "Utilizes a permanent capital model founded by Andrea Artoni and Andrea Marangione to support the growth of Italian SMEs, recently orchestrating the merger between its vehicle Smart 4 Tech and the platform CrowdFundMe.",
       "geographies": [
@@ -7490,7 +7509,8 @@
         "Healthcare",
         "Industrial Manufacturing",
         "Technology",
-        "Biotech & Pharma"
+        "Biotech & Pharma",
+        "Environmental Services"
       ],
       "description": "Pioneered European life sciences venture capital since 1972, focusing on company creation and early-stage investments in biotech and medtech. Notable exits include the acquisition of Ablynx by Sanofi and CoreValve by Medtronic.",
       "geographies": [
@@ -7647,7 +7667,8 @@
       ],
       "sector_tags": [
         "Fashion & Luxury",
-        "Industrial Manufacturing"
+        "Industrial Manufacturing",
+        "Retail"
       ],
       "description": "Led by Roberta Benaglia, this specialist firm scales lifestyle and luxury brands globally, having driven the international growth and high-profile exits of labels such as Golden Goose and Zimmermann.",
       "geographies": [
@@ -7694,8 +7715,8 @@
       ],
       "sector_tags": [
         "Industrial Manufacturing",
-        "Food & Beverage",
         "Technology",
+        "Food & Beverage",
         "Fashion & Luxury",
         "Construction"
       ],
@@ -7896,7 +7917,7 @@
         "Food & Beverage",
         "Healthcare",
         "Hospitality & Tourism",
-        "Aerospace & Defense"
+        "Industrial Manufacturing"
       ],
       "description": "Pioneers a 'preferred capital' model for European mid-market firms, providing flexible hybrid financing that bridges the gap between senior debt and equity to support entrepreneur-led growth without diluting control.",
       "geographies": [
@@ -7948,11 +7969,11 @@
         "Real-Estate"
       ],
       "sector_tags": [
-        "Aerospace & Defense",
         "Technology",
-        "Industrial Manufacturing",
+        "Aerospace & Defense",
         "Construction",
-        "Real Estate"
+        "Industrial Manufacturing",
+        "Professional Services"
       ],
       "description": "Co-founded in 2004 by Antoine Flamarion and Christian Oliveau, this alternative asset manager provides flexible capital across private debt and real assets, recently financing major Roman office refurbishments and Cebat's expansion.",
       "geographies": [
@@ -8158,6 +8179,7 @@
       ],
       "sector_tags": [
         "Food & Beverage",
+        "Construction",
         "Consumer Goods",
         "Industrial Manufacturing",
         "Packaging"
@@ -8327,9 +8349,9 @@
       "sector_tags": [
         "Industrial Manufacturing",
         "Consumer Goods",
+        "Transportation & Logistics",
         "Fashion & Luxury",
-        "Software",
-        "Transportation & Logistics"
+        "Software"
       ],
       "description": "Scales 'Made in Italy' SMEs through buy-and-build platforms, partnering with entrepreneurs to institutionalize family-owned businesses like Selle Royal and NTC into global niche leaders.",
       "geographies": [
@@ -8526,8 +8548,10 @@
       ],
       "sector_tags": [
         "Software",
-        "Financial Services",
-        "Technology"
+        "Technology",
+        "Education",
+        "Environmental Services",
+        "Financial Services"
       ],
       "description": "Born from the merger of LVenture Group and Digital Magics, this Euronext-listed operator manages a vast portfolio of Italian tech startups and recently led a \u20ac2 million investment in the grant-funding platform Bandosubito.",
       "geographies": [
@@ -8742,8 +8766,8 @@
       "sector_tags": [
         "Technology",
         "Education",
-        "Fashion & Luxury",
         "Financial Services",
+        "Fashion & Luxury",
         "Media & Entertainment"
       ],
       "description": "Leverages an entrepreneurial heritage to partner with founders and business owners, specializing in complex mid-market deals and digital transformation across Europe, with notable successes like IU Group and Facile.it.",
@@ -9378,9 +9402,9 @@
       "sector_tags": [
         "Healthcare",
         "Agriculture",
+        "Biotech & Pharma",
         "Food & Beverage",
-        "Packaging",
-        "Retail"
+        "Packaging"
       ],
       "description": "FTSE 100-listed global alternative asset manager that pioneered the European mezzanine finance market in 1989, now providing flexible capital solutions across private debt, credit, and real estate.",
       "geographies": [
@@ -9499,7 +9523,8 @@
       ],
       "sector_tags": [
         "Chemicals",
-        "Real Estate"
+        "Real Estate",
+        "Telecommunications"
       ],
       "description": "Established by John Grayken in 1995, this firm specializes in acquiring distressed debt and non-performing loan portfolios from financial institutions during periods of market volatility.",
       "geographies": [
@@ -10051,7 +10076,7 @@
         "Technology",
         "Financial Services",
         "Media & Entertainment",
-        "Retail"
+        "Aerospace & Defense"
       ],
       "description": "Founded by former Google Italy head Massimiliano Magrini, this independent firm specializes in technology-driven digital transformation with landmark investments in gaming platform Faceit and space logistics provider D-Orbit.",
       "geographies": [
@@ -10390,7 +10415,10 @@
         "Deep-Tech"
       ],
       "sector_tags": [
-        "Automotive"
+        "Aerospace & Defense",
+        "Automotive",
+        "Healthcare",
+        "Technology"
       ],
       "description": "Italian venture capital firm focused on deep-tech and science-based startups in electronics, robotics, new materials, medtech, biotech, and digital sectors. Manages over \u20ac250M across five funds including the TT Venture fund family.",
       "geographies": [
@@ -10447,6 +10475,7 @@
       ],
       "sector_tags": [
         "Media & Entertainment",
+        "Construction",
         "Retail"
       ],
       "description": "Global alternative investment firm founded in 1995 with a long track record in private credit, special situations, and private equity. In Italy, it has been active across complex situations and control investments, including FC Internazionale Milano.",
@@ -10497,7 +10526,8 @@
         "Real-Assets"
       ],
       "sector_tags": [
-        "Industrial Manufacturing"
+        "Industrial Manufacturing",
+        "Telecommunications"
       ],
       "description": "Alternative investment firm focused on infrastructure and real assets globally. Stonepeak has active exposure to Italy through transactions such as Forgital Group and other energy and industrial infrastructure opportunities.",
       "geographies": [
@@ -10653,8 +10683,8 @@
         "Industrial Manufacturing",
         "Food & Beverage",
         "Healthcare",
-        "Automotive",
-        "Consumer Goods"
+        "Retail",
+        "Automotive"
       ],
       "description": "Italian private markets manager formerly known as Credem Private Equity SGR. It manages private equity and venture capital vehicles for institutional and private investors with a primary focus on Italy.",
       "geographies": [

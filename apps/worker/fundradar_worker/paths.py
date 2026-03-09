@@ -27,8 +27,18 @@ DB_PATH = PROJECT_ROOT / "data" / "db.json"
 ROOT_ENV_PATH = PROJECT_ROOT / ".env"
 WORKER_ENV_PATH = WORKER_DIR / ".env"
 
+# ── Model config ──────────────────────────────────────────────────────────────
+# Single source of truth for AI model names. Update here when upgrading.
+# Do NOT use gemini-2.x models — they hallucinate more for structured data extraction.
+# Do NOT use Flash-Lite for portfolio/fund enrichment — it's optimised for throughput,
+# not accuracy. Lite quality < Flash quality for fact-extraction tasks.
+GEMINI_MODEL = "gemini-3-flash-preview"
+# Do NOT use ChatGPT 4o — hallucinates too frequently for structured data tasks.
+OPENAI_MODEL = "gpt-5-mini"
+
 # ── Output files ──────────────────────────────────────────────────────────────
 SIGNALS_FILE = DATA_DIR / "detected_signals.json"
 FILTERED_SIGNALS_FILE = DATA_DIR / "detected_signals_filtered.json"
 ENRICHED_SIGNALS_FILE = DATA_DIR / "detected_signals_enriched.json"
 PORTFOLIO_FILE = DATA_DIR / "portfolio_items.json"
+COMPANY_PROFILES_FILE = DATA_DIR / "company_profiles.json"

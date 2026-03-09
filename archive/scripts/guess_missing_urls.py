@@ -26,7 +26,7 @@ MARKDOWN_FILE = DERIVED_DIR / "guessed_urls_results.md"
 
 # API Keys (from environment or .env)
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
-GEMINI_API_KEY = "REDACTED_GEMINI_KEY"
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
 # API URLs
 OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"

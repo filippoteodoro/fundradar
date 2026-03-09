@@ -44,7 +44,7 @@ if ENV_PATH.exists() and not os.environ.get("GEMINI_API_KEY"):
 
 PROGRESS_FILE = DATA_DIR / "enrichment_portfolio_full_progress.json"
 
-MODEL = "gemini-3-flash-preview"
+from fundradar_worker.paths import GEMINI_MODEL as MODEL
 BATCH_SIZE = 25  # 25 companies per call — safe for Gemini free tier
 MAX_RETRIES = 2
 CALL_TIMEOUT = 90  # 90s — generous for 25-company batches

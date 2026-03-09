@@ -53,8 +53,8 @@ if ENV_PATH.exists() and not os.environ.get("OPENAI_API_KEY"):
     if env_vars.get("OPENAI_API_KEY"):
         os.environ["OPENAI_API_KEY"] = env_vars["OPENAI_API_KEY"]
 
-MODEL = "gpt-5-mini"
-BATCH_SIZE = 5  # gpt-5-mini uses ~500 tokens per article (incl. reasoning)
+from fundradar_worker.paths import OPENAI_MODEL as MODEL
+BATCH_SIZE = 5  # model uses ~500 tokens per article (incl. reasoning)
 API_DELAY = 1.5  # seconds between API calls
 
 # Quality scores by feed tier

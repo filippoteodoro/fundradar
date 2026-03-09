@@ -14,6 +14,8 @@ from pathlib import Path
 from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+import sys; sys.path.insert(0, str(REPO_ROOT / "apps" / "worker"))
+from fundradar_worker.paths import GEMINI_MODEL
 DEFAULT_RESPONSES_DIR = REPO_ROOT / "data" / "derived" / "gemini_fund_asset_logs" / "manual_responses"
 DEFAULT_DEDUP_JSONL = REPO_ROOT / "data" / "derived" / "gemini_fund_asset_logs" / "fund_checks_deduplicated.jsonl"
 DEFAULT_ZERO_ITALY_VERIFIED = REPO_ROOT / "data" / "derived" / "gemini_fund_asset_zero_italy_verified.json"
@@ -211,7 +213,7 @@ def make_row(
 
     return {
         "request": {
-            "model": "gemini-3-flash-preview",
+            "model": GEMINI_MODEL,
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {"responseMimeType": "application/json"},
             "tools": [],

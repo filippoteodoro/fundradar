@@ -46,6 +46,8 @@ import requests
 from gemini_audit_completion import is_fund_result_complete, load_verified_zero_italy_slugs
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+import sys; sys.path.insert(0, str(REPO_ROOT / "apps" / "worker"))
+from fundradar_worker.paths import GEMINI_MODEL
 DATA_DIR = REPO_ROOT / "data"
 DERIVED_DIR = DATA_DIR / "derived"
 
@@ -55,7 +57,7 @@ OUTPUT_PATH = DERIVED_DIR / "gemini_fund_asset_audit.json"
 PROGRESS_PATH = DERIVED_DIR / "gemini_fund_asset_audit_progress.json"
 ZERO_ITALY_VERIFIED_PATH = DERIVED_DIR / "gemini_fund_asset_zero_italy_verified.json"
 
-DEFAULT_MODEL = "gemini-3-flash-preview"
+DEFAULT_MODEL = GEMINI_MODEL
 GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 RETRYABLE_HTTP_STATUS = {408, 409, 429, 500, 502, 503, 504}
 DEFAULT_CHUNK_SPLIT_SIZES = [20, 8, 1]
@@ -1089,7 +1091,7 @@ def build_fund_queue(
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Audit fund assets with Gemini 3 Flash (AUM desc, one-by-one).")
-    parser.add_argument("--model", default=DEFAULT_MODEL, help="Gemini model (default: gemini-3-flash-preview)")
+    parser.add_argument("--model", default=DEFAULT_MODEL, help="Gemini model")
     parser.add_argument("--limit-funds", type=int, default=0, help="Max funds to process (0 = all)")
     parser.add_argument("--chunk-size", type=int, default=20, help="Entries per chunk for existing-entry audit")
     parser.add_argument(
