@@ -50,7 +50,7 @@ Thumbs.db
 /data/watchlists.json
 /data/subscribers.json
 /data/snapshots.json
-# /data/url_status.json  ← dead entry; file lives at data/derived/url_status.json (committed)
+/data/url_status.json
 /data/audits/
 /data/AIFI/*.htm
 /data/AIFI/*_files/
