@@ -258,93 +258,6 @@
       ]
     },
     {
-      "id": "web-signal-02116",
-      "fund_id": "",
-      "fund_slug": "wise-equity-sgr",
-      "signal_type": "deal_announced",
-      "title": "Wise Equity acquires a majority interest in Wanho",
-      "what_changed": "",
-      "source_url": "https://www.wisesgr.com/web/content/27300/Press%20release%20-%20Wise%20Equity%20acquires%20WANHO.pdf",
-      "source_name": "Wise Equity SGR",
-      "published_at": "2023-11-13",
-      "observed_at": "2026-03-09T12:39:40.830343+00:00",
-      "created_at": "2026-03-09T12:39:40.830343+00:00",
-      "snapshot_id": "snap-20260309123940-0b7ef0c4",
-      "diff_summary": "New news item detected (dated 2023-11-13)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Wise Equity"
-        ],
-        "locations": []
-      },
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 100,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "web-signal-02117",
-      "fund_id": "",
-      "fund_slug": "wise-equity-sgr",
-      "signal_type": "deal_announced",
-      "title": "Wise Equity acquires 100% of Hertecant Flanges",
-      "what_changed": "",
-      "source_url": "https://www.wisesgr.com/web/content/27301/Press%20release%20-%20Wise%20Equity%20acquires%20SF_Hertecant.pdf",
-      "source_name": "Wise Equity SGR",
-      "published_at": "2023-11-10",
-      "observed_at": "2026-03-09T12:39:40.830343+00:00",
-      "created_at": "2026-03-09T12:39:40.830343+00:00",
-      "snapshot_id": "snap-20260309123940-0b7ef0c4",
-      "diff_summary": "New news item detected (dated 2023-11-10)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Wise Equity",
-          "Hertecant Flanges"
-        ],
-        "locations": []
-      },
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 100,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
       "id": "rss-signal-00161",
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
@@ -432,96 +345,6 @@
       "evidence_score": 4,
       "quality_confidence": "high",
       "confidence_score": 0.92,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "web-signal-01726-80c822f4",
-      "fund_id": "",
-      "fund_slug": "wise-equity-sgr",
-      "signal_type": "deal_announced",
-      "title": "Durst signs agreement with Wise Equity to acquire Aleph",
-      "what_changed": "",
-      "source_url": "https://www.wisesgr.com/web/content/445/19.09.2023_CS_WiseEquity_Aleph_vF-ita-FINANCE_clean-2.pdf",
-      "source_name": "Wise Equity SGR",
-      "published_at": "2023-09-19",
-      "observed_at": "2026-02-20T09:38:42.325184+00:00",
-      "created_at": "2026-02-20T09:38:42.325184+00:00",
-      "snapshot_id": "snap-20260220093842-0b7ef0c4",
-      "diff_summary": "New news item detected (dated 2023-09-19)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Wise Equity"
-        ],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: Durst sigla un accordo con Wise Equity per acquisire Aleph",
-      "title_original": "Durst sigla un accordo con Wise Equity per acquisire Aleph",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 100,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "web-signal-01727-49eab479",
-      "fund_id": "",
-      "fund_slug": "wise-equity-sgr",
-      "signal_type": "deal_announced",
-      "title": "The calzedonia group acquires cantiere del pardo",
-      "what_changed": "",
-      "source_url": "https://www.wisesgr.com/web/content/444/            01.08.2023_Comunicato-Stampa-Wise-Equity_-Cantiere-del-Pardo_-Gruppo-Calzedonia_ITA.pdf",
-      "source_name": "Wise Equity SGR",
-      "published_at": "2023-08-01",
-      "observed_at": "2026-02-20T09:38:42.325184+00:00",
-      "created_at": "2026-02-20T09:38:42.325184+00:00",
-      "snapshot_id": "snap-20260220093842-0b7ef0c4",
-      "diff_summary": "New news item detected (dated 2023-08-01)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Il Gruppo Calzedonia"
-        ],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: Il Gruppo Calzedonia acquista Cantiere del Pardo",
-      "title_original": "Il Gruppo Calzedonia acquista Cantiere del Pardo",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 100,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
       "signal_types": [
         "deal_announced"
       ]
@@ -1172,50 +995,6 @@
       ],
       "co_fund_slugs": [
         "eureka-venture-sgr"
-      ]
-    },
-    {
-      "id": "web-signal-02030",
-      "fund_id": "",
-      "fund_slug": "capital-dynamics-sgr",
-      "signal_type": "deal_announced",
-      "title": "Investment Partnerships - Capital Dynamics",
-      "what_changed": "",
-      "source_url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9EeXhNRGpnMTJfY0gyVThkRkdta0hBU0swWHYzamg2b1ZBR05rdkp3QS0xZDZxQmxpT1h1U0ZrbzdRZ216Y1pCd0xCeXU?oc=5",
-      "source_name": "Capital Dynamics SGR",
-      "published_at": "2018-11-14",
-      "observed_at": "2026-03-09T10:01:01.666936+00:00",
-      "created_at": "2026-03-09T10:01:01.666936+00:00",
-      "snapshot_id": "snap-20260309100101-0b1e545e",
-      "diff_summary": "New news item detected (dated 2018-11-14)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Capital Dynamics",
-          "Investment Partnerships"
-        ],
-        "locations": []
-      },
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 0.823,
-      "ml_type_confident": true,
-      "ml_confidence": 0.823,
-      "quality_score": 100,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "deal_announced"
       ]
     },
     {
@@ -3301,42 +3080,6 @@
       ]
     },
     {
-      "id": "news-signal-20260205111503-958d5a92-aca0e9ae",
-      "fund_id": "",
-      "fund_slug": "alcedo-sgr",
-      "signal_type": "exit_announced",
-      "title": "Alcedo has completed the sale of 100% of Friulair to Ingersoll Rand",
-      "what_changed": "",
-      "source_url": "https://www.alcedo.it/wp-content/uploads/2024/02/70_2024.01.31_Friulair_Comunicato-ITA-FINALE.pdf",
-      "source_name": "Alcedo SGR",
-      "published_at": "2024-02-01",
-      "observed_at": "2026-02-05T11:15:03.990032+00:00",
-      "created_at": "2026-02-05T11:15:03.990032+00:00",
-      "fingerprint": "30d53dcfc8e4",
-      "extraction_source": "news_signal_generator",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "quality_score": 100,
-      "what_changed_original": "News: Alcedo ha perfezionato la cessione del 100% di Friulair a Ingersoll Rand",
-      "title_original": "Alcedo ha perfezionato la cessione del 100% di Friulair a Ingersoll Rand",
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": true,
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "exit_announced"
-      ]
-    },
-    {
       "id": "news-signal-20260205111503-958d5a92-60221190",
       "fund_id": "",
       "fund_slug": "alcedo-sgr",
@@ -3578,55 +3321,6 @@
       "ml_type_prob": 1.0,
       "ml_type_confident": true,
       "ml_confidence": 1.0,
-      "quality_score": 100,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.84,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "web-signal-01703",
-      "fund_id": "",
-      "fund_slug": "canova-sgr",
-      "signal_type": "deal_announced",
-      "title": "Canova SGR, a new asset management company based in Veneto, is established",
-      "what_changed": "Canova SGR, a new Veneto-based asset management company, is born",
-      "source_url": "https://canovasgr.it/2023/06/14/nasce-canova-societa-gestione-risparmio-veneta/",
-      "source_name": "Canova SGR",
-      "published_at": "2023-06-14",
-      "observed_at": "2026-02-23T21:53:02.990138+00:00",
-      "created_at": "2026-02-23T21:53:02.990138+00:00",
-      "snapshot_id": "snap-20260223215302-bc877d46",
-      "diff_summary": "New news item detected (dated 14 Giugno 2023)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.3,
-      "relevance_reasons": [
-        "Italian entity types: SGR"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "veneta di gestione del ri"
-        ],
-        "people": [
-          "Nasce Canova"
-        ],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: Nasce Canova SGR nuova societ\u00e0 veneta di gestione del risparmio",
-      "title_original": "Nasce Canova SGR nuova societ\u00e0 veneta di gestione del risparmio",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 0.996,
-      "ml_type_confident": true,
-      "ml_confidence": 0.996,
       "quality_score": 100,
       "evidence_score": 3,
       "quality_confidence": "high",
@@ -3992,8 +3686,8 @@
         "deal_announced"
       ],
       "co_fund_slugs": [
-        "muzinich-co",
-        "macquarie"
+        "macquarie",
+        "muzinich-co"
       ]
     },
     {
@@ -4864,50 +4558,6 @@
       ]
     },
     {
-      "id": "web-signal-01614",
-      "fund_id": "",
-      "fund_slug": "sagitta-sgr",
-      "signal_type": "other",
-      "title": "Sagitta SGR completes turnaround: \u20ac1M profit in 2022",
-      "what_changed": "",
-      "source_url": "https://www.sagittasgr.it/en/sagitta-sgr-completes-turnaround-e1-million-profit-in-2022/",
-      "source_name": "Sagitta SGR",
-      "published_at": "2023-05-18",
-      "observed_at": "2026-02-19T20:29:18.316558+00:00",
-      "created_at": "2026-02-19T20:29:18.316558+00:00",
-      "snapshot_id": "snap-20260219202917-5e887105",
-      "diff_summary": "New news item detected (dated 2023-05-18)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.3,
-      "relevance_reasons": [
-        "Italian entity types: SGR"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac1M",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "fund",
-      "ml_type_prob": 0.616,
-      "ml_type_confident": true,
-      "ml_confidence": 0.616,
-      "quality_score": 100,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.79,
-      "signal_types": [
-        "other"
-      ]
-    },
-    {
       "id": "web-signal-01281",
       "fund_id": "",
       "fund_slug": "the-equity-club",
@@ -5534,7 +5184,8 @@
       "quality_confidence": "high",
       "confidence_score": 1.0,
       "signal_types": [
-        "deal_announced"
+        "deal_announced",
+        "exit_announced"
       ]
     },
     {
@@ -7003,7 +6654,8 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "deal_announced"
+        "deal_announced",
+        "exit_announced"
       ]
     },
     {
@@ -8313,53 +7965,6 @@
       ]
     },
     {
-      "id": "web-signal-01049",
-      "fund_id": "",
-      "fund_slug": "pillarstone",
-      "signal_type": "exit_announced",
-      "title": "Pillarstone in the sale of the entire share capital of Monticello S.p.A. S.r.l.",
-      "what_changed": "",
-      "source_url": "https://www.pillarstone.com/comunicato-stampa/pillarstone-nella-cessione-dellintero-capitale-sociale-in-monticello-spa-s-r-l/",
-      "source_name": "Pillarstone",
-      "published_at": "2021-12-03",
-      "observed_at": "2026-02-09T09:03:31.391974+00:00",
-      "created_at": "2026-02-09T09:03:31.391974+00:00",
-      "snapshot_id": "snap-20260209090330-088dff98",
-      "diff_summary": "New news item detected (dated 3 Dicembre 2021)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.345,
-      "relevance_reasons": [
-        "Italian entity types: SRL, SPA"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "intero capitale sociale in Monticello SPA"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: Pillarstone nella cessione dell\u2019intero capitale sociale in Monticello SPA S.r.l.",
-      "title_original": "Pillarstone nella cessione dell\u2019intero capitale sociale in Monticello SPA S.r.l.",
-      "_fund_geo_scope": "europe_wide",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 100,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "exit_announced"
-      ]
-    },
-    {
       "id": "web-signal-00577",
       "fund_id": "",
       "fund_slug": "armonia-sgr",
@@ -8597,95 +8202,6 @@
       "evidence_score": 3,
       "quality_confidence": "medium",
       "confidence_score": 0.79,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "web-signal-00523",
-      "fund_id": "",
-      "fund_slug": "green-arrow-capital-sgr",
-      "signal_type": "deal_announced",
-      "title": "De Blasio (Green Arrow) at M&A Circus: The future of infrastructure lies in energy and data",
-      "what_changed": "",
-      "source_url": "https://www.greenarrow-capital.com/en/de-blasio-green-arrow-a-ma-circus-il-futuro-delle-infrastrutture-viene-da-energia-e-dati/",
-      "source_name": "Green Arrow Capital SGR",
-      "published_at": "2020-06-26",
-      "observed_at": "2026-02-05T18:22:45.612517+00:00",
-      "created_at": "2026-02-05T18:22:45.612517+00:00",
-      "snapshot_id": "snap-20260205182244-4a528341",
-      "diff_summary": "New news item detected (dated 2020-06-26)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "De Blasio",
-          "Green Arrow"
-        ],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: De Blasio (Green Arrow) a M&A Circus: Il futuro delle infrastrutture viene da energia e dati",
-      "title_original": "De Blasio (Green Arrow) a M&A Circus: Il futuro delle infrastrutture viene da energia e dati",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 0.992,
-      "ml_type_confident": true,
-      "ml_confidence": 0.992,
-      "quality_score": 100,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "web-signal-00525",
-      "fund_id": "",
-      "fund_slug": "green-arrow-capital-sgr",
-      "signal_type": "deal_announced",
-      "title": "Unquote Annual Buyout",
-      "what_changed": "New announcement: Unquote Annual Buyout",
-      "source_url": "https://www.greenarrow-capital.com/en/unquote-annual-buyout/",
-      "source_name": "Green Arrow Capital SGR",
-      "published_at": "2020-04-07",
-      "observed_at": "2026-02-05T18:22:45.612517+00:00",
-      "created_at": "2026-02-05T18:22:45.612517+00:00",
-      "snapshot_id": "snap-20260205182244-4a528341",
-      "diff_summary": "New news item detected (dated 2020-04-07)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Unquote Annual Buyout"
-        ],
-        "locations": []
-      },
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 0.954,
-      "ml_type_confident": true,
-      "ml_confidence": 0.954,
-      "quality_score": 100,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
       "signal_types": [
         "deal_announced"
       ]
@@ -8962,92 +8478,6 @@
       ]
     },
     {
-      "id": "web-signal-00216",
-      "fund_id": "",
-      "fund_slug": "innovative-rfk",
-      "signal_type": "deal_announced",
-      "title": "I-RFK and a club deal of investors have acquired 65% of Audio Technologies.",
-      "what_changed": "",
-      "source_url": "https://bebeez.it/club-deal/i-rfk-e-un-club-deal-di-investitori-hanno-acquistato-il-65-di-audio-technologies-loperazione-e-stata-in-parte-finanziata-da-banco-bpm/",
-      "source_name": "Innovative-RFK",
-      "published_at": "2023-05-12",
-      "observed_at": "2026-02-05T15:57:45.697662+00:00",
-      "created_at": "2026-02-05T15:57:45.697662+00:00",
-      "snapshot_id": "snap-20260205155744-6141756a",
-      "diff_summary": "New news item detected (dated 12M aggio 2023)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Audio Technologies"
-        ],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: i-RFK e un club deal di investitori hanno acquistato il 65% di Audio Technologies",
-      "title_original": "i-RFK e un club deal di investitori hanno acquistato il 65% di Audio Technologies",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 100,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "web-signal-00396",
-      "fund_id": "",
-      "fund_slug": "mittel",
-      "signal_type": "deal_announced",
-      "title": "Mittel strengthens its position in the Clothing sector through acquisition of the iconic Jeckerson",
-      "what_changed": "Mittel strengthens its position in the Clothing sector through acquisition of the iconic Jeckerson brand and aims at creating a reference point in",
-      "source_url": "https://www.mittel.it/en/mittel-strengthens-its-position-in-the-clothing-sector-through-acquisition-of-the-iconic-jeckerson-brand-and-aims-at-creating-a-reference-point-in-the-urbanlifestyle-outdoor-segments/",
-      "source_name": "Mittel",
-      "published_at": "2021-09-15",
-      "observed_at": "2026-02-05T17:11:11.839635+00:00",
-      "created_at": "2026-02-05T17:11:11.839635+00:00",
-      "snapshot_id": "snap-20260205171111-537c6e7e",
-      "diff_summary": "New news item detected (dated 15 Sep 2021)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      },
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 100,
-      "evidence_score": 3,
-      "quality_confidence": "medium",
-      "confidence_score": 0.79,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
       "id": "web-signal-00179",
       "fund_id": "",
       "fund_slug": "claris-ventures-sgr",
@@ -9183,93 +8613,52 @@
       ]
     },
     {
-      "id": "web-signal-01723-ab0d0389",
+      "id": "web-signal-01703",
       "fund_id": "",
-      "fund_slug": "wise-equity-sgr",
-      "signal_type": "partnership",
-      "title": "Wise Equity and MEP join forces for growth",
-      "what_changed": "",
-      "source_url": "https://www.wisesgr.com/web/content/448/            19.01.2024__Comunicato-Stampa_Wise-Equity-entra-in-MEP-vfinal-final_ITA.pdf",
-      "source_name": "Wise Equity SGR",
-      "published_at": "2024-01-19",
-      "observed_at": "2026-02-20T09:38:42.325184+00:00",
-      "created_at": "2026-02-20T09:38:42.325184+00:00",
-      "snapshot_id": "snap-20260220093842-0b7ef0c4",
-      "diff_summary": "New news item detected (dated 2024-01-19)",
+      "fund_slug": "canova-sgr",
+      "signal_type": "deal_announced",
+      "title": "Canova SGR, a new asset management company based in Veneto, is established",
+      "what_changed": "Canova SGR, a new Veneto-based asset management company, is born",
+      "source_url": "https://canovasgr.it/2023/06/14/nasce-canova-societa-gestione-risparmio-veneta/",
+      "source_name": "Canova SGR",
+      "published_at": "2023-06-14",
+      "observed_at": "2026-02-23T21:53:02.990138+00:00",
+      "created_at": "2026-02-23T21:53:02.990138+00:00",
+      "snapshot_id": "snap-20260223215302-bc877d46",
+      "diff_summary": "New news item detected (dated 14 Giugno 2023)",
       "page_category": "NEWS",
       "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
       "italy_relevant": true,
       "extracted_entities": {
-        "companies": [],
+        "companies": [
+          "veneta di gestione del ri"
+        ],
         "people": [
-          "Wise Equity"
+          "Nasce Canova"
         ],
         "locations": []
       },
-      "what_changed_original": "New announcement: Wise Equity e MEP insieme per la crescita",
-      "title_original": "Wise Equity e MEP insieme per la crescita",
+      "what_changed_original": "New announcement: Nasce Canova SGR nuova societ\u00e0 veneta di gestione del risparmio",
+      "title_original": "Nasce Canova SGR nuova societ\u00e0 veneta di gestione del risparmio",
       "_fund_geo_scope": "italy_focused",
       "ml_keep": true,
       "ml_keep_prob": 1.0,
       "ml_keep_confidence": 1.0,
       "ml_keep_confident": true,
       "ml_type": "deal_announced",
-      "ml_type_prob": 0.995,
+      "ml_type_prob": 0.996,
       "ml_type_confident": true,
-      "ml_confidence": 0.995,
+      "ml_confidence": 0.996,
       "quality_score": 99,
-      "evidence_score": 2,
-      "quality_confidence": "medium",
-      "confidence_score": 0.656,
-      "signal_types": [
-        "partnership"
-      ]
-    },
-    {
-      "id": "web-signal-00506",
-      "fund_id": "",
-      "fund_slug": "deep-ocean-capital-sgr",
-      "signal_type": "fund_launch",
-      "title": "Nasce Il Fondo promuovere l\u2019innovazione aerospaziale",
-      "what_changed": "",
-      "source_url": "https://www.advisoronline.it/strumenti-finanziari/investimenti-alternativi/70485-nasce-il-fondo-promuovere-l-innovazione-aerospaziale1.action",
-      "source_name": "Deep Ocean Capital SGR",
-      "published_at": "2023-06-12",
-      "observed_at": "2026-02-05T18:22:18.976143+00:00",
-      "created_at": "2026-02-05T18:22:18.976143+00:00",
-      "snapshot_id": "snap-20260205182215-188ebed2",
-      "diff_summary": "New news item detected (dated 12 giugno 2023)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "innovazione Aero"
-        ],
-        "people": [
-          "Nasce Il Fondo"
-        ],
-        "locations": []
-      },
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "fund",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 99,
-      "evidence_score": 4,
+      "evidence_score": 3,
       "quality_confidence": "high",
-      "confidence_score": 0.916,
+      "confidence_score": 0.836,
       "signal_types": [
-        "fund_launch"
+        "deal_announced"
       ]
     },
     {
@@ -9517,49 +8906,6 @@
       ]
     },
     {
-      "id": "web-signal-00249",
-      "fund_id": "",
-      "fund_slug": "oltre-impact-sgr",
-      "signal_type": "deal_announced",
-      "title": "over Impact punta sull\u2019employment investendo in job Tech",
-      "what_changed": "",
-      "source_url": "https://www.oltreimpact.com/it/blog/oltre-impact-punta-sullemployment-investendo-in-jobtech/",
-      "source_name": "Oltre Impact SGR",
-      "published_at": "2022-12-01",
-      "observed_at": "2026-02-05T15:58:04.763890+00:00",
-      "created_at": "2026-02-05T15:58:04.763890+00:00",
-      "snapshot_id": "snap-20260205155804-54139a32",
-      "diff_summary": "New news item detected (dated 1 Dicembre 2022)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Oltre Impact"
-        ],
-        "locations": []
-      },
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 98,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.912,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
       "id": "web-signal-01717-5f36f993",
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
@@ -9602,42 +8948,6 @@
       "confidence_score": 0.644,
       "signal_types": [
         "partnership"
-      ]
-    },
-    {
-      "id": "news-signal-20260205111503-958d5a92",
-      "fund_id": "",
-      "fund_slug": "alcedo-sgr",
-      "signal_type": "deal_announced",
-      "title": "Nethive acquires 70% of Xech and strengthens its cybersecurity software business",
-      "what_changed": "",
-      "source_url": "https://www.alcedo.it/wp-content/uploads/2023/02/64_Alcedo-SGR-Comunicato-stampa-Nethive-Xech-ITA.pdf",
-      "source_name": "Alcedo SGR",
-      "published_at": "2023-02-08",
-      "observed_at": "2026-02-05T11:15:03.990206+00:00",
-      "created_at": "2026-02-05T11:15:03.990206+00:00",
-      "fingerprint": "4e75f20d613a",
-      "extraction_source": "news_signal_generator",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "quality_score": 96,
-      "what_changed_original": "News: Nethive acquisice il 70% di Xech e rafforza il business dei software in ambito cybersecurity",
-      "title_original": "Nethive acquisice il 70% di Xech e rafforza il business dei software in ambito cybersecurity",
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": true,
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "evidence_score": 2,
-      "quality_confidence": "medium",
-      "confidence_score": 0.694,
-      "signal_types": [
-        "deal_announced"
       ]
     },
     {
@@ -9685,52 +8995,6 @@
       "confidence_score": 0.774,
       "signal_types": [
         "other"
-      ]
-    },
-    {
-      "id": "web-signal-01691",
-      "fund_id": "",
-      "fund_slug": "yarpa-investimenti-sgr",
-      "signal_type": "fund_launch",
-      "title": "Yarpa supports non-profit organizations with the launch of its seventh fund, called Fondo Eta.",
-      "what_changed": "Launch of the seventh fund named Fondo Eta.",
-      "source_url": "https://yarpa.it/press/yarpa-aiuta-il-no-profit-con-il-lancio-del-settimo-fondo-denominato-fondo-eta/",
-      "source_name": "Yarpa Investimenti SGR",
-      "published_at": "2020-07-27",
-      "observed_at": "2026-02-20T09:30:42.054648+00:00",
-      "created_at": "2026-02-20T09:30:42.054648+00:00",
-      "snapshot_id": "snap-20260220093041-99afb1b7",
-      "diff_summary": "New news item detected (dated 2020-07-27)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Fondo Eta"
-        ],
-        "locations": []
-      },
-      "what_changed_original": "25 luglio 2020 | Articolo del Corriere della Sera: Lancio del settimo fondo denominato Fondo Eta.",
-      "title_original": "\u201cYarpa aiuta il no profit con il lancio del settimo fondo denominato Fondo Eta\u201d",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "fund",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 96,
-      "evidence_score": 3,
-      "quality_confidence": "medium",
-      "confidence_score": 0.774,
-      "signal_types": [
-        "fund_launch",
-        "people_move"
       ]
     },
     {
@@ -10221,19 +9485,19 @@
       ]
     },
     {
-      "id": "web-signal-00217",
+      "id": "web-signal-00396",
       "fund_id": "",
-      "fund_slug": "innovative-rfk",
+      "fund_slug": "mittel",
       "signal_type": "deal_announced",
-      "title": "Innovative-RFK acquires majority stake in Audio Technologies: the advisors",
-      "what_changed": "",
-      "source_url": "https://financecommunity.it/arkios-italy-con-i-rfk-nellacquisizione-della-maggioranza-di-audio-technologies/",
-      "source_name": "Innovative-RFK",
-      "published_at": "2023-05-10",
-      "observed_at": "2026-02-05T15:57:45.697662+00:00",
-      "created_at": "2026-02-05T15:57:45.697662+00:00",
-      "snapshot_id": "snap-20260205155744-6141756a",
-      "diff_summary": "New news item detected (dated 10M aggio 2023)",
+      "title": "Mittel strengthens its position in the Clothing sector through acquisition of the iconic Jeckerson",
+      "what_changed": "Mittel strengthens its position in the Clothing sector through acquisition of the iconic Jeckerson brand and aims at creating a reference point in",
+      "source_url": "https://www.mittel.it/en/mittel-strengthens-its-position-in-the-clothing-sector-through-acquisition-of-the-iconic-jeckerson-brand-and-aims-at-creating-a-reference-point-in-the-urbanlifestyle-outdoor-segments/",
+      "source_name": "Mittel",
+      "published_at": "2021-09-15",
+      "observed_at": "2026-02-05T17:11:11.839635+00:00",
+      "created_at": "2026-02-05T17:11:11.839635+00:00",
+      "snapshot_id": "snap-20260205171111-537c6e7e",
+      "diff_summary": "New news item detected (dated 15 Sep 2021)",
       "page_category": "NEWS",
       "page_type": "NEWS",
       "relevance_score": 0,
@@ -10241,13 +9505,9 @@
       "italy_relevant": true,
       "extracted_entities": {
         "companies": [],
-        "people": [
-          "Audio Technologies"
-        ],
+        "people": [],
         "locations": []
       },
-      "what_changed_original": "New announcement: Innovative-RFK acquisisce la maggioranza di Audio Technologies: gli advisor",
-      "title_original": "Innovative-RFK acquisisce la maggioranza di Audio Technologies: gli advisor",
       "_fund_geo_scope": "italy_focused",
       "ml_keep": true,
       "ml_keep_prob": 1.0,
@@ -10259,8 +9519,8 @@
       "ml_confidence": 1.0,
       "quality_score": 93,
       "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.812,
+      "quality_confidence": "medium",
+      "confidence_score": 0.762,
       "signal_types": [
         "deal_announced"
       ]
@@ -10437,6 +9697,42 @@
       "confidence_score": 0.57,
       "signal_types": [
         "people_move"
+      ]
+    },
+    {
+      "id": "news-signal-20260205111503-958d5a92-aca0e9ae",
+      "fund_id": "",
+      "fund_slug": "alcedo-sgr",
+      "signal_type": "exit_announced",
+      "title": "Alcedo has completed the sale of 100% of Friulair to Ingersoll Rand",
+      "what_changed": "",
+      "source_url": "https://www.alcedo.it/wp-content/uploads/2024/02/70_2024.01.31_Friulair_Comunicato-ITA-FINALE.pdf",
+      "source_name": "Alcedo SGR",
+      "published_at": "2024-02-01",
+      "observed_at": "2026-02-05T11:15:03.990032+00:00",
+      "created_at": "2026-02-05T11:15:03.990032+00:00",
+      "fingerprint": "30d53dcfc8e4",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 89,
+      "what_changed_original": "News: Alcedo ha perfezionato la cessione del 100% di Friulair a Ingersoll Rand",
+      "title_original": "Alcedo ha perfezionato la cessione del 100% di Friulair a Ingersoll Rand",
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.876,
+      "signal_types": [
+        "exit_announced"
       ]
     },
     {
@@ -10713,6 +10009,53 @@
       ]
     },
     {
+      "id": "web-signal-01049",
+      "fund_id": "",
+      "fund_slug": "pillarstone",
+      "signal_type": "exit_announced",
+      "title": "Pillarstone in the sale of the entire share capital of Monticello S.p.A. S.r.l.",
+      "what_changed": "",
+      "source_url": "https://www.pillarstone.com/comunicato-stampa/pillarstone-nella-cessione-dellintero-capitale-sociale-in-monticello-spa-s-r-l/",
+      "source_name": "Pillarstone",
+      "published_at": "2021-12-03",
+      "observed_at": "2026-02-09T09:03:31.391974+00:00",
+      "created_at": "2026-02-09T09:03:31.391974+00:00",
+      "snapshot_id": "snap-20260209090330-088dff98",
+      "diff_summary": "New news item detected (dated 3 Dicembre 2021)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.345,
+      "relevance_reasons": [
+        "Italian entity types: SRL, SPA"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "intero capitale sociale in Monticello SPA"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Pillarstone nella cessione dell\u2019intero capitale sociale in Monticello SPA S.r.l.",
+      "title_original": "Pillarstone nella cessione dell\u2019intero capitale sociale in Monticello SPA S.r.l.",
+      "_fund_geo_scope": "europe_wide",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 87,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.868,
+      "signal_types": [
+        "exit_announced"
+      ]
+    },
+    {
       "id": "web-signal-02111",
       "fund_id": "",
       "fund_slug": "wise-equity-sgr",
@@ -10751,6 +10094,50 @@
       "confidence_score": 0.474,
       "signal_types": [
         "partnership"
+      ]
+    },
+    {
+      "id": "web-signal-02030",
+      "fund_id": "",
+      "fund_slug": "capital-dynamics-sgr",
+      "signal_type": "deal_announced",
+      "title": "Investment Partnerships - Capital Dynamics",
+      "what_changed": "",
+      "source_url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9EeXhNRGpnMTJfY0gyVThkRkdta0hBU0swWHYzamg2b1ZBR05rdkp3QS0xZDZxQmxpT1h1U0ZrbzdRZ216Y1pCd0xCeXU?oc=5",
+      "source_name": "Capital Dynamics SGR",
+      "published_at": "2018-11-14",
+      "observed_at": "2026-03-09T10:01:01.666936+00:00",
+      "created_at": "2026-03-09T10:01:01.666936+00:00",
+      "snapshot_id": "snap-20260309100101-0b1e545e",
+      "diff_summary": "New news item detected (dated 2018-11-14)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Capital Dynamics",
+          "Investment Partnerships"
+        ],
+        "locations": []
+      },
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.823,
+      "ml_type_confident": true,
+      "ml_confidence": 0.823,
+      "quality_score": 86,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.864,
+      "signal_types": [
+        "deal_announced"
       ]
     },
     {
@@ -10804,40 +10191,6 @@
       "confidence_score": 0.734,
       "signal_types": [
         "other"
-      ]
-    },
-    {
-      "id": "news-signal-20260205111503-958d5a92-f178b02b",
-      "fund_id": "",
-      "fund_slug": "alcedo-sgr",
-      "signal_type": "people_move",
-      "title": "Alessio Riulini appointed CEO di demetra",
-      "what_changed": "",
-      "source_url": "https://www.alcedo.it/wp-content/uploads/2023/07/69_Comunicato-Alessio-Riulini-11-lug-2023.pdf",
-      "source_name": "Alcedo SGR",
-      "published_at": "2023-07-11",
-      "observed_at": "2026-02-05T11:15:03.990058+00:00",
-      "created_at": "2026-02-05T11:15:03.990058+00:00",
-      "fingerprint": "dd4e6af0967e",
-      "extraction_source": "news_signal_generator",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "quality_score": 86,
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": true,
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "people_move",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "evidence_score": 2,
-      "quality_confidence": "high",
-      "confidence_score": 0.654,
-      "signal_types": [
-        "people_move"
       ]
     },
     {
@@ -11307,71 +10660,6 @@
       ]
     },
     {
-      "id": "seed-signal-00047",
-      "fund_id": "",
-      "fund_slug": "alto-partners-sgr",
-      "related_fund_slugs": [
-        "alto-partners-sgr",
-        "aurora-growth-capital",
-        "gradiente-sgr"
-      ],
-      "signal_type": "portfolio_update",
-      "title": "Alto Capital Vacquires majority stake in Dierre Group (transaction value ~\u20ac108M)",
-      "what_changed": "Dierre Group announced completion of Alto Capital V's acquisition of a majority stake, with transaction value reported at about \u20ac108M.",
-      "source_url": "https://www.dierre.eu/en/node/1648",
-      "source_name": "Dierre",
-      "published_at": "2024-02-14",
-      "observed_at": "2026-02-21T19:16:56.716+00:00",
-      "created_at": "2026-02-21T19:16:56.716+00:00",
-      "snapshot_id": "seed-2026-02-21-company-top10-zero-signals",
-      "diff_summary": "Seeded historical signal: Alto Capital Vacquires majority stake in Dierre Group (transaction value ~\u20ac108M)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "extraction_source": "manual_seed",
-      "data_source": "manual",
-      "relevance_score": 1,
-      "relevance_reasons": [
-        "Italian company",
-        "Majority acquisition",
-        "Control transaction"
-      ],
-      "italy_relevant": true,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Dierre Group"
-        ],
-        "people": [],
-        "locations": [
-          "Italy"
-        ]
-      },
-      "deal_amount": "\u20ac108M",
-      "target_companies": [
-        {
-          "name": "Dierre Group",
-          "is_direct_investment": true,
-          "action": "investment"
-        }
-      ],
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 85,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.81,
-      "signal_types": [
-        "portfolio_update"
-      ]
-    },
-    {
       "id": "seed-signal-00043",
       "fund_id": "",
       "fund_slug": "eurazeo",
@@ -11592,57 +10880,6 @@
       "ml_type_prob": 1.0,
       "ml_type_confident": true,
       "ml_confidence": 1.0,
-      "quality_score": 85,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.73,
-      "signal_types": [
-        "portfolio_update",
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "seed-signal-00032",
-      "fund_id": "",
-      "fund_slug": "advent-international",
-      "signal_type": "portfolio_update",
-      "title": "IRCA (Advent International) acquires Kerry Sweet Ingredients division for \u20ac500M",
-      "what_changed": "IRCA S.p.A. (owned by Advent International, HQ in Gallarate, Varese) acquired Kerry Group's Sweet Ingredients division for \u20ac500M (\u20ac375M cash + \u20ac125M vendor loan). Creates ~\u20ac1B global confectionery ingredients leader. Kerry Sweet had \u20ac410M revenue in 2022.",
-      "source_url": "https://bebeez.it/private-equity/e-ufficiale-irca-advent-international-acquisisce-la-divisione-sweet-ingredients-del-gruppo-kerry/",
-      "source_name": "BeBeez",
-      "published_at": "2023-06-01",
-      "observed_at": "2026-02-12T11:17:58.661959+00:00",
-      "created_at": "2026-02-12T11:17:58.661959+00:00",
-      "snapshot_id": "seed-2026-02-12",
-      "diff_summary": "Seeded historical signal: IRCA (Advent International) acquires Kerry Sweet Ingredients division for \u20ac500M",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 1,
-      "relevance_reasons": [
-        "IRCA",
-        "Gallarate",
-        "Varese",
-        "Italian food ingredients"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "IRCA S.p.A.",
-          "Kerry Group"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac500M",
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": false,
-      "ml_keep_prob": 0.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.999,
-      "ml_type_confident": true,
-      "ml_confidence": 0.999,
       "quality_score": 85,
       "evidence_score": 3,
       "quality_confidence": "high",
@@ -12253,49 +11490,6 @@
       ]
     },
     {
-      "id": "web-signal-00448",
-      "fund_id": "",
-      "fund_slug": "innovative-rfk",
-      "signal_type": "deal_announced",
-      "title": "Innovative-RFK acquires majority stake in Abbrevia",
-      "what_changed": "",
-      "source_url": "https://financecommunity.it/innovative-rfk-acquista-la-maggioranza-di-abbrevia/",
-      "source_name": "Innovative-RFK",
-      "published_at": "2023-10-12",
-      "observed_at": "2026-02-05T17:17:04.639939+00:00",
-      "created_at": "2026-02-05T17:17:04.639939+00:00",
-      "snapshot_id": "snap-20260205171702-3e49fcb9",
-      "diff_summary": "New news item detected (dated 12 Ottobre 2023)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: Innovative-RFK acquista la maggioranza di Abbrevia",
-      "title_original": "Innovative-RFK acquista la maggioranza di Abbrevia",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 1.0,
-      "ml_keep_confidence": 1.0,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 1.0,
-      "ml_type_confident": true,
-      "ml_confidence": 1.0,
-      "quality_score": 85,
-      "evidence_score": 2,
-      "quality_confidence": "medium",
-      "confidence_score": 0.65,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
       "id": "rss-signal-00050",
       "fund_id": "",
       "fund_slug": "apollo",
@@ -12552,6 +11746,50 @@
       ]
     },
     {
+      "id": "web-signal-01614",
+      "fund_id": "",
+      "fund_slug": "sagitta-sgr",
+      "signal_type": "other",
+      "title": "Sagitta SGR completes turnaround: \u20ac1M profit in 2022",
+      "what_changed": "",
+      "source_url": "https://www.sagittasgr.it/en/sagitta-sgr-completes-turnaround-e1-million-profit-in-2022/",
+      "source_name": "Sagitta SGR",
+      "published_at": "2023-05-18",
+      "observed_at": "2026-02-19T20:29:18.316558+00:00",
+      "created_at": "2026-02-19T20:29:18.316558+00:00",
+      "snapshot_id": "snap-20260219202917-5e887105",
+      "diff_summary": "New news item detected (dated 2023-05-18)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac1M",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "fund",
+      "ml_type_prob": 0.616,
+      "ml_type_confident": true,
+      "ml_confidence": 0.616,
+      "quality_score": 83,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.722,
+      "signal_types": [
+        "other"
+      ]
+    },
+    {
       "id": "hist-signal-00165",
       "fund_id": "",
       "fund_slug": "fvs-sgr",
@@ -12583,6 +11821,95 @@
       "confidence_score": 0.642,
       "signal_types": [
         "exit_announced"
+      ]
+    },
+    {
+      "id": "web-signal-00523",
+      "fund_id": "",
+      "fund_slug": "green-arrow-capital-sgr",
+      "signal_type": "deal_announced",
+      "title": "De Blasio (Green Arrow) at M&A Circus: The future of infrastructure lies in energy and data",
+      "what_changed": "",
+      "source_url": "https://www.greenarrow-capital.com/en/de-blasio-green-arrow-a-ma-circus-il-futuro-delle-infrastrutture-viene-da-energia-e-dati/",
+      "source_name": "Green Arrow Capital SGR",
+      "published_at": "2020-06-26",
+      "observed_at": "2026-02-05T18:22:45.612517+00:00",
+      "created_at": "2026-02-05T18:22:45.612517+00:00",
+      "snapshot_id": "snap-20260205182244-4a528341",
+      "diff_summary": "New news item detected (dated 2020-06-26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "De Blasio",
+          "Green Arrow"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: De Blasio (Green Arrow) a M&A Circus: Il futuro delle infrastrutture viene da energia e dati",
+      "title_original": "De Blasio (Green Arrow) a M&A Circus: Il futuro delle infrastrutture viene da energia e dati",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.992,
+      "ml_type_confident": true,
+      "ml_confidence": 0.992,
+      "quality_score": 83,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.852,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "web-signal-00525",
+      "fund_id": "",
+      "fund_slug": "green-arrow-capital-sgr",
+      "signal_type": "deal_announced",
+      "title": "Unquote Annual Buyout",
+      "what_changed": "New announcement: Unquote Annual Buyout",
+      "source_url": "https://www.greenarrow-capital.com/en/unquote-annual-buyout/",
+      "source_name": "Green Arrow Capital SGR",
+      "published_at": "2020-04-07",
+      "observed_at": "2026-02-05T18:22:45.612517+00:00",
+      "created_at": "2026-02-05T18:22:45.612517+00:00",
+      "snapshot_id": "snap-20260205182244-4a528341",
+      "diff_summary": "New news item detected (dated 2020-04-07)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Unquote Annual Buyout"
+        ],
+        "locations": []
+      },
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.954,
+      "ml_type_confident": true,
+      "ml_confidence": 0.954,
+      "quality_score": 83,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.852,
+      "signal_types": [
+        "deal_announced"
       ]
     },
     {
@@ -12959,6 +12286,138 @@
       "confidence_score": 0.58,
       "signal_types": [
         "other"
+      ]
+    },
+    {
+      "id": "web-signal-02116",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Wise Equity acquires a majority interest in Wanho",
+      "what_changed": "",
+      "source_url": "https://www.wisesgr.com/web/content/27300/Press%20release%20-%20Wise%20Equity%20acquires%20WANHO.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2023-11-13",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2023-11-13)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      },
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 79,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.756,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "web-signal-02117",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Wise Equity acquires 100% of Hertecant Flanges",
+      "what_changed": "",
+      "source_url": "https://www.wisesgr.com/web/content/27301/Press%20release%20-%20Wise%20Equity%20acquires%20SF_Hertecant.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2023-11-10",
+      "observed_at": "2026-03-09T12:39:40.830343+00:00",
+      "created_at": "2026-03-09T12:39:40.830343+00:00",
+      "snapshot_id": "snap-20260309123940-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2023-11-10)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity",
+          "Hertecant Flanges"
+        ],
+        "locations": []
+      },
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 79,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.756,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "web-signal-01727-49eab479",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "The calzedonia group acquires cantiere del pardo",
+      "what_changed": "",
+      "source_url": "https://www.wisesgr.com/web/content/444/            01.08.2023_Comunicato-Stampa-Wise-Equity_-Cantiere-del-Pardo_-Gruppo-Calzedonia_ITA.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2023-08-01",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2023-08-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Il Gruppo Calzedonia"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Il Gruppo Calzedonia acquista Cantiere del Pardo",
+      "title_original": "Il Gruppo Calzedonia acquista Cantiere del Pardo",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 79,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.756,
+      "signal_types": [
+        "deal_announced"
       ]
     },
     {
@@ -13402,6 +12861,96 @@
       ]
     },
     {
+      "id": "web-signal-00216",
+      "fund_id": "",
+      "fund_slug": "innovative-rfk",
+      "signal_type": "deal_announced",
+      "title": "I-RFK and a club deal of investors have acquired 65% of Audio Technologies.",
+      "what_changed": "",
+      "source_url": "https://bebeez.it/club-deal/i-rfk-e-un-club-deal-di-investitori-hanno-acquistato-il-65-di-audio-technologies-loperazione-e-stata-in-parte-finanziata-da-banco-bpm/",
+      "source_name": "Innovative-RFK",
+      "published_at": "2023-05-12",
+      "observed_at": "2026-02-05T15:57:45.697662+00:00",
+      "created_at": "2026-02-05T15:57:45.697662+00:00",
+      "snapshot_id": "snap-20260205155744-6141756a",
+      "diff_summary": "New news item detected (dated 12M aggio 2023)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Audio Technologies"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: i-RFK e un club deal di investitori hanno acquistato il 65% di Audio Technologies",
+      "title_original": "i-RFK e un club deal di investitori hanno acquistato il 65% di Audio Technologies",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 78,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.832,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "web-signal-01726-80c822f4",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Durst signs agreement with Wise Equity to acquire Aleph",
+      "what_changed": "",
+      "source_url": "https://www.wisesgr.com/web/content/445/19.09.2023_CS_WiseEquity_Aleph_vF-ita-FINANCE_clean-2.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2023-09-19",
+      "observed_at": "2026-02-20T09:38:42.325184+00:00",
+      "created_at": "2026-02-20T09:38:42.325184+00:00",
+      "snapshot_id": "snap-20260220093842-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2023-09-19)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Wise Equity"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Durst sigla un accordo con Wise Equity per acquisire Aleph",
+      "title_original": "Durst sigla un accordo con Wise Equity per acquisire Aleph",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 1.0,
+      "ml_keep_confidence": 1.0,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 1.0,
+      "ml_type_confident": true,
+      "ml_confidence": 1.0,
+      "quality_score": 76,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.744,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
       "id": "rss-signal-00113",
       "fund_id": "",
       "fund_slug": "dea-capital-alternative-funds-sgr",
@@ -13445,18 +12994,18 @@
       ]
     }
   ],
-  "signal_count": 300,
+  "signal_count": 290,
   "translated_at": "2026-03-09T16:01:39.678696+00:00",
-  "filtered_at": "2026-03-09T16:13:26.867850+00:00",
+  "filtered_at": "2026-03-10T22:26:21.263091+00:00",
   "filter_stats": {
     "original_count": 2125,
-    "filtered_count": 300,
+    "filtered_count": 290,
     "removed_invalid_fund": 40,
     "removed_duplicates": 262,
     "resolved_duplicate_ids": 538,
     "removed_strict_gate": 125,
     "removed_garbage": 155,
-    "removed_low_quality": 141,
+    "removed_low_quality": 151,
     "removed_support_only": 1,
     "removed_junior_non_italy": 1,
     "removed_geo_irrelevant": 773,
@@ -13468,8 +13017,8 @@
     "ml_type_overrides": 244,
     "min_quality_score": 80,
     "confidence_distribution": {
-      "high": 312,
-      "medium": 75,
+      "high": 306,
+      "medium": 71,
       "low": 8
     }
   }

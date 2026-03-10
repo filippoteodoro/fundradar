@@ -3212,6 +3212,8 @@ def calculate_quality_score(
         try:
             from datetime import datetime, timezone as _tz
             _pub_dt = datetime.fromisoformat(_pub_date.replace("Z", "+00:00"))
+            if _pub_dt.tzinfo is None:
+                _pub_dt = _pub_dt.replace(tzinfo=_tz.utc)
             _age_months = (datetime.now(_tz.utc) - _pub_dt).days / 30.4
             if _age_months > 24:
                 _evidence = signal.get("evidence_score") or 0
