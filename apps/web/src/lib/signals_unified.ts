@@ -22,6 +22,7 @@ import {
   buildFundMentionEntries,
   resolveSignalFundSlugs,
   resolveFundNamesForSlugs,
+  escapeRegex,
   type FundMentionEntry,
 } from './signalFundTags';
 
@@ -285,24 +286,20 @@ function normalizeWebsiteMonitorSignal(
 
   // Strip fund name prefix — the UI shows fund name as a header link above the card
   if (fund) {
-    const escaped = fund.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    displayText = displayText.replace(new RegExp('^\\s*' + escaped + '\\s*:\\s*', 'i'), '').trim();
+    displayText = displayText.replace(new RegExp('^\\s*' + escapeRegex(fund.name) + '\\s*:\\s*', 'i'), '').trim();
   }
   // Also strip slug-derived name patterns (enricher sometimes uses slug → title case as label)
   if (sig.fund_slug) {
     const slugName = sig.fund_slug.replace(/-/g, ' ');
-    const escapedSlug = slugName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    displayText = displayText.replace(new RegExp('^\\s*' + escapedSlug + '\\s*:\\s*', 'i'), '').trim();
+    displayText = displayText.replace(new RegExp('^\\s*' + escapeRegex(slugName) + '\\s*:\\s*', 'i'), '').trim();
   }
   // Strip source name prefix — the UI shows source as a separate label
   if (sig.source_name) {
-    const escapedSource = sig.source_name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    displayText = displayText.replace(new RegExp('^\\s*' + escapedSource + '\\s*:\\s*', 'i'), '').trim();
+    displayText = displayText.replace(new RegExp('^\\s*' + escapeRegex(sig.source_name) + '\\s*:\\s*', 'i'), '').trim();
     // CamelCase split: "FinanceCommunity" → "Finance Community"
     const camelSplit = sig.source_name.replace(/([a-z])([A-Z])/g, '$1 $2');
     if (camelSplit !== sig.source_name) {
-      const escapedCamel = camelSplit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      displayText = displayText.replace(new RegExp('^\\s*' + escapedCamel + '\\s*:\\s*', 'i'), '').trim();
+      displayText = displayText.replace(new RegExp('^\\s*' + escapeRegex(camelSplit) + '\\s*:\\s*', 'i'), '').trim();
     }
   }
   // Strip fund_name from signal itself (may differ from fund.name for multi-fund signals)
@@ -310,8 +307,7 @@ function normalizeWebsiteMonitorSignal(
   if (sigAny.fund_name && typeof sigAny.fund_name === 'string') {
     const rawFundName = sigAny.fund_name as string;
     if (rawFundName !== fund?.name) {
-      const escapedRaw = rawFundName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      displayText = displayText.replace(new RegExp('^\\s*' + escapedRaw + '\\s*:\\s*', 'i'), '').trim();
+      displayText = displayText.replace(new RegExp('^\\s*' + escapeRegex(rawFundName) + '\\s*:\\s*', 'i'), '').trim();
     }
   }
 

@@ -363,6 +363,7 @@ interface FilteredSignalsFile {
 
 let cachedFilteredSignals: Signal[] | null = null;
 let cachedFundMentionEntries: FundMentionEntry[] | null = null;
+let cachedKnownFundNames: Set<string> | null = null;
 
 function loadFilteredSignals(): Signal[] {
   if (cachedFilteredSignals) {
@@ -416,7 +417,8 @@ export function getSignalsForFund(fundSlug: string): Signal[] {
     })
     .filter((s) => (s.related_fund_slugs || []).includes(fundSlug));
   // Build known fund names for misattribution detection (auto-derived from db.json)
-  const knownFundNames = buildKnownFundNames(getAllFunds());
+  if (!cachedKnownFundNames) cachedKnownFundNames = buildKnownFundNames(getAllFunds());
+  const knownFundNames = cachedKnownFundNames;
   // Deduplicate by content (source_url + title + published_at)
   const seen = new Set<string>();
   const seenContent = new Set<string>();

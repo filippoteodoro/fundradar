@@ -128,6 +128,8 @@ Company pages (`/companies/[slug]`) display a single `Company` object aggregated
 
 ## Signal Dual-Loading — Important
 
+> When signals are missing, showing the wrong type, or displaying incorrectly, see [`/docs/check_signals.md`](/docs/check_signals.md) for the full diagnostic guide.
+
 Signals are loaded via **two different code paths** depending on the page:
 
 Both paths share signal processing via **`signalProcessing.ts`** (defense-in-depth — Python `filter_signals.py` is the primary gate):

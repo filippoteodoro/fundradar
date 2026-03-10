@@ -2,13 +2,11 @@
 
 import { useState, useMemo, Fragment } from 'react';
 import type { PortfolioCompany } from '@/lib/data';
-import { CARD_STYLE, CARD_PADDING, badgeStyle, STATUS_STYLES, SOURCE_STYLES } from '@/lib/ui';
+import { CARD_STYLE, CARD_PADDING, badgeStyle, STATUS_STYLES, SOURCE_STYLES, PORTFOLIO_STATUS_ORDER, isUnknownSource } from '@/lib/ui';
 import { getSectorColor } from '@/lib/colors';
 import { normalizePortfolioSector } from '@/lib/portfolioSectors';
 
 type SortKey = 'company' | 'sector' | 'hq' | 'status' | 'date';
-
-const STATUS_ORDER: Record<string, number> = { current: 0, partial: 1, exited: 3 };
 
 function extractCity(headquarters: string | null | undefined): string {
   if (!headquarters) return '-';
@@ -18,12 +16,6 @@ function extractCity(headquarters: string | null | undefined): string {
     return parts.slice(0, -1).join(', ');
   }
   return hq;
-}
-
-function isUnknownSource(company: Pick<PortfolioCompany, 'source_label' | 'source_url'>): boolean {
-  const normalizedLabel = company.source_label?.trim().toLowerCase() || '';
-  if (normalizedLabel === 'unknown') return true;
-  return !company.source_url && !normalizedLabel;
 }
 
 function sortCompanies(companies: PortfolioCompany[], sortKey: SortKey, sortDir: 'asc' | 'desc'): PortfolioCompany[] {
@@ -40,8 +32,8 @@ function sortCompanies(companies: PortfolioCompany[], sortKey: SortKey, sortDir:
         cmp = extractCity(a.headquarters).localeCompare(extractCity(b.headquarters));
         break;
       case 'status': {
-        const aOrder = a.status ? (STATUS_ORDER[a.status] ?? 2) : 2;
-        const bOrder = b.status ? (STATUS_ORDER[b.status] ?? 2) : 2;
+        const aOrder = a.status ? (PORTFOLIO_STATUS_ORDER[a.status] ?? 2) : 2;
+        const bOrder = b.status ? (PORTFOLIO_STATUS_ORDER[b.status] ?? 2) : 2;
         cmp = aOrder - bOrder;
         break;
       }

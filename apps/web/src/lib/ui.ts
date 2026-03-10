@@ -63,3 +63,19 @@ export const PAGE_CATEGORY_STYLES: Record<string, { label: string } & BadgeColor
 export const RUMOR_STYLE: { label: string } & BadgeColor = {
   label: 'Rumor', bg: '#ffebee', color: '#d50000',
 };
+
+// ── Portfolio sort helpers ───────────────────────────────────────────────────
+
+/** Sort order for portfolio company status. 'unknown' defaults to 2 at call sites. */
+export const PORTFOLIO_STATUS_ORDER: Record<string, number> = {
+  current: 0,
+  partial: 1,
+  exited: 3,
+};
+
+/** True when a portfolio entry has no usable source attribution. */
+export function isUnknownSource(company: { source_label?: string | null; source_url?: string | null }): boolean {
+  const normalizedLabel = company.source_label?.trim().toLowerCase() || '';
+  if (normalizedLabel === 'unknown') return true;
+  return !company.source_url && !normalizedLabel;
+}

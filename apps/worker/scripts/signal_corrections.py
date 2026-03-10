@@ -592,11 +592,7 @@ def correct_deal(text_lower: str, title_lower: str, diff_summary_lower: str = ""
     # Fund launch verbs + fund vehicle → fund_launch
     # "TeamSystem Capital@Work launches FPAM 1 fund to invest in invoices" is a fund
     # launch, not a deal — the "invest in" describes the fund's mandate, not a transaction.
-    if re.search(
-        r"\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?|avvia|al\s+via)\b.{0,80}\b(?:fondo|fund|comparto|veicolo|vehicle)\b",
-        text_lower,
-        re.IGNORECASE,
-    ):
+    if _RE_LAUNCH_FUND.search(text_lower):
         return "fund_launch"
 
     # Portfolio company capex investment → portfolio_update (not a new fund deal)
@@ -1132,11 +1128,7 @@ def apply_type_corrections(
         # Fund launch verbs + fund vehicle → fund_launch (must run BEFORE invest_verbs rescue).
         # "launches X fund to invest in Y" contains "invest in" which would otherwise push
         # it to deal_announced. The launch verb makes the primary event a fund launch.
-        if re.search(
-            r"\b(?:lancia|lancio|nasce|nascita|launch(?:es|ed)?|avvia|al\s+via)\b.{0,80}\b(?:fondo|fund|comparto|veicolo|vehicle)\b",
-            text_lower,
-            re.IGNORECASE,
-        ):
+        if _RE_LAUNCH_FUND.search(text_lower):
             return "fund_launch"
 
         # Office/presence opening → people_move (strategic geographic expansion signal).

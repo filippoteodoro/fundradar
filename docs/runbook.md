@@ -227,6 +227,8 @@ Current extractor-routed blocked funds:
 
 ### Actionable Signal Dropped by Filter
 
+> For a full catalogue of signal quality issues and exactly where to apply systemic fixes, see [`/docs/check_signals.md`](/docs/check_signals.md).
+
 If a recent, Italy-relevant signal is missing from `detected_signals_filtered.json`, re-run:
 
 ```bash

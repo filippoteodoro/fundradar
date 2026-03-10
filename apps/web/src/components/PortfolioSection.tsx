@@ -4,7 +4,7 @@ import React, { useState, useMemo } from 'react';
 import type { PortfolioCompany } from '@/lib/data';
 import { PortfolioInsights } from './PortfolioInsights';
 import { PortfolioTable } from './PortfolioTable';
-import { CARD_STYLE, CARD_PADDING, badgeStyle, STATUS_STYLES, SOURCE_STYLES } from '@/lib/ui';
+import { CARD_STYLE, CARD_PADDING, badgeStyle, STATUS_STYLES, SOURCE_STYLES, PORTFOLIO_STATUS_ORDER, isUnknownSource } from '@/lib/ui';
 import { normalizePortfolioSector } from '@/lib/portfolioSectors';
 import { isItalianCompany } from '@/lib/italianCompany';
 
@@ -12,12 +12,6 @@ interface PortfolioSectionProps {
   companies: PortfolioCompany[];
   compact?: boolean;
   emptyNote?: string | null;
-}
-
-// Sectors are already canonical from the normalization pipeline.
-// Just pass through the sector name, trimmed.
-function normalizeSector(sector: string | null | undefined): string | null {
-  return normalizePortfolioSector(sector);
 }
 
 function extractCity(company: { headquarters?: string | null; data_source?: string; region?: string | null }): string {
@@ -42,14 +36,7 @@ function getDefaultRegionFilter(companies: PortfolioCompany[]): 'all' | 'italy' 
   return 'all';
 }
 
-function isUnknownSource(company: Pick<PortfolioCompany, 'source_label' | 'source_url'>): boolean {
-  const normalizedLabel = company.source_label?.trim().toLowerCase() || '';
-  if (normalizedLabel === 'unknown') return true;
-  return !company.source_url && !normalizedLabel;
-}
-
 type CompactSortKey = 'company' | 'sector' | 'hq' | 'status' | 'date';
-const COMPACT_STATUS_ORDER: Record<string, number> = { current: 0, partial: 1, exited: 3 };
 
 function CompactPortfolioSection({ companies }: PortfolioSectionProps) {
   const [page, setPage] = useState(0);
@@ -79,14 +66,14 @@ function CompactPortfolioSection({ companies }: PortfolioSectionProps) {
           cmp = a.company_name.localeCompare(b.company_name);
           break;
         case 'sector':
-          cmp = (normalizeSector(a.sector) || a.sector || '').localeCompare(normalizeSector(b.sector) || b.sector || '');
+          cmp = (normalizePortfolioSector(a.sector) || a.sector || '').localeCompare(normalizePortfolioSector(b.sector) || b.sector || '');
           break;
         case 'hq':
           cmp = extractCity(a).localeCompare(extractCity(b));
           break;
         case 'status': {
-          const aOrder = a.status ? (COMPACT_STATUS_ORDER[a.status] ?? 2) : 2;
-          const bOrder = b.status ? (COMPACT_STATUS_ORDER[b.status] ?? 2) : 2;
+          const aOrder = a.status ? (PORTFOLIO_STATUS_ORDER[a.status] ?? 2) : 2;
+          const bOrder = b.status ? (PORTFOLIO_STATUS_ORDER[b.status] ?? 2) : 2;
           cmp = aOrder - bOrder;
           break;
         }
@@ -268,7 +255,7 @@ function CompactPortfolioSection({ companies }: PortfolioSectionProps) {
                       )}
                     </td>
                     <td style={{ padding: '10px 12px', borderBottom: isExpanded ? 'none' : '1px solid #eee', color: '#666' }}>
-                      {company.sector ? (normalizeSector(company.sector) || company.sector) : '-'}
+                      {company.sector ? (normalizePortfolioSector(company.sector) || company.sector) : '-'}
                     </td>
                     {hasHqData && (
                       <td style={{ padding: '10px 12px', borderBottom: isExpanded ? 'none' : '1px solid #eee', color: '#666', fontSize: '13px' }}>
@@ -385,7 +372,7 @@ function FullPortfolioSection({ companies }: PortfolioSectionProps) {
   const sectors = useMemo(() => {
     const sectorSet = new Set<string>();
     companies.forEach(c => {
-      const normalized = normalizeSector(c.sector);
+      const normalized = normalizePortfolioSector(c.sector);
       if (normalized) sectorSet.add(normalized);
     });
     return Array.from(sectorSet).sort();
@@ -408,7 +395,7 @@ function FullPortfolioSection({ companies }: PortfolioSectionProps) {
     return companies.filter(c => {
       // Sector filter
       if (sectorFilter !== 'all') {
-        const normalized = normalizeSector(c.sector);
+        const normalized = normalizePortfolioSector(c.sector);
         if (normalized !== sectorFilter) return false;
       }
 
@@ -435,8 +422,8 @@ function FullPortfolioSection({ companies }: PortfolioSectionProps) {
 
       return true;
     }).sort((a, b) => {
-      const aOrder = a.status ? (COMPACT_STATUS_ORDER[a.status] ?? 2) : 2;
-      const bOrder = b.status ? (COMPACT_STATUS_ORDER[b.status] ?? 2) : 2;
+      const aOrder = a.status ? (PORTFOLIO_STATUS_ORDER[a.status] ?? 2) : 2;
+      const bOrder = b.status ? (PORTFOLIO_STATUS_ORDER[b.status] ?? 2) : 2;
       if (aOrder !== bOrder) return aOrder - bOrder;
       const aDate = a.entry_date || a.investment_date || '';
       const bDate = b.entry_date || b.investment_date || '';

@@ -377,6 +377,17 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
     return companies
 ```
 
+#### PEM merge matching — 4-strategy name resolution
+
+When PEM deals try to match against website portfolio entries, these strategies run in order (see `apps/web/CLAUDE.md` "PEM Merge — 4 Matching Strategies" for full details):
+
+1. **Exact normalized** — `normalizeCompanyName(a) === normalizeCompanyName(b)`
+2. **Compact** — strip spaces: "SF Filter" ↔ "SFFilter"
+3. **Group-stripped** — "Nactarome Group" ↔ "Nactarome"
+4. **Substring** (≥5 chars, word boundary) — "Frigoveneta" ↔ "Frigoveneta Service"
+
+**If none match**, the PEM deal appears as a separate exited entry — the #1 source of duplicates. Use names that will normalize to match PEM deal names.
+
 #### Company name quality — what the frontend rejects
 
 The web app's `isValidPortfolioEntry()` in `data.ts` silently rejects entries matching `NAV_PATTERNS` (navigation text like "Back to top", "Read more", "Cookie policy", fund's own name, names < 2 chars, URLs, file paths). `cleanPortfolioName()` also strips " logo" suffixes and pipe-delimited promotional text.
@@ -927,6 +938,10 @@ Configuration values are defined as constants in `apps/worker/scripts/enrich_sig
 ### enriched_summary coverage
 
 **~40-60% of signals will have `enriched_summary=""`** — this is intentional, NOT a bug. When the LLM summary is 85%+ word overlap with the title, it's cleared. The frontend falls back to displaying the title — this is correct behavior, not data loss.
+
+### Signal quality issues
+
+If signals are showing the wrong type, bad text, wrong fund attribution, missing from the website, or not generating portfolio entries — see **[`/docs/check_signals.md`](/docs/check_signals.md)** for the full diagnostic guide. It covers all 15 issue categories with the exact function and file to fix for each.
 
 ---
 

@@ -7,6 +7,8 @@ Key modules: core pipeline, fund-specific extractors (with URLS dicts), domain p
 
 ## Pipeline (9 steps)
 
+> When signal quality is wrong — wrong type, missing signals, garbage passing through, text artifacts, portfolio not updated — see [`/docs/check_signals.md`](/docs/check_signals.md) for the full diagnostic and fix guide.
+
 ```
 monitor → rss → translate → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini, optional) → filter → enrich (AI summaries + target_companies) → signal_to_portfolio (local)
 ```
@@ -371,6 +373,10 @@ The following fixes were applied during a full signal quality audit (Feb 2026). 
 **`filter_signals.py` italy_relevant correction** — Negative geography downgrade: when `italy_relevant=True` was set as an upstream default (relevance_score=0, no relevance_reasons) AND signal text explicitly mentions non-Italian EU geography (Bavaria, Munich, Germany, etc.) WITHOUT mentioning Italy, `italy_relevant` is flipped to `False`. Added Bavaria/Bavarian/Hamburg to `_NON_ITALY_EU_COUNTRIES_RE`. Catches RSS aggregator signals that default `italy_relevant=True` for all articles.
 
 **`signal_to_portfolio.py`** — Added `italy_relevant` check: signals with `italy_relevant=False` are skipped for portfolio entry creation. Belt-and-suspenders defense against non-Italian companies entering fund portfolios. Previously, signal_to_portfolio blindly trusted all signals that passed the filter.
+
+**`signal_patterns.py` `_RE_EXIT_VERBS`** — Added `\bsale\b` (English noun form). Previously only verb forms (`sells?`, `selling`, `sold`) were matched. Signals like "agreement for the **sale** of Casa della Piada" were not recognized as exits. 7 exit signals were displaying as "Other" in the UI. Fix propagates to all Python checks using `_RE_EXIT_VERBS` (`correct_exit()`, `correct_deal()`, etc.).
+
+**`signalProcessing.ts` exit safety net** — Refactored: instead of a long inline regex (which was missing `divest\w+`, `realis\w+`, `sale`), the safety net now uses `RE_EXIT_VERBS.test(text)` as the first condition. This ensures the TypeScript constant stays in sync with any future additions to the canonical exit verb set. Previously 7 exit signals were downgraded to "Other" by the stale inline regex.
 
 ### Enricher "processed but missing" signals — Root Cause and Fix
 
