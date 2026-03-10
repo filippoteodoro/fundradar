@@ -26,7 +26,7 @@ from pathlib import Path
 from threading import Thread
 from typing import Any
 
-from dotenv import load_dotenv, dotenv_values
+from dotenv import load_dotenv
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
 
@@ -34,6 +34,7 @@ WORKER_DIR = Path(__file__).parent.parent
 sys.path.insert(0, str(WORKER_DIR))
 
 from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, SIGNALS_FILE, WORKER_ENV_PATH as ENV_PATH
+from fundradar_worker.io_utils import safe_json_write
 
 # ── Timeout ────────────────────────────────────────────────────────────────────
 
@@ -44,11 +45,6 @@ TRANSLATE_DEADLINE_SECONDS = _deadline.deadline_seconds
 
 # ── Environment ────────────────────────────────────────────────────────────────
 load_dotenv(ENV_PATH, override=False)
-if ENV_PATH.exists():
-    env_vars = dotenv_values(ENV_PATH)
-    for key in ("OPENAI_API_KEY", "DEEPL_API_KEY", "DEEPL_API_KEY_2", "AZURE_TRANSLATOR_KEY", "AZURE_TRANSLATOR_REGION"):
-        if not os.environ.get(key) and env_vars.get(key):
-            os.environ[key] = env_vars[key]
 
 # ── Import translator ──────────────────────────────────────────────────────────
 
@@ -65,7 +61,6 @@ def _load_signals() -> dict:
 
 
 def _save_signals(data: dict) -> None:
-    from fundradar_worker.io_utils import safe_json_write
     safe_json_write(SIGNALS_FILE, data)
 
 

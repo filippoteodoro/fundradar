@@ -186,7 +186,7 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
   // Transform backgrounds data
   const backgroundsData = classifiedBackgrounds
     .map(([name, value]) => ({
-      name: name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+      name: snakeToTitle(name),
       value: totalBackgrounds > 0 ? Math.round((value / totalBackgrounds) * 100) : 0,
       rawValue: value,
     }))
@@ -196,7 +196,7 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
   // Transform seniority data for pie chart (as percentages)
   const seniorityData = classifiedSeniority
     .map(([name, value]) => ({
-      name: name.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+      name: snakeToTitle(name),
       value: totalSeniority > 0 ? Math.round((value / totalSeniority) * 100) : 0,
       rawValue: value,
     }))
@@ -305,6 +305,7 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
   const showSeniorityCard = seniorityData.length >= 2 && totalSeniority >= 5;
   const showSchoolsCard = schoolsData.length >= 2 && totalSchools >= 5;
 
+  const snakeToTitle = (s: string) => s.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
   const pctLabel = (v: unknown) => `${v}%`;
   const countLabel = (v: unknown) => `${v}`;
 

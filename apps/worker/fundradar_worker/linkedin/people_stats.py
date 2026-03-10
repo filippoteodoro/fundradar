@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any
 
 from .people_scraper import LinkedInEmployee, LinkedInProfile, Experience, Education
+from ..io_utils import safe_json_write
 from .profile_classifier import (
     ProfileClassifier,
     ClassifiedProfile,
@@ -556,8 +557,7 @@ class PeopleStatsCalculator:
             fund_dict.pop("profile_summaries", None)
             data["funds"][s.fund_slug] = fund_dict
 
-        with open(output_path, "w") as f:
-            json.dump(data, f, indent=2)
+        safe_json_write(output_path, data)
 
         logger.info(f"Saved stats for {len(stats)} funds to {output_path}")
         return output_path
@@ -577,8 +577,7 @@ class PeopleStatsCalculator:
             "funds": {s.fund_slug: asdict(s) for s in stats},
         }
 
-        with open(output_path, "w") as f:
-            json.dump(data, f, indent=2)
+        safe_json_write(output_path, data)
 
         logger.info(f"Saved detailed stats for {len(stats)} funds to {output_path}")
         return output_path

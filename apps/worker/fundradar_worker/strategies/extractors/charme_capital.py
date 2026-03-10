@@ -5,7 +5,6 @@ import re
 
 DOMAIN = "www.charmecapitalpartners.com"
 
-
 # URL paths for monitoring - verified against live site
 URLS = {
     "portfolio": "/funds",
@@ -33,7 +32,6 @@ _GARBAGE_RE = re.compile(
     r"\.(jpg|jpeg|png|gif|svg|webp)$",
     re.I,
 )
-
 
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """Extract portfolio companies from Charme Capital Partners funds page."""
@@ -84,11 +82,9 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 
     return companies
 
-
 def extract_team(html: str, base_url: str) -> list[dict]:
     """Extract team members - not implemented for this site."""
     return []
-
 
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
@@ -105,11 +101,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     seen_titles = set()
 
     # Month name to number mapping
-    month_map = {
-        "january": "01", "february": "02", "march": "03", "april": "04",
-        "may": "05", "june": "06", "july": "07", "august": "08",
-        "september": "09", "october": "10", "november": "11", "december": "12"
-    }
 
     # Find h5 elements with news links
     for h5 in soup.find_all("h5"):
@@ -141,7 +132,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             date_match = re.search(r"(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})", text)
             if date_match:
                 day, month_name, year = date_match.groups()
-                month_num = month_map.get(month_name.lower())
+                month_num = _MONTH_NAMES.get(month_name.lower(), "01")
                 if month_num:
                     date = f"{year}-{month_num}-{day.zfill(2)}"
 
@@ -154,7 +145,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
         })
 
     return news
-
 
 EXTRACTORS = {
     "portfolio": extract_portfolio,

@@ -5,8 +5,6 @@ from urllib.parse import urljoin
 
 DOMAIN = "zestgroup.vc"
 
-
-
 # URL paths for monitoring — verified 2026-02-23
 URLS = {
     "portfolio": "/investments",
@@ -35,7 +33,6 @@ _NEWS_RE = re.compile(
     r"funding\s+round)",
     re.I,
 )
-
 
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """
@@ -149,7 +146,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 
     return companies
 
-
 def extract_team(html: str, base_url: str) -> list[dict]:
     """
     Extract team members from Zest Group team page.
@@ -226,7 +222,6 @@ def extract_team(html: str, base_url: str) -> list[dict]:
 
     return members
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news from Zest Group.
@@ -262,12 +257,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             match = date_pattern.search(text)
             if match:
                 month, day, year = match.groups()
-                months = {
-                    "january": "01", "february": "02", "march": "03", "april": "04",
-                    "may": "05", "june": "06", "july": "07", "august": "08",
-                    "september": "09", "october": "10", "november": "11", "december": "12"
-                }
-                month_num = months.get(month.lower(), "01")
+                month_num = _MONTH_NAMES.get(month.lower(), "01")
                 date = f"{year}-{month_num}-{day.zfill(2)}"
 
         news.append({
@@ -279,7 +269,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
         })
 
     return news
-
 
 EXTRACTORS = {
     "portfolio": extract_portfolio,

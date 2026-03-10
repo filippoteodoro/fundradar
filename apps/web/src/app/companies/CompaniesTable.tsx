@@ -4,7 +4,7 @@ import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import type { CompanySlim } from '@/lib/data';
 import { CARD_STYLE, CARD_PADDING, badgeStyle, STATUS_STYLES } from '@/lib/ui';
-import { canonicalizeSectorTag, SECTOR_GROUPS, SECTOR_TO_GROUP, getSectorGroupColor } from '@/lib/sectorGroups';
+import { SECTOR_GROUPS, getSectorGroup, getSectorGroupColor } from '@/lib/sectorGroups';
 import { isItalianCompany } from '@/lib/italianCompany';
 import { FilterBar } from '@/components/filters/FilterBar';
 import { FilterChips } from '@/components/filters/FilterChips';
@@ -23,11 +23,6 @@ function getCompanyStatus(c: CompanySlim): 'current' | 'exited' | 'unknown' {
   return 'unknown';
 }
 
-function getSectorGroup(sector: string | null): string | null {
-  if (!sector) return null;
-  const canonical = canonicalizeSectorTag(sector);
-  return SECTOR_TO_GROUP[canonical] || null;
-}
 
 export function CompaniesTable({ companies }: CompaniesTableProps) {
   const [search, setSearch] = useState('');

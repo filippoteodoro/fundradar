@@ -14,6 +14,8 @@ from pathlib import Path
 from typing import Any
 
 from .apify_client import ApifyClient, ApifyConfig, ActorRunResult, save_raw_data
+from ..io_utils import safe_json_write
+from ..date_utils import MONTH_NAMES as _MONTH_NAMES
 
 logger = logging.getLogger(__name__)
 
@@ -180,10 +182,7 @@ def _parse_experience(items: list[dict[str, Any]] | None) -> list[Experience]:
                 if year:
                     # Month might be string like "Sep" or int
                     if isinstance(month, str) and not month.isdigit():
-                        month_map = {"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04",
-                                     "May": "05", "Jun": "06", "Jul": "07", "Aug": "08",
-                                     "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"}
-                        month = month_map.get(month, "01")
+                        month = _MONTH_NAMES.get(month.lower(), "01")
                     start_date = f"{year}-{month}"
 
         if not end_date:
@@ -196,10 +195,7 @@ def _parse_experience(items: list[dict[str, Any]] | None) -> list[Experience]:
                     month = end_obj.get("month", "01")
                     if year:
                         if isinstance(month, str) and not month.isdigit():
-                            month_map = {"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04",
-                                         "May": "05", "Jun": "06", "Jul": "07", "Aug": "08",
-                                         "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"}
-                            month = month_map.get(month, "01")
+                            month = _MONTH_NAMES.get(month.lower(), "01")
                         end_date = f"{year}-{month}"
 
         # Check for current indicator
@@ -601,8 +597,7 @@ class LinkedInPeopleScraper:
             "employees": [asdict(e) for e in employees],
         }
 
-        with open(output_path, "w") as f:
-            json.dump(data, f, indent=2)
+        safe_json_write(output_path, data)
 
         logger.info(f"Saved {len(employees)} employees to {output_path}")
         return output_path
@@ -626,8 +621,7 @@ class LinkedInPeopleScraper:
         for profile in data["profiles"]:
             profile.pop("raw_data", None)
 
-        with open(output_path, "w") as f:
-            json.dump(data, f, indent=2)
+        safe_json_write(output_path, data)
 
         logger.info(f"Saved {len(profiles)} profiles to {output_path}")
         return output_path

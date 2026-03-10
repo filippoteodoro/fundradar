@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any
 
 from .apify_client import ApifyClient, ApifyConfig, ActorRunResult, save_raw_data
+from ..io_utils import safe_json_write
 
 logger = logging.getLogger(__name__)
 
@@ -335,8 +336,7 @@ class LinkedInPostsScraper:
         for post in data["posts"]:
             post.pop("raw_data", None)
 
-        with open(output_path, "w") as f:
-            json.dump(data, f, indent=2)
+        safe_json_write(output_path, data)
 
         logger.info(f"Saved {len(posts)} posts to {output_path}")
         return output_path

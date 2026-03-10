@@ -33,16 +33,14 @@ from dotenv import dotenv_values, load_dotenv
 
 from .io_utils import backup_before_write, safe_json_write, sanitize_text, sanitize_url
 from .slug_normalizer import get_slug_normalizer
+from .paths import PROJECT_ROOT, DATA_DIR, DB_PATH
 
 logger = logging.getLogger(__name__)
 
 # Paths
-PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
-DATA_DIR = PROJECT_ROOT / "data" / "derived"
 FEEDS_CONFIG = PROJECT_ROOT / "data" / "rss_feeds.json"
 SIGNALS_FILE = DATA_DIR / "detected_signals.json"
 STATE_FILE = DATA_DIR / "rss_state.json"
-DB_PATH = PROJECT_ROOT / "data" / "db.json"
 PORTFOLIO_PATH = DATA_DIR / "portfolio_items.json"
 
 # Load .env for OpenAI key

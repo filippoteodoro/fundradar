@@ -25,6 +25,7 @@ from pathlib import Path
 from typing import Any
 
 from .people_scraper import LinkedInProfile, LinkedInEmployee, Experience, Education
+from ..io_utils import safe_json_write
 from .people_stats import PeopleStatsCalculator, FundPeopleStats
 from .profile_classifier import ProfileClassifier
 
@@ -355,8 +356,7 @@ def merge_stats(new_stats: list[FundPeopleStats]) -> None:
     }
 
     STATS_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with open(STATS_FILE, "w") as f:
-        json.dump(output, f, indent=2)
+    safe_json_write(STATS_FILE, output)
 
     logger.info(f"Saved stats for {len(existing)} funds to {STATS_FILE}")
 

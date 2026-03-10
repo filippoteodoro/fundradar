@@ -6,7 +6,6 @@ import logging
 
 DOMAIN = "www.progressiosgr.it"
 
-
 # URL paths for monitoring - verified against live site
 URLS = {
     "portfolio": "/portfolio/",
@@ -14,7 +13,6 @@ URLS = {
     "news": "/news-press/",
 }
 logger = logging.getLogger(__name__)
-
 
 def _is_person_name(text: str) -> bool:
     """Check if text looks like a person name for progressio."""
@@ -57,7 +55,6 @@ def _is_person_name(text: str) -> bool:
         return False
 
     return True
-
 
 def extract_team(html: str, base_url: str) -> list[dict]:
     """
@@ -181,7 +178,6 @@ def extract_team(html: str, base_url: str) -> list[dict]:
     logger.info(f"Extracted {len(results)} team members from progressio")
     return results
 
-
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """
     Extract portfolio companies from progressiosgr.it investments page.
@@ -256,7 +252,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
     logger.info(f"Extracted {len(results)} companies from progressio")
     return results
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news from progressiosgr.it news page.
@@ -327,13 +322,10 @@ def extract_news(html: str, base_url: str) -> list[dict]:
                 date = f"{year}-{month.zfill(2)}-{day.zfill(2)}"
             else:
                 # Italian month names
-                months = {"gennaio": "01", "febbraio": "02", "marzo": "03", "aprile": "04",
-                          "maggio": "05", "giugno": "06", "luglio": "07", "agosto": "08",
-                          "settembre": "09", "ottobre": "10", "novembre": "11", "dicembre": "12"}
                 m = re.match(r"(\d{1,2})\s+(\w+)\s+(\d{4})", date_text)
                 if m:
                     day, month_name, year = m.groups()
-                    month_num = months.get(month_name.lower())
+                    month_num = _MONTH_NAMES.get(month_name.lower(), "01")
                     if month_num:
                         date = f"{year}-{month_num}-{day.zfill(2)}"
 
@@ -367,7 +359,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
 
     logger.info(f"Extracted {len(results)} news items from progressio")
     return results
-
 
 EXTRACTORS = {
     "team": extract_team,

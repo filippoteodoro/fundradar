@@ -2,11 +2,10 @@
 import json
 import re
 from bs4 import BeautifulSoup
+from fundradar_worker.date_utils import MONTH_NAMES as _MONTH_NAMES
 from urllib.parse import urljoin
 
 DOMAIN = "www.capza.co"
-
-
 
 # URL paths for monitoring - verified against live site
 URLS = {
@@ -142,7 +141,6 @@ def extract_team(html: str, base_url: str) -> list[dict]:
 
     return members
 
-
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """
     Extract portfolio companies from CAPZA companies listing.
@@ -237,7 +235,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 
     return companies
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news items from CAPZA newsroom page.
@@ -257,11 +254,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     seen_urls = set()
 
     # Month abbreviation mapping (CAPZA uses trailing apostrophe, e.g. "Feb'")
-    month_map = {
-        "jan": "01", "feb": "02", "mar": "03", "apr": "04",
-        "may": "05", "jun": "06", "jul": "07", "aug": "08",
-        "sep": "09", "oct": "10", "nov": "11", "dec": "12",
-    }
 
     # Strategy 1: Parse structured listing from ul#ajaxresults
     results_list = soup.select_one("ul#ajaxresults")
@@ -353,7 +345,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             })
 
     return news
-
 
 EXTRACTORS = {
     "team": extract_team,

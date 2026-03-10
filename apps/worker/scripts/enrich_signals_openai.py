@@ -46,6 +46,13 @@ from filter_signals import (
     DEAL_CLASSIFY_PATTERNS,
     EXIT_CLASSIFY_PATTERNS,
 )
+from signal_corrections import (
+    apply_universal_demotions,
+    apply_type_corrections,
+    correct_fundraise_to_deal_for_company_round,
+    detect_all_signal_types,
+    detect_portfolio_update,
+)
 from signal_patterns import (
     GENERIC_PORTFOLIO_TARGET_PATTERNS,
     _RE_BOND_EXCLUDE,
@@ -256,12 +263,12 @@ ENRICHER_DEADLINE_SECONDS = _deadline.deadline_seconds
 def _should_stop() -> bool:
     return _deadline.should_stop()
 
+# Common English words that look like acronyms but should be title-cased, not ALL-CAPSED
+_NOT_ACRONYMS = {"bain", "real", "blue", "next", "tree", "open", "true", "fair", "iron", "wise", "gold", "star"}
+
 # Enricher-only patterns (not in signal_patterns.py)
 _RE_HAS_AMOUNT = re.compile(r"€\s*\d+|\d+\s*(?:m|million|milion|mln|m€|bn|billion)", re.IGNORECASE)
-_RE_NEW_STRUCTURED = re.compile(r"^new\s+(?:portfolio\s+)?(?:investment|addition|exit|team\s+member)", re.IGNORECASE)
 _RE_NEW_PORTFOLIO_TARGET = re.compile(r"\bnew (?:portfolio )?(?:investment|exit):?\s*(.+)$", re.IGNORECASE)
-_RE_COMPANY_SUFFIX = re.compile(r"\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+(?:S\.?r\.?l\.?|S\.?p\.?A\.?|S\.?A\.?|SAS|SARL|Ltd|Inc|LLC|GmbH|AG|AB|BV|NV|SGR)")
-_RE_CAPITALIZED_NAMES = re.compile(r"\b([A-Z][\w''-]+(?:\s+[A-Z][\w''-]+){1,3})\b")
 _RE_SOURCE_ATTR_SUFFIX = re.compile(
     r"\s*(?:[-–—]{1,2}\s*)?(?:il\s+sole\s*24\s*ore|sole\s*24\s*ore|corriere\s+della\s+sera|la\s+repubblica|financial\s+times|ft|bebeez|startup\s+italia)\s*$",
     re.IGNORECASE,
@@ -391,7 +398,6 @@ def _apply_final_type_and_overrides(signal: dict, filtered_signal_type: str | No
         signal["signal_type"] = "job_posting"
 
     # Step 6: Capture all detected types (a signal can be exit_announced AND fundraise_closed)
-    from signal_corrections import detect_all_signal_types
     signal["signal_types"] = detect_all_signal_types(signal)
 
 
@@ -401,13 +407,6 @@ def _apply_post_type_corrections(signal: dict) -> None:
     Do NOT call this directly from processing paths — use
     _apply_final_type_and_overrides() instead, which adds safety overrides.
     """
-    from signal_corrections import (
-        apply_universal_demotions,
-        apply_type_corrections,
-        detect_portfolio_update,
-        correct_fundraise_to_deal_for_company_round,
-    )
-
     text_check = ((signal.get("title") or "") + " " + (signal.get("what_changed") or "")).lower()
     title_lower = (signal.get("title") or "").lower()
     page_category = (signal.get("page_category") or "").upper()
@@ -637,14 +636,12 @@ def _clean_signal_fields(signal: dict) -> dict:
     # Add fund name from slug as capitalization hints (same logic as filter step).
     fund_slug = signal.get("fund_slug") or ""
     if fund_slug:
-        _NOT_ACRONYMS = {"bain", "real", "blue", "next", "tree", "open", "true", "fair", "iron", "wise", "gold", "star"}
         parts = fund_slug.split("-")
         display_parts = [p.upper() if len(p) <= 4 and p.lower() not in _NOT_ACRONYMS else p.title() for p in parts]
         entity_names.append(" ".join(display_parts))
     for related_slug in signal.get("related_fund_slugs") or []:
         if not isinstance(related_slug, str) or not related_slug.strip():
             continue
-        _NOT_ACRONYMS = {"bain", "real", "blue", "next", "tree", "open", "true", "fair", "iron", "wise", "gold", "star"}
         parts = related_slug.strip().split("-")
         display_parts = [p.upper() if len(p) <= 4 and p.lower() not in _NOT_ACRONYMS else p.title() for p in parts]
         entity_names.append(" ".join(display_parts))

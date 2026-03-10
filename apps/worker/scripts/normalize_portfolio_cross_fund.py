@@ -24,7 +24,7 @@ from urllib.parse import urlparse
 # Add parent so we can import fundradar_worker
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, PORTFOLIO_FILE as PORTFOLIO_PATH
+from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, PORTFOLIO_FILE as PORTFOLIO_PATH, SECTOR_TAXONOMY
 from fundradar_worker.io_utils import safe_json_write, backup_before_write
 from fundradar_worker.portfolio_validation import clean_portfolio_name, is_valid_portfolio_entry
 from fundradar_worker.url_utils import extract_domain
@@ -47,19 +47,7 @@ FUND_SPECIFIC_FIELDS = frozenset({
     "data_source", "source_url", "detail_page_url",
 })
 
-# Canonical 30-sector taxonomy (must match normalize_sectors.py)
-SECTOR_TAXONOMY = frozenset({
-    "Technology", "Software", "Healthcare", "Biotech & Pharma",
-    "Financial Services", "Insurance", "Consumer Goods", "Retail",
-    "Food & Beverage", "Industrial Manufacturing", "Automotive",
-    "Aerospace & Defense", "Energy", "Renewable Energy",
-    "Telecommunications", "Media & Entertainment", "Education",
-    "Real Estate", "Construction", "Transportation & Logistics",
-    "Agriculture", "Chemicals", "Environmental Services",
-    "Professional Services", "Hospitality & Tourism",
-    "Fashion & Luxury", "Packaging", "Waste Management",
-    "Water & Utilities", "Mining & Metals",
-})
+_SECTOR_TAXONOMY_SET = frozenset(SECTOR_TAXONOMY)
 
 # Legal suffixes to strip for normalization
 LEGAL_SUFFIX_PATTERN = re.compile(
@@ -185,7 +173,7 @@ def pick_best_sector(entries: list[dict]) -> str | None:
         return None
 
     # Prefer canonical sectors
-    canonical = [s for s in sectors if s in SECTOR_TAXONOMY]
+    canonical = [s for s in sectors if s in _SECTOR_TAXONOMY_SET]
     candidates = canonical if canonical else sectors
 
     # Most common

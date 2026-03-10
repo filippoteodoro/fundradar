@@ -5,8 +5,6 @@ from urllib.parse import urljoin
 
 DOMAIN = "www.kairospartners.com"
 
-
-
 # URL paths for monitoring (auto-generated from fund_urls.json)
 URLS = {
     "portfolio": None,
@@ -57,7 +55,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
         })
 
     return companies
-
 
 def extract_team(html: str, base_url: str) -> list[dict]:
     """
@@ -161,7 +158,6 @@ def extract_team(html: str, base_url: str) -> list[dict]:
 
     return members
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news from Kairos Partners.
@@ -200,12 +196,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             match = date_pattern.search(text)
             if match:
                 day, month, year = match.groups()
-                months = {
-                    "gennaio": "01", "febbraio": "02", "marzo": "03", "aprile": "04",
-                    "maggio": "05", "giugno": "06", "luglio": "07", "agosto": "08",
-                    "settembre": "09", "ottobre": "10", "novembre": "11", "dicembre": "12"
-                }
-                month_num = months.get(month.lower(), "01")
+                month_num = _MONTH_NAMES.get(month.lower(), "01")
                 date = f"{year}-{month_num}-{day.zfill(2)}"
 
         news.append({
@@ -217,7 +208,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
         })
 
     return news
-
 
 EXTRACTORS = {
     "portfolio": extract_portfolio,

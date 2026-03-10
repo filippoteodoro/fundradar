@@ -9,6 +9,8 @@ import json
 from datetime import date
 from pathlib import Path
 from dataclasses import dataclass
+from ..io_utils import safe_json_write
+from ..paths import PROJECT_ROOT
 
 
 @dataclass
@@ -240,8 +242,7 @@ def create_prioritized_linkedin_urls(project_root: Path) -> None:
     }
 
     output_path = project_root / "data" / "derived" / "linkedin" / "fund_linkedin_urls_prioritized.json"
-    with open(output_path, "w") as f:
-        json.dump(output, f, indent=2)
+    safe_json_write(output_path, output)
 
     print(f"Created prioritized LinkedIn URLs: {output_path}")
     print(f"Total funds: {len(priorities)}")
@@ -257,5 +258,4 @@ def create_prioritized_linkedin_urls(project_root: Path) -> None:
 
 
 if __name__ == "__main__":
-    project_root = Path(__file__).parent.parent.parent.parent.parent
-    create_prioritized_linkedin_urls(project_root)
+    create_prioritized_linkedin_urls(PROJECT_ROOT)

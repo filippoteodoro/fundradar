@@ -5,8 +5,6 @@ from urllib.parse import urljoin
 
 DOMAIN = "www.friulia.it"
 
-
-
 # URL paths — verified against live site
 URLS = {
     "portfolio": "/it/partecipate",
@@ -89,7 +87,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 
     return companies
 
-
 def extract_team(html: str, base_url: str) -> list[dict]:
     """
     Extract team members from Friulia team page.
@@ -160,7 +157,6 @@ def extract_team(html: str, base_url: str) -> list[dict]:
 
     return members
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news articles from Friulia news page.
@@ -213,12 +209,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             if match:
                 day, month, year = match.groups()
                 # Convert Italian month to number
-                months = {
-                    "gennaio": "01", "febbraio": "02", "marzo": "03", "aprile": "04",
-                    "maggio": "05", "giugno": "06", "luglio": "07", "agosto": "08",
-                    "settembre": "09", "ottobre": "10", "novembre": "11", "dicembre": "12"
-                }
-                month_num = months.get(month.lower(), "01")
+                month_num = _MONTH_NAMES.get(month.lower(), "01")
                 date = f"{year}-{month_num}-{day.zfill(2)}"
 
         # Get summary from .excerpt div
@@ -238,7 +229,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
         })
 
     return news
-
 
 EXTRACTORS = {
     "portfolio": extract_portfolio,

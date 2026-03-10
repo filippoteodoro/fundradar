@@ -20,7 +20,6 @@ URLS = {
     "news": "/insights-news/pressreleases",
 }
 
-
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """Apollo does not publish a browsable portfolio page.
 
@@ -33,7 +32,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
     portfolio_items.json instead.
     """
     return []
-
 
 def extract_team(html: str, base_url: str) -> list[dict]:
     """Extract leadership team from Apollo leadership page."""
@@ -104,7 +102,6 @@ def extract_team(html: str, base_url: str) -> list[dict]:
 
     return members
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """Extract press releases from Apollo news page.
 
@@ -113,12 +110,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     soup = BeautifulSoup(html, "html.parser")
     news = []
     seen_titles = set()
-
-    month_map = {
-        "january": "01", "february": "02", "march": "03", "april": "04",
-        "may": "05", "june": "06", "july": "07", "august": "08",
-        "september": "09", "october": "10", "november": "11", "december": "12"
-    }
 
     # Strategy 1: CSS class-based selectors
     for item in soup.select(".press-release, .news-item, article, .card"):
@@ -202,7 +193,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
                 )
                 if date_match:
                     month_name, day, year = date_match.groups()
-                    month_num = month_map.get(month_name.lower())
+                    month_num = _MONTH_NAMES.get(month_name.lower(), "01")
                     if month_num:
                         date = f"{year}-{month_num}-{day.zfill(2)}"
 
@@ -215,7 +206,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             })
 
     return news
-
 
 EXTRACTORS = {
     "portfolio": extract_portfolio,

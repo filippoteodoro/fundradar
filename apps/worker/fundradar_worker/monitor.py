@@ -20,7 +20,8 @@ from typing import TypedDict, Literal, Callable
 
 from .date_utils import normalize_news_date
 from .differ import DiffResult, NewsItem, NewsPageResult, compute_diff, compute_high_value_diff, compute_normalized_diff, generate_what_changed, extract_news_items, compare_news_items, classify_news_signal, compare_team_members
-from .io_utils import safe_json_write, backup_before_write
+from urllib.parse import urlparse
+from .io_utils import safe_json_write, backup_before_write, sanitize_text, sanitize_url
 from .slug_normalizer import get_slug_normalizer
 from .url_utils import canonical_url, extract_domain
 import logging
@@ -433,7 +434,6 @@ class UrlStatusStore:
 
             # Group by domain
             try:
-                from urllib.parse import urlparse
                 domain = urlparse(url).netloc
                 if domain not in by_domain:
                     by_domain[domain] = {}
@@ -679,7 +679,7 @@ class SignalStore:
 
     def add(self, signal: SignalRecord):
         """Add a new signal, sanitizing scraped text fields."""
-        from .io_utils import sanitize_text, sanitize_url
+
 
         signal["title"] = sanitize_text(signal.get("title"), max_length=200) or ""
         signal["what_changed"] = sanitize_text(signal.get("what_changed"), max_length=2000) or ""
@@ -775,7 +775,7 @@ class NewsItemsStore:
 
     def update_items(self, url: str, items: list[NewsItem]):
         """Update the items for a URL, sanitizing scraped text fields."""
-        from .io_utils import sanitize_text, sanitize_url
+
 
         sanitized = []
         for item in items:
@@ -842,7 +842,7 @@ class PortfolioStore:
 
     def update_portfolio(self, fund_slug: str, companies: list[dict], source_url: str | None = None):
         """Update the portfolio for a fund with pre-write validation and sanitization."""
-        from .io_utils import sanitize_text, sanitize_url
+
         from .portfolio_validation import validate_and_clean_portfolio
 
         # Clean names and filter garbage entries before counting
@@ -1031,7 +1031,7 @@ class TeamStore:
 
     def update_team(self, fund_slug: str, members: list[dict]):
         """Update the team for a fund, sanitizing scraped text fields."""
-        from .io_utils import sanitize_text
+
 
         for member in members:
             member["name"] = sanitize_text(member.get("name"), max_length=200) or ""
@@ -1410,7 +1410,6 @@ class WebsiteMonitor:
         # Check if this extractor fetches its own data (API-based) — always extract
         always_extract = False
         try:
-            from urllib.parse import urlparse
             url_domain = urlparse(monitored.url).netloc.lower()
             from .strategies.extractors import ALWAYS_EXTRACT as _AE_DOMAINS
             always_extract = url_domain in _AE_DOMAINS
@@ -1681,7 +1680,6 @@ class WebsiteMonitor:
 
         # Phase 6: Enrich with detail pages for priority sites
         if DETAIL_FETCHER_AVAILABLE and current_companies:
-            from urllib.parse import urlparse
             domain = urlparse(monitored.url).netloc.lower()
             # Priority sites for detail page enrichment
             priority_domains = ["www.21invest.com", "www.fondoitaliano.it"]
@@ -2743,7 +2741,6 @@ def _filter_fresh_funds(urls: list[MonitoredUrl], data_dir: Path) -> tuple[list[
     for u in urls:
         if u.fund_slug and u.url:
             try:
-                from urllib.parse import urlparse
                 parsed = urlparse(u.url)
                 if parsed.hostname:
                     slug_to_domain[u.fund_slug] = parsed.hostname

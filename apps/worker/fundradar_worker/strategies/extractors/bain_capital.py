@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 
 DOMAIN = "www.baincapitalprivateequity.com"
 
-
 # URL paths for monitoring - verified against live site
 # News is on parent baincapital.com domain, not this PE subdomain
 URLS = {
@@ -31,7 +30,6 @@ _GARBAGE_PATTERNS = [
     re.compile(r"^share\s+this\b", re.I),
     re.compile(r"\.(jpg|png|svg|gif)$", re.I),
 ]
-
 
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """Extract portfolio companies from Bain Capital PE portfolio page.
@@ -115,7 +113,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 
     return companies
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """Extract news/press releases from Bain Capital news page (baincapital.com/news).
 
@@ -126,11 +123,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     seen_titles = set()
 
     # Month name map for date parsing
-    month_map = {
-        "january": "01", "february": "02", "march": "03", "april": "04",
-        "may": "05", "june": "06", "july": "07", "august": "08",
-        "september": "09", "october": "10", "november": "11", "december": "12",
-    }
 
     # Strategy: Look for article cards/items with headings and links
     for card in soup.select("article, .card, .news-item, .press-release, [class*='article'], [class*='news']"):
@@ -163,7 +155,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
         date_match = re.search(r"([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})", card_text)
         if date_match:
             month_name, day, year = date_match.groups()
-            month_num = month_map.get(month_name.lower())
+            month_num = _MONTH_NAMES.get(month_name.lower(), "01")
             if month_num:
                 date = f"{year}-{month_num}-{day.zfill(2)}"
 
@@ -193,7 +185,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             })
 
     return news
-
 
 EXTRACTORS = {
     "portfolio": extract_portfolio,

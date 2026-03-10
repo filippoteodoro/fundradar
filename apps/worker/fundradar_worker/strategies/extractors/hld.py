@@ -5,8 +5,6 @@ from urllib.parse import urljoin
 
 DOMAIN = "www.groupehld.com"
 
-
-
 # URL paths for monitoring (verified against live site)
 URLS = {
     "portfolio": "/en/participations/",
@@ -82,7 +80,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
         })
 
     return companies
-
 
 def extract_team(html: str, base_url: str) -> list[dict]:
     """
@@ -190,7 +187,6 @@ def extract_team(html: str, base_url: str) -> list[dict]:
 
     return members
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news from HLD news page.
@@ -232,24 +228,14 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             match = date_pattern_full.search(text)
             if match:
                 day, month, year = match.groups()
-                months = {
-                    "january": "01", "february": "02", "march": "03", "april": "04",
-                    "may": "05", "june": "06", "july": "07", "august": "08",
-                    "september": "09", "october": "10", "november": "11", "december": "12"
-                }
-                month_num = months.get(month.lower(), "01")
+                month_num = _MONTH_NAMES.get(month.lower(), "01")
                 date = f"{year}-{month_num}-{day.zfill(2)}"
             else:
                 # Try month-year only pattern (Month YYYY)
                 match = date_pattern_month_year.search(text)
                 if match:
                     month, year = match.groups()
-                    months = {
-                        "january": "01", "february": "02", "march": "03", "april": "04",
-                        "may": "05", "june": "06", "july": "07", "august": "08",
-                        "september": "09", "october": "10", "november": "11", "december": "12"
-                    }
-                    month_num = months.get(month.lower(), "01")
+                    month_num = _MONTH_NAMES.get(month.lower(), "01")
                     # Default to first of month when day is not specified
                     date = f"{year}-{month_num}-01"
 
@@ -262,7 +248,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
         })
 
     return news
-
 
 EXTRACTORS = {
     "portfolio": extract_portfolio,

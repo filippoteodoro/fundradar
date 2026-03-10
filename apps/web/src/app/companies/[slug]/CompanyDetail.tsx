@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import type { Company, CompanyInvestment, Signal } from '@fundradar/shared';
-import { CARD_STYLE, CARD_PADDING, badgeStyle, STATUS_STYLES, SOURCE_STYLES } from '@/lib/ui';
-import { canonicalizeSectorTag, SECTOR_TO_GROUP, getSectorGroupColor } from '@/lib/sectorGroups';
+import { CARD_STYLE, CARD_PADDING, badgeStyle, STATUS_STYLES, SOURCE_STYLES, PORTFOLIO_STATUS_ORDER, isUnknownSource } from '@/lib/ui';
+import { getSectorGroup, getSectorGroupColor } from '@/lib/sectorGroups';
 import { SignalCard } from '@/components/SignalCard';
 import { SubscribeBanner } from '@/components/SubscribeBanner';
 
@@ -18,18 +18,12 @@ interface CompanyDetailProps {
   signals?: CompanySignal[];
 }
 
-function getSectorGroup(sector: string | null): string | null {
-  if (!sector) return null;
-  const canonical = canonicalizeSectorTag(sector);
-  return SECTOR_TO_GROUP[canonical] || null;
-}
 
 function sortInvestments(investments: CompanyInvestment[]): CompanyInvestment[] {
-  const statusOrder: Record<string, number> = { current: 0, partial: 1, exited: 3 };
   return [...investments].sort((a, b) => {
     // Current before exited
-    const aOrder = a.status ? (statusOrder[a.status] ?? 2) : 2;
-    const bOrder = b.status ? (statusOrder[b.status] ?? 2) : 2;
+    const aOrder = a.status ? (PORTFOLIO_STATUS_ORDER[a.status] ?? 2) : 2;
+    const bOrder = b.status ? (PORTFOLIO_STATUS_ORDER[b.status] ?? 2) : 2;
     if (aOrder !== bOrder) return aOrder - bOrder;
     // Most recent first
     const aDate = a.entry_date || '';
@@ -183,9 +177,7 @@ export function CompanyDetail({ company, signals = [] }: CompanyDetailProps) {
                     </td>
                     <td style={{ padding: '10px 12px', borderBottom: '1px solid #eee' }}>
                       {(() => {
-                        const normalizedLabel = inv.source_label?.trim().toLowerCase() || '';
-                        const isUnknown = normalizedLabel === 'unknown' || (!inv.source_url && !normalizedLabel);
-                        if (isUnknown) {
+                        if (isUnknownSource(inv)) {
                           return <span style={{ color: '#999' }}>-</span>;
                         }
                         return inv.source_url ? (

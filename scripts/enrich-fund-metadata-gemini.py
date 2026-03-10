@@ -37,6 +37,7 @@ import requests
 REPO_ROOT = Path(__file__).resolve().parent.parent
 import sys; sys.path.insert(0, str(REPO_ROOT / "apps" / "worker"))
 from fundradar_worker.paths import GEMINI_MODEL
+from fundradar_worker.io_utils import safe_json_write
 DATA_DIR = REPO_ROOT / "data"
 DERIVED_DIR = DATA_DIR / "derived"
 
@@ -96,14 +97,6 @@ def load_json(path: Path) -> Any:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-
-def save_json_atomic(path: Path, data: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix(path.suffix + ".tmp")
-    with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-        f.write("\n")
-    os.replace(tmp, path)
 
 
 def parse_env_file(path: Path) -> dict[str, str]:
@@ -727,25 +720,25 @@ def main() -> int:
 
         # Save periodically
         if idx % SAVE_EVERY_N == 0 or idx == len(queue):
-            save_json_atomic(DB_PATH, db)
+            safe_json_write(DB_PATH, db)
             progress["completed_slugs"] = sorted(completed_slugs)
             progress["failed_slugs"] = failed_slugs
             progress["updated_at"] = now_iso()
             progress["total_updated"] = total_updated
             progress["fields_updated"] = fields_updated
-            save_json_atomic(PROGRESS_PATH, progress)
+            safe_json_write(PROGRESS_PATH, progress)
 
         _sleep_with_jitter(args.sleep_seconds)
 
     # Final save
-    save_json_atomic(DB_PATH, db)
+    safe_json_write(DB_PATH, db)
     progress["completed_slugs"] = sorted(completed_slugs)
     progress["failed_slugs"] = failed_slugs
     progress["updated_at"] = now_iso()
     progress["total_updated"] = total_updated
     progress["fields_updated"] = fields_updated
     progress["finished_at"] = now_iso()
-    save_json_atomic(PROGRESS_PATH, progress)
+    safe_json_write(PROGRESS_PATH, progress)
 
     session.close()
 

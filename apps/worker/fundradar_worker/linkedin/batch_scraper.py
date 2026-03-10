@@ -15,6 +15,8 @@ from typing import Any
 
 import requests
 from dotenv import load_dotenv
+from ..io_utils import safe_json_write
+from ..paths import PROJECT_ROOT
 
 # Load environment variables from .env file
 load_dotenv()
@@ -107,8 +109,7 @@ def load_progress(progress_path: Path) -> ScrapeProgress | None:
 
 def save_progress(progress: ScrapeProgress, progress_path: Path):
     """Save progress to file."""
-    with open(progress_path, "w") as f:
-        json.dump(asdict(progress), f, indent=2)
+    safe_json_write(progress_path, asdict(progress))
 
 
 def scrape_fund_employees(
@@ -341,8 +342,7 @@ def run_batch_scrape(
 
             # Save raw profiles
             raw_path = raw_dir / f"{slug}_employees.json"
-            with open(raw_path, "w") as f:
-                json.dump(profiles, f, indent=2)
+            safe_json_write(raw_path, profiles)
 
         # Save progress every batch_size funds
         if (i + 1) % batch_size == 0:
@@ -392,9 +392,8 @@ if __name__ == "__main__":
         exit(1)
 
     # Paths
-    project_root = Path(__file__).parent.parent.parent.parent.parent
-    funds_path = project_root / "data" / "derived" / "linkedin" / "fund_linkedin_urls.json"
-    output_dir = project_root / "data" / "derived" / "linkedin"
+    funds_path = PROJECT_ROOT / "data" / "derived" / "linkedin" / "fund_linkedin_urls.json"
+    output_dir = PROJECT_ROOT / "data" / "derived" / "linkedin"
 
     # Generate prioritized list before running (if using priority)
     if not args.no_priority:

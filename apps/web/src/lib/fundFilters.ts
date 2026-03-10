@@ -1,5 +1,6 @@
 import type { FundCategory, Office } from '@fundradar/shared';
 import { SECTOR_GROUPS, SECTOR_TO_GROUP, canonicalizeSectorTag } from './sectorGroups';
+import { ITALIAN_CITIES } from './italianCompany';
 
 export interface FilterableFund {
   category: FundCategory;
@@ -71,19 +72,6 @@ const FOREIGN_CITY_TO_COUNTRY: Record<string, string> = {
   stockholm: 'Sweden',
 };
 
-const ITALIAN_CITY_HINTS = new Set([
-  'agropoli', 'ancona', 'arezzo', 'asti', 'avellino', 'bari', 'bergamo', 'biella',
-  'bologna', 'bolzano', 'brescia', 'brindisi', 'cagliari', 'caserta', 'catania',
-  'catanzaro', 'como', 'conegliano', 'cremona', 'ferrara', 'firenze', 'florence',
-  'foggia', 'forli', 'genoa', 'genova', 'jesi', 'lainate', 'lecce', 'livorno', 'lucca',
-  'luzzara', 'mantova', 'martina franca', 'milan', 'milano', 'modena', 'monza',
-  'montemesola', 'naples', 'napoli', 'novara', 'padova', 'padua', 'palermo', 'parma',
-  'pavia', 'perugia', 'pesaro', 'pescara', 'piacenza', 'pisa', 'pordenone', 'prato',
-  'ravenna', 'reggio emilia', 'reggio nell emilia', 'rimini', 'rome', 'roma', 'salerno',
-  'sassari', 'siena', 'siracusa', 'syracuse', 'somma vesuviana', 'taranto', 'terni',
-  'torino', 'trento', 'treviso', 'trieste', 'turin', 'udine', 'venezia', 'venice',
-  'varese', 'verona', 'vicenza', 'villorba',
-]);
 
 function normalizeToken(value: string | null | undefined): string {
   return (value || '')
@@ -130,7 +118,7 @@ export function deriveFundHqCountry(fund: FilterableFund): string | null {
   if (cityKey && FOREIGN_CITY_TO_COUNTRY[cityKey]) {
     return FOREIGN_CITY_TO_COUNTRY[cityKey];
   }
-  if (cityKey && ITALIAN_CITY_HINTS.has(cityKey)) {
+  if (cityKey && ITALIAN_CITIES.has(cityKey)) {
     return 'Italy';
   }
 

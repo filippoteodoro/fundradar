@@ -491,11 +491,13 @@ These utilities exist in `fundradar_worker/` and MUST be used instead of inline 
 
 | Utility | Module | Purpose | NEVER do this instead |
 |---------|--------|---------|----------------------|
-| `safe_json_write()` | `io_utils.py` | Atomic JSON write (tempfile + os.replace) | `tempfile.mkstemp()` + `os.replace()` inline |
+| `safe_json_write()` | `io_utils.py` | Atomic JSON write (tempfile + os.replace) | `tempfile.mkstemp()` + `os.replace()` inline, or local `save_json_atomic()` |
 | `load_progress_file()` | `io_utils.py` | Load progress JSON with default fallback | `if path.exists(): json.load()` + `except` inline |
 | `load_funds_by_slug()` | `io_utils.py` | Load db.json indexed by slug | Custom db.json loading per-script |
 | `extract_domain()` | `url_utils.py` | Extract domain from URL (strips www by default) | `urlparse().netloc.replace("www.", "")` inline |
 | `is_same_domain()` | `url_utils.py` | Compare two URLs/domains (ignoring www) | Inline domain extraction + `==` comparison |
+| `MONTH_NAMES` | `date_utils.py` | Italian + English month name → zero-padded number (all forms: full, short, abbreviated) | Hardcoded `month_map` dict in each extractor/script |
+| `SECTOR_TAXONOMY` | `paths.py` | Canonical 30-sector list | Redefining the list in each pipeline script |
 
 The enricher uses `_apply_final_type_and_overrides()` as a single entry point for all post-classification corrections across its 3 code paths. NEVER duplicate correction + safety override logic inline.
 

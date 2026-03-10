@@ -36,6 +36,22 @@ GEMINI_MODEL = "gemini-3-flash-preview"
 # Do NOT use ChatGPT 4o — hallucinates too frequently for structured data tasks.
 OPENAI_MODEL = "gpt-5-mini"
 
+# ── Canonical sector taxonomy ─────────────────────────────────────────────────
+# Single source of truth — used by normalize_sectors.py, signal_to_portfolio.py,
+# enrich_portfolio_gemini_full.py, normalize_portfolio_cross_fund.py.
+SECTOR_TAXONOMY = [
+    "Technology", "Software", "Healthcare", "Biotech & Pharma",
+    "Financial Services", "Insurance", "Consumer Goods", "Retail",
+    "Food & Beverage", "Industrial Manufacturing", "Automotive",
+    "Aerospace & Defense", "Energy", "Renewable Energy",
+    "Telecommunications", "Media & Entertainment", "Education",
+    "Real Estate", "Construction", "Transportation & Logistics",
+    "Agriculture", "Chemicals", "Environmental Services",
+    "Professional Services", "Hospitality & Tourism",
+    "Fashion & Luxury", "Packaging", "Waste Management",
+    "Water & Utilities", "Mining & Metals",
+]
+
 # ── Output files ──────────────────────────────────────────────────────────────
 SIGNALS_FILE = DATA_DIR / "detected_signals.json"
 FILTERED_SIGNALS_FILE = DATA_DIR / "detected_signals_filtered.json"

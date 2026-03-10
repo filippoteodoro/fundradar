@@ -38,6 +38,7 @@ from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeou
 REPO_ROOT = Path(__file__).resolve().parent.parent
 import sys; sys.path.insert(0, str(REPO_ROOT / "apps" / "worker"))
 from fundradar_worker.paths import GEMINI_MODEL
+from fundradar_worker.io_utils import safe_json_write
 DATA_DIR = REPO_ROOT / "data"
 DERIVED_DIR = DATA_DIR / "derived"
 
@@ -84,14 +85,6 @@ def load_json(path: Path) -> Any:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-
-def save_json_atomic(path: Path, data: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix(path.suffix + ".tmp")
-    with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-        f.write("\n")
-    os.replace(tmp, path)
 
 
 def parse_env_file(path: Path) -> dict[str, str]:
@@ -638,11 +631,11 @@ def main() -> int:
         _print(f"  TOTAL for {slug}: +{fund_added} new, {fund_dupes} dupes")
 
         # Save after each fund
-        save_json_atomic(PORTFOLIO_PATH, portfolio_data)
+        safe_json_write(PORTFOLIO_PATH, portfolio_data)
         progress["completed_slugs"] = sorted(completed)
         progress["updated_at"] = now_iso()
         progress["total_added"] = total_added
-        save_json_atomic(PROGRESS_PATH, progress)
+        safe_json_write(PROGRESS_PATH, progress)
 
     session.close()
 

@@ -4,8 +4,6 @@ from urllib.parse import urljoin
 
 DOMAIN = "www.adventinternational.com"
 
-
-
 # URL paths for monitoring - verified against live site
 URLS = {
     "portfolio": "/investments/",
@@ -95,7 +93,6 @@ def extract_team(html: str, base_url: str) -> list[dict]:
 
     return members
 
-
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """
     Extract portfolio companies from Advent investments page.
@@ -149,7 +146,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 
     return companies
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news items from Advent International news page.
@@ -161,12 +157,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     soup = BeautifulSoup(html, "html.parser")
     news = []
     seen_titles = set()
-
-    month_map = {
-        "january": "01", "february": "02", "march": "03", "april": "04",
-        "may": "05", "june": "06", "july": "07", "august": "08",
-        "september": "09", "october": "10", "november": "11", "december": "12"
-    }
 
     # Strategy 1: Find <a> card links to /news/ articles
     for link in soup.find_all("a", href=True):
@@ -207,7 +197,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
                 date_match = re.search(r"([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})", date_text)
                 if date_match:
                     month_name, day, year = date_match.groups()
-                    month_num = month_map.get(month_name.lower())
+                    month_num = _MONTH_NAMES.get(month_name.lower(), "01")
                     if month_num:
                         date = f"{year}-{month_num}-{day.zfill(2)}"
                 elif re.match(r"\d{4}-\d{2}-\d{2}", date_text):
@@ -251,7 +241,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
                 date_match = re.search(r"([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})", text)
                 if date_match:
                     month_name, day, year = date_match.groups()
-                    month_num = month_map.get(month_name.lower())
+                    month_num = _MONTH_NAMES.get(month_name.lower(), "01")
                     if month_num:
                         date = f"{year}-{month_num}-{day.zfill(2)}"
 
@@ -264,7 +254,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             })
 
     return news
-
 
 EXTRACTORS = {
     "team": extract_team,

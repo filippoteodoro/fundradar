@@ -166,7 +166,6 @@ GARBAGE_PATTERNS = [
 # Compile patterns for efficiency
 GARBAGE_RE = [re.compile(p, re.IGNORECASE) for p in GARBAGE_PATTERNS]
 
-
 # Companies that appear in KKR's API but belong to other funds or are misattributed.
 # These should be excluded from KKR's portfolio.
 EXCLUDED_COMPANIES = {
@@ -174,7 +173,6 @@ EXCLUDED_COMPANIES = {
     "karo healthcare",
     "korean battery ess",
 }
-
 
 def _is_garbage(name: str) -> bool:
     """Check if a name is garbage (not a real company)."""
@@ -209,7 +207,6 @@ def _is_garbage(name: str) -> bool:
 
     return False
 
-
 def _is_likely_company_name(name: str) -> bool:
     """Check if a string looks like a company name."""
     if _is_garbage(name):
@@ -220,7 +217,6 @@ def _is_likely_company_name(name: str) -> bool:
         return False
 
     return True
-
 
 def _fetch_portfolio_api(base_url: str) -> list[dict]:
     """Fetch all portfolio companies from KKR's paginated JSON API."""
@@ -298,7 +294,6 @@ def _fetch_portfolio_api(base_url: str) -> list[dict]:
 
     logger.info(f"KKR API: fetched {len(companies)} companies across {page} pages")
     return companies
-
 
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """
@@ -385,7 +380,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 
     logger.info(f"Extracted {len(companies)} companies from KKR (HTML fallback)")
     return companies
-
 
 def extract_team(html: str, base_url: str) -> list[dict]:
     """
@@ -478,7 +472,6 @@ def extract_team(html: str, base_url: str) -> list[dict]:
     logger.info(f"Extracted {len(members)} team members from KKR")
     return members
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news from KKR press releases (media.kkr.com) and insights page.
@@ -491,11 +484,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     seen_titles = set()
 
     # Month map for date parsing
-    month_map = {
-        "january": "01", "february": "02", "march": "03", "april": "04",
-        "may": "05", "june": "06", "july": "07", "august": "08",
-        "september": "09", "october": "10", "november": "11", "december": "12",
-    }
 
     # Strategy 1: Press release items (media.kkr.com or any structured news page)
     # Look for links with news_id parameters or /news-details paths
@@ -539,7 +527,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             date_match = re.search(r"([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})", text)
             if date_match:
                 month_name, day, year = date_match.groups()
-                month_num = month_map.get(month_name.lower())
+                month_num = _MONTH_NAMES.get(month_name.lower(), "01")
                 if month_num:
                     date = f"{year}-{month_num}-{day.zfill(2)}"
 
@@ -587,7 +575,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
 
     logger.info(f"Extracted {len(news)} news items from KKR")
     return news
-
 
 EXTRACTORS = {
     "portfolio": extract_portfolio,

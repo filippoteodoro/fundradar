@@ -34,7 +34,8 @@ from dotenv import load_dotenv, dotenv_values
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, PORTFOLIO_FILE, ROOT_ENV_PATH as ENV_PATH
+from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, PORTFOLIO_FILE, ROOT_ENV_PATH as ENV_PATH, SECTOR_TAXONOMY
+from fundradar_worker.io_utils import safe_json_write, backup_before_write, load_progress_file
 
 load_dotenv(ENV_PATH, override=False)
 if ENV_PATH.exists() and not os.environ.get("GEMINI_API_KEY"):
@@ -58,20 +59,6 @@ SDK_TIMEOUT_MS = 120_000  # 120s — must exceed CALL_TIMEOUT (SIGALRM)
 # Auto-split: when a batch fails at size N, retry at next smaller size
 BATCH_SPLIT_SIZES = [25, 12, 5, 1]
 
-# ─── Canonical 30-sector taxonomy ──────────────────────────────────────────
-
-SECTOR_TAXONOMY = [
-    "Technology", "Software", "Healthcare", "Biotech & Pharma",
-    "Financial Services", "Insurance", "Consumer Goods", "Retail",
-    "Food & Beverage", "Industrial Manufacturing", "Automotive",
-    "Aerospace & Defense", "Energy", "Renewable Energy",
-    "Telecommunications", "Media & Entertainment", "Education",
-    "Real Estate", "Construction", "Transportation & Logistics",
-    "Agriculture", "Chemicals", "Environmental Services",
-    "Professional Services", "Hospitality & Tourism",
-    "Fashion & Luxury", "Packaging", "Waste Management",
-    "Water & Utilities", "Mining & Metals",
-]
 SECTOR_SET = set(SECTOR_TAXONOMY)
 
 # ─── Structured output schema (used by Gemini API) ─────────────────────────
@@ -366,12 +353,10 @@ def enrich_batch(client, companies: list[dict], fund_name: str) -> tuple:
 # ─── Progress ──────────────────────────────────────────────────────────────
 
 def load_progress() -> dict:
-    from fundradar_worker.io_utils import load_progress_file
     return load_progress_file(PROGRESS_FILE, default={"done": {}})
 
 
 def save_progress(progress: dict):
-    from fundradar_worker.io_utils import safe_json_write
     safe_json_write(PROGRESS_FILE, progress)
 
 
@@ -413,16 +398,8 @@ def _merge_into(portfolio: dict, pending: dict) -> tuple[int, int, int]:
 
 def _save_portfolio(portfolio: dict) -> None:
     """Write portfolio to disk atomically."""
-    try:
-        from fundradar_worker.io_utils import safe_json_write, backup_before_write
-        backup_before_write(PORTFOLIO_FILE)
-        safe_json_write(PORTFOLIO_FILE, portfolio)
-    except ImportError:
-        import tempfile
-        tmp_fd, tmp_path = tempfile.mkstemp(dir=str(DATA_DIR), suffix=".json")
-        with os.fdopen(tmp_fd, "w") as f:
-            json.dump(portfolio, f, indent=2, ensure_ascii=False)
-        os.replace(tmp_path, str(PORTFOLIO_FILE))
+    backup_before_write(PORTFOLIO_FILE)
+    safe_json_write(PORTFOLIO_FILE, portfolio)
 
 
 # ─── Main ──────────────────────────────────────────────────────────────────

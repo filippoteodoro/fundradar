@@ -34,6 +34,7 @@ import requests
 REPO_ROOT = Path(__file__).resolve().parent.parent
 import sys; sys.path.insert(0, str(REPO_ROOT / "apps" / "worker"))
 from fundradar_worker.paths import GEMINI_MODEL
+from fundradar_worker.io_utils import safe_json_write
 DATA_DIR = REPO_ROOT / "data"
 DERIVED_DIR = DATA_DIR / "derived"
 PORTFOLIO_PATH = DERIVED_DIR / "portfolio_items.json"
@@ -63,14 +64,6 @@ def load_json(path: Path) -> Any:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-
-def save_json_atomic(path: Path, data: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix(path.suffix + ".tmp")
-    with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-        f.write("\n")
-    os.replace(tmp, path)
 
 
 def parse_env_file(path: Path) -> dict[str, str]:
@@ -396,12 +389,12 @@ def main() -> int:
 
         # Save every 10
         if verified % 10 == 0:
-            save_json_atomic(VERIFICATION_PATH, results)
+            safe_json_write(VERIFICATION_PATH, results)
 
         _sleep_with_jitter(args.sleep_seconds)
 
     session.close()
-    save_json_atomic(VERIFICATION_PATH, results)
+    safe_json_write(VERIFICATION_PATH, results)
 
     _print(f"\nVerification complete:")
     _print(f"  Confirmed: {confirmed}")
@@ -435,7 +428,7 @@ def main() -> int:
                 removed_total += removed
 
         if removed_total > 0:
-            save_json_atomic(PORTFOLIO_PATH, portfolio_data)
+            safe_json_write(PORTFOLIO_PATH, portfolio_data)
             _print(f"  Total removed: {removed_total}")
         else:
             _print("  Nothing to remove.")
@@ -460,7 +453,7 @@ def main() -> int:
                 status_fixes += 1
 
     if args.apply and status_fixes > 0:
-        save_json_atomic(PORTFOLIO_PATH, portfolio_data)
+        safe_json_write(PORTFOLIO_PATH, portfolio_data)
         _print(f"  Status fixes applied: {status_fixes}")
 
     return 0

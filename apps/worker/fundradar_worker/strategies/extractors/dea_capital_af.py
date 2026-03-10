@@ -5,8 +5,6 @@ import re
 
 DOMAIN = "www.deacapitalaf.com"
 
-
-
 # URL paths for monitoring (auto-generated from fund_urls.json)
 URLS = {
     "portfolio": None,
@@ -28,11 +26,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     seen_titles = set()
 
     # Month name to number mapping
-    month_map = {
-        "january": "01", "february": "02", "march": "03", "april": "04",
-        "may": "05", "june": "06", "july": "07", "august": "08",
-        "september": "09", "october": "10", "november": "11", "december": "12"
-    }
 
     # Find all article cards
     for article in soup.select("div.post-articles.home-article"):
@@ -71,7 +64,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             )
             if date_match:
                 day, month_name, year = date_match.groups()
-                month_num = month_map.get(month_name.lower())
+                month_num = _MONTH_NAMES.get(month_name.lower(), "01")
                 if month_num:
                     date = f"{year}-{month_num}-{day.zfill(2)}"
 
@@ -85,16 +78,13 @@ def extract_news(html: str, base_url: str) -> list[dict]:
 
     return news
 
-
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """Extract portfolio companies - not implemented for this site."""
     return []
 
-
 def extract_team(html: str, base_url: str) -> list[dict]:
     """Extract team members - not implemented for this site."""
     return []
-
 
 EXTRACTORS = {
     "news": extract_news,

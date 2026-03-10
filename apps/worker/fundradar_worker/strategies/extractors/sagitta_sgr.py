@@ -5,8 +5,6 @@ from urllib.parse import urljoin
 
 DOMAIN = "www.sagittasgr.it"
 
-
-
 # URL paths for monitoring.
 # Keep TEAM on the known working path and route NEWS to newsroom pages.
 URLS = {
@@ -14,7 +12,6 @@ URLS = {
     "team": "/chi-siamo/il-team/",
     "news": "/en/newsroom/",
 }
-
 
 def _extract_date_iso(text: str | None) -> str | None:
     """Extract YYYY-MM-DD from common date formats."""
@@ -39,26 +36,11 @@ def _extract_date_iso(text: str | None) -> str | None:
     )
     if month:
         month_name, day, year = month.groups()
-        months = {
-            "january": "01",
-            "february": "02",
-            "march": "03",
-            "april": "04",
-            "may": "05",
-            "june": "06",
-            "july": "07",
-            "august": "08",
-            "september": "09",
-            "october": "10",
-            "november": "11",
-            "december": "12",
-        }
-        month_num = months.get(month_name.lower())
+        month_num = _MONTH_NAMES.get(month_name.lower(), "01")
         if month_num:
             return f"{year}-{month_num}-{day.zfill(2)}"
 
     return None
-
 
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """
@@ -117,7 +99,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
         })
 
     return companies
-
 
 def extract_team(html: str, base_url: str) -> list[dict]:
     """
@@ -202,7 +183,6 @@ def extract_team(html: str, base_url: str) -> list[dict]:
 
     return members
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news from Sagitta SGR.
@@ -286,7 +266,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
         })
 
     return news
-
 
 EXTRACTORS = {
     "portfolio": extract_portfolio,

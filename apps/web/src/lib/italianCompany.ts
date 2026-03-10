@@ -4,15 +4,16 @@
  */
 
 export const ITALIAN_CITIES = new Set([
-  'agropoli', 'ancona', 'arezzo', 'asti', 'avellino', 'bari', 'bergamo', 'bologna',
-  'brescia', 'brindisi', 'cagliari', 'caserta', 'catania', 'catanzaro', 'como',
-  'cremona', 'ferrara', 'florence', 'firenze', 'foggia', 'forli', 'genoa', 'genova',
-  'lecce', 'livorno', 'lucca', 'milan', 'milano', 'modena', 'monza', 'naples',
-  'napoli', 'novara', 'padova', 'padua', 'palermo', 'parma', 'pavia', 'perugia',
-  'pesaro', 'pescara', 'piacenza', 'pisa', 'prato', 'ravenna', 'reggio emilia',
+  'agropoli', 'ancona', 'arezzo', 'asti', 'avellino', 'bari', 'bergamo', 'biella', 'bologna',
+  'bolzano', 'brescia', 'brindisi', 'cagliari', 'caserta', 'catania', 'catanzaro', 'como',
+  'conegliano', 'cremona', 'ferrara', 'florence', 'firenze', 'foggia', 'forli', 'genoa', 'genova',
+  'jesi', 'lainate', 'lecce', 'livorno', 'lucca', 'luzzara', 'mantova', 'martina franca',
+  'milan', 'milano', 'modena', 'montemesola', 'monza', 'naples', 'napoli', 'novara',
+  'padova', 'padua', 'palermo', 'parma', 'pavia', 'perugia', 'pesaro', 'pescara',
+  'piacenza', 'pisa', 'pordenone', 'prato', 'ravenna', 'reggio emilia', 'reggio nell emilia',
   'rimini', 'rome', 'roma', 'salerno', 'sassari', 'siena', 'syracuse', 'siracusa',
-  'taranto', 'terni', 'torino', 'turin', 'trento', 'treviso', 'trieste', 'udine',
-  'varese', 'venice', 'venezia', 'verona', 'vicenza',
+  'somma vesuviana', 'taranto', 'terni', 'torino', 'turin', 'trento', 'treviso', 'trieste',
+  'udine', 'varese', 'venice', 'venezia', 'verona', 'vicenza', 'villorba',
 ]);
 
 export function extractCountry(headquarters: string | null | undefined): string | null {

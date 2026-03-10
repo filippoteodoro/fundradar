@@ -284,6 +284,12 @@ export function fundSectorGroups(sectorTags: string[]): string[] {
   return Array.from(groups);
 }
 
+/** Sector tag → canonical group name, or null if unmapped */
+export function getSectorGroup(sector: string | null): string | null {
+  if (!sector) return null;
+  return SECTOR_TO_GROUP[canonicalizeSectorTag(sector)] || null;
+}
+
 const DEFAULT_GROUP_COLOR = { bg: '#f5f5f5', text: '#616161' };
 
 /** Group name → color lookup */

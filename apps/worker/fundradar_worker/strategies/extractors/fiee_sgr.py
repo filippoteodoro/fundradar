@@ -6,8 +6,6 @@ import re
 
 DOMAIN = "www.fieesgr.com"
 
-
-
 # URL paths for monitoring — verified 2026-02-23
 URLS = {
     "portfolio": "/en/investments/",
@@ -79,7 +77,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 
     return companies
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news items from FIEE SGR press page.
@@ -95,11 +92,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     seen_urls = set()
 
     # Italian month mapping
-    italian_months = {
-        'gennaio': 1, 'febbraio': 2, 'marzo': 3, 'aprile': 4,
-        'maggio': 5, 'giugno': 6, 'luglio': 7, 'agosto': 8,
-        'settembre': 9, 'ottobre': 10, 'novembre': 11, 'dicembre': 12
-    }
 
     # Find all H2 > A elements (news titles)
     for h2 in soup.select("h2 a[href]"):
@@ -143,7 +135,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             date_match = re.search(r'(\d{1,2})\s+(gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre)\s+(\d{4})', text_after, re.IGNORECASE)
             if date_match:
                 day = int(date_match.group(1))
-                month = italian_months[date_match.group(2).lower()]
+                month = int(_MONTH_NAMES.get(date_match.group(2).lower(), "1"))
                 year = int(date_match.group(3))
                 try:
                     published_at = datetime(year, month, day).isoformat()
@@ -159,7 +151,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
         })
 
     return items
-
 
 EXTRACTORS = {
     "portfolio": extract_portfolio,

@@ -48,6 +48,7 @@ from gemini_audit_completion import is_fund_result_complete, load_verified_zero_
 REPO_ROOT = Path(__file__).resolve().parent.parent
 import sys; sys.path.insert(0, str(REPO_ROOT / "apps" / "worker"))
 from fundradar_worker.paths import GEMINI_MODEL
+from fundradar_worker.io_utils import safe_json_write
 DATA_DIR = REPO_ROOT / "data"
 DERIVED_DIR = DATA_DIR / "derived"
 
@@ -106,14 +107,6 @@ def resolve_repo_relative_path(raw_path: str) -> Path:
         return p
     return REPO_ROOT / p
 
-
-def save_json_atomic(path: Path, data: dict[str, Any]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix(path.suffix + ".tmp")
-    with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-        f.write("\n")
-    os.replace(tmp, path)
 
 
 def parse_env_file(path: Path) -> dict[str, str]:
@@ -1552,8 +1545,8 @@ def main() -> int:
             "updated_at": now_iso(),
         }
 
-        save_json_atomic(output_path, output)
-        save_json_atomic(progress_path, progress)
+        safe_json_write(output_path, output)
+        safe_json_write(progress_path, progress)
 
         print(
             f"  -> issues={len(deduped_issues)} missing={len(missing_assets)} "

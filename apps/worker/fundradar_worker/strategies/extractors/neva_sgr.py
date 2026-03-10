@@ -5,7 +5,6 @@ from urllib.parse import urljoin
 
 DOMAIN = "www.nevasgr.com"
 
-
 # URL paths for monitoring - verified against live site
 URLS = {
     "portfolio": "/content/neva/en/portfolio.html",
@@ -83,7 +82,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 
     return companies
 
-
 def extract_team(html: str, base_url: str) -> list[dict]:
     """
     Extract team members from Neva SGR about page.
@@ -158,7 +156,6 @@ def extract_team(html: str, base_url: str) -> list[dict]:
 
     return members
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news from Neva SGR.
@@ -194,12 +191,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             match = date_pattern.search(text)
             if match:
                 day, month, year = match.groups()
-                months = {
-                    "january": "01", "february": "02", "march": "03", "april": "04",
-                    "may": "05", "june": "06", "july": "07", "august": "08",
-                    "september": "09", "october": "10", "november": "11", "december": "12"
-                }
-                month_num = months.get(month.lower(), "01")
+                month_num = _MONTH_NAMES.get(month.lower(), "01")
                 date = f"{year}-{month_num}-{day.zfill(2)}"
 
         news.append({
@@ -211,7 +203,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
         })
 
     return news
-
 
 EXTRACTORS = {
     "portfolio": extract_portfolio,

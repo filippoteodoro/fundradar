@@ -5,8 +5,6 @@ from urllib.parse import urljoin
 
 DOMAIN = "www.macquarie.com"
 
-
-
 # URL paths for monitoring - verified against live site
 URLS = {
     "portfolio": "/it/en/about/company/macquarie-asset-management/our-portfolio.html",
@@ -123,7 +121,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 
     return companies
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news articles from Macquarie news pages.
@@ -138,11 +135,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     seen_titles = set()
 
     # Month name mapping for date parsing
-    month_map = {
-        "january": "01", "february": "02", "march": "03", "april": "04",
-        "may": "05", "june": "06", "july": "07", "august": "08",
-        "september": "09", "october": "10", "november": "11", "december": "12",
-    }
 
     # Date patterns
     year_pattern = re.compile(r'/news/(\d{4})/')
@@ -196,7 +188,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             dm = full_date_re.search(text)
             if dm:
                 day, month_name, year = dm.groups()
-                mn = month_map.get(month_name.lower())
+                mn = _MONTH_NAMES.get(month_name.lower(), "01")
                 if mn:
                     date = f"{year}-{mn}-{day.zfill(2)}"
 
@@ -214,7 +206,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
         })
 
     return news
-
 
 EXTRACTORS = {
     "portfolio": extract_portfolio,

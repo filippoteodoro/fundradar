@@ -23,6 +23,9 @@ from typing import TypedDict
 import requests
 from bs4 import BeautifulSoup
 
+from .io_utils import safe_json_write
+from .paths import PROJECT_ROOT
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
@@ -299,8 +302,7 @@ def discover_member_urls(debug: bool = False) -> list[str]:
     member_urls: list[str] = []
 
     # Debug output directory
-    project_root = Path(__file__).parent.parent.parent.parent
-    debug_dir = project_root / "data" / "derived"
+    debug_dir = PROJECT_ROOT / "data" / "derived"
 
     with sync_playwright() as p:
         # Use non-headless mode to avoid bot detection
@@ -392,8 +394,7 @@ def scrape_members_with_details(limit: int | None = None, debug: bool = False) -
         raise
 
     members: list[AifiMember] = []
-    project_root = Path(__file__).parent.parent.parent.parent
-    debug_dir = project_root / "data" / "derived"
+    debug_dir = PROJECT_ROOT / "data" / "derived"
 
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -901,8 +902,7 @@ def scrape_all_members(
     member_urls = discover_member_urls(debug=debug)
 
     # Determine paths
-    project_root = Path(__file__).parent.parent.parent.parent
-    html_path = project_root / "data" / "derived" / "aifi_members_page.html"
+    html_path = PROJECT_ROOT / "data" / "derived" / "aifi_members_page.html"
 
     # Check if we should parse from HTML (no direct URLs available)
     if member_urls == ["__PARSE_FROM_HTML__"]:
@@ -974,8 +974,7 @@ def save_results(members: list[AifiMember], output_path: Path) -> None:
     }
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(output, f, indent=2, ensure_ascii=False)
+    safe_json_write(output_path, output)
 
     logger.info(f"Saved {len(members)} members to {output_path}")
 
@@ -983,10 +982,7 @@ def save_results(members: list[AifiMember], output_path: Path) -> None:
 def main(dry_run: bool = False, limit: int | None = None, debug: bool = False, quick: bool = False) -> None:
     """Main entry point."""
     # Determine output path (relative to project root)
-    # From apps/worker/fundradar_worker/aifi_scraper.py
-    # Go up 4 levels to project root, then into data/derived
-    project_root = Path(__file__).parent.parent.parent.parent
-    output_path = project_root / "data" / "derived" / "aifi_members.json"
+    output_path = PROJECT_ROOT / "data" / "derived" / "aifi_members.json"
 
     logger.info("Starting AIFI members scrape")
     logger.info(f"Output will be saved to: {output_path}")

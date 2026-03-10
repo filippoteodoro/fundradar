@@ -37,9 +37,10 @@ from dotenv import load_dotenv
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, ENRICHED_SIGNALS_FILE, PORTFOLIO_FILE, COMPANY_PROFILES_FILE, ROOT_ENV_PATH
+from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, ENRICHED_SIGNALS_FILE, PORTFOLIO_FILE, COMPANY_PROFILES_FILE, ROOT_ENV_PATH, SECTOR_TAXONOMY
 from fundradar_worker.portfolio_validation import clean_portfolio_name, is_valid_portfolio_entry
 from fundradar_worker.url_utils import extract_domain, is_same_domain
+from fundradar_worker.io_utils import safe_json_write, backup_before_write, load_progress_file, load_funds_by_slug as _load_funds_by_slug_shared
 
 load_dotenv(ROOT_ENV_PATH, override=False)
 
@@ -49,19 +50,6 @@ PROGRESS_FILE = DATA_DIR / "signal_to_portfolio_progress.json"
 # We also process any signal with explicit direct target_companies actions.
 DEAL_TYPES = {"deal_announced", "exit_announced"}
 
-# Canonical 30-sector taxonomy (same as enrich_portfolio_gemini_full.py)
-SECTOR_TAXONOMY = [
-    "Technology", "Software", "Healthcare", "Biotech & Pharma",
-    "Financial Services", "Insurance", "Consumer Goods", "Retail",
-    "Food & Beverage", "Industrial Manufacturing", "Automotive",
-    "Aerospace & Defense", "Energy", "Renewable Energy",
-    "Telecommunications", "Media & Entertainment", "Education",
-    "Real Estate", "Construction", "Transportation & Logistics",
-    "Agriculture", "Chemicals", "Environmental Services",
-    "Professional Services", "Hospitality & Tourism",
-    "Fashion & Luxury", "Packaging", "Waste Management",
-    "Water & Utilities", "Mining & Metals",
-]
 SECTOR_SET = set(SECTOR_TAXONOMY)
 
 # Known reputable PE/VC industry journals (higher trust)
@@ -451,13 +439,11 @@ def classify_source(signal: dict, fund_domain: str | None) -> tuple[str, float]:
 
 def load_progress() -> dict:
     """Load progress tracking file."""
-    from fundradar_worker.io_utils import load_progress_file
     return load_progress_file(PROGRESS_FILE, default={"processed_signal_ids": [], "last_run": None, "stats": {}})
 
 
 def save_progress(progress: dict):
     """Save progress tracking file."""
-    from fundradar_worker.io_utils import safe_json_write
     safe_json_write(PROGRESS_FILE, progress)
 
 
@@ -465,8 +451,7 @@ def save_progress(progress: dict):
 
 def load_funds_by_slug() -> dict:
     """Load db.json and return funds indexed by slug."""
-    from fundradar_worker.io_utils import load_funds_by_slug as _shared
-    return _shared(DB_PATH)
+    return _load_funds_by_slug_shared(DB_PATH)
 
 
 def load_enriched_signals() -> list[dict]:
@@ -488,14 +473,12 @@ def load_portfolio() -> dict:
 
 def save_portfolio(data: dict):
     """Save portfolio_items.json atomically."""
-    from fundradar_worker.io_utils import safe_json_write, backup_before_write
     backup_before_write(PORTFOLIO_FILE)
     safe_json_write(PORTFOLIO_FILE, data)
 
 
 def save_company_profiles(profiles: dict[str, dict]):
     """Write company_profiles.json atomically."""
-    from fundradar_worker.io_utils import safe_json_write
     safe_json_write(COMPANY_PROFILES_FILE, {
         "companies": profiles,
         "generated_at": datetime.now(timezone.utc).isoformat(),

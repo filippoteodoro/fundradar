@@ -10,8 +10,6 @@ import re
 
 DOMAIN = "www.eqtgroup.com"
 
-
-
 # URL paths for monitoring - verified against live site
 URLS = {
     "portfolio": "/about/current-portfolio",
@@ -89,7 +87,6 @@ def extract_team(html: str, base_url: str) -> list[dict]:
 
     return members
 
-
 def _extract_team_html(html: str, base_url: str) -> list[dict]:
     """Fallback HTML-based extraction."""
     soup = BeautifulSoup(html, "html.parser")
@@ -136,7 +133,6 @@ def _extract_team_html(html: str, base_url: str) -> list[dict]:
         })
 
     return members
-
 
 def extract_portfolio(html: str, base_url: str) -> list[dict]:
     """
@@ -227,7 +223,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 
     return companies
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news items from EQT news page.
@@ -242,11 +237,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     seen_titles = set()
 
     # Month name to number mapping for fallback date parsing
-    month_map = {
-        "january": "01", "february": "02", "march": "03", "april": "04",
-        "may": "05", "june": "06", "july": "07", "august": "08",
-        "september": "09", "october": "10", "november": "11", "december": "12"
-    }
 
     # Strategy 1: Parse semantic article elements
     for article in soup.find_all("article"):
@@ -278,7 +268,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
                 match = re.search(r"([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})", date_text)
                 if match:
                     month_name, day, year = match.groups()
-                    month_num = month_map.get(month_name.lower(), "01")
+                    month_num = _MONTH_NAMES.get(month_name.lower(), "01")
                     date = f"{year}-{month_num}-{day.zfill(2)}"
 
         # Get URL from link
@@ -328,7 +318,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
             })
 
     return news
-
 
 EXTRACTORS = {
     "team": extract_team,

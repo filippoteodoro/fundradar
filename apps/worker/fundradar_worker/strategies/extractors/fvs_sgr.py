@@ -5,11 +5,10 @@ Each card contains company name, sector, metadata (location, year, stake, status
 """
 import re
 from bs4 import BeautifulSoup
+from fundradar_worker.date_utils import MONTH_NAMES as _MONTH_NAMES
 from urllib.parse import urljoin
 
 DOMAIN = "www.fvssgr.it"
-
-
 
 # URL paths for monitoring - verified against live site
 URLS = {
@@ -102,7 +101,6 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 
     return companies
 
-
 def extract_news(html: str, base_url: str) -> list[dict]:
     """
     Extract news articles from FVS SGR /notizie page.
@@ -117,11 +115,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
     seen_titles = set()
 
     # Italian month abbreviations for date parsing
-    month_map = {
-        "gen": "01", "feb": "02", "mar": "03", "apr": "04",
-        "mag": "05", "giu": "06", "lug": "07", "ago": "08",
-        "set": "09", "ott": "10", "nov": "11", "dic": "12",
-    }
 
     for h2 in soup.find_all("h2"):
         link = h2.find("a", href=True)
@@ -197,7 +190,6 @@ def extract_news(html: str, base_url: str) -> list[dict]:
         })
 
     return news
-
 
 EXTRACTORS = {
     "portfolio": extract_portfolio,

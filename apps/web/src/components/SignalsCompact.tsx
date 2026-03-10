@@ -9,9 +9,9 @@ interface SignalsCompactProps {
   signals: Signal[];
 }
 
-// 7-day penalty for signals with no confirmed event date, so they don't rank
+// 1-hour penalty for signals with no confirmed event date, so they don't rank
 // above signals whose published_at is known.
-const OBSERVED_ONLY_PENALTY_MS = 60 * 60 * 1000; // 1 hour — enough to rank below same-day confirmed-date signals
+const OBSERVED_ONLY_PENALTY_MS = 60 * 60 * 1000;
 
 export function SignalsCompact({ signals }: SignalsCompactProps) {
   const [page, setPage] = useState(0);

@@ -19,22 +19,8 @@ import sys
 from pathlib import Path
 
 from fundradar_worker.io_utils import safe_json_write
-from fundradar_worker.paths import DB_PATH as DB_FILE, PORTFOLIO_FILE
+from fundradar_worker.paths import DB_PATH as DB_FILE, PORTFOLIO_FILE, SECTOR_TAXONOMY
 
-# ─── Canonical 30-sector taxonomy ──────────────────────────────────────────
-
-SECTOR_TAXONOMY = [
-    "Technology", "Software", "Healthcare", "Biotech & Pharma",
-    "Financial Services", "Insurance", "Consumer Goods", "Retail",
-    "Food & Beverage", "Industrial Manufacturing", "Automotive",
-    "Aerospace & Defense", "Energy", "Renewable Energy",
-    "Telecommunications", "Media & Entertainment", "Education",
-    "Real Estate", "Construction", "Transportation & Logistics",
-    "Agriculture", "Chemicals", "Environmental Services",
-    "Professional Services", "Hospitality & Tourism",
-    "Fashion & Luxury", "Packaging", "Waste Management",
-    "Water & Utilities", "Mining & Metals",
-]
 SECTOR_SET = set(SECTOR_TAXONOMY)
 
 # ─── AIFI fund tag → canonical mapping ─────────────────────────────────────

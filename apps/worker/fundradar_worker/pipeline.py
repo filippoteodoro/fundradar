@@ -30,8 +30,8 @@ from pathlib import Path
 
 from .io_utils import backup_before_write
 from .alerting import AlertConfig, AlertManager, Alert
+from .paths import PROJECT_ROOT
 
-PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
 DATA_DIR = PROJECT_ROOT / "data" / "derived"
 WORKER_DIR = PROJECT_ROOT / "apps" / "worker"
 
