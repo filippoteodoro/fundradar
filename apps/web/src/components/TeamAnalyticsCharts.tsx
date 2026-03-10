@@ -175,6 +175,8 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
   // With apimaestro headline-only data (no schools), "other" just means unclassified — hide it.
   const hasRichData = Object.keys(analytics.education.top_schools).length > 0;
 
+  const snakeToTitle = (s: string) => s.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+
   const classifiedBackgrounds = Object.entries(analytics.backgrounds)
     .filter(([name, value]) => name !== 'other' && value > 0);
   const totalBackgrounds = classifiedBackgrounds.reduce((a, [, v]) => a + v, 0);
@@ -305,7 +307,6 @@ export function TeamAnalyticsCharts({ analytics, isDummy = false }: Props) {
   const showSeniorityCard = seniorityData.length >= 2 && totalSeniority >= 5;
   const showSchoolsCard = schoolsData.length >= 2 && totalSchools >= 5;
 
-  const snakeToTitle = (s: string) => s.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
   const pctLabel = (v: unknown) => `${v}%`;
   const countLabel = (v: unknown) => `${v}`;
 
