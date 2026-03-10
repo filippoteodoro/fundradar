@@ -421,37 +421,40 @@ def main() -> int:
         )
         return 1
 
-    report_now = _load_json(ROOT / REPORT_REL)
-    report_rows = report_now.get("funds") if isinstance(report_now.get("funds"), list) else []
-    report_by_slug = {
-        str(row.get("slug")): row
-        for row in report_rows
-        if isinstance(row, dict) and row.get("slug")
-    }
-    missing_tracked_rows = sorted(candidate_slugs - set(report_by_slug))
-    if missing_tracked_rows:
-        print(
-            "New-fund gate failed: tracked completion report missing slugs: "
-            f"{', '.join(missing_tracked_rows)}",
-            file=sys.stderr,
-        )
-        return 1
+    # Tracked report and audit file are gitignored — only check them when new
+    # funds are in the diff. Established-only changesets never have these files
+    # on CI; the generated (temp) report check above is sufficient for them.
+    if new_slugs:
+        report_now = _load_json(ROOT / REPORT_REL)
+        report_rows = report_now.get("funds") if isinstance(report_now.get("funds"), list) else []
+        report_by_slug = {
+            str(row.get("slug")): row
+            for row in report_rows
+            if isinstance(row, dict) and row.get("slug")
+        }
+        missing_tracked_rows = sorted(candidate_slugs - set(report_by_slug))
+        if missing_tracked_rows:
+            print(
+                "New-fund gate failed: tracked completion report missing slugs: "
+                f"{', '.join(missing_tracked_rows)}",
+                file=sys.stderr,
+            )
+            return 1
 
-    tracked_failed = sorted(
-        slug
-        for slug in candidate_slugs
-        if str(report_by_slug.get(slug, {}).get("status") or "").lower() != "passed"
-    )
-    if tracked_failed:
-        print(
-            "New-fund gate failed: tracked completion report has non-passing slugs: "
-            f"{', '.join(tracked_failed)}",
-            file=sys.stderr,
+        tracked_failed = sorted(
+            slug
+            for slug in candidate_slugs
+            if str(report_by_slug.get(slug, {}).get("status") or "").lower() != "passed"
         )
-        return 1
+        if tracked_failed:
+            print(
+                "New-fund gate failed: tracked completion report has non-passing slugs: "
+                f"{', '.join(tracked_failed)}",
+                file=sys.stderr,
+            )
+            return 1
 
     # Audit file is gitignored — only check it when new funds are in the diff.
-    # Established-only changesets never have this file on CI.
     if new_slugs:
         audit_now = _load_json(ROOT / ASSET_AUDIT_REL)
         audit_rows = audit_now.get("funds") if isinstance(audit_now.get("funds"), list) else []

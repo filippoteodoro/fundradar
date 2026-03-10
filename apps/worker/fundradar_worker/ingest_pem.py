@@ -15,6 +15,8 @@ from pathlib import Path
 from typing import TypedDict
 
 import pdfplumber
+from .io_utils import safe_json_write
+from .paths import PROJECT_ROOT
 from .slug_normalizer import get_slug_normalizer
 
 # Optional OCR imports - only needed for scanned PDFs
@@ -675,8 +677,7 @@ def generate_pem_manifest(pem_dir: Path, output_dir: Path) -> dict:
 
     # Write manifest
     manifest_path = output_dir / "pem_manifest.json"
-    with open(manifest_path, "w") as f:
-        json.dump(manifest, f, indent=2)
+    safe_json_write(manifest_path, manifest)
 
     print(f"Generated manifest with {len(entries)} PDF files")
     print(f"Manifest written to: {manifest_path}")
@@ -729,21 +730,11 @@ def parse_all_pdfs(pem_dir: Path, output_dir: Path, manifest: dict) -> tuple[lis
     output_dir.mkdir(parents=True, exist_ok=True)
 
     deals_path = output_dir / "pem_deals.json"
-    with open(deals_path, "w") as f:
-        json.dump(
-            {"generated_at": datetime.now(timezone.utc).isoformat(), "deals": all_deals},
-            f,
-            indent=2,
-        )
+    safe_json_write(deals_path, {"generated_at": datetime.now(timezone.utc).isoformat(), "deals": all_deals})
     print(f"\nDeals written to: {deals_path}")
 
     investors_path = output_dir / "pem_investors.json"
-    with open(investors_path, "w") as f:
-        json.dump(
-            {"generated_at": datetime.now(timezone.utc).isoformat(), "investors": investors},
-            f,
-            indent=2,
-        )
+    safe_json_write(investors_path, {"generated_at": datetime.now(timezone.utc).isoformat(), "investors": investors})
     print(f"Investors written to: {investors_path}")
 
     return all_deals, investors
@@ -751,10 +742,8 @@ def parse_all_pdfs(pem_dir: Path, output_dir: Path, manifest: dict) -> tuple[lis
 
 def main():
     """Entry point for the PEM ingest script."""
-    # Get project root (two levels up from this file)
-    project_root = Path(__file__).parent.parent.parent.parent
-    pem_dir = project_root / "data" / "pem"
-    output_dir = project_root / "data" / "derived"
+    pem_dir = PROJECT_ROOT / "data" / "pem"
+    output_dir = PROJECT_ROOT / "data" / "derived"
 
     print("Fundradar PEM Ingest - Two-Lane Processing")
     print("=" * 50)

@@ -22,6 +22,7 @@ from .date_utils import normalize_news_date
 from .differ import DiffResult, NewsItem, NewsPageResult, compute_diff, compute_high_value_diff, compute_normalized_diff, generate_what_changed, extract_news_items, compare_news_items, classify_news_signal, compare_team_members
 from urllib.parse import urlparse
 from .io_utils import safe_json_write, backup_before_write, sanitize_text, sanitize_url
+from .paths import PROJECT_ROOT, DATA_DIR
 from .slug_normalizer import get_slug_normalizer
 from .url_utils import canonical_url, extract_domain
 import logging
@@ -2716,7 +2717,7 @@ def _filter_fresh_funds(urls: list[MonitoredUrl], data_dir: Path) -> tuple[list[
 
     # 2. Build domain → extractor file mtime from already-loaded extractors
     extractor_mtime: dict[str, float] = {}  # domain → file mtime epoch
-    extractors_dir = Path(__file__).parent / "strategies" / "extractors"
+    extractors_dir = PROJECT_ROOT / "apps" / "worker" / "fundradar_worker" / "strategies" / "extractors"
     try:
         from .strategies.extractors import ALL_EXTRACTORS
         import importlib
@@ -2998,9 +2999,7 @@ def run_monitor(
 if __name__ == "__main__":
     import sys
 
-    # Get project root
-    project_root = Path(__file__).parent.parent.parent.parent
-    data_dir = project_root / "data" / "derived"
+    data_dir = DATA_DIR
 
     # Parse command line arguments
     limit = None
