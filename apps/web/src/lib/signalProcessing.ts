@@ -11,7 +11,7 @@ import type { Signal, SignalType } from '@fundradar/shared';
 // Extracted from reclassifySignalType() to reduce duplication.
 
 /** Strong exit verbs — "Fund sells/cede X" is always an exit */
-const RE_EXIT_VERBS = /\b(?:sells?|sold|vend(?:e|ere|ita|ono)|vendut[oa]|cede|cession[ei]|disinvest\w+|divest\w+|exits?|exited|realis(?:ation|ed)|realiz(?:ation|ed))\b/i;
+const RE_EXIT_VERBS = /\b(?:sells?|sale|sold|vend(?:e|ere|ita|ono)|vendut[oa]|cede|cession[ei]|disinvest\w+|divest\w+|exits?|exited|realis(?:ation|ed)|realiz(?:ation|ed))\b/i;
 
 /** Acquisition counter-pattern — blocks exit classification when present */
 const RE_ACQUISITION_VERBS = /\b(?:acquir\w+|acquisizion\w+|rileva|buys?|compra)\b/i;
@@ -858,22 +858,22 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
       return 'deal_announced';
     }
     if (buyerCues.test(text) &&
-        !/\b(?:sells?|selling|sold|exit\w*|cessione|vendita|vend[eio]\w*|vendut[oa]|cedut[oa]|dismette|a\s+vendere)\b/i.test(text)) {
+        !/\b(?:sells?|selling|sold|sale|exit\w*|cessione|vendita|vend[eio]\w*|vendut[oa]|cedut[oa]|dismette|a\s+vendere)\b/i.test(text)) {
       return 'deal_announced';
     }
     // Partnership/agreement without PE verbs → partnership
     if (/\b(?:agreement|accordo|intesa|convenzione)\b/i.test(text) &&
         /\b(?:partnership|collaborazione|gestione|manage|management|tenders?|bando)\b/i.test(text) &&
-        !/\b(?:sells?|selling|sold|exit\w*|cessione|acquir\w+|investi\w+|rileva)\b/i.test(text)) {
+        !/\b(?:sells?|selling|sold|sale|exit\w*|cessione|acquir\w+|investi\w+|rileva)\b/i.test(text)) {
       return 'partnership';
     }
     // "offerta da X mln per" / "offer for" = acquisition bid → deal
     if (/\bofferta\s+(?:da|di|per)\s+\d+|\boffer\s+(?:for|of|to\s+acquire)\b|\bbid\s+(?:for|of|to\s+acquire)\b/i.test(text) &&
-        !/\b(?:sells?|selling|sold|exit\w*|cessione|vendita|vend[eio]\w*|vendut[oa]|cedut[oa]|dismette|a\s+vendere)\b/i.test(text)) {
+        !/\b(?:sells?|selling|sold|sale|exit\w*|cessione|vendita|vend[eio]\w*|vendut[oa]|cedut[oa]|dismette|a\s+vendere)\b/i.test(text)) {
       return 'deal_announced';
     }
     if (/\b(?:acquir\w+|acquis\w+|acquisizion\w+|investi\w+|rileva|entra\s+(?:nel\s+capitale|in)\b|enters?\s+capital|buys?|compra|tratt[ai]\s+l[''\u2019]acquisto|investitore\s+unic\w*\s+al\s+fianco\s+di|sole\s+investor\s+(?:backing|alongside))\b/i.test(text) &&
-        !/\b(?:sells?|selling|sold|exit\w*|cessione|vendita|vend[eio]\w*|vendut[oa]|cedut[oa]|dismette|a\s+vendere)\b/i.test(text)) {
+        !/\b(?:sells?|selling|sold|sale|exit\w*|cessione|vendita|vend[eio]\w*|vendut[oa]|cedut[oa]|dismette|a\s+vendere)\b/i.test(text)) {
       return 'deal_announced';
     }
     // "launch fund" on an exit is wrong → fund_launch
@@ -885,9 +885,12 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
       return 'job_posting';
     }
     // Safety net: exit_announced with ZERO PE-related verbs → other
-    // Real exits always mention selling, exiting, or deal-related language
+    // Real exits always mention selling, exiting, deal-related, or PE action language.
+    // RE_EXIT_VERBS covers exit-specific terms (sell, sold, sale, divest, realise, cede, etc.).
+    // The broad PE regex catches general deal/fund activity when exit verbs are absent.
     if (pageCategory !== 'PORTFOLIO' &&
-        !/\b(?:sells?|selling|sold|exit\w*|cessione|vendita|vend[eio]\w*|vendut[oa]|cedut[oa]|dismette|a\s+vendere|acquir\w+|acquisizion\w*|investi\w+|rileva|entra\s+nel\s+capitale|enters?\s+capital|buys?|compra|offerta\b|offer\b|bid\b|fundrais\w+|raccolta|closing|round|series|seed|chiude|chiusura|launch|lancia|nasce|nascita|lancio|partnership|joint\s+venture|nomina|appointed|ipo\b|merger|fusione|buyout|lbo\b|takeover|finanziamento|aumento\s+di\s+capitale|operazione|finalizzat\w+)\b/i.test(text)) {
+        !RE_EXIT_VERBS.test(text) &&
+        !/\b(?:acquir\w+|acquisizion\w*|investi\w+|rileva|entra\s+nel\s+capitale|enters?\s+capital|buys?|compra|offerta\b|offer\b|bid\b|fundrais\w+|raccolta|closing|round|series|seed|chiude|chiusura|launch|lancia|nasce|nascita|lancio|partnership|joint\s+venture|nomina|appointed|ipo\b|merger|fusione|buyout|lbo\b|takeover|finanziamento|aumento\s+di\s+capitale|operazione|finalizzat\w+)\b/i.test(text)) {
       return 'other';
     }
   }

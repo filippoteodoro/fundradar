@@ -11,6 +11,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Literal
 
+from .url_utils import extract_domain as _extract_domain_util
+
 
 # Legal suffixes to normalize — single source of truth for company name matching.
 # Used by entity_resolver AND signal_to_portfolio (via import).
@@ -233,25 +235,8 @@ class EntityResolver:
                 normalized_alias = normalize_company_name(alias)
                 self._alias_index[normalized_alias] = entity.id
 
-    def _extract_domain(self, url: str) -> str | None:
-        """Extract domain from URL for matching."""
-        if not url:
-            return None
-
-        url = url.lower()
-        if not url.startswith(("http://", "https://")):
-            url = "https://" + url
-
-        try:
-            from urllib.parse import urlparse
-            parsed = urlparse(url)
-            domain = parsed.netloc
-            # Remove www prefix
-            if domain.startswith("www."):
-                domain = domain[4:]
-            return domain
-        except Exception:
-            return None
+    def _extract_domain(self, url: str) -> str:
+        return _extract_domain_util(url) or ""
 
     def _generate_id(self) -> str:
         """Generate a unique entity ID."""

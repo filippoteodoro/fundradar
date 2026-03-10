@@ -48,7 +48,7 @@ _RE_PORTFOLIO_UPDATE = re.compile(
 
 # Basic exit verbs
 _RE_EXIT_VERBS = re.compile(
-    r"\bsells?\b|\bselling\b|\bsold\b|\bexits?\b|\bexited\b"
+    r"\bsells?\b|\bselling\b|\bsold\b|\bsale\b|\bexits?\b|\bexited\b"
     r"|\bvend(?:e|ere|ita|ono)\b|\bvendut[oa]\b|\bcede\b|\bcession[ei]\b"
     r"|\bdisinvest\w+\b|\bdivest\w+\b|\ba\s+vendere\b",
     re.IGNORECASE,

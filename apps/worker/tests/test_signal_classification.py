@@ -1057,6 +1057,22 @@ class TestSemanticBoundaries:
         )
         assert result == "exit_announced"
 
+    def test_agreement_for_sale_of_company_stays_exit(self):
+        """'agreement for the sale of [company]' = exit_announced.
+
+        Regression for web-signal-02114: Wise Equity and Aksìa announce the
+        signing of an agreement for the sale of Casa della Piada.
+        The noun 'sale' was not in _RE_EXIT_VERBS, causing 'agreement' to
+        trigger the partnership/agreement guard and flip it to 'partnership'
+        or the safety-net in signalProcessing.ts to flip it to 'other'.
+        """
+        result = apply_type_corrections(
+            "exit_announced",
+            "wise equity and aksìa announce the signing of an agreement for the sale of casa della piada",
+            "wise equity and aksìa sign agreement for sale of casa della piada",
+        )
+        assert result == "exit_announced"
+
 
 class TestPeopleMoveDeparture:
     """Regression tests for people_move departure language (Feb 2026 fix).

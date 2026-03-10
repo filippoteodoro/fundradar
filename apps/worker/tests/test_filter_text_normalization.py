@@ -8,7 +8,8 @@ SCRIPTS_DIR = Path(__file__).resolve().parents[1] / "scripts"
 if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
 
-from filter_signals import _clean_signal_fields, _normalize_monetary_values  # noqa: E402
+from filter_signals import _clean_signal_fields  # noqa: E402
+from signal_text_utils import normalize_monetary_values as _normalize_monetary_values  # noqa: E402
 
 
 def test_monetary_token_gets_space_before_following_word():

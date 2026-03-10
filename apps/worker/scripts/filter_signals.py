@@ -116,9 +116,7 @@ from signal_text_utils import (
     extract_company_like_entities,
     fix_spacing,
     normalize_monetary_values,
-    normalize_monetary_values as _normalize_monetary_values,  # backward compat for tests
     repair_attached_connectors,
-    repair_attached_connectors as _repair_attached_connectors,  # backward compat
 )
 
 # Paths (shared)

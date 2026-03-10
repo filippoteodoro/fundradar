@@ -103,6 +103,9 @@ def build_company_knowledge_base(fund_portfolios: dict, exclude_slug: str | None
     """
     from collections import Counter
 
+    def _most_common(vals: list) -> object:
+        return Counter(vals).most_common(1)[0][0]
+
     by_name: dict[str, dict[str, list]] = {}
     display_names: dict[str, str] = {}
 
@@ -153,9 +156,9 @@ def build_company_knowledge_base(fund_portfolios: dict, exclude_slug: str | None
             gemini_vals = fields[f"{field}_gemini"]
             all_vals = fields[field]
             if gemini_vals:
-                entry[field] = Counter(gemini_vals).most_common(1)[0][0]
+                entry[field] = _most_common(gemini_vals)
             elif all_vals:
-                entry[field] = Counter(all_vals).most_common(1)[0][0]
+                entry[field] = _most_common(all_vals)
 
         # Sector: Gemini+taxonomy > any taxonomy > most-common
         sector_gemini = fields["sector_gemini"]
@@ -163,15 +166,15 @@ def build_company_knowledge_base(fund_portfolios: dict, exclude_slug: str | None
         if sector_gemini:
             taxonomy_vals = [v for v in sector_gemini if v in SECTOR_SET]
             if taxonomy_vals:
-                entry["sector"] = Counter(taxonomy_vals).most_common(1)[0][0]
+                entry["sector"] = _most_common(taxonomy_vals)
             else:
-                entry["sector"] = Counter(sector_gemini).most_common(1)[0][0]
+                entry["sector"] = _most_common(sector_gemini)
         elif sector_all:
             taxonomy_vals = [v for v in sector_all if v in SECTOR_SET]
             if taxonomy_vals:
-                entry["sector"] = Counter(taxonomy_vals).most_common(1)[0][0]
+                entry["sector"] = _most_common(taxonomy_vals)
             else:
-                entry["sector"] = Counter(sector_all).most_common(1)[0][0]
+                entry["sector"] = _most_common(sector_all)
 
         # Description: prefer longest Gemini bio, then longest non-signal bio
         gemini_descs = fields["description_gemini"]

@@ -9,6 +9,7 @@ from typing import Literal
 
 from .enrichment import PortfolioCompany
 from .entity_resolver import normalize_company_name, similarity_score
+from .url_utils import extract_domain as _extract_domain
 
 
 @dataclass
@@ -77,23 +78,6 @@ def _match_company(
 
     return None, 0.0
 
-
-def _extract_domain(url: str) -> str | None:
-    """Extract domain from URL."""
-    if not url:
-        return None
-    url = url.lower()
-    if not url.startswith(("http://", "https://")):
-        url = "https://" + url
-    try:
-        from urllib.parse import urlparse
-        parsed = urlparse(url)
-        domain = parsed.netloc
-        if domain.startswith("www."):
-            domain = domain[4:]
-        return domain
-    except Exception:
-        return None
 
 
 def diff_portfolio(
