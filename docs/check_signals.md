@@ -19,12 +19,97 @@ Every fix must go into the pipeline code so it applies automatically to every ne
 
 ---
 
+## Standard Signal Quality Audit
+
+Run this after every pipeline run (or when asked to review signal quality). Each check surfaces a known recurring failure mode.
+
+```bash
+# 1. SUMMARY: type distribution and count
+python3 -c "
+import json
+from collections import Counter
+d = json.load(open('data/derived/detected_signals_filtered.json'))
+c = Counter(s.get('signal_type','?') for s in d['signals'])
+for t, n in sorted(c.items(), key=lambda x: -x[1]):
+    print(f'{n:4d}  {t}')
+print(f'  ---')
+print(f'{len(d[\"signals\"]):4d}  TOTAL')
+"
+
+# 2. ALL 'other' signals — every one of these should have a clear reason for being 'other'
+# Red flags: deal/exit/people-change language, fund launch verbs, monetary amounts
+python3 -c "
+import json
+d = json.load(open('data/derived/detected_signals_filtered.json'))
+others = [s for s in d['signals'] if s.get('signal_type') == 'other']
+print(f'{len(others)} other signals:')
+for s in others:
+    print(s['id'], '|', s.get('fund_slug','?'), '|', s.get('title','')[:85])
+"
+
+# 3. LOWEST QUALITY signals — candidates for dropping or reclassification
+python3 -c "
+import json
+d = json.load(open('data/derived/detected_signals_filtered.json'))
+low = sorted(d['signals'], key=lambda s: s.get('quality_score', 0))[:15]
+for s in low:
+    print(f\"{s.get('quality_score',0):3d}  {s.get('signal_type','?'):20s}  {s.get('title','')[:65]}\")
+"
+
+# 4. 'deal_announced' signals with review/report language — ML misclassification risk
+# ML sees "M&A"/"acquisition" in sector review articles → deal_announced at high confidence
+python3 -c "
+import json, re
+d = json.load(open('data/derived/detected_signals_filtered.json'))
+review_re = re.compile(r'\b(review|report|bilan|roundup|overview|barometer|outlook|panorama|scenar)\b', re.I)
+for s in d['signals']:
+    if s.get('signal_type') == 'deal_announced':
+        text = (s.get('title','') + ' ' + (s.get('what_changed') or '')).lower()
+        if review_re.search(text) and not s.get('target_companies'):
+            print(s['id'], '|', s.get('fund_slug','?'), '|', s.get('title','')[:80])
+"
+
+# 5. 'report' signals — confirm each is about the fund manager, not a portfolio company
+# Pipeline cannot distinguish these automatically — requires reading the source URL
+python3 -c "
+import json
+d = json.load(open('data/derived/detected_signals_filtered.json'))
+for s in d['signals']:
+    if s.get('signal_type') == 'report':
+        print(s['id'], '|', s.get('fund_slug','?'), '|', s.get('title','')[:75])
+        print(f\"   {s.get('source_url','')[:80]}\")
+"
+# ↑ Open the source_url for each. If the article is about a specific portfolio
+# entity (subsidiary, portfolio company), reclassify to 'portfolio_update'.
+
+# 6. Signals with Italian titles that were NOT translated
+# These may have wrong types or quality penalties
+python3 -c "
+import json, re
+italian_re = re.compile(r'\b(del|della|delle|degli|nella|nelle|negli|nel|con il|per il|al|alla|agli|alle|dal|dalla|dai|dalle|ha|ha acquisito|ha ceduto|avvia|lancia|chiude|raccoglie|investe|acquista|cede|entra|uscita|fondo|società|capital|sgr)\b', re.I)
+d = json.load(open('data/derived/detected_signals_filtered.json'))
+for s in d['signals']:
+    t = s.get('title','')
+    if not s.get('title_original') and italian_re.search(t):
+        print(s['id'], '|', s.get('fund_slug','?'), '|', s.get('signal_type','?'), '|', t[:80])
+"
+
+# 7. Signals with no target_companies but type deal_announced or exit_announced
+# These won't be converted to portfolio entries — may need enrichment or type correction
+python3 -c "
+import json
+d = json.load(open('data/derived/detected_signals_enriched.json'))
+for s in d.get('signals', []):
+    if s.get('signal_type') in ('deal_announced', 'exit_announced'):
+        tc = s.get('target_companies') or []
+        if not tc:
+            print(s['id'], '|', s.get('fund_slug','?'), '|', s.get('signal_type','?'), '|', s.get('title','')[:75])
+"
+```
+
 ## Quick Diagnosis Commands
 
 ```bash
-# See all signals currently in the filtered output
-python3 -c "import json; d=json.load(open('data/derived/detected_signals_filtered.json')); print(len(d['signals']), 'filtered signals')"
-
 # Find signals of a specific type
 python3 -c "
 import json
@@ -33,15 +118,6 @@ for s in d['signals']:
     if s.get('signal_type') == 'other':
         print(s['id'], '|', s.get('fund_slug','?'), '|', s.get('title','')[:90])
 " | head -30
-
-# Check quality scores
-python3 -c "
-import json
-d = json.load(open('data/derived/detected_signals_filtered.json'))
-scores = [(s.get('quality_score',0), s.get('signal_type','?'), s.get('title','')[:70]) for s in d['signals']]
-for q,t,title in sorted(scores)[:20]:
-    print(f'{q:3d} {t:20s} {title}')
-"
 
 # Find signals with 'sale' or other specific text patterns
 python3 -c "
@@ -194,6 +270,8 @@ Also check `deal_amount` field backfill in `filter_signals.py` (`_RE_EXTRACT_AMO
 - Exit shown as "Deal" → `correct_exit()` flipped it for buyer-cue/acquisition language
 - People change shown as "Other" → `correct_people_move()` or `other` rescue didn't fire
 - Deal shown as "Partnership" → `correct_deal()` agreement check fired incorrectly
+- Market review/report shown as "Deal" → ML sees "M&A"/"acquisition" vocabulary in sector review articles and fires `deal_announced` at high confidence. Fixed by post-ML guard in `filter_signals.py`: if `signal_type == "deal_announced"` AND `_RE_REPORT.search()`, override to `report`. The `_RE_REPORT` pattern includes `global review of M&A`, `M&A report`, `annual M&A review`.
+- Fund website news about a **portfolio company's** financial results shown as "Report" → type should be `portfolio_update`. A financial results article on a fund's domain is `report` only when it describes the fund/manager's own performance. Portfolio company H1 results → `portfolio_update`. Check the article subject — if a specific portfolio entity is named, reclassify. **This cannot be caught automatically by the pipeline** — it requires reading the source URL. Use the diagnostic below to find candidates.
 
 **Diagnosis**:
 ```python
@@ -541,6 +619,10 @@ These are issues that have come up before and are likely to recur. Use this as a
 | Stale penalty not removing old signals | Naive datetime from `fromisoformat()` without timezone suffix causes `TypeError` in comparison — always add `if dt.tzinfo is None: dt = dt.replace(tzinfo=timezone.utc)` | Issue 16 |
 | Pipeline reports "remaining work" after every run | `signal_to_portfolio` (step 9) adds entries after `enrich_portfolio` (step 6) — step 10 (`enrich_portfolio_final`) handles this. If still remaining, run `enrich_portfolio_gemini_full.py --pipeline` manually | Issue 19 |
 | Same N entries stuck in "remaining" across many runs | Gemini API keeps failing for those batches; after 3 attempts they're auto-marked done. Check `"attempts"` dict in `enrichment_portfolio_full_progress.json` | Issue 19 |
+| Corrections run in isolation give correct type, but signal still shows "Other" in output | ML classifier ran AFTER rule-based corrections and overrode them. The post-ML rescue block in `filter_signals.py` re-applies `apply_type_corrections("other")` to guard against this. If signals still slip through, check `demoted_to_other_by_editorial` flag — it must be False for rescue to fire | Issue 20 |
+| `apply_type_corrections()` not being called at all for a signal | `apply_universal_demotions()` returned `"other"` → filter skips `apply_type_corrections()` entirely. Fix the demotion guard at its source (add `and not _RE_X.search()` to the offending check in `apply_universal_demotions()`) | Issue 20 |
+| Sector review article ("global M&A review") shown as "Deal" | ML sees "M&A"/"acquisition" vocabulary → fires deal_announced at high confidence. Post-ML guard in `filter_signals.py` converts deal_announced → report when `_RE_REPORT` matches. Add missing review patterns to `_RE_REPORT`. | Issue 7 |
+| Portfolio company's financial results shown as "Report" | `_RE_REPORT` correctly matches "net profit" / "utile netto", but the article is about a specific portfolio entity, not the fund. Reclassify to `portfolio_update`. Check if the article names a specific subsidiary/portfolio company rather than the fund manager itself. | Issues 7, 12 |
 
 ---
 
@@ -734,3 +816,68 @@ cd apps/worker && . .venv/bin/activate
 python3 scripts/enrich_portfolio_gemini_full.py --pipeline
 # Processes all remaining entries in one shot; safe to run outside pnpm pipeline
 ```
+
+---
+
+### 20. Signals Correctly Identified by Rules, Then Overridden Back to "Other" by ML
+
+**Symptoms**: `apply_type_corrections()` returns the correct type when called directly in isolation, but `signal_type` in the JSON output is still `"other"`.
+
+**Root cause — ML classifier overrides rule-based corrections**:
+`_reclassify_signal_type()` in `filter_signals.py` runs rule-based corrections first, then the ML classifier. When ML's `type_confident=True` and ML predicts a different type (including "other"), it unconditionally overwrites the rule-based result with `signal["signal_type"] = new_type`. The post-ML code only has targeted corrections for a few types; without explicit rescue, the "other" verdict sticks.
+
+**The fix — post-ML rescue block** in `filter_signals.py`:
+After the ML override, there is a post-ML rescue block that re-applies `apply_type_corrections("other", ...)` for any signal ML set to "other". This fires ONLY when `demoted_to_other_by_editorial = False` — meaning the signal was not intentionally demoted by `apply_universal_demotions()` or an editorial event-attendance check. If a signal slips through, check:
+1. Is `demoted_to_other_by_editorial` being set `True` incorrectly? → fix the demotion guard
+2. Does `apply_type_corrections("other", ...)` return the correct type for this text? → if not, add a rescue rule
+
+**Root cause — `apply_universal_demotions()` returning "other" blocks corrections entirely**:
+The filter code structure is:
+```python
+demotion = apply_universal_demotions(text, title)
+if demotion is not None:
+    signal["signal_type"] = demotion   # "other" is set; apply_type_corrections NEVER called
+else:
+    signal["signal_type"] = apply_type_corrections(original_type, text, ...)
+```
+When a demotion check fires AND returns "other", corrections are skipped entirely AND `was_universal_other_demotion = True` → post-ML rescue is also blocked. The fix must go inside `apply_universal_demotions()` — add an exclusion guard to the problematic check:
+```python
+# Example — revenue performance check must not fire for CEO departures:
+if _RE_REVENUE_PERFORMANCE.search(text_lower):
+    if (not _matches_deal(text_lower) and not _matches_exit(text_lower)
+            and not _RE_PEOPLE_DEPARTURE_TRANSITION.search(text_lower)):   # guard added
+        return "other"
+```
+
+**Diagnosis — tracing a specific signal through the pipeline**:
+```python
+cd apps/worker && . .venv/bin/activate
+python3 -c "
+import sys; sys.path.insert(0, 'scripts')
+from signal_corrections import apply_universal_demotions, apply_type_corrections
+
+title = 'your title here'
+text = 'your full text here'  # title + what_changed
+title_lower = title.lower()
+text_lower = text.lower()
+
+demotion = apply_universal_demotions(text_lower, title_lower)
+print('Demotion result:', demotion)  # None = no demotion, 'other' = blocked
+
+if demotion is None:
+    result = apply_type_corrections('other', text_lower, title_lower, 'NEWS', '')
+    print('Correction result:', result)
+else:
+    print('apply_type_corrections SKIPPED — demotion fired')
+"
+```
+
+**Known specific pattern fixes (all in `signal_patterns.py` / `signal_corrections.py`)**:
+- `_RE_REPORT` — must match English `\bnet\s+profit\b` and `\butile\s+netto\b` (not just Italian `utile netto a \d+`)
+- `_RE_BOND_ISSUANCE` — must match plural `bonds?` not singular `\bbond\b` only
+- `_RE_OFFER_BID` — must match conjugated form `offer(?:s|ed|ing)?\s+[€$£]?\s*\d+` (not just `offer\s+for`)
+- `_RE_DEBT_RESTRUCTURING` match → `debt_financing` must be wired in the `other` rescue in `apply_type_corrections()`
+- Revenue performance demotion must be guarded by `_RE_PEOPLE_DEPARTURE_TRANSITION` check
+- Call-for-applications demotion must be guarded by monetary amount presence (`[€$£]\s*\d+`)
+
+**Testing**: every fix must have a regression test in `tests/test_signal_classification.py`.

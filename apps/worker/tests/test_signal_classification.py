@@ -1256,3 +1256,120 @@ class TestEcosystemNewsroomMisattribution:
         result = _is_misattributed_signal(signal, fund=fund)
         # Note: might return True/False based on other misattribution checks,
         # but the ecosystem newsroom path should not be the reason
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 10. MAR 2026 AUDIT REGRESSIONS — fixes from the Mar 2026 signal quality audit
+# ──────────────────────────────────────────────────────────────────────────────
+
+
+class TestMar2026AuditRegressions:
+    """Regression tests for signal quality fixes from the Mar 2026 audit.
+
+    Covers: net profit → report, bonds (plural) → debt_financing, offers €X → deal,
+    restructuring agreement → debt_financing, CEO resigns + EBITDA → people_move,
+    capex with parenthetical → portfolio_update (from other), fund launch (from other).
+    """
+
+    def test_net_profit_classified_as_report(self):
+        """'net profit at €1.6M' should be report (was other — _RE_REPORT missed English 'net profit')."""
+        ud = apply_universal_demotions("volumes up in q1 2025 and net profit at €1.6m", "volumes up in q1 2025 and net profit at €1.6m")
+        # Universal demotion should return report (or None and then type corrections do it)
+        if ud is None:
+            result = apply_type_corrections("other", "volumes up in q1 2025 and net profit at €1.6m", "volumes up in q1 2025 and net profit at €1.6m")
+        else:
+            result = ud
+        assert result == "report", f"Expected report, got {result}"
+
+    def test_turnaround_profit_classified_as_report(self):
+        """'completes turnaround: €1M profit' should be report."""
+        ud = apply_universal_demotions("sagitta sgr completes turnaround: €1m profit in 2022", "sagitta sgr completes turnaround: €1m profit in 2022")
+        result = ud if ud is not None else apply_type_corrections("other", "sagitta sgr completes turnaround: €1m profit in 2022", "sagitta sgr completes turnaround: €1m profit in 2022")
+        assert result == "report", f"Expected report, got {result}"
+
+    def test_bonds_plural_classified_as_debt_financing(self):
+        """'subscribing to two bonds totaling €5M' should be debt_financing (was other — _RE_BOND_ISSUANCE missed plural 'bonds')."""
+        text = "cdp and finint investments support the growth of feudi di san gregorio, subscribing to two bonds totaling €5m issued by the campania-based company."
+        ud = apply_universal_demotions(text, text[:80])
+        result = ud if ud is not None else apply_type_corrections("other", text, text[:80])
+        assert result == "debt_financing", f"Expected debt_financing, got {result}"
+
+    def test_offers_amount_for_classified_as_deal(self):
+        """'Cinven offers €300M for Burger King' should be deal_announced (was other — _RE_OFFER_BID missed conjugated 'offers')."""
+        text = "cinven offers €300m for burger king italian operations, currently held by kharis capital"
+        ud = apply_universal_demotions(text, text)
+        result = ud if ud is not None else apply_type_corrections("other", text, text)
+        assert result == "deal_announced", f"Expected deal_announced, got {result}"
+
+    def test_restructuring_agreement_classified_as_debt_financing(self):
+        """'Approval of the Restructuring Agreement' should be debt_financing (was other)."""
+        text = "approval of the restructuring agreement for rizzani de eccher s.p.a."
+        ud = apply_universal_demotions(text, text)
+        result = ud if ud is not None else apply_type_corrections("other", text, text)
+        assert result == "debt_financing", f"Expected debt_financing, got {result}"
+
+    def test_ceo_resigns_plus_ebitda_shortfall_is_people_move(self):
+        """CEO resignation + EBITDA shortfall should be people_move (was other — revenue_performance blocked)."""
+        text = "fiber cop (kkr) reports €449m ebitda shortfall, ceo luigi ferraris resigns fiber cop management shares updated projections. ceo resigns after 7 months."
+        # Universal demotion should NOT fire (CEO departure guards the revenue_performance rule)
+        ud = apply_universal_demotions(text, "fiber cop (kkr) reports €449m ebitda shortfall, ceo luigi ferraris resigns")
+        assert ud is None, f"Universal demotion should not fire for CEO resignation, got {ud}"
+        result = apply_type_corrections("other", text, "fiber cop (kkr) reports €449m ebitda shortfall, ceo luigi ferraris resigns")
+        assert result == "people_move", f"Expected people_move, got {result}"
+
+    def test_ebitda_shortfall_only_is_other(self):
+        """EBITDA shortfall with no departure language should stay other."""
+        text = "fiber cop reports €449m ebitda shortfall vs underwriting case. cumulative €2b deficit projected."
+        ud = apply_universal_demotions(text, text[:80])
+        assert ud == "other", f"Expected other from universal demotion, got {ud}"
+
+    def test_fund_launch_with_invest_mandate_rescued_from_other(self):
+        """'Fund is launched, will invest €40M in...' should be fund_launch (was other — ML override)."""
+        text = "the neva ii – parallelo lombardia fund is launched, will invest €40m in lombardy-based cleantech neva sgr has launched the fondo neva ii – parallelo lombardia to deploy a total of €40m."
+        ud = apply_universal_demotions(text, "the neva ii – parallelo lombardia fund is launched")
+        result = ud if ud is not None else apply_type_corrections("other", text, "the neva ii – parallelo lombardia fund is launched")
+        assert result == "fund_launch", f"Expected fund_launch, got {result}"
+
+    def test_call_for_applications_with_amount_not_demoted(self):
+        """Call for applications WITH monetary amount should not be demoted to other."""
+        text = "region and neva sgr announce a €40m financing initiative to support cleantech startups, coupled with a call for applications. confirmed financing."
+        ud = apply_universal_demotions(text, "region and neva sgr are financing cleantech startups with €40m.")
+        # Should not return "other" — monetary amount guards against call_for_applications demotion
+        assert ud != "other", f"Should not demote to other when €40M present, got ud={ud}"
+
+    def test_call_for_applications_without_amount_still_demoted(self):
+        """Pure 'call for applications' with no amount should still demote to other."""
+        text = "fund announces call for applications from startups looking to raise capital"
+        ud = apply_universal_demotions(text, text)
+        assert ud == "other", f"Expected other demotion for pure call-for-applications, got {ud}"
+
+    def test_composition_with_creditors_is_debt_financing(self):
+        """'Composition with creditors in Compulsory Administrative Liquidation' → debt_financing."""
+        text = (
+            "approval of coopsette's composition with creditors in compulsory administrative liquidation, "
+            "involving the restructuring of approximately €700m in debt"
+        )
+        result = apply_type_corrections("other", text, text[:60])
+        assert result == "debt_financing", f"Expected debt_financing, got {result}"
+
+    def test_restructuring_of_amount_in_debt_is_debt_financing(self):
+        """'restructuring of €700M in debt' matches _RE_DEBT_RESTRUCTURING → debt_financing."""
+        text = "company enters restructuring of €500m in outstanding debt obligations"
+        result = apply_type_corrections("other", text, text[:60])
+        assert result == "debt_financing", f"Expected debt_financing, got {result}"
+
+    def test_global_ma_review_is_report_not_deal(self):
+        """'2025 global review of M&A in BVP' is a market review report, not a deal."""
+        text = "2025 global review of m&a in bvp: activity focused on europe 2025 global review of m&a in bvp: a europe-focused business"
+        from signal_patterns import _RE_REPORT
+        assert _RE_REPORT.search(text), "global review of M&A should match _RE_REPORT"
+        # Post-ML guard: deal_announced → report when _RE_REPORT matches
+        # Simulate: apply_type_corrections("deal_announced") won't convert, but post-ML does
+        # We verify the _RE_REPORT match is the gating condition
+        assert _RE_REPORT.search(text).group(0) == "global review of m&a"
+
+    def test_annual_ma_review_is_report(self):
+        """'Annual M&A review' / 'M&A report' should match _RE_REPORT."""
+        from signal_patterns import _RE_REPORT
+        assert _RE_REPORT.search("annual m&a review for the bakery sector 2025"), "annual M&A review should match"
+        assert _RE_REPORT.search("m&a report: europe-focused activity in 2025"), "m&a report should match"

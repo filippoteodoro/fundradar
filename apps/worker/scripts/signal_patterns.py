@@ -186,7 +186,16 @@ _RE_REPORT = re.compile(
     r"|utile\s+d[i'\u2019]\s*esercizio"
     r"|closes?\s+(?:the\s+)?financial\s+year|risultati?\s+finanziari"
     r"|(?:primo|secondo|terzo|quarto)\s+trimestre\b.*\butile\b"
-    r"|utile\s+netto\s+a\s+\d+)\b",
+    r"|utile\s+netto\s+a\s+\d+"
+    r"|\bnet\s+profit\b"
+    r"|\butile\s+netto\b"
+    r"|\bcompletes?\s+turnaround\b"
+    r"|\bvolumes?\s+(?:up|down|grew|declined)\b.{0,40}\b(?:profit|utile|revenue|ricavi)\b"
+    r"|\b(?:profit|utile)\b.{0,40}\b(?:volumes?\s+(?:up|down|grew)|revenue|ricavi)\b"
+    r"|\b(?:global|annual|yearly|sector)\s+review\s+of\s+(?:m&a|mergers?|acquisitions?|deals?)\b"
+    r"|\bm&a\s+(?:review|roundup|overview|report|barometer|landscape)\b"
+    r"|\bbilan\s+(?:mondial|annuel|semestriel)\s+des\s+(?:f[&\s]a|fusions?|acquisitions?)\b"  # French: bilan mondial des F&A
+    r"|\bannual\s+(?:m&a|deal|transaction)\s+(?:review|report|summary|overview)\b)\b",
     re.IGNORECASE,
 )
 
@@ -279,7 +288,7 @@ _RE_EXITED_FROM_PORTFOLIO = re.compile(
 # Bond/debt issuance patterns
 # Standardized name: _RE_BOND_ISSUANCE (enricher called it _RE_BOND)
 _RE_BOND_ISSUANCE = re.compile(
-    r"\b(?:bond|obbligazion\w+|emissione|rifinanzia\w+|refinanc\w+|debt\s+issuance"
+    r"\b(?:bonds?|obbligazion\w+|emissione|rifinanzia\w+|refinanc\w+|debt\s+issuance"
     r"|collocamento|collocare?|minibond[s]?|mini\s+bond[s]?)\b",
     re.IGNORECASE,
 )
@@ -428,7 +437,10 @@ _RE_DEBT_RESTRUCTURING = re.compile(
     r"\baccordo\s+(?:tra|con)\s+(?:il\s+)?(?:i\s+)?creditor\w*\b"
     r"|\baccordo\s+di\s+ristrutturazione\b"
     r"|\bconcordato\b"
-    r"|\brestructuring\s+agreement\b",
+    r"|\brestructuring\s+agreement\b"
+    r"|\bcomposition\s+with\s+creditors?\b"  # English form: "composition with creditors"
+    r"|\badministrative\s+liquidation\b"  # Compulsory Administrative Liquidation (Italian insolvency)
+    r"|\brestructuring\s+of\s+(?:approximately\s+)?[€$£]",  # "restructuring of €700M in debt"
     re.IGNORECASE,
 )
 
@@ -484,6 +496,7 @@ _RE_REVENUE_PERFORMANCE = re.compile(
 # Offer/bid language → deal_announced
 _RE_OFFER_BID = re.compile(
     r"\bofferta\s+(?:da|di|per)\s+\d+|\boffer\s+(?:for|of|to\s+acquire)\b"
+    r"|\boffer(?:s|ed|ing)?\s+[€$£]?\s*\d+"  # "offers €300M for Burger King"
     r"|\bbid\s+(?:for|of|to\s+acquire)\b|\bofferta\s+(?:vincolante|non\s+vincolante|di\s+acquisto)\b", re.IGNORECASE)
 
 # Office opening / footprint expansion

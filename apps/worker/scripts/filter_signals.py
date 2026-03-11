@@ -3849,6 +3849,29 @@ def main():
             if not _matches_any(DEAL_CLASSIFY_PATTERNS, post_ml_text) and not _matches_any(EXIT_CLASSIFY_PATTERNS, post_ml_text):
                 signal["signal_type"] = "job_posting"
 
+        # Post-ML: market review reports misclassified by ML as deal_announced.
+        # ML sees "M&A" / "acquisition" vocabulary in review/report articles and fires
+        # deal_announced at high confidence. _RE_REPORT with the market-review patterns
+        # is the authoritative override.
+        if signal.get("signal_type") == "deal_announced" and _RE_REPORT.search(post_ml_text):
+            signal["signal_type"] = "report"
+
+        # Post-ML: re-apply rule-based rescue for signals ML demoted to 'other'.
+        # ML may override correct rule-based classifications (fund_launch, report, debt_financing,
+        # people_move, deal_announced). Re-apply apply_type_corrections("other") which has tight,
+        # high-confidence patterns. Skip if a universal demotion or editorial check already set
+        # "other" intentionally (demoted_to_other_by_editorial = True).
+        if signal.get("signal_type") == "other" and not demoted_to_other_by_editorial:
+            _post_ml_rescued = apply_type_corrections(
+                "other",
+                post_ml_text,
+                (signal.get("title") or "").lower(),
+                (signal.get("page_category") or "").upper(),
+                (signal.get("diff_summary") or "").lower(),
+            )
+            if _post_ml_rescued != "other":
+                signal["signal_type"] = _post_ml_rescued
+
         # Post-ML correction: fund_launch misclassifications
         # ML often overrides the reclassifier's correct decision — apply same guards
         if signal.get("signal_type") == "fund_launch":

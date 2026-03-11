@@ -195,8 +195,11 @@ def apply_universal_demotions(text_lower: str, title_lower: str) -> Optional[str
             return "other"
 
     # Call for applications / accelerator open call → other
+    # Guard: allow through when there's a monetary amount (e.g. "€40M financing initiative + call
+    # for applications") — the financing is the real PE event, not the call.
     if re.search(r"\bcall\s+for\s+(?:applications?|proposals?|startups?)\b", text_lower):
-        if not _matches_deal(text_lower) and not _matches_fundraise(text_lower):
+        _has_monetary_amount = bool(re.search(r"[€$£]\s*\d+", text_lower))
+        if not _matches_deal(text_lower) and not _matches_fundraise(text_lower) and not _has_monetary_amount:
             return "other"
 
     # Exploratory survey / procurement RFP → other
@@ -319,8 +322,11 @@ def apply_universal_demotions(text_lower: str, title_lower: str) -> Optional[str
             return "report"
 
     # Portfolio company revenue articles → other
+    # Guard: CEO/executive departure overrides revenue demotion — a resignation is a people_move
+    # even when the signal also mentions EBITDA shortfall or earnings figures.
     if _RE_REVENUE_PERFORMANCE.search(text_lower):
-        if not _matches_deal(text_lower) and not _matches_exit(text_lower):
+        if (not _matches_deal(text_lower) and not _matches_exit(text_lower)
+                and not _RE_PEOPLE_DEPARTURE_TRANSITION.search(text_lower)):
             return "other"
 
     # Bond issuance / refinancing → debt_financing
@@ -1166,6 +1172,12 @@ def apply_type_corrections(
                     _after2,
                 ):
                     return "portfolio_update"
+
+        # "Restructuring Agreement" / "accordo di ristrutturazione" → debt_financing.
+        # A restructuring agreement is a debt event by definition — no additional debt-context
+        # words required (unlike in correct_deal() which guards further).
+        if _RE_DEBT_RESTRUCTURING.search(text_lower):
+            return "debt_financing"
 
         # Investment/acquisition language over-demoted to other → deal_announced.
         # Guard against editorial/interview pieces that mention investing abstractly.

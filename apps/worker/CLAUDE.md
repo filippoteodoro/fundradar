@@ -346,7 +346,18 @@ The enricher does NOT drop signals — `filter_signals.py` (step 7) is the sole 
 
 ### ML Signal Classifier
 
-The filter uses an optional sklearn ML classifier (`signal_classifier.py`) for confidence-gated type prediction and keep/discard scoring. It is a secondary layer — rule-based corrections in `signal_corrections.py` always run after ML and can override its output.
+The filter uses an optional sklearn ML classifier (`signal_classifier.py`) for confidence-gated type prediction and keep/discard scoring.
+
+**Execution order** (critical — affects debugging):
+1. Rule-based: `apply_universal_demotions()` → (if no demotion) `apply_type_corrections(original_type, ...)`
+2. ML classifier runs next — when `type_confident=True`, ML overwrites the rule-based result unconditionally
+3. Post-ML corrections: targeted fixes for a few types + a **post-ML rescue block** that re-applies `apply_type_corrections("other", ...)` for any signal ML set to "other"
+
+**The ML can override rule-based corrections** — so the rule giving the correct type in step 1 may be silently reverted to "other" in step 2. The post-ML rescue block (step 3) guards against this for most cases.
+
+**`demoted_to_other_by_editorial` flag**: when `apply_universal_demotions()` explicitly returned "other" (investor meetings, press reviews, call_for_applications, etc.), this flag is set `True` and the post-ML rescue is disabled — preventing re-classification of intentionally demoted signals.
+
+**To diagnose a signal that "corrections fix in isolation but stays other in output"**: run `apply_universal_demotions()` and `apply_type_corrections("other", ...)` on the text first. If corrections give the right type, the ML is overriding — check whether `demoted_to_other_by_editorial` should be False for this signal. See `docs/check_signals.md` Issue 20.
 
 **Models** (in `data/models/`):
 
