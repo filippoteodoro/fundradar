@@ -3204,9 +3204,12 @@ def calculate_quality_score(
         if not _is_senior_title(summary) and not _is_senior_title(title):
             score = min(score, 82)
 
-    # Stale signal penalty — signals older than 24 months are deprioritized on the feed.
-    # Use published_at first, fall back to enriched_date. Seed/historical signals are exempt
-    # if they have valuable deal content (evidence_score >= 3) to preserve historical records.
+    # Stale signal penalty — signals older than 24 months are always filtered out.
+    # A signal re-detected in 2026 with published_at=2023 is stale regardless of its
+    # evidence quality: the deal is real but it's historical record, not fresh news.
+    # Evidence score does NOT grant a softer penalty — there is no "soft" path.
+    # Root cause of stale re-detection: CMS URL reorganisation (e.g. Odoo regenerating
+    # /web/content/{id}/ paths) makes the monitor treat historical articles as new.
     _pub_date = signal.get("published_at") or signal.get("enriched_date")
     if _pub_date and isinstance(_pub_date, str):
         try:
@@ -3216,11 +3219,7 @@ def calculate_quality_score(
                 _pub_dt = _pub_dt.replace(tzinfo=_tz.utc)
             _age_months = (datetime.now(_tz.utc) - _pub_dt).days / 30.4
             if _age_months > 24:
-                _evidence = signal.get("evidence_score") or 0
-                if _evidence < 3:
-                    score -= 25  # Hard penalty: push below MIN_QUALITY_SCORE threshold
-                else:
-                    score -= 10  # Soft penalty: historical deal data stays visible but ranked lower
+                score -= 25  # Hard penalty: always push below MIN_QUALITY_SCORE threshold
         except (ValueError, TypeError):
             pass
 
@@ -4387,7 +4386,7 @@ def main():
         from fund_gap_detector import detect_unknown_fund_mentions
         from fundradar_worker.alerting import AlertConfig, send_unknown_fund_alerts
         known_slugs = set(funds_by_slug.keys())
-        gaps = detect_unknown_fund_mentions(filtered, known_slugs)
+        gaps = detect_unknown_fund_mentions(filtered, known_slugs, invalid_slugs=slug_normalizer.invalid_slugs)
         if gaps:
             send_unknown_fund_alerts(gaps, AlertConfig.from_env())
     except Exception as _gap_exc:

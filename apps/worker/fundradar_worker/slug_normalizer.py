@@ -66,6 +66,7 @@ class FundSlugNormalizer:
         db_path = root / "data" / "db.json"
         aliases_path = root / "data" / "derived" / "fund_aliases.json"
 
+        db: dict = {}
         funds: list[dict] = []
         if db_path.exists():
             with open(db_path) as f:
@@ -80,14 +81,25 @@ class FundSlugNormalizer:
                 continue
             funds_by_slug[slug] = fund
 
+        # Load excluded entities from db.json (vetted non-PE/VC entities).
+        # This is the single source of truth for real entities we've evaluated and decided not to track.
+        excluded_entities: list[dict] = db.get("excluded_entities", [])
+
         alias_map: dict[str, str] = {}
-        invalid_slugs: set[str] = set()
+        # Seed invalid_slugs from db.json excluded_entities — single source of truth
+        # for real entities we've evaluated and decided not to track.
+        invalid_slugs: set[str] = {
+            str(e.get("slug", "")).strip()
+            for e in excluded_entities
+            if e.get("slug")
+        }
         domain_aliases: dict[str, str] = {}
         if aliases_path.exists():
             try:
                 with open(aliases_path) as f:
                     aliases_data = json.load(f)
-                invalid_slugs = {str(s).strip() for s in (aliases_data.get("invalid_slugs") or []) if s}
+                # Also include garbage/partial-slug normalization artifacts from fund_aliases.json
+                invalid_slugs |= {str(s).strip() for s in (aliases_data.get("invalid_slugs") or []) if s}
                 raw_aliases = aliases_data.get("aliases") or {}
                 for alias, canonical in raw_aliases.items():
                     if alias and canonical and canonical in canonical_slugs:

@@ -17682,19 +17682,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "CSM Ingredients",
-        "sector": "Food & Beverage",
-        "status": "current",
-        "confidence": 0.95,
-        "website": null,
-        "description": "Bakery ingredients",
-        "detail_page_url": "https://www.investindustrial.com/our-business/portfolio-overview/current-portfolio/CSM-Ingredients.html",
-        "headquarters": "Bertrange, Luxembourg",
-        "investment_date": null,
-        "source_url": "https://www.investindustrial.com/our-business/portfolio-overview.html",
-        "data_source": "fund_website"
-      },
-      {
         "name": "Delta Tecnic",
         "sector": "Industrial Manufacturing",
         "status": "current",
@@ -17845,6 +17832,19 @@
         "website": null,
         "description": "Designer and manufacturer of medical devices for diabetes care and infusion therapy",
         "detail_page_url": "https://www.investindustrial.com/our-business/portfolio-overview/current-portfolio/MTD.html",
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.investindustrial.com/our-business/portfolio-overview.html",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Nexture",
+        "sector": "Biotech & Pharma",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Nexture is a pharmaceutical platform holding company, primarily known for its investment in Neopharmed Gentili, which specializes in the commercialization of branded medicines.",
+        "detail_page_url": "https://www.investindustrial.com/our-business/portfolio-overview/current-portfolio/Nexture.html",
         "headquarters": "Milan, Italy",
         "investment_date": null,
         "source_url": "https://www.investindustrial.com/our-business/portfolio-overview.html",
@@ -18561,6 +18561,19 @@
         "description": "Developer of mobile content, digital advertising, and value-added telecom services",
         "detail_page_url": "https://www.investindustrial.com/our-business/portfolio-overview/prior-investments/Zero9.html",
         "headquarters": "Sesto San Giovanni, Italy",
+        "investment_date": null,
+        "source_url": "https://www.investindustrial.com/our-business/portfolio-overview.html",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "CSM Ingredients",
+        "sector": "Food & Beverage",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Bakery ingredients",
+        "detail_page_url": "https://www.investindustrial.com/our-business/portfolio-overview/current-portfolio/CSM-Ingredients.html",
+        "headquarters": "Bertrange, Luxembourg",
         "investment_date": null,
         "source_url": "https://www.investindustrial.com/our-business/portfolio-overview.html",
         "data_source": "fund_website"
@@ -21350,6 +21363,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-27T20:34:18.401250+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Atl\u00e9tico Madrid",
+        "sector": "Media & Entertainment",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "A professional football club based in Madrid that competes in La Liga and is one of the most successful teams in Spanish football history.",
+        "detail_page_url": null,
+        "headquarters": "Madrid, Spain",
+        "investment_date": "2026-03-11",
+        "source_url": "https://startupitalia.eu/economy/apollo-azionista-maggior-atletico-madrid/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00190"
       }
     ],
     "arca-space-capital": [
@@ -21548,19 +21575,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "CLS",
-        "sector": "Environmental Services",
-        "status": "current",
-        "confidence": 0.95,
-        "website": null,
-        "description": "How a successful public-private partnership build a leading satellite data business",
-        "detail_page_url": null,
-        "headquarters": "Toulouse, France",
-        "investment_date": null,
-        "source_url": "https://www.ardian.com/expertise/our-portfolio",
-        "data_source": "fund_website"
-      },
-      {
         "name": "ASTM",
         "sector": "Construction",
         "status": "current",
@@ -21595,6 +21609,19 @@
         "description": "Ardian Real Estate, prime investor for the refurbishment of the former Europe 1 headquarters",
         "detail_page_url": null,
         "headquarters": "Paris, France",
+        "investment_date": null,
+        "source_url": "https://www.ardian.com/expertise/our-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "CLS",
+        "sector": "Environmental Services",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "How a successful public-private partnership build a leading satellite data business",
+        "detail_page_url": null,
+        "headquarters": "Toulouse, France",
         "investment_date": null,
         "source_url": "https://www.ardian.com/expertise/our-portfolio",
         "data_source": "fund_website"
@@ -21994,6 +22021,34 @@
         "source_url": "https://bebeez.it/private-equity/eco-eridania-spa-icon-infrastructure-ardian-macquarie-dif-e-dws-potrebbero-essere-tra-i-grandi-fondi-interessati-ad-investire/",
         "data_source": "signal_rumor",
         "signal_id": "rss-signal-00048"
+      },
+      {
+        "name": "Casaforte Self Storage S.p.A",
+        "sector": "Real Estate",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "An Italian company specializing in self-storage solutions for individuals and businesses, offering secure and flexible space rentals.",
+        "detail_page_url": null,
+        "headquarters": "Bolzano, Italy",
+        "investment_date": "2026-03-11",
+        "source_url": "https://bebeez.it/private-equity/ardian-acquisisce-casaforte-self-storage-spa-leader-in-italia-da-cesare-carcano-fondatore-e-famiglia-gia-investiti-300-mln-in-francia/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00165"
+      },
+      {
+        "name": "Casaforte",
+        "sector": "Real Estate",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "A leading Italian provider of self-storage services, offering private and commercial storage units across various locations in Italy.",
+        "detail_page_url": null,
+        "headquarters": "Bolzano, Italy",
+        "investment_date": "2026-03-11",
+        "source_url": "https://www.ardian.com/news-insights/press-releases/ardian-signs-agreement-acquire-majority-stake-casaforte-italys-leading",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-02125"
       }
     ],
     "b4-investimenti-sgr": [
@@ -23576,7 +23631,7 @@
         "confidence": 0.7,
         "data_source": "gemini_global_enrichment",
         "detail_page_url": null,
-        "website": null,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/waga-energy",
         "investment_date": null
       },
       {
@@ -29455,6 +29510,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.957419+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Colzani Ingranaggi Group",
+        "sector": "Industrial Manufacturing",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "A leading manufacturer of high-precision gears and mechanical transmission components for various industrial applications.",
+        "detail_page_url": null,
+        "headquarters": "Cassago Brianza, Italy",
+        "investment_date": "2026-02-13",
+        "source_url": "https://bebeez.it/private-equity/i-cuscinetti-a-sfera-meter-igi-private-equity-amundi-private-equity-italia-e-banca-ifis-comprano-gruppo-colzani-ingranaggi/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00082"
       }
     ],
     "innovative-rfk": [
@@ -33215,7 +33284,7 @@
         "sector": "Renewable Energy",
         "status": "current",
         "confidence": 0.95,
-        "website": null,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/waga-energy",
         "description": "Developer of gas treatment plants that recover biomethane from landfill waste.",
         "detail_page_url": null,
         "headquarters": "Meylan, France",
@@ -33639,6 +33708,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.971723+00:00",
         "curation_note": null
+      },
+      {
+        "name": "FABA's",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-05",
+        "source_url": "https://www.oltreimpact.com/it/blog/oltre-impact-investe-nel-raccontastorie-di-faba/",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-00466"
       }
     ],
     "oxy-capital": [
@@ -43667,6 +43750,20 @@
         "source_url": "https://bebeez.it/venture-capital/k3rx-incassa-round-da-165-mln-euro-lo-guidano-deep-ocean-capital-sgr-e-roboit/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00111"
+      },
+      {
+        "name": "Gyala",
+        "sector": "Software",
+        "status": "current",
+        "confidence": 0.8,
+        "website": "https://gyala.com/en/",
+        "description": "Provides cybersecurity software for protecting critical industrial systems",
+        "detail_page_url": null,
+        "headquarters": "Rome, Italy",
+        "investment_date": "2026-03-11",
+        "source_url": "https://bebeez.it/venture-capital/la-cybersecurity-di-gyala-incassa-round-da-4-mln-euro-lo-guida-deep-ocean-sgr/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00178"
       }
     ],
     "friulia": [
@@ -56389,6 +56486,20 @@
         "source_url": "https://www.wisesgr.com/web/content/446/            10.11.2023_Comunicato_WISE-EQUITY-acquisisce-Hertecant-Flanges-vfinal-ITA.pdf",
         "data_source": "signal_fund_press",
         "signal_id": "web-signal-01725-4ac4daec"
+      },
+      {
+        "name": "Pizze Vincenti",
+        "sector": "Food & Beverage",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Pizze Vincenti is an Italian producer of high-quality frozen pizzas and snacks, serving both the retail and food service markets.",
+        "detail_page_url": null,
+        "headquarters": "Guidonia Montecelio, Italy",
+        "investment_date": "2025-07-24",
+        "source_url": "https://www.wisesgr.com/web/content/27293/Wise%20Equity%20and%20Casa%20della%20Piada%20invest%20in%20pinsa%20with%20the%20acquisition%20of%20Pizze%20Vincenti.pdf",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-02108"
       }
     ],
     "eqt": [
@@ -56527,7 +56638,7 @@
         "sector": "Professional Services",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/anticimex-future",
+        "website": "https://www.eqtgroup.com/about/current-portfolio/anticimex",
         "description": "Provides pest control and building insurance services",
         "detail_page_url": null,
         "headquarters": "Stockholm, Sweden",
@@ -56622,19 +56733,6 @@
         "description": "Develops radiopharmaceuticals for the diagnosis and treatment of cancer",
         "detail_page_url": null,
         "headquarters": "Berlin, Germany",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
-        "name": "Ariston Education",
-        "sector": "Education",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/ariston-education",
-        "description": "Ariston Education is a leading provider of premium K-12 education services in China, focusing on high-quality academic programs and student development.",
-        "detail_page_url": null,
-        "headquarters": "Shanghai, China",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -57212,6 +57310,19 @@
         "data_source": "fund_website"
       },
       {
+        "name": "Coches.net",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/cochesnet",
+        "description": "A leading online marketplace for buying and selling new and used cars in Spain.",
+        "detail_page_url": null,
+        "headquarters": "Barcelona, Spain",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
         "name": "Codacy",
         "sector": "Software",
         "status": "current",
@@ -57337,6 +57448,19 @@
         "description": "Develops and operates utility-scale solar and storage projects",
         "detail_page_url": null,
         "headquarters": "Santa Monica, United States",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Cyted Health",
+        "sector": "Biotech & Pharma",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/cyted-health",
+        "description": "A digital diagnostic company focused on the early detection of gastrointestinal cancers and other diseases.",
+        "detail_page_url": null,
+        "headquarters": "Cambridge, United Kingdom",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -57944,7 +58068,7 @@
         "sector": "Technology",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/globalconnect-infra-iv",
+        "website": "https://www.eqtgroup.com/about/current-portfolio/globalconnect",
         "description": "Provides fiber-based data communication and data center services",
         "detail_page_url": null,
         "headquarters": "Stockholm, Sweden",
@@ -58304,6 +58428,19 @@
         "data_source": "fund_website"
       },
       {
+        "name": "InfoJobs",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/infojobs",
+        "description": "A leading online job platform in Spain and Italy, connecting job seekers with employers.",
+        "detail_page_url": null,
+        "headquarters": "Barcelona, Spain",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
         "name": "Innovative Molecules",
         "sector": "Biotech & Pharma",
         "status": "current",
@@ -58403,6 +58540,19 @@
         "description": "Operates an online healthcare and pharmacy platform in China",
         "detail_page_url": null,
         "headquarters": "Beijing, China",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Ju:niz Energy",
+        "sector": "Energy",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/juniz-energy",
+        "description": "A developer and operator of solar energy projects, focusing on commercial and industrial rooftop installations.",
+        "detail_page_url": null,
+        "headquarters": "Munich, Germany",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -58793,6 +58943,19 @@
         "description": "Developer of an AI-driven workflow automation platform designed to modernize and automate core insurance operations, starting with claims handling.",
         "detail_page_url": null,
         "headquarters": "Amsterdam, Netherlands",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "McNair",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/mcnair",
+        "description": "A specialist international law firm and consultancy providing expert advice on complex legal and commercial issues.",
+        "detail_page_url": null,
+        "headquarters": "London, United Kingdom",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -59877,19 +60040,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Segra",
-        "sector": "Technology",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/segra",
-        "description": "Provides fiber-optic network and managed IT services to enterprises",
-        "detail_page_url": null,
-        "headquarters": "Charlotte, United States",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
         "name": "Sequana Medical",
         "sector": "Biotech & Pharma",
         "status": "current",
@@ -60570,7 +60720,7 @@
         "sector": "Biotech & Pharma",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/vicentra-lsp-hef-2",
+        "website": "https://www.eqtgroup.com/about/current-portfolio/vicentra",
         "description": "Develops insulin pump systems for diabetes management",
         "detail_page_url": null,
         "headquarters": "Utrecht, Netherlands",
@@ -60674,7 +60824,7 @@
         "sector": "Professional Services",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/vistra-bpea-private-equity-fund-viii",
+        "website": "https://www.eqtgroup.com/about/current-portfolio/vistra",
         "description": "Provides corporate, trust, and fund administration services globally",
         "detail_page_url": null,
         "headquarters": "Singapore",
@@ -60743,6 +60893,19 @@
         "description": "Recycles industrial waste heat for circular food production",
         "detail_page_url": null,
         "headquarters": "Malm\u00f6, Sweden",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Waga Energy",
+        "sector": "Renewable Energy",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/waga-energy",
+        "description": "Developer of gas treatment plants that recover biomethane from landfill waste.",
+        "detail_page_url": null,
+        "headquarters": "Meylan, France",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -60951,6 +61114,32 @@
         "description": "Online retailer for pet food and accessories across Europe",
         "detail_page_url": null,
         "headquarters": "Munich, Germany",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Ariston Education",
+        "sector": "Education",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/ariston-education",
+        "description": "Ariston Education is a leading provider of premium K-12 education services in China, focusing on high-quality academic programs and student development.",
+        "detail_page_url": null,
+        "headquarters": "Shanghai, China",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Segra",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/segra",
+        "description": "Provides fiber-optic network and managed IT services to enterprises",
+        "detail_page_url": null,
+        "headquarters": "Charlotte, United States",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -66257,6 +66446,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.952692+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Etichettificio Jolly",
+        "sector": "Industrial",
+        "status": "current",
+        "confidence": 0.75,
+        "website": null,
+        "description": "Specialist in the production of high-quality labels for the food, beverage, and cosmetic industries.",
+        "detail_page_url": null,
+        "headquarters": "Castelfranco Emilia (MO), Italy",
+        "investment_date": "2026-02-18",
+        "source_url": "https://bebeez.it/private-equity/diciannovesima-acquisizione-di-fila-per-finlogic-credem-private-equity-aurora-growth-capital-e-pmpartners-sgr-che-ha-acquisito-il-51-di-etichettificio-jolly-srl/",
+        "data_source": "signal_news",
+        "signal_id": "rss-signal-00120"
       }
     ],
     "ares-management": [
@@ -69873,6 +70076,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-27T20:34:18.442142+00:00",
         "curation_note": null
+      },
+      {
+        "name": "BHB Italy",
+        "sector": "Consumer Goods",
+        "status": "current",
+        "confidence": 0.75,
+        "website": null,
+        "description": "BHB is the holding company of Bialetti Industrie, an iconic Italian brand specializing in the production of coffee makers and small kitchen appliances.",
+        "detail_page_url": null,
+        "headquarters": "Coccaglio, Italy",
+        "investment_date": "2026-02-12",
+        "source_url": "https://bebeez.it/private-equity/apheon-ex-ergon-capital-partners-ha-acquisito-la-maggioranza-in-bhb-italy-mediante-la-controllata-salpa-special-food-salpa-cherubini-srl/",
+        "data_source": "signal_news",
+        "signal_id": "rss-signal-00054"
       }
     ],
     "capital-dynamics-sgr": [
@@ -80825,6 +81042,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.920578+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Terranova Web Systems (TWS)",
+        "sector": "Software",
+        "status": "current",
+        "confidence": 0.75,
+        "website": null,
+        "description": "Terranova Web Systems is a provider of software solutions for the energy and utilities sector, specializing in smart metering and grid management.",
+        "detail_page_url": null,
+        "headquarters": "Florence, Italy",
+        "investment_date": "2025-05-01",
+        "source_url": "https://bebeez.it/private-equity/la-francese-bee2link-bridgepoint-compra-litaliana-tws/",
+        "data_source": "signal_news",
+        "signal_id": "seed-signal-00040"
       }
     ],
     "cvc-dif": [
@@ -86613,6 +86844,20 @@
         "source_url": "https://startupitalia.eu/startup/alomana-startup-4-milioni-di-euro/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00164"
+      },
+      {
+        "name": "Isaac antisismica",
+        "sector": "Construction",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "ISAAC develops smart technologies for seismic protection and structural monitoring of buildings and infrastructure. Their main product is an active mass damper system that reduces building oscillations during earthquakes.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": "2026-03-11",
+        "source_url": "https://bebeez.it/venture-capital/isaac-antisismica-chiude-round-da-14-mln-con-cdp-venture-capital-sgr-360-capital-axon-partners-group-azimut-group-ring-capital-e-novacapital/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00181"
       }
     ],
     "equiter": [
@@ -100444,6 +100689,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-27T20:34:18.454157+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Qura",
+        "sector": "Healthcare",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "Qura develops a miniature implantable sensor designed for the continuous monitoring of heart failure patients to improve clinical outcomes.",
+        "detail_page_url": null,
+        "headquarters": "Bologna, Italy",
+        "investment_date": "2026-03-11",
+        "source_url": "https://bebeez.it/venture-capital/qura-chiude-round-pre-seed-di-15-mln-guidato-da-united-ventures-per-costruire-piattaforma-integrata-di-salute-preventiva-basata-sullai/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00184"
       }
     ],
     "azzurra-capital": [

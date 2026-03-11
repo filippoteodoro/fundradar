@@ -228,9 +228,9 @@ print(result)
 **Rule**: Python fix is authoritative. TypeScript fix is belt-and-suspenders. Both must be in sync.
 
 **Exit classification specifically — key patterns**:
-- "sale of [company]" → `\bsale\b` now in `RE_EXIT_VERBS` (fixed Mar 2026)
+- "sale of [company]" → `\bsale\b` is in `RE_EXIT_VERBS` (noun form — do not remove or "sale of X" won't be recognized as exits)
 - "agreement for the sale" → stays exit (not partnership) because `_RE_EXIT_VERBS` matches "sale"
-- "divestment" → `divest\w+` in `RE_EXIT_VERBS`; safety net now uses `RE_EXIT_VERBS` directly
+- "divestment" → `divest\w+` in `RE_EXIT_VERBS`; TypeScript safety net uses `RE_EXIT_VERBS.test()` directly
 
 **Adding a new test** (required for every classification fix):
 ```python
@@ -350,7 +350,7 @@ Multiple independent causes — check in this order:
 **Diagnosis**:
 ```bash
 cd apps/worker
-python3 scripts/signal_to_portfolio.py --dry-run --slugs fund-slug 2>&1 | grep -i "company_name"
+python3 scripts/signal_to_portfolio.py --dry-run --slugs fund-slug 2>&1
 ```
 
 **Common causes**:
@@ -363,8 +363,27 @@ python3 scripts/signal_to_portfolio.py --dry-run --slugs fund-slug 2>&1 | grep -
 | PEM merge matching failed | Company name in signal doesn't match PEM deal name — check 4-strategy matching in `data.ts` `getPortfolioForFund()` |
 | Fund not in organizer slug patterns | For club deals where fund organized but didn't lead — add signal text patterns to `_find_organizer_slugs()` in `signal_to_portfolio.py` |
 | Progress state stuck | Check `data/derived/signal_to_portfolio_progress.json` — if signal ID is in `processed_ids` with incomplete state, the reconciliation loop should reprocess it automatically |
+| `is_direct_investment=False` | The LLM correctly identified that a portfolio company (not the fund) made the acquisition — this is a `portfolio_update`, NOT a new fund investment. See "Add-on acquisitions" below. |
 
 **To force reprocessing**: remove the signal's ID from `signal_to_portfolio_progress.json` → next run will reprocess it.
+
+#### Add-on acquisitions — NOT portfolio entries (by design)
+
+When a **portfolio company** acquires another company, that is an **add-on acquisition**. It signals the portfolio company's growth strategy, NOT a new direct fund investment. These signals must be classified as `portfolio_update`, not `deal_announced`.
+
+**Correct behavior**:
+- "Special Flanges (Wise Equity portfolio company) acquires Vilmar" → `portfolio_update`, signal only — Vilmar does NOT get added to the fund portfolio
+- "NTC, backed by Wise Equity, acquires Pharmathen unit" → `portfolio_update`, signal only — Pharmathen does NOT get added
+
+**The enricher sets `is_direct_investment=False`** for these signals. `signal_to_portfolio.py` skips them (`skipped_addon`). This is correct and intentional.
+
+**The issue to fix is classification, not portfolio insertion**: if a signal appears as `deal_announced` when it should be `portfolio_update`, fix the classification in `signal_corrections.py` → `correct_deal()`. The `_RE_PORTFOLIO_CO_AS_ACQUIRER` pattern catches explicit "backed by [Fund]" language. Without explicit fund attribution in the text, automatic reclassification isn't possible — the extractor is the right layer (use `page_type=news` so signals from the fund's own press releases carry fund context).
+
+#### Co-investment with a portfolio company wrongly skipped
+
+**Pattern**: "Fund A and Portfolio Company B jointly acquire Target C" — this IS a direct fund investment. The enricher sets `is_direct_investment=True`.
+
+**If Target C is still not being added**: check `is_direct_investment` in `detected_signals_enriched.json`. If it's `True`, the cause is elsewhere (progress state, validation, `italy_relevant`). If it's `False`, the enricher classified it as non-direct — verify against the source article; if the enricher is wrong, manually set `is_direct_investment: true` in the enriched signal and remove the signal ID from progress.
 
 ---
 
@@ -456,10 +475,17 @@ Signal looks wrong?
 │   ├── Python fix: filter_signals.py → _is_misattributed_signal()
 │   └── TypeScript fix: signalFundTags.ts → GENERIC_SHORT_BRANDS / buildFundMentionEntries()
 │
+├── Signal shows wrong date / dominates feed with today's date
+│   ├── Check: published_at vs enriched_date in detected_signals_enriched.json
+│   ├── If enriched_date matches the wrong display date: fix priority in signals_unified.ts (published_at first)
+│   └── If signals are genuinely stale (>24 months): check stale penalty in filter_signals.py (timezone bug?)
+│
 └── Investment not in portfolio
     ├── Check target_companies in detected_signals_enriched.json for that signal
     ├── If empty: re-run enricher for the fund or manually add target_companies
-    └── If present: check signal_to_portfolio_progress.json and re-run pipeline:signals-to-portfolio
+    ├── If is_direct_investment=False: this is an add-on by a portfolio company → NOT added (by design)
+    │   Fix the signal TYPE to portfolio_update in signal_corrections.py instead
+    └── If is_direct_investment=True and still missing: check signal_to_portfolio_progress.json and re-run pipeline:signals-to-portfolio
 ```
 
 ---
@@ -496,14 +522,215 @@ pnpm pipeline:signals --slugs wise-equity-sgr   # or another affected fund
 
 ---
 
-## Known Recurring Issues (Mar 2026)
+## Known Recurring Patterns
 
-| Issue | Status | Fix Location |
-|-------|--------|-------------|
-| "sale" noun not recognized as exit verb | **Fixed Mar 2026** | `RE_EXIT_VERBS` in `signal_patterns.py` + `signalProcessing.ts`; safety net now uses `RE_EXIT_VERBS` directly |
-| Safety net for exit signals used inline regex missing `divest\w+` | **Fixed Mar 2026** | Safety net refactored to use `RE_EXIT_VERBS.test(text)` |
-| Italian title quality penalty | **Fixed Mar 2026** | `calculate_quality_score()` in `filter_signals.py` |
-| Ecosystem newsroom misattribution via RSS | **Fixed Mar 2026** | `_is_misattributed_signal()` now applies to ALL sources |
-| Non-Italian EU geography defaulting `italy_relevant=True` | **Fixed Mar 2026** | Negative geo downgrade in `filter_signals.py` |
-| Fund-launch verb not matching conjugated forms ("launches") | **Fixed Feb 2026** | `_RE_LAUNCH_FUND` / `_RE_FUND_LAUNCH_VERBS` in `signal_patterns.py` |
-| TeamSystem split to "Team System" | Pre-existing brand correction needed | `fix_spacing()` in `signal_text_utils.py` |
+These are issues that have come up before and are likely to recur. Use this as a quick lookup before debugging from scratch — each entry points to the relevant section above.
+
+| Symptom | Likely cause | See |
+|---------|-------------|-----|
+| All signals from one fund show today's date | `enriched_date` has priority over `published_at` in `signals_unified.ts` | Issue 16 |
+| Old (2022–2023) deals suddenly appear as new signals | CMS reorganised press release URLs; stale filter not firing (datetime timezone bug or soft-penalty path) | Issues 16, 17 |
+| A fund dominates the top of the signal feed | Its signals all have the same recent `observed_at` or `enriched_date` and sort above everything else | Issue 16 |
+| Exit signal shows as "Other" | Exit verb not in `RE_EXIT_VERBS` (e.g., "sale" as a noun) — check `signal_patterns.py` | Issue 7 |
+| Deal signal is actually a portfolio company add-on | Signal should be `portfolio_update`; use `_RE_PORTFOLIO_CO_AS_ACQUIRER` pattern in `correct_deal()` | Issues 7, 12 |
+| Direct investment skipped as add-on | `is_direct_investment=True` in enriched signal but some heuristic overriding it — trust the enricher | Issue 12 |
+| Italian signal passing the filter untranslated | Translation step didn't run before filter; stale penalty won't fire if title has 2+ Italian words | Issues 6, 8 |
+| Signal attributed to wrong fund | Ecosystem newsroom fund (CDP VC, Itago, Faro Value) missing its slug keyword in text, or short brand pattern matched wrong entity | Issue 10 |
+| Signals feed ranking feels wrong | `importance` score — check `deal_amount`, `quality_score`, `italy_relevant` fields | Issue 13 |
+| New investment not showing in portfolio | `target_companies` empty, or `italy_relevant=False`, or wrong signal type | Issue 12 |
+| Stale penalty not removing old signals | Naive datetime from `fromisoformat()` without timezone suffix causes `TypeError` in comparison — always add `if dt.tzinfo is None: dt = dt.replace(tzinfo=timezone.utc)` | Issue 16 |
+| Pipeline reports "remaining work" after every run | `signal_to_portfolio` (step 9) adds entries after `enrich_portfolio` (step 6) — step 10 (`enrich_portfolio_final`) handles this. If still remaining, run `enrich_portfolio_gemini_full.py --pipeline` manually | Issue 19 |
+| Same N entries stuck in "remaining" across many runs | Gemini API keeps failing for those batches; after 3 attempts they're auto-marked done. Check `"attempts"` dict in `enrichment_portfolio_full_progress.json` | Issue 19 |
+
+---
+
+### 16. All Signals from One Fund Show the Same Date / Wrong Date
+
+**Symptoms**: Multiple signals from a single fund all display the same date (e.g., today's date), even though their actual publication dates span months or years. The fund's signals dominate the top of the feed.
+
+**Root cause A — `enriched_date` overriding `published_at` in display**:
+`signals_unified.ts` normalises each signal to a `displayDate`. The field priority must be `published_at || enriched_date`. If the order is reversed, `enriched_date` (= the date the LLM enricher ran) replaces the real publication date for every signal processed in the same enricher batch.
+
+**Diagnosis**:
+```python
+python3 -c "
+import json
+signals = json.load(open('data/derived/detected_signals_enriched.json'))['signals']
+for s in signals:
+    if s.get('fund_slug') == 'fund-slug':
+        print(s.get('published_at'), s.get('enriched_date'), s['title'][:50])
+"
+```
+If `published_at` differs from `enriched_date` but the website shows `enriched_date`, the priority is inverted.
+
+**Where to fix**: `apps/web/src/lib/signals_unified.ts` — `normalizeToUnifiedSignal()` — ensure `displayDate = formatDate(sig.published_at || sig.enriched_date)`.
+
+**Root cause B — CMS URL reorganisation re-detecting historical signals**:
+Some CMS platforms (e.g., Odoo) periodically regenerate press release URLs. The monitor sees a new URL → treats the page as new content → creates a signal with `observed_at = today` even though `published_at` is 2023. The signals are real but stale. The stale penalty in `filter_signals.py` is the defence.
+
+**Stale penalty diagnosis** — if old signals are passing the filter:
+```python
+python3 -c "
+import json
+from datetime import datetime, timezone
+signals = json.load(open('data/derived/detected_signals_filtered.json'))['signals']
+now = datetime.now(timezone.utc)
+for s in signals:
+    pub = s.get('published_at','')
+    if pub:
+        dt = datetime.fromisoformat(pub.replace('Z','+00:00'))
+        if dt.tzinfo is None: dt = dt.replace(tzinfo=timezone.utc)
+        age = (now - dt).days // 30
+        if age > 24:
+            print(f'STALE {age}mo q={s.get(\"quality_score\")} {s[\"title\"][:60]}')
+"
+```
+
+**Where to fix**: `filter_signals.py` `calculate_quality_score()` — stale penalty block. The penalty must always apply (`-25`) for signals >24 months old. There is no soft path based on evidence score — a 2023 deal re-detected in 2026 is stale regardless of how strong the deal evidence is. Also ensure `datetime.fromisoformat()` results are made timezone-aware before comparing with `datetime.now(timezone.utc)` (date-only strings like `"2023-11-10"` produce naive datetimes; naive vs aware subtraction raises `TypeError`, silently caught, penalty never fires).
+
+**To clean up existing stale signals immediately** (free, no pipeline re-run):
+```python
+import json, sys
+sys.path.insert(0, 'apps/worker')
+from fundradar_worker.io_utils import safe_json_write
+from datetime import datetime, timezone
+
+cutoff = datetime(2024, 1, 1, tzinfo=timezone.utc)  # adjust as needed
+for fname in ['data/derived/detected_signals_filtered.json', 'data/derived/detected_signals_enriched.json']:
+    data = json.load(open(fname))
+    kept = []
+    for s in data['signals']:
+        pub = s.get('published_at') or s.get('enriched_date')
+        if pub:
+            try:
+                dt = datetime.fromisoformat(pub.replace('Z','+00:00'))
+                if dt.tzinfo is None: dt = dt.replace(tzinfo=timezone.utc)
+                if dt < cutoff:
+                    continue
+            except: pass
+        kept.append(s)
+    data['signals'] = kept
+    safe_json_write(fname, data)
+```
+
+---
+
+### 17. Old Signals Reappearing After CMS Reorganisation
+
+**Symptom**: A batch of signals from the same fund all have `observed_at = today` but `published_at` dates spanning years. A fund page suddenly shows 10–20 signals that weren't there yesterday.
+
+**Root cause**: The fund's CMS regenerated press release URLs (common in Odoo `/web/content/{id}/`, WordPress permalink changes, etc.). The monitor tracks content by URL hash — new URL = new signal, even if the article is identical.
+
+**This is not a monitor bug** — detecting content at a new URL is correct behaviour. The defence layers are:
+
+1. **Stale filter** (`filter_signals.py`): signals >24 months old get `-25` quality penalty → score < 80 → filtered. Ensure the penalty is firing (see issue 16 diagnosis above).
+2. **Semantic dedup** (`filter_signals.py` + `signals_unified.ts`): near-duplicate titles within 7 days are collapsed. If the re-detected signal has the same title as an existing one but a new ID, dedup should catch it.
+3. **Manual cleanup**: for a sudden batch of legitimate-but-stale signals that pass the filter (e.g., 18–24 months old, evidence_score≥3), remove them directly from the JSON files using the script in issue 16. Then run `pnpm pipeline:signals --slugs fund-slug` to reapply the filter correctly going forward.
+
+**Prevention**: there is no automated way to detect CMS URL reorganisation. If a fund repeatedly causes this (Odoo users tend to reorganise annually), add a note in its extractor file.
+
+---
+
+### 18. Gap Detector False Positives — "Unknown Fund" Alerts for Known Entities
+
+**Symptoms**: Pipeline prints `ℹ️ Unknown funds in signals: N new mention(s)` and lists a fund that actually exists in `db.json`, OR a known non-PE/VC entity that should never be tracked.
+
+**Two root causes**:
+
+**A — Abbreviated name doesn't match db.json slug** (e.g., signal says "Deep Ocean SGR" but fund is `deep-ocean-capital-sgr`):
+The gap detector strips legal suffixes (SGR, Ltd.) and slugifies the remainder. "Deep Ocean SGR" → `deep-ocean`, which doesn't exactly match `deep-ocean-capital-sgr`. Fixed by the **prefix-component check** in `fund_gap_detector.py`: if any known slug starts with `<generated-slug>-`, the mention is suppressed.
+
+This is automatic — no action needed for existing funds. If a new fund triggers a false alert, verify it's in `db.json` with the full name slug (e.g., `deep-ocean-capital-sgr`). The prefix match will suppress future mentions.
+
+**B — Known non-PE/VC entity not in suppression list** (e.g., "Clessidra Capital Credit SGR" — private debt fund):
+The gap detector checks both `known_slugs` (db.json funds) and `invalid_slugs` from `slug_normalizer`. The `invalid_slugs` set is populated from two sources:
+1. `db.json["excluded_entities"]` — vetted non-PE/VC entities (single source of truth for real-but-excluded entities)
+2. `fund_aliases.json["invalid_slugs"]` — garbage/partial slug normalization artifacts only
+
+**Where to fix**: add the entity to `db.json["excluded_entities"]`:
+```json
+{"slug": "entity-slug", "name": "Entity Name", "reason": "private debt, not equity"}
+```
+The slug normalizer picks it up automatically — no code changes needed.
+
+**Do NOT** add real entity names to `fund_aliases.json["invalid_slugs"]` — that list is for garbage normalization artifacts (`partners`, `investimento`, long garbled strings from bad extraction).
+
+**Resetting the 30-day dedup window**: after fixing the root cause, stale gap entries will keep appearing as "already alerted" until their 30-day window expires. To clear them immediately: edit `data/derived/unknown_fund_gaps.json` and remove the relevant entries from the `"gaps"` array. Or delete the file entirely to reset the full window.
+
+**Diagnosis commands**:
+```bash
+# See current gap state (what's in the 30-day dedup window)
+python3 -c "import json; d=json.load(open('data/derived/unknown_fund_gaps.json')); print([g['mention'] for g in d.get('gaps',[])])"
+
+# Check if a fund name would be suppressed with current logic
+cd apps/worker && . .venv/bin/activate && python3 -c "
+from fundradar_worker.slug_normalizer import get_slug_normalizer
+n = get_slug_normalizer()
+slug = 'the-slug-to-check'
+print('in canonical_slugs:', slug in n.canonical_slugs)
+print('in invalid_slugs:', slug in n.invalid_slugs)
+print('prefix match:', any(ks.startswith(slug+'-') for ks in n.canonical_slugs | n.invalid_slugs))
+"
+```
+
+---
+
+### 19. Pipeline Always Reports "Remaining Work" — Portfolio Enrichment Never Completes
+
+**Symptoms**: After `pnpm pipeline`, the Self-Healing Status shows `Portfolio enrichment: N entries remaining` and `Pipeline: has remaining work`, even after multiple runs. The same entries keep appearing.
+
+**Two independent root causes:**
+
+**A — Ordering: `signal_to_portfolio` adds entries after `enrich_portfolio` runs**
+
+`signal_to_portfolio` (step 9) creates new portfolio entries from deal/exit signals. `enrich_portfolio` (step 6) runs earlier in the pipeline and cannot see these entries. The entries exist with empty `sector`/`headquarters`/`description` from the moment they're created, and nothing enriches them in the same run.
+
+**Fix**: `enrich_portfolio_final` (step 10) is a second pass that runs after step 9. It's identical to step 6 but only picks up whatever step 9 added (progress tracking skips already-processed entries). This is why step 10 exists — do not remove it.
+
+**B — Stuck failures: Gemini API keeps failing for specific entries**
+
+When a Gemini batch call fails entirely (no JSON response — network error, rate limit, invalid company name), the enricher skips `done[key] = True` so the entry retries on the next run. If the failure is permanent (company too obscure for Gemini to know), the entry blocks pipeline completion forever.
+
+**Fix**: `MAX_BATCH_ATTEMPTS = 3` in `enrich_portfolio_gemini_full.py`. After 3 consecutive full-batch failures per entry, the entry is marked done with empty enrichment (sector/hq/desc stay blank). The `"attempts"` dict in `enrichment_portfolio_full_progress.json` tracks per-entry failure counts.
+
+**Diagnosis**:
+```bash
+# Check current remaining count and which entries/funds
+cd apps/worker && . .venv/bin/activate
+python3 scripts/enrich_portfolio_gemini_full.py --dry-run 2>&1 | head -20
+
+# Check attempt counts for stuck entries
+python3 -c "
+import json
+p = json.load(open('../../data/derived/enrichment_portfolio_full_progress.json'))
+attempts = p.get('attempts', {})
+if attempts:
+    for k, n in sorted(attempts.items(), key=lambda x: -x[1])[:10]:
+        print(f'attempts={n}: {k}')
+else:
+    print('No failed attempts recorded')
+"
+
+# Check when remaining entries were added (signal-derived = step 9 created them)
+python3 -c "
+import json
+from pathlib import Path
+portfolio = json.load(open('../../data/derived/portfolio_items.json'))
+progress = json.load(open('../../data/derived/enrichment_portfolio_full_progress.json'))
+done = set(progress.get('done', {}).keys())
+for slug, entries in sorted(portfolio.get('fund_portfolios', {}).items()):
+    for e in entries:
+        key = f'{slug}::{e.get(\"name\",\"\")}'
+        if key not in done and (not e.get('sector') or not e.get('headquarters') or not e.get('description')):
+            print(slug, e.get('name'), e.get('investment_date'), e.get('data_source'))
+"
+```
+
+**If entries keep accumulating despite step 10**: check that `enrich_portfolio_final` actually ran — look for its output in the pipeline log. If it printed `GEMINI_API_KEY not set — skipping`, the API key isn't being loaded. The pipeline loads `apps/worker/.env` via `load_dotenv` at startup; verify `GEMINI_API_KEY` is present in that file.
+
+**Manually clearing stuck entries** (if `attempts` limit hasn't kicked in yet):
+```bash
+cd apps/worker && . .venv/bin/activate
+python3 scripts/enrich_portfolio_gemini_full.py --pipeline
+# Processes all remaining entries in one shot; safe to run outside pnpm pipeline
+```

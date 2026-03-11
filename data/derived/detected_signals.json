@@ -57580,8 +57580,1648 @@
         ],
         "locations": []
       }
+    },
+    {
+      "id": "web-signal-02118",
+      "fund_id": "",
+      "fund_slug": "algebris",
+      "signal_type": "other",
+      "title": "GLOBAL CREDIT BULLETS | Monday, 9 March 2026 - Algebris Investments",
+      "what_changed": "New announcement: GLOBAL CREDIT BULLETS | Monday, 9 March 2026 - Algebris Investments",
+      "source_url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNV3R4MFJIbEU1TGR5TVJnTlo3YUpQRTB1dkFDVDZLczBxdzBHX2E5Q25iQnlEc3pSWFFiSG9keC10X1R0MUh5ZVBiUE9tNzRtVDM2VUZBTjl4MXhMOUZBNDZNUnN0MmdXeVFmMzV2eVJEX0Y0LTlMWlNOdmxDdFdESXFtTnpMbVk?oc=5",
+      "source_name": "Algebris",
+      "published_at": "2026-03-09",
+      "observed_at": "2026-03-11T08:45:13.037617+00:00",
+      "created_at": "2026-03-11T08:45:13.037617+00:00",
+      "snapshot_id": "snap-20260311084512-decd999b",
+      "diff_summary": "New news item detected (dated 2026-03-09)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Algebris Investments"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02119",
+      "fund_id": "",
+      "fund_slug": "algebris",
+      "signal_type": "other",
+      "title": "- Algebris Investments",
+      "what_changed": "New announcement: - Algebris Investments",
+      "source_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBqdV8zQ1pDUmw5OWU2emNqWUlsY1UxckFuOGRaOXlZREZYV1JoMS1JRExMbnZoczdnaTdGZ0VsSEpDNlp1SExXOU1Ob0RmZWM?oc=5",
+      "source_name": "Algebris",
+      "published_at": "2026-03-10",
+      "observed_at": "2026-03-11T08:45:13.037617+00:00",
+      "created_at": "2026-03-11T08:45:13.037617+00:00",
+      "snapshot_id": "snap-20260311084512-decd999b",
+      "diff_summary": "New news item detected (dated 2026-03-10)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Algebris Investments"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02120",
+      "fund_id": "",
+      "fund_slug": "alpha-associati",
+      "signal_type": "other",
+      "title": "Alpha Private Equity announce agreement to sell Vervent to Barco",
+      "what_changed": "New announcement: Alpha Private Equity announce agreement to sell Vervent to Barco",
+      "source_url": "https://www.alphape.com/news/29",
+      "source_name": "Alpha Private Equity",
+      "published_at": "2026-03-09",
+      "observed_at": "2026-03-11T08:45:14.282852+00:00",
+      "created_at": "2026-03-11T08:45:14.282852+00:00",
+      "snapshot_id": "snap-20260311084514-7eddd8ab",
+      "diff_summary": "New news item detected (dated 2026-03-09)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Alpha Private Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02121",
+      "fund_id": "",
+      "fund_slug": "apollo",
+      "signal_type": "other",
+      "title": "Apollo to Launch First Long-Term Asset Fund in the UK",
+      "what_changed": "New announcement: Apollo to Launch First Long-Term Asset Fund in the UK",
+      "source_url": "https://www.apollo.com/insights-news/pressreleases/2026/03/apollo-to-launch-first-long-term-asset-fund-in-the-uk-3252476",
+      "source_name": "Apollo",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:45:19.423839+00:00",
+      "created_at": "2026-03-11T08:45:19.423839+00:00",
+      "snapshot_id": "snap-20260311084519-76d10fe8",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Term Asset Fund",
+          "Launch First Long"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02122",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "deal_announced",
+      "title": "Blackstone: Investment - Atlas Holdings",
+      "what_changed": "New investment involving Atlas Holdings",
+      "source_url": "https://www.blackstone.com/news/press/blackstone-and-blue-owl-announce-strategic-minority-investment-in-atlas-holdings/",
+      "source_name": "Blackstone",
+      "published_at": "2026-03-10",
+      "observed_at": "2026-03-11T08:45:48.202534+00:00",
+      "created_at": "2026-03-11T08:45:48.202534+00:00",
+      "snapshot_id": "snap-20260311084540-5bc8ee81",
+      "diff_summary": "New news item detected (dated 2026-03-10)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Atlas Holdings"
+        ],
+        "people": [
+          "Strategic Minority Investment",
+          "Atlas Holdings",
+          "Blue Owl Announce"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02123",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "other",
+      "title": "Blackstone Names Rashmi Madan as Global Head of Portfolio Solutions for Private Wealth and Simona Maellare as Head of EMEA for Private Wealth",
+      "what_changed": "New announcement: Blackstone Names Rashmi Madan as Global Head of Portfolio Solutions for Private Wealth and Simona Maellare as Head of EMEA for Private Wealth",
+      "source_url": "https://www.blackstone.com/news/press/blackstone-names-rashmi-madan-as-global-head-of-portfolio-solutions-for-private-wealth-and-simona-maellare-as-head-of-emea-for-private-wealth/",
+      "source_name": "Blackstone",
+      "published_at": "2026-03-10",
+      "observed_at": "2026-03-11T08:45:48.202534+00:00",
+      "created_at": "2026-03-11T08:45:48.202534+00:00",
+      "snapshot_id": "snap-20260311084540-5bc8ee81",
+      "diff_summary": "New news item detected (dated 2026-03-10)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Private Wealth",
+          "Simona Maellare",
+          "Blackstone Names Rashmi",
+          "Portfolio Solutions",
+          "Global Head"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02124",
+      "fund_id": "",
+      "fund_slug": "ardian",
+      "signal_type": "other",
+      "title": "Ardian and ADIA to launch new Real Estate Secondaries Platform",
+      "what_changed": "New announcement: Ardian and ADIA to launch new Real Estate Secondaries Platform",
+      "source_url": "https://www.ardian.com/news-insights/press-releases/ardian-and-adia-launch-new-real-estate-secondaries-platform",
+      "source_name": "Ardian",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:45:48.784632+00:00",
+      "created_at": "2026-03-11T08:45:48.784632+00:00",
+      "snapshot_id": "snap-20260311084548-1d0e2537",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Real Estate Secondaries"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02125",
+      "fund_id": "",
+      "fund_slug": "ardian",
+      "signal_type": "deal_announced",
+      "title": "Ardian signs an agreement to acquire a majority stake in Casaforte, Italy\u2019s leading self-storage operator, a further step in the creation of a pan-European platform in the sector",
+      "what_changed": "New announcement: Ardian signs an agreement to acquire a majority stake in Casaforte, Italy\u2019s leading self-storage operator, a further step in the creation of a pan-European platform in the sector",
+      "source_url": "https://www.ardian.com/news-insights/press-releases/ardian-signs-agreement-acquire-majority-stake-casaforte-italys-leading",
+      "source_name": "Ardian",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:45:48.784632+00:00",
+      "created_at": "2026-03-11T08:45:48.784632+00:00",
+      "snapshot_id": "snap-20260311084548-1d0e2537",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italy)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02126",
+      "fund_id": "",
+      "fund_slug": "ardian",
+      "signal_type": "other",
+      "title": "$200bn AUM confirms Ardian as among largest managers in Europe",
+      "what_changed": "New announcement: $200bn AUM confirms Ardian as among largest managers in Europe",
+      "source_url": "https://www.ardian.com/news-insights",
+      "source_name": "Ardian",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:46:06.805210+00:00",
+      "created_at": "2026-03-11T08:46:06.805210+00:00",
+      "snapshot_id": "snap-20260311084606-efd0aeb4",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02127",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "deal_announced",
+      "title": "Coches.net added to EQT portfolio (Technology)",
+      "what_changed": "Coches.net added to EQT portfolio (Technology)",
+      "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:47:08.965414+00:00",
+      "created_at": "2026-03-11T08:47:08.965414+00:00",
+      "snapshot_id": "snap-20260311084640-6500e4d6",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Coches.net"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02128",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "deal_announced",
+      "title": "Cyted Health added to EQT portfolio (Life Sciences)",
+      "what_changed": "Cyted Health added to EQT portfolio (Life Sciences)",
+      "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:47:08.965414+00:00",
+      "created_at": "2026-03-11T08:47:08.965414+00:00",
+      "snapshot_id": "snap-20260311084640-6500e4d6",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Cyted Health"
+        ],
+        "people": [
+          "Cyted Health Life"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02129",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "deal_announced",
+      "title": "InfoJobs added to EQT portfolio (Technology)",
+      "what_changed": "InfoJobs added to EQT portfolio (Technology)",
+      "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:47:08.965414+00:00",
+      "created_at": "2026-03-11T08:47:08.965414+00:00",
+      "snapshot_id": "snap-20260311084640-6500e4d6",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "InfoJobs"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02130",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "deal_announced",
+      "title": "Ju:niz Energy added to EQT portfolio (Energy)",
+      "what_changed": "Ju:niz Energy added to EQT portfolio (Energy)",
+      "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:47:08.965414+00:00",
+      "created_at": "2026-03-11T08:47:08.965414+00:00",
+      "snapshot_id": "snap-20260311084640-6500e4d6",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Ju:niz Energy"
+        ],
+        "people": [
+          "Energy Energy"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02131",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "deal_announced",
+      "title": "McNair added to EQT portfolio (Digital)",
+      "what_changed": "McNair added to EQT portfolio (Digital)",
+      "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:47:08.965414+00:00",
+      "created_at": "2026-03-11T08:47:08.965414+00:00",
+      "snapshot_id": "snap-20260311084640-6500e4d6",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "McNair"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02132",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "signal_type": "deal_announced",
+      "title": "WSJ Pro Private Equity Women to Watch \u2013 Rising Star Dealmakers",
+      "what_changed": "March 9th, 2026",
+      "source_url": "https://hf.com/people/sohr-caroline/",
+      "source_name": "Hellman & Friedman",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:47:11.523251+00:00",
+      "created_at": "2026-03-11T08:47:11.523251+00:00",
+      "snapshot_id": "snap-20260311084711-2839c2f4",
+      "diff_summary": "New news item detected (dated March 9th, 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Pro Private Equity",
+          "Rising Star Dealmakers"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02133",
+      "fund_id": "",
+      "fund_slug": "investindustrial",
+      "signal_type": "deal_announced",
+      "title": "Nexture added to Investindustrial portfolio",
+      "what_changed": "Nexture added to Investindustrial portfolio",
+      "source_url": "https://www.investindustrial.com/our-business/portfolio-overview.html",
+      "source_name": "Investindustrial",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:47:27.990701+00:00",
+      "created_at": "2026-03-11T08:47:27.990701+00:00",
+      "snapshot_id": "snap-20260311084724-bb3f08cc",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Nexture"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02134",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "people_move",
+      "title": "New team member: Clemens Auersperg",
+      "what_changed": "New team member: Clemens Auersperg",
+      "source_url": "https://www.oneequity.com/team/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:47:48.488231+00:00",
+      "created_at": "2026-03-11T08:47:48.488231+00:00",
+      "snapshot_id": "snap-20260311084747-cb856fb1",
+      "diff_summary": "1 new team member via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Clemens Auersperg"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02135",
+      "fund_id": "",
+      "fund_slug": "carlyle",
+      "signal_type": "other",
+      "title": "Carlyle to sell SierraCol Energy to Prime Infrastructure",
+      "what_changed": "New announcement: Carlyle to sell SierraCol Energy to Prime Infrastructure",
+      "source_url": "https://www.carlyle.com/media-room/news-release-archive/carlyle-sell-sierracol-energy-prime-infrastructure",
+      "source_name": "Carlyle",
+      "published_at": "2026-03-11",
+      "observed_at": "2026-03-11T08:48:00.499022+00:00",
+      "created_at": "2026-03-11T08:48:00.499022+00:00",
+      "snapshot_id": "snap-20260311084800-b3e9bc2c",
+      "diff_summary": "New news item detected (dated 2026-03-11)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Prime Infrastructure"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02136",
+      "fund_id": "",
+      "fund_slug": "carlyle",
+      "signal_type": "other",
+      "title": "Carlyle Announces Strategic Financing for Unifi Aviation",
+      "what_changed": "New announcement: Carlyle Announces Strategic Financing for Unifi Aviation",
+      "source_url": "https://www.carlyle.com/media-room/news-release-archive/carlyle-announces-strategic-financing-unifi-aviation",
+      "source_name": "Carlyle",
+      "published_at": "2026-03-09",
+      "observed_at": "2026-03-11T08:48:00.499022+00:00",
+      "created_at": "2026-03-11T08:48:00.499022+00:00",
+      "snapshot_id": "snap-20260311084800-b3e9bc2c",
+      "diff_summary": "New news item detected (dated 2026-03-09)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Carlyle Announces Strategic",
+          "Unifi Aviation"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02137",
+      "fund_id": "",
+      "fund_slug": "patrizia",
+      "signal_type": "other",
+      "title": "European defence spending surge may spur next upturn in \u2018Smart Logistics\u2019 real estate market - PATRIZIA",
+      "what_changed": "PATRIZIA research concludes that the surge in European defence budgets could spur a geographical \u2018reframing\u2019 of smart logistics real estate investment and spur the next growth phase in the sector.",
+      "source_url": "https://www.patrizia.ag/en/news-detail/european-defence-spending-surge-may-spur-next-upturn-in-smart-logistics-real-estate-market-patrizia/",
+      "source_name": "PATRIZIA",
+      "published_at": "2026-03-10",
+      "observed_at": "2026-03-11T08:48:01.876072+00:00",
+      "created_at": "2026-03-11T08:48:01.876072+00:00",
+      "snapshot_id": "snap-20260311084801-168e4ed5",
+      "diff_summary": "New news item detected (dated 2026-03-10)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Smart Logistics"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02138",
+      "fund_id": "",
+      "fund_slug": "partners-group",
+      "signal_type": "other",
+      "title": "Partners Group's operating profit (EBITDA) increases 19% to CHF 1.61 billion, also supported by stronger performance fees; proposed dividend of CHF 46.00 per share",
+      "what_changed": "New announcement: Partners Group's operating profit (EBITDA) increases 19% to CHF 1.61 billion, also supported by stronger performance fees; proposed dividend of CHF 46.00 per share",
+      "source_url": "https://www.partnersgroup.com/news-and-views/press-releases/corporate-news/detail?news_id=5c8922a5-71a8-4ed4-8063-c8be81de9a51",
+      "source_name": "Partners Group",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:48:08.198668+00:00",
+      "created_at": "2026-03-11T08:48:08.198668+00:00",
+      "snapshot_id": "snap-20260311084807-b7711bcf",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Partners Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02139",
+      "fund_id": "",
+      "fund_slug": "sofinnova-partners",
+      "signal_type": "other",
+      "title": "May Health Raises $11.7M to Advance its Novel Technology to Treat PCOS-related Infertility",
+      "what_changed": "New announcement: May Health Raises $11.7M to Advance its Novel Technology to Treat PCOS-related Infertility",
+      "source_url": "https://sofinnovapartners.com/news/May%20Health%20Raises%20$11.7M%20to%20Advance%20its%20Novel%20Technology%20to%20Treat%20PCOS-related%20Infertility",
+      "source_name": "Sofinnova Partners",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:48:34.812746+00:00",
+      "created_at": "2026-03-11T08:48:34.812746+00:00",
+      "snapshot_id": "snap-20260311084834-bbe621ef",
+      "diff_summary": "New news item detected (dated 10 March, 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "May Health Raises",
+          "Novel Technology"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02140",
+      "fund_id": "",
+      "fund_slug": "triton",
+      "signal_type": "other",
+      "title": "West Park has changed its name to Accelerator Unit",
+      "what_changed": "New announcement: West Park has changed its name to Accelerator Unit",
+      "source_url": "https://www.triton-partners.com/media/news/west-park-has-changed-its-name-to-accelerator-unit/",
+      "source_name": "Triton",
+      "published_at": "2026-03-10",
+      "observed_at": "2026-03-11T08:48:43.612959+00:00",
+      "created_at": "2026-03-11T08:48:43.612959+00:00",
+      "snapshot_id": "snap-20260311084843-660aaafc",
+      "diff_summary": "New news item detected (dated 10/03/2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Accelerator Unit",
+          "West Park"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02141",
+      "fund_id": "",
+      "fund_slug": "unigrains",
+      "signal_type": "other",
+      "title": "2025 global review of M&A in BVP: activity focused on Europe",
+      "what_changed": "New announcement: 2025 global review of M&A in BVP: a Europe-focused business",
+      "source_url": "https://www.unigrains.fr/fr/actualites/bilan-mondial-2025-des-f-a-en-bvp-une-activite-centree-sur-leurope#news",
+      "source_name": "Unigrains",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:48:49.278335+00:00",
+      "created_at": "2026-03-11T08:48:49.278335+00:00",
+      "snapshot_id": "snap-20260311084847-f8e251c5",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Bilan mondial 2025 des F&A en BVP : une activit\u00e9 centr\u00e9e sur l\u2019Europe",
+      "title_original": "Bilan mondial 2025 des F&A en BVP : une activit\u00e9 centr\u00e9e sur l\u2019Europe"
+    },
+    {
+      "id": "web-signal-02142",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "exit_announced",
+      "title": "TPG Announces Completion of $4.75 Billion Sale of Intersect to Google; Launches IPX Power as Independent Power Producer",
+      "what_changed": "New announcement: TPG Announces Completion of $4.75 Billion Sale of Intersect to Google; Launches IPX Power as Independent Power Producer",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-announces-completion-of-4-75-billion-sale-of-intersect-to-google-launches-ipx-power-as-independent-power-producer",
+      "source_name": "TPG",
+      "published_at": "2026-03-10",
+      "observed_at": "2026-03-11T08:48:50.135979+00:00",
+      "created_at": "2026-03-11T08:48:50.135979+00:00",
+      "snapshot_id": "snap-20260311084849-c8b13c68",
+      "diff_summary": "New news item detected (dated 2026-03-10T15:35:36)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Billion Sale",
+          "Independent Power Producer",
+          "Announces Completion"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02143",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "deal_announced",
+      "title": "TPG to Acquire Majority Stake in Sabre Industries from Blackstone Energy Transition Partners",
+      "what_changed": "New announcement: TPG to Acquire Majority Stake in Sabre Industries from Blackstone Energy Transition Partners",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-to-acquire-majority-stake-in-sabre-industries-from-blackstone-energy-transition-partners",
+      "source_name": "TPG",
+      "published_at": null,
+      "observed_at": "2026-03-11T08:48:50.135979+00:00",
+      "created_at": "2026-03-11T08:48:50.135979+00:00",
+      "snapshot_id": "snap-20260311084849-c8b13c68",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Blackstone Energy Transition",
+          "Sabre Industries",
+          "Acquire Majority Stake"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02144",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "signal_type": "deal_announced",
+      "title": "Imprima S.p.a. becomes the main textile printing & finishing group thanks to the acquisition of Set",
+      "what_changed": "New announcement: Imprima S.p.a. becomes the main textile printing & finishing group thanks to the acquisition of Set",
+      "source_url": "https://www.wisesgr.com/web/content/27345/Press%20release%20SET_eng.pdf",
+      "source_name": "Wise Equity SGR",
+      "published_at": "2017-11-06",
+      "observed_at": "2026-03-11T08:49:09.148101+00:00",
+      "created_at": "2026-03-11T08:49:09.148101+00:00",
+      "snapshot_id": "snap-20260311084908-0b7ef0c4",
+      "diff_summary": "New news item detected (dated 2017-11-06)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SPA"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "Imprima"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00165",
+      "fund_id": "",
+      "fund_slug": "ardian",
+      "related_fund_slugs": [
+        "ardian"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Ardian acquires Casaforte Self Storage spa, Italy's market leader, from Cesare Carcano (founder) and family. Already invested \u20ac300 million in France.",
+      "what_changed": "Ardian has signed an agreement to acquire a majority stake in Casaforte Self Storage spa, a leading Italian self-storage operator, from founder Cesare Carcano and his family. The acquisition expands Ardian's presence in Italy; the article notes Ardian previously invested \u20ac300m in France.",
+      "source_url": "https://bebeez.it/private-equity/ardian-acquisisce-casaforte-self-storage-spa-leader-in-italia-da-cesare-carcano-fondatore-e-famiglia-gia-investiti-300-mln-in-francia/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-11T06:50:26+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Casaforte Self Storage spa",
+          "Cesare Carcano (founder) and family"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Ardian acquisisce Casaforte Self Storage spa, leader in Italia, da Cesare Carcano (fondatore) e famiglia. Gi\u00e0 investiti 300 mln in Francia"
+    },
+    {
+      "id": "rss-signal-00166",
+      "fund_id": "",
+      "fund_slug": "quattror",
+      "related_fund_slugs": [
+        "quattror"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "QuattroR sgr reaches \u20ac1 billion in assets under management with the closing of the MidCap fund, which raised over \u20ac260 million, exceeding its target of \u20ac250 million.",
+      "what_changed": "QuattroR sgr has closed its QuattroR MidCap fund at a final closing with commitments exceeding \u20ac260 million, surpassing the \u20ac250 million target. The close brings QuattroR's total assets under management to about \u20ac1 billion, reinforcing the Italian manager's mid-market private equity platform.",
+      "source_url": "https://bebeez.it/private-equity/quattror-sgr-raggiunge-1-mld-di-masse-gestite-con-il-closing-del-fondo-midcap-che-ha-raccolto-oltre-260-mln-superando-il-target-di-250-mln/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-11T06:49:30+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac260+ million",
+      "title_original": "QuattroR sgr raggiunge 1 mld di masse gestite con il closing del fondo MidCap che ha raccolto oltre 260 mln, superando il target di 250 mln"
+    },
+    {
+      "id": "rss-signal-00167",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "related_fund_slugs": [
+        "blackstone",
+        "partners-group"
+      ],
+      "signal_type": "other",
+      "title": "Telepass up for sale. Valued at \u20ac4 billion. Exit in sight not only for Partners Group, but also for Mundys (Edizione-Blackstone).",
+      "what_changed": "Telepass, valued at about \u20ac4 billion, is reportedly fully on the market with potential exits eyed not only by Partners Group (49%) but also by Mundys/Edizione and Blackstone Infrastructure Partners (51%). Reports suggest owners are studying divestment, creating takeover speculation in the Italian toll/payment sector.",
+      "source_url": "https://bebeez.it/private-equity/tutta-telepass-sul-mercato-valutata-4-mld-euro-exit-in-vista-non-solo-per-partners-group-ma-anche-per-mundys-edizione-blackstone/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-10T06:52:57+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": true,
+      "extracted_entities": {
+        "companies": [
+          "Telepass"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac4 billion",
+      "title_original": "Tutta Telepass sul mercato. Valutata 4 mld euro. Exit in vista non solo per Partners Group, ma anche per Mundys (Edizione-Blackstone)"
+    },
+    {
+      "id": "rss-signal-00168",
+      "fund_id": "",
+      "fund_slug": "partners-group",
+      "related_fund_slugs": [
+        "blackstone",
+        "partners-group"
+      ],
+      "signal_type": "other",
+      "title": "Telepass up for sale. Valued at \u20ac4 billion. Exit in sight not only for Partners Group, but also for Mundys (Edizione-Blackstone).",
+      "what_changed": "Telepass, valued at about \u20ac4 billion, is reportedly fully on the market with potential exits eyed not only by Partners Group (49%) but also by Mundys/Edizione and Blackstone Infrastructure Partners (51%). Reports suggest owners are studying divestment, creating takeover speculation in the Italian toll/payment sector.",
+      "source_url": "https://bebeez.it/private-equity/tutta-telepass-sul-mercato-valutata-4-mld-euro-exit-in-vista-non-solo-per-partners-group-ma-anche-per-mundys-edizione-blackstone/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-10T06:52:57+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": true,
+      "extracted_entities": {
+        "companies": [
+          "Telepass"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac4 billion",
+      "title_original": "Tutta Telepass sul mercato. Valutata 4 mld euro. Exit in vista non solo per Partners Group, ma anche per Mundys (Edizione-Blackstone)"
+    },
+    {
+      "id": "rss-signal-00169",
+      "fund_id": "",
+      "fund_slug": "quattror",
+      "related_fund_slugs": [
+        "quattror"
+      ],
+      "signal_type": "other",
+      "title": "Massimo Zanetti Beverage Group, Quattro R ready to exit after one year and 10 months since acquiring stake in coffee producer",
+      "what_changed": "Quattro R is reportedly considering an exit from Massimo Zanetti Beverage Group (MZBG) after about one year and ten months since its investment. MZBG, an Italian coffee producer that owns Segafredo, could be put up for sale as the private equity owner evaluates options, say press reports.",
+      "source_url": "https://bebeez.it/private-equity/massimo-zanetti-beverage-group-quattro-r-pronto-ad-uscire-dopo-un-anno-e-10-mesi-dallingresso-nel-capitale-del-produttore-di-caffe/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-10T06:51:20+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": true,
+      "extracted_entities": {
+        "companies": [
+          "Massimo Zanetti Beverage Group (MZBG)",
+          "Segafredo"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Massimo Zanetti Beverage Group, Quattro R pronto ad uscire dopo un anno e 10 mesi dall\u2019ingresso nel capitale del produttore di caff\u00e8"
+    },
+    {
+      "id": "rss-signal-00170",
+      "fund_id": "",
+      "fund_slug": "three-hills",
+      "related_fund_slugs": [
+        "three-hills"
+      ],
+      "signal_type": "other",
+      "title": "Made in Italy Fund II (Quadrivio & Pambianco) takes control of Les Secrets de Loly, with Weinberg Capital Partners and Three Hills",
+      "what_changed": "Made in Italy Fund II (Quadrivio & Pambianco) takes control of Les Secrets de Loly, with Weinberg Capital Partners and Three Hills",
+      "source_url": "https://bebeez.it/private-equity/made-in-italy-fund-ii-quadrivio-pambianco-al-controllo-di-les-secrets-de-loly-con-weinberg-capital-partners-e-three-hills-capital-partners/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-10T06:48:11+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "sess\u00f9n"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Made in Italy Fund II (Quadrivio & Pambianco) al controllo di Les Secrets de Loly, con Weinberg Capital Partners e Three Hills",
+      "title_original": "Made in Italy Fund II (Quadrivio & Pambianco) al controllo di Les Secrets de Loly, con Weinberg Capital Partners e Three Hills"
+    },
+    {
+      "id": "rss-signal-00171",
+      "fund_id": "",
+      "fund_slug": "ambienta-sgr",
+      "related_fund_slugs": [
+        "ambienta-sgr"
+      ],
+      "signal_type": "other",
+      "title": "Ambienta SGR takes control of Bergamo-based Pieco (water treatment). The founding Medolago Albani family reinvests.",
+      "what_changed": "Ambienta SGR takes control of Bergamo-based Pieco (water treatment). The founding Medolago Albani family reinvests.",
+      "source_url": "https://bebeez.it/private-equity/ambienta-sgr-va-al-controllo-della-bergamasca-pieco-trattamento-delle-acque-la-famiglia-fondatrice-medolago-albani-reinveste/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-10T06:47:33+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Ambienta sgr va al controllo della bergamasca Pieco (trattamento delle acque). La famiglia fondatrice Medolago Albani reinveste",
+      "title_original": "Ambienta sgr va al controllo della bergamasca Pieco (trattamento delle acque). La famiglia fondatrice Medolago Albani reinveste"
+    },
+    {
+      "id": "rss-signal-00172",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "related_fund_slugs": [
+        "one-equity-partners"
+      ],
+      "signal_type": "other",
+      "title": "Digital Value shares close just below the offer price after the mandatory takeover bid at \u20ac29 is triggered.",
+      "what_changed": "Digital Value shares close just below the offer price after the mandatory takeover bid at \u20ac29 is triggered.",
+      "source_url": "https://bebeez.it/private-equity/chiude-poco-sotto-il-prezzo-di-offerta-il-titolo-digital-value-dopo-che-e-scattato-lobbligo-di-opa-a-29-euro/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-09T06:55:18+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "digital value"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Chiude poco sotto il prezzo di offerta il titolo Digital Value, dopo che \u00e8 scattato l\u2019obbligo di opa a 29 euro",
+      "title_original": "Chiude poco sotto il prezzo di offerta il titolo Digital Value, dopo che \u00e8 scattato l\u2019obbligo di opa a 29 euro"
+    },
+    {
+      "id": "rss-signal-00173",
+      "fund_id": "",
+      "fund_slug": "neva-sgr",
+      "related_fund_slugs": [
+        "neva-sgr"
+      ],
+      "signal_type": "fund_launch",
+      "title": "The Neva II \u2013 Parallelo Lombardia Fund is launched, which together with the Neva II and Neva II Italia funds will invest \u20ac40 million in Lombardy-based cleantech startups.",
+      "what_changed": "Neva sgr has launched the Fondo Neva II \u2013 Parallelo Lombardia, co-investing with funds Neva II and Neva II Italia to deploy a total of \u20ac40 million into Lombard cleantech startups. The vehicle targets early-stage sustainable technology ventures in Lombardy, reinforcing regional Italian VC capacity.",
+      "source_url": "https://bebeez.it/venture-capital/al-via-il-fondo-neva-ii-parallelo-lombardia-che-insieme-ai-fondi-neva-ii-e-neva-ii-italia-investira-40-mln-euro-in-startup-lombarde-cleantech/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-09T06:36:35+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac40 million",
+      "title_original": "Al via il Fondo Neva II \u2013 Parallelo Lombardia, che insieme ai fondi Neva II e Neva II Italia investir\u00e0 40 mln euro in startup lombarde cleantech"
+    },
+    {
+      "id": "rss-signal-00174",
+      "fund_id": "",
+      "fund_slug": "investindustrial",
+      "related_fund_slugs": [
+        "investindustrial"
+      ],
+      "signal_type": "people_move",
+      "title": "The chair shuffles of the week. News from Nexture, Banor sim, Weltix",
+      "what_changed": "Valerie Diele-Braun was appointed CEO of Nexture spa, the holding uniting CSM Ingredients sarl and Italcanditi spa, both indirectly held by Investindustrial. The change affects the Italian food ingredients sector and notes Investindustrial as the private equity platform with indirect stakes in the group.",
+      "source_url": "https://bebeez.it/manager-2/i-giri-di-poltrone-della-settimana-notizie-da-nexture-banor-sim-weltix/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-06T06:52:19+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Nexture spa",
+          "CSM Ingredients sarl",
+          "Italcanditi spa"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "I giri di poltrone della settimana. Notizie da Nexture, Banor sim, Weltix"
+    },
+    {
+      "id": "rss-signal-00175",
+      "fund_id": "",
+      "fund_slug": "nextalia-sgr",
+      "related_fund_slugs": [
+        "nextalia-sgr"
+      ],
+      "signal_type": "fund_launch",
+      "title": "Nextalia launches the Raffaello fund, dedicated to UTP and NPL",
+      "what_changed": "Nextalia Investment Magagement sgr has launched Fondo Raffaello, a credit platform fund dedicated to distressed receivables (UTP and NPL), both secured and unsecured. The fund positions itself as a partner for Italian banks and intermediaries managing complex debt portfolios; no target deal amounts were disclosed.",
+      "source_url": "https://bebeez.it/npl/nextalia-lancia-il-fondo-raffaello-dedicato-a-utp-e-npl/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-06T06:47:21+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Nextalia lancia il fondo Raffaello, dedicato a UTP e NPL"
+    },
+    {
+      "id": "rss-signal-00176",
+      "fund_id": "",
+      "fund_slug": "dea-capital-alternative-funds-sgr",
+      "related_fund_slugs": [
+        "dea-capital-alternative-funds-sgr"
+      ],
+      "signal_type": "other",
+      "title": "AKNO Group acquires two buildings in San Donato Milanese covering 28,000 square meters",
+      "what_changed": "AKNO Group acquires two buildings in San Donato Milanese covering 28,000 square meters",
+      "source_url": "https://bebeez.it/real-estate-2/akno-group-acquisisce-due-edifici-a-san-donato-milanese-per-28-000-mq/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-06T06:40:34+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "AKNO Group acquisisce due edifici a San Donato Milanese per 28.000 mq",
+      "title_original": "AKNO Group acquisisce due edifici a San Donato Milanese per 28.000 mq"
+    },
+    {
+      "id": "rss-signal-00177",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital",
+        "deep-ocean-capital-sgr"
+      ],
+      "signal_type": "other",
+      "title": "Gyala cybersecurity raises \u20ac4 million in funding round led by Deep Ocean SGR",
+      "what_changed": "Gyala cybersecurity raises \u20ac4 million in funding round led by Deep Ocean SGR",
+      "source_url": "https://bebeez.it/venture-capital/la-cybersecurity-di-gyala-incassa-round-da-4-mln-euro-lo-guida-deep-ocean-sgr/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-05T06:38:17+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "La cybersecurity di Gyala incassa round da 4 mln euro. Lo guida Deep Ocean sgr",
+      "title_original": "La cybersecurity di Gyala incassa round da 4 mln euro. Lo guida Deep Ocean sgr"
+    },
+    {
+      "id": "rss-signal-00178",
+      "fund_id": "",
+      "fund_slug": "deep-ocean-capital-sgr",
+      "related_fund_slugs": [
+        "cdp-venture-capital",
+        "deep-ocean-capital-sgr"
+      ],
+      "signal_type": "other",
+      "title": "Gyala cybersecurity raises \u20ac4 million in funding round led by Deep Ocean SGR",
+      "what_changed": "Gyala cybersecurity raises \u20ac4 million in funding round led by Deep Ocean SGR",
+      "source_url": "https://bebeez.it/venture-capital/la-cybersecurity-di-gyala-incassa-round-da-4-mln-euro-lo-guida-deep-ocean-sgr/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-05T06:38:17+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "La cybersecurity di Gyala incassa round da 4 mln euro. Lo guida Deep Ocean sgr",
+      "title_original": "La cybersecurity di Gyala incassa round da 4 mln euro. Lo guida Deep Ocean sgr"
+    },
+    {
+      "id": "rss-signal-00179",
+      "fund_id": "",
+      "fund_slug": "three-hills",
+      "related_fund_slugs": [
+        "three-hills"
+      ],
+      "signal_type": "other",
+      "title": "Three Hills Capital Partners' new Impact fund closes at $300 million, including co-investments and managed vehicles.",
+      "what_changed": "Three Hills Capital Partners' new Impact fund closes at $300 million, including co-investments and managed vehicles.",
+      "source_url": "https://bebeez.it/private-equity/il-nuovo-fondo-impact-di-three-hills-capital-partners-chiude-la-raccolta-a-300-mln-includendo-co-investimenti-e-veicoli-gestiti/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-04T06:49:31+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Il nuovo fondo Impact di Three Hills Capital Partners chiude la raccolta a 300 mln, includendo co-investimenti e veicoli gestiti.",
+      "title_original": "Il nuovo fondo Impact di Three Hills Capital Partners chiude la raccolta a 300 mln, includendo co-investimenti e veicoli gestiti."
+    },
+    {
+      "id": "rss-signal-00180",
+      "fund_id": "",
+      "fund_slug": "axon-partners-group",
+      "related_fund_slugs": [
+        "axon-partners-group",
+        "cdp-venture-capital",
+        "partners-group",
+        "ring-capital"
+      ],
+      "signal_type": "other",
+      "title": "Isaac Antisismica closes $14 million round with CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital, and NovaCapital",
+      "what_changed": "Isaac Antisismica closes $14 million round with CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital, and NovaCapital",
+      "source_url": "https://bebeez.it/venture-capital/isaac-antisismica-chiude-round-da-14-mln-con-cdp-venture-capital-sgr-360-capital-axon-partners-group-azimut-group-ring-capital-e-novacapital/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-04T06:46:14+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Isaac Antisismica chiude round da 14 mln, con CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital e NovaCapital",
+      "title_original": "Isaac Antisismica chiude round da 14 mln, con CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital e NovaCapital"
+    },
+    {
+      "id": "rss-signal-00181",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "axon-partners-group",
+        "cdp-venture-capital",
+        "partners-group",
+        "ring-capital"
+      ],
+      "signal_type": "other",
+      "title": "Isaac Antisismica closes $14 million round with CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital, and NovaCapital",
+      "what_changed": "Isaac Antisismica closes $14 million round with CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital, and NovaCapital",
+      "source_url": "https://bebeez.it/venture-capital/isaac-antisismica-chiude-round-da-14-mln-con-cdp-venture-capital-sgr-360-capital-axon-partners-group-azimut-group-ring-capital-e-novacapital/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-04T06:46:14+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Isaac Antisismica chiude round da 14 mln, con CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital e NovaCapital",
+      "title_original": "Isaac Antisismica chiude round da 14 mln, con CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital e NovaCapital"
+    },
+    {
+      "id": "rss-signal-00182",
+      "fund_id": "",
+      "fund_slug": "partners-group",
+      "related_fund_slugs": [
+        "axon-partners-group",
+        "cdp-venture-capital",
+        "partners-group",
+        "ring-capital"
+      ],
+      "signal_type": "other",
+      "title": "Isaac Antisismica closes $14 million round with CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital, and NovaCapital",
+      "what_changed": "Isaac Antisismica closes $14 million round with CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital, and NovaCapital",
+      "source_url": "https://bebeez.it/venture-capital/isaac-antisismica-chiude-round-da-14-mln-con-cdp-venture-capital-sgr-360-capital-axon-partners-group-azimut-group-ring-capital-e-novacapital/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-04T06:46:14+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Isaac Antisismica chiude round da 14 mln, con CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital e NovaCapital",
+      "title_original": "Isaac Antisismica chiude round da 14 mln, con CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital e NovaCapital"
+    },
+    {
+      "id": "rss-signal-00183",
+      "fund_id": "",
+      "fund_slug": "ring-capital",
+      "related_fund_slugs": [
+        "axon-partners-group",
+        "cdp-venture-capital",
+        "partners-group",
+        "ring-capital"
+      ],
+      "signal_type": "other",
+      "title": "Isaac Antisismica closes $14 million round with CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital, and NovaCapital",
+      "what_changed": "Isaac Antisismica closes $14 million round with CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital, and NovaCapital",
+      "source_url": "https://bebeez.it/venture-capital/isaac-antisismica-chiude-round-da-14-mln-con-cdp-venture-capital-sgr-360-capital-axon-partners-group-azimut-group-ring-capital-e-novacapital/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-04T06:46:14+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Isaac Antisismica chiude round da 14 mln, con CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital e NovaCapital",
+      "title_original": "Isaac Antisismica chiude round da 14 mln, con CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital e NovaCapital"
+    },
+    {
+      "id": "rss-signal-00184",
+      "fund_id": "",
+      "fund_slug": "united-ventures",
+      "related_fund_slugs": [
+        "united-ventures"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "Qura closes $1.5 million pre-seed round led by United Ventures to build integrated AI-based preventive health platform",
+      "what_changed": "Qura, an Italian AI-powered preventive health platform founded by Virginia Gambardella, closed a \u20ac1.5m pre-seed round led by United Ventures with participation from Vento Ventures and Italian Angels for Growth (IAD) plus angel investors. Funds will support development of an integrated preventive-health platform and growth in the Italian market.",
+      "source_url": "https://bebeez.it/venture-capital/qura-chiude-round-pre-seed-di-15-mln-guidato-da-united-ventures-per-costruire-piattaforma-integrata-di-salute-preventiva-basata-sullai/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-04T06:40:18+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Qura"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac1.5m",
+      "title_original": "Qura chiude round pre-seed di 1,5 mln guidato da United Ventures per costruire piattaforma integrata di salute preventiva basata sull\u2019AI"
+    },
+    {
+      "id": "rss-signal-00185",
+      "fund_id": "",
+      "fund_slug": "clessidra-sgr",
+      "related_fund_slugs": [
+        "clessidra-sgr"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "Clessidra, first closing for the Private Debt II fund with commitments of over \u20ac100 million, with the EIF participating with \u20ac20 million",
+      "what_changed": "Clessidra Capital Credit sgr announced first closing of Clessidra Private Debt II (CPD II), securing commitments exceeding \u20ac100 million, with the European Investment Fund (FEI) committing \u20ac20 million. The private debt vehicle will target Italian middle-market companies and mezzanine/private credit opportunities managed by the Italian platform.",
+      "source_url": "https://bebeez.it/private-debt/clessidra-primo-closing-per-il-fondo-private-debt-ii-con-impegni-per-oltre-100-mln-di-euro-con-la-partecipazione-dei-fei-per-20-mln/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-03T06:48:30+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Clessidra Private Debt II (CPD II)"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "over \u20ac100m (FEI \u20ac20m)",
+      "title_original": "Clessidra, primo closing per il fondo Private Debt II con impegni per oltre 100 mln euro, con la partecipazione dei FEI per 20 mln"
+    },
+    {
+      "id": "rss-signal-00186",
+      "fund_id": "",
+      "fund_slug": "wise-equity-sgr",
+      "related_fund_slugs": [
+        "wise-equity-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Onetag (Wise Equity) acquires Aryel to expand into programmatic advertising",
+      "what_changed": "Onetag, 55% controlled since 2022 by Wise Equity through the fund Wisequity V, has announced the acquisition of Italian AdTech Aryel to expand in programmatic and immersive advertising. The deal enlarges Onetag's offerings and reinforces the company\u2019s Italian connections in digital advertising.",
+      "source_url": "https://bebeez.it/venture-capital/onetag-wise-equity-compra-aryel-per-espandersi-nel-programmatic-advertising/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-03T06:38:52+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Onetag",
+          "Aryel"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Onetag (Wise Equity) compra Aryel per espandersi nel Programmatic Advertising"
+    },
+    {
+      "id": "rss-signal-00187",
+      "fund_id": "",
+      "fund_slug": "advent-international",
+      "related_fund_slugs": [
+        "advent-international",
+        "nextalia-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Advent International and Nextalia sgr launch mandatory takeover bid for Tinexta today",
+      "what_changed": "Advent International and Nextalia SGR launched today a mandatory total takeover bid (OPA) for Tinexta, the Milan\u2011listed group active in digital trust, credit information and management and corporate services. The OPA opens 23 February and closes 20 March, targeting the Italian company Tinexta (Euronext STAR Milan).",
+      "source_url": "https://bebeez.it/private-equity/al-via-oggi-lopa-obbligatoria-su-tinexta-da-parte-di-advent-international-e-nextalia-sgr/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-23T06:58:56+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Tinexta",
+          "Advent International",
+          "Nextalia SGR"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Al via oggi l\u2019opa obbligatoria su Tinexta da parte di Advent International e Nextalia sgr"
+    },
+    {
+      "id": "rss-signal-00188",
+      "fund_id": "",
+      "fund_slug": "nextalia-sgr",
+      "related_fund_slugs": [
+        "advent-international",
+        "nextalia-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Advent International and Nextalia sgr launch mandatory takeover bid for Tinexta today",
+      "what_changed": "Advent International and Nextalia SGR launched today a mandatory total takeover bid (OPA) for Tinexta, the Milan\u2011listed group active in digital trust, credit information and management and corporate services. The OPA opens 23 February and closes 20 March, targeting the Italian company Tinexta (Euronext STAR Milan).",
+      "source_url": "https://bebeez.it/private-equity/al-via-oggi-lopa-obbligatoria-su-tinexta-da-parte-di-advent-international-e-nextalia-sgr/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-23T06:58:56+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Tinexta",
+          "Advent International",
+          "Nextalia SGR"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Al via oggi l\u2019opa obbligatoria su Tinexta da parte di Advent International e Nextalia sgr"
+    },
+    {
+      "id": "rss-signal-00189",
+      "fund_id": "",
+      "fund_slug": "merito-sgr",
+      "related_fund_slugs": [
+        "merito-sgr"
+      ],
+      "signal_type": "other",
+      "title": "How does PotentIA Edu, the agentic artificial intelligence for teaching launched by Exlea and Hevolus, work?",
+      "what_changed": "Exlea and Hevolus launch 'PotentIA Edu', an agentic AI platform for education aimed at supporting digitalisation under Italy\u2019s Ministry of Education and Merit and PNRR 2024/2025 calls. Italian edtech product and public-sector alignment story, not a private equity deal or fundraising announcement.",
+      "source_url": "https://startupitalia.eu/education/potentia-edu-lai-di-hevolut-e-exlea/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-03-09T15:30:17+00:00",
+      "observed_at": "2026-03-11T09:03:07.277168+00:00",
+      "created_at": "2026-03-11T09:03:07.277168+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Exlea",
+          "Hevolus",
+          "Ministero dell'Istruzione e del Merito"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Come funziona PotentIA Edu, l\u2019Intelligenza artificiale agentica per la didattica lanciata da Exlea ed Hevolus?"
+    },
+    {
+      "id": "rss-signal-00190",
+      "fund_id": "",
+      "fund_slug": "apollo",
+      "related_fund_slugs": [
+        "apollo"
+      ],
+      "signal_type": "deal_announced",
+      "title": "The American fund Apollo enters the fray and buys a majority stake in Atl\u00e9tico Madrid",
+      "what_changed": "US fund Apollo agrees to buy a majority stake in Atl\u00e9tico Madrid, with Reuters citing a valuation of around \u20ac2.5 billion; CEO Miguel \u00c1ngel Gil and president Enrique Cerezo expected to remain in place. Confirmed sports-sector acquisition by Apollo, with no direct Italian connection.",
+      "source_url": "https://startupitalia.eu/economy/apollo-azionista-maggior-atletico-madrid/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-03-09T09:47:29+00:00",
+      "observed_at": "2026-03-11T09:03:07.277168+00:00",
+      "created_at": "2026-03-11T09:03:07.277168+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Atl\u00e9tico Madrid"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac2.5 billion",
+      "title_original": "Il fondo americano Apollo scende in campo e compra la maggioranza dell\u2019Atletico Madrid"
+    },
+    {
+      "id": "rss-signal-00191",
+      "fund_id": "",
+      "fund_slug": "patrizia",
+      "related_fund_slugs": [
+        "patrizia"
+      ],
+      "signal_type": "other",
+      "title": "That romantic waltz between Earth and the Moon. A space rendezvous immortalized by historic photos.",
+      "what_changed": "Profile of astrophysicist Patrizia Caraveo celebrating the historic Earth\u2013Moon relationship through iconic photographs. Cultural-scientific feature focusing on astronomy, photography and outreach by Italian scientist Patrizia Caraveo. No companies, deals, funds or PE/VC activity are mentioned; not relevant to private equity or venture capital.",
+      "source_url": "https://startupitalia.eu/education/quel-valzer-romantico-tra-la-terra-e-la-luna-un-rendez-vous-spaziale-immortalato-da-foto-storiche/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-03-07T00:00:00+00:00",
+      "observed_at": "2026-03-11T09:03:07.277168+00:00",
+      "created_at": "2026-03-11T09:03:07.277168+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Quel valzer romantico tra la Terra e la Luna. Un rendez-vous spaziale immortalato da foto storiche"
+    },
+    {
+      "id": "rss-signal-00192",
+      "fund_id": "",
+      "fund_slug": "neva-sgr",
+      "related_fund_slugs": [
+        "neva-sgr"
+      ],
+      "signal_type": "fundraise_announced",
+      "title": "The Lombardy Region and Neva SGR are financing Lombardy-based cleantech startups and scaleups with \u20ac40 million. Details",
+      "what_changed": "Regione Lombardia and Neva SGR announce a \u20ac40 million financing initiative to support Lombardy-based cleantech startups and scaleups, coupled with a call for applications. The program targets high-potential clean technology firms in Italy; Neva SGR is an active investor. Confirmed financing.",
+      "source_url": "https://startupitalia.eu/startup/regione-lombardia-e-neva-sgr-startup/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-03-06T16:34:07+00:00",
+      "observed_at": "2026-03-11T09:03:07.277168+00:00",
+      "created_at": "2026-03-11T09:03:07.277168+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac40 million",
+      "title_original": "Regione Lombardia e Neva SGR finanziano le startup e scaleup cleantech lombarde con 40 milioni di euro. I dettagli"
+    },
+    {
+      "id": "rss-signal-00193",
+      "fund_id": "",
+      "fund_slug": "merito-sgr",
+      "related_fund_slugs": [
+        "merito-sgr"
+      ],
+      "signal_type": "other",
+      "title": "Nexi collapses on the stock market after positive results in 2025. What is happening to Italian fintech? Bertoluzzo: \"A turbulent period.\"",
+      "what_changed": "Nexi shares fall despite positive 2025 results; article analyzes market reaction and quotes CEO Bertoluzzo on an uncertain period. This is a stock-market/business news item about the Italian fintech Nexi, not a private equity transaction or exit, and does not report any PE/VC deal or investor activity.",
+      "source_url": "https://startupitalia.eu/economy/nexi-risultati-2025-crollo-in-borsa/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-03-05T11:16:26+00:00",
+      "observed_at": "2026-03-11T09:03:07.277168+00:00",
+      "created_at": "2026-03-11T09:03:07.277168+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Nexi"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Nexi crolla in Borsa dopo i risultati positivi del 2025. Che succede alla fintech italiana? Bertoluzzo: \u00abPeriodo non sereno\u00bb"
     }
   ],
-  "signal_count": 2117,
-  "translated_at": "2026-03-09T16:01:39.678696+00:00"
+  "signal_count": 2144,
+  "translated_at": "2026-03-11T09:45:10.085106+00:00"
 }

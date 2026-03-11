@@ -17,7 +17,9 @@ Only Private Equity, Venture Capital, and Growth Equity funds belong in db.json.
 - **Regional agencies** (Trentino Sviluppo, Lazio Innova, Finlombarda) — public agencies
 - **Credit vehicles** (Clessidra Capital Credit SGR) — private debt, not equity
 
-Blocked via `invalid_slugs` in `fund_aliases.json` and `EXCLUDED_SLUGS` in `merge-aifi-metrics.ts`. When in doubt: check the entity's website — "asset management" / "wealth management" / "banking" / "credit" = not PE/VC.
+**To block a non-PE/VC entity from being tracked or triggering gap-detector alerts**: add it to `db.json["excluded_entities"]` (top-level array, alongside `"funds"`). Each entry: `{"slug": "...", "name": "...", "reason": "..."}`. This is the single source of truth for vetted-but-excluded entities — `slug_normalizer.py` reads it and merges into its `invalid_slugs` set, which feeds both slug normalization and the gap detector. Also add to `EXCLUDED_SLUGS` in `merge-aifi-metrics.ts` to block AIFI merge. When in doubt: check the entity's website — "asset management" / "wealth management" / "banking" / "credit" = not PE/VC.
+
+`fund_aliases.json["invalid_slugs"]` is for **garbage/partial slug normalization artifacts only** (junk strings from bad extraction, ambiguous partial names like `partners`, `investimento`). Do NOT add real entity names there — use `db.json["excluded_entities"]` instead.
 
 ## Tech Stack
 
@@ -136,6 +138,13 @@ Italy-only funds. Solo project — keep solutions minimal. Avoid over-engineerin
 
 If you learned it during a session, write it down. This is what prevents the same bug from being debugged twice.
 
+**CLAUDE.md files contain ONLY timeless rules — NEVER changelog entries.** Git is the changelog. Forbidden patterns:
+- Dated sections: "Feb 2026 Signal Quality Audit", "History: how we learned this the hard way"
+- Date markers: "(Feb 2026)", "(Mar 2026)", "as of YYYY-MM"
+- Change history phrasing: "was removed", "was added", "was fixed", "previously X", "we learned this", "REMOVED (date)"
+
+**Write the CURRENT rule, not what changed.** Bad: "Added `\bsale\b` to `_RE_EXIT_VERBS` (Mar 2026)." Good: "`_RE_EXIT_VERBS` includes noun form `\bsale\b` — do not remove or 'sale of X' signals won't be recognized as exits."
+
 ## Data Pipeline
 
 ### Source → Output → Loader
@@ -152,8 +161,10 @@ If you learned it during a session, write it down. This is what prevents the sam
 | Fund coordinates | `fund_coordinates.json` | merged into `db.json` via `merge-aifi` |
 | Unknown fund gaps | `unknown_fund_gaps.json` | worker dedup state only (not consumed by web) |
 
-**9-step pipeline** (see `apps/worker/CLAUDE.md` for each step's full spec):
-`monitor → rss → translate (DeepL→Azure→OpenAI) → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini) → filter (quality scoring) → enrich (AI summaries) → signal_to_portfolio (local)`
+**10-step pipeline** (see `apps/worker/CLAUDE.md` for each step's full spec):
+`monitor → rss → translate (DeepL→Azure→OpenAI) → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini) → filter (quality scoring) → enrich (AI summaries) → signal_to_portfolio (local) → enrich_portfolio_final (Gemini, second pass)`
+
+`enrich_portfolio_final` is step 10 — an intentional second pass after `signal_to_portfolio` (step 9). `signal_to_portfolio` creates new portfolio entries from deal/exit signals; without a second pass, those entries would never be enriched in the same run, causing the pipeline to always report "remaining work".
 
 **Translation order is CRITICAL**: `translate` runs at step 3, BEFORE `filter`. The filter uses English keyword patterns — Italian signals reaching it untranslated score lower and get misclassified. See `apps/worker/CLAUDE.md` for the full translation architecture and why removing DeepL cost $15.
 

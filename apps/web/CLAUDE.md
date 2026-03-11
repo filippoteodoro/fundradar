@@ -61,7 +61,7 @@ A fund is "confirmed zero-Italy" when **all** of these are true:
 3. `missing_assets=[]` (Gemini found nothing missing either)
 
 **Current confirmed list**: `gemini_fund_asset_zero_italy_verified.json` → `verified_slugs[]`
-As of 2026-02-27: `["canova-sgr"]`
+Current entries: `["canova-sgr"]`
 
 **Implementation needed** (not yet done): Filter `getAllFunds()` to exclude slugs in `verified_slugs`. Load `gemini_fund_asset_zero_italy_verified.json` at startup (add to the cache list), join against `getAllFunds()`, and strip the matching slugs before returning. The fund page at `/funds/[slug]` should 404 for hidden funds. `generateStaticParams()` must also exclude them.
 
@@ -97,9 +97,7 @@ Company pages (`/companies/[slug]`) display a single `Company` object aggregated
 - Subsequent funds only contribute if the first had `null` — gap-fill only
 - **No quality preference in the web layer** — it relies on `portfolio_items.json` already having canonical, consistent values before it runs
 
-**Why this works now**: `signal_to_portfolio.py` runs a KB normalization pass on every pipeline execution that ensures all fund portfolio entries for the same company have the same sector/HQ/website (filling gaps and upgrading non-standard sectors). By the time `getAllCompanies()` runs, first-fund-wins is harmless because all funds agree.
-
-**Before KB normalization**: company pages showed whatever the first db.json-ordered fund had — arbitrary, no quality preference. D-Orbit's company page sector was "Spacetech" or "Space Technology" depending on which fund appeared first in `getAllFunds()`.
+**Why this works**: `signal_to_portfolio.py` runs a KB normalization pass on every pipeline execution that ensures all fund portfolio entries for the same company have the same sector/HQ/website (filling gaps and upgrading non-standard sectors). By the time `getAllCompanies()` runs, first-fund-wins is harmless because all funds agree.
 
 **Remaining limitation**: HQ in the KB is selected by most-common vote (not Gemini-source-aware). If a wrong HQ from scraping appears in more funds than the Gemini-correct one, the web page will show the wrong one. Current workaround: manual fix in `portfolio_items.json` for the conflicting entries (they show up in the `signal_to_portfolio.py` conflict report). Improvement path: weight entries with `headquarters_source_url` set higher in the KB vote.
 
@@ -149,9 +147,10 @@ Both paths share signal processing via **`signalProcessing.ts`** (defense-in-dep
   2. **Content key** `normText::published_at` — same content, different URL
   3. **Cross-fund key** `source_url::normTitle` — same article published under multiple fund slugs; merges fund tags via `mergeRelatedFundTags()`. Uses title as fallback when `what_changed` is empty (prevents CDP newsroom signals from all collapsing to one)
   4. **Semantic dedup** (within same `fund_slug`, tiered thresholds): 40% overlap within 3 days; 50% within 7 days (both dates known); 60% when dates are unknown. Cross-language Italian↔English equivalences applied via `CROSS_LANG` map.
-- **`DEDUP_STRUCTURAL_WORDS`** strips fund-name slug words + PE/VC structural terms + English stop-words (articles, prepositions, conjunctions) before overlap calculation. The English stop-words are critical: without them, ecosystem newsroom funds whose titles all start with the fund name (e.g. "CDP Venture Capital invests in X") share many function words after slug stripping and get falsely deduped. **Do NOT remove the stop-words.** (Fixed Feb 2026 — recovered 7 incorrectly collapsed CDP signals.)
+- **`DEDUP_STRUCTURAL_WORDS`** strips fund-name slug words + PE/VC structural terms + English stop-words (articles, prepositions, conjunctions) before overlap calculation. The English stop-words are critical: without them, ecosystem newsroom funds whose titles all start with the fund name (e.g. "CDP Venture Capital invests in X") share many function words after slug stripping and get falsely deduped. **Do NOT remove the stop-words** — removing them causes ~7 CDP signals to be incorrectly collapsed per run.
 - Does NOT cache — re-reads files on every call
 - Shows AI-enriched summaries when available
+- **Date display priority**: `published_at` (real event date) → `enriched_date` (enricher run date, fallback only). NEVER swap this order — `enriched_date` is the date the LLM ran, not when the event happened. Sort order follows the same field. **Symptom of wrong order**: all recently-enriched signals cluster at the same date (the enricher run date) and appear at the top of every feed.
 
 **`/funds/[slug]` page** uses `data.ts`:
 - Reads `detected_signals_filtered.json` ONLY — never sees enriched data
@@ -180,7 +179,7 @@ For each fund, three pattern types are generated:
 1. **`GENERIC_SHORT_BRANDS` blocklist**: Common nouns (cherry, silver, golden, bridge, etc.) are blocked from becoming patterns regardless of name length.
 2. **Uniqueness filter**: A short-word pattern is only kept if it maps to exactly one fund across all of db.json. If any other fund shares the same first word, the pattern is silently dropped.
 
-Note: a previous ≤2-word count gate was removed (Feb 2026) — it blocked valid matches for 3+ word fund names (e.g., "Azimut Libera Impresa SGR"). The uniqueness filter already provides the necessary safety.
+**No word-count gate**: requiring names to be ≤2 words blocks valid matches for 3+ word fund names (e.g., "Azimut Libera Impresa SGR"). The uniqueness filter provides sufficient safety — do not add a word-count constraint.
 
 **When adding a fund**: If the fund name's first word could match other entities, add it to `GENERIC_SHORT_BRANDS`. After running the pipeline, verify no misattributed signals appear on the fund's page.
 
@@ -198,7 +197,7 @@ Merges from 2 sources:
    - If no match: added as new entry with `status: 'exited'`
    - `entry_date` is fabricated as `${source_year}-01-01` when only year is known
 
-Signal-derived portfolio entries were removed (too fragile, #1 source of garbage). Deal signals remain visible in the Signals tab but no longer create portfolio entries.
+Portfolio entries do NOT come from signals (too fragile — primary source of garbage entries). Deal signals are visible in the Signals tab but do not create portfolio entries.
 
 **Watch out**: The in-place mutation pattern means the cached `websiteCompanies` array gets modified. This is safe because the cache is populated fresh per server start, but it would break if anyone added cache clearing without re-reading the portfolio file.
 

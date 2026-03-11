@@ -684,13 +684,6 @@ def process_fund_signals(
                 stats["skipped_addon"] += 1
                 continue
 
-            # Local add-on detection: if signal text mentions a portfolio company
-            # (other than the target companies) making the acquisition, it's an add-on
-            all_target_names = [tc2.get("name", "") for tc2 in target_companies]
-            if action == "investment" and _detect_addon_locally(s, company_name, all_target_names, existing_names, existing_compact):
-                stats["skipped_addon"] += 1
-                print(f"    ADDON (local): {company_name} — signal mentions existing portfolio company (signal: {sid})")
-                continue
 
             # Skip non-investment/exit actions
             if action == "other":

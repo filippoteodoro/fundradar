@@ -47,7 +47,7 @@ SUMMARY_REPORT_PATH = DATA_DIR / "signal_summary_report.json"
 DB_PATH = PROJECT_ROOT / "data" / "db.json"
 
 # Pipeline step definitions
-# Order: monitor -> rss -> translate -> normalize_sectors -> normalize_portfolio -> enrich_portfolio (optional) -> filter -> enrich signals
+# Order: monitor -> rss -> translate -> normalize_sectors -> normalize_portfolio -> enrich_portfolio (optional) -> filter -> enrich signals -> signal_to_portfolio -> enrich_portfolio_final (optional)
 STEPS = [
     {
         "name": "monitor",
@@ -144,6 +144,19 @@ STEPS = [
         "cwd": str(WORKER_DIR),
         "outputs": [DATA_DIR / "portfolio_items.json"],
         "timeout": 2 * 60,  # 2 min — purely local, reads pre-extracted target_companies
+    },
+    {
+        "name": "enrich_portfolio_final",
+        "description": "Enrich signal-derived portfolio entries added by step 9 (Gemini, second pass)",
+        "command": [sys.executable, "scripts/enrich_portfolio_gemini_full.py", "--pipeline"],
+        "cwd": str(WORKER_DIR),
+        "outputs": [
+            DATA_DIR / "portfolio_items.json",
+        ],
+        "optional": True,
+        "timeout": 10 * 60,  # 10 min — small number of new signal-derived entries
+        "retry_on_partial": True,
+        "max_retries": 1,
     },
 ]
 
@@ -849,7 +862,7 @@ if __name__ == "__main__":
                 step["command"].extend(["--slugs", slugs_filter])
         elif step["name"] == "translate" and slugs_filter:
             step["command"].extend(["--slugs", slugs_filter])
-        elif step["name"] == "enrich_portfolio" and slugs_filter:
+        elif step["name"] in ("enrich_portfolio", "enrich_portfolio_final") and slugs_filter:
             step["command"].extend(["--slugs", slugs_filter])
         elif step["name"] == "enrich" and slugs_filter:
             step["command"].extend(["--slugs", slugs_filter])

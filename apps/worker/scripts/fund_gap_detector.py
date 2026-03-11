@@ -66,15 +66,24 @@ def _load_gap_state() -> dict:
 def detect_unknown_fund_mentions(
     signals: list[dict],
     known_slugs: set[str],
+    invalid_slugs: set[str] | None = None,
 ) -> list[dict]:
     """Scan signal text for Italian-style fund names not in known_slugs.
 
     Deduplicates against previously alerted mentions within the last 30 days.
     New gaps are persisted to GAP_STATE_FILE.
 
+    Args:
+        signals: Filtered signals to scan.
+        known_slugs: Slugs of funds in db.json.
+        invalid_slugs: Slugs of blocked/non-PE entities (from fund_aliases.json).
+            These suppress alerts for known credit/banking/agency entities.
+
     Returns a list of gap dicts:
         {mention, suggested_slug, signal_id, signal_title}
     """
+    suppressed = known_slugs | (invalid_slugs or set())
+
     # Collect the first signal mentioning each candidate slug
     candidates: dict[str, dict] = {}  # suggested_slug -> gap info
 
@@ -87,10 +96,14 @@ def detect_unknown_fund_mentions(
 
             if not slug or len(slug) < 4:
                 continue
-            if slug in known_slugs or slug in candidates:
+            if slug in suppressed or slug in candidates:
                 continue
-            # Also reject if the full-match slug (with SGR suffix) is known
-            if _slugify(full_match) in known_slugs:
+            # Also reject if the full-match slug (with SGR suffix) is suppressed
+            if _slugify(full_match) in suppressed:
+                continue
+            # Reject if slug is a prefix component of a known slug
+            # e.g. "Deep Ocean SGR" (→ "deep-ocean") matches "deep-ocean-capital-sgr"
+            if any(ks.startswith(slug + "-") for ks in suppressed):
                 continue
 
             candidates[slug] = {

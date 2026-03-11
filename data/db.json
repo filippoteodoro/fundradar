@@ -983,8 +983,8 @@
       ],
       "sector_tags": [
         "Hospitality & Tourism",
-        "Food & Beverage",
         "Consumer Goods",
+        "Food & Beverage",
         "Fashion & Luxury",
         "Healthcare"
       ],
@@ -1184,8 +1184,8 @@
         "Technology",
         "Energy",
         "Food & Beverage",
-        "Construction",
-        "Environmental Services"
+        "Real Estate",
+        "Construction"
       ],
       "description": "Spun off from AXA in 2013, this employee-owned firm manages a diverse portfolio ranging from global infrastructure like Heathrow to Italian digital transformation leaders such as Jakala.",
       "geographies": [
@@ -1508,8 +1508,8 @@
         "Expansion"
       ],
       "sector_tags": [
-        "Healthcare",
         "Industrial Manufacturing",
+        "Healthcare",
         "Technology",
         "Consumer Goods",
         "Environmental Services"
@@ -3249,7 +3249,8 @@
       "sector_tags": [
         "Technology",
         "Aerospace & Defense",
-        "Biotech & Pharma"
+        "Biotech & Pharma",
+        "Software"
       ],
       "description": "Specializes in commercializing Italian deep tech and robotics research as the manager of the RoboIT National Technology Transfer Hub, backing university spin-offs in AI, space tech, and industrial automation.",
       "geographies": [
@@ -8355,7 +8356,7 @@
         "Consumer Goods",
         "Transportation & Logistics",
         "Fashion & Luxury",
-        "Packaging"
+        "Food & Beverage"
       ],
       "description": "Scales 'Made in Italy' SMEs through buy-and-build platforms, partnering with entrepreneurs to institutionalize family-owned businesses like Selle Royal and NTC into global niche leaders.",
       "geographies": [
@@ -10723,5 +10724,57 @@
   "deals": [],
   "signals": [],
   "updated_at": "2026-01-26T20:23:50.000452Z",
-  "data_source_flags_added": "2026-01-26T15:34:14.202663+00:00"
+  "data_source_flags_added": "2026-01-26T15:34:14.202663+00:00",
+  "excluded_entities": [
+    {
+      "slug": "banca-generali",
+      "name": "Banca Generali",
+      "reason": "bank, not PE/VC"
+    },
+    {
+      "slug": "banca-ifis",
+      "name": "Banca Ifis",
+      "reason": "bank, not PE/VC"
+    },
+    {
+      "slug": "clessidra-capital-credit-sgr",
+      "name": "Clessidra Capital Credit SGR",
+      "reason": "private debt fund, not equity"
+    },
+    {
+      "slug": "invitalia",
+      "name": "Invitalia",
+      "reason": "public development agency"
+    },
+    {
+      "slug": "generali-investments",
+      "name": "Generali Investments",
+      "reason": "asset manager, diversified portfolio"
+    },
+    {
+      "slug": "mediocredito-centrale",
+      "name": "Mediocredito Centrale",
+      "reason": "public bank/agency"
+    },
+    {
+      "slug": "simest",
+      "name": "SIMEST",
+      "reason": "public export credit agency"
+    },
+    {
+      "slug": "sienna-im",
+      "name": "Sienna IM",
+      "reason": "wealth/asset manager"
+    },
+    {
+      "slug": "sienna-investment-managers-italia-sgr",
+      "name": "Sienna Investment Managers Italia SGR",
+      "reason": "wealth/asset manager"
+    },
+    {
+      "slug": "xenon-private-equity",
+      "name": "Xenon Private Equity",
+      "reason": "explicitly reviewed and not tracked"
+    }
+  ]
 }

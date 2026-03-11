@@ -353,8 +353,10 @@ function normalizeWebsiteMonitorSignal(
     }
   }
 
-  // Use enriched date or published_at, normalized to YYYY-MM-DD
-  const displayDate = formatDate(sig.enriched_date || sig.published_at) || null;
+  // Use published_at as the authoritative event date; enriched_date is a fallback
+  // only when published_at is absent. NEVER let enriched_date (= when the enricher
+  // ran, e.g. 2026-03-09) override a real publication date like 2025-12-15.
+  const displayDate = formatDate(sig.published_at || sig.enriched_date) || null;
 
   // Reclassify mistyped signals (e.g. fundraise_announced → deal_announced)
   // IMPORTANT: Use original Italian title/what_changed for classification (NOT English enriched_summary).

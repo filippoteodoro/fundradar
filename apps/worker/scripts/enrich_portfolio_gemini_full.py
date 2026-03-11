@@ -352,8 +352,11 @@ def enrich_batch(client, companies: list[dict], fund_name: str) -> tuple:
 
 # ─── Progress ──────────────────────────────────────────────────────────────
 
+MAX_BATCH_ATTEMPTS = 3  # give up after this many consecutive failures per batch
+
+
 def load_progress() -> dict:
-    return load_progress_file(PROGRESS_FILE, default={"done": {}})
+    return load_progress_file(PROGRESS_FILE, default={"done": {}, "attempts": {}})
 
 
 def save_progress(progress: dict):
@@ -463,6 +466,7 @@ def main():
 
     progress = load_progress()
     done = progress.get("done", {})
+    attempts = progress.get("attempts", {})
 
     # Find entries needing enrichment (missing at least one of sector/hq/description)
     all_batches: list[tuple[str, str, list[dict]]] = []
@@ -479,6 +483,8 @@ def main():
             key = f"{slug}::{e.get('name', '')}"
             if key in done:
                 continue
+            if attempts.get(key, 0) >= MAX_BATCH_ATTEMPTS:
+                continue  # gave up after repeated API failures
             missing_sector = not e.get("sector")
             missing_hq = not e.get("headquarters")
             missing_desc = not e.get("description")
@@ -557,10 +563,29 @@ def main():
 
         if not results:
             errors += 1
-            print(
-                f"  [{api_calls}/{len(all_batches)}] {fund_name} "
-                f"— FAILED (will retry next run)", flush=True
-            )
+            # Increment attempt counter for each entry in the failed batch
+            for entry in batch:
+                k = f"{slug}::{entry.get('name', '')}"
+                attempts[k] = attempts.get(k, 0) + 1
+            gave_up = [entry.get('name','') for entry in batch if attempts.get(f"{slug}::{entry.get('name','')}", 0) >= MAX_BATCH_ATTEMPTS]
+            if gave_up:
+                # Mark permanently done so they don't block pipeline status forever
+                for entry in batch:
+                    k = f"{slug}::{entry.get('name', '')}"
+                    if attempts.get(k, 0) >= MAX_BATCH_ATTEMPTS:
+                        done[k] = True
+                print(
+                    f"  [{api_calls}/{len(all_batches)}] {fund_name} "
+                    f"— FAILED {MAX_BATCH_ATTEMPTS}x, giving up: {gave_up}", flush=True
+                )
+            else:
+                first_key = f"{slug}::{batch[0].get('name', '')}"
+                attempt_num = attempts.get(first_key, 1)
+                print(
+                    f"  [{api_calls}/{len(all_batches)}] {fund_name} "
+                    f"— FAILED (attempt {attempt_num}/{MAX_BATCH_ATTEMPTS}, will retry)", flush=True
+                )
+            save_progress(progress)
             continue
 
         # Match results to entries by name

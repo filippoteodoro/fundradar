@@ -100,57 +100,25 @@ Each fund's scraping logic is in `apps/worker/fundradar_worker/strategies/extrac
 - `URLS` — which page paths to fetch
 - `EXTRACTORS` — extraction functions per data type
 
-Recent fund-specific update:
-- `yarpa-investimenti-sgr` now has custom `team` and `news` extractors with:
-  - `team`: `https://www.yarpa.it/le-persone/`
-  - `news`: `https://www.yarpa.it/press/`
-  - `portfolio`: intentionally `None` (fund-of-funds model, no company-level portfolio page)
-- `eiffel` now has custom Frontity-state `team` and `news` extractors with:
+Fund-specific extractor notes:
+- `yarpa-investimenti-sgr`: custom `team`/`news` extractors; `portfolio` is `None` (fund-of-funds, no company-level portfolio page)
+  - `team`: `https://www.yarpa.it/le-persone/`; `news`: `https://www.yarpa.it/press/`
+- `eiffel`: reads embedded `__FRONTITY_CONNECT_STATE__` JSON (JS-app rendered); `portfolio` is `None` (no stable public portfolio grid)
   - `team`: `https://www.eiffel-ig.com/en/group/team/`, `https://www.eiffel-ig.com/groupe/equipe/`
   - `news`: `https://www.eiffel-ig.com/en/news/`, `https://www.eiffel-ig.com/actualites/`
-  - extractor reads embedded `__FRONTITY_CONNECT_STATE__` JSON (works even when content is JS-app rendered)
-  - `portfolio`: intentionally `None` (no stable public company-level portfolio grid)
-- `arca-space-capital` now has routed team/news coverage on Space Capital:
+- `arca-space-capital`: routed to Space Capital pages; custom `news` parser (module-card + fallback link extraction)
   - `team`: `https://www.spacecapital.it/it/investment-team.html`, `https://www.spacecapital.it/it/industry-specialist.html`
   - `news`: `https://www.spacecapital.it/it/news/index.html`, `https://www.spacecapital.it/en/news/index.html`
-  - extractor now includes a custom `news` parser (module-card + fallback link extraction)
-- `hat-sicaf` no longer relies on iframe wrapper HTML:
-  - monitored URLs remain on `www.hatsicaf.it` for correct slug mapping
-  - extractor resolves underlying `hat.it` pages for `portfolio`, `team`, and `news`
-  - module sets `ALWAYS_EXTRACT = True` because wrapper HTML is mostly static
-  - parser uses live target fetch first, then local snapshot cache fallback
-- `quattror` now has custom `team` and `news` extraction from structured cards:
-  - `team`: parses `People` cards (`article.str__article`) including role mapping and photos
-  - `news`: parses newsroom cards with title/date/summary and press-PDF URL fallback
-  - portfolio parsing is now scoped to portfolio-card links (avoids accidental team/news misreads)
-- `merito-sgr` now has extractor-native API routing plus popup-team parsing:
-  - monitored URLs stay on canonical pages with stable cache-buster params (`/investimenti/?fr_src=fundradar`, `/team/?fr_src=fundradar`, `/news/?fr_src=fundradar`) to avoid stale `304` loops without cached blobs
-  - extractor attempts WordPress JSON fallback (`/wp-json/wp/v2/posts?...`) for `portfolio` and `news` when HTML shell pages are empty
-  - `team`: parses popup cards (`.paoc-cb-popup-body`) for name/title/photo with role mapping
-  - module sets `ALWAYS_EXTRACT = True` so API-backed pages are re-extracted even when HTML wrappers are unchanged
-- `faro-value` URL routing was corrected from stale 404 paths:
-  - `team`: `/about-us/` (replaces `/management`)
-  - `news`: `/media-events/` (replaces `/en/news`)
-- `teamsystem-capital-at-work-sgr` URL routing was corrected from stale 404 paths:
-  - `team`: `/it/team` (replaces `/it/management`)
-  - `news`: `/it/stampa` (replaces `/it/en/news`)
-- `ream-sgr` now has extractor URL routing enabled (was effectively disabled with all paths `None`):
-  - `portfolio`: routed to fund-category pages (`/i-fondi-ream/core.html`, `/residenziale.html`, `/etico.html`, `/sanitario.html`, `/rigenerazione-urbana.html`)
-  - `team`: `/la-societa/chi-siamo-ream.html`
-  - `news`: `/comunicazione/comunicati-e-notizie.html`
-- `finint-investments-sgr` URL routing was corrected from stale 404 paths:
-  - `team`: `/it/chi-siamo/management-team.php`, `/it/chi-siamo/storia.php` (replaces `/management`)
-  - `news`: `/it/press/comunicati-stampa.php` (replaces missing news URL)
-  - team extractor now normalizes all-caps names so members are not dropped by shared team post-processing
-- `scientifica-vc` now has full URL routing enabled:
-  - `team`: `/team/?fr_src=fundradar`
-  - `news`: `/media-ed-eventi/?fr_src=fundradar`
-  - `news` extractor now includes HTML-card parsing with WordPress API fallback (`/wp-json/wp/v2/posts`)
-- `wrm-group` now monitors media/news directly:
-  - `news`: `/media/?fr_src=fundradar` (wired to existing `extract_news`)
-- `vertis-sgr` team extraction was upgraded for the current WordPress card layout:
-  - parses `.team-l-info` cards (`.text-lead` name + `.text-small` role/title + photo)
-  - keeps legacy `<strong>` parsing as fallback for older page variants
+- `hat-sicaf`: monitored URLs on `www.hatsicaf.it` for slug mapping; extractor resolves underlying `hat.it` pages; `ALWAYS_EXTRACT = True` (wrapper HTML is mostly static); live fetch first, local snapshot cache fallback
+- `quattror`: `team` parses `People` cards (`article.str__article`); `news` parses newsroom cards with press-PDF fallback; portfolio scoped to portfolio-card links
+- `merito-sgr`: uses stable cache-buster params to avoid stale `304` loops; WordPress JSON fallback (`/wp-json/wp/v2/posts?...`) for portfolio/news when HTML shells are empty; `team` parses popup cards (`.paoc-cb-popup-body`); `ALWAYS_EXTRACT = True`
+- `faro-value`: `team`: `/about-us/`; `news`: `/media-events/`
+- `teamsystem-capital-at-work-sgr`: `team`: `/it/team`; `news`: `/it/stampa`
+- `ream-sgr`: `portfolio` routed to fund-category pages (`/i-fondi-ream/core.html`, `/residenziale.html`, `/etico.html`, `/sanitario.html`, `/rigenerazione-urbana.html`); `team`: `/la-societa/chi-siamo-ream.html`; `news`: `/comunicazione/comunicati-e-notizie.html`
+- `finint-investments-sgr`: `team`: `/it/chi-siamo/management-team.php`, `/it/chi-siamo/storia.php`; `news`: `/it/press/comunicati-stampa.php`; team extractor normalizes all-caps names
+- `scientifica-vc`: `team`: `/team/?fr_src=fundradar`; `news`: `/media-ed-eventi/?fr_src=fundradar`; HTML-card parsing with WordPress API fallback
+- `wrm-group`: `news`: `/media/?fr_src=fundradar`
+- `vertis-sgr`: `team` parses `.team-l-info` cards (`.text-lead` name + `.text-small` role); legacy `<strong>` parsing as fallback
 
 ## Monitoring
 
@@ -239,10 +207,10 @@ Current strict-type recovery rules include:
 - Creditor/debt-restructuring signals with explicit tagged-fund mention → `debt_financing`
 - "New/additional contributions to <fund>" signals → `fundraise_announced`
 
-Signal text normalization now also repairs merged-token artifacts systemically
+Signal text normalization repairs merged-token artifacts
 (e.g. `€62Mof`, `€3.3Mper`, `agreementfor`, `partnershipwith`,
 `diMarulloper`, `TechNovaper`) during `filter`, with entity-aware company token
-deconcatenation. Fixes then propagate to `enrich` outputs on the next run.
+deconcatenation. Repairs propagate to `enrich` outputs on the next run.
 
 ### Duplicate NEWS Signal Variants in Raw Store
 
@@ -253,7 +221,7 @@ article (for example old malformed text and a later corrected variant), run:
 python -m fundradar_worker.monitor --slugs fund-slug --force-extract --skip-backoff
 ```
 
-`SignalStore` now coalesces NEWS duplicates by stable identity
+`SignalStore` coalesces NEWS duplicates by stable identity
 (`fund_slug + source_url + title + published_at`) and keeps the better/newer
 variant, so corrected re-extractions replace stale malformed entries.
 
@@ -288,7 +256,7 @@ also infers extra tags for legacy rows that predate this field.
 
 ### Translation Failures (IT→EN)
 
-`enrich_signals_openai.py` now sends a Telegram alert when Italian fields are
+`enrich_signals_openai.py` sends a Telegram alert when Italian fields are
 detected but translation is blocked/partial (e.g., DeepL/OpenAI DNS/connectivity
 errors, missing API keys).
 

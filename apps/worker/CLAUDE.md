@@ -10,7 +10,7 @@ Key modules: core pipeline, fund-specific extractors (with URLS dicts), domain p
 > When signal quality is wrong — wrong type, missing signals, garbage passing through, text artifacts, portfolio not updated — see [`/docs/check_signals.md`](/docs/check_signals.md) for the full diagnostic and fix guide.
 
 ```
-monitor → rss → translate → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini, optional) → filter → enrich (AI summaries + target_companies) → signal_to_portfolio (local)
+monitor → rss → translate → normalize_sectors → normalize_portfolio → enrich_portfolio (Gemini, optional) → filter → enrich (AI summaries + target_companies) → signal_to_portfolio (local) → enrich_portfolio_final (Gemini, optional)
 ```
 
 1. **monitor** — Fetch pages via Playwright/requests, extract data using strategies, detect changes via diffing. Exit detection: companies removed from fund website are marked `status: "exited"` (not silently dropped). Signal-derived and Gemini-enriched entries are preserved unchanged.
@@ -38,6 +38,9 @@ monitor → rss → translate → normalize_sectors → normalize_portfolio → 
    - **Cross-portfolio KB normalization** (runs on EVERY execution, zero API calls): `build_company_knowledge_base()` builds a lookup of canonical sector/HQ/description/website from all portfolio entries. Used two ways: (a) gap-fill — fills any empty field from KB; (b) sector taxonomy upgrade — if an entry's existing sector is non-standard (not in 30-sector list) but KB canonical IS standard → overwrites. KB prefers taxonomy-standard sectors when building canonical. Description canonical = longest Gemini bio (non-signal-derived entries only). `check_portfolio_consistency()` runs after normalization and reports companies where existing values DISAGREE with KB canonical (capped at 10 in output, shows field, fund, actual value, canonical value). These conflicts require manual review — they are not auto-fixed to avoid overwriting intentional Gemini data.
    - **KB canonical selection quality**: sector ✅ (taxonomy-preferred = effectively Gemini-aware); description ✅ (longest = Gemini bios win); HQ ⚠️ (most-common, not Gemini-source-aware — could pick stale scraped HQ if more funds have it than the Gemini-corrected one). Improvement path: prefer entries with `headquarters_source_url` set in the HQ canonical vote.
    - **`italy_relevant=False` guard**: signals with `italy_relevant=False` are skipped entirely for portfolio entry creation.
+   - **Add-on acquisitions are NOT portfolio entries**: when `is_direct_investment=False`, the LLM determined a *portfolio company* (not the fund) made the acquisition. These signals must be classified as `portfolio_update`, NOT `deal_announced`. Do NOT try to add them to the portfolio — the fund did not make a new investment. If a signal is misclassified as `deal_announced` for an add-on, fix the classification in `signal_corrections.py` → `correct_deal()` using `_RE_PORTFOLIO_CO_AS_ACQUIRER`.
+
+10. **enrich_portfolio_final** (`enrich_portfolio_gemini_full.py --pipeline`) — Second pass of portfolio enrichment, identical to step 6 but runs AFTER step 9. Necessary because `signal_to_portfolio` (step 9) creates new portfolio entries that step 6 could not have seen. Without this step, signal-derived portfolio entries (e.g. deal signals from today's RSS run) would always show as "remaining work" after every pipeline run. The enricher is progress-tracked so entries already processed in step 6 are skipped instantly. **`MAX_BATCH_ATTEMPTS = 3`**: if the Gemini API fails a batch 3 times, the entries are marked done anyway (with empty enrichment fields) so they don't block pipeline completion forever. The `enrichment_portfolio_full_progress.json` `"attempts"` dict tracks per-entry failure counts.
 
 Run all: `pnpm pipeline`
 Run filter+enrich only: `pnpm pipeline:signals`
@@ -88,7 +91,7 @@ Career postings are valuable signals — they indicate fund growth, new investme
 
 ### Sanitization — Use It But Don't Duplicate It
 - `sanitize_text()`: strip HTML, remove control chars, normalize whitespace
-- `sanitize_url()`: validate scheme, reject `javascript:`/`data:` URLs
+- `sanitize_url()`: validate scheme, reject `javascript:`/`data:` URLs, encode spaces (`unquote(url).replace(" ", "%20")` — idempotent, prevents `%2520` double-encoding from spaces in href attributes)
 - These live in `io_utils.py`. They are also called in `monitor.py` directly — be aware this sanitization happens in both places if modifying the pipeline
 
 ### Web App Cache — Your Writes Won't Show Up
@@ -157,7 +160,7 @@ Many extractors were auto-generated with template paths like `/investments`, `/m
 4. **Single-page sites**: use `"/"` only if the homepage contains a real structured portfolio/team list
 5. **No public portfolio index**: set `URLS["portfolio"] = None` and keep data manual/PEM-derived. Do **not** use homepage `"/"` as a placeholder; generic extraction will create sentence/news-title garbage companies.
 6. **Check `url_status.json`** for known working paths for a domain (search by domain name)
-7. **NEVER set URLS to None because the site is temporarily down.** A 500/503 today does not mean the URL is wrong — it means the site is having issues. Keep good URLs intact. Only set to `None` if the page genuinely does not exist or has been permanently removed. Known temporarily-down sites (as of Mar 2026): `www.apax.com` (subpages `/partnerships/`, `/people/our-team/`, `/news-views/` return 500), `www.aimpact.org` (`/portafoglio`, `/en/news` return 503). URLs are correct — wait for recovery.
+7. **NEVER set URLS to None because the site is temporarily down.** A 500/503 today does not mean the URL is wrong — it means the site is having issues. Keep good URLs intact. Only set to `None` if the page genuinely does not exist or has been permanently removed. Known temporarily-down sites: `www.apax.com` (subpages `/partnerships/`, `/people/our-team/`, `/news-views/` return 500), `www.aimpact.org` (`/portafoglio`, `/en/news` return 503). URLs are correct — wait for recovery.
 
 The `# auto-generated from fund_urls.json` comment in URLS blocks indicates paths that may not have been verified. Replace with `# verified against live site` after checking.
 
@@ -292,91 +295,29 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 
 `fix_spacing()` — the "strip leading numbered list artifacts" rule requires **period or closing paren** after the number: `^\d+[.)]\s+`. This prevents stripping fund names that start with a number (e.g., "21 Invest", "3i"). Do NOT weaken this to bare `^\d+\s+` again.
 
-`correct_exit()` in `signal_corrections.py` — checks bond/debt patterns (`_RE_BOND_ISSUANCE`, `_RE_DEBT_FINANCING_BROAD`, `_RE_CREDIT_FACILITY`) before the general exit-verb checks. Bond/debt issuances were being mislabeled `exit_announced` before this was added (Feb 2026).
+`correct_exit()` in `signal_corrections.py` — checks bond/debt patterns (`_RE_BOND_ISSUANCE`, `_RE_DEBT_FINANCING_BROAD`, `_RE_CREDIT_FACILITY`) before the general exit-verb checks. Bond/debt issuances would otherwise be mislabeled `exit_announced`.
 
 `normalize_monetary_values()` — comma-formatted thousands (`€720,000`) are converted to compact notation (`€720K`, `€1.2M`) at the very beginning of the function, before all other rules. Pattern: `([€$£])\s*(\d{1,3}(?:,\d{3})+)(?!\s*[KMBT]|\d)`.
 
-`_TITLE_CASE_ACRONYMS` — expanded (Feb 2026) to include PE/finance terms: `LBO`, `MBO`, `NPL`, `SPAC`, `LP`, `GP`, `VC`, `PE`, `IRR`, `NAV`, `EV`, `SaaS`, `AI`, `ICT`, `B2B`, `B2C`, `SME`, `CVC`. The list restores correct casing after `.title()` lowercases them.
+`_TITLE_CASE_ACRONYMS` — includes PE/finance terms: `LBO`, `MBO`, `NPL`, `SPAC`, `LP`, `GP`, `VC`, `PE`, `IRR`, `NAV`, `EV`, `SaaS`, `AI`, `ICT`, `B2B`, `B2C`, `SME`, `CVC`. The list restores correct casing after `.title()` lowercases them.
 
 `apply_universal_demotions()` — includes a conference-event-with-date check: titles matching `\d+(st|nd|rd|th)?\s+annual\b.{0,80}\d{1,2}/\d{1,2}/\d{4}` are demoted to `other`. This catches conference listings like "3rd Annual LPGP Connect CFO/COO 3/25/2026 - Capital Dynamics" that lack the usual congress/summit keywords.
 
 `apply_type_corrections()` `other` rescue — in addition to the existing "names/appoints X as role" rescue, a **standalone professional title** rescue fires when the title contains managing director / head of / chief * officer / etc. with no PE fund/investment language. Catches "Michele Romualdi managing director, Head of Investor Relations" type signals.
 
-`correct_deal()` / `correct_exit()` / `other` rescue — fund_launch rescue (Feb 2026): when a signal contains explicit fund-launch verbs (`launches/lancia/nasce/avvia`) followed by a fund vehicle word within 80 chars, it is reclassified to `fund_launch` regardless of what type arrived. "TeamSystem Capital@Work launches FPAM 1 fund to invest in invoices" is a fund launch — the "invests in" describes the fund's mandate. This required fixes in 4 places:
-1. `_RE_LAUNCH_FUND` / `_RE_FUND_LAUNCH_VERBS` in `signal_patterns.py` — added `(?:es|ed)?` so "launches" (conjugated) matches `\blaunch\b`. Previously only base form "launch" matched.
+`correct_deal()` / `correct_exit()` / `other` rescue — fund_launch rescue: when a signal contains explicit fund-launch verbs (`launches/lancia/nasce/avvia`) followed by a fund vehicle word within 80 chars, it is reclassified to `fund_launch` regardless of what type arrived. "TeamSystem Capital@Work launches FPAM 1 fund to invest in invoices" is a fund launch — the "invests in" describes the fund's mandate. This required fixes in 4 places:
+1. `_RE_LAUNCH_FUND` / `_RE_FUND_LAUNCH_VERBS` in `signal_patterns.py` — uses `(?:es|ed)?` so conjugated forms (`launches`, `launched`) match `\blaunch\b`. Do not remove the conjugation suffix or "launches" will stop matching.
 2. `correct_exit()` in `signal_corrections.py` — moved `_RE_LAUNCH_FUND` check BEFORE `_RE_INVEST_VERBS` check. ML often predicts `exit_announced` for PA-invoice signals; without this the invest-verbs → deal path fired first.
 3. `correct_deal()` in `signal_corrections.py` — fund_launch rescue at end of `correct_deal()` (covers ML-predicted `deal_announced`).
 4. `other` rescue in `apply_type_corrections()` — fund_launch check BEFORE `_RE_INVEST_VERBS → deal_announced` (covers rule-classified `other`).
 5. `filter_signals.py` post-ML fund_launch block — added `and not has_fund_vehicle` guard to `elif _RE_INVEST_VERBS` so fund mandate language doesn't override a correctly-classified `fund_launch`.
 
-`_cdt_normalize_casing()` person-name casing (Feb 2026) — two patterns for person names in appointment context:
+`_cdt_normalize_casing()` person-name casing — two patterns for person names in appointment context:
 1. **Forward** (line ~1447): `(appointed|...) [lowercase name]` → capitalizes the name after the verb.
 2. **Reverse** (line ~1455): `[Capital first] [lowercase surname] (appointed|...)` → capitalizes the surname before the verb. Needed when the name precedes the verb (e.g. "Claudia pingue appointed").
 
-`_cdt_normalize_casing()` small-word lowercasing (Feb 2026) — after all role-word capitalization rules, a regex lowercases articles/prepositions (`Of`, `And`, `Or`, `In`, `At`, `To`, `By`, `From`, `With`, `The`) when they sit between two title-cased words. Fixes "Head Of Fund" → "Head of Fund", "CEO And General Manager" → "CEO and General Manager". Safe to apply even when `_is_title_cased()` returns False (mixed-language titles from AI enrichment that bypass sentence-case conversion).
+`_cdt_normalize_casing()` small-word lowercasing — after all role-word capitalization rules, a regex lowercases articles/prepositions (`Of`, `And`, `Or`, `In`, `At`, `To`, `By`, `From`, `With`, `The`) when they sit between two title-cased words. Fixes "Head Of Fund" → "Head of Fund", "CEO And General Manager" → "CEO and General Manager". Safe to apply even when `_is_title_cased()` returns False (mixed-language titles from AI enrichment that bypass sentence-case conversion).
 
-### Feb 2026 Signal Quality Audit — Systemic Fixes
-
-The following fixes were applied during a full signal quality audit (Feb 2026). Each persists on future pipeline runs.
-
-**`io_utils.py` `sanitize_url()`** — URL space encoding: `unquote(url).replace(" ", "%20")` (idempotent — decodes existing `%20` first before re-encoding, preventing `%2520` double-encoding). Fixes broken source links from Wise Equity, Finint, Riello extractors (spaces in href attributes). Affects all 3 fund extractors globally.
-
-**`signal_text_utils.py` `_cdt_strip_datelines_and_navigation()`** — Extended boilerplate stripping:
-- `Article in [Publication]:` meta-summary prefix stripping (enricher system prompt also blocks these)
-- `[Entity] is pleased to announce that` PR boilerplate (non-greedy, capped at 120 chars before "is pleased")
-- `Events: City – date –` event dateline stripping
-- `City/City, Month DD, YYYY –` multi-city dateline stripping
-- Mid-text city/date datelines embedded after ALL-CAPS headlines
-
-**`signal_text_utils.py` `fix_spacing()`** — OCR/PDF artifact corrections:
-- `Tommas in Utensili` → `Tommasin Utensili`
-- `Saa S solutions` → `SaaS solutions`
-- `Acceler ORA` → `AccelerORA`
-- `integers BIA/BV/SPA/SRL/NV/AG/SA` → `enters [abbreviation]` (PDF word-split corruption, scoped to Italian company form abbreviations only — do NOT broaden to `integers [A-Z]` which would corrupt tech/fintech signals that legitimately use the word "integers")
-
-**`signal_corrections.py` `correct_people_move()`** — Board resolution approving financial results → `report` (not `people_move`). Pattern: board of directors + financial results/statements keywords.
-
-**`signal_corrections.py` `apply_type_corrections()` `other` rescue** — Two new rescues:
-- Office/presence opening → `people_move` (not `other`)
-- Portfolio company capex → `portfolio_update` (see Portfolio Company Capex rule below)
-
-**`signal_corrections.py` `correct_deal()`** — Portfolio company capex → `portfolio_update` (new rule, fires before final `return "deal_announced"`). See "Portfolio Company Capex / Infrastructure Investments" in the Classification Rules section.
-
-**`filter_signals.py` `_normalize_signal_fields()`** — Deal amount backfill: when `deal_amount` is empty, extract amount from title/what_changed using `_RE_EXTRACT_AMOUNT`. Increased signals with structured deal_amount from ~30 to 78.
-
-**`filter_signals.py` `_cross_fund_url_dedup()`** — New function, called after `_semantic_dedup()`. Same article matched to multiple funds → keep highest `quality_score` copy, attach `co_fund_slugs` to winner. Eliminates cross-fund duplicate signals from shared news sources.
-
-**`filter_signals.py` `GARBAGE_PATTERNS`** — Two new patterns:
-- Generic team page copy: `the management team is composed of professionals`
-- Board financial results approval: `board of directors approves.*financial (position|statements?|results?)`
-
-**`filter_signals.py` scoring** — Stale signal penalty: signals >24 months old get `-25` quality score (low evidence) or `-10` (strong evidence). Prevents decade-old historical records from surfacing as recent news.
-
-**`scripts/merge-aifi-metrics.ts` `EXCLUDED_SLUGS`** + **`fund_aliases.json` `invalid_slugs`** — Added `invitalia` (public promotional institution, not PE/VC). All Invitalia signals now filtered.
-
-**`enrich_signals_openai.py` system prompt** — Two new CRITICAL rules:
-- Capitalize all proper nouns exactly as in source (prevents `italcer` → `Italcer` hallucinations)
-- Never start summary with "Article in [Publication]:" (prevent meta-summaries)
-
-### Mar 2026 Signal Quality Audit — Systemic Fixes
-
-**`filter_signals.py` `calculate_quality_score()`** — Italian title penalty: signals where `title_original` is absent (translation never attempted) AND the title contains 2+ Italian-specific content words (tratta, acquista, controllata, maggioranza, venduta, nella, etc.) in a short title (≤15 words) get `-30` quality score. Pushes untranslated Italian signals below the 80-point filter threshold. Primary fix is in `translate_signals.py`; this is the fallback defense for translation failures.
-
-**`signal_text_utils.py` `LEADING_LABEL_RE`** — Added `contents` to the boilerplate prefix stripping pattern. Fixes signals prefixed with "Contents: [title]" from website scrapers that label page sections.
-
-**`signal_text_utils.py` `normalize_monetary_values()`** — Added "X m Funding/Investment/Round/Raise/Deal" → €XM rule. Handles press-release patterns where currency symbol is dropped ("7 m Funding Round" → "€7M Funding Round").
-
-**`signal_text_utils.py` `_is_garbage_summary()`** — Expanded Italian stop-word list with PE-specific content words (acquista, controllata, investendo, tratta, maggioranza, venduta, ceduta, punta su, lancia, nasce, avvia, etc.). Catches Italian summaries from signals where the enricher received untranslated Italian titles and generated Italian-language summaries.
-
-**`filter_signals.py` `_is_misattributed_signal()`** — Ecosystem newsroom check now applies to ALL signal sources, not just signals from the fund's own website domain. Previously, RSS aggregator signals (BeBeez, etc.) bypassed the check because `is_same_domain()` gated it. Now: any signal attributed to an `is_ecosystem_newsroom` fund must contain the fund's distinctive slug keyword (e.g. "cdp" for CDP Venture Capital) in title/what_changed, regardless of source domain. Fixes: Proxima Fusion (German company) wrongly attributed to CDP VC from BeBeez RSS.
-
-**`filter_signals.py` italy_relevant correction** — Negative geography downgrade: when `italy_relevant=True` was set as an upstream default (relevance_score=0, no relevance_reasons) AND signal text explicitly mentions non-Italian EU geography (Bavaria, Munich, Germany, etc.) WITHOUT mentioning Italy, `italy_relevant` is flipped to `False`. Added Bavaria/Bavarian/Hamburg to `_NON_ITALY_EU_COUNTRIES_RE`. Catches RSS aggregator signals that default `italy_relevant=True` for all articles.
-
-**`signal_to_portfolio.py`** — Added `italy_relevant` check: signals with `italy_relevant=False` are skipped for portfolio entry creation. Belt-and-suspenders defense against non-Italian companies entering fund portfolios. Previously, signal_to_portfolio blindly trusted all signals that passed the filter.
-
-**`signal_patterns.py` `_RE_EXIT_VERBS`** — Added `\bsale\b` (English noun form). Previously only verb forms (`sells?`, `selling`, `sold`) were matched. Signals like "agreement for the **sale** of Casa della Piada" were not recognized as exits. 7 exit signals were displaying as "Other" in the UI. Fix propagates to all Python checks using `_RE_EXIT_VERBS` (`correct_exit()`, `correct_deal()`, etc.).
-
-**`signalProcessing.ts` exit safety net** — Refactored: instead of a long inline regex (which was missing `divest\w+`, `realis\w+`, `sale`), the safety net now uses `RE_EXIT_VERBS.test(text)` as the first condition. This ensures the TypeScript constant stays in sync with any future additions to the canonical exit verb set. Previously 7 exit signals were downgraded to "Other" by the stale inline regex.
 
 ### Enricher "processed but missing" signals — Root Cause and Fix
 
@@ -391,18 +332,13 @@ The following fixes were applied during a full signal quality audit (Feb 2026). 
 
 **Do NOT** re-run the enricher to fix this — costs ~$0.30/run. Direct JSON edits are free.
 
-### Enricher `gpt-5-mini` empty response fix (Mar 2026)
+### Enricher Token Budget — gpt-5-mini Reasoning Models
 
 **`gpt-5-mini` is a reasoning model** — it uses internal chain-of-thought tokens before generating visible output. With `max_completion_tokens=1024`, complex signals exhaust the token budget on reasoning before producing any JSON, returning `finish_reason=length` with empty `message.content`. **Fix**: detect `finish_reason == "length"` on empty response and double `max_completion_tokens` on retry (1024 → 2048). This adds <$0.001 per affected signal.
 
-### Enricher `llm_keep` system — REMOVED (Mar 2026)
+### Enricher Done/Progress Tracking
 
-The enricher previously had a keep/drop decision system (`llm_keep`, `llm_keep_reason`, `llm_keep_confidence`, `llm_keep_source` fields). The LLM was asked to decide whether each signal was worth keeping, and in "hard" filter mode, `llm_keep=False` signals were excluded from the enriched output. This was **removed** because:
-- Only 3/285 signals were actually dropped by it (the filter step is the real quality gate)
-- It added schema complexity, retry logic, and "signals without decision" noise in pipeline reports
-- Real enricher value is `enriched_summary` (43% of signals) and `target_companies` (133 portfolio entries)
-
-The new "done" check is `enriched_at is not None` (set on every processed signal). The pipeline no longer tracks "signals without decision" — if the enricher ran, all signals have been processed.
+The enricher does NOT drop signals — `filter_signals.py` (step 7) is the sole quality gate. The "done" marker is `enriched_at` (set on every processed signal). The pipeline does not track "signals without decision" — if the enricher ran, all signals have been processed.
 
 `_passes_strict_quality_gates()` in `filter_signals.py` — **noise gates run BEFORE the `italy_focused` early return**. This order is intentional: bare portfolio extraction signals (just a company name, no context) must be caught even for italy-focused funds that otherwise get a pass on geo checks.
 
@@ -421,7 +357,7 @@ The filter uses an optional sklearn ML classifier (`signal_classifier.py`) for c
 | `signal_keep_model.joblib` | Binary LogisticRegression for keep/discard |
 | `signal_feature_meta.json` | Metadata: labels, thresholds, train counts |
 
-**Current model (retrained Feb 2026)**:
+**Current model**:
 - Algorithm: `LogisticRegression(class_weight='balanced', solver='lbfgs')` for TYPE; `liblinear` for KEEP
 - TYPE: 11 classes, trained on 337 filtered signals (ground truth). Test macro-F1: ~0.43 (expected — small classes like `partnership`/`job_posting` won't produce confident predictions; rule-based corrections handle them)
 - KEEP: trained on 337 pos + 1,668 neg signals (raw minus filtered). Test keep-F1: ~0.75, accuracy 0.90
@@ -465,7 +401,7 @@ When a **portfolio company** makes an acquisition, it's **always `portfolio_upda
 - `[Fund] acquires [Company]` — fund is the subject, no "backed" modifier
 - `[Fund]-backed acquisition of X` — "backed" modifies the abstract noun "acquisition", no company between backed and the verb
 
-#### Portfolio Company Capex / Infrastructure Investments (Feb 2026)
+#### Portfolio Company Capex / Infrastructure Investments
 
 When a **portfolio company** invests in a plant, production facility, manufacturing site, or infrastructure, it's **`portfolio_update`** — the fund already owns the company; this is capex, not a new acquisition.
 
@@ -524,7 +460,7 @@ To add a new ecosystem newsroom: set `"is_ecosystem_newsroom": true` in the fund
 
 People data does not need frequent refreshing — professionals change jobs infrequently, so **once a year per fund is sufficient**. Target Italian domestic/mid-size funds first — their small teams mean 25 profiles ≈ full coverage with 100% Italy relevance. Mega-funds in `MEGA_FUNDS_TO_SKIP` and `FOREIGN_FUNDS_TO_SKIP` are handled via `manual_profiles.json` (free, title-based classification) and do not use Apify budget.
 
-### ⚠️ HarvestAPI Actor Limits (as of Feb 2026)
+### ⚠️ HarvestAPI Actor Limits
 
 The `harvestapi/linkedin-company-employees` actor (updated Feb 14 2026) has **two separate limit systems**:
 
@@ -546,7 +482,7 @@ This runs ~10 funds (at $0.20 each), with 3-minute delays between funds to avoid
 
 **If 0 profiles are returned:** Either the 10-run monthly limit is hit, or LinkedIn rate limiting (hourly reset). Check the Apify run logs — if you see "free user run limit exceeded" wait until the 1st of next month. If no such message, wait 1-2 hours and retry.
 
-**Reset on the 1st of each month.** Don't test — every HarvestAPI run consumes Apify compute credits (actor startup cost) even if it returns 0 profiles. Testing burned the entire $5 free credit in Feb 2026. Wait for the monthly reset and run production directly.
+**Reset on the 1st of each month.** Do not test — every HarvestAPI run consumes Apify compute credits (actor startup cost) even if it returns 0 profiles. Wait for the monthly reset and run production directly.
 
 ### ⚠️ CRITICAL: LinkedIn Raw Data Protection
 
@@ -662,15 +598,7 @@ DeepL exhausted keys are auto-skipped via `data/derived/deepl_quota_state.json`.
 - The enricher's merge loop restores `*_original` fields from the previous enriched file, so the safety-net pass in `enrich_signals_openai.py` also skips already-translated signals
 - **DO NOT delete `detected_signals_enriched.json`** — it carries the `*_original` fields that prevent re-translation. Deleting it forces full re-translation of all Italian signals on the next enricher run.
 
-### History: how we learned this the hard way (Feb 2026)
-DeepL was removed thinking "OpenAI is a better translator". What actually happened:
-1. OpenAI now did translation + enrichment, costing ~$0.30/run instead of ~$0.05/run
-2. A merge loop bug caused the enricher to re-translate ALL Italian signals on EVERY run (not just new ones)
-3. 50 debug runs × $0.30 = ~$15 in one session
-4. Filter quality dropped because Italian signals arrived untranslated at the filter step
-5. Full re-integration took a full day to restore signal quality
-
-**Result**: DeepL re-added as step 3, translation moved before filter, merge loop fixed, `translator.py` module created as shared infrastructure.
+**Why DeepL is non-negotiable**: Removing it forces all translation through OpenAI (~$0.30/run instead of ~$0.05/run). Any bug causing re-translation on every enricher run compounds this to $10–15/session. DeepL also runs at step 3 (before the filter), which is critical — see translation order rules above.
 
 ## ⚠️ OpenAI Cost Control — Read Before Running Enrichment
 
@@ -709,13 +637,13 @@ The signal classification logic has a dedicated three-file test suite:
 | `tests/test_signal_classification.py` | **End-to-end living spec** — tests the full `apply_type_corrections()` contract |
 
 **`test_signal_classification.py` is the canonical classification contract.** It covers:
-- Portfolio company M&A (the class of bugs fixed Feb 2026): all 8 BeBeez parenthetical patterns, bolt-on/add-on, hyphenated-backed, Italian variants
+- Portfolio company M&A: all 8 BeBeez parenthetical patterns, bolt-on/add-on, hyphenated-backed, Italian variants
 - Deal vs exit disambiguation: evaluating/exploring a sale, completed sale, seller-side language
 - Fundraise vs deal: final close, company rounds, ordinal investments
 - People move: rescue from other, demotion of false positives
 - Debt financing vs deal: bonds, credit facilities, restructuring agreements
 - Universal demotions: press reviews, events, editorials, opinion
 - Other → type rescue: over-demoted signals with clear type indicators
-- **Section 8 (`TestFeb2026AuditRegressions`)**: exact signal IDs from the Feb 2026 audit — every signal fix committed during that audit has a corresponding regression test
+- **Section 8 (`TestFeb2026AuditRegressions`)**: regression tests for signal fixes — exact signal IDs with expected classification outcomes
 
 **When changing classification logic**: at least one test in this suite must break or a new test must be added. If nothing breaks, the change may be silently wrong.
