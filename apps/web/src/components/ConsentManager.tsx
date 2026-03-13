@@ -121,10 +121,11 @@ export function ConsentManager() {
 
     if (stored) {
       updateConsent(stored);
-      if (stored === 'accepted') {
-        loadGtmIfNeeded();
-      }
     }
+
+    // Always load GTM so it can observe consent signals (Consent Mode v2).
+    // GTM will not send personal data until consent is granted.
+    loadGtmIfNeeded();
 
     setReady(true);
   }, []);
@@ -137,9 +138,6 @@ export function ConsentManager() {
     setConsent(next);
     persistConsent(next);
     updateConsent(next);
-    if (next === 'accepted') {
-      loadGtmIfNeeded();
-    }
   }
 
   return (
