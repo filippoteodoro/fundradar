@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
-import { Analytics } from '@vercel/analytics/react';
 
 type ConsentState = 'accepted' | 'rejected' | null;
 
@@ -12,47 +11,7 @@ const CONSENT_MAX_AGE_MS = 180 * 24 * 60 * 60 * 1000; // 6 months
 
 type ConsentWindow = Window & {
   dataLayer?: unknown[];
-  gtag?: (...args: unknown[]) => void;
 };
-
-const CONSENT_DENIED = {
-  ad_storage: 'denied',
-  analytics_storage: 'denied',
-  ad_user_data: 'denied',
-  ad_personalization: 'denied',
-  functionality_storage: 'granted',
-  security_storage: 'granted',
-};
-
-const CONSENT_GRANTED = {
-  ad_storage: 'granted',
-  analytics_storage: 'granted',
-  ad_user_data: 'granted',
-  ad_personalization: 'granted',
-  functionality_storage: 'granted',
-  security_storage: 'granted',
-};
-
-function ensureGtag(): (...args: unknown[]) => void {
-  const w = window as ConsentWindow;
-  w.dataLayer = w.dataLayer || [];
-  if (!w.gtag) {
-    w.gtag = (...args: unknown[]) => {
-      w.dataLayer!.push(args);
-    };
-  }
-  return w.gtag;
-}
-
-function setDefaultConsentDenied() {
-  const gtag = ensureGtag();
-  gtag('consent', 'default', { ...CONSENT_DENIED, wait_for_update: 500 });
-}
-
-function updateConsent(consent: Exclude<ConsentState, null>) {
-  const gtag = ensureGtag();
-  gtag('consent', 'update', consent === 'accepted' ? CONSENT_GRANTED : CONSENT_DENIED);
-}
 
 function loadGtmIfNeeded() {
   if (document.querySelector(`script[data-fundradar-gtm="${GTM_ID}"]`)) return;
@@ -114,19 +73,9 @@ export function ConsentManager() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    setDefaultConsentDenied();
-
     const stored = readStoredConsent();
     setConsent(stored);
-
-    if (stored) {
-      updateConsent(stored);
-    }
-
-    // Always load GTM so it can observe consent signals (Consent Mode v2).
-    // GTM will not send personal data until consent is granted.
     loadGtmIfNeeded();
-
     setReady(true);
   }, []);
 
@@ -137,13 +86,10 @@ export function ConsentManager() {
   function handleChoice(next: Exclude<ConsentState, null>) {
     setConsent(next);
     persistConsent(next);
-    updateConsent(next);
   }
 
   return (
     <>
-      {consent === 'accepted' && <Analytics />}
-
       {showBanner && (
         <div style={{
           position: 'fixed',

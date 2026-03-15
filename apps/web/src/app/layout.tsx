@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Script from 'next/script';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { BetaBadge } from '@/components/BetaBadge';
 import { BetaBanner } from '@/components/BetaBanner';
 import { HeaderNav } from '@/components/HeaderNav';
 import { ConsentManager } from '@/components/ConsentManager';
 import { getBaseUrl } from '@/lib/baseUrl';
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? 'G-ZK8Z0S6B49';
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseUrl()),
@@ -129,6 +132,13 @@ export default function RootLayout({
         </footer>
         <ConsentManager />
         <SpeedInsights />
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script id="ga-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}');
+        `}</Script>
       </body>
     </html>
   );
