@@ -13,14 +13,14 @@ function getTodayKey() {
 }
 
 export function BetaBanner() {
-  const [dismissed, setDismissed] = useState(true); // hidden by default to avoid flash
+  const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      setDismissed(stored === getTodayKey());
+      if (stored === getTodayKey()) setDismissed(true);
     } catch {
-      // localStorage unavailable — keep hidden
+      // localStorage unavailable — keep visible
     }
   }, []);
 

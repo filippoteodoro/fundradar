@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 import { BetaBadge } from '@/components/BetaBadge';
 import { BetaBanner } from '@/components/BetaBanner';
 import { HeaderNav } from '@/components/HeaderNav';
@@ -132,6 +133,7 @@ export default function RootLayout({
         </footer>
         <ConsentManager />
         <SpeedInsights />
+        <Analytics />
         <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
         <Script id="ga-init" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
