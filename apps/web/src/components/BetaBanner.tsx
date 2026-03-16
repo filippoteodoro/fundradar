@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-const STORAGE_KEY = 'fundradar_beta_banner_dismissed';
+const COOKIE_NAME = 'fundradar_beta_banner_dismissed';
 
 function getTodayKey() {
   const now = new Date();
@@ -12,27 +12,18 @@ function getTodayKey() {
   return `${year}-${month}-${day}`;
 }
 
-export function BetaBanner() {
-  const [dismissed, setDismissed] = useState(false);
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored === getTodayKey()) setDismissed(true);
-    } catch {
-      // localStorage unavailable — keep visible
-    }
-  }, []);
+export function BetaBanner({ initialDismissed }: { initialDismissed: boolean }) {
+  const [dismissed, setDismissed] = useState(initialDismissed);
 
   if (dismissed) return null;
 
   const handleDismiss = () => {
     setDismissed(true);
-    try {
-      localStorage.setItem(STORAGE_KEY, getTodayKey());
-    } catch {
-      // ignore
-    }
+    const today = getTodayKey();
+    // expires at midnight tonight
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0);
+    document.cookie = `${COOKIE_NAME}=${today}; expires=${midnight.toUTCString()}; path=/; SameSite=Lax`;
   };
 
   return (

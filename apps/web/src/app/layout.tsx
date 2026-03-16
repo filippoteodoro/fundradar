@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
+import { cookies } from 'next/headers';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 import { BetaBadge } from '@/components/BetaBadge';
@@ -32,11 +33,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+function getTodayKey() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const cookieStore = await cookies();
+  const bannerCookie = cookieStore.get('fundradar_beta_banner_dismissed');
+  const bannerDismissed = bannerCookie?.value === getTodayKey();
+
   return (
     <html lang="en">
       <head />
@@ -93,7 +106,7 @@ export default function RootLayout({
           <HeaderNav />
         </div>
         </header>
-        <BetaBanner />
+        <BetaBanner initialDismissed={bannerDismissed} />
         </div>
         <main style={{ padding: '24px', maxWidth: '1200px', margin: '0 auto' }}>
           {children}
