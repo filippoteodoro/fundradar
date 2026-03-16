@@ -18717,6 +18717,20 @@
         "source_url": "https://bebeez.it/private-debt/nexture-investindustrial-piazza-altri-500-mln-euro-di-bond-per-finanziare-in-parte-le-acquisizioni-di-frulact-e-sipral/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00003"
+      },
+      {
+        "name": "PA Aromatics Flavors S.r.l",
+        "sector": "Food & Beverage",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "PA Aromatics Flavors is an Italian company specializing in the production of flavors and ingredients for the food and beverage industry.",
+        "detail_page_url": null,
+        "headquarters": "Misinto, Italy",
+        "investment_date": "2026-03-16",
+        "source_url": "https://bebeez.it/private-equity/investindustrial-interessata-ad-acquisire-pa-aromatics-flavors-srl-intesa-sanpaolo-advisor-nel-processo/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00199"
       }
     ],
     "trilantic-europe": [
@@ -21575,19 +21589,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "ASTM",
-        "sector": "Construction",
-        "status": "current",
-        "confidence": 0.95,
-        "website": null,
-        "description": "Major strategic partnership alongside Ardian Infrastructure",
-        "detail_page_url": null,
-        "headquarters": "Turin, Italy",
-        "investment_date": null,
-        "source_url": "https://www.ardian.com/expertise/our-portfolio",
-        "data_source": "fund_website"
-      },
-      {
         "name": "Alvest",
         "sector": "Aerospace & Defense",
         "status": "current",
@@ -21622,6 +21623,19 @@
         "description": "How a successful public-private partnership build a leading satellite data business",
         "detail_page_url": null,
         "headquarters": "Toulouse, France",
+        "investment_date": null,
+        "source_url": "https://www.ardian.com/expertise/our-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "ASTM",
+        "sector": "Construction",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Major strategic partnership alongside Ardian Infrastructure",
+        "detail_page_url": null,
+        "headquarters": "Turin, Italy",
         "investment_date": null,
         "source_url": "https://www.ardian.com/expertise/our-portfolio",
         "data_source": "fund_website"
@@ -34734,6 +34748,28 @@
     ],
     "renaissance-partners": [
       {
+        "name": "Lodestar",
+        "sector": "Information Technology",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "An Italian digital transformation platform focused on the Microsoft ecosystem, providing cloud, cybersecurity, and data analytics services.",
+        "detail_page_url": null,
+        "headquarters": "Milano, Italy",
+        "investment_date": null,
+        "source_url": "https://www.renaissancealternatives.com/news/renaissance-partners-announces-acquisition-lodestar-bravo-capital-partners",
+        "data_source": "gemini_missing_asset",
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-14T11:52:31.941422+00:00",
+        "gemini_confidence": "high",
+        "gemini_reason": "Renaissance Partners signed a definitive agreement to acquire Lodestar in October 2025.",
+        "gemini_evidence_urls": [
+          "https://www.renaissancealternatives.com/news/renaissance-partners-announces-acquisition-lodestar-bravo-capital-partners",
+          "https://www.pehub.com/renaissance-partners-agrees-to-buy-lodestar-from-bravo/"
+        ]
+      },
+      {
         "name": "Genetic",
         "sector": "Healthcare",
         "status": "current",
@@ -35276,29 +35312,6 @@
         "curation_locked": true,
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.941279+00:00",
-        "curation_note": null
-      },
-      {
-        "name": "Lodestar",
-        "sector": "Information Technology",
-        "status": "current",
-        "confidence": 0.9,
-        "website": null,
-        "description": "An Italian digital transformation platform focused on the Microsoft ecosystem, providing cloud, cybersecurity, and data analytics services.",
-        "detail_page_url": null,
-        "headquarters": "Milano, Italy",
-        "investment_date": null,
-        "source_url": "https://www.renaissancealternatives.com/news/renaissance-partners-announces-acquisition-lodestar-bravo-capital-partners",
-        "data_source": "gemini_missing_asset",
-        "gemini_confidence": "high",
-        "gemini_reason": "Renaissance Partners signed a definitive agreement to acquire Lodestar in October 2025.",
-        "gemini_evidence_urls": [
-          "https://www.renaissancealternatives.com/news/renaissance-partners-announces-acquisition-lodestar-bravo-capital-partners",
-          "https://www.pehub.com/renaissance-partners-agrees-to-buy-lodestar-from-bravo/"
-        ],
-        "curation_locked": true,
-        "curation_source": "gemini_audit_missing_asset",
-        "curation_applied_at": "2026-02-14T11:52:31.941422+00:00",
         "curation_note": null
       }
     ],
@@ -58012,19 +58025,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Galderma",
-        "sector": "Healthcare",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/galderma",
-        "description": "The world's largest independent dermatology company specializing in skin health and aesthetics.",
-        "detail_page_url": null,
-        "headquarters": "Zug, Switzerland",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
         "name": "GeBBS Healthcare Solutions",
         "sector": "Professional Services",
         "status": "current",
@@ -61114,6 +61114,19 @@
         "description": "Online retailer for pet food and accessories across Europe",
         "detail_page_url": null,
         "headquarters": "Munich, Germany",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Galderma",
+        "sector": "Healthcare",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/galderma",
+        "description": "The world's largest independent dermatology company specializing in skin health and aesthetics.",
+        "detail_page_url": null,
+        "headquarters": "Zug, Switzerland",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -70220,6 +70233,20 @@
         "source_url": "https://startupitalia.eu/startup/alomana-startup-4-milioni-di-euro/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00164"
+      },
+      {
+        "name": "ISAAC",
+        "sector": "Construction",
+        "status": "current",
+        "confidence": 0.8,
+        "website": "https://isaacantisismica.com/",
+        "description": "Company specialize in the development of smart technologies to protect buildings and infrastructure from swaying and vibrations,",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": "2026-03-16",
+        "source_url": "https://startupitalia.eu/startup/isaac-i-piani-round-14-milioni-di-euro/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00207"
       }
     ],
     "eiffel": [
@@ -83807,7 +83834,7 @@
       },
       {
         "name": "Altilia",
-        "sector": "Software",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "http://altilia.ai",
@@ -83898,7 +83925,7 @@
       },
       {
         "name": "Axelera AI",
-        "sector": "Technology",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://axelera.ai/",
@@ -83911,7 +83938,7 @@
       },
       {
         "name": "Axyon AI",
-        "sector": "Financial Services",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://axyon.ai/",
@@ -84925,7 +84952,7 @@
       },
       {
         "name": "Multiverse Computing",
-        "sector": "Software",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://multiversecomputing.com",
@@ -85055,7 +85082,7 @@
       },
       {
         "name": "Nozomi",
-        "sector": "Software",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://it.nozominetworks.com",
@@ -85198,7 +85225,7 @@
       },
       {
         "name": "Renewcast",
-        "sector": "Renewable Energy",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://renewcast.com/",
@@ -85723,19 +85750,6 @@
         "confidence": 0.95,
         "website": "https://sweetguest.com/",
         "description": "Offers professional management services for short-term rentals, helping property owners maximize their income through platforms like Airbnb.",
-        "detail_page_url": null,
-        "headquarters": "Milan, Italy",
-        "investment_date": null,
-        "source_url": "https://www.cdpventurecapital.it/it/portfolio.page",
-        "data_source": "fund_website"
-      },
-      {
-        "name": "WeSchool",
-        "sector": "Education",
-        "status": "exited",
-        "confidence": 0.95,
-        "website": "https://www.weschool.com/",
-        "description": "Develops an online learning platform that enables teachers to create digital classrooms, share content, and manage collaborative learning activities.",
         "detail_page_url": null,
         "headquarters": "Milan, Italy",
         "investment_date": null,

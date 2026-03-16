@@ -2569,8 +2569,8 @@
       ],
       "sector_tags": [
         "Technology",
-        "Software",
         "Healthcare",
+        "Software",
         "Education",
         "Financial Services"
       ],
@@ -3526,8 +3526,8 @@
         "All-Stages"
       ],
       "sector_tags": [
-        "Technology",
         "Biotech & Pharma",
+        "Technology",
         "Professional Services",
         "Healthcare",
         "Financial Services"
@@ -5019,10 +5019,10 @@
       ],
       "sector_tags": [
         "Industrial Manufacturing",
-        "Food & Beverage",
         "Technology",
-        "Healthcare",
-        "Professional Services"
+        "Food & Beverage",
+        "Professional Services",
+        "Healthcare"
       ],
       "description": "Formed by a veteran team of partners from Alcedo to target buyouts of niche market leaders in Northern Italy, specializing in complex generational handovers for companies like CVS Ferrari and the recently exited Panificio San Francesco.",
       "geographies": [
@@ -6891,8 +6891,8 @@
         "Industrial Manufacturing",
         "Healthcare",
         "Technology",
-        "Aerospace & Defense",
-        "Consumer Goods"
+        "Consumer Goods",
+        "Fashion & Luxury"
       ],
       "description": "Established through the spin-off of Intesa Sanpaolo\u2019s private equity activities, this firm specializes in scaling Italian 'champions' like Bending Spoons and U-Power through international buyouts.",
       "geographies": [
