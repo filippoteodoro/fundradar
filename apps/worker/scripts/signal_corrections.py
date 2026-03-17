@@ -75,6 +75,7 @@ from signal_patterns import (
     _RE_JOINS_EVENT,
     _RE_LAUNCH_FUND,
     _RE_LP_COMMITMENT,
+    _RE_MGMT_COMPANY_FINANCIALS,
     _RE_MERGER,
     _RE_OFFER_BID,
     _RE_OFFICE_OPENING,
@@ -916,6 +917,13 @@ def correct_people_move(text_lower: str, title_lower: str, page_category: str = 
 
 def correct_report(text_lower: str, title_lower: str) -> str:
     """Correct report signals. Returns corrected type."""
+    # Management company (SGR) self-reporting own quarterly/annual P&L → other
+    # e.g. "Volumes up in Q3 and net profit at €5M", "terzo trimestre, utile netto a 5.2M",
+    # "primo semestre in forte crescita, utile netto a €3.1M", "utile netto superiore a 7 milioni"
+    # These describe the fund manager's own financials, not PE/VC investment activity.
+    if _RE_MGMT_COMPANY_FINANCIALS.search(text_lower):
+        return "other"
+
     # Strong exit verbs → exit
     if _RE_STRONG_EXIT_VERBS.search(text_lower) or _RE_EXPLICIT_SELLER.search(text_lower):
         return "exit_announced"

@@ -199,6 +199,24 @@ _RE_REPORT = re.compile(
     re.IGNORECASE,
 )
 
+# Management company (SGR) self-reporting own quarterly/annual P&L — not PE/VC investment activity.
+# Matches fund manager reporting its own AUM volumes + profit, quarterly utile netto,
+# semester results, and annual net income forecasts. Used in correct_report() → "other".
+_RE_MGMT_COMPANY_FINANCIALS = re.compile(
+    # AUM volumes + profit/utile → SGR operational metrics (e.g. "Volumes up in Q1 and net profit at €1.6M")
+    r"\bvolumes?\s+(?:up|down|grew|declined)\b.{0,60}\b(?:profit|utile)\b"
+    r"|\b(?:profit|utile)\b.{0,60}\bvolumes?\s+(?:up|down|grew|declined)\b"
+    # Quarterly + utile netto → SGR quarterly P&L (e.g. "terzo trimestre ... utile netto a 5.2M")
+    r"|\b(?:primo|secondo|terzo|quarto)\s+(?:trimestre|quarter)\b.{0,80}\butile\s+netto\b"
+    r"|\butile\s+netto\b.{0,80}\b(?:primo|secondo|terzo|quarto)\s+(?:trimestre|quarter)\b"
+    # Semester + utile netto → SGR H1/H2 P&L (e.g. "primo semestre ... utile netto a €3.1M")
+    r"|\b(?:primo|secondo)\s+semestre\b.{0,80}\butile\s+netto\b"
+    r"|\butile\s+netto\b.{0,80}\b(?:primo|secondo)\s+semestre\b"
+    # "utile netto superiore/oltre [amount]" → annual P&L forecast (e.g. "utile netto superiore a 7 milioni")
+    r"|\butile\s+netto\b.{0,80}\b(?:superio\w+|oltre|exceed\w*)\b",
+    re.IGNORECASE,
+)
+
 # Event attendance — not a transaction
 _RE_EVENT_ATTENDANCE = re.compile(
     r"\b(?:guest|relator[ei]|speaker|panelist|moderator)\b.*\b(?:event[oi]?|congress[oi]?|summit|conferenz\w*|forum|webinar|panel|convegno)\b"

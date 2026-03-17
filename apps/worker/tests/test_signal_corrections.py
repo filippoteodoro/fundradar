@@ -440,6 +440,27 @@ class TestCorrectReport:
         result = correct_report("annual report 2024 shows strong growth", "")
         assert result == "report"
 
+    # Management company self-reporting own P&L → other (not actionable PE/VC signal)
+    def test_volumes_up_net_profit_to_other(self):
+        # "Volumes up in Q1 2025 and net profit at €1.6M" — Clessidra SGR own quarterly results
+        result = correct_report("volumes up in q1 2025 and net profit at €1.6m", "")
+        assert result == "other"
+
+    def test_primo_semestre_utile_netto_to_other(self):
+        # "Primo semestre 2025 in forte crescita, utile netto a €3.1M"
+        result = correct_report("primo semestre 2025 in forte crescita, utile netto a €3.1m", "")
+        assert result == "other"
+
+    def test_utile_netto_superiore_to_other(self):
+        # "Nel 2025 utile netto superiore a 7 milioni" (Italian title)
+        result = correct_report("nel 2025 utile netto superiore a 7 milioni", "")
+        assert result == "other"
+
+    def test_terzo_trimestre_utile_netto_to_other(self):
+        # "Prosegue la crescita nel terzo trimestre del 2025, utile netto a 5,2 milioni"
+        result = correct_report("prosegue la crescita nel terzo trimestre del 2025, utile netto a 5,2 milioni", "")
+        assert result == "other"
+
 
 # ── correct_partnership ───────────────────────────────────────────────────────
 
