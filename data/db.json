@@ -115,8 +115,8 @@
       "slug": "abenex",
       "name": "Abenex",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Paris",
+      "hq_region": "France",
       "website": "https://www.abenex.com/it",
       "strategy_tags": [
         "Buy-Out"
@@ -153,16 +153,31 @@
       "data_confidence": "high",
       "hq_lat": 45.467598,
       "hq_lng": 9.183248,
-      "hq_address": "Via Dante 16",
-      "description_source": "gemini"
+      "hq_address": "9 avenue Percier",
+      "description_source": "gemini",
+      "hq_country": "France",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "Via Dante 16",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "advent-international",
       "slug": "advent-international",
       "name": "Advent International",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Boston",
+      "hq_region": "USA",
       "website": "http://www.adventinternational.com",
       "strategy_tags": [
         "Buy-Out",
@@ -203,7 +218,7 @@
       "average_investment_source": "openai_enriched",
       "hq_lat": 45.466385,
       "hq_lng": 9.188683,
-      "hq_address": "7, Via Santa Margherita",
+      "hq_address": "75 State Street",
       "offices": [
         {
           "city": "Milan",
@@ -232,7 +247,8 @@
           "source_name": "Fund Website"
         }
       ],
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "USA"
     },
     {
       "id": "aksia-sgr",
@@ -336,8 +352,8 @@
       "slug": "algebris",
       "name": "Algebris",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "London",
+      "hq_region": "UK",
       "website": "https://www.algebris.com/it",
       "strategy_tags": [
         "Buy-Out"
@@ -369,7 +385,7 @@
       "data_confidence": "high",
       "hq_lat": 45.464827,
       "hq_lng": 9.192997,
-      "hq_address": "Corso Vittorio Emanuele II, 1",
+      "hq_address": "First Floor, 11 Waterloo Place",
       "legal_name": "Algebris Investments (Ireland) Limited - Milan Branch",
       "aum_eur": 16200000000,
       "investment_min_eur": 50000000,
@@ -380,7 +396,22 @@
         "https://www.crunchbase.com/organization/algebris-investments"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "UK",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "Corso Vittorio Emanuele II, 1",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "alkemia-sgr",
@@ -581,8 +612,8 @@
       "slug": "amber-capital",
       "name": "Amber Capital",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "London",
+      "hq_region": "UK",
       "website": "http://www.ambercapital.com",
       "strategy_tags": [
         "All-Stages"
@@ -617,7 +648,7 @@
       "data_confidence": "high",
       "hq_lat": 45.470525,
       "hq_lng": 9.185353,
-      "hq_address": "4, Piazza del Carmine",
+      "hq_address": "Kent House, 14-17 Market Place, London W1W 8AJ",
       "num_sfdr_article_8": 0,
       "data_sources": [
         "https://www.ambercapital.com/",
@@ -627,7 +658,22 @@
       "investment_min_eur": 5000000,
       "investment_max_eur": 50000000,
       "legal_name": "Amber Capital Italia SGR",
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "UK",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "4, Piazza del Carmine",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "ambienta-sgr",
@@ -685,8 +731,8 @@
       "slug": "andera-partners",
       "name": "Andera Partners",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Paris",
+      "hq_region": "France",
       "website": "http://www.anderapartners.com",
       "strategy_tags": [
         "Buy-Out",
@@ -728,8 +774,23 @@
       "data_confidence": "high",
       "hq_lat": 45.468299,
       "hq_lng": 9.185624,
-      "hq_address": "via Broletto 46",
-      "description_source": "gemini"
+      "hq_address": "2, place Rio de Janeiro",
+      "description_source": "gemini",
+      "hq_country": "France",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "via Broletto 46",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "anima-alternative-sgr",
@@ -846,7 +907,7 @@
       "name": "Apax Partners",
       "category": "pe",
       "hq_city": "London",
-      "hq_region": "Italy",
+      "hq_region": "UK",
       "website": "http://www.apax.com",
       "strategy_tags": [
         "Buy-Out",
@@ -921,7 +982,8 @@
       "data_sources": [
         "https://www.apax.com/funds-investors-wealth/funds/"
       ],
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "UK"
     },
     {
       "id": "apeiron-management",
@@ -1029,7 +1091,7 @@
       "name": "Apollo",
       "category": "multi_strategy",
       "hq_city": "New York",
-      "hq_region": "Italy",
+      "hq_region": "USA",
       "website": "http://www.apollo.com",
       "strategy_tags": [
         "Private Equity",
@@ -1076,7 +1138,7 @@
       "legal_name": "Apollo Global Management",
       "hq_lat": 40.712728,
       "hq_lng": -74.006015,
-      "hq_address": "9 West 57th Street, 42nd Floor",
+      "hq_address": "9 West 57th Street",
       "offices": [
         {
           "city": "Milan",
@@ -1116,7 +1178,8 @@
         "https://www.apollo.com/insights-news/pressreleases/2023/04/apollo-fund-portfolio-companies-achieve-1b-in-diverse-spend-apollo-expands-target-to-2b-by-end-of-2025-2645272"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "USA"
     },
     {
       "id": "arca-space-capital",
@@ -1174,8 +1237,8 @@
       "slug": "ardian",
       "name": "Ardian",
       "category": "infra",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Paris",
+      "hq_region": "France",
       "website": "http://www.ardian.com",
       "strategy_tags": [
         "Buy-Out"
@@ -1219,7 +1282,7 @@
       ],
       "hq_lat": 45.465897,
       "hq_lng": 9.194882,
-      "hq_address": "1, Galleria De Cristoforis",
+      "hq_address": "20, Place Vend\u00f4me",
       "offices": [
         {
           "city": "Milan",
@@ -1249,7 +1312,8 @@
         }
       ],
       "legal_name": "ARDIAN Italy",
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "France"
     },
     {
       "id": "ares-management",
@@ -1341,8 +1405,8 @@
       "slug": "argos-wityu",
       "name": "Argos Wityu",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Paris",
+      "hq_region": "France",
       "website": "https://argos.wityu.fund",
       "strategy_tags": [
         "Buy-Out",
@@ -1383,9 +1447,24 @@
       "data_confidence": "high",
       "hq_lat": 45.462007,
       "hq_lng": 9.190528,
-      "hq_address": "5, Piazza Diaz",
+      "hq_address": "112 Avenue de Wagram",
       "legal_name": "Argos Wityu Italia",
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "France",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "5, Piazza Diaz",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "armonia-sgr",
@@ -1674,8 +1753,8 @@
       "slug": "axon-partners-group",
       "name": "Axon Partners Group",
       "category": "vc",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Madrid",
+      "hq_region": "Spain",
       "website": "https://www.axonpartnersgroup.com",
       "strategy_tags": [
         "Early-Stage",
@@ -1723,8 +1802,23 @@
       "average_investment_source": "openai_enriched",
       "hq_lat": 45.466256,
       "hq_lng": 9.183469,
-      "hq_address": "4a, Via Manfredo Camperio",
-      "description_source": "gemini"
+      "hq_address": "Calle Sagasta 18, 3rd Floor",
+      "description_source": "gemini",
+      "hq_country": "Spain",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "4a, Via Manfredo Camperio",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "azimut-libera-impresa-sgr",
@@ -1841,8 +1935,8 @@
       "slug": "bain-capital",
       "name": "Bain Capital",
       "category": "pe",
-      "hq_city": "London",
-      "hq_region": "Italy",
+      "hq_city": "Boston",
+      "hq_region": "USA",
       "website": "https://www.baincapitalprivateequity.com",
       "strategy_tags": [
         "Buy-Out"
@@ -1880,7 +1974,7 @@
       "average_investment_source": "openai_enriched",
       "hq_lat": 51.507446,
       "hq_lng": -0.127765,
-      "hq_address": "Devonshire House, Mayfair Place",
+      "hq_address": "200 Clarendon Street",
       "offices": [
         {
           "city": "Boston",
@@ -1910,7 +2004,8 @@
       ],
       "description_source": "gemini",
       "investment_min_eur": 100000000,
-      "investment_max_eur": 1000000000
+      "investment_max_eur": 1000000000,
+      "hq_country": "USA"
     },
     {
       "id": "bic-capital",
@@ -2025,7 +2120,7 @@
       "name": "BC Partners",
       "category": "pe",
       "hq_city": "London",
-      "hq_region": "Italy",
+      "hq_region": "UK",
       "website": "http://www.bcpartners.com",
       "strategy_tags": [
         "Buy-Out"
@@ -2064,7 +2159,7 @@
       "data_confidence": "high",
       "hq_lat": 51.514956,
       "hq_lng": -0.155388,
-      "hq_address": "40, Portman Square",
+      "hq_address": "40 Portman Square",
       "offices": [
         {
           "city": "Milan",
@@ -2093,7 +2188,8 @@
           "source_name": "Fund Website"
         }
       ],
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "UK"
     },
     {
       "id": "bluegem",
@@ -2101,7 +2197,7 @@
       "name": "BlueGem",
       "category": "pe",
       "hq_city": "London",
-      "hq_region": "Italy",
+      "hq_region": "UK",
       "website": "http://www.bluegemcp.com",
       "strategy_tags": [
         "Buy-Out"
@@ -2140,16 +2236,31 @@
       "data_confidence": "high",
       "hq_lat": 51.507446,
       "hq_lng": -0.127765,
-      "hq_address": "5th floor Eagle House 108-110, Jermyn Street London",
-      "description_source": "gemini"
+      "hq_address": "5th Floor, Eagle House, 108-110 Jermyn Street",
+      "description_source": "gemini",
+      "hq_country": "UK",
+      "offices": [
+        {
+          "city": "London",
+          "country": "Italy",
+          "address": "5th floor Eagle House 108-110, Jermyn Street London",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "bridgepoint",
       "slug": "bridgepoint",
       "name": "Bridgepoint",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "London",
+      "hq_region": "UK",
       "website": "https://www.bridgepointgroup.com",
       "strategy_tags": [
         "Buy-Out",
@@ -2199,19 +2310,34 @@
       ],
       "hq_lat": 45.466944,
       "hq_lng": 9.184578,
-      "hq_address": "1, Via Rovello",
+      "hq_address": "5 Marble Arch",
       "data_sources": [
         "https://www.bridgepointgroup.com/content/dam/bridgepoint/corporate2022/documents/financial-information/results_reports_presentations/2022/Private-Credit-teach-in-Nov-2022.pdf.downloadasset.pdf"
       ],
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "UK",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "1, Via Rovello",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "bu",
       "slug": "bu",
       "name": "BU",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Zug",
+      "hq_region": "Switzerland",
       "website": "https://www.bu-partners.com",
       "strategy_tags": [
         "Buy-Out",
@@ -2254,9 +2380,24 @@
       "data_confidence": "high",
       "hq_lat": 45.468303,
       "hq_lng": 9.187161,
-      "hq_address": "1, Via del Lauro",
+      "hq_address": "Landis + Gyr-Strasse 3",
       "legal_name": "BU Italy",
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "Switzerland",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "1, Via del Lauro",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "canova-sgr",
@@ -2309,8 +2450,8 @@
       "slug": "capital-dynamics-sgr",
       "name": "Capital Dynamics SGR",
       "category": "infra",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Zug",
+      "hq_region": "Switzerland",
       "website": "http://www.capdyn.com",
       "strategy_tags": [
         "Infrastructure"
@@ -2348,7 +2489,7 @@
       "average_investment_source": "openai_enriched",
       "hq_lat": 45.467239,
       "hq_lng": 9.192228,
-      "hq_address": "Via degli Omenoni 2",
+      "hq_address": "Poststrasse 26",
       "num_portfolio_companies": 8,
       "num_funds": 3,
       "num_executives": 10,
@@ -2361,15 +2502,30 @@
         "Estimated from Italian SGR operations and partnership criteria"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "Switzerland",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "Via degli Omenoni 2",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "capza",
       "slug": "capza",
       "name": "CAPZA",
       "category": "debt",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Paris",
+      "hq_region": "France",
       "website": "http://www.capza.co",
       "strategy_tags": [
         "Buy-Out",
@@ -2414,16 +2570,31 @@
       "data_confidence": "high",
       "hq_lat": 45.467131,
       "hq_lng": 9.184393,
-      "hq_address": "Via San Tomaso, 5A",
-      "description_source": "gemini"
+      "hq_address": "103 rue de Grenelle",
+      "description_source": "gemini",
+      "hq_country": "France",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "Via San Tomaso, 5A",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "carlyle",
       "slug": "carlyle",
       "name": "Carlyle",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Washington, D.C.",
+      "hq_region": "USA",
       "website": "http://www.carlyle.com",
       "strategy_tags": [
         "Buy-Out"
@@ -2462,7 +2633,7 @@
       "average_investment_source": "openai_enriched",
       "hq_lat": 45.47237,
       "hq_lng": 9.195647,
-      "hq_address": "2, Piazza Cavour",
+      "hq_address": "1001 Pennsylvania Avenue NW",
       "offices": [
         {
           "city": "Milan",
@@ -2495,7 +2666,8 @@
       "data_sources": [
         "https://www.carlyle.com/about-carlyle"
       ],
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "USA"
     },
     {
       "id": "cdp-equity",
@@ -2720,15 +2892,16 @@
       "description_source": "manual",
       "investment_min_eur": 10000000,
       "investment_max_eur": 20000000,
-      "hq_address": "Via dei Bossi, 4, 20121 Milano MI"
+      "hq_address": "Via dei Bossi, 4, 20121 Milano MI",
+      "hq_country": "Italy"
     },
     {
       "id": "cinven",
       "slug": "cinven",
       "name": "Cinven",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "London",
+      "hq_region": "UK",
       "website": "http://www.cinven.com",
       "strategy_tags": [
         "Buy-Out"
@@ -2773,7 +2946,7 @@
       "average_investment_source": "openai_enriched",
       "hq_lat": 45.545778,
       "hq_lng": 9.176063,
-      "hq_address": "30, Via Manzoni",
+      "hq_address": "Warwick Court, 5 Paternoster Square",
       "offices": [
         {
           "city": "Milan",
@@ -2805,7 +2978,8 @@
       "data_sources": [
         "https://aifi.it/it/associati/cinven"
       ],
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "UK"
     },
     {
       "id": "claris-ventures-sgr",
@@ -3057,8 +3231,8 @@
       "slug": "cvc-capital-partners",
       "name": "CVC",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Luxembourg",
+      "hq_region": "Luxembourg",
       "website": "http://www.cvc.com",
       "strategy_tags": [
         "Buy-Out"
@@ -3098,7 +3272,7 @@
       "data_confidence": "high",
       "hq_lat": 45.47036,
       "hq_lng": 9.190651,
-      "hq_address": "4, Via privata Fratelli Gabba",
+      "hq_address": "20, Avenue Monterey",
       "offices": [
         {
           "city": "Milan",
@@ -3135,15 +3309,16 @@
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
       "legal_name": "CVC Advisers (Italia)",
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "Luxembourg"
     },
     {
       "id": "dbag-italia",
       "slug": "dbag-italia",
       "name": "DBAG Italia",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Frankfurt am Main",
+      "hq_region": "Germany",
       "website": "http://www.dbagitalia.com",
       "strategy_tags": [
         "Buy-Out"
@@ -3178,13 +3353,28 @@
       "data_confidence": "high",
       "hq_lat": 45.464194,
       "hq_lng": 9.189635,
-      "hq_address": "via Gaetano Negri 4 - 6\u00b0 piano",
+      "hq_address": "Untermainanlage 1, 60329 Frankfurt/Main",
       "aum_eur": 300000000,
       "num_sfdr_article_8": 0,
       "data_sources": [
         "https://www.dbag.com/newsroom/detail/deutsche-beteiligungs-ag-establishes-a-subsidiary-in-italy/"
       ],
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "Germany",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "via Gaetano Negri 4 - 6\u00b0 piano",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "dea-capital-alternative-funds-sgr",
@@ -3405,8 +3595,8 @@
       "slug": "entrust-global",
       "name": "EnTrust Global",
       "category": "infra",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "New York",
+      "hq_region": "USA",
       "website": "https://www.entrustglobal.com/",
       "strategy_tags": [
         "Impact-Investing",
@@ -3446,9 +3636,24 @@
       "average_investment_source": "openai_enriched",
       "hq_lat": 45.46494,
       "hq_lng": 9.191258,
-      "hq_address": "1, Via San Raffaele",
+      "hq_address": "375 Park Avenue, 24th Floor",
       "legal_name": "EnTrust Global Italia",
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "USA",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "1, Via San Raffaele",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "eos-im",
@@ -3519,8 +3724,8 @@
       "slug": "eqt",
       "name": "EQT",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Stockholm",
+      "hq_region": "Sweden",
       "website": "http://www.eqtgroup.com",
       "strategy_tags": [
         "All-Stages"
@@ -3562,7 +3767,7 @@
       "average_investment_source": "openai_enriched",
       "hq_lat": 45.464668,
       "hq_lng": 9.186449,
-      "hq_address": "2, Passaggio Centrale",
+      "hq_address": "Regeringsgatan 25",
       "offices": [
         {
           "city": "Milan",
@@ -3591,7 +3796,8 @@
           "source_name": "Fund Website"
         }
       ],
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "Sweden"
     },
     {
       "id": "equinox-aifm",
@@ -4611,8 +4817,8 @@
       "slug": "h-i-g-capital",
       "name": "H.I.G. Capital",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Miami",
+      "hq_region": "USA",
       "website": "http://www.higeurope.com",
       "strategy_tags": [
         "Buy-Out"
@@ -4650,8 +4856,23 @@
       "legal_name": "H.I.G. European Capital Partners Italy",
       "hq_lat": 45.465252,
       "hq_lng": 9.187117,
-      "hq_address": "12, Via Dei Mercanti",
-      "description_source": "gemini"
+      "hq_address": "1450 Brickell Avenue, 31st Floor",
+      "description_source": "gemini",
+      "hq_country": "USA",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "12, Via Dei Mercanti",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "hat-sgr",
@@ -5207,8 +5428,8 @@
       "slug": "l-catterton",
       "name": "L Catterton",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Greenwich",
+      "hq_region": "USA",
       "website": "http://www.lcatterton.com",
       "strategy_tags": [
         "Buy-Out",
@@ -5247,12 +5468,27 @@
       "data_confidence": "high",
       "hq_lat": 45.464194,
       "hq_lng": 9.189635,
-      "hq_address": "30, Via della Spiga",
+      "hq_address": "599 West Putnam Avenue",
       "aum_eur": 37000000000,
       "data_sources": [
         "https://www.lcatterton.com/Aboutus.html"
       ],
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "USA",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "30, Via della Spiga",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "l-b-capital-sgr",
@@ -5488,8 +5724,8 @@
       "slug": "mindful-capital",
       "name": "Mindful Capital Partners",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Luxembourg",
+      "hq_region": "Luxembourg",
       "website": "http://www.mcpinvest.com",
       "strategy_tags": [
         "Buy-Out"
@@ -5529,8 +5765,23 @@
       "data_confidence": "high",
       "hq_lat": 45.474151,
       "hq_lng": 9.191318,
-      "hq_address": "3, C.so di Porta Nuova",
-      "description_source": "gemini"
+      "hq_address": "10, rue Antoine Jans",
+      "description_source": "gemini",
+      "hq_country": "Luxembourg",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "3, C.so di Porta Nuova",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "mito-technology",
@@ -5638,8 +5889,8 @@
       "slug": "montefiore",
       "name": "Montefiore Investment",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Paris",
+      "hq_region": "France",
       "website": "https://montefiore.eu/en",
       "strategy_tags": [
         "Buy-Out",
@@ -5685,16 +5936,31 @@
       ],
       "hq_lat": 45.469856,
       "hq_lng": 9.187908,
-      "hq_address": "Via Brera 5",
-      "description_source": "gemini"
+      "hq_address": "28 rue Bayard",
+      "description_source": "gemini",
+      "hq_country": "France",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "Via Brera 5",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "muzinich-co",
       "slug": "muzinich-co",
       "name": "Muzinich & Co.",
       "category": "debt",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "New York",
+      "hq_region": "USA",
       "website": "https://www.muzinich.com",
       "strategy_tags": [
         "Private-Debt"
@@ -5736,8 +6002,23 @@
       "data_confidence": "high",
       "hq_lat": 45.470715,
       "hq_lng": 9.19723,
-      "hq_address": "12, Via Senato",
-      "description_source": "gemini"
+      "hq_address": "450 Park Avenue",
+      "description_source": "gemini",
+      "hq_country": "USA",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "12, Via Senato",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "narval-investimenti",
@@ -6010,8 +6291,8 @@
       "slug": "oxy-capital",
       "name": "Oxy Capital",
       "category": "debt",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Lisbon",
+      "hq_region": "Portugal",
       "website": "http://www.oxycapital.com",
       "strategy_tags": [
         "Private-Debt",
@@ -6051,9 +6332,24 @@
       "data_confidence": "high",
       "hq_lat": 45.475384,
       "hq_lng": 9.19479,
-      "hq_address": "Largo Donegani 2",
+      "hq_address": "Avenida Engenheiro Duarte Pacheco, Amoreiras Torre 2, 15\u00ba B",
       "legal_name": "Oxy Capital Italia",
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "Portugal",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "Largo Donegani 2",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "pai-partners",
@@ -6192,8 +6488,8 @@
       "slug": "partners-group",
       "name": "Partners Group",
       "category": "infra",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Baar",
+      "hq_region": "Switzerland",
       "website": "https://www.partnersgroup.com",
       "strategy_tags": [
         "All-Stages"
@@ -6236,7 +6532,7 @@
       "legal_name": "Partners Group (Luxembourg) S.A. - Milan Branch",
       "hq_lat": 45.475604,
       "hq_lng": 9.195211,
-      "hq_address": "3, Via della Moscova",
+      "hq_address": "Unternehmer-Park 3, 6340 Baar",
       "num_portfolio_companies": 250,
       "num_sfdr_article_8": 0,
       "data_sources": [
@@ -6247,15 +6543,30 @@
       "num_funds": 38,
       "description_source": "gemini",
       "investment_min_eur": 100000000,
-      "investment_max_eur": 1000000000
+      "investment_max_eur": 1000000000,
+      "hq_country": "Switzerland",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "3, Via della Moscova",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "permira",
       "slug": "permira",
       "name": "Permira",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "London",
+      "hq_region": "UK",
       "website": "http://www.permira.com",
       "strategy_tags": [
         "Buy-Out"
@@ -6302,7 +6613,7 @@
       "average_investment_source": "openai_enriched",
       "hq_lat": 45.465841,
       "hq_lng": 9.193665,
-      "hq_address": "10, Via San Paolo",
+      "hq_address": "80 Pall Mall",
       "offices": [
         {
           "city": "Milan",
@@ -6332,7 +6643,8 @@
         }
       ],
       "legal_name": "Permira Associati",
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "UK"
     },
     {
       "id": "pillarstone",
@@ -6491,7 +6803,7 @@
       "name": "Portobello Capital",
       "category": "pe",
       "hq_city": "Madrid",
-      "hq_region": "Italy",
+      "hq_region": "Spain",
       "website": "http://www.portobellocapital.es/en",
       "strategy_tags": [
         "Buy-Out"
@@ -6531,8 +6843,23 @@
       "data_confidence": "high",
       "hq_lat": 40.431044,
       "hq_lng": -3.692185,
-      "hq_address": "36, Calle Almagro",
-      "description_source": "gemini"
+      "hq_address": "Calle de Almagro, 36",
+      "description_source": "gemini",
+      "hq_country": "Spain",
+      "offices": [
+        {
+          "city": "Madrid",
+          "country": "Italy",
+          "address": "36, Calle Almagro",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "prana-ventures",
@@ -6989,7 +7316,7 @@
       "name": "Ring Capital",
       "category": "vc",
       "hq_city": "Paris",
-      "hq_region": "Italy",
+      "hq_region": "France",
       "website": "https://www.ringcp.com",
       "strategy_tags": [
         "Early-Stage",
@@ -7033,17 +7360,32 @@
       "data_confidence": "high",
       "hq_lat": 48.870223,
       "hq_lng": 2.337821,
-      "hq_address": "2, Rue Favart",
+      "hq_address": "2 rue Favart",
       "aum_eur": 150000000,
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "France",
+      "offices": [
+        {
+          "city": "Paris",
+          "country": "Italy",
+          "address": "2, Rue Favart",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "rivean-capital",
       "slug": "rivean-capital",
       "name": "Rivean Capital",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Amsterdam",
+      "hq_region": "Netherlands",
       "website": "https://riveancapital.com",
       "strategy_tags": [
         "Buy-Out"
@@ -7083,8 +7425,23 @@
       "data_confidence": "high",
       "hq_lat": 45.469679,
       "hq_lng": 9.187945,
-      "hq_address": "Via Brera 3",
-      "description_source": "gemini"
+      "hq_address": "Eduard van Beinumstraat 22",
+      "description_source": "gemini",
+      "hq_country": "Netherlands",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "Via Brera 3",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "sagard",
@@ -7293,8 +7650,8 @@
       "slug": "sienna-pe",
       "name": "Sienna Private Equity",
       "category": "pe",
-      "hq_city": "Milan",
-      "hq_region": "Italy",
+      "hq_city": "Paris",
+      "hq_region": "France",
       "website": "https://www.sienna-pe.com",
       "strategy_tags": [
         "Buy-Out"
@@ -7334,13 +7691,28 @@
       "data_confidence": "high",
       "hq_lat": 45.467026,
       "hq_lng": 9.194771,
-      "hq_address": "Corso Giacomo Matteotti 3",
+      "hq_address": "134 Boulevard Haussmann, 75008 Paris",
       "aum_eur": 150000000,
       "data_sources": [
         "Calculated from portfolio size (3 companies \u00d7 \u20ac50M avg mid-market buyout ticket = \u20ac150M AUM)"
       ],
       "data_quality_note": "Enriched 2026-02-03 during quality optimization session",
-      "description_source": "gemini"
+      "description_source": "gemini",
+      "hq_country": "France",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "Corso Giacomo Matteotti 3",
+          "postal_code": null,
+          "phone": null,
+          "lat": null,
+          "lng": null,
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "AIFI member directory"
+        }
+      ]
     },
     {
       "id": "sinloc-investimenti-sgr",
@@ -10718,7 +11090,9 @@
         }
       ],
       "investment_min_eur": 5000000,
-      "investment_max_eur": 25000000
+      "investment_max_eur": 25000000,
+      "hq_country": "Italy",
+      "hq_address": null
     }
   ],
   "deals": [],
