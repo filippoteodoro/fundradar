@@ -193,7 +193,7 @@ export function matchesSectorGroupFilter(fund: FilterableFund, groupName: string
 export function buildFundFilterCatalog<T extends FilterableFund>(funds: T[]): FundFilterCatalog {
   const categoryCounts = new Map<FundCategory, number>();
   const sectors = new Set<string>();
-  const hqCountries = new Set<string>();
+  const hqCountryCounts = new Map<string, number>();
 
   for (const fund of funds) {
     categoryCounts.set(fund.category, (categoryCounts.get(fund.category) || 0) + 1);
@@ -202,7 +202,7 @@ export function buildFundFilterCatalog<T extends FilterableFund>(funds: T[]): Fu
     }
 
     const hqCountry = deriveFundHqCountry(fund);
-    if (hqCountry) hqCountries.add(hqCountry);
+    if (hqCountry) hqCountryCounts.set(hqCountry, (hqCountryCounts.get(hqCountry) || 0) + 1);
   }
 
   const categories = Array.from(categoryCounts.keys()).sort((a, b) => {
@@ -211,9 +211,11 @@ export function buildFundFilterCatalog<T extends FilterableFund>(funds: T[]): Fu
     return a.localeCompare(b);
   });
 
-  const sortedCountries = Array.from(hqCountries).sort((a, b) => {
+  const sortedCountries = Array.from(hqCountryCounts.keys()).sort((a, b) => {
     if (a === 'Italy') return -1;
     if (b === 'Italy') return 1;
+    const diff = (hqCountryCounts.get(b) || 0) - (hqCountryCounts.get(a) || 0);
+    if (diff !== 0) return diff;
     return a.localeCompare(b);
   });
 
