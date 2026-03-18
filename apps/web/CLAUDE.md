@@ -1,7 +1,7 @@
 # Web App — Claude Code Instructions
 
 ## AI Model Policy
-**DO NOT use ChatGPT 4o for any task.** That model hallucinates too frequently. Use `gpt-5-mini` or better for all OpenAI API calls.
+**DO NOT use ChatGPT 4o for any task.** That model hallucinates too frequently. Use `gpt-5.4-mini` or better for all OpenAI API calls.
 
 ## Architecture
 Next.js 14 App Router. All data from JSON files on disk — no database, no API layer for data reads. Components use inline styles (no Tailwind). Charts use Recharts.

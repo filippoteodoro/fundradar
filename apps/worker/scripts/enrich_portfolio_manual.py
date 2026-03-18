@@ -2,7 +2,7 @@
 """
 Enrich portfolio data for funds with thin coverage.
 
-Uses web search (via OpenAI) + gpt-5-mini to find and verify Italian portfolio companies
+Uses web search (via OpenAI) + gpt-5.4-mini to find and verify Italian portfolio companies
 for funds that have too few entries relative to their size.
 
 Every entry added must have a verified source_url.
@@ -117,7 +117,7 @@ def find_funds_needing_enrichment(db, portfolio_data, pem_data):
 
 
 def search_fund_portfolio(client, fund: dict) -> list[dict]:
-    """Use gpt-5-mini web search (Responses API) to find Italian portfolio companies for a fund."""
+    """Use gpt-5.4-mini web search (Responses API) to find Italian portfolio companies for a fund."""
 
     existing_str = ", ".join(fund["existing_names"]) if fund["existing_names"] else "none"
 

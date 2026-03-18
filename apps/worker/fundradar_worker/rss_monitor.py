@@ -8,7 +8,7 @@ Appends resulting signals to detected_signals.json.
 
 Two-stage processing to minimize API cost:
   Stage 1 — Local pre-filter: fast text matching against fund/company names
-  Stage 2 — LLM classification: gpt-5-mini batch classification for matched articles
+  Stage 2 — LLM classification: gpt-5.4-mini batch classification for matched articles
 
 Usage:
     python -m fundradar_worker.rss_monitor              # full run
@@ -479,7 +479,7 @@ def classify_batch(
     fund_index: dict[str, str],
 ) -> list[dict]:
     """
-    Stage 2: LLM batch classification via gpt-5-mini.
+    Stage 2: LLM batch classification via gpt-5.4-mini.
 
     Sends batches of articles to the LLM for structured classification.
     Returns classified articles with signal_type, fund associations, etc.

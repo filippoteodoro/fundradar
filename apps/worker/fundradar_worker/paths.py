@@ -34,7 +34,7 @@ WORKER_ENV_PATH = WORKER_DIR / ".env"
 # not accuracy. Lite quality < Flash quality for fact-extraction tasks.
 GEMINI_MODEL = "gemini-3-flash-preview"
 # Do NOT use ChatGPT 4o — hallucinates too frequently for structured data tasks.
-OPENAI_MODEL = "gpt-5-mini"
+OPENAI_MODEL = "gpt-5.4-mini"
 
 # ── Canonical sector taxonomy ─────────────────────────────────────────────────
 # Single source of truth — used by normalize_sectors.py, signal_to_portfolio.py,

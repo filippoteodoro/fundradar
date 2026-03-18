@@ -117,7 +117,7 @@ Python writes dicts to JSON with no schema validation. TypeScript types are comp
 Every signal MUST have: `source_url`, `source_name`, `published_at` (if known), `observed_at`. All enrichment must have a verifiable `{field}_source_url`. AI is a data collection aid, not a data source — never store "ai_inferred" as a source.
 
 ### 5. Model Policy
-- **OpenAI**: Model is centralised in `OPENAI_MODEL` in `apps/worker/fundradar_worker/paths.py` — always import from there, never hardcode. Current value: `gpt-5-mini`. NEVER use ChatGPT 4o (hallucinates too much).
+- **OpenAI**: Model is centralised in `OPENAI_MODEL` in `apps/worker/fundradar_worker/paths.py` — always import from there, never hardcode. Current value: `gpt-5.4-mini`. NEVER use ChatGPT 4o (hallucinates too much).
 - **Gemini**: Model is centralised in `GEMINI_MODEL` in `apps/worker/fundradar_worker/paths.py` — always import from there, never hardcode. Current value: `gemini-3-flash-preview`. NEVER use `gemini-2.x` (hallucinates more). NEVER use Flash-Lite variants for data enrichment — Flash-Lite is optimised for throughput, not accuracy; fact-extraction quality is meaningfully lower.
 
 ### 6. File-Based Architecture

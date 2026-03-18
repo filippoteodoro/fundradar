@@ -29,7 +29,7 @@ monitor → rss → translate → normalize_sectors → normalize_portfolio → 
    - Shared modules: imports patterns from `signal_patterns.py`, corrections from `signal_corrections.py`
    - Exit detection uses proper domain matching via `fund.get("website")` from db.json (not slug heuristics)
    - Ecosystem newsrooms flagged via `fund.get("is_ecosystem_newsroom")` in db.json (not hardcoded)
-8. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). Also extracts `target_companies` for deal/exit signals (used by step 9). **DO NOT use ChatGPT 4o** — it hallucinates too frequently. Use `gpt-5-mini` or better. Contains a safety-net translation pass for any Italian that survived step 3 (e.g., LLM-generated Italian summaries). **enriched_summary coverage is intentionally <100%** — signals where the LLM summary is title-redundant (85%+ word overlap) get `enriched_summary=""` and the frontend falls back to displaying the title. This is correct behavior, not data loss. Progress tracking (`signal_enrichment_progress.json`) still marks them as processed, so re-runs skip them. **No keep/drop filtering** — the enricher does NOT drop signals; `filter_signals.py` (step 7) is the sole quality gate. The "done" marker is `enriched_at` (set on every processed signal).
+8. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). Also extracts `target_companies` for deal/exit signals (used by step 9). **DO NOT use ChatGPT 4o** — it hallucinates too frequently. Use `gpt-5.4-mini` or better. Contains a safety-net translation pass for any Italian that survived step 3 (e.g., LLM-generated Italian summaries). **enriched_summary coverage is intentionally <100%** — signals where the LLM summary is title-redundant (85%+ word overlap) get `enriched_summary=""` and the frontend falls back to displaying the title. This is correct behavior, not data loss. Progress tracking (`signal_enrichment_progress.json`) still marks them as processed, so re-runs skip them. **No keep/drop filtering** — the enricher does NOT drop signals; `filter_signals.py` (step 7) is the sole quality gate. The "done" marker is `enriched_at` (set on every processed signal).
 9. **signal_to_portfolio** (`signal_to_portfolio.py`) — Convert deal/exit signals into portfolio entries. **Purely local, zero API calls** — reads `target_companies` pre-extracted by step 8 (OpenAI enrichment). Trust hierarchy: fund press (0.90) > verified news (0.80) > news (0.75) > other (0.70) > rumor (0.60). Progress tracked to avoid re-processing. Also updates exit status for existing entries when exit signals match.
    - Reconciliation behavior: previously processed signals are automatically reprocessed when portfolio sync is still unresolved (investment target still missing or exit target not exited). This prevents progress-state drift.
    - Exit updates apply to entries with non-exited status (including `null`) and across normalized name variants.
@@ -332,9 +332,9 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 
 **Do NOT** re-run the enricher to fix this — costs ~$0.30/run. Direct JSON edits are free.
 
-### Enricher Token Budget — gpt-5-mini Reasoning Models
+### Enricher Token Budget — gpt-5.4-mini Reasoning Models
 
-**`gpt-5-mini` is a reasoning model** — it uses internal chain-of-thought tokens before generating visible output. With `max_completion_tokens=1024`, complex signals exhaust the token budget on reasoning before producing any JSON, returning `finish_reason=length` with empty `message.content`. **Fix**: detect `finish_reason == "length"` on empty response and double `max_completion_tokens` on retry (1024 → 2048). This adds <$0.001 per affected signal.
+**`gpt-5.4-mini` is a reasoning model** — it uses internal chain-of-thought tokens before generating visible output. With `max_completion_tokens=1024`, complex signals exhaust the token budget on reasoning before producing any JSON, returning `finish_reason=length` with empty `message.content`. **Fix**: detect `finish_reason == "length"` on empty response and double `max_completion_tokens` on retry (1024 → 2048). This adds <$0.001 per affected signal.
 
 ### Enricher Done/Progress Tracking
 
@@ -600,7 +600,7 @@ The filter (`filter_signals.py`) uses **English-language keyword patterns** to c
 1. `DEEPL_API_KEY` — primary key (500K chars/month free)
 2. `DEEPL_API_KEY_2` — secondary key (auto-failover when primary exhausted)
 3. `AZURE_TRANSLATOR_KEY` — second fallback (2M chars/month free, region: `italynorth`)
-4. OpenAI `gpt-5-mini` — last resort fallback (paid, ~$0.10/run for all Italian signals)
+4. OpenAI `gpt-5.4-mini` — last resort fallback (paid, ~$0.10/run for all Italian signals)
 
 DeepL exhausted keys are auto-skipped via `data/derived/deepl_quota_state.json`. Both DeepL keys exhausted → Telegram alert fires + Azure takes over. Azure auth/quota errors disable it for the current run and fall through to OpenAI. Monthly quotas reset on the 1st.
 

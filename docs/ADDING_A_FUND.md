@@ -923,7 +923,7 @@ Configuration values are defined as constants in `apps/worker/scripts/enrich_sig
 
 | Setting | Where defined |
 |---|---|
-| Model | `MODEL` constant (currently `gpt-5-mini` — NEVER use ChatGPT 4o, it hallucinates) |
+| Model | `MODEL` constant (currently `gpt-5.4-mini` — NEVER use ChatGPT 4o, it hallucinates) |
 | Concurrent requests | `MAX_CONCURRENT_LLM` constant |
 | Rate limit | `REQUESTS_PER_MINUTE` constant |
 | Progress file | `signal_enrichment_progress.json` |
