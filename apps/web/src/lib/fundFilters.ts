@@ -60,16 +60,35 @@ const COUNTRY_ALIASES: Record<string, string> = {
 
 const FOREIGN_CITY_TO_COUNTRY: Record<string, string> = {
   london: 'UK',
+  jersey: 'UK',
   'new york': 'USA',
   'los angeles': 'USA',
   boston: 'USA',
   'san francisco': 'USA',
+  miami: 'USA',
+  greenwich: 'USA',
   amsterdam: 'Netherlands',
   madrid: 'Spain',
   paris: 'France',
   parigi: 'France',
   luxembourg: 'Luxembourg',
   stockholm: 'Sweden',
+  brussels: 'Belgium',
+  bruxelles: 'Belgium',
+  lisbon: 'Portugal',
+  lisboa: 'Portugal',
+  frankfurt: 'Germany',
+  'frankfurt am main': 'Germany',
+  munich: 'Germany',
+  zug: 'Switzerland',
+  baar: 'Switzerland',
+  zurich: 'Switzerland',
+  geneva: 'Switzerland',
+  dublin: 'Ireland',
+  oslo: 'Norway',
+  copenhagen: 'Denmark',
+  helsinki: 'Finland',
+  warsaw: 'Poland',
 };
 
 
@@ -122,13 +141,14 @@ export function deriveFundHqCountry(fund: FilterableFund): string | null {
     return 'Italy';
   }
 
-  // 3. First office with any country (no is_hq set)
-  const firstOfficeCountry = getFirstOfficeCountry(fund.offices);
-  if (firstOfficeCountry) return firstOfficeCountry;
-
-  // 4. hq_region
+  // 3. hq_region — checked before first-office fallback so an explicit region field
+  //    wins over a stale Italian office entry in offices[]
   const regionCountry = normalizeCountry(fund.hq_region);
   if (regionCountry) return regionCountry;
+
+  // 4. First office with any country (last resort)
+  const firstOfficeCountry = getFirstOfficeCountry(fund.offices);
+  if (firstOfficeCountry) return firstOfficeCountry;
 
   return null;
 }
