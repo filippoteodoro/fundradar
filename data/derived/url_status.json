@@ -155,12 +155,12 @@
     },
     "https://www.tikehaucapital.com/en/the-company/portfolio-companies": {
       "url": "https://www.tikehaucapital.com/en/the-company/portfolio-companies",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:37.842957+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.tikehaucapital.com', port=443): Max retries exceeded with url: /en/the-company/portfolio-companies (Caused by NameResolutionError(\"HTTPSConnection(host='www.tikehaucapital.com', port=443): Failed to resolve 'www.tikehaucapital.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.667469+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.667469+00:00"
     },
     "https://www.cinven.com/portfolio/": {
       "url": "https://www.cinven.com/portfolio/",
@@ -254,21 +254,21 @@
     },
     "https://www.trilanticeurope.com/news.html": {
       "url": "https://www.trilanticeurope.com/news.html",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:39.426055+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.trilanticeurope.com', port=443): Max retries exceeded with url: /news.html (Caused by NameResolutionError(\"HTTPSConnection(host='www.trilanticeurope.com', port=443): Failed to resolve 'www.trilanticeurope.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.716221+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.716221+00:00"
     },
     "https://www.trilanticeurope.com/our-team.html": {
       "url": "https://www.trilanticeurope.com/our-team.html",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:38.980835+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.trilanticeurope.com', port=443): Max retries exceeded with url: /our-team.html (Caused by NameResolutionError(\"HTTPSConnection(host='www.trilanticeurope.com', port=443): Failed to resolve 'www.trilanticeurope.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.709755+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.709755+00:00"
     },
     "https://www.paipartners.com/media/": {
       "url": "https://www.paipartners.com/media/",
@@ -290,21 +290,21 @@
     },
     "https://www.equinox-investments.com/news": {
       "url": "https://www.equinox-investments.com/news",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:49:42.688125+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.equinox-investments.com', port=443): Max retries exceeded with url: /news (Caused by NameResolutionError(\"HTTPSConnection(host='www.equinox-investments.com', port=443): Failed to resolve 'www.equinox-investments.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:29.103511+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:29.103511+00:00"
     },
     "https://www.equinox-investments.com/portfolio": {
       "url": "https://www.equinox-investments.com/portfolio",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:49:27.513418+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.equinox-investments.com', port=443): Max retries exceeded with url: /portfolio (Caused by NameResolutionError(\"HTTPSConnection(host='www.equinox-investments.com', port=443): Failed to resolve 'www.equinox-investments.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:29.081287+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:29.081287+00:00"
     },
     "https://www.sagard.com/team/": {
       "url": "https://www.sagard.com/team/",
@@ -335,12 +335,12 @@
     },
     "https://www.tikehaucapital.com/en/the-company/teams": {
       "url": "https://www.tikehaucapital.com/en/the-company/teams",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:38.836658+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.tikehaucapital.com', port=443): Max retries exceeded with url: /en/the-company/teams (Caused by NameResolutionError(\"HTTPSConnection(host='www.tikehaucapital.com', port=443): Failed to resolve 'www.tikehaucapital.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.676956+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.676956+00:00"
     },
     "https://www.wisesgr.com/en/team": {
       "url": "https://www.wisesgr.com/en/team",
@@ -416,12 +416,12 @@
     },
     "https://www.21invest.com/en/investments/": {
       "url": "https://www.21invest.com/en/investments/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:40.387892+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.21invest.com', port=443): Max retries exceeded with url: /en/investments/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.21invest.com', port=443): Failed to resolve 'www.21invest.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.718268+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.718268+00:00"
     },
     "https://aksiasgr.com/portfolio/": {
       "url": "https://aksiasgr.com/portfolio/",
@@ -542,12 +542,12 @@
     },
     "https://eosimgroup.com/investments": {
       "url": "https://eosimgroup.com/investments",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:49:23.109455+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='eosimgroup.com', port=443): Max retries exceeded with url: /investments (Caused by NameResolutionError(\"HTTPSConnection(host='eosimgroup.com', port=443): Failed to resolve 'eosimgroup.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:29.079998+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:29.079998+00:00"
     },
     "https://www.f2isgr.it/en/media/press-releases/index.html": {
       "url": "https://www.f2isgr.it/en/media/press-releases/index.html",
@@ -623,21 +623,21 @@
     },
     "https://www.siryo.it/investimenti": {
       "url": "https://www.siryo.it/investimenti",
-      "status": "ok",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:11.806995+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.siryo.it', port=443): Max retries exceeded with url: /investimenti (Caused by NameResolutionError(\"HTTPSConnection(host='www.siryo.it', port=443): Failed to resolve 'www.siryo.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.589970+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.589970+00:00"
     },
     "https://www.trilanticeurope.com/our-investments.html": {
       "url": "https://www.trilanticeurope.com/our-investments.html",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:38.724295+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.trilanticeurope.com', port=443): Max retries exceeded with url: /our-investments.html (Caused by NameResolutionError(\"HTTPSConnection(host='www.trilanticeurope.com', port=443): Failed to resolve 'www.trilanticeurope.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.703149+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.703149+00:00"
     },
     "https://www.ottoapiu.it/chi-siamo/persone/": {
       "url": "https://www.ottoapiu.it/chi-siamo/persone/",
@@ -668,12 +668,12 @@
     },
     "https://www.21invest.com/en/who-we-are/": {
       "url": "https://www.21invest.com/en/who-we-are/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:41.860148+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.21invest.com', port=443): Max retries exceeded with url: /en/who-we-are/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.21invest.com', port=443): Failed to resolve 'www.21invest.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.723718+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.723718+00:00"
     },
     "https://www.fondoitaliano.it/investimenti-diretti/": {
       "url": "https://www.fondoitaliano.it/investimenti-diretti/",
@@ -731,12 +731,12 @@
     },
     "https://www.towerbrook.com/news/": {
       "url": "https://www.towerbrook.com/news/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:39.028834+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.towerbrook.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.towerbrook.com', port=443): Failed to resolve 'www.towerbrook.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.695810+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.695810+00:00"
     },
     "https://www.cdp.it/it/cdp_equity_portafoglio.page": {
       "url": "https://www.cdp.it/it/cdp_equity_portafoglio.page",
@@ -812,12 +812,12 @@
     },
     "https://www.kairospartners.com/ventures-esg-one/chi-siamo/": {
       "url": "https://www.kairospartners.com/ventures-esg-one/chi-siamo/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:51:04.506789+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.kairospartners.com', port=443): Max retries exceeded with url: /ventures-esg-one/chi-siamo/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.kairospartners.com', port=443): Failed to resolve 'www.kairospartners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:29.141392+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:29.141392+00:00"
     },
     "https://riveancapital.com/news": {
       "url": "https://riveancapital.com/news",
@@ -839,12 +839,12 @@
     },
     "https://www.smart-capital.it/media": {
       "url": "https://www.smart-capital.it/media",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:16.111595+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.smart-capital.it', port=443): Max retries exceeded with url: /media (Caused by NameResolutionError(\"HTTPSConnection(host='www.smart-capital.it', port=443): Failed to resolve 'www.smart-capital.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.599979+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.599979+00:00"
     },
     "https://www.equityclub.eu/en/news": {
       "url": "https://www.equityclub.eu/en/news",
@@ -1046,12 +1046,12 @@
     },
     "https://www.kairospartners.com/ventures-esg-one/media/": {
       "url": "https://www.kairospartners.com/ventures-esg-one/media/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:34:45.030453+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.kairospartners.com', port=443): Max retries exceeded with url: /ventures-esg-one/media/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.kairospartners.com', port=443): Failed to resolve 'www.kairospartners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:29.145440+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:29.145440+00:00"
     },
     "https://www.mittel.it/management": {
       "url": "https://www.mittel.it/management",
@@ -1073,57 +1073,57 @@
     },
     "https://www.stylecapital.it/style_capital_investimenti.php": {
       "url": "https://www.stylecapital.it/style_capital_investimenti.php",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:35.002662+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.stylecapital.it', port=443): Max retries exceeded with url: /style_capital_investimenti.php (Caused by NameResolutionError(\"HTTPSConnection(host='www.stylecapital.it', port=443): Failed to resolve 'www.stylecapital.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.627353+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.627353+00:00"
     },
     "https://www.stylecapital.it/chi_siamo_team.php": {
       "url": "https://www.stylecapital.it/chi_siamo_team.php",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:35.058043+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.stylecapital.it', port=443): Max retries exceeded with url: /chi_siamo_team.php (Caused by NameResolutionError(\"HTTPSConnection(host='www.stylecapital.it', port=443): Failed to resolve 'www.stylecapital.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.633256+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.633256+00:00"
     },
     "https://zestgroup.vc/investments": {
       "url": "https://zestgroup.vc/investments",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:51.857409+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='zestgroup.vc', port=443): Max retries exceeded with url: /investments (Caused by NameResolutionError(\"HTTPSConnection(host='zestgroup.vc', port=443): Failed to resolve 'zestgroup.vc' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.812639+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.812639+00:00"
     },
     "https://www.yarpa.it/le-persone/": {
       "url": "https://www.yarpa.it/le-persone/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:52.391502+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.yarpa.it', port=443): Max retries exceeded with url: /le-persone/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.yarpa.it', port=443): Failed to resolve 'www.yarpa.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.802347+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.802347+00:00"
     },
     "https://www.yarpa.it/press/": {
       "url": "https://www.yarpa.it/press/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:52.742605+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.yarpa.it', port=443): Max retries exceeded with url: /press/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.yarpa.it', port=443): Failed to resolve 'www.yarpa.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.807836+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.807836+00:00"
     },
     "https://zestgroup.vc/en/news": {
       "url": "https://zestgroup.vc/en/news",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:52.828327+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='zestgroup.vc', port=443): Max retries exceeded with url: /en/news (Caused by NameResolutionError(\"HTTPSConnection(host='zestgroup.vc', port=443): Failed to resolve 'zestgroup.vc' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.819207+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.819207+00:00"
     },
     "https://www.anderapartners.com/en/news": {
       "url": "https://www.anderapartners.com/en/news",
@@ -1442,21 +1442,21 @@
     },
     "https://www.towerbrook.com/investments/": {
       "url": "https://www.towerbrook.com/investments/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:37.985065+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.towerbrook.com', port=443): Max retries exceeded with url: /investments/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.towerbrook.com', port=443): Failed to resolve 'www.towerbrook.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.682930+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.682930+00:00"
     },
     "https://www.towerbrook.com/our-team/": {
       "url": "https://www.towerbrook.com/our-team/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:38.639503+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.towerbrook.com', port=443): Max retries exceeded with url: /our-team/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.towerbrook.com', port=443): Failed to resolve 'www.towerbrook.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.690865+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.690865+00:00"
     },
     "https://www.liftt.com/chi-siamo-it/": {
       "url": "https://www.liftt.com/chi-siamo-it/",
@@ -1640,111 +1640,111 @@
     },
     "https://sofinnovapartners.com/portfolio": {
       "url": "https://sofinnovapartners.com/portfolio",
-      "status": "ok",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:12.366401+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='sofinnovapartners.com', port=443): Max retries exceeded with url: /portfolio (Caused by NameResolutionError(\"HTTPSConnection(host='sofinnovapartners.com', port=443): Failed to resolve 'sofinnovapartners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.596844+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.596844+00:00"
     },
     "https://www.starcapital.it/it/investimenti/fondo-star-iv/": {
       "url": "https://www.starcapital.it/it/investimenti/fondo-star-iv/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:15.086381+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.starcapital.it', port=443): Max retries exceeded with url: /it/investimenti/fondo-star-iv/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.starcapital.it', port=443): Failed to resolve 'www.starcapital.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.609575+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.609575+00:00"
     },
     "https://sofinnovapartners.com/team": {
       "url": "https://sofinnovapartners.com/team",
-      "status": "ok",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:12.666368+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='sofinnovapartners.com', port=443): Max retries exceeded with url: /team (Caused by NameResolutionError(\"HTTPSConnection(host='sofinnovapartners.com', port=443): Failed to resolve 'sofinnovapartners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.602001+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.602001+00:00"
     },
     "https://www.starcapital.it/it/team/": {
       "url": "https://www.starcapital.it/it/team/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:15.958486+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.starcapital.it', port=443): Max retries exceeded with url: /it/team/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.starcapital.it', port=443): Failed to resolve 'www.starcapital.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.614450+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.614450+00:00"
     },
     "https://www.tagescapitalsgr.com/people/": {
       "url": "https://www.tagescapitalsgr.com/people/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:37.732590+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.tagescapitalsgr.com', port=443): Max retries exceeded with url: /people/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.tagescapitalsgr.com', port=443): Failed to resolve 'www.tagescapitalsgr.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.644432+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.644432+00:00"
     },
     "https://www.threehills.com/portfolio-list/": {
       "url": "https://www.threehills.com/portfolio-list/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:37.296406+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.threehills.com', port=443): Max retries exceeded with url: /portfolio-list/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.threehills.com', port=443): Failed to resolve 'www.threehills.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.659858+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.659858+00:00"
     },
     "https://www.threehills.com/people/": {
       "url": "https://www.threehills.com/people/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:37.617198+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.threehills.com', port=443): Max retries exceeded with url: /people/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.threehills.com', port=443): Failed to resolve 'www.threehills.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.667314+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.667314+00:00"
     },
     "https://www.triton-partners.com/portfolio/": {
       "url": "https://www.triton-partners.com/portfolio/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:39.849698+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.triton-partners.com', port=443): Max retries exceeded with url: /portfolio/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.triton-partners.com', port=443): Failed to resolve 'www.triton-partners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.701718+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.701718+00:00"
     },
     "https://www.threehills.com/media/": {
       "url": "https://www.threehills.com/media/",
-      "status": "ok",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:37.720225+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.threehills.com', port=443): Max retries exceeded with url: /media/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.threehills.com', port=443): Failed to resolve 'www.threehills.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.672389+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.672389+00:00"
     },
     "https://www.vertis.it/portfolio/": {
       "url": "https://www.vertis.it/portfolio/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:53.511340+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.vertis.it', port=443): Max retries exceeded with url: /portfolio/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.vertis.it', port=443): Failed to resolve 'www.vertis.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.763626+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.763626+00:00"
     },
     "https://xgenventure.com/portfolio/": {
       "url": "https://xgenventure.com/portfolio/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:52.574356+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='xgenventure.com', port=443): Max retries exceeded with url: /portfolio/ (Caused by NameResolutionError(\"HTTPSConnection(host='xgenventure.com', port=443): Failed to resolve 'xgenventure.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.798399+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.798399+00:00"
     },
     "https://www.vertis.it/team/": {
       "url": "https://www.vertis.it/team/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:54.334024+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.vertis.it', port=443): Max retries exceeded with url: /team/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.vertis.it', port=443): Failed to resolve 'www.vertis.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.771162+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.771162+00:00"
     },
     "https://www.apollo.com/aboutus/leadership-and-people": {
       "url": "https://www.apollo.com/aboutus/leadership-and-people",
@@ -1847,21 +1847,21 @@
     },
     "https://www.hatsicaf.it/portfolio/our-partnership/": {
       "url": "https://www.hatsicaf.it/portfolio/our-partnership/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:50:37.718454+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.hatsicaf.it', port=443): Max retries exceeded with url: /portfolio/our-partnership/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.hatsicaf.it', port=443): Failed to resolve 'www.hatsicaf.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:29.130367+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:29.130367+00:00"
     },
     "https://www.hatsicaf.it/people/our-team/": {
       "url": "https://www.hatsicaf.it/people/our-team/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:50:49.840832+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.hatsicaf.it', port=443): Max retries exceeded with url: /people/our-team/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.hatsicaf.it', port=443): Failed to resolve 'www.hatsicaf.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:29.146545+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:29.146545+00:00"
     },
     "https://www.nevasgr.com/content/neva/en/portfolio.html": {
       "url": "https://www.nevasgr.com/content/neva/en/portfolio.html",
@@ -1928,12 +1928,12 @@
     },
     "https://sinlocinvestimentisgr.com/progetti/": {
       "url": "https://sinlocinvestimentisgr.com/progetti/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:11.743119+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='sinlocinvestimentisgr.com', port=443): Max retries exceeded with url: /progetti/ (Caused by NameResolutionError(\"HTTPSConnection(host='sinlocinvestimentisgr.com', port=443): Failed to resolve 'sinlocinvestimentisgr.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.582003+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.582003+00:00"
     },
     "https://www.sagittasgr.it/chi-siamo/il-team/": {
       "url": "https://www.sagittasgr.it/chi-siamo/il-team/",
@@ -1955,75 +1955,75 @@
     },
     "https://sinlocinvestimentisgr.com/team-di-gestione/": {
       "url": "https://sinlocinvestimentisgr.com/team-di-gestione/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:12.417391+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='sinlocinvestimentisgr.com', port=443): Max retries exceeded with url: /team-di-gestione/ (Caused by NameResolutionError(\"HTTPSConnection(host='sinlocinvestimentisgr.com', port=443): Failed to resolve 'sinlocinvestimentisgr.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.586694+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.586694+00:00"
     },
     "https://sofinnovapartners.com/news": {
       "url": "https://sofinnovapartners.com/news",
-      "status": "ok",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:12.937367+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='sofinnovapartners.com', port=443): Max retries exceeded with url: /news (Caused by NameResolutionError(\"HTTPSConnection(host='sofinnovapartners.com', port=443): Failed to resolve 'sofinnovapartners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.606972+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.606972+00:00"
     },
     "https://www.fondisici.it/come-investiamo/": {
       "url": "https://www.fondisici.it/come-investiamo/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:35.124646+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.fondisici.it', port=443): Max retries exceeded with url: /come-investiamo/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.fondisici.it', port=443): Failed to resolve 'www.fondisici.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.627481+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.627481+00:00"
     },
     "https://sinlocinvestimentisgr.com/news/": {
       "url": "https://sinlocinvestimentisgr.com/news/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:14.053692+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='sinlocinvestimentisgr.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='sinlocinvestimentisgr.com', port=443): Failed to resolve 'sinlocinvestimentisgr.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.590704+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.590704+00:00"
     },
     "https://www.fondisici.it/chi-siamo/": {
       "url": "https://www.fondisici.it/chi-siamo/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:36.276683+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.fondisici.it', port=443): Max retries exceeded with url: /chi-siamo/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.fondisici.it', port=443): Failed to resolve 'www.fondisici.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.633425+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.633425+00:00"
     },
     "https://www.fondisici.it/portafoglio/news/": {
       "url": "https://www.fondisici.it/portafoglio/news/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:36.513328+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.fondisici.it', port=443): Max retries exceeded with url: /portafoglio/news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.fondisici.it', port=443): Failed to resolve 'www.fondisici.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.639221+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.639221+00:00"
     },
     "https://www.triton-partners.com/about/": {
       "url": "https://www.triton-partners.com/about/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:40.062649+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.triton-partners.com', port=443): Max retries exceeded with url: /about/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.triton-partners.com', port=443): Failed to resolve 'www.triton-partners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.706580+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.706580+00:00"
     },
     "https://www.triton-partners.com/media/news/": {
       "url": "https://www.triton-partners.com/media/news/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:43.481035+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.triton-partners.com', port=443): Max retries exceeded with url: /media/news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.triton-partners.com', port=443): Failed to resolve 'www.triton-partners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.710836+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.710836+00:00"
     },
     "https://www.alphape.com/about-us": {
       "url": "https://www.alphape.com/about-us",
@@ -2054,48 +2054,48 @@
     },
     "https://www.bluegemcp.com/portfolio": {
       "url": "https://www.bluegemcp.com/portfolio",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:47:45.826452+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.bluegemcp.com', port=443): Max retries exceeded with url: /portfolio (Caused by NameResolutionError(\"HTTPSConnection(host='www.bluegemcp.com', port=443): Failed to resolve 'www.bluegemcp.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:07.544780+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:07.544780+00:00"
     },
     "https://www.bluegemcp.com/team": {
       "url": "https://www.bluegemcp.com/team",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:47:50.369727+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.bluegemcp.com', port=443): Max retries exceeded with url: /team (Caused by NameResolutionError(\"HTTPSConnection(host='www.bluegemcp.com', port=443): Failed to resolve 'www.bluegemcp.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:07.560767+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:07.560767+00:00"
     },
     "https://www.bluegemcp.com/news": {
       "url": "https://www.bluegemcp.com/news",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:47:59.319189+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.bluegemcp.com', port=443): Max retries exceeded with url: /news (Caused by NameResolutionError(\"HTTPSConnection(host='www.bluegemcp.com', port=443): Failed to resolve 'www.bluegemcp.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:07.573783+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:07.573783+00:00"
     },
     "https://www.sefeaimpact.it/fondo-si-social-impact/": {
       "url": "https://www.sefeaimpact.it/fondo-si-social-impact/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:00.735699+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.sefeaimpact.it', port=443): Max retries exceeded with url: /fondo-si-social-impact/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.sefeaimpact.it', port=443): Failed to resolve 'www.sefeaimpact.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.565760+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.565760+00:00"
     },
     "https://www.sefeaimpact.it/chi-siamo-sefea-impact/": {
       "url": "https://www.sefeaimpact.it/chi-siamo-sefea-impact/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:04.507398+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.sefeaimpact.it', port=443): Max retries exceeded with url: /chi-siamo-sefea-impact/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.sefeaimpact.it', port=443): Failed to resolve 'www.sefeaimpact.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.570938+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.570938+00:00"
     },
     "https://www.aresmgmt.com/about-ares-management-corporation/our-team": {
       "url": "https://www.aresmgmt.com/about-ares-management-corporation/our-team",
@@ -2360,12 +2360,12 @@
     },
     "https://sella.vc/#team": {
       "url": "https://sella.vc/#team",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:01.623436+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='sella.vc', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='sella.vc', port=443): Failed to resolve 'sella.vc' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.574698+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.574698+00:00"
     },
     "https://www.ringcp.com/portfolio/": {
       "url": "https://www.ringcp.com/portfolio/",
@@ -2495,12 +2495,12 @@
     },
     "https://www.sosteneo.com/projects": {
       "url": "https://www.sosteneo.com/projects",
-      "status": "ok",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:14.218216+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.sosteneo.com', port=443): Max retries exceeded with url: /projects (Caused by NameResolutionError(\"HTTPSConnection(host='www.sosteneo.com', port=443): Failed to resolve 'www.sosteneo.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.604395+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.604395+00:00"
     },
     "https://scientifica.vc/portfolio-startup/": {
       "url": "https://scientifica.vc/portfolio-startup/",
@@ -2522,12 +2522,12 @@
     },
     "https://toseed.it/portfolio/": {
       "url": "https://toseed.it/portfolio/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:39.364794+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='toseed.it', port=443): Max retries exceeded with url: /portfolio/ (Caused by NameResolutionError(\"HTTPSConnection(host='toseed.it', port=443): Failed to resolve 'toseed.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.680795+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.680795+00:00"
     },
     "https://www.higeurope.com/news/": {
       "url": "https://www.higeurope.com/news/",
@@ -2567,12 +2567,12 @@
     },
     "https://www.sienna-pe.com/portfolio/": {
       "url": "https://www.sienna-pe.com/portfolio/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:15.331986+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.sienna-pe.com', port=443): Max retries exceeded with url: /portfolio/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.sienna-pe.com', port=443): Failed to resolve 'www.sienna-pe.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.577389+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.577389+00:00"
     },
     "https://www.equityclub.eu/en/investments-details": {
       "url": "https://www.equityclub.eu/en/investments-details",
@@ -2603,21 +2603,21 @@
     },
     "https://www.auroragrowthcapital.it/?page_id=3191": {
       "url": "https://www.auroragrowthcapital.it/?page_id=3191",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:47:04.942429+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.auroragrowthcapital.it', port=443): Max retries exceeded with url: /?page_id=3191 (Caused by NameResolutionError(\"HTTPSConnection(host='www.auroragrowthcapital.it', port=443): Failed to resolve 'www.auroragrowthcapital.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:07.544172+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:07.544172+00:00"
     },
     "https://wrmgroup.net/track-record/": {
       "url": "https://wrmgroup.net/track-record/",
-      "status": "ok",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T09:43:54.496873+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='wrmgroup.net', port=443): Max retries exceeded with url: /track-record/ (Caused by NameResolutionError(\"HTTPSConnection(host='wrmgroup.net', port=443): Failed to resolve 'wrmgroup.net' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.784300+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.784300+00:00"
     },
     "https://www.spacecapital.it/it/portfolio-investments.html": {
       "url": "https://www.spacecapital.it/it/portfolio-investments.html",
@@ -2729,48 +2729,48 @@
     },
     "https://www.eiffel-ig.com/groupe/equipe/": {
       "url": "https://www.eiffel-ig.com/groupe/equipe/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:49:36.555631+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.eiffel-ig.com', port=443): Max retries exceeded with url: /groupe/equipe/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.eiffel-ig.com', port=443): Failed to resolve 'www.eiffel-ig.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:29.079036+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:29.079036+00:00"
     },
     "https://www.eiffel-ig.com/actualites/": {
       "url": "https://www.eiffel-ig.com/actualites/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:49:59.240822+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.eiffel-ig.com', port=443): Max retries exceeded with url: /actualites/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.eiffel-ig.com', port=443): Failed to resolve 'www.eiffel-ig.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:29.097758+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:29.097758+00:00"
     },
     "https://www.meritosgr.it/investimenti/?fr_src=fundradar": {
       "url": "https://www.meritosgr.it/investimenti/?fr_src=fundradar",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:27.993570+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.meritosgr.it', port=443): Max retries exceeded with url: /investimenti/?fr_src=fundradar (Caused by NameResolutionError(\"HTTPSConnection(host='www.meritosgr.it', port=443): Failed to resolve 'www.meritosgr.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:29.265930+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:29.265930+00:00"
     },
     "https://www.meritosgr.it/team/?fr_src=fundradar": {
       "url": "https://www.meritosgr.it/team/?fr_src=fundradar",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:36.142507+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.meritosgr.it', port=443): Max retries exceeded with url: /team/?fr_src=fundradar (Caused by NameResolutionError(\"HTTPSConnection(host='www.meritosgr.it', port=443): Failed to resolve 'www.meritosgr.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:29.268850+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:29.268850+00:00"
     },
     "https://www.meritosgr.it/news/?fr_src=fundradar": {
       "url": "https://www.meritosgr.it/news/?fr_src=fundradar",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:42.699477+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.meritosgr.it', port=443): Max retries exceeded with url: /news/?fr_src=fundradar (Caused by NameResolutionError(\"HTTPSConnection(host='www.meritosgr.it', port=443): Failed to resolve 'www.meritosgr.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:29.271663+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:29.271663+00:00"
     },
     "https://www.spacecapital.it/it/investment-team.html": {
       "url": "https://www.spacecapital.it/it/investment-team.html",
@@ -2810,21 +2810,21 @@
     },
     "https://www.hatsicaf.it/blog/": {
       "url": "https://www.hatsicaf.it/blog/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:50:59.352621+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.hatsicaf.it', port=443): Max retries exceeded with url: /blog/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.hatsicaf.it', port=443): Failed to resolve 'www.hatsicaf.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:29.160145+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:29.160145+00:00"
     },
     "https://www.tscawsgr.com/it/stampa": {
       "url": "https://www.tscawsgr.com/it/stampa",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:37.293510+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.tscawsgr.com', port=443): Max retries exceeded with url: /it/stampa (Caused by NameResolutionError(\"HTTPSConnection(host='www.tscawsgr.com', port=443): Failed to resolve 'www.tscawsgr.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.662579+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.662579+00:00"
     },
     "https://www.faroalternativeinvestments.com/about-us/": {
       "url": "https://www.faroalternativeinvestments.com/about-us/",
@@ -2846,12 +2846,12 @@
     },
     "https://www.tscawsgr.com/it/team": {
       "url": "https://www.tscawsgr.com/it/team",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:36.986266+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.tscawsgr.com', port=443): Max retries exceeded with url: /it/team (Caused by NameResolutionError(\"HTTPSConnection(host='www.tscawsgr.com', port=443): Failed to resolve 'www.tscawsgr.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.656337+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.656337+00:00"
     },
     "https://www.reamsgr.it/la-societa/chi-siamo-ream.html": {
       "url": "https://www.reamsgr.it/la-societa/chi-siamo-ream.html",
@@ -2945,12 +2945,12 @@
     },
     "https://wrmgroup.net/media/?fr_src=fundradar": {
       "url": "https://wrmgroup.net/media/?fr_src=fundradar",
-      "status": "ok",
-      "status_code": 304,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T09:43:54.555100+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='wrmgroup.net', port=443): Max retries exceeded with url: /media/?fr_src=fundradar (Caused by NameResolutionError(\"HTTPSConnection(host='wrmgroup.net', port=443): Failed to resolve 'wrmgroup.net' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.788597+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.788597+00:00"
     },
     "https://scientifica.vc/team/?fr_src=fundradar": {
       "url": "https://scientifica.vc/team/?fr_src=fundradar",
@@ -3035,57 +3035,57 @@
     },
     "https://eosimgroup.com/about-us/management-team": {
       "url": "https://eosimgroup.com/about-us/management-team",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:49:27.421492+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='eosimgroup.com', port=443): Max retries exceeded with url: /about-us/management-team (Caused by NameResolutionError(\"HTTPSConnection(host='eosimgroup.com', port=443): Failed to resolve 'eosimgroup.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:29.098574+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:29.098574+00:00"
     },
     "https://www.unigrains.fr/fr/equipe": {
       "url": "https://www.unigrains.fr/fr/equipe",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:40.973007+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.unigrains.fr', port=443): Max retries exceeded with url: /fr/equipe (Caused by NameResolutionError(\"HTTPSConnection(host='www.unigrains.fr', port=443): Failed to resolve 'www.unigrains.fr' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.726138+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.726138+00:00"
     },
     "https://www.smart-capital.it/team/": {
       "url": "https://www.smart-capital.it/team/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:14.776175+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.smart-capital.it', port=443): Max retries exceeded with url: /team/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.smart-capital.it', port=443): Failed to resolve 'www.smart-capital.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.595351+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.595351+00:00"
     },
     "https://zestgroup.vc/en/people": {
       "url": "https://zestgroup.vc/en/people",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:52.396688+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='zestgroup.vc', port=443): Max retries exceeded with url: /en/people (Caused by NameResolutionError(\"HTTPSConnection(host='zestgroup.vc', port=443): Failed to resolve 'zestgroup.vc' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.816187+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.816187+00:00"
     },
     "https://www.unigrains.fr/fr/actualites": {
       "url": "https://www.unigrains.fr/fr/actualites",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:47.672119+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.unigrains.fr', port=443): Max retries exceeded with url: /fr/actualites (Caused by NameResolutionError(\"HTTPSConnection(host='www.unigrains.fr', port=443): Failed to resolve 'www.unigrains.fr' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.732536+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.732536+00:00"
     },
     "https://varde.com/news/": {
       "url": "https://varde.com/news/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:44.814130+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='varde.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='varde.com', port=443): Failed to resolve 'varde.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.754702+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.754702+00:00"
     },
     "https://bic-capital.com/track-record/": {
       "url": "https://bic-capital.com/track-record/",
@@ -3107,21 +3107,21 @@
     },
     "https://www.augenscapital.com/portfolio/": {
       "url": "https://www.augenscapital.com/portfolio/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:47:27.268105+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.augenscapital.com', port=443): Max retries exceeded with url: /portfolio/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.augenscapital.com', port=443): Failed to resolve 'www.augenscapital.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:07.546698+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:07.546698+00:00"
     },
     "https://www.augenscapital.com/team/": {
       "url": "https://www.augenscapital.com/team/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-19T13:48:10.130752+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.augenscapital.com', port=443): Max retries exceeded with url: /team/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.augenscapital.com', port=443): Failed to resolve 'www.augenscapital.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:07.571795+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:07.571795+00:00"
     },
     "https://www.investcorp.com/category/news/": {
       "url": "https://www.investcorp.com/category/news/",
@@ -3143,12 +3143,12 @@
     },
     "https://www.silverlake.com/portfolio/": {
       "url": "https://www.silverlake.com/portfolio/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:06.704445+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.silverlake.com', port=443): Max retries exceeded with url: /portfolio/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.silverlake.com', port=443): Failed to resolve 'www.silverlake.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.580535+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.580535+00:00"
     },
     "https://hf.com/portfolio/": {
       "url": "https://hf.com/portfolio/",
@@ -3161,12 +3161,12 @@
     },
     "https://www.silverlake.com/news/": {
       "url": "https://www.silverlake.com/news/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:07.597448+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.silverlake.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.silverlake.com', port=443): Failed to resolve 'www.silverlake.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.585278+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.585278+00:00"
     },
     "https://hf.com/news/": {
       "url": "https://hf.com/news/",
@@ -3188,39 +3188,39 @@
     },
     "https://www.ta.com/portfolio/investments/": {
       "url": "https://www.ta.com/portfolio/investments/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:36.036632+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.ta.com', port=443): Max retries exceeded with url: /portfolio/investments/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.ta.com', port=443): Failed to resolve 'www.ta.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.641294+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.641294+00:00"
     },
     "https://www.tpg.com/news-and-insights/news": {
       "url": "https://www.tpg.com/news-and-insights/news",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:49.985613+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.tpg.com', port=443): Max retries exceeded with url: /news-and-insights/news (Caused by NameResolutionError(\"HTTPSConnection(host='www.tpg.com', port=443): Failed to resolve 'www.tpg.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.694977+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.694977+00:00"
     },
     "https://www.ta.com/news/": {
       "url": "https://www.ta.com/news/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:36.702615+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.ta.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.ta.com', port=443): Failed to resolve 'www.ta.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.647279+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.647279+00:00"
     },
     "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c": {
       "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:43.847159+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.tipspa.it', port=443): Max retries exceeded with url: /en/page/5d24b680bac35e0a5a5eb25c (Caused by NameResolutionError(\"HTTPSConnection(host='www.tipspa.it', port=443): Failed to resolve 'www.tipspa.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.650088+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.650088+00:00"
     },
     "https://www.icgam.com/news-insights-analysis/": {
       "url": "https://www.icgam.com/news-insights-analysis/",
@@ -3296,12 +3296,12 @@
     },
     "https://warburgpincus.com/investments/": {
       "url": "https://warburgpincus.com/investments/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:45.546291+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='warburgpincus.com', port=443): Max retries exceeded with url: /investments/ (Caused by NameResolutionError(\"HTTPSConnection(host='warburgpincus.com', port=443): Failed to resolve 'warburgpincus.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.766133+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.766133+00:00"
     },
     "https://www.azzurracapital.com/media/": {
       "url": "https://www.azzurracapital.com/media/",
@@ -3314,39 +3314,39 @@
     },
     "https://www.vaminvestments.com/en/portfolio-en/": {
       "url": "https://www.vaminvestments.com/en/portfolio-en/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:53.158318+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.vaminvestments.com', port=443): Max retries exceeded with url: /en/portfolio-en/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.vaminvestments.com', port=443): Failed to resolve 'www.vaminvestments.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.740464+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.740464+00:00"
     },
     "https://warburgpincus.com/news/": {
       "url": "https://warburgpincus.com/news/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:45.992826+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='warburgpincus.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='warburgpincus.com', port=443): Failed to resolve 'warburgpincus.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.770051+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.770051+00:00"
     },
     "https://unitedventures.com/portfolio/": {
       "url": "https://unitedventures.com/portfolio/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:50.994594+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='unitedventures.com', port=443): Max retries exceeded with url: /portfolio/ (Caused by NameResolutionError(\"HTTPSConnection(host='unitedventures.com', port=443): Failed to resolve 'unitedventures.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.729386+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.729386+00:00"
     },
     "https://unitedventures.com/team/": {
       "url": "https://unitedventures.com/team/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:52.110255+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='unitedventures.com', port=443): Max retries exceeded with url: /team/ (Caused by NameResolutionError(\"HTTPSConnection(host='unitedventures.com', port=443): Failed to resolve 'unitedventures.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.733110+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.733110+00:00"
     },
     "https://cherrybaycapital.com/cherries/": {
       "url": "https://cherrybaycapital.com/cherries/",
@@ -3368,39 +3368,39 @@
     },
     "https://www.tpg.com/portfolio": {
       "url": "https://www.tpg.com/portfolio",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:47.903970+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.tpg.com', port=443): Max retries exceeded with url: /portfolio (Caused by NameResolutionError(\"HTTPSConnection(host='www.tpg.com', port=443): Failed to resolve 'www.tpg.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.687621+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.687621+00:00"
     },
     "https://www.tdrcapital.com/news/": {
       "url": "https://www.tdrcapital.com/news/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:36.835682+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.tdrcapital.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.tdrcapital.com', port=443): Failed to resolve 'www.tdrcapital.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.653256+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.653256+00:00"
     },
     "https://www.stirlingsquare.com/investments": {
       "url": "https://www.stirlingsquare.com/investments",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:17.565839+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.stirlingsquare.com', port=443): Max retries exceeded with url: /investments (Caused by NameResolutionError(\"HTTPSConnection(host='www.stirlingsquare.com', port=443): Failed to resolve 'www.stirlingsquare.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.611375+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.611375+00:00"
     },
     "https://www.stirlingsquare.com/news": {
       "url": "https://www.stirlingsquare.com/news",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:18.920425+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.stirlingsquare.com', port=443): Max retries exceeded with url: /news (Caused by NameResolutionError(\"HTTPSConnection(host='www.stirlingsquare.com', port=443): Failed to resolve 'www.stirlingsquare.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.616263+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.616263+00:00"
     },
     "https://www.rhonegroup.com/portfolio/": {
       "url": "https://www.rhonegroup.com/portfolio/",
@@ -3431,12 +3431,12 @@
     },
     "https://www.vaminvestments.com/team/": {
       "url": "https://www.vaminvestments.com/team/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:49:02.021682+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='www.vaminvestments.com', port=443): Max retries exceeded with url: /team/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.vaminvestments.com', port=443): Failed to resolve 'www.vaminvestments.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.759405+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.759405+00:00"
     },
     "https://www.oaktreecapital.com/insights/": {
       "url": "https://www.oaktreecapital.com/insights/",
@@ -3458,12 +3458,12 @@
     },
     "https://stonepeak.com/news/": {
       "url": "https://stonepeak.com/news/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-11T08:48:34.795936+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "other_error",
+      "status_code": 0,
+      "error_message": "HTTPSConnectionPool(host='stonepeak.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='stonepeak.com', port=443): Failed to resolve 'stonepeak.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "last_checked_at": "2026-03-20T17:41:33.621381+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-20T17:46:33.621381+00:00"
     },
     "https://www.oneequity.com/team/": {
       "url": "https://www.oneequity.com/team/",

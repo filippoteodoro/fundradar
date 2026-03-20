@@ -14459,36 +14459,6 @@
       }
     },
     {
-      "id": "web-signal-00060",
-      "fund_id": "",
-      "fund_slug": "bc-partners",
-      "signal_type": "other",
-      "title": "2025 BC Partners Year in Review",
-      "what_changed": "As 2025 comes to an end, we\u2019re reflecting on the achievements, partnerships, and progress that shaped our year. Thank you\u2026",
-      "source_url": "https://www.bcpartners.com/news/2025-bc-partners-year-in-review/",
-      "source_name": "BC Partners",
-      "published_at": "2025-12-17",
-      "observed_at": "2026-03-20T15:38:21.965846+00:00",
-      "created_at": "2026-03-20T15:38:21.965846+00:00",
-      "snapshot_id": "snap-20260320153816-6176308d",
-      "diff_summary": "New news item detected (dated 2025-12-17)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [
-          "Review As"
-        ],
-        "people": [
-          "Review As",
-          "Partners Year"
-        ],
-        "locations": []
-      }
-    },
-    {
       "id": "web-signal-01601",
       "fund_id": "",
       "fund_slug": "sagitta-sgr",
@@ -14590,31 +14560,6 @@
       "page_category": "NEWS",
       "page_type": "NEWS",
       "quality_score": 75
-    },
-    {
-      "id": "web-signal-00061",
-      "fund_id": "",
-      "fund_slug": "bc-partners",
-      "signal_type": "other",
-      "title": "Fortidia announces strategic partnership with BC Partners to accelerate global growth",
-      "what_changed": "Fortidia (or the \u201cCompany\u201d), a leading global platform providing shipping, fulfilment and marketing services, announced today that it has entered\u2026",
-      "source_url": "https://www.bcpartners.com/news/fortidia-announces-strategic-partnership-with-bc-partners-to-accelerate-global-growth/",
-      "source_name": "BC Partners",
-      "published_at": "2025-12-16",
-      "observed_at": "2026-03-20T15:38:21.965846+00:00",
-      "created_at": "2026-03-20T15:38:21.965846+00:00",
-      "snapshot_id": "snap-20260320153816-6176308d",
-      "diff_summary": "New news item detected (dated 2025-12-16)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.0,
-      "relevance_reasons": [],
-      "italy_relevant": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      }
     },
     {
       "id": "web-signal-02014",
@@ -63056,6 +63001,5 @@
       "extraction_source": "historical_extraction"
     }
   ],
-  "signal_count": 2317,
-  "translated_at": "2026-03-20T15:44:01.722768+00:00"
+  "signal_count": 2315
 }
