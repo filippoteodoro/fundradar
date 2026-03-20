@@ -9,6 +9,7 @@ if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
 
 from filter_signals import (  # noqa: E402
+    _compute_filter_cache_context,
     _exact_dedup_signals,
     _raw_signal_cache_fingerprint,
     _signal_fund_url_key,
@@ -26,6 +27,37 @@ def test_raw_signal_cache_fingerprint_changes_with_signal_content():
     }
     original = _raw_signal_cache_fingerprint(signal, "blackstone")
     changed = _raw_signal_cache_fingerprint({**signal, "title": "Blackstone approves revised plan"}, "blackstone")
+    assert original != changed
+
+
+def test_raw_signal_cache_fingerprint_changes_with_filter_relevant_upstream_fields():
+    signal = {
+        "id": "sig-2",
+        "fund_slug": "blackstone",
+        "source_url": "https://example.com/article",
+        "title": "Blackstone approves plan",
+        "title_original": "Blackstone approva il piano",
+        "what_changed": "Financial plan approved",
+        "what_changed_original": "Piano finanziario approvato",
+        "relevance_score": 0,
+        "relevance_reasons": [],
+        "observed_at": "2026-03-20T10:00:00+00:00",
+    }
+    original = _raw_signal_cache_fingerprint(signal, "blackstone")
+    changed_original = _raw_signal_cache_fingerprint({**signal, "title_original": "Blackstone approva il nuovo piano"}, "blackstone")
+    changed_relevance = _raw_signal_cache_fingerprint({**signal, "relevance_reasons": ["italy_keyword"]}, "blackstone")
+    assert original != changed_original
+    assert original != changed_relevance
+
+
+def test_filter_cache_context_changes_when_dependency_content_changes(tmp_path):
+    file_a = tmp_path / "a.py"
+    file_b = tmp_path / "b.json"
+    file_a.write_text("print('a')\n", encoding="utf-8")
+    file_b.write_text('{"x":1}\n', encoding="utf-8")
+    original = _compute_filter_cache_context((file_a, file_b))
+    file_b.write_text('{"x":2}\n', encoding="utf-8")
+    changed = _compute_filter_cache_context((file_a, file_b))
     assert original != changed
 
 

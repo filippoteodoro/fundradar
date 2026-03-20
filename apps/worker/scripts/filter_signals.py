@@ -125,6 +125,13 @@ from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH as DB_FILE, S
 ENRICHED_OUTPUT_FILE = DATA_DIR / "detected_signals_enriched.json"
 FILTER_CACHE_FILE = DATA_DIR / "signal_filter_progress.json"
 FILTER_CACHE_VERSION = 2
+FILTER_CACHE_CONTEXT_FILES = (
+    Path(__file__),
+    Path(__file__).with_name("signal_patterns.py"),
+    Path(__file__).with_name("signal_corrections.py"),
+    Path(__file__).with_name("signal_text_utils.py"),
+    DB_FILE,
+)
 
 # Minimum quality score to keep (0-100)
 MIN_QUALITY_SCORE = int(os.environ.get("SIGNAL_MIN_QUALITY", "80"))
@@ -3519,10 +3526,14 @@ def _raw_signal_cache_fingerprint(signal: dict, canonical_fund_slug: str) -> str
         "published_at": signal.get("published_at") or "",
         "observed_at": signal.get("observed_at") or "",
         "title": signal.get("title") or "",
+        "title_original": signal.get("title_original") or "",
         "what_changed": signal.get("what_changed") or "",
+        "what_changed_original": signal.get("what_changed_original") or "",
         "diff_summary": signal.get("diff_summary") or "",
         "enriched_summary": signal.get("enriched_summary") or "",
         "italy_relevant": signal.get("italy_relevant"),
+        "relevance_score": signal.get("relevance_score"),
+        "relevance_reasons": signal.get("relevance_reasons") or [],
         "related_fund_slugs": signal.get("related_fund_slugs") or [],
         "extracted_companies": entities.get("companies") or [],
         "extracted_people": entities.get("people") or [],
@@ -3532,7 +3543,26 @@ def _raw_signal_cache_fingerprint(signal: dict, canonical_fund_slug: str) -> str
     return hashlib.sha256(serialized.encode("utf-8")).hexdigest()
 
 
-def _load_filter_cache() -> tuple[set[str], dict[str, dict]]:
+def _compute_filter_cache_context(files: tuple[Path, ...] = FILTER_CACHE_CONTEXT_FILES) -> str:
+    hasher = hashlib.sha256()
+    settings_payload = {
+        "cache_version": FILTER_CACHE_VERSION,
+        "min_quality_score": MIN_QUALITY_SCORE,
+        "strict_gate_override_score": STRICT_GATE_OVERRIDE_SCORE,
+        "ml_override_threshold": ML_OVERRIDE_THRESHOLD,
+        "ml_use_keep": ML_USE_KEEP,
+    }
+    hasher.update(json.dumps(settings_payload, sort_keys=True, separators=(",", ":")).encode("utf-8"))
+    for path in files:
+        hasher.update(str(path).encode("utf-8"))
+        try:
+            hasher.update(path.read_bytes())
+        except OSError:
+            hasher.update(b"<missing>")
+    return hasher.hexdigest()
+
+
+def _load_filter_cache(expected_context_hash: str) -> tuple[set[str], dict[str, dict]]:
     if not FILTER_CACHE_FILE.exists():
         return set(), {}
     try:
@@ -3541,6 +3571,8 @@ def _load_filter_cache() -> tuple[set[str], dict[str, dict]]:
         return set(), {}
     if data.get("cache_version") != FILTER_CACHE_VERSION:
         return set(), {}
+    if data.get("context_hash") != expected_context_hash:
+        return set(), {}
     raw_fingerprints = set(data.get("all_raw_fingerprints") or [])
     kept_signals = data.get("kept_signals") or {}
     if not isinstance(kept_signals, dict):
@@ -3548,9 +3580,10 @@ def _load_filter_cache() -> tuple[set[str], dict[str, dict]]:
     return raw_fingerprints, kept_signals
 
 
-def _write_filter_cache(all_raw_fingerprints: set[str], kept_signals: dict[str, dict]) -> None:
+def _write_filter_cache(all_raw_fingerprints: set[str], kept_signals: dict[str, dict], context_hash: str) -> None:
     payload = {
         "cache_version": FILTER_CACHE_VERSION,
+        "context_hash": context_hash,
         "all_raw_fingerprints": sorted(all_raw_fingerprints),
         "kept_signals": kept_signals,
         "updated_at": datetime.now(timezone.utc).isoformat(),
@@ -3655,10 +3688,11 @@ def main():
 
     cached_raw_fingerprints: set[str] = set()
     cached_kept_signals: dict[str, dict] = {}
+    filter_cache_context = _compute_filter_cache_context()
     if args.force_full:
         print("Filter cache: disabled (--force-full)")
     else:
-        cached_raw_fingerprints, cached_kept_signals = _load_filter_cache()
+        cached_raw_fingerprints, cached_kept_signals = _load_filter_cache(filter_cache_context)
         if cached_raw_fingerprints or cached_kept_signals:
             print(
                 "Filter cache: reusing unchanged history "
@@ -4614,7 +4648,7 @@ def main():
     }
 
     safe_json_write(OUTPUT_FILE, data)
-    _write_filter_cache(current_raw_fingerprints, kept_cache_signals)
+    _write_filter_cache(current_raw_fingerprints, kept_cache_signals, filter_cache_context)
 
     # Detect mentions of unknown funds (not in db.json) and alert via Telegram
     try:

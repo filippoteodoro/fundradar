@@ -110,6 +110,7 @@ Python writes dicts to JSON with no schema validation. TypeScript types are comp
 - `/funds/[slug]` → `data.ts` → filtered ONLY
 - Both share processing via `signalProcessing.ts`
 - After any filter/classification/text-cleaning fix, rerun **both** `filter_signals.py` and `enrich_signals_openai.py` (or `pnpm pipeline:signals`). `/signals` prefers `detected_signals_enriched.json`; a fresh filtered file alone does not update the public feed.
+- `filter_signals.py` has an incremental cache, but it auto-invalidates when the filter code, shared signal-cleaning/correction code, `db.json`, or filter thresholds change. `--force-full` is only for intentionally bypassing reuse during audits.
 - Dedup logic in 2 places: Python `filter_signals.py` and `signals_unified.ts` — update both
 - Classification must match in **3 places**: Python `signal_patterns.py` + `signal_corrections.py` (shared by filter + enricher) AND TypeScript `signalProcessing.ts`
 - Text cleaning is shared via `signal_text_utils.py` — `clean_display_text()` is the single entry point for all signal text fields (title, what_changed, enriched_summary, diff_summary). Both filter and enricher import from it.

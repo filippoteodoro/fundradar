@@ -17,7 +17,7 @@ Every fix must go into the pipeline code so it applies automatically to every ne
 
 **Testing after a Python fix**: `cd apps/worker && pytest` must pass. No new test → the fix may be silently wrong.
 
-**Rebuild rule after a signal-quality code fix**: rerun `python scripts/filter_signals.py --force-full` once, then rerun `python scripts/enrich_signals_openai.py` (or `pnpm pipeline:signals`). The filter has an incremental cache for warm runs, but `/signals` prefers `detected_signals_enriched.json`, so a fresh filtered file alone does not update the public feed.
+**Rebuild rule after a signal-quality code fix**: rerun `python scripts/filter_signals.py`, then rerun `python scripts/enrich_signals_openai.py` (or `pnpm pipeline:signals`). The filter cache auto-invalidates on code/config/`db.json` changes, but `/signals` prefers `detected_signals_enriched.json`, so a fresh filtered file alone does not update the public feed. Use `--force-full` only when you explicitly want to bypass cache reuse.
 
 ---
 
