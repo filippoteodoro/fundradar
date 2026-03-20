@@ -435,11 +435,13 @@ def main():
     if not args.dry_run:
         try:
             from google import genai  # noqa: F401
-        except ImportError:
+        except ImportError as exc:
             if args.pipeline:
-                print("google-generativeai not installed — skipping portfolio enrichment")
+                print(f"google-genai import failed — skipping portfolio enrichment: {exc}")
                 sys.exit(0)
-            print("Error: google-generativeai not installed. Install with: pip install google-generativeai")
+            print(f"Error: google-genai import failed: {exc}")
+            print("Install with: pip install google-genai")
+            print("If google-genai is already installed, rebuild the worker virtualenv.")
             sys.exit(1)
 
     # Pipeline mode defaults

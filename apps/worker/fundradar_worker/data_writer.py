@@ -14,7 +14,7 @@ from typing import Protocol
 
 from .enrichment import PortfolioCompany
 from .entity_resolver import CompanyEntity
-from .io_utils import safe_json_write
+from .io_utils import safe_json_write, recover_icloud_conflict_copy
 from .portfolio_diff import CompanyChange
 
 logger = logging.getLogger(__name__)
@@ -98,6 +98,7 @@ class JsonFileStore:
 
     def _load_json(self, path: Path, default: dict) -> dict:
         """Load JSON file or return default."""
+        path = recover_icloud_conflict_copy(path)
         if path.exists():
             with open(path) as f:
                 return json.load(f)

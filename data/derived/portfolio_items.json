@@ -70247,6 +70247,48 @@
         "source_url": "https://startupitalia.eu/startup/isaac-i-piani-round-14-milioni-di-euro/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00207"
+      },
+      {
+        "name": "Alomana's AI",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-03-19",
+        "source_url": "https://bebeez.it/venture-capital/lai-di-alomana-incassa-round-da-4-mln-euro-guidato-da-cdp-venture-capital-sgr/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00218"
+      },
+      {
+        "name": "K3RX",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-21",
+        "source_url": "https://startupitalia.eu/startup/k3rx-raccoglie-165-milioni-di-euro-space/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00135"
+      },
+      {
+        "name": "Be Newtral",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-02-12",
+        "source_url": "https://bebeez.it/venture-capital/benewtral-chiude-un-round-da-7-mln-euro-guidato-da-cdp-venture-capital-attraverso-il-fondo-corporate-partners-i/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00009"
       }
     ],
     "eiffel": [
@@ -86872,6 +86914,20 @@
         "source_url": "https://bebeez.it/venture-capital/isaac-antisismica-chiude-round-da-14-mln-con-cdp-venture-capital-sgr-360-capital-axon-partners-group-azimut-group-ring-capital-e-novacapital/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00181"
+      },
+      {
+        "name": "Alomana's AI",
+        "sector": null,
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": null,
+        "detail_page_url": null,
+        "headquarters": null,
+        "investment_date": "2026-03-19",
+        "source_url": "https://bebeez.it/venture-capital/lai-di-alomana-incassa-round-da-4-mln-euro-guidato-da-cdp-venture-capital-sgr/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00218"
       }
     ],
     "equiter": [

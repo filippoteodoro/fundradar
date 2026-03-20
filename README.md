@@ -19,6 +19,10 @@ pnpm dev
 pnpm pipeline
 ```
 
+Root-level worker commands such as `pnpm pipeline`, `pnpm worker:monitor`, and `pnpm pipeline:signals` activate `apps/worker/.venv` internally. Manual `source apps/worker/.venv/bin/activate` is optional.
+
+The pipeline now runs a preflight before any step executes. It blocks on critically low free disk space and on missing canonical outputs when iCloud placeholders/conflict copies are present, so dangerous local-state issues fail before API spend.
+
 ## Tech Stack
 
 | Component | Technology |

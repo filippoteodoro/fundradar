@@ -22,18 +22,21 @@ Usage:
 """
 
 import json
+import shutil
 import subprocess
 import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .io_utils import backup_before_write
+from .io_utils import backup_before_write, icloud_artifact_state, recover_icloud_conflict_copy
 from .alerting import AlertConfig, AlertManager, Alert
 from .paths import PROJECT_ROOT
 
 DATA_DIR = PROJECT_ROOT / "data" / "derived"
 WORKER_DIR = PROJECT_ROOT / "apps" / "worker"
+ICLOUD_PATH_MARKER = "Mobile Documents/com~apple~CloudDocs"
+MIN_FREE_DISK_BYTES = 1 * 1024 * 1024 * 1024
 
 # Load .env so Telegram credentials are available for pipeline alerts
 try:
@@ -160,9 +163,135 @@ STEPS = [
     },
 ]
 
+PORTFOLIO_ENRICHMENT_STEPS = ("enrich_portfolio", "enrich_portfolio_final")
+
+
+def _critical_preflight_paths() -> tuple[Path, ...]:
+    return (
+        DATA_DIR / "detected_signals.json",
+        DATA_DIR / "detected_signals_filtered.json",
+        DATA_DIR / "detected_signals_enriched.json",
+        DATA_DIR / "portfolio_items.json",
+        DATA_DIR / "company_profiles.json",
+    )
+
+
+def _tracked_warning_paths() -> tuple[Path, ...]:
+    return (
+        DATA_DIR / "discovery_top100.json",
+        DATA_DIR / "snapshots 2.json",
+    )
+
+
+def _format_bytes(num_bytes: int) -> str:
+    value = float(num_bytes)
+    for unit in ("B", "KiB", "MiB", "GiB", "TiB"):
+        if value < 1024 or unit == "TiB":
+            if unit == "B":
+                return f"{int(value)} {unit}"
+            return f"{value:.1f} {unit}"
+        value /= 1024
+    return f"{int(num_bytes)} B"
+
+
+def _preflight_checks(steps_to_run: list[dict]) -> tuple[list[str], list[str]]:
+    errors: list[str] = []
+    warnings: list[str] = []
+
+    try:
+        free_bytes = shutil.disk_usage(DATA_DIR).free
+        if free_bytes < MIN_FREE_DISK_BYTES:
+            errors.append(
+                "Low disk space: "
+                f"{_format_bytes(free_bytes)} free in the Fundradar volume; "
+                f"keep at least {_format_bytes(MIN_FREE_DISK_BYTES)} free before running the pipeline."
+            )
+    except OSError as exc:
+        warnings.append(f"Could not measure free disk space: {exc}")
+
+    if ICLOUD_PATH_MARKER in str(PROJECT_ROOT):
+        warnings.append(
+            "Project lives inside iCloud Drive; placeholders/conflict copies can corrupt "
+            "derived JSON and offload worker dependencies."
+        )
+        venv_path = WORKER_DIR / ".venv"
+        try:
+            venv_location = venv_path.resolve() if venv_path.exists() else None
+        except OSError:
+            venv_location = venv_path
+        if venv_location and ICLOUD_PATH_MARKER in str(venv_location):
+            warnings.append(
+                "Worker virtualenv is inside iCloud Drive; prefer keeping it outside synced storage."
+            )
+
+    critical_paths = {path for step in steps_to_run for path in step.get("outputs", [])}
+    critical_paths.update(_critical_preflight_paths())
+    for path in sorted(critical_paths, key=lambda p: str(p)):
+        artifacts = icloud_artifact_state(path)
+        placeholder = artifacts["placeholder"]
+        conflict_copies = artifacts["conflict_copies"] or []
+        if not path.exists() and (placeholder or conflict_copies):
+            details = []
+            if placeholder:
+                details.append(placeholder.name)
+            if conflict_copies:
+                details.append(", ".join(copy.name for copy in conflict_copies[:3]))
+            errors.append(
+                f"{path.name}: canonical file is missing while iCloud artifacts exist "
+                f"({'; '.join(details)})"
+            )
+        elif path.exists() and (placeholder or conflict_copies):
+            details = []
+            if placeholder:
+                details.append(placeholder.name)
+            if conflict_copies:
+                details.append(", ".join(copy.name for copy in conflict_copies[:3]))
+            warnings.append(f"{path.name}: stale iCloud artifacts present ({'; '.join(details)})")
+
+    for path in _tracked_warning_paths():
+        artifacts = icloud_artifact_state(path)
+        placeholder = artifacts["placeholder"]
+        conflict_copies = artifacts["conflict_copies"] or []
+        if not path.exists() and (placeholder or conflict_copies):
+            details = []
+            if placeholder:
+                details.append(placeholder.name)
+            if conflict_copies:
+                details.append(", ".join(copy.name for copy in conflict_copies[:3]))
+            warnings.append(
+                f"{path.name}: tracked file is missing while iCloud artifacts exist "
+                f"({'; '.join(details)})"
+            )
+        elif path.exists() and (placeholder or conflict_copies):
+            details = []
+            if placeholder:
+                details.append(placeholder.name)
+            if conflict_copies:
+                details.append(", ".join(copy.name for copy in conflict_copies[:3]))
+            warnings.append(f"{path.name}: stale iCloud artifacts present ({'; '.join(details)})")
+
+    return errors, warnings
+
+
+def _print_preflight_messages(errors: list[str], warnings: list[str]) -> None:
+    if not errors and not warnings:
+        return
+
+    print(f"\n{'=' * 60}")
+    print("  Preflight")
+    print(f"{'=' * 60}")
+    for warning in warnings:
+        print(f"  [WARN] {warning}")
+    for error in errors:
+        print(f"  [FAIL] {error}")
+    if errors:
+        print("  Pipeline blocked before any step ran.")
+        print("  No API calls were made.")
+
 
 def _validate_output(path: Path) -> tuple[bool, str]:
     """Check that an output file exists, is valid JSON, and is non-empty."""
+    path = recover_icloud_conflict_copy(path)
     if not path.exists():
         return False, f"Missing: {path.name}"
     try:
@@ -416,6 +545,14 @@ def _suggest_reruns(report: dict | None) -> list[tuple[str, str]]:
             "python apps/worker/scripts/enrich_portfolio_gemini_full.py --pipeline",
         ))
 
+    stp_status = _signal_to_portfolio_status()
+    if stp_status and stp_status["remaining"] > 0:
+        remaining = stp_status["remaining"]
+        suggestions.append((
+            f"Signal→Portfolio incomplete ({remaining} signals remaining)",
+            "python apps/worker/scripts/signal_to_portfolio.py --pipeline",
+        ))
+
     # Check signal enrichment gaps
     if report:
         enriched = report.get("enriched", {})
@@ -430,6 +567,64 @@ def _suggest_reruns(report: dict | None) -> list[tuple[str, str]]:
             ))
 
     return suggestions
+
+
+def _portfolio_enrichment_needs_attention(
+    results: dict[str, bool],
+    retry_log: dict[str, int],
+    step_details: dict[str, dict],
+) -> bool:
+    """Return True when this run had a portfolio-enrichment issue worth alerting on."""
+    for step_name in PORTFOLIO_ENRICHMENT_STEPS:
+        if results.get(step_name) is False:
+            return True
+        if step_name in retry_log:
+            return True
+        detail = step_details.get(step_name)
+        if detail and (detail.get("exit_code") or 0) != 0:
+            return True
+    return False
+
+
+def _remaining_work_items(
+    results: dict[str, bool],
+    retry_log: dict[str, int],
+    step_details: dict[str, dict],
+    report: dict | None,
+) -> list[str]:
+    """Build the list of remaining-work items worth surfacing in alerts."""
+    remaining_work: list[str] = []
+
+    # The portfolio enrichment backlog is a known long-lived optional queue.
+    # Only alert on it when this run actually had a portfolio-enrichment issue.
+    portfolio_status = _portfolio_enrichment_status()
+    if (
+        portfolio_status
+        and portfolio_status["remaining_entries"] > 10
+        and _portfolio_enrichment_needs_attention(results, retry_log, step_details)
+    ):
+        remaining_work.append(
+            f"Portfolio enrichment: {portfolio_status['remaining_entries']} entries remaining"
+        )
+
+    stp_status = _signal_to_portfolio_status()
+    if stp_status and stp_status["remaining"] > 10:
+        remaining_work.append(
+            f"Signal→Portfolio: {stp_status['remaining']} signals remaining "
+            f"({stp_status['processed']}/{stp_status['total_signals']} done)"
+        )
+
+    if report:
+        enriched = report.get("enriched", {})
+        filtered_count = report.get("filtered", {}).get("count") or 0
+        enriched_count = enriched.get("count") or 0
+        gap = filtered_count - enriched_count
+        if gap > 5:
+            remaining_work.append(
+                f"Filtered→Enriched gap: {gap} signals missing from enriched output"
+            )
+
+    return remaining_work
 
 
 def _send_pipeline_alert(
@@ -463,32 +658,7 @@ def _send_pipeline_alert(
     # Check remaining enrichment work — use minimum thresholds to suppress noise
     # from small residual counts that are expected (bot-blocked sites, signals with
     # no extractable company, etc.)
-    remaining_work: list[str] = []
-    portfolio_status = _portfolio_enrichment_status()
-    if portfolio_status and portfolio_status["remaining_entries"] > 10:
-        remaining_work.append(
-            f"Portfolio enrichment: {portfolio_status['remaining_entries']} entries remaining"
-        )
-
-    # Check signal-to-portfolio remaining work
-    stp_status = _signal_to_portfolio_status()
-    if stp_status and stp_status["remaining"] > 10:
-        remaining_work.append(
-            f"Signal→Portfolio: {stp_status['remaining']} signals remaining "
-            f"({stp_status['processed']}/{stp_status['total_signals']} done)"
-        )
-
-    if report:
-        enriched = report.get("enriched", {})
-        # Check filtered→enriched gap
-        filtered_count = report.get("filtered", {}).get("count") or 0
-        enriched_count = enriched.get("count") or 0
-        gap = filtered_count - enriched_count
-        if gap > 5:
-            remaining_work.append(
-                f"Filtered→Enriched gap: {gap} signals missing from enriched output"
-            )
-
+    remaining_work = _remaining_work_items(results, retry_log, step_details, report)
     has_issues = has_issues or bool(remaining_work)
 
     # Build message
@@ -644,6 +814,11 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
             valid = ", ".join(s["name"] for s in STEPS)
             print(f"Unknown step: {only_step}. Valid steps: {valid}")
             sys.exit(1)
+
+    preflight_errors, preflight_warnings = _preflight_checks(steps_to_run)
+    _print_preflight_messages(preflight_errors, preflight_warnings)
+    if preflight_errors:
+        sys.exit(1)
 
     total_start = time.monotonic()
     results = {}
@@ -813,7 +988,9 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
                 or (stp_status and stp_status.get("remaining", 0) > 0)
             )
             if has_remaining:
-                print(f"  Pipeline: has remaining work (run `pnpm pipeline:signals` to finish)")
+                print("  Pipeline: has remaining work")
+                for _, command in _suggest_reruns(report)[:2]:
+                    print(f"    Next: `{command}`")
             else:
                 print(f"  Pipeline: fully self-healed")
 

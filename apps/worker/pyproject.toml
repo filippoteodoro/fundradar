@@ -13,6 +13,7 @@ dependencies = [
     "playwright>=1.40.0",
     "PyYAML>=6.0.0",
     "python-dotenv>=1.0.0",
+    "openai>=1.0.0",
     "google-genai>=1.0.0",
     "feedparser>=6.0.0",
     "deepl>=1.16.0",

@@ -30,9 +30,10 @@ from dotenv import load_dotenv, dotenv_values
 
 try:
     from openai import OpenAI
-except ImportError:
-    print("Error: openai package not installed.")
+except ImportError as exc:
+    print(f"Error: OpenAI SDK import failed: {exc}")
     print("Install with: pip install openai python-dotenv")
+    print("If openai is already installed, rebuild the worker virtualenv.")
     exit(1)
 
 try:

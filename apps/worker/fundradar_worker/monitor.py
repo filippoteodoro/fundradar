@@ -21,7 +21,13 @@ from typing import TypedDict, Literal, Callable
 from .date_utils import normalize_news_date
 from .differ import DiffResult, NewsItem, NewsPageResult, compute_diff, compute_high_value_diff, compute_normalized_diff, generate_what_changed, extract_news_items, compare_news_items, classify_news_signal, compare_team_members
 from urllib.parse import urlparse
-from .io_utils import safe_json_write, backup_before_write, sanitize_text, sanitize_url
+from .io_utils import (
+    safe_json_write,
+    backup_before_write,
+    recover_icloud_conflict_copy,
+    sanitize_text,
+    sanitize_url,
+)
 from .paths import PROJECT_ROOT, DATA_DIR
 from .slug_normalizer import get_slug_normalizer
 from .url_utils import canonical_url, extract_domain
@@ -521,6 +527,7 @@ class SignalStore:
 
     def _load(self):
         """Load signals from disk."""
+        self.store_path = recover_icloud_conflict_copy(self.store_path)
         if self.store_path.exists():
             with open(self.store_path) as f:
                 data = json.load(f)
@@ -753,6 +760,7 @@ class NewsItemsStore:
 
     def _load(self):
         """Load from disk."""
+        self.store_path = recover_icloud_conflict_copy(self.store_path)
         if self.store_path.exists():
             with open(self.store_path) as f:
                 data = json.load(f)
@@ -804,6 +812,7 @@ class PortfolioStore:
 
     def _load(self):
         """Load from disk."""
+        self.store_path = recover_icloud_conflict_copy(self.store_path)
         if self.store_path.exists():
             with open(self.store_path) as f:
                 data = json.load(f)
@@ -1009,6 +1018,7 @@ class TeamStore:
 
     def _load(self):
         """Load from disk."""
+        self.store_path = recover_icloud_conflict_copy(self.store_path)
         if self.store_path.exists():
             with open(self.store_path) as f:
                 data = json.load(f)

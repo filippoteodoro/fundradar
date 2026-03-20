@@ -22,6 +22,83 @@ logger = logging.getLogger(__name__)
 _BACKUP_DIR_NAME = "backups"
 
 
+def _icloud_placeholder_path(path: Path) -> Path:
+    """Return the hidden iCloud placeholder path for a target file."""
+    return path.parent / f".{path.name}.icloud"
+
+
+def _icloud_conflict_candidates(path: Path) -> list[Path]:
+    """Return iCloud-style numbered conflict copies for a missing canonical file."""
+    pattern = re.compile(rf"^{re.escape(path.stem)} \d+{re.escape(path.suffix)}$")
+    candidates: list[Path] = []
+    for candidate in path.parent.iterdir():
+        if not candidate.is_file():
+            continue
+        if pattern.fullmatch(candidate.name):
+            candidates.append(candidate)
+    candidates.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    return candidates
+
+
+def clear_icloud_placeholder(path: Path | str) -> None:
+    """
+    Remove a hidden iCloud placeholder when we need to recreate the local file.
+
+    iCloud offloaded files appear as `.{name}.icloud`. Creating a fresh file with the
+    canonical name while that placeholder still exists can produce Finder-style numbered
+    copies such as `portfolio_items 2.json`, leaving the expected canonical path missing.
+    """
+    path = Path(path)
+    if path.exists():
+        return
+
+    placeholder = _icloud_placeholder_path(path)
+    if not placeholder.exists():
+        return
+
+    try:
+        placeholder.unlink()
+        logger.warning(f"Removed iCloud placeholder for {path.name}")
+    except OSError as exc:
+        logger.warning(f"Failed to remove iCloud placeholder {placeholder.name}: {exc}")
+
+
+def recover_icloud_conflict_copy(path: Path | str) -> Path:
+    """
+    Restore the canonical filename when iCloud left a numbered conflict copy behind.
+
+    Returns the original canonical path regardless of whether recovery was needed.
+    """
+    path = Path(path)
+    if path.exists():
+        return path
+
+    candidates = _icloud_conflict_candidates(path)
+    if not candidates:
+        return path
+
+    clear_icloud_placeholder(path)
+    winner = candidates[0]
+    try:
+        os.replace(winner, path)
+        logger.warning(f"Recovered iCloud conflict copy {winner.name} -> {path.name}")
+    except OSError as exc:
+        logger.warning(f"Failed to recover iCloud conflict copy for {path.name}: {exc}")
+
+    return path
+
+
+def icloud_artifact_state(path: Path | str) -> dict[str, Path | list[Path] | None]:
+    """Describe visible iCloud placeholder/conflict artifacts for a canonical path."""
+    path = Path(path)
+    placeholder = _icloud_placeholder_path(path)
+    return {
+        "canonical": path,
+        "placeholder": placeholder if placeholder.exists() else None,
+        "conflict_copies": _icloud_conflict_candidates(path),
+    }
+
+
 def safe_json_write(path: Path | str, data: dict | list, indent: int = 2) -> None:
     """
     Atomic write: serialize to temp file, then rename.
@@ -36,6 +113,7 @@ def safe_json_write(path: Path | str, data: dict | list, indent: int = 2) -> Non
     """
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
+    clear_icloud_placeholder(path)
 
     # Write to a temp file in the same directory (same filesystem = atomic rename)
     fd, tmp_path = tempfile.mkstemp(
@@ -72,7 +150,7 @@ def backup_before_write(path: Path | str, max_backups: int = 7) -> Path | None:
     Returns:
         Path to the backup file, or None if the source doesn't exist.
     """
-    path = Path(path)
+    path = recover_icloud_conflict_copy(path)
     if not path.exists():
         return None
 

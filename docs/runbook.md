@@ -21,6 +21,16 @@ For legal/compliance operations, use:
 pnpm pipeline
 ```
 
+Run this from the repo root exactly as usual. Manual `source apps/worker/.venv/bin/activate` is optional because the root `pnpm` worker commands activate the worker environment internally.
+
+If this checkout lives in iCloud Drive, keep rebuildable worker state outside iCloud. On this machine the supported layout is:
+
+```bash
+apps/worker/.venv -> ~/Code/Fundradar/apps/worker/.venv
+```
+
+The pipeline preflight checks for dangerous local-state conditions before any API spend. Treat preflight failures as environment/storage problems first, not scraper regressions.
+
 ### Re-extract after updating extractors
 
 ```bash
@@ -173,6 +183,29 @@ python -m fundradar_worker.cli reset-backoff --all
    { "domain.com": { "requires_headless": true } }
    ```
 3. Re-run: `pnpm pipeline --slugs fund-slug --force-extract`
+
+If Playwright suddenly asks to install browsers again after previously working, first check whether a cleaner tool removed `~/Library/Caches/ms-playwright`. CCleaner, `mac-cleaner-cli`, and similar tools can delete the browser runtime without removing the Python `playwright` package.
+
+### Preflight Blocks Before Pipeline Starts
+
+**Symptom:** Pipeline exits before step execution with warnings about low free disk, missing canonical outputs, or iCloud artifacts.
+
+**Fix:**
+1. Free disk space first if the warning mentions critically low space.
+2. Check `data/derived/` for iCloud placeholders or numbered copies instead of changing output paths.
+3. Move conflict copies out of the repo into `~/Code/Fundradar/recovery/` and keep the canonical filename in place.
+4. Re-run `pnpm pipeline` only after the preflight warnings are resolved.
+
+The preflight is intentionally conservative. It is cheaper to stop than to spend API calls while `data/derived/` or the worker environment is in an unsafe state.
+
+### `data/db.json` Changes During Worker Recovery
+
+`data/db.json` is the curated fund directory, not disposable worker output. Normal worker recovery should not require broad `db.json` rewrites.
+
+If a pipeline or recovery session leaves `data/db.json` with a large unrelated diff:
+1. Review the diff separately from `data/derived/` changes.
+2. If the change is a bulk rewrite you cannot justify, restore `data/db.json` from git.
+3. Do not bundle unrelated `db.json` drift into a pipeline recovery commit.
 
 ### Bot-Protected Domain Keeps Returning 403
 

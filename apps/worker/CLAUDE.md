@@ -244,6 +244,16 @@ Normalizes company names for deduplication across sources:
 | `quality_monitor.py` | Extraction quality metrics |
 | `health_report.py` | Overall system health reporting |
 
+`data/derived/` lives under iCloud Drive in this checkout. Hidden placeholders like `.detected_signals.json.icloud` plus numbered copies like `detected_signals 2.json` mean iCloud conflict/offload behavior, not a new output path. `io_utils.py` is responsible for this: `safe_json_write()` removes stale `.icloud` placeholders before atomic writes, and both `backup_before_write()` and pipeline output validation recover numbered copies back to the canonical filename. Do not change pipeline output paths to match numbered copies.
+
+`pnpm pipeline` now runs a preflight before any step executes. It blocks when the volume is critically low on free space or when canonical pipeline files are missing behind iCloud placeholders/conflict copies. This is intentional: fail before API spend rather than attempt a run in a state that can silently corrupt `data/derived/`.
+
+`apps/worker/.venv` is also vulnerable when kept under iCloud Drive: compiled wheels and dist-info directories can be offloaded or duplicated (`*.icloud`, `name 2.dist-info`), which makes imports fail with misleading messages like "package not installed". Keep the real worker venv outside iCloud (for this machine: `~/Code/Fundradar/apps/worker/.venv`) and symlink `apps/worker/.venv` back into the repo. If SDK imports suddenly fail without code changes, inspect the venv for iCloud artifacts and rebuild the venv before debugging pipeline code.
+
+Cleaner apps can recreate the same class of runtime breakage even when the repo itself is fine. Do not let CCleaner, `mac-cleaner-cli`, or similar tools remove development caches, browser caches, temp files, or Python/Node environments for Fundradar. Those tools can delete Playwright browser binaries and package caches, which surfaces later as missing-browser popups or broken imports.
+
+`data/db.json` is curated core data, not disposable worker state. If a pipeline/recovery session leaves `db.json` with a broad unrelated diff (for example mass `sector_tags` rewrites), treat that as a separate review item rather than bundling it into a worker recovery commit. Restore from git unless you can justify the content change.
+
 ## Module Organization
 
 | Category | Modules |

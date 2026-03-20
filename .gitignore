@@ -8,11 +8,13 @@ dist/
 .next/
 out/
 *.egg-info/
+apps/worker/build/
 
 # Python
 __pycache__/
 *.py[cod]
 .venv/
+apps/worker/.venv
 .pytest_cache/
 .ruff_cache/
 
