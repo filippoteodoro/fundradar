@@ -121,4 +121,61 @@ describe('signalProcessing', () => {
     );
     expect(result).toBe('website_change');
   });
+
+  it('preserves new team member signals as people', () => {
+    const result = reclassifySignalType(
+      makeSignal({
+        signal_type: 'people_move',
+        page_category: 'TEAM',
+        title: 'New team member: Claudia Vancanti',
+        what_changed: 'New team member: Claudia Vancanti (banca generali)',
+      }),
+    );
+    expect(result).toBeNull();
+  });
+
+  it('reclassifies financial plans to report', () => {
+    const result = reclassifySignalType(
+      makeSignal({
+        signal_type: 'other',
+        title: 'Autostrade per l’Italia has approved a new €29.8B financial plan',
+        what_changed: '',
+      }),
+    );
+    expect(result).toBe('report');
+  });
+
+  it('demotes sat-down-with editorial interviews from exit to other', () => {
+    const result = reclassifySignalType(
+      makeSignal({
+        signal_type: 'exit_announced',
+        title: 'Real Deals: Investors leap on fragmented Italy as buy-and-builds soar',
+        what_changed: 'BC Partners’ Stefano Ferraresi sat down with Real Deals to discuss the Italian market.',
+      }),
+    );
+    expect(result).toBe('other');
+  });
+
+  it('reclassifies portfolio company expansion headlines to portfolio_update', () => {
+    const result = reclassifySignalType(
+      makeSignal({
+        signal_type: 'deal_announced',
+        title: 'Kiloutou strengthens its foothold in Italy',
+        what_changed: '',
+      }),
+    );
+    expect(result).toBe('portfolio_update');
+  });
+
+  it('demotes indirect buyer-parenthetical fund mentions to other', () => {
+    const result = reclassifySignalType(
+      makeSignal({
+        signal_type: 'exit_announced',
+        fund_slug: 'macquarie',
+        title: "Francesco Angeloro's Shi Holding is selling a portfolio of Bess projects in southern Italy to Reden Echo, a subsidiary of the French firm Reden (Macquarie AM)",
+        what_changed: '',
+      }),
+    );
+    expect(result).toBe('other');
+  });
 });

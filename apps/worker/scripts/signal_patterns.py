@@ -180,6 +180,7 @@ _RE_JOB_SELECTION = re.compile(
 # Report/annual report detection
 _RE_REPORT = re.compile(
     r"\b(?:bilancio|financial\s+results?|annual\s+report|year[\-\s]?end\s+report"
+    r"|financial\s+plan|piano\s+economico\s+finanziario"
     r"|sustainability\s+report|rapporto\s+(?:annuale|di\s+sostenibilit[àa])"
     r"|esg\s+report|quarterly\s+(?:report|credit\s+check|results?)"
     r"|interim\s+report|half[\-\s]?year\s+report"
@@ -359,7 +360,7 @@ _RE_PROJECT_FINANCING = re.compile(
 # Any PE-related verb (safety net)
 _RE_HAS_ANY_PE_VERB = re.compile(
     r"\b(?:sells?|selling|sold|sale|exit\w*|cessione|vendita|vend[eio]\w*|vendut[oa]|cedut[oa]|dismette|a\s+vendere"
-    r"|acquir\w+|acquisizion\w*|investi\w+|rileva|entra\s+nel\s+capitale|enters?\s+capital|buys?|compra"
+    r"|acquir\w+|acquisizion\w*|investi\w+|rileva|entra\s+nel\s+capitale|enters?\s+capital|buys?(?![\-\s]and[\-\s]builds?\b)|compra"
     r"|offerta\b|offer\b|bid\b"
     r"|fundrais\w+|raccolta|closing|round|series|seed|chiude|chiusura"
     r"|launch|lancia|nasce|nascita|lancio"
@@ -502,7 +503,8 @@ _RE_EVENT_RECAP_ITALIAN = re.compile(
 # Interviews/editorials without PE content
 _RE_INTERVIEW = re.compile(
     r"\bintervist\w+\b|\binterview\w*\b|\bevoluzione\s+editoriale\b"
-    r"|\bda\s+settimanale\s+a\b|\bprofile\s+of\b|\bportrait\s+of\b", re.IGNORECASE)
+    r"|\bda\s+settimanale\s+a\b|\bprofile\s+of\b|\bportrait\s+of\b"
+    r"|\bsat\s+down\s+with\b|\bsits?\s+down\s+with\b", re.IGNORECASE)
 
 # Portfolio company revenue/performance articles
 _RE_REVENUE_PERFORMANCE = re.compile(
@@ -560,7 +562,7 @@ _RE_REGULATORY_COMMUNICATION = re.compile(
 # Acquisition verbs (deal-side language)
 _RE_ACQUISITION_VERBS = re.compile(
     r"\b(?:acquir\w+|acquis\w+|acquisizion\w+|investi\w+|rileva"
-    r"|entra\s+(?:nel\s+capitale|in)\b|enters?\s+capital|buys?|compra"
+    r"|entra\s+(?:nel\s+capitale|in)\b|enters?\s+capital|buys?(?![\-\s]and[\-\s]builds?\b)|compra"
     r"|tratt[ai]\s+l[''\u2019]acquisto)\b")
 
 # Internship/stage offers → job_posting
@@ -669,6 +671,14 @@ _RE_PORTFOLIO_COMPANY_BACKED = re.compile(
     r"\b(?:partecipata|sostenuta|backed)\b.*\b(?:acquis\w+|acquir\w+|complet\w+|espand\w+|expand\w+|rafforz\w+)",
     re.IGNORECASE)
 
+# Portfolio company geographic/operational expansion headlines on a fund website.
+# These are updates about an existing holding, not new fund-level investments.
+_RE_PORTFOLIO_EXPANSION = re.compile(
+    r"\b(?:strengthens?|expand(?:s|ed|ing)?|continues?\s+(?:its\s+)?(?:development|expansion)|pursues?\s+(?:its\s+)?expansion)\b"
+    r".{0,40}\b(?:foothold|footprint|presence|coverage|development|expansion)\b",
+    re.IGNORECASE,
+)
+
 # Portfolio company as acquirer — portfolio company (not the fund) is making the acquisition.
 # Covers the full family of phrasings where a PORTFOLIO COMPANY is the acquirer, not the fund.
 # These must be classified portfolio_update, not deal_announced.
@@ -705,7 +715,7 @@ _RE_PORTFOLIO_CO_AS_ACQUIRER = re.compile(
 
 # Interview patterns (for people_move/partnership reclassification)
 _RE_INTERVIEW_EDITORIAL = re.compile(
-    r"\bintervist\w+\b|\binterview\w*\b|\bsits?\s+down\s+with\b|\breflects?\s+on\b"
+    r"\bintervist\w+\b|\binterview\w*\b|\bsat\s+down\s+with\b|\bsits?\s+down\s+with\b|\breflects?\s+on\b"
     r"|\bexplains?\b|\bspiega\b|\bracconta\b", re.IGNORECASE)
 
 # People-related language (to confirm people_move signals)

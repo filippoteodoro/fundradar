@@ -17,6 +17,8 @@ Every fix must go into the pipeline code so it applies automatically to every ne
 
 **Testing after a Python fix**: `cd apps/worker && pytest` must pass. No new test → the fix may be silently wrong.
 
+**Rebuild rule after a signal-quality code fix**: rerun `python scripts/filter_signals.py --force-full` once, then rerun `python scripts/enrich_signals_openai.py` (or `pnpm pipeline:signals`). The filter has an incremental cache for warm runs, but `/signals` prefers `detected_signals_enriched.json`, so a fresh filtered file alone does not update the public feed.
+
 ---
 
 ## Standard Signal Quality Audit
@@ -69,6 +71,50 @@ for s in d['signals']:
             print(s['id'], '|', s.get('fund_slug','?'), '|', s.get('title','')[:80])
 "
 
+# 4A. 'deal_announced' / 'exit_announced' signals with interview/editorial language
+# Red flags: "sat down with", "interview", "profile of", "buy-and-build" market commentary
+python3 -c "
+import json, re
+d = json.load(open('data/derived/detected_signals_filtered.json'))
+editorial_re = re.compile(r'\b(interview|profile of|sat down with|sits down with|buy-and-build)\b', re.I)
+for s in d['signals']:
+    if s.get('signal_type') in ('deal_announced', 'exit_announced'):
+        text = s.get('title','') + ' ' + (s.get('what_changed') or '')
+        if editorial_re.search(text):
+            print(s['id'], '|', s.get('fund_slug','?'), '|', s.get('signal_type','?'), '|', s.get('title','')[:90])
+"
+
+# 4B. 'deal_announced' signals with vague expansion language
+# These are often portfolio company growth updates, not new fund investments
+python3 -c "
+import json, re
+d = json.load(open('data/derived/detected_signals_filtered.json'))
+expansion_re = re.compile(r'\b(strengthens?|expands?|continues? (?:its )?(?:development|expansion)|pursues? (?:its )?expansion)\b.{0,40}\b(foothold|footprint|presence|coverage|development|expansion)\b', re.I)
+for s in d['signals']:
+    if s.get('signal_type') == 'deal_announced':
+        text = s.get('title','') + ' ' + (s.get('what_changed') or '')
+        if expansion_re.search(text):
+            print(s['id'], '|', s.get('fund_slug','?'), '|', s.get('title','')[:90])
+"
+
+# 4C. Signals where the fund appears only as a parenthetical owner of the buyer
+# These are usually too indirect to keep as deal/exit signals
+python3 -c "
+import json, re
+d = json.load(open('data/derived/detected_signals_filtered.json'))
+ownership_re = re.compile(r'\b(subsidiary of|part of|parte della|owned by)\b', re.I)
+seller_re = re.compile(r'\b(selling|sells|sold|sale|cede|vend|cession)\b', re.I)
+for s in d['signals']:
+    if s.get('signal_type') in ('deal_announced', 'exit_announced'):
+        fund = (s.get('fund_slug') or '').replace('-', ' ').split()
+        text = (s.get('title','') + ' ' + (s.get('what_changed') or '')).lower()
+        if ownership_re.search(text) and seller_re.search(text):
+            for word in fund:
+                if len(word) >= 4 and f'({word}' in text and not text.startswith(word + ' '):
+                    print(s['id'], '|', s.get('fund_slug','?'), '|', s.get('signal_type','?'), '|', s.get('title','')[:90])
+                    break
+"
+
 # 5. 'report' signals — confirm each is about the fund manager, not a portfolio company
 # Pipeline cannot distinguish these automatically — requires reading the source URL
 python3 -c "
@@ -92,6 +138,19 @@ for s in d['signals']:
     t = s.get('title','')
     if not s.get('title_original') and italian_re.search(t):
         print(s['id'], '|', s.get('fund_slug','?'), '|', s.get('signal_type','?'), '|', t[:80])
+"
+
+# 6A. Titles with digit-letter merge artifacts
+# Red flags: "140a fine 2026", "2025Comunicato", "€200Magreement"
+python3 -c "
+import json, re
+d = json.load(open('data/derived/detected_signals_filtered.json'))
+merge_re = re.compile(r'\b\d+[a-zà-öø-ÿ]{1,3}\b|[€$£]\d+(?:\.\d+)?[KMBT][a-zà-öø-ÿ]+', re.I)
+for s in d['signals']:
+    for field in ('title', 'what_changed'):
+        text = s.get(field) or ''
+        if merge_re.search(text):
+            print(s['id'], '|', field, '|', s.get('fund_slug','?'), '|', text[:90])
 "
 
 # 7. Signals with no target_companies but type deal_announced or exit_announced

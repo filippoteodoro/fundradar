@@ -87,6 +87,7 @@ from signal_patterns import (
     _RE_PEOPLE_TITLE,
     _RE_PORTFOLIO_CO_AS_ACQUIRER,
     _RE_PORTFOLIO_COMPANY_BACKED,
+    _RE_PORTFOLIO_EXPANSION,
     _RE_PORTFOLIO_UPDATE,
     _RE_PROJECT_FINANCING,
     _RE_RACCOGLIE_EXCLUDE,
@@ -532,6 +533,12 @@ def correct_deal(text_lower: str, title_lower: str, diff_summary_lower: str = ""
     # Team strengthening → people_move (if no deal language)
     if _RE_TEAM_STRENGTHENING.search(text_lower) and not _matches_deal(text_lower):
         return "people_move"
+
+    # Portfolio company geographic expansion on a fund website is not a new investment.
+    # Example: "Kiloutou strengthens its foothold in Italy" → portfolio_update.
+    if _RE_PORTFOLIO_EXPANSION.search(text_lower):
+        if not _matches_deal(text_lower) and not _matches_exit(text_lower) and not _matches_fundraise(text_lower):
+            return "portfolio_update"
 
     # Departure/appointment language with no deal/exit evidence is a people move.
     # Example: "CIO steps down", "leaves role", "resigns".

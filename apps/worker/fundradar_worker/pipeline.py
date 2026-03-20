@@ -22,6 +22,7 @@ Usage:
 """
 
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -37,6 +38,7 @@ DATA_DIR = PROJECT_ROOT / "data" / "derived"
 WORKER_DIR = PROJECT_ROOT / "apps" / "worker"
 ICLOUD_PATH_MARKER = "Mobile Documents/com~apple~CloudDocs"
 MIN_FREE_DISK_BYTES = 1 * 1024 * 1024 * 1024
+FILTER_STEP_TIMEOUT_SECONDS = int(os.environ.get("PIPELINE_FILTER_TIMEOUT_SECONDS", 15 * 60))
 
 # Load .env so Telegram credentials are available for pipeline alerts
 try:
@@ -126,7 +128,7 @@ STEPS = [
         "outputs": [
             DATA_DIR / "detected_signals_filtered.json",
         ],
-        "timeout": 5 * 60,  # 5 min
+        "timeout": FILTER_STEP_TIMEOUT_SECONDS,
     },
     {
         "name": "enrich",

@@ -659,6 +659,21 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
   const text = ((signal.title || '') + ' ' + (signal.what_changed || '')).toLowerCase();
   const titleText = (signal.title || '').toLowerCase();
   const pageCategory = (signal.page_category || '').toUpperCase();
+  const fundWords = ((signal.fund_slug || '').replace(/-/g, ' ').toLowerCase())
+    .split(/\s+/)
+    .filter((word) => word.length >= 4 && !['capital', 'group', 'partners', 'management', 'investments', 'ventures'].includes(word));
+
+  // Seller-side article where the tagged fund appears only as a trailing
+  // parenthetical owner of the buyer is too indirect to keep as a deal/exit.
+  if (signal.signal_type === 'deal_announced' || signal.signal_type === 'exit_announced') {
+    const mentionsFundInParenthetical = fundWords.some((word) => new RegExp(`\\([^)]*${word}[^)]*\\)`, 'i').test(text));
+    const startsWithTaggedFund = fundWords.some((word) => text.trimStart().startsWith(`${word} `) || text.trimStart().startsWith(`${word}:`));
+    const hasSellerPerspective = /\b(?:selling|sells?|sold|sale|cede|cession|vendit[ae]|vend[eio]\w*|vendut[oa])\b/i.test(text);
+    const hasIndirectBuyerOwnership = /\b(?:subsidiary\s+of|part\s+of|parte\s+della?|owned\s+by)\b/i.test(text);
+    if (mentionsFundInParenthetical && !startsWithTaggedFund && hasSellerPerspective && hasIndirectBuyerOwnership) {
+      return 'other';
+    }
+  }
 
   // Portfolio company activity → portfolio_update (not fund-level deal)
   if (/\bportfolio\s+compan(?:y|ies)\b/i.test(text) && signal.signal_type !== 'portfolio_update') {
@@ -670,6 +685,12 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
   }
   // Company revenue/target news → portfolio_update
   if (signal.signal_type === 'other' && /\b(?:ricav\w+|revenue|fatturato)\b.*\b(?:target|milion|mln|€|euro|punta)\b/i.test(text)) {
+    return 'portfolio_update';
+  }
+  if ((signal.signal_type === 'deal_announced' || signal.signal_type === 'other') &&
+      /\b(?:strengthens?|expand(?:s|ed|ing)?|continues?\s+(?:its\s+)?(?:development|expansion)|pursues?\s+(?:its\s+)?expansion)\b.{0,40}\b(?:foothold|footprint|presence|coverage|development|expansion)\b/i.test(text) &&
+      !RE_PE_ACTION_VERBS.test(text) &&
+      !RE_EXIT_VERBS.test(text)) {
     return 'portfolio_update';
   }
 
@@ -705,7 +726,7 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
   }
 
   // Interview/editorial without PE transaction verbs → other
-  if (/\bintervist\w+\b|\binterview\w*\b|\bevoluzione\s+editoriale\b|\bda\s+settimanale\s+a\b|\bprofile\s+of\b/i.test(text)) {
+  if (/\bintervist\w+\b|\binterview\w*\b|\bevoluzione\s+editoriale\b|\bda\s+settimanale\s+a\b|\bprofile\s+of\b|\bsat\s+down\s+with\b|\bsits?\s+down\s+with\b/i.test(text)) {
     if (!RE_PE_ACTION_VERBS.test(text) && !/\b(?:entra\s+nel\s+capitale|vendita|closing)\b/i.test(text)) {
       return 'other';
     }
@@ -810,7 +831,7 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
   }
 
   // Financial results/annual report/sustainability report → report
-  if (/\b(?:bilancio|financial\s+results?|annual\s+report|year[\-\s]?end\s+report|sustainability\s+report|rapporto\s+(?:annuale|di\s+sostenibilit[àa])|esg\s+report|quarterly\s+(?:report|credit\s+check|results?)|interim\s+report|half[\-\s]?year\s+report|utile\s+d[i'\u2019]\s*esercizio|closes?\s+(?:the\s+)?financial\s+year|risultati?\s+finanziari|utile\s+netto\s+a\s+\d+)\b/i.test(text) ||
+  if (/\b(?:bilancio|financial\s+results?|annual\s+report|year[\-\s]?end\s+report|financial\s+plan|piano\s+economico\s+finanziario|sustainability\s+report|rapporto\s+(?:annuale|di\s+sostenibilit[àa])|esg\s+report|quarterly\s+(?:report|credit\s+check|results?)|interim\s+report|half[\-\s]?year\s+report|utile\s+d[i'\u2019]\s*esercizio|closes?\s+(?:the\s+)?financial\s+year|risultati?\s+finanziari|utile\s+netto\s+a\s+\d+)\b/i.test(text) ||
       /\b(?:primo|secondo|terzo|quarto)\s+trimestre\b.*\butile\b/i.test(text)) {
     return 'report';
   }
@@ -1152,7 +1173,7 @@ export function reclassifySignalType(signal: Signal): SignalType | null {
     if (pageCategory === 'TEAM' && RE_TEAM_STATIC_DESC.test(text) && !RE_PEOPLE_TRANSITION_VERBS.test(text)) {
       return 'other';
     }
-    const hasPeopleArrival = /\b(?:appoint\w+|joins?|joined|nomin(?:a|e|at\w+)|named?\s+(?:as\s+)?(?:ceo|cfo|coo|cio|partner|director|head|president|chairman)|promot\w+|hired?|board|consiglio|eletto|assume\s+(?:il\s+)?(?:ruolo|incarico)|entra\s+(?:nel\s+)?(?:team|consiglio|cda)|nuovo\s+(?:ingresso|membro)|new\s+(?:head|director|managing\s+director|president|chairman))\b/i.test(text);
+    const hasPeopleArrival = /\b(?:appoint\w+|joins?|joined|nomin(?:a|e|at\w+)|named?\s+(?:as\s+)?(?:ceo|cfo|coo|cio|partner|director|head|president|chairman)|promot\w+|hired?|board|consiglio|eletto|assume\s+(?:il\s+)?(?:ruolo|incarico)|entra\s+(?:nel\s+)?(?:team|consiglio|cda)|nuovo\s+(?:ingresso|membro)|new\s+(?:team\s+members?|member|head|director|managing\s+director|president|chairman))\b/i.test(text);
     const hasPeopleDeparture = /\b(?:steps?\s+down|stepping\s+down|leaves?|leaving|left|resign\w*|depart\w*|exit\w*\s+(?:the\s+)?(?:firm|company|fund|role)|dimission\w+|lascia|lasciat\w+|abbandona|si\s+(?:dimette|ritira)|uscita\s+(?:di|dal)|succession\w*)\b/i.test(text);
     const hasTeamStrength = /\bstrengthens?\b.*\bteam\b/i.test(text);
     if (!hasPeopleArrival && !hasPeopleDeparture && !hasTeamStrength) {

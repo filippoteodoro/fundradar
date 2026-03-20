@@ -16,6 +16,7 @@ import hashlib
 import json
 import os
 import re
+import argparse
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
@@ -121,6 +122,9 @@ from signal_text_utils import (
 
 # Paths (shared)
 from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH as DB_FILE, SIGNALS_FILE as INPUT_FILE, FILTERED_SIGNALS_FILE as OUTPUT_FILE
+ENRICHED_OUTPUT_FILE = DATA_DIR / "detected_signals_enriched.json"
+FILTER_CACHE_FILE = DATA_DIR / "signal_filter_progress.json"
+FILTER_CACHE_VERSION = 2
 
 # Minimum quality score to keep (0-100)
 MIN_QUALITY_SCORE = int(os.environ.get("SIGNAL_MIN_QUALITY", "80"))
@@ -3480,7 +3484,138 @@ def _cross_page_dedup(signals: list[dict]) -> list[dict]:
     return result
 
 
+def _parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Filter raw signals into high-quality output.")
+    parser.add_argument(
+        "--force-full",
+        action="store_true",
+        help="Ignore signal_filter_progress.json and fully rescore the raw signal history.",
+    )
+    return parser.parse_args()
+
+
+def _raw_signal_cache_fingerprint(signal: dict, canonical_fund_slug: str) -> str:
+    entities = signal.get("extracted_entities") or {}
+    normalized_target_companies = []
+    for company in signal.get("target_companies") or []:
+        if not isinstance(company, dict):
+            continue
+        normalized_target_companies.append(
+            {
+                "name": str(company.get("name") or "").strip(),
+                "action": str(company.get("action") or "").strip(),
+                "is_direct_investment": bool(company.get("is_direct_investment")),
+            }
+        )
+    payload = {
+        "id": signal.get("id") or "",
+        "fund_slug": canonical_fund_slug or "",
+        "fund_id": signal.get("fund_id") or "",
+        "fund_name": signal.get("fund_name") or "",
+        "source_name": signal.get("source_name") or "",
+        "source_url": signal.get("source_url") or "",
+        "page_category": signal.get("page_category") or "",
+        "page_type": signal.get("page_type") or "",
+        "published_at": signal.get("published_at") or "",
+        "observed_at": signal.get("observed_at") or "",
+        "title": signal.get("title") or "",
+        "what_changed": signal.get("what_changed") or "",
+        "diff_summary": signal.get("diff_summary") or "",
+        "enriched_summary": signal.get("enriched_summary") or "",
+        "italy_relevant": signal.get("italy_relevant"),
+        "related_fund_slugs": signal.get("related_fund_slugs") or [],
+        "extracted_companies": entities.get("companies") or [],
+        "extracted_people": entities.get("people") or [],
+        "target_companies": normalized_target_companies,
+    }
+    serialized = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(serialized.encode("utf-8")).hexdigest()
+
+
+def _load_filter_cache() -> tuple[set[str], dict[str, dict]]:
+    if not FILTER_CACHE_FILE.exists():
+        return set(), {}
+    try:
+        data = json.loads(FILTER_CACHE_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        return set(), {}
+    if data.get("cache_version") != FILTER_CACHE_VERSION:
+        return set(), {}
+    raw_fingerprints = set(data.get("all_raw_fingerprints") or [])
+    kept_signals = data.get("kept_signals") or {}
+    if not isinstance(kept_signals, dict):
+        kept_signals = {}
+    return raw_fingerprints, kept_signals
+
+
+def _write_filter_cache(all_raw_fingerprints: set[str], kept_signals: dict[str, dict]) -> None:
+    payload = {
+        "cache_version": FILTER_CACHE_VERSION,
+        "all_raw_fingerprints": sorted(all_raw_fingerprints),
+        "kept_signals": kept_signals,
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+    }
+    safe_json_write(FILTER_CACHE_FILE, payload)
+
+
+def _signal_fund_url_key(signal: dict) -> str | None:
+    source_url = (signal.get("source_url") or "").strip().rstrip("/")
+    fund_slug = (signal.get("fund_slug") or "").strip()
+    if not source_url or not fund_slug:
+        return None
+    url_path = urlparse(source_url).path.strip("/")
+    last_segment = url_path.rsplit("/", 1)[-1].lower() if url_path else ""
+    listing_pages = {
+        "news", "newsroom", "newsroom.page", "news-insights", "insight", "insights",
+        "portfolio", "investment", "investments", "team", "people", "press",
+        "press-releases", "media", "blog",
+    }
+    if last_segment in listing_pages or not last_segment:
+        return None
+    return f"{fund_slug}::{source_url}"
+
+
+def _strip_filter_cache_fields(signal: dict) -> dict:
+    cleaned = dict(signal)
+    cleaned.pop("_raw_fingerprint", None)
+    return cleaned
+
+
+def _exact_dedup_signals(signals: list[dict]) -> tuple[list[dict], int, int]:
+    ordered = sorted(
+        signals,
+        key=lambda s: s.get("observed_at") or s.get("created_at") or "",
+        reverse=True,
+    )
+    result: list[dict] = []
+    seen_keys: set[str] = set()
+    seen_ids: set[str] = set()
+    seen_fund_urls: set[str] = set()
+    removed_duplicates = 0
+    resolved_duplicate_ids = 0
+
+    for signal in ordered:
+        dedupe_key = _signal_dedupe_key(signal)
+        if dedupe_key in seen_keys:
+            removed_duplicates += 1
+            continue
+        fund_url_key = _signal_fund_url_key(signal)
+        if fund_url_key and fund_url_key in seen_fund_urls:
+            removed_duplicates += 1
+            continue
+        signal, id_changed = _ensure_unique_signal_id(signal, dedupe_key, seen_ids)
+        if id_changed:
+            resolved_duplicate_ids += 1
+        seen_keys.add(dedupe_key)
+        if fund_url_key:
+            seen_fund_urls.add(fund_url_key)
+        result.append(signal)
+
+    return result, removed_duplicates, resolved_duplicate_ids
+
+
 def main():
+    args = _parse_args()
     print("Signal Quality Filter")
     print("=" * 50)
 
@@ -3518,8 +3653,25 @@ def main():
     signals = data.get("signals", [])
     print(f"Total signals: {len(signals)}")
 
+    cached_raw_fingerprints: set[str] = set()
+    cached_kept_signals: dict[str, dict] = {}
+    if args.force_full:
+        print("Filter cache: disabled (--force-full)")
+    else:
+        cached_raw_fingerprints, cached_kept_signals = _load_filter_cache()
+        if cached_raw_fingerprints or cached_kept_signals:
+            print(
+                "Filter cache: reusing unchanged history "
+                f"({len(cached_raw_fingerprints)} cached raw fingerprints, "
+                f"{len(cached_kept_signals)} cached kept signals)"
+            )
+        else:
+            print("Filter cache: cold start (full rebuild)")
+
     # Score and filter
     filtered = []
+    cached_filtered: list[dict] = []
+    current_raw_fingerprints: set[str] = set()
     removed_duplicates = 0
     resolved_duplicate_ids = 0
     removed_garbage = 0
@@ -3534,6 +3686,9 @@ def main():
     removed_ml = 0
     kept_ml_override = 0
     ml_type_overrides = 0
+    cache_reused_kept = 0
+    cache_reused_drop = 0
+    cache_processed_new = 0
     orphan_slugs: set[str] = set()
     score_distribution = {"0-20": 0, "21-40": 0, "41-60": 0, "61-80": 0, "81-100": 0}
     confidence_distribution = {"high": 0, "medium": 0, "low": 0}
@@ -3577,6 +3732,20 @@ def main():
 
         # Look up fund object from db.json (used by reclassifier + misattribution)
         fund = funds_by_slug.get(fund_slug) if fund_slug else None
+        raw_fingerprint = _raw_signal_cache_fingerprint(signal, fund_slug)
+        current_raw_fingerprints.add(raw_fingerprint)
+
+        cached_signal = cached_kept_signals.get(raw_fingerprint)
+        if cached_signal is not None:
+            reused_signal = dict(cached_signal)
+            reused_signal["_raw_fingerprint"] = raw_fingerprint
+            cached_filtered.append(reused_signal)
+            cache_reused_kept += 1
+            continue
+        if raw_fingerprint in cached_raw_fingerprints:
+            cache_reused_drop += 1
+            continue
+        cache_processed_new += 1
 
         # Preserve raw text for scoring before we clean labels/spacing
         raw_title = (signal.get("title") or "").strip()
@@ -3622,19 +3791,12 @@ def main():
 
         # Suppress same-URL duplicates within a fund (catches title-variant dupes)
         # Only for article-like URLs — skip listing pages where many signals share one URL
-        source_url = (signal.get("source_url") or "").strip().rstrip("/")
-        if source_url and fund_slug:
-            url_path = urlparse(source_url).path.strip("/")
-            last_segment = url_path.rsplit("/", 1)[-1].lower() if url_path else ""
-            listing_pages = {"news", "newsroom", "newsroom.page", "news-insights", "portfolio",
-                             "investment", "investments", "team", "people", "press", "media", "blog"}
-            is_listing = last_segment in listing_pages or not last_segment
-            if not is_listing:
-                fund_url_key = f"{fund_slug}::{source_url}"
-                if fund_url_key in seen_fund_urls:
-                    removed_duplicates += 1
-                    continue
-                seen_fund_urls.add(fund_url_key)
+        fund_url_key = _signal_fund_url_key(signal)
+        if fund_url_key:
+            if fund_url_key in seen_fund_urls:
+                removed_duplicates += 1
+                continue
+            seen_fund_urls.add(fund_url_key)
 
         signal, id_changed = _ensure_unique_signal_id(signal, dedupe_key, seen_ids)
         if id_changed:
@@ -4181,6 +4343,38 @@ def main():
                 if not re.search(r"\b(?:acquir\w+|invest\w+|stake|close[ds]?|complet\w+)\b", text_check_rpt):
                     signal["signal_type"] = "other"
 
+        # Post-ML correction: seller-side article where the tracked fund only appears
+        # as a trailing parenthetical owner of the buyer → too indirect to keep as deal/exit.
+        if signal.get("signal_type") in ("deal_announced", "exit_announced"):
+            text_check_indirect = (raw_title + " " + raw_summary).lower()
+            fund_words = [
+                word for word in (signal.get("fund_slug") or "").replace("-", " ").lower().split()
+                if len(word) >= 4 and word not in {"capital", "group", "partners", "management", "investments", "ventures"}
+            ]
+            mentions_fund_in_parenthetical = any(
+                re.search(rf"\([^)]*{re.escape(word)}[^)]*\)", text_check_indirect)
+                for word in fund_words
+            )
+            starts_with_tagged_fund = any(
+                text_check_indirect.lstrip().startswith(word + " ")
+                or text_check_indirect.lstrip().startswith(word + ":")
+                for word in fund_words
+            )
+            has_seller_perspective = bool(
+                re.search(r"\b(?:selling|sells?|sold|sale|cede|cession|vendit[ae]|vend[eio]\w*|vendut[oa])\b", text_check_indirect)
+            )
+            has_indirect_buyer_ownership = bool(
+                re.search(r"\b(?:subsidiary\s+of|part\s+of|parte\s+della?|owned\s+by)\b", text_check_indirect)
+            )
+            if (
+                mentions_fund_in_parenthetical
+                and not starts_with_tagged_fund
+                and has_seller_perspective
+                and has_indirect_buyer_ownership
+            ):
+                signal["signal_type"] = "other"
+                demoted_to_other_by_editorial = True
+
         # Post-ML correction: deal_announced/exit with "joined/joins network" → other
         if signal.get("signal_type") in ("deal_announced", "exit_announced"):
             text_check_net = (raw_title + " " + raw_summary).lower()
@@ -4321,8 +4515,9 @@ def main():
                 removed_strict_gate += 1
                 continue
 
-        def _accept_signal(sig: dict, sc: int) -> None:
+        def _accept_signal(sig: dict, sc: int, raw_fp: str) -> None:
             """Track stats and append a kept signal."""
+            sig["_raw_fingerprint"] = raw_fp
             sig["signal_types"] = detect_all_signal_types(sig)
             filtered.append(sig)
             c = sig.get("quality_confidence") or "low"
@@ -4346,17 +4541,23 @@ def main():
             # classified as investment events, so we accept slightly lower evidence
             effective_threshold = 75 if signal.get("signal_type") in CORE_QUALITY_TYPES else MIN_QUALITY_SCORE
             if score >= effective_threshold:
-                _accept_signal(signal, score)
+                _accept_signal(signal, score, raw_fingerprint)
                 continue
             elif _ml_override_keep(signal):
                 kept_ml_override += 1
-                _accept_signal(signal, score)
+                _accept_signal(signal, score, raw_fingerprint)
                 continue
             else:
                 removed_low_quality += 1
                 continue
         else:
-            _accept_signal(signal, score)
+            _accept_signal(signal, score, raw_fingerprint)
+
+    if cached_filtered:
+        filtered.extend(cached_filtered)
+    filtered, extra_removed_duplicates, extra_resolved_duplicate_ids = _exact_dedup_signals(filtered)
+    removed_duplicates += extra_removed_duplicates
+    resolved_duplicate_ids += extra_resolved_duplicate_ids
 
     # Semantic dedup: suppress near-duplicate signals about same deal from different sources
     pre_semantic_dedup = len(filtered)
@@ -4375,14 +4576,20 @@ def main():
 
     # Sort by score (highest first)
     filtered.sort(key=lambda x: x.get("quality_score", 0), reverse=True)
+    persisted_filtered = [_strip_filter_cache_fields(signal) for signal in filtered]
+    kept_cache_signals = {
+        signal["_raw_fingerprint"]: _strip_filter_cache_fields(signal)
+        for signal in filtered
+        if signal.get("_raw_fingerprint")
+    }
 
     # Save
-    data["signals"] = filtered
-    data["signal_count"] = len(filtered)
+    data["signals"] = persisted_filtered
+    data["signal_count"] = len(persisted_filtered)
     data["filtered_at"] = datetime.now(timezone.utc).isoformat()
     data["filter_stats"] = {
         "original_count": len(signals),
-        "filtered_count": len(filtered),
+        "filtered_count": len(persisted_filtered),
         "removed_invalid_fund": removed_invalid_fund,
         "removed_duplicates": removed_duplicates,
         "resolved_duplicate_ids": resolved_duplicate_ids,
@@ -4400,16 +4607,21 @@ def main():
         "ml_type_overrides": ml_type_overrides,
         "min_quality_score": MIN_QUALITY_SCORE,
         "confidence_distribution": confidence_distribution,
+        "cache_version": FILTER_CACHE_VERSION,
+        "cache_reused_kept": cache_reused_kept,
+        "cache_reused_drop": cache_reused_drop,
+        "cache_processed_new": cache_processed_new,
     }
 
     safe_json_write(OUTPUT_FILE, data)
+    _write_filter_cache(current_raw_fingerprints, kept_cache_signals)
 
     # Detect mentions of unknown funds (not in db.json) and alert via Telegram
     try:
         from fund_gap_detector import detect_unknown_fund_mentions
         from fundradar_worker.alerting import AlertConfig, send_unknown_fund_alerts
         known_slugs = set(funds_by_slug.keys())
-        gaps = detect_unknown_fund_mentions(filtered, known_slugs, invalid_slugs=slug_normalizer.invalid_slugs)
+        gaps = detect_unknown_fund_mentions(persisted_filtered, known_slugs, invalid_slugs=slug_normalizer.invalid_slugs)
         if gaps:
             send_unknown_fund_alerts(gaps, AlertConfig.from_env())
     except Exception as _gap_exc:
@@ -4424,6 +4636,9 @@ def main():
         print(f"  {level}: {confidence_distribution.get(level, 0)}")
 
     print(f"\nFiltering results:")
+    print(f"  Cache reused (kept): {cache_reused_kept}")
+    print(f"  Cache reused (dropped): {cache_reused_drop}")
+    print(f"  Processed new/changed raw signals: {cache_processed_new}")
     print(f"  Removed (orphan fund): {removed_orphan_fund}", end="")
     if orphan_slugs:
         print(f" [{', '.join(sorted(orphan_slugs))}]")
@@ -4442,10 +4657,10 @@ def main():
     print(f"  Removed (misattributed): {removed_misattributed}")
     print(f"  Kept (ML override): {kept_ml_override}")
     print(f"  ML type overrides: {ml_type_overrides}")
-    print(f"  Kept: {len(filtered)}")
+    print(f"  Kept: {len(persisted_filtered)}")
 
     print(f"\nTop 5 signals by quality:")
-    for s in filtered[:5]:
+    for s in persisted_filtered[:5]:
         summary = (s.get("enriched_summary") or s.get("what_changed") or "")[:60]
         print(f"  [{s['quality_score']:3d}] {s.get('fund_slug')}: {summary}...")
 

@@ -29,7 +29,9 @@ monitor → rss → translate → normalize_sectors → normalize_portfolio → 
    - Shared modules: imports patterns from `signal_patterns.py`, corrections from `signal_corrections.py`
    - Exit detection uses proper domain matching via `fund.get("website")` from db.json (not slug heuristics)
    - Ecosystem newsrooms flagged via `fund.get("is_ecosystem_newsroom")` in db.json (not hardcoded)
+   - Incremental cache: warm runs reuse unchanged raw-signal fingerprints from `data/derived/signal_filter_progress.json` and fully rescore only new/changed raw signals. Use `python scripts/filter_signals.py --force-full` after changing filter logic, text-cleaning logic, or cache version assumptions.
 8. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). Also extracts `target_companies` for deal/exit signals (used by step 9). **DO NOT use ChatGPT 4o** — it hallucinates too frequently. Use `gpt-5.4-mini` or better. Contains a safety-net translation pass for any Italian that survived step 3 (e.g., LLM-generated Italian summaries). **enriched_summary coverage is intentionally <100%** — signals where the LLM summary is title-redundant (85%+ word overlap) get `enriched_summary=""` and the frontend falls back to displaying the title. This is correct behavior, not data loss. Progress tracking (`signal_enrichment_progress.json`) still marks them as processed, so re-runs skip them. **No keep/drop filtering** — the enricher does NOT drop signals; `filter_signals.py` (step 7) is the sole quality gate. The "done" marker is `enriched_at` (set on every processed signal).
+   - The web feed prefers `detected_signals_enriched.json`. After any filter/classification/text-cleaning change, rerun step 8 as well so enriched output picks up the corrected `signal_type`, title, and summary fallback fields.
 9. **signal_to_portfolio** (`signal_to_portfolio.py`) — Convert deal/exit signals into portfolio entries. **Purely local, zero API calls** — reads `target_companies` pre-extracted by step 8 (OpenAI enrichment). Trust hierarchy: fund press (0.90) > verified news (0.80) > news (0.75) > other (0.70) > rumor (0.60). Progress tracked to avoid re-processing. Also updates exit status for existing entries when exit signals match.
    - Reconciliation behavior: previously processed signals are automatically reprocessed when portfolio sync is still unresolved (investment target still missing or exit target not exited). This prevents progress-state drift.
    - Exit updates apply to entries with non-exited status (including `null`) and across normalized name variants.
@@ -47,6 +49,7 @@ Run filter+enrich only: `pnpm pipeline:signals`
 Force re-extraction: `pnpm pipeline --force-extract`
 Specific funds only: `pnpm pipeline --slugs f2i-sgr,triton --force-extract`
 Signal→portfolio only: `pnpm pipeline:signals-to-portfolio` (standalone, with `--dry-run`, `--slugs`, `--force`)
+Force a full signal refilter despite the incremental cache: `cd apps/worker && python scripts/filter_signals.py --force-full`
 
 Each step: backs up output files → runs → validates output (exists, non-empty, valid JSON). Validation checks structure but **not schema** — an output of `{}` passes validation even if it should contain a `"signals"` key.
 

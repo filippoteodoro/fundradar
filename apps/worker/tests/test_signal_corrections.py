@@ -141,6 +141,13 @@ class TestUniversalDemotions:
         result = apply_universal_demotions("annual report 2024 published today", "")
         assert result == "report"
 
+    def test_financial_plan_detected_as_report(self):
+        result = apply_universal_demotions(
+            "autostrade per l’italia has approved a new €29.8b financial plan",
+            "",
+        )
+        assert result == "report"
+
     def test_internship_to_job_posting(self):
         # _RE_INTERNSHIP is Italian: "offerta di stage", "tirocinio", "stage curriculare"
         result = apply_universal_demotions("offerta di stage presso la sede di milano", "")
@@ -156,6 +163,13 @@ class TestUniversalDemotions:
 
     def test_coalition_demoted(self):
         result = apply_universal_demotions("coalition launched to promote esg standards", "")
+        assert result == "other"
+
+    def test_sat_down_with_editorial_demoted(self):
+        result = apply_universal_demotions(
+            "real deals: investors leap on fragmented italy as buy-and-builds soar and bc partners sat down with real deals to discuss the italian market",
+            "",
+        )
         assert result == "other"
 
 
@@ -239,6 +253,13 @@ class TestCorrectDeal:
         result = correct_deal(
             "new listing on portfolio page", "",
             diff_summary_lower="new portfolio company detected",
+        )
+        assert result == "portfolio_update"
+
+    def test_portfolio_company_expansion_headline_to_portfolio_update(self):
+        result = correct_deal(
+            "kiloutou strengthens its foothold in italy",
+            "kiloutou strengthens its foothold in italy",
         )
         assert result == "portfolio_update"
 

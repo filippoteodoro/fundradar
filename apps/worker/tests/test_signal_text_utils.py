@@ -339,6 +339,15 @@ class TestFixSpacing:
         result = fix_spacing("€200 Magreementfor")
         assert "€200M" in result
 
+    def test_plain_number_preposition_not_rejoined_as_ordinal(self):
+        result = fix_spacing("HNH sale a €117M punta a 140 a fine 2026")
+        assert "140 a fine 2026" in result
+        assert "140a fine 2026" not in result
+
+    def test_lowercase_company_before_parenthetical_titlecased(self):
+        result = fix_spacing("errevi system (Kyip Capital SGR) acquires Netech")
+        assert result.startswith("Errevi System (Kyip Capital SGR) acquires")
+
 
 # ── normalize_monetary_values ──────────────────────────────────────────────────
 
@@ -554,6 +563,10 @@ class TestCapitalizeEntities:
         )
         assert "Mindful Capital Partners" in result
         assert "Capital Dynamics" in result
+
+    def test_does_not_downgrade_existing_capitalization_to_lowercase_entity(self):
+        text = "Errevi System (Kyip Capital SGR) acquires Netech"
+        assert capitalize_entities(text, ["errevi system"]) == text
 
 
 class TestExtractCompanyLikeEntities:

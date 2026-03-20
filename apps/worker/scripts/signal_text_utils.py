@@ -10,6 +10,7 @@ sync gaps.
 from __future__ import annotations
 
 import re
+from functools import lru_cache
 
 from signal_patterns import _strip_read_time, _strip_urls
 
@@ -256,6 +257,7 @@ def strip_press_release_prefix(text: str) -> str:
 # fix_spacing — canonical version (was filter's _fix_spacing)
 # ---------------------------------------------------------------------------
 
+@lru_cache(maxsize=8192)
 def fix_spacing(text: str) -> str:
     """Fix missing spaces caused by HTML extraction (e.g., 'diAlba', 'eCasa').
 
@@ -408,8 +410,15 @@ def fix_spacing(text: str) -> str:
     # Strip leading numbered list artifacts (e.g. "1. Item" or "1) Item")
     # Require period or closing paren — prevents stripping fund names like "21 Invest" or "3i"
     cleaned = re.sub(r"^\d+[.)]\s+(?=[A-Z])", "", cleaned)
-    # Italian ordinals in text
-    cleaned = re.sub(r"\b(\d+)\s+([ao])\s+", r"\1\2 ", cleaned)
+    # Italian ordinals in text ("1 a edizione" → "1a edizione"), but only when
+    # followed by an ordinal noun. This avoids corrupting plain prose like
+    # "140 a fine 2026" back into "140a fine 2026".
+    cleaned = re.sub(
+        r"\b(\d+)\s+([ao])\s+(?=(?:edizione|fase|serie|tranche|volta|giornata|rata|classe|semestre|trimestre|anno)\b)",
+        r"\1\2 ",
+        cleaned,
+        flags=re.IGNORECASE,
+    )
     # Brand name corrections (common LLM/OCR token splits)
     cleaned = re.sub(r"\bOpen\s+AI\b", "OpenAI", cleaned)
     cleaned = re.sub(r"\bUni\s*Credit\b", "UniCredit", cleaned)
@@ -418,6 +427,13 @@ def fix_spacing(text: str) -> str:
     cleaned = re.sub(r"\b[Bb]rand\s*[Oo]n\s+[Gg]roup\b", "BrandOn Group", cleaned)
     cleaned = re.sub(r"\b[Ff]in\s*[Tt]ech\b", "fintech", cleaned)
     cleaned = re.sub(r"\bTechnology\s*transfer\b", "Technology Transfer", cleaned, flags=re.IGNORECASE)
+    # Lowercase company names before fund parenthetical + deal verb.
+    # "errevi system (Kyip Capital SGR) acquires ..." → "Errevi System (Kyip Capital SGR) acquires ..."
+    cleaned = re.sub(
+        r"^([a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]*(?:\s+[a-zà-öø-ÿ][a-zà-öø-ÿ'’.\-]*){0,3})\s+\(([^)]{2,40})\)\s+((?:acquir\w+|sells?|selling|invests?|merg\w+|raises?))\b",
+        lambda m: f"{m.group(1).title()} ({m.group(2)}) {m.group(3)}",
+        cleaned,
+    )
     # Italian phrases that slip through translation
     cleaned = re.sub(r"\bgestito\s+da\b", "managed by", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"\bsociet[àa]\s+di\s+gestione\b", "management company", cleaned, flags=re.IGNORECASE)
@@ -435,6 +451,7 @@ def fix_spacing(text: str) -> str:
 #                        _normalize_token_splits + additional patterns
 # ---------------------------------------------------------------------------
 
+@lru_cache(maxsize=8192)
 def repair_token_splits(text: str, strip_leading_label: bool = True) -> str:
     """Repair fragmented tokens from OCR/PDF/HTML extraction artifacts.
 
@@ -527,6 +544,7 @@ def _format_amount(number_str: str, multiplier: str, currency: str = "€") -> s
     return f"{currency}{formatted}{multiplier}"
 
 
+@lru_cache(maxsize=8192)
 def normalize_monetary_values(text: str) -> str:
     """Normalize monetary values to consistent €X.XM / €X.XB format.
 
@@ -919,6 +937,7 @@ def repair_attached_connectors(text: str, company_candidates: list[str] | None =
 # caps_to_title_case — unified ALL CAPS → title case
 # ---------------------------------------------------------------------------
 
+@lru_cache(maxsize=4096)
 def caps_to_title_case(text: str) -> str:
     """Convert ALL CAPS text to title case, preserving acronyms and lowercasing prepositions.
 
@@ -1008,6 +1027,7 @@ def _is_title_cased(text: str) -> bool:
     return capitalized / len(long_words) > TITLE_CASE_DETECTION_THRESHOLD
 
 
+@lru_cache(maxsize=4096)
 def title_case_to_sentence_case(text: str) -> str:
     """Convert Title Case text to sentence case.
 
@@ -1708,6 +1728,7 @@ def _cdt_split_fused_words(text: str) -> str:
 # clean_display_text — orchestrator calling the composable stages above
 # ---------------------------------------------------------------------------
 
+@lru_cache(maxsize=8192)
 def clean_display_text(text: str, is_title: bool = False) -> str:
     """Clean a signal text field for user-facing display.
 
@@ -1916,6 +1937,10 @@ def capitalize_entities(text: str, entity_names: list[str] | None) -> str:
             # If the matched text is already all-uppercase (2+ chars), it's a
             # correct acronym — don't replace with a title-cased version
             if len(matched) >= 2 and matched.isupper() and not name.isupper():
+                return matched
+            # Never downgrade an already-capitalized phrase to an all-lowercase
+            # entity name coming from extracted_entities.
+            if matched != matched.lower() and name == name.lower():
                 return matched
             # If the matched text already equals the replacement, skip
             if matched == name:
