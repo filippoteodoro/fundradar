@@ -76,6 +76,13 @@
       "signal_id": "3",
       "signal_title": "TechFund Italia SGR launches new vehicle",
       "alerted_at": "2026-03-11T09:19:48.428184+00:00"
+    },
+    {
+      "mention": "NPL Nextalia Investment Magagement SGR",
+      "suggested_slug": "npl-nextalia-investment-magagement",
+      "signal_id": "rss-signal-00175",
+      "signal_title": "Nextalia launches the Raffaello fund, dedicated to UTP and NPL",
+      "alerted_at": "2026-03-20T19:32:30.373724+00:00"
     }
   ]
 }

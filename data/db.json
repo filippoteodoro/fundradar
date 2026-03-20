@@ -2488,6 +2488,7 @@
       ],
       "sector_tags": [
         "Renewable Energy",
+        "Construction",
         "Healthcare",
         "Industrial Manufacturing"
       ],
@@ -2941,7 +2942,7 @@
         "Financial Services",
         "Healthcare",
         "Industrial Manufacturing",
-        "Retail"
+        "Food & Beverage"
       ],
       "description": "Originally the British Coal pension investment arm, this firm leads large-cap European buyouts. It maintains a deep Italian presence, recently exiting pet retailer Arcaplanet and acquiring Milan-based fintech Objectway.",
       "geographies": [
@@ -3761,8 +3762,8 @@
         "All-Stages"
       ],
       "sector_tags": [
-        "Biotech & Pharma",
         "Technology",
+        "Biotech & Pharma",
         "Professional Services",
         "Healthcare",
         "Financial Services"
@@ -3909,10 +3910,10 @@
       ],
       "sector_tags": [
         "Consumer Goods",
-        "Fashion & Luxury",
+        "Industrial Manufacturing",
         "Biotech & Pharma",
-        "Healthcare",
-        "Industrial Manufacturing"
+        "Fashion & Luxury",
+        "Healthcare"
       ],
       "description": "Operates as a multi-asset platform within the listed Equita Group ecosystem, bridging institutional capital and Italian SMEs through private equity, debt, and infrastructure investments like the Digital 360 buyout.",
       "geographies": [
@@ -4968,10 +4969,10 @@
       ],
       "sector_tags": [
         "Technology",
-        "Software",
         "Healthcare",
-        "Financial Services",
-        "Food & Beverage"
+        "Industrial Manufacturing",
+        "Software",
+        "Automotive"
       ],
       "description": "Pioneered the Sicaf investment model in Italy to drive digital transformation within traditional SMEs, executing buyouts and expansion rounds in the healthcare and industrial manufacturing sectors.",
       "geographies": [
@@ -5285,10 +5286,10 @@
       ],
       "sector_tags": [
         "Industrial Manufacturing",
-        "Technology",
         "Food & Beverage",
-        "Professional Services",
-        "Healthcare"
+        "Technology",
+        "Healthcare",
+        "Professional Services"
       ],
       "description": "Formed by a veteran team of partners from Alcedo to target buyouts of niche market leaders in Northern Italy, specializing in complex generational handovers for companies like CVS Ferrari and the recently exited Panificio San Francesco.",
       "geographies": [
@@ -6014,8 +6015,8 @@
         "Industrial Manufacturing",
         "Consumer Goods",
         "Healthcare",
-        "Professional Services",
-        "Aerospace & Defense"
+        "Aerospace & Defense",
+        "Chemicals"
       ],
       "description": "Global credit specialist founded in 1988 that pioneered institutional lending to mid-sized companies. It acts as a key liquidity provider for Italian SMEs, recently financing Uteco Converting and backing leaders like Jakala and AEB.",
       "geographies": [
@@ -6410,9 +6411,9 @@
       "sector_tags": [
         "Food & Beverage",
         "Healthcare",
-        "Hospitality & Tourism",
         "Professional Services",
-        "Aerospace & Defense"
+        "Hospitality & Tourism",
+        "Industrial Manufacturing"
       ],
       "description": "Tracing its roots to the investment arm of Paribas, this manager specializes in complex pan-European buyouts and operates major global platforms like the Nestl\u00e9-partnered ice cream giant Froneri.",
       "geographies": [
@@ -7263,8 +7264,8 @@
         "Industrial Manufacturing",
         "Healthcare",
         "Technology",
-        "Consumer Goods",
-        "Fashion & Luxury"
+        "Aerospace & Defense",
+        "Consumer Goods"
       ],
       "description": "Established through the spin-off of Intesa Sanpaolo\u2019s private equity activities, this firm specializes in scaling Italian 'champions' like Bending Spoons and U-Power through international buyouts.",
       "geographies": [
@@ -9523,10 +9524,9 @@
       ],
       "sector_tags": [
         "Technology",
-        "Professional Services",
         "Healthcare",
-        "Financial Services",
-        "Hospitality & Tourism"
+        "Professional Services",
+        "Financial Services"
       ],
       "description": "Backed by the Perrodo family, this firm leverages an evergreen capital structure to pursue long-term growth and buyout investments in European mid-market leaders such as Miss Group and Crosta & Mollica.",
       "created_at": "2026-01-26T15:27:27.990377+00:00",

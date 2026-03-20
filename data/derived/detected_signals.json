@@ -46674,26 +46674,28 @@
       }
     },
     {
-      "id": "web-signal-00940",
+      "id": "web-signal-02322",
       "fund_id": "",
       "fund_slug": "macquarie",
       "signal_type": "other",
       "title": "Macquarie gives $A175,000 to empower Keitech Foundation to expand vocational education in Leyte",
-      "what_changed": "New announcement: Macquarie gives $A175,000 to empower Keitech Foundation to expand vocational education in Leyte",
+      "what_changed": "New None involving Leyte",
       "source_url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-gives-a175000-to-empower-keitech-foundation-to-expand-vocational-education-in-leyte.html",
-      "source_name": "Macquarie \u2013 MAM",
+      "source_name": "Macquarie",
       "published_at": null,
-      "observed_at": "2026-02-06T10:54:51.668790+00:00",
-      "created_at": "2026-02-06T10:54:51.668790+00:00",
-      "snapshot_id": "snap-20260206105448-a03de6e6",
+      "observed_at": "2026-03-20T17:45:19.214932+00:00",
+      "created_at": "2026-03-20T17:45:19.214932+00:00",
+      "snapshot_id": "snap-20260320174510-a03de6e6",
       "diff_summary": "New news item detected",
       "page_category": "NEWS",
       "page_type": "NEWS",
-      "relevance_score": 0,
+      "relevance_score": 0.0,
       "relevance_reasons": [],
       "italy_relevant": false,
       "extracted_entities": {
-        "companies": [],
+        "companies": [
+          "Leyte"
+        ],
         "people": [
           "Keitech Foundation"
         ],
@@ -62999,7 +63001,310 @@
       "created_at": "2026-01-26T15:32:16.600820+00:00",
       "fingerprint": "638e62eb126d",
       "extraction_source": "historical_extraction"
+    },
+    {
+      "id": "web-signal-02316",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "signal_type": "other",
+      "title": "\u2018We\u2019re in your corner\u2019 as RBA increases Australia\u2019s official cash rate",
+      "what_changed": "New announcement: \u2018We\u2019re in your corner\u2019 as RBA increases Australia\u2019s official cash rate",
+      "source_url": "https://www.macquarie.com/it/en/about/news/2026/we-are-in-your-corner-as-rba-increases-australias-official-cash-rate.html",
+      "source_name": "Macquarie",
+      "published_at": "2026-03-17",
+      "observed_at": "2026-03-20T17:44:56.943165+00:00",
+      "created_at": "2026-03-20T17:44:56.943165+00:00",
+      "snapshot_id": "snap-20260320174447-6f55edda",
+      "diff_summary": "New news item detected (dated 2026-03-17)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02317",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "signal_type": "other",
+      "title": "\u2018We\u2019re in your corner\u2019 as RBA increases Australia\u2019s official cash rate",
+      "what_changed": "New announcement: \u2018We\u2019re in your corner\u2019 as RBA increases Australia\u2019s official cash rate",
+      "source_url": "https://www.macquarie.com/it/en/about/news/2026/we-are-in-your-corner-as-rba-increases-australias-official-cash-rate.html",
+      "source_name": "Macquarie",
+      "published_at": null,
+      "observed_at": "2026-03-20T17:44:56.943165+00:00",
+      "created_at": "2026-03-20T17:44:56.943165+00:00",
+      "snapshot_id": "snap-20260320174447-6f55edda",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02318",
+      "fund_id": "",
+      "fund_slug": "oakley-capital",
+      "signal_type": "people_move",
+      "title": "New team members: Kerry Heaton (+6 more)",
+      "what_changed": "New team members: Kerry Heaton, Christopher Ciraolo, Joe Ross, William Langmuir, Aled Homer (+2 more)",
+      "source_url": "https://www.oakleycapital.com/about/who-we-are/",
+      "source_name": "Oakley Capital",
+      "published_at": null,
+      "observed_at": "2026-03-20T17:44:59.004151+00:00",
+      "created_at": "2026-03-20T17:44:59.004151+00:00",
+      "snapshot_id": "snap-20260320174451-539b9240",
+      "diff_summary": "7 new team members via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Kerry Heaton",
+          "Christopher Ciraolo",
+          "Joe Ross",
+          "William Langmuir",
+          "Aled Homer",
+          "Antonia Bosch",
+          "David Bork"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02319",
+      "fund_id": "",
+      "fund_slug": "oakley-capital",
+      "signal_type": "exit_announced",
+      "title": "Oakley Capital wins PE Hub\u2019s Mid-Cap Europe Deal of the Year Award for the sale of vLex to Clio",
+      "what_changed": "New announcement: Oakley Capital wins PE Hub\u2019s Mid-Cap Europe Deal of the Year Award for the sale of vLex to Clio",
+      "source_url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-wins-pe-hub-s-mid-cap-europe-deal-of-the-year-award-for-the-sale-of-vlex-to-clio",
+      "source_name": "Oakley Capital",
+      "published_at": null,
+      "observed_at": "2026-03-20T17:45:12.180595+00:00",
+      "created_at": "2026-03-20T17:45:12.180595+00:00",
+      "snapshot_id": "snap-20260320174511-9c409e53",
+      "diff_summary": "New news item detected (dated 18.03.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Oakley Capital",
+          "Cap Europe Deal",
+          "Year Award"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02320",
+      "fund_id": "",
+      "fund_slug": "oakley-capital",
+      "signal_type": "other",
+      "title": "Oakley Capital partners with Groupe Senef, a French provider of cloud vertical software solutions",
+      "what_changed": "New announcement: Oakley Capital partners with Groupe Senef, a French provider of cloud vertical software solutions",
+      "source_url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-partners-with-groupe-senef-a-french-provider-of-cloud-vertical-software-solutions",
+      "source_name": "Oakley Capital",
+      "published_at": null,
+      "observed_at": "2026-03-20T17:45:12.180595+00:00",
+      "created_at": "2026-03-20T17:45:12.180595+00:00",
+      "snapshot_id": "snap-20260320174511-9c409e53",
+      "diff_summary": "New news item detected (dated 17.03.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Oakley Capital",
+          "Groupe Senef"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02321",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "signal_type": "deal_announced",
+      "title": "Macquarie: Acquisition - Last Mile Infrastructure",
+      "what_changed": "New acquisition involving Last Mile Infrastructure",
+      "source_url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-to-acquire-additional-stake-in-last-mile-infrastructure.html",
+      "source_name": "Macquarie",
+      "published_at": null,
+      "observed_at": "2026-03-20T17:45:19.214932+00:00",
+      "created_at": "2026-03-20T17:45:19.214932+00:00",
+      "snapshot_id": "snap-20260320174510-a03de6e6",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Last Mile Infrastructure"
+        ],
+        "people": [
+          "Macquarie Asset Management",
+          "Last Mile Infrastructure"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02322",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "signal_type": "other",
+      "title": "\u2018Savers are back in the box seat\u2019 as RBA lifts cash rate",
+      "what_changed": "New announcement: \u2018Savers are back in the box seat\u2019 as RBA lifts cash rate",
+      "source_url": "https://www.macquarie.com/it/en/about/news/2026/savers-are-back-in-the-box-seat-as-rba-lifts-cash-rate.html",
+      "source_name": "Macquarie",
+      "published_at": null,
+      "observed_at": "2026-03-20T17:45:19.214932+00:00",
+      "created_at": "2026-03-20T17:45:19.214932+00:00",
+      "snapshot_id": "snap-20260320174510-a03de6e6",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02323",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "signal_type": "other",
+      "title": "Macquarie reimagines customer-focused banking with launch of \u2018Q\u2019",
+      "what_changed": "New announcement: Macquarie reimagines customer-focused banking with launch of \u2018Q\u2019",
+      "source_url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-reimagines-customer-focused-banking-with-launch-of-q.html",
+      "source_name": "Macquarie",
+      "published_at": null,
+      "observed_at": "2026-03-20T17:45:19.214932+00:00",
+      "created_at": "2026-03-20T17:45:19.214932+00:00",
+      "snapshot_id": "snap-20260320174510-a03de6e6",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02324",
+      "fund_id": "",
+      "fund_slug": "permira",
+      "signal_type": "deal_announced",
+      "title": "Permira to Realise AltamarCAM Investment Through Mercer Transaction",
+      "what_changed": "New announcement: Permira to Realise AltamarCAM Investment Through Mercer Transaction",
+      "source_url": "https://www.permira.com/news-and-insights/announcements/permira-to-realise-altamarcam-investment-through-mercer-transaction/",
+      "source_name": "Permira",
+      "published_at": "2026-03-19",
+      "observed_at": "2026-03-20T17:45:41.194635+00:00",
+      "created_at": "2026-03-20T17:45:41.194635+00:00",
+      "snapshot_id": "snap-20260320174540-efaed21f",
+      "diff_summary": "New news item detected (dated 19 Mar 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Investment Through Mercer"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02325",
+      "fund_id": "",
+      "fund_slug": "l-catterton",
+      "signal_type": "deal_announced",
+      "title": "Ysebeauty added to L Catterton portfolio",
+      "what_changed": "Ysebeauty added to L Catterton portfolio",
+      "source_url": "https://www.lcatterton.com/Investments.html",
+      "source_name": "L Catterton",
+      "published_at": null,
+      "observed_at": "2026-03-20T17:47:11.435941+00:00",
+      "created_at": "2026-03-20T17:47:11.435941+00:00",
+      "snapshot_id": "snap-20260320174405-75b8c7e0",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Ysebeauty"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02326",
+      "fund_id": "",
+      "fund_slug": "l-catterton",
+      "signal_type": "other",
+      "title": "L Catterton Announces Combination of Bel Cosm\u00e9ticos and Mundo do Cabeleireiro to Create Leading Beauty Retailer in Brazil",
+      "what_changed": "New announcement: L Catterton Announces Combination of Bel Cosm\u00e9ticos and Mundo do Cabeleireiro to Create Leading Beauty Retailer in Brazil",
+      "source_url": "https://www.lcatterton.com/Press.html#!/LC-bel-mundo",
+      "source_name": "L Catterton",
+      "published_at": "2026-03-09",
+      "observed_at": "2026-03-20T17:47:24.867074+00:00",
+      "created_at": "2026-03-20T17:47:24.867074+00:00",
+      "snapshot_id": "snap-20260320174724-40e04f41",
+      "diff_summary": "New news item detected (dated 2026-03-09)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Create Leading Beauty",
+          "Catterton Announces Combination"
+        ],
+        "locations": []
+      }
     }
   ],
-  "signal_count": 2315
+  "signal_count": 2326,
+  "translated_at": "2026-03-20T17:47:49.851057+00:00"
 }

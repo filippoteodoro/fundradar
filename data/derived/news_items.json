@@ -11917,6 +11917,18 @@
     ],
     "https://www.oakleycapital.com/news-and-insights/": [
       {
+        "title": "Oakley Capital wins PE Hub\u2019s Mid-Cap Europe Deal of the Year Award for the sale of vLex to Clio",
+        "date": "18.03.26",
+        "url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-wins-pe-hub-s-mid-cap-europe-deal-of-the-year-award-for-the-sale-of-vlex-to-clio",
+        "fingerprint": "f862a76b7c3f"
+      },
+      {
+        "title": "Oakley Capital partners with Groupe Senef, a French provider of cloud vertical software solutions",
+        "date": "17.03.26",
+        "url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-partners-with-groupe-senef-a-french-provider-of-cloud-vertical-software-solutions",
+        "fingerprint": "c3dcfee12fa6"
+      },
+      {
         "title": "Oakley Capital strengthens platform with promotions including four new Partners",
         "date": "03.03.26",
         "url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-strengthens-platform-with-promotions-including-four-new-partners",
@@ -11963,18 +11975,6 @@
         "date": "03.12.25",
         "url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-invests-in-spanish-hotel-demand-generation-platform-paraty-tech",
         "fingerprint": "89e74e669f1e"
-      },
-      {
-        "title": "Oakley Capital agrees sale of atHome",
-        "date": "16.10.25",
-        "url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-agrees-sale-of-athome",
-        "fingerprint": "39e0e1066d14"
-      },
-      {
-        "title": "Oakley Capital invests in premium padel equipment brand NOX",
-        "date": "15.10.25",
-        "url": "https://www.oakleycapital.com/news-and-insights/oakley-capital-invests-in-premium-padel-equipment-brand-nox",
-        "fingerprint": "0e2280e858f4"
       }
     ],
     "https://sofinnovapartners.com/news": [
@@ -12638,6 +12638,12 @@
       }
     ],
     "https://www.lcatterton.com/Press.html": [
+      {
+        "title": "L Catterton Announces Combination of Bel Cosm\u00e9ticos and Mundo do Cabeleireiro to Create Leading Beauty Retailer in Brazil",
+        "date": "2026-03-09",
+        "url": "https://www.lcatterton.com/Press.html#!/LC-bel-mundo",
+        "fingerprint": "8f83fb32f291"
+      },
       {
         "title": "L Catterton Completes Sale of ETVOS to Marubeni Consumer Platform",
         "date": "2026-01-28",
@@ -15731,6 +15737,12 @@
     ],
     "https://www.permira.com/news-and-insights/announcements/": [
       {
+        "title": "Permira to Realise AltamarCAM Investment Through Mercer Transaction",
+        "date": "19 Mar 2026",
+        "url": "https://www.permira.com/news-and-insights/announcements/permira-to-realise-altamarcam-investment-through-mercer-transaction/",
+        "fingerprint": "4eeca977fd48"
+      },
+      {
         "title": "Permira appoints Giorgio Dinaro as Head of Milan",
         "date": "26 Feb 2026",
         "url": "https://www.permira.com/news-and-insights/announcements/permira-appoints-giorgio-dinaro-as-head-of-milan/",
@@ -15771,12 +15783,6 @@
         "date": "27 Jan 2026",
         "url": "https://www.permira.com/news-and-insights/announcements/permira-credit-announces-pricing-of-providus-clo-xiv-at-4053-million/",
         "fingerprint": "e1c2178156c5"
-      },
-      {
-        "title": "Permira Foundation launches its Growth Fund",
-        "date": "8 Jan 2026",
-        "url": "https://www.permira.com/news-and-insights/announcements/permira-foundation-launches-its-growth-fund/",
-        "fingerprint": "465d7bd164f9"
       }
     ],
     "https://www.blackstone.com/news/press/": [
@@ -15947,10 +15953,54 @@
     ],
     "https://www.macquarie.com/it/en/about/news.html": [
       {
+        "title": "\u2018We\u2019re in your corner\u2019 as RBA increases Australia\u2019s official cash rate",
+        "date": "2026-03-17",
+        "url": "https://www.macquarie.com/it/en/about/news/2026/we-are-in-your-corner-as-rba-increases-australias-official-cash-rate.html",
+        "fingerprint": "0207dac8d2a2"
+      },
+      {
+        "title": "\u2018We\u2019re in your corner\u2019 as RBA increases Australia\u2019s official cash rate",
+        "date": null,
+        "url": "https://www.macquarie.com/it/en/about/news/2026/we-are-in-your-corner-as-rba-increases-australias-official-cash-rate.html",
+        "fingerprint": "d09afce1d2bd"
+      },
+      {
         "title": "Macquarie unlocks fee-free rental payments for Australians with the launch of PayID\u00ae on DEFT",
-        "date": "2026-03-06",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-unlocks-fee-free-rental-payments-for-australians-with-the-launch-of-payid-on-deft.html",
-        "fingerprint": "2084e07195dc"
+        "fingerprint": "b3d04033f9d2"
+      },
+      {
+        "title": "Macquarie Asset Management and Gabia form strategic partnership to develop next generation hyperscale data centre platform in South Korea",
+        "date": null,
+        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-and-gabia-form-strategic-partnership-to-develop-next-generation-hyperscale-data-centre-platform-in-south-korea.html",
+        "fingerprint": "c74a0ea85471"
+      },
+      {
+        "title": "Macquarie Asset Management announces sale of Macquarie AirFinance",
+        "date": null,
+        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-announces-sale-of-macquarie-airfinance.html",
+        "fingerprint": "8e3360fa5058"
+      },
+      {
+        "title": "Macquarie Asset Management to acquire South American tower operations of IHS Towers",
+        "date": null,
+        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-to-acquire-south-american-tower-operations-of-ihs-towers.html",
+        "fingerprint": "882b2f14aeba"
+      }
+    ],
+    "https://www.macquarie.com/it/en/about/company/macquarie-asset-management/news.html": [
+      {
+        "title": "\u2018We\u2019re in your corner\u2019 as RBA increases Australia\u2019s official cash rate",
+        "date": "2026-03-17",
+        "url": "https://www.macquarie.com/it/en/about/news/2026/we-are-in-your-corner-as-rba-increases-australias-official-cash-rate.html",
+        "fingerprint": "0207dac8d2a2"
+      },
+      {
+        "title": "\u2018We\u2019re in your corner\u2019 as RBA increases Australia\u2019s official cash rate",
+        "date": null,
+        "url": "https://www.macquarie.com/it/en/about/news/2026/we-are-in-your-corner-as-rba-increases-australias-official-cash-rate.html",
+        "fingerprint": "d09afce1d2bd"
       },
       {
         "title": "Macquarie unlocks fee-free rental payments for Australians with the launch of PayID\u00ae on DEFT",
@@ -15981,146 +16031,90 @@
         "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-led-consortium-enters-binding-agreement-to-acquire-qube.html",
         "fingerprint": "fb0f70f96f19"
-      }
-    ],
-    "https://www.macquarie.com/it/en/about/company/macquarie-asset-management/news.html": [
-      {
-        "title": "Aligned Data Centers",
-        "date": "2025-01-01",
-        "url": "https://www.macquarie.com/it/en/about/news/2025/macquarie-asset-management-to-lead-sale-of-aligned-data-centers-at-an-enterprise-value-of-us-40-billion.html",
-        "fingerprint": "6225b1ca7fef"
-      },
-      {
-        "title": "London City Airport",
-        "date": "2025-01-01",
-        "url": "https://www.macquarie.com/it/en/about/news/2025/macquarie-agrees-to-acquire-additional-stake-in-london-city-airport.html",
-        "fingerprint": "da87a465a892"
-      },
-      {
-        "title": "Applied Digital",
-        "date": "2025-01-01",
-        "url": "https://www.macquarie.com/it/en/about/news/2025/mam-closes-first-investment-in-partnership-with-applied-digital-providing-up-to-us5billion-in-funding-to-support-high-performance-computing-growth.html",
-        "fingerprint": "dfd33674fe03"
-      },
-      {
-        "title": "Macquarie unlocks fee-free rental payments for Australians with the launch of PayID\u00ae on DEFT",
-        "date": "2026-03-06",
-        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-unlocks-fee-free-rental-payments-for-australians-with-the-launch-of-payid-on-deft.html",
-        "fingerprint": "2084e07195dc"
-      },
-      {
-        "title": "Macquarie Asset Management and Gabia form strategic partnership to develop next generation hyperscale data centre platform in South Korea",
-        "date": "2026-03-03",
-        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-and-gabia-form-strategic-partnership-to-develop-next-generation-hyperscale-data-centre-platform-in-south-korea.html",
-        "fingerprint": "998b925462b0"
-      },
-      {
-        "title": "Macquarie Asset Management announces sale of Macquarie AirFinance",
-        "date": "2026-02-26",
-        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-announces-sale-of-macquarie-airfinance.html",
-        "fingerprint": "c4f91cbc1ef6"
-      },
-      {
-        "title": "Macquarie Asset Management to acquire South American tower operations of IHS Towers",
-        "date": "2026-02-17",
-        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-to-acquire-south-american-tower-operations-of-ihs-towers.html",
-        "fingerprint": "aa9651f1b042"
-      },
-      {
-        "title": "Macquarie Asset Management-led consortium enters binding agreement to acquire Qube at $A5.20 cash per share",
-        "date": "2026-02-16",
-        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-led-consortium-enters-binding-agreement-to-acquire-qube.html",
-        "fingerprint": "6092991ad14b"
       },
       {
         "title": "Macquarie Group 2026 Operational Briefing",
-        "date": "2026-02-10",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-group-2026-operational-briefing.html",
-        "fingerprint": "0ea9a2c868ad"
+        "fingerprint": "5aa8ad37e6c5"
       },
       {
         "title": "Macquarie Asset Management announces financial close of sale of DIG Airgas to Air Liquide",
-        "date": "2026-02-05",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-announces-financial-close-of-sale-of-dig-airgas-to-air-liquide.html",
-        "fingerprint": "f5449411b4ba"
+        "fingerprint": "2d56f1f56a6c"
       },
       {
         "title": "Macquarie Asset Management to acquire additional stake in Last Mile Infrastructure",
-        "date": "2026-02-05",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-to-acquire-additional-stake-in-last-mile-infrastructure.html",
-        "fingerprint": "d2baae385604"
+        "fingerprint": "8110047577f1"
       },
       {
         "title": "Macquarie Asset Management to acquire Energy Assets Group",
-        "date": "2026-02-05",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-to-acquire-energy-assets-group.html",
-        "fingerprint": "e24e5ac20f94"
+        "fingerprint": "bcf49346a9fb"
       },
       {
         "title": "Macquarie notes APRA reduction of liquidity add-on requirements for Macquarie Bank",
-        "date": "2026-02-05",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-notes-apra-reduction-of-liquidity-add-on-requirements-for-macquarie-bank.html",
-        "fingerprint": "25679c91f8e7"
+        "fingerprint": "6bf754b0619d"
       },
       {
         "title": "Macquarie gives $A175,000 to empower Keitech Foundation to expand vocational education in Leyte",
-        "date": "2026-02-04",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-gives-a175000-to-empower-keitech-foundation-to-expand-vocational-education-in-leyte.html",
-        "fingerprint": "d014ef8b9e3d"
+        "fingerprint": "303c6a35cb81"
       },
       {
         "title": "\u2018Savers are back in the box seat\u2019 as RBA lifts cash rate",
-        "date": "2026-02-03",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2026/savers-are-back-in-the-box-seat-as-rba-lifts-cash-rate.html",
-        "fingerprint": "d626a6a3192d"
+        "fingerprint": "a25c287793fc"
       },
       {
         "title": "Macquarie reimagines customer-focused banking with launch of \u2018Q\u2019",
-        "date": "2026-01-19",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-reimagines-customer-focused-banking-with-launch-of-q.html",
-        "fingerprint": "00e6aed8238a"
+        "fingerprint": "c24286bd77dc"
       },
       {
         "title": "Macquarie Asset Management supports ALTTA with financing for French ski area concessions",
-        "date": "2026-01-19",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2026/Macquarie-Asset-Management-supports-altta-with-financing-for-French-ski-area-concessions.html",
-        "fingerprint": "e02b36bac8be"
+        "fingerprint": "0e4c87d9c88a"
       },
       {
         "title": "Polarise and Macquarie announce up to \u20ac117 million financing deal for European AI ambitions",
-        "date": "2026-01-12",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2026/polarise-and-macquarie-announce-up-to-117-million-euros-financing-deal-for-european-ai-ambitions.html",
-        "fingerprint": "e81a51033a51"
+        "fingerprint": "a0e74fc13736"
       },
       {
         "title": "Macquarie statement on resolution of ASIC civil proceedings",
-        "date": "2025-12-19",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2025/macquarie-statement-on-resolution-of-asic-civil-proceedings.html",
-        "fingerprint": "440418660d8d"
+        "fingerprint": "cfb0f920813b"
       },
       {
         "title": "Macquarie Group Board appointment",
-        "date": "2025-12-05",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2025/macquarie-group-board-appointment.html",
-        "fingerprint": "14b503533d34"
+        "fingerprint": "a3cb29cd234a"
       },
       {
         "title": "Macquarie Group expands prize for organisations building climate resilience solutions to Australia and the Pacific Islands",
-        "date": "2025-12-02",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2025/macquarie-group-expands-prize-for-organisations-building-climate-resilience-solutions-to-australia-and-the-pacific-islands.html",
-        "fingerprint": "4755ac0713f2"
+        "fingerprint": "2cc8bca83463"
       },
       {
         "title": "Macquarie Group completes sale of Macquarie Asset Management\u2019s public investments business in North America and Europe to Nomura",
-        "date": "2025-12-01",
+        "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2025/macquarie-group-completes-sale-of-macquarie-asset-managements-public-investments-business-in-north-america-and-europe-to-nomura.html",
-        "fingerprint": "89c3eed687fe"
-      },
-      {
-        "title": "Australian savings held by Macquarie Bank surpass $200 billion",
-        "date": "2025-11-25",
-        "url": "https://www.macquarie.com/it/en/about/news/2025/australian-savings-held-by-macquarie-bank-surpass-200-billion.html",
-        "fingerprint": "631c09c30959"
+        "fingerprint": "6c288c22b47d"
       }
     ],
     "https://www.equityclub.eu/en/news": [
