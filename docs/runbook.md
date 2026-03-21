@@ -218,6 +218,21 @@ If a pipeline or recovery session leaves `data/db.json` with a large unrelated d
 2. If the change is a bulk rewrite you cannot justify, restore `data/db.json` from git.
 3. Do not bundle unrelated `db.json` drift into a pipeline recovery commit.
 
+### Recover Committed Derived Data Before Re-Spending APIs
+
+If committed derived files in `data/derived/` look degraded locally, prefer git recovery over historical reruns.
+
+Use this pattern:
+1. Compare the suspicious files against git first (`portfolio_items.json`, `company_profiles.json`, `detected_signals_filtered.json`, `detected_signals_enriched.json`, `signal_enrichment_progress.json`).
+2. Restore the last good committed version of the degraded artifact from git.
+3. Keep committed progress trackers unless you have proof they are wrong. In particular, do not delete `signal_enrichment_progress.json`.
+4. Replay only the minimal current work after the restore:
+   - `pnpm pipeline:signals-to-portfolio` for free local portfolio sync
+   - targeted `pnpm pipeline --step filter` / `--step enrich` only if today's new signals truly need regeneration
+5. Treat a sudden backlog explosion as a recovery symptom first, not as evidence that months of API work genuinely disappeared.
+
+This is usually cheaper and safer than rerunning historical OpenAI or Gemini enrichment.
+
 ### Bot-Protected Domain Keeps Returning 403
 
 When a fund domain blocks top-level pages, prefer extractor-level endpoint routing

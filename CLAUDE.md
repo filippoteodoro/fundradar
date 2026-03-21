@@ -338,7 +338,7 @@ The repo lives under iCloud Drive, so the effective backup tiers are:
 | 2 | Cloud sync | iCloud (Apple servers, near-real-time) |
 | 3 | Git remote | GitHub (`filippoteodoro/fundradar`) — offsite, versioned |
 
-**Committed files** (all three tiers): source code, `data/db.json`, `data/derived/portfolio_items.json`, `data/derived/detected_signals_*.json`, `data/derived/pem_deals.json`, `data/derived/fund_people_stats.json`, `data/derived/gemini_fund_asset_zero_italy_verified.json`.
+**Committed files** (all three tiers): source code, `data/db.json`, `data/derived/portfolio_items.json`, `data/derived/company_profiles.json`, `data/derived/detected_signals_*.json`, `data/derived/pem_deals.json`, `data/derived/fund_people_stats.json`, `data/derived/gemini_fund_asset_zero_italy_verified.json`.
 
 **Gitignored files** (iCloud only — tiers 1+2, NOT on GitHub):
 
@@ -356,6 +356,8 @@ The repo lives under iCloud Drive, so the effective backup tiers are:
 **IMPORTANT — "NEVER DELETE" warnings in these docs apply to gitignored files.** They are NOT recoverable from GitHub. iCloud Versions (right-click → Revert To) is the only safety net. A `git clean -fdx` will wipe them permanently.
 
 **`gemini_fund_asset_zero_italy_verified.json` is committed** — it controls which funds are hidden from the website and must survive a fresh clone.
+
+**Recovery rule for committed derived data**: if local `data/derived/` looks degraded but the files are committed, restore the last good git-backed version first and replay only the minimal current work. Do not jump straight to expensive historical re-filtering or re-enrichment. Typical safe replay order after restore: keep `signal_enrichment_progress.json`, restore `portfolio_items.json` / `company_profiles.json` / `detected_signals_*.json` from git, then rerun zero-cost or low-cost local steps such as `signal_to_portfolio` before considering API reruns.
 
 ## Where to Start
 

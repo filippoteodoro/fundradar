@@ -257,6 +257,8 @@ Cleaner apps can recreate the same class of runtime breakage even when the repo 
 
 `data/db.json` is curated core data, not disposable worker state. If a pipeline/recovery session leaves `db.json` with a broad unrelated diff (for example mass `sector_tags` rewrites), treat that as a separate review item rather than bundling it into a worker recovery commit. Restore from git unless you can justify the content change.
 
+When committed derived artifacts suddenly collapse in quality or coverage (for example portfolio enrichment backlog jumps from near-zero to thousands, or `portfolio_items.json` / `company_profiles.json` lose populated fields), compare against git before spending APIs. The default recovery path is: restore the last good committed artifact, preserve committed progress files like `signal_enrichment_progress.json`, then replay only the minimal local steps that are cheap or zero-cost (`signal_to_portfolio`, selective filter/enrich reruns). Do not reflexively rerun full historical enrichment when git already holds the last good state.
+
 ## Module Organization
 
 | Category | Modules |
