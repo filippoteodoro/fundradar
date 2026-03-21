@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import concurrent.futures
 import json
+import math
 import os
 import signal
 import threading
@@ -53,7 +54,33 @@ def _normalize_signal_title(title: str, max_len: int = 200) -> str:
 # ---------------------------------------------------------------------------
 MAX_WORKERS = int(os.environ.get("FUNDRADAR_MAX_WORKERS", "8"))
 PER_URL_TIMEOUT = 120  # seconds - per-URL safety net for stuck fetches
-MAX_TOTAL_TIMEOUT = 300  # seconds (5 min) - hard ceiling for entire batch
+MIN_TOTAL_TIMEOUT = 300  # seconds (5 min) - don't fail tiny batches too aggressively
+MAX_TOTAL_TIMEOUT = int(os.environ.get("FUNDRADAR_MAX_TOTAL_TIMEOUT", "3600"))
+GLOBAL_TIMEOUT_GRACE = int(os.environ.get("FUNDRADAR_GLOBAL_TIMEOUT_GRACE", "30"))
+TIMEOUT_DRAIN_GRACE = int(os.environ.get("FUNDRADAR_TIMEOUT_DRAIN_GRACE", "15"))
+
+
+def _compute_global_timeout(domain_groups: dict[str, list["MonitoredUrl"]]) -> int:
+    """
+    Estimate a realistic batch timeout for per-domain sequential processing.
+
+    Domains are processed in parallel, but URLs within a domain are processed
+    sequentially. A raw `len(urls) * PER_URL_TIMEOUT` estimate is too pessimistic,
+    while a fixed 300s ceiling is too aggressive for normal batches.
+    """
+    if not domain_groups:
+        return MIN_TOTAL_TIMEOUT
+
+    longest_domain_chain = max(len(group) for group in domain_groups.values())
+    domain_waves = math.ceil(len(domain_groups) / max(1, MAX_WORKERS))
+    expected_work_units = max(1, longest_domain_chain, domain_waves)
+    estimated_timeout = expected_work_units * PER_URL_TIMEOUT + GLOBAL_TIMEOUT_GRACE
+    return max(MIN_TOTAL_TIMEOUT, min(estimated_timeout, MAX_TOTAL_TIMEOUT))
+
+
+def _compute_timeout_drain_window() -> int:
+    """Allow in-flight per-URL fetches to finish before tearing down Playwright loops."""
+    return PER_URL_TIMEOUT + TIMEOUT_DRAIN_GRACE
 
 # ---------------------------------------------------------------------------
 # Support-staff filter: titles irrelevant for PE/VC investment signals
@@ -2353,44 +2380,46 @@ class WebsiteMonitor:
         active_domains: dict[str, str] = {}  # domain -> current URL
         active_lock = threading.Lock()
         domains_done = 0
+        stop_after_current = threading.Event()
 
         def _process_domain_group(domain: str, domain_urls: list[MonitoredUrl]) -> None:
             """Process all URLs for a single domain sequentially."""
             nonlocal checked, skipped, domains_done
 
-            for url_obj in domain_urls:
-                if self.is_shutting_down():
-                    return
+            try:
+                for url_obj in domain_urls:
+                    if self.is_shutting_down() or stop_after_current.is_set():
+                        return
 
+                    with active_lock:
+                        active_domains[domain] = url_obj.url
+
+                    print(f"\n[{url_obj.fund_name}]")
+                    url_signals = self.check_url(url_obj, skip_backoff=skip_backoff)
+
+                    with signals_lock:
+                        signals.extend(url_signals)
+
+                    with counter_lock:
+                        if not self.url_status_store.should_check(url_obj.url) and not skip_backoff:
+                            skipped += 1
+                        else:
+                            checked += 1
+
+                        # Update progress for shutdown logging
+                        if self._shutdown:
+                            self._shutdown.set_current_url(url_obj.url)
+                            self._shutdown.set_progress(checked + skipped, len(urls), len(signals))
+            finally:
                 with active_lock:
-                    active_domains[domain] = url_obj.url
-
-                print(f"\n[{url_obj.fund_name}]")
-                url_signals = self.check_url(url_obj, skip_backoff=skip_backoff)
-
-                with signals_lock:
-                    signals.extend(url_signals)
-
-                with counter_lock:
-                    if not self.url_status_store.should_check(url_obj.url) and not skip_backoff:
-                        skipped += 1
-                    else:
-                        checked += 1
-
-                    # Update progress for shutdown logging
-                    if self._shutdown:
-                        self._shutdown.set_current_url(url_obj.url)
-                        self._shutdown.set_progress(checked + skipped, len(urls), len(signals))
-
-            with active_lock:
-                active_domains.pop(domain, None)
-                domains_done += 1
-                remaining = len(domain_groups) - domains_done
-                if remaining > 0 and remaining <= 5:
-                    print(f"\n  [{remaining} domains still running: {list(active_domains.keys())}]")
+                    active_domains.pop(domain, None)
+                    domains_done += 1
+                    remaining = len(domain_groups) - domains_done
+                    if remaining > 0 and remaining <= 5:
+                        print(f"\n  [{remaining} domains still running: {list(active_domains.keys())}]")
 
         # --- Step 4: Run domain groups in parallel ---
-        total_timeout = min(PER_URL_TIMEOUT * len(urls), MAX_TOTAL_TIMEOUT)
+        total_timeout = _compute_global_timeout(domain_groups)
         executor = concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS)
         futures: dict[concurrent.futures.Future, str] = {}
         for domain, domain_urls in domain_groups.items():
@@ -2403,15 +2432,56 @@ class WebsiteMonitor:
         import time
         deadline = time.monotonic() + total_timeout
         done_futures = set()
+        timed_out = False
 
         while len(done_futures) < len(futures):
             remaining_time = deadline - time.monotonic()
             if remaining_time <= 0:
+                timed_out = True
+                stop_after_current.set()
                 with active_lock:
                     stuck = list(active_domains.items())
                 print(f"\n  WARNING: Global timeout ({total_timeout}s) reached.")
                 for domain, url in stuck:
                     print(f"    STUCK: {domain} -> {url}")
+                executor.shutdown(wait=False, cancel_futures=True)
+
+                unfinished = {f for f in futures if f not in done_futures}
+                if unfinished:
+                    drain_window = _compute_timeout_drain_window()
+                    print(
+                        f"  Draining {len(unfinished)} in-flight domain task(s) for up to "
+                        f"{drain_window}s before cleanup..."
+                    )
+                    drain_deadline = time.monotonic() + drain_window
+                    while unfinished:
+                        drain_remaining = drain_deadline - time.monotonic()
+                        if drain_remaining <= 0:
+                            break
+                        newly_done, unfinished = concurrent.futures.wait(
+                            unfinished,
+                            timeout=min(5, drain_remaining),
+                            return_when=concurrent.futures.FIRST_COMPLETED,
+                        )
+                        for future in newly_done:
+                            done_futures.add(future)
+                            domain = futures[future]
+                            try:
+                                future.result()
+                            except concurrent.futures.CancelledError:
+                                pass
+                            except Exception as e:
+                                print(f"\n  ERROR processing domain '{domain}': {e}")
+
+                    if unfinished:
+                        with active_lock:
+                            still_active = list(active_domains.items())
+                        print(
+                            f"  WARNING: {len(unfinished)} domain task(s) still did not drain "
+                            "before cleanup."
+                        )
+                        for domain, url in still_active:
+                            print(f"    STILL ACTIVE: {domain} -> {url}")
                 break
 
             # Wait up to 30s for any future to complete
@@ -2439,7 +2509,8 @@ class WebsiteMonitor:
                     for domain, url in still_active:
                         print(f"    -> {domain}: {url}")
 
-        executor.shutdown(wait=False, cancel_futures=True)
+        if not timed_out:
+            executor.shutdown(wait=True)
 
         # Flush all accumulated state to disk after all requests complete
         for store_name in ('snapshot_store', 'signal_store', 'url_status_store',

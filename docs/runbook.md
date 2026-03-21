@@ -209,6 +209,15 @@ If Playwright suddenly asks to install browsers again after previously working, 
 
 The preflight is intentionally conservative. It is cheaper to stop than to spend API calls while `data/derived/` or the worker environment is in an unsafe state.
 
+### Global Monitor Timeout / `STUCK:` Domains
+
+The monitor batch timeout is dynamic and based on domain waves plus per-domain sequential work. If it fires, the monitor now stops scheduling more domain URLs, cancels queued domain tasks, and gives in-flight fetches one per-URL timeout window to drain before cleanup.
+
+If this warning still appears repeatedly:
+1. Treat it as a real slow/stuck-domain problem, not as an iCloud/output-path issue.
+2. Check the listed domains first for bot protection, broken pages, or JS-heavy pages that should be routed more narrowly in the extractor.
+3. Only raise the timeout after confirming the domain behavior is legitimate and the extractor URL set is correct.
+
 ### `data/db.json` Changes During Worker Recovery
 
 `data/db.json` is the curated fund directory, not disposable worker output. Normal worker recovery should not require broad `db.json` rewrites.

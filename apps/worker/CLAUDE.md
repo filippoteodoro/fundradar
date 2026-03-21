@@ -259,6 +259,8 @@ Cleaner apps can recreate the same class of runtime breakage even when the repo 
 
 When committed derived artifacts suddenly collapse in quality or coverage (for example portfolio enrichment backlog jumps from near-zero to thousands, or `portfolio_items.json` / `company_profiles.json` lose populated fields), compare against git before spending APIs. The default recovery path is: restore the last good committed artifact, preserve committed progress files like `signal_enrichment_progress.json`, then replay only the minimal local steps that are cheap or zero-cost (`signal_to_portfolio`, selective filter/enrich reruns). Do not reflexively rerun full historical enrichment when git already holds the last good state.
 
+The monitor batch timeout is dynamic. It scales with per-domain sequential work and parallel worker waves, not a flat 300-second ceiling. If the batch timeout is reached, the monitor stops scheduling additional domain work, cancels queued domain tasks, and gives in-flight fetches one per-URL timeout window to drain before cleanup. This prevents teardown races against live Playwright loops.
+
 ## Module Organization
 
 | Category | Modules |
