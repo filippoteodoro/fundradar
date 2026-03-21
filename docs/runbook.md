@@ -31,6 +31,8 @@ apps/worker/.venv -> ~/Code/Fundradar/apps/worker/.venv
 
 The pipeline preflight checks for dangerous local-state conditions before any API spend. Treat preflight failures as environment/storage problems first, not scraper regressions.
 
+Repo commands should run under the nvm-managed Node 20 toolchain. If a login shell resolves `/usr/local/bin/node` instead, initialize nvm in `~/.zprofile` as well as `~/.zshrc` so non-interactive login shells inherit the default Node before any legacy Homebrew install.
+
 ### Re-extract after updating extractors
 
 ```bash
@@ -185,6 +187,15 @@ python -m fundradar_worker.cli reset-backoff --all
 3. Re-run: `pnpm pipeline --slugs fund-slug --force-extract`
 
 If Playwright suddenly asks to install browsers again after previously working, first check whether a cleaner tool removed `~/Library/Caches/ms-playwright`. CCleaner, `mac-cleaner-cli`, and similar tools can delete the browser runtime without removing the Python `playwright` package.
+
+### `pnpm` / `node` Hits ICU or Legacy Node Errors
+
+**Symptom:** `node -v` or `pnpm` fails from a login shell with a missing ICU library under `/usr/local/bin/node`.
+
+**Fix:**
+1. Check the login-shell resolution path: `zsh -lc 'which node && node -v && which pnpm && pnpm -v'`
+2. If it points to `/usr/local/bin/node`, initialize nvm in `~/.zprofile` and run the nvm default version in login shells.
+3. Re-test before debugging the repo itself. This is a machine PATH issue, not a Fundradar build failure.
 
 ### Preflight Blocks Before Pipeline Starts
 

@@ -42,6 +42,8 @@ Each directory contains CSV files with fund names grouped by that category:
 | `broken_funds.txt` | Funds with broken/missing URLs |
 | `Investment Portfolio _ Carlyle.*` | Reference HTML snapshot |
 
+Raw downloaded reference PDFs in this folder are local-only scratch material. Keep them untracked.
+
 ## CSV Format
 
 All category CSVs have the same structure:

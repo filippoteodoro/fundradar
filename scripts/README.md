@@ -2,6 +2,8 @@
 
 Utilities for data seeding, parsing, and audits.
 
+Keep this folder for active or reusable scripts. One-off completed audits, cleanup passes, and historical migration scripts belong in `/archive/scripts/`.
+
 ## Files
 
 | Script | Purpose |

@@ -51,7 +51,7 @@ fundradar/
 │   ├── derived/       # Worker output (JSON consumed by web)
 │   └── AIFI/          # AIFI scraped data
 ├── docs/              # Documentation
-└── archive/           # Historical sprint plans
+└── archive/           # Historical audits, branding, sprint plans, and deprecated material
 ```
 
 ## Commands

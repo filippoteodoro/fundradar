@@ -42,6 +42,7 @@ Thumbs.db
 *.bak.*
 *.backup
 /backups/
+/scripts/.tmp/
 
 # Data (keep schemas, ignore large files)
 /data/pem/*.pdf
@@ -55,6 +56,7 @@ Thumbs.db
 /data/url_status.json
 /data/audits/
 /data/AIFI/*.htm
+/data/AIFI/*.pdf
 /data/AIFI/*_files/
 
 # Derived data — worker-internal state (ignored)
@@ -102,6 +104,9 @@ Thumbs.db
 /data/derived/gemini_fund_asset_manual_review.json
 /data/derived/gemini_fund_asset_remaining_slugs.txt
 /data/derived/gemini_fund_asset_triage.json
+/data/derived/discovery_top100.json
+/data/derived/aifi_debug_screenshot.png
+/data/derived/* [0-9]*.json
 # /data/derived/gemini_fund_asset_zero_italy_verified.json  ← committed (controls website fund visibility)
 /data/derived/asset_status_evidence.json
 /data/derived/fund_coordinates.json

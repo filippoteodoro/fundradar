@@ -39,6 +39,8 @@ Only Private Equity, Venture Capital, and Growth Equity funds belong in db.json.
 
 Folder-level only — individual extractors and scripts are not listed (they change frequently).
 
+Keep the repo root lean. One-off audit scripts/reports, unused reference assets, and completed planning material belong under `archive/`, not at top level.
+
 ```
 apps/
   web/                          Next.js frontend (see apps/web/CLAUDE.md)
