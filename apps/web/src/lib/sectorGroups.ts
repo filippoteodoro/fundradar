@@ -88,6 +88,7 @@ const SECTOR_TAG_ALIASES: Record<string, string> = {
   'business intelligence': 'Software',
   'financials': 'Financial Services',
   'fintech': 'Financial Services',
+  'gestione di aste giudiziarie e procedure concorsuali': 'Financial Services',
   'medtech': 'Healthcare',
   'healthtech': 'Healthcare',
   'edtech': 'Education',
