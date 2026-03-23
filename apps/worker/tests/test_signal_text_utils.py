@@ -437,6 +437,11 @@ class TestNormalizeMonetaryValues:
         result = normalize_monetary_values("100 mln €")
         assert "€100M" in result
 
+    def test_period_3digit_is_decimal_for_billions(self):
+        # X.YYY miliardi — period is a decimal, not a thousands separator
+        result = normalize_monetary_values("1.000 miliardi di euro")
+        assert "€1B" in result
+
 
 # ── repair_token_splits ────────────────────────────────────────────────────────
 

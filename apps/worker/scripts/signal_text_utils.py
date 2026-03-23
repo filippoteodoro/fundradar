@@ -527,7 +527,11 @@ def _format_amount(number_str: str, multiplier: str, currency: str = "€") -> s
     elif "." in num and "," not in num:
         parts = num.split(".")
         if len(parts) == 2 and len(parts[1]) == 3:
-            num = num.replace(".", "")
+            # Period-before-3-digits is Italian thousands separator (e.g. 1.000 = 1000)
+            # — except with B (billions), where it's always a decimal: stripping it
+            # would yield thousands of billions, which is never realistic.
+            if multiplier != "B":
+                num = num.replace(".", "")
     elif "," in num and "." in num:
         if num.index(",") < num.index("."):
             num = num.replace(",", "")

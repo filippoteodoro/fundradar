@@ -940,3 +940,15 @@ else:
 - Call-for-applications demotion must be guarded by monetary amount presence (`[€$£]\s*\d+`)
 
 **Testing**: every fix must have a regression test in `tests/test_signal_classification.py`.
+
+---
+
+### 21. Billion Amounts Inflated by Thousands of Billions
+
+**Symptom**: A signal displays a revenue/EBITDA/fund size figure as thousands of billions (e.g. `€XXXXB`). The actual figure is a few billion.
+
+**Root cause**: `_format_amount()` in `signal_text_utils.py` has a heuristic: `X.YYY` (period followed by exactly 3 digits) → strip the period → treat as Italian thousands separator. This is correct for millions (`X.YYY milioni` = X,YYY million) but wrong for billions: `X.YYY miliardi` means X.YYY billion (period is a decimal), not X,YYY billion. Stripping the period yields thousands of billions — never realistic.
+
+**The fix** (in `_format_amount()`): the period-stripping heuristic is skipped when `multiplier == "B"`. For billions, `X.YYY` is always treated as a decimal.
+
+**Where to look if it recurs**: if the bad output comes from a path that bypasses `_format_amount` (e.g. the inline regex subs at the top of `clean_display_text()`), add the same guard there.
