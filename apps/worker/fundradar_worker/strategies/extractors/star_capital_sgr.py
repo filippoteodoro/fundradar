@@ -109,9 +109,11 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
         sector_match = re.search(r"Settore\s+di\s+attività:\s*([^Q]+?)(?:Quota|Stato|$)", caption_text, re.IGNORECASE)
         if sector_match:
             sector = sector_match.group(1).strip()
-            # Clean up truncated text
-            if len(sector) > 100:
-                sector = sector[:100].rsplit(" ", 1)[0]
+            # Reject business descriptions masquerading as sectors.
+            # Real sector names are short (e.g. "Software", "Healthcare").
+            # Star Capital sometimes lists a multi-word activity description here.
+            if len(sector) > 50 or len(sector.split()) > 5:
+                sector = None
 
         # Extract status from explicit "Stato dell'investimento:" field
         # Handles both straight ' and curly ' apostrophes

@@ -360,8 +360,13 @@ def is_garbage_sector(sector: str) -> bool:
     lower = sector.lower().strip()
     if lower in GARBAGE_SECTORS:
         return True
-    # Full sentences / descriptions (>80 chars with spaces)
-    if len(sector) > 80 and " " in sector:
+    # Full sentences / descriptions — real sector names are short
+    # Canonical taxonomy max is ~26 chars ("Transportation & Logistics")
+    # Anything over 50 chars is a business description, not a sector name
+    if len(sector) > 50 and " " in sector:
+        return True
+    # More than 5 words → almost certainly a description
+    if len(lower.split()) > 5:
         return True
     # Starts with "SECTOR" prefix (scrape artifact)
     if sector.startswith("SECTOR"):
