@@ -5,7 +5,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:48.391784+00:00",
+      "last_checked_at": "2026-03-23T12:17:18.861498+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -68,7 +68,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:21.868677+00:00",
+      "last_checked_at": "2026-03-23T12:16:36.472158+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -77,7 +77,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:16.199014+00:00",
+      "last_checked_at": "2026-03-23T12:16:35.611041+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -86,7 +86,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:09.073374+00:00",
+      "last_checked_at": "2026-03-23T12:16:33.167865+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -95,7 +95,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:52.783478+00:00",
+      "last_checked_at": "2026-03-23T12:17:01.376996+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -104,7 +104,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:44.280851+00:00",
+      "last_checked_at": "2026-03-23T12:17:00.516306+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -131,7 +131,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:03.638051+00:00",
+      "last_checked_at": "2026-03-23T12:16:51.243922+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -140,7 +140,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:54.809376+00:00",
+      "last_checked_at": "2026-03-23T12:16:49.958083+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -149,18 +149,18 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:25.936632+00:00",
+      "last_checked_at": "2026-03-23T12:18:10.015682+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.tikehaucapital.com/en/the-company/portfolio-companies": {
       "url": "https://www.tikehaucapital.com/en/the-company/portfolio-companies",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.tikehaucapital.com', port=443): Max retries exceeded with url: /en/the-company/portfolio-companies (Caused by NameResolutionError(\"HTTPSConnection(host='www.tikehaucapital.com', port=443): Failed to resolve 'www.tikehaucapital.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.667469+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.667469+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:52.320012+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.cinven.com/portfolio/": {
       "url": "https://www.cinven.com/portfolio/",
@@ -203,7 +203,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:31.831352+00:00",
+      "last_checked_at": "2026-03-23T12:16:37.337788+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -212,7 +212,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:15.798379+00:00",
+      "last_checked_at": "2026-03-23T12:16:35.559554+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -221,7 +221,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:49.594450+00:00",
+      "last_checked_at": "2026-03-23T12:18:05.487445+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -254,21 +254,21 @@
     },
     "https://www.trilanticeurope.com/news.html": {
       "url": "https://www.trilanticeurope.com/news.html",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.trilanticeurope.com', port=443): Max retries exceeded with url: /news.html (Caused by NameResolutionError(\"HTTPSConnection(host='www.trilanticeurope.com', port=443): Failed to resolve 'www.trilanticeurope.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.716221+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.716221+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:16.271009+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.trilanticeurope.com/our-team.html": {
       "url": "https://www.trilanticeurope.com/our-team.html",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.trilanticeurope.com', port=443): Max retries exceeded with url: /our-team.html (Caused by NameResolutionError(\"HTTPSConnection(host='www.trilanticeurope.com', port=443): Failed to resolve 'www.trilanticeurope.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.709755+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.709755+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:06.689456+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.paipartners.com/media/": {
       "url": "https://www.paipartners.com/media/",
@@ -311,7 +311,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:16.444464+00:00",
+      "last_checked_at": "2026-03-23T12:18:15.206161+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -320,7 +320,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:01.591276+00:00",
+      "last_checked_at": "2026-03-23T12:18:10.725154+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -329,18 +329,18 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-16T13:36:26.957805+00:00",
+      "last_checked_at": "2026-03-23T12:18:15.993869+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.tikehaucapital.com/en/the-company/teams": {
       "url": "https://www.tikehaucapital.com/en/the-company/teams",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.tikehaucapital.com', port=443): Max retries exceeded with url: /en/the-company/teams (Caused by NameResolutionError(\"HTTPSConnection(host='www.tikehaucapital.com', port=443): Failed to resolve 'www.tikehaucapital.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.676956+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.676956+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:05.339565+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.wisesgr.com/en/team": {
       "url": "https://www.wisesgr.com/en/team",
@@ -383,7 +383,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:02.241384+00:00",
+      "last_checked_at": "2026-03-23T12:17:20.261453+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -392,7 +392,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:27.143067+00:00",
+      "last_checked_at": "2026-03-23T12:17:07.223957+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -401,7 +401,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:35.965562+00:00",
+      "last_checked_at": "2026-03-23T12:17:03.256223+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -410,25 +410,25 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:12.611035+00:00",
+      "last_checked_at": "2026-03-23T12:17:05.378581+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.21invest.com/en/investments/": {
       "url": "https://www.21invest.com/en/investments/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.21invest.com', port=443): Max retries exceeded with url: /en/investments/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.21invest.com', port=443): Failed to resolve 'www.21invest.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.718268+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.718268+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:02.898330+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://aksiasgr.com/portfolio/": {
       "url": "https://aksiasgr.com/portfolio/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:09.643558+00:00",
+      "last_checked_at": "2026-03-23T12:16:34.705076+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -437,7 +437,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:29.350672+00:00",
+      "last_checked_at": "2026-03-23T12:16:35.525945+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -446,7 +446,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:20.532013+00:00",
+      "last_checked_at": "2026-03-23T12:16:34.937722+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -455,7 +455,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:17.653782+00:00",
+      "last_checked_at": "2026-03-23T12:16:33.704628+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -464,7 +464,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:07.802259+00:00",
+      "last_checked_at": "2026-03-23T12:16:32.787395+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -473,7 +473,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:25.173811+00:00",
+      "last_checked_at": "2026-03-23T12:16:38.697123+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -482,7 +482,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:20.480963+00:00",
+      "last_checked_at": "2026-03-23T12:16:38.035640+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -491,7 +491,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:43.576377+00:00",
+      "last_checked_at": "2026-03-23T12:16:40.310610+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -500,16 +500,16 @@
       "status": "other_error",
       "status_code": 503,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:50.738574+00:00",
-      "consecutive_failures": 7,
-      "next_check_after": "2026-03-21T15:37:50.738574+00:00"
+      "last_checked_at": "2026-03-23T12:16:46.864324+00:00",
+      "consecutive_failures": 8,
+      "next_check_after": "2026-03-24T12:16:46.864324+00:00"
     },
     "https://www.bcpartners.com/news-insights/": {
       "url": "https://www.bcpartners.com/news-insights/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:16.413787+00:00",
+      "last_checked_at": "2026-03-23T12:16:56.770695+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -527,7 +527,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:43.634120+00:00",
+      "last_checked_at": "2026-03-23T12:17:01.660028+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -536,7 +536,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:54.148507+00:00",
+      "last_checked_at": "2026-03-23T12:17:02.744504+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -554,18 +554,18 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:38.438393+00:00",
+      "last_checked_at": "2026-03-23T12:17:14.540461+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.gradientesgr.it/portfolio/": {
       "url": "https://www.gradientesgr.it/portfolio/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:41.776221+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "timeout",
+      "status_code": 0,
+      "error_message": "Timeout",
+      "last_checked_at": "2026-03-23T12:17:45.393621+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-23T12:22:45.393621+00:00"
     },
     "https://www.muzinich.com/private-markets/private-debt/investments": {
       "url": "https://www.muzinich.com/private-markets/private-debt/investments",
@@ -581,7 +581,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:34.773771+00:00",
+      "last_checked_at": "2026-03-23T12:18:02.456688+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -590,7 +590,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:41.395749+00:00",
+      "last_checked_at": "2026-03-23T12:18:02.795688+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -599,52 +599,52 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:36.958467+00:00",
+      "last_checked_at": "2026-03-23T12:18:04.345241+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.rielloinvestimenti.it/press.html": {
       "url": "https://www.rielloinvestimenti.it/press.html",
       "status": "ok",
-      "status_code": 200,
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:13.755016+00:00",
+      "last_checked_at": "2026-03-23T12:18:09.542650+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.rielloinvestimenti.it/portfolio.html": {
       "url": "https://www.rielloinvestimenti.it/portfolio.html",
       "status": "ok",
-      "status_code": 200,
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:54.575477+00:00",
+      "last_checked_at": "2026-03-23T12:18:08.892253+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.siryo.it/investimenti": {
       "url": "https://www.siryo.it/investimenti",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.siryo.it', port=443): Max retries exceeded with url: /investimenti (Caused by NameResolutionError(\"HTTPSConnection(host='www.siryo.it', port=443): Failed to resolve 'www.siryo.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.589970+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.589970+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:21.649842+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.trilanticeurope.com/our-investments.html": {
       "url": "https://www.trilanticeurope.com/our-investments.html",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.trilanticeurope.com', port=443): Max retries exceeded with url: /our-investments.html (Caused by NameResolutionError(\"HTTPSConnection(host='www.trilanticeurope.com', port=443): Failed to resolve 'www.trilanticeurope.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.703149+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.703149+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:58.413514+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.ottoapiu.it/chi-siamo/persone/": {
       "url": "https://www.ottoapiu.it/chi-siamo/persone/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:18.264975+00:00",
+      "last_checked_at": "2026-03-23T12:17:56.537766+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -653,7 +653,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:05.878105+00:00",
+      "last_checked_at": "2026-03-23T12:17:54.119238+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -662,25 +662,25 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:55.512963+00:00",
+      "last_checked_at": "2026-03-23T12:16:49.992212+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.21invest.com/en/who-we-are/": {
       "url": "https://www.21invest.com/en/who-we-are/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.21invest.com', port=443): Max retries exceeded with url: /en/who-we-are/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.21invest.com', port=443): Failed to resolve 'www.21invest.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.723718+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.723718+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:08.209225+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.fondoitaliano.it/investimenti-diretti/": {
       "url": "https://www.fondoitaliano.it/investimenti-diretti/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:31.966678+00:00",
+      "last_checked_at": "2026-03-23T12:17:15.989372+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -689,7 +689,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:47.504818+00:00",
+      "last_checked_at": "2026-03-23T12:16:49.288664+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -698,7 +698,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:08.458769+00:00",
+      "last_checked_at": "2026-03-23T12:16:33.148265+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -707,7 +707,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:44.611727+00:00",
+      "last_checked_at": "2026-03-23T12:18:04.726992+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -731,37 +731,37 @@
     },
     "https://www.towerbrook.com/news/": {
       "url": "https://www.towerbrook.com/news/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.towerbrook.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.towerbrook.com', port=443): Failed to resolve 'www.towerbrook.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.695810+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.695810+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:28.958659+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.cdp.it/it/cdp_equity_portafoglio.page": {
       "url": "https://www.cdp.it/it/cdp_equity_portafoglio.page",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:10.540718+00:00",
+      "last_checked_at": "2026-03-23T12:16:56.272972+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.blackstone.com/en/news": {
       "url": "https://www.blackstone.com/en/news",
-      "status": "ok",
-      "status_code": 200,
+      "status": "403",
+      "status_code": 403,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:13.603720+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "last_checked_at": "2026-03-23T12:16:53.010526+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-23T12:21:53.010526+00:00"
     },
     "https://www.apheon.com/news": {
       "url": "https://www.apheon.com/news",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:43.532555+00:00",
+      "last_checked_at": "2026-03-23T12:16:42.401289+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -770,7 +770,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:58.815023+00:00",
+      "last_checked_at": "2026-03-23T12:17:06.835155+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -779,7 +779,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:18.549088+00:00",
+      "last_checked_at": "2026-03-23T12:17:29.940159+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -788,7 +788,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:23.235146+00:00",
+      "last_checked_at": "2026-03-23T12:17:31.290085+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -797,7 +797,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:13.371070+00:00",
+      "last_checked_at": "2026-03-23T12:17:27.166950+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -806,7 +806,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:19.682235+00:00",
+      "last_checked_at": "2026-03-23T12:17:30.786542+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -824,7 +824,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:26.487815+00:00",
+      "last_checked_at": "2026-03-23T12:18:13.989841+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -833,25 +833,25 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:01.053532+00:00",
+      "last_checked_at": "2026-03-23T12:18:11.053675+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.smart-capital.it/media": {
       "url": "https://www.smart-capital.it/media",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.smart-capital.it', port=443): Max retries exceeded with url: /media (Caused by NameResolutionError(\"HTTPSConnection(host='www.smart-capital.it', port=443): Failed to resolve 'www.smart-capital.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.599979+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.599979+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:27.118191+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.equityclub.eu/en/news": {
       "url": "https://www.equityclub.eu/en/news",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:13.539259+00:00",
+      "last_checked_at": "2026-03-23T12:17:09.427644+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -860,7 +860,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:44.720832+00:00",
+      "last_checked_at": "2026-03-23T12:16:43.859779+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -869,7 +869,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:44.326553+00:00",
+      "last_checked_at": "2026-03-23T12:16:42.913996+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -878,7 +878,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:50.656523+00:00",
+      "last_checked_at": "2026-03-23T12:16:44.243691+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -887,7 +887,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:54.810991+00:00",
+      "last_checked_at": "2026-03-23T12:16:44.788163+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -896,7 +896,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:02.885571+00:00",
+      "last_checked_at": "2026-03-23T12:17:00.009390+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -905,7 +905,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:28.150388+00:00",
+      "last_checked_at": "2026-03-23T12:16:58.904855+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -914,7 +914,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:14.535292+00:00",
+      "last_checked_at": "2026-03-23T12:17:04.001187+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -923,7 +923,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:35.356926+00:00",
+      "last_checked_at": "2026-03-23T12:17:00.167453+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -932,7 +932,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:46.677176+00:00",
+      "last_checked_at": "2026-03-23T12:17:01.729488+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -941,7 +941,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:49.820427+00:00",
+      "last_checked_at": "2026-03-23T12:17:02.725318+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -950,7 +950,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:24.033259+00:00",
+      "last_checked_at": "2026-03-23T12:17:12.736308+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -959,7 +959,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:56.006632+00:00",
+      "last_checked_at": "2026-03-23T12:17:22.446960+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -968,7 +968,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:02.216883+00:00",
+      "last_checked_at": "2026-03-23T12:17:23.940434+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -977,7 +977,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:11.361745+00:00",
+      "last_checked_at": "2026-03-23T12:17:28.541376+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -986,7 +986,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:04.778248+00:00",
+      "last_checked_at": "2026-03-23T12:17:37.367981+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -995,7 +995,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:11.326268+00:00",
+      "last_checked_at": "2026-03-23T12:17:22.668415+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1004,7 +1004,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:13.817027+00:00",
+      "last_checked_at": "2026-03-23T12:17:25.895449+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1058,7 +1058,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:29.074691+00:00",
+      "last_checked_at": "2026-03-23T12:17:39.836831+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1067,70 +1067,70 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:34.455283+00:00",
+      "last_checked_at": "2026-03-23T12:17:41.094570+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.stylecapital.it/style_capital_investimenti.php": {
       "url": "https://www.stylecapital.it/style_capital_investimenti.php",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.stylecapital.it', port=443): Max retries exceeded with url: /style_capital_investimenti.php (Caused by NameResolutionError(\"HTTPSConnection(host='www.stylecapital.it', port=443): Failed to resolve 'www.stylecapital.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.627353+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.627353+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:34.942325+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.stylecapital.it/chi_siamo_team.php": {
       "url": "https://www.stylecapital.it/chi_siamo_team.php",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.stylecapital.it', port=443): Max retries exceeded with url: /chi_siamo_team.php (Caused by NameResolutionError(\"HTTPSConnection(host='www.stylecapital.it', port=443): Failed to resolve 'www.stylecapital.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.633256+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.633256+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:37.246256+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://zestgroup.vc/investments": {
       "url": "https://zestgroup.vc/investments",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='zestgroup.vc', port=443): Max retries exceeded with url: /investments (Caused by NameResolutionError(\"HTTPSConnection(host='zestgroup.vc', port=443): Failed to resolve 'zestgroup.vc' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.812639+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.812639+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:40.306814+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.yarpa.it/le-persone/": {
       "url": "https://www.yarpa.it/le-persone/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.yarpa.it', port=443): Max retries exceeded with url: /le-persone/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.yarpa.it', port=443): Failed to resolve 'www.yarpa.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.802347+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.802347+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:38.783688+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.yarpa.it/press/": {
       "url": "https://www.yarpa.it/press/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.yarpa.it', port=443): Max retries exceeded with url: /press/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.yarpa.it', port=443): Failed to resolve 'www.yarpa.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.807836+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.807836+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:47.398643+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://zestgroup.vc/en/news": {
       "url": "https://zestgroup.vc/en/news",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='zestgroup.vc', port=443): Max retries exceeded with url: /en/news (Caused by NameResolutionError(\"HTTPSConnection(host='zestgroup.vc', port=443): Failed to resolve 'zestgroup.vc' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.819207+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.819207+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:51.552105+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.anderapartners.com/en/news": {
       "url": "https://www.anderapartners.com/en/news",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:31.215582+00:00",
+      "last_checked_at": "2026-03-23T12:16:42.200931+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1139,7 +1139,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:11.681321+00:00",
+      "last_checked_at": "2026-03-23T12:16:36.333393+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1148,16 +1148,16 @@
       "status": "other_error",
       "status_code": 503,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:51.322343+00:00",
-      "consecutive_failures": 7,
-      "next_check_after": "2026-03-21T15:37:51.322343+00:00"
+      "last_checked_at": "2026-03-23T12:16:47.328419+00:00",
+      "consecutive_failures": 8,
+      "next_check_after": "2026-03-24T12:16:47.328419+00:00"
     },
     "https://www.friulia.it/it/news/": {
       "url": "https://www.friulia.it/it/news/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:44.041366+00:00",
+      "last_checked_at": "2026-03-23T12:17:16.136399+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1175,7 +1175,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:09.277145+00:00",
+      "last_checked_at": "2026-03-23T12:17:38.691540+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1184,7 +1184,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:12.188407+00:00",
+      "last_checked_at": "2026-03-23T12:17:26.099192+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1193,7 +1193,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:15.216013+00:00",
+      "last_checked_at": "2026-03-23T12:17:40.957853+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1202,7 +1202,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:21.475028+00:00",
+      "last_checked_at": "2026-03-23T12:17:57.579380+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1211,7 +1211,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:21.427430+00:00",
+      "last_checked_at": "2026-03-23T12:16:37.325543+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1220,7 +1220,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:30.625748+00:00",
+      "last_checked_at": "2026-03-23T12:16:38.432635+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1229,7 +1229,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:30.815567+00:00",
+      "last_checked_at": "2026-03-23T12:16:38.279465+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1238,7 +1238,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:38.020812+00:00",
+      "last_checked_at": "2026-03-23T12:16:39.058689+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1247,7 +1247,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:12.883152+00:00",
+      "last_checked_at": "2026-03-23T12:16:58.216861+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1256,7 +1256,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:16.733975+00:00",
+      "last_checked_at": "2026-03-23T12:16:58.007696+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1265,7 +1265,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:35.497209+00:00",
+      "last_checked_at": "2026-03-23T12:16:59.321698+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1274,7 +1274,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:44.432677+00:00",
+      "last_checked_at": "2026-03-23T12:16:58.917456+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1292,7 +1292,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:18.476739+00:00",
+      "last_checked_at": "2026-03-23T12:17:14.490161+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1301,7 +1301,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:06.735983+00:00",
+      "last_checked_at": "2026-03-23T12:17:10.693527+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1310,7 +1310,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:12.569028+00:00",
+      "last_checked_at": "2026-03-23T12:17:11.175097+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1319,7 +1319,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:16.175536+00:00",
+      "last_checked_at": "2026-03-23T12:17:11.302484+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1328,25 +1328,25 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:18.737672+00:00",
+      "last_checked_at": "2026-03-23T12:17:12.222529+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.fieesgr.com/en/investments/": {
       "url": "https://www.fieesgr.com/en/investments/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:29.988329+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "timeout",
+      "status_code": 0,
+      "error_message": "Timeout",
+      "last_checked_at": "2026-03-23T12:17:41.491588+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-23T12:22:41.491588+00:00"
     },
     "https://www.fvssgr.it/fondi": {
       "url": "https://www.fvssgr.it/fondi",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:50.090120+00:00",
+      "last_checked_at": "2026-03-23T12:17:18.708756+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1355,43 +1355,43 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:59.428028+00:00",
+      "last_checked_at": "2026-03-23T12:17:21.307748+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.gradientesgr.it/il-team/": {
       "url": "https://www.gradientesgr.it/il-team/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:48.074008+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "timeout",
+      "status_code": 0,
+      "error_message": "Timeout",
+      "last_checked_at": "2026-03-23T12:18:15.643399+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-23T12:23:15.643399+00:00"
     },
     "https://www.fvssgr.it/notizie": {
       "url": "https://www.fvssgr.it/notizie",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:09.747687+00:00",
+      "last_checked_at": "2026-03-23T12:17:23.807359+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.gradientesgr.it/news/": {
       "url": "https://www.gradientesgr.it/news/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:55.713802+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "timeout",
+      "status_code": 0,
+      "error_message": "Timeout",
+      "last_checked_at": "2026-03-23T12:18:46.140948+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-23T12:23:46.140948+00:00"
     },
     "https://hat.it/portfolio/our-partnership/": {
       "url": "https://hat.it/portfolio/our-partnership/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:46.455298+00:00",
+      "last_checked_at": "2026-03-23T12:17:17.458170+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1400,7 +1400,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:52.913299+00:00",
+      "last_checked_at": "2026-03-23T12:17:18.778069+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1409,7 +1409,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:14.779102+00:00",
+      "last_checked_at": "2026-03-23T12:17:26.803134+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1427,7 +1427,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:18.369215+00:00",
+      "last_checked_at": "2026-03-23T12:17:27.379663+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1436,34 +1436,34 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:20.495016+00:00",
+      "last_checked_at": "2026-03-23T12:17:32.639441+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.towerbrook.com/investments/": {
       "url": "https://www.towerbrook.com/investments/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.towerbrook.com', port=443): Max retries exceeded with url: /investments/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.towerbrook.com', port=443): Failed to resolve 'www.towerbrook.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.682930+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.682930+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:53.132781+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.towerbrook.com/our-team/": {
       "url": "https://www.towerbrook.com/our-team/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.towerbrook.com', port=443): Max retries exceeded with url: /our-team/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.towerbrook.com', port=443): Failed to resolve 'www.towerbrook.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.690865+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.690865+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:12.616477+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.liftt.com/chi-siamo-it/": {
       "url": "https://www.liftt.com/chi-siamo-it/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:33.656152+00:00",
+      "last_checked_at": "2026-03-23T12:17:33.761981+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1481,7 +1481,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:26.122719+00:00",
+      "last_checked_at": "2026-03-23T12:17:45.058913+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1490,7 +1490,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:55.963917+00:00",
+      "last_checked_at": "2026-03-23T12:17:36.250164+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1499,7 +1499,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:27.947558+00:00",
+      "last_checked_at": "2026-03-23T12:17:42.712142+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1517,7 +1517,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:35.698049+00:00",
+      "last_checked_at": "2026-03-23T12:17:47.124110+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1526,7 +1526,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:32.911375+00:00",
+      "last_checked_at": "2026-03-23T12:17:43.445976+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1535,7 +1535,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:52.361439+00:00",
+      "last_checked_at": "2026-03-23T12:17:49.188448+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1544,7 +1544,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:44.966168+00:00",
+      "last_checked_at": "2026-03-23T12:17:50.301707+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1553,7 +1553,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:56.979068+00:00",
+      "last_checked_at": "2026-03-23T12:17:50.242580+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1571,7 +1571,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:01.229773+00:00",
+      "last_checked_at": "2026-03-23T12:17:52.146000+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1589,7 +1589,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:37.639963+00:00",
+      "last_checked_at": "2026-03-23T12:18:04.379773+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1598,7 +1598,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:45.526415+00:00",
+      "last_checked_at": "2026-03-23T12:18:04.617518+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1607,7 +1607,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:50.302302+00:00",
+      "last_checked_at": "2026-03-23T12:18:06.793058+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1616,7 +1616,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:48.502809+00:00",
+      "last_checked_at": "2026-03-23T12:18:05.363718+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1625,99 +1625,99 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:02.926521+00:00",
+      "last_checked_at": "2026-03-23T12:18:08.563837+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.rielloinvestimenti.it/struttura.html": {
       "url": "https://www.rielloinvestimenti.it/struttura.html",
       "status": "ok",
-      "status_code": 200,
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:05.092483+00:00",
+      "last_checked_at": "2026-03-23T12:18:09.059819+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://sofinnovapartners.com/portfolio": {
       "url": "https://sofinnovapartners.com/portfolio",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='sofinnovapartners.com', port=443): Max retries exceeded with url: /portfolio (Caused by NameResolutionError(\"HTTPSConnection(host='sofinnovapartners.com', port=443): Failed to resolve 'sofinnovapartners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.596844+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.596844+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:28.022039+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.starcapital.it/it/investimenti/fondo-star-iv/": {
       "url": "https://www.starcapital.it/it/investimenti/fondo-star-iv/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.starcapital.it', port=443): Max retries exceeded with url: /it/investimenti/fondo-star-iv/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.starcapital.it', port=443): Failed to resolve 'www.starcapital.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.609575+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.609575+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:28.545172+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://sofinnovapartners.com/team": {
       "url": "https://sofinnovapartners.com/team",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='sofinnovapartners.com', port=443): Max retries exceeded with url: /team (Caused by NameResolutionError(\"HTTPSConnection(host='sofinnovapartners.com', port=443): Failed to resolve 'sofinnovapartners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.602001+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.602001+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:44.517229+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.starcapital.it/it/team/": {
       "url": "https://www.starcapital.it/it/team/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.starcapital.it', port=443): Max retries exceeded with url: /it/team/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.starcapital.it', port=443): Failed to resolve 'www.starcapital.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.614450+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.614450+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:31.619362+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.tagescapitalsgr.com/people/": {
       "url": "https://www.tagescapitalsgr.com/people/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.tagescapitalsgr.com', port=443): Max retries exceeded with url: /people/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.tagescapitalsgr.com', port=443): Failed to resolve 'www.tagescapitalsgr.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.644432+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.644432+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:43.649271+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.threehills.com/portfolio-list/": {
       "url": "https://www.threehills.com/portfolio-list/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.threehills.com', port=443): Max retries exceeded with url: /portfolio-list/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.threehills.com', port=443): Failed to resolve 'www.threehills.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.659858+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.659858+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:48.392102+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.threehills.com/people/": {
       "url": "https://www.threehills.com/people/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.threehills.com', port=443): Max retries exceeded with url: /people/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.threehills.com', port=443): Failed to resolve 'www.threehills.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.667314+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.667314+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:51.556153+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.triton-partners.com/portfolio/": {
       "url": "https://www.triton-partners.com/portfolio/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.triton-partners.com', port=443): Max retries exceeded with url: /portfolio/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.triton-partners.com', port=443): Failed to resolve 'www.triton-partners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.701718+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.701718+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:59.489231+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.threehills.com/media/": {
       "url": "https://www.threehills.com/media/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.threehills.com', port=443): Max retries exceeded with url: /media/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.threehills.com', port=443): Failed to resolve 'www.threehills.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.672389+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.672389+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:56.939398+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.vertis.it/portfolio/": {
       "url": "https://www.vertis.it/portfolio/",
@@ -1730,12 +1730,12 @@
     },
     "https://xgenventure.com/portfolio/": {
       "url": "https://xgenventure.com/portfolio/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='xgenventure.com', port=443): Max retries exceeded with url: /portfolio/ (Caused by NameResolutionError(\"HTTPSConnection(host='xgenventure.com', port=443): Failed to resolve 'xgenventure.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.798399+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.798399+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:35.439648+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.vertis.it/team/": {
       "url": "https://www.vertis.it/team/",
@@ -1751,7 +1751,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:36.339133+00:00",
+      "last_checked_at": "2026-03-23T12:16:40.785970+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1760,7 +1760,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:50.686952+00:00",
+      "last_checked_at": "2026-03-23T12:16:46.983346+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1769,7 +1769,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:43.316875+00:00",
+      "last_checked_at": "2026-03-23T12:16:41.857990+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1778,7 +1778,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:29.808418+00:00",
+      "last_checked_at": "2026-03-23T12:16:51.081830+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1787,7 +1787,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:02.413027+00:00",
+      "last_checked_at": "2026-03-23T12:16:47.563695+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1796,7 +1796,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:08.553308+00:00",
+      "last_checked_at": "2026-03-23T12:16:47.947984+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1805,7 +1805,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:47.320751+00:00",
+      "last_checked_at": "2026-03-23T12:17:02.257278+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1814,7 +1814,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:57.748609+00:00",
+      "last_checked_at": "2026-03-23T12:17:03.562958+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1823,7 +1823,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:02.306613+00:00",
+      "last_checked_at": "2026-03-23T12:17:04.096800+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1832,7 +1832,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:07.528738+00:00",
+      "last_checked_at": "2026-03-23T12:17:05.164387+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1841,7 +1841,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:27.044586+00:00",
+      "last_checked_at": "2026-03-23T12:17:13.612543+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1868,7 +1868,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:37.750791+00:00",
+      "last_checked_at": "2026-03-23T12:17:44.197817+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1877,7 +1877,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:40.851957+00:00",
+      "last_checked_at": "2026-03-23T12:17:46.215170+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1886,7 +1886,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:43.348211+00:00",
+      "last_checked_at": "2026-03-23T12:17:44.614326+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1895,7 +1895,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:51.152238+00:00",
+      "last_checked_at": "2026-03-23T12:17:46.002618+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1904,7 +1904,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:46.705014+00:00",
+      "last_checked_at": "2026-03-23T12:17:47.214534+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1928,19 +1928,19 @@
     },
     "https://sinlocinvestimentisgr.com/progetti/": {
       "url": "https://sinlocinvestimentisgr.com/progetti/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='sinlocinvestimentisgr.com', port=443): Max retries exceeded with url: /progetti/ (Caused by NameResolutionError(\"HTTPSConnection(host='sinlocinvestimentisgr.com', port=443): Failed to resolve 'sinlocinvestimentisgr.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.582003+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.582003+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:21.642189+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.sagittasgr.it/chi-siamo/il-team/": {
       "url": "https://www.sagittasgr.it/chi-siamo/il-team/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:04.855668+00:00",
+      "last_checked_at": "2026-03-23T12:18:12.683089+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -1955,82 +1955,82 @@
     },
     "https://sinlocinvestimentisgr.com/team-di-gestione/": {
       "url": "https://sinlocinvestimentisgr.com/team-di-gestione/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='sinlocinvestimentisgr.com', port=443): Max retries exceeded with url: /team-di-gestione/ (Caused by NameResolutionError(\"HTTPSConnection(host='sinlocinvestimentisgr.com', port=443): Failed to resolve 'sinlocinvestimentisgr.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.586694+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.586694+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:28.655324+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://sofinnovapartners.com/news": {
       "url": "https://sofinnovapartners.com/news",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='sofinnovapartners.com', port=443): Max retries exceeded with url: /news (Caused by NameResolutionError(\"HTTPSConnection(host='sofinnovapartners.com', port=443): Failed to resolve 'sofinnovapartners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.606972+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.606972+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:56.183876+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.fondisici.it/come-investiamo/": {
       "url": "https://www.fondisici.it/come-investiamo/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.fondisici.it', port=443): Max retries exceeded with url: /come-investiamo/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.fondisici.it', port=443): Failed to resolve 'www.fondisici.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.627481+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.627481+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:37.440299+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://sinlocinvestimentisgr.com/news/": {
       "url": "https://sinlocinvestimentisgr.com/news/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='sinlocinvestimentisgr.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='sinlocinvestimentisgr.com', port=443): Failed to resolve 'sinlocinvestimentisgr.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.590704+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.590704+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:34.869363+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.fondisici.it/chi-siamo/": {
       "url": "https://www.fondisici.it/chi-siamo/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.fondisici.it', port=443): Max retries exceeded with url: /chi-siamo/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.fondisici.it', port=443): Failed to resolve 'www.fondisici.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.633425+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.633425+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:41.392307+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.fondisici.it/portafoglio/news/": {
       "url": "https://www.fondisici.it/portafoglio/news/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.fondisici.it', port=443): Max retries exceeded with url: /portafoglio/news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.fondisici.it', port=443): Failed to resolve 'www.fondisici.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.639221+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.639221+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:46.453308+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.triton-partners.com/about/": {
       "url": "https://www.triton-partners.com/about/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.triton-partners.com', port=443): Max retries exceeded with url: /about/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.triton-partners.com', port=443): Failed to resolve 'www.triton-partners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.706580+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.706580+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:11.655324+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.triton-partners.com/media/news/": {
       "url": "https://www.triton-partners.com/media/news/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.triton-partners.com', port=443): Max retries exceeded with url: /media/news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.triton-partners.com', port=443): Failed to resolve 'www.triton-partners.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.710836+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.710836+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:16.449852+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.alphape.com/about-us": {
       "url": "https://www.alphape.com/about-us",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:13.079760+00:00",
+      "last_checked_at": "2026-03-23T12:16:33.205567+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2039,7 +2039,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:26.587554+00:00",
+      "last_checked_at": "2026-03-23T12:16:37.808856+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2048,7 +2048,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:31.309427+00:00",
+      "last_checked_at": "2026-03-23T12:16:39.446645+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2081,21 +2081,21 @@
     },
     "https://www.sefeaimpact.it/fondo-si-social-impact/": {
       "url": "https://www.sefeaimpact.it/fondo-si-social-impact/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.sefeaimpact.it', port=443): Max retries exceeded with url: /fondo-si-social-impact/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.sefeaimpact.it', port=443): Failed to resolve 'www.sefeaimpact.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.565760+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.565760+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:20.166976+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.sefeaimpact.it/chi-siamo-sefea-impact/": {
       "url": "https://www.sefeaimpact.it/chi-siamo-sefea-impact/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.sefeaimpact.it', port=443): Max retries exceeded with url: /chi-siamo-sefea-impact/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.sefeaimpact.it', port=443): Failed to resolve 'www.sefeaimpact.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.570938+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.570938+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:31.487247+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.aresmgmt.com/about-ares-management-corporation/our-team": {
       "url": "https://www.aresmgmt.com/about-ares-management-corporation/our-team",
@@ -2156,7 +2156,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:23.416723+00:00",
+      "last_checked_at": "2026-03-23T12:17:37.930078+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2219,7 +2219,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:32.991349+00:00",
+      "last_checked_at": "2026-03-23T12:16:42.021644+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2228,7 +2228,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:16.632474+00:00",
+      "last_checked_at": "2026-03-23T12:16:59.422725+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2237,7 +2237,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:33.960141+00:00",
+      "last_checked_at": "2026-03-23T12:18:00.453564+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2246,7 +2246,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:42.960022+00:00",
+      "last_checked_at": "2026-03-23T12:18:00.881975+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2255,7 +2255,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:50.421465+00:00",
+      "last_checked_at": "2026-03-23T12:18:01.403639+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2264,7 +2264,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:07.389548+00:00",
+      "last_checked_at": "2026-03-23T12:16:32.643458+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2273,7 +2273,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:23.347189+00:00",
+      "last_checked_at": "2026-03-23T12:16:35.672826+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2309,7 +2309,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:56.764794+00:00",
+      "last_checked_at": "2026-03-23T12:16:52.771027+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2345,7 +2345,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:51.006215+00:00",
+      "last_checked_at": "2026-03-23T12:16:45.101595+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2354,52 +2354,52 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:56.668619+00:00",
+      "last_checked_at": "2026-03-23T12:16:46.081527+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://sella.vc/#team": {
       "url": "https://sella.vc/#team",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='sella.vc', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='sella.vc', port=443): Failed to resolve 'sella.vc' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.574698+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.574698+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:16.054518+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.ringcp.com/portfolio/": {
       "url": "https://www.ringcp.com/portfolio/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:57.409130+00:00",
+      "last_checked_at": "2026-03-23T12:18:09.724253+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.comoventure.it/holdings.htm": {
       "url": "https://www.comoventure.it/holdings.htm",
       "status": "ok",
-      "status_code": 200,
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:36.680028+00:00",
+      "last_checked_at": "2026-03-23T12:16:59.593499+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.comoventure.it/who.htm": {
       "url": "https://www.comoventure.it/who.htm",
       "status": "ok",
-      "status_code": 200,
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:39.484534+00:00",
+      "last_checked_at": "2026-03-23T12:16:59.617387+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.excellis.it/": {
       "url": "https://www.excellis.it/",
       "status": "ok",
-      "status_code": 200,
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:14.684923+00:00",
+      "last_checked_at": "2026-03-23T12:17:10.389668+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2408,7 +2408,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:05.077578+00:00",
+      "last_checked_at": "2026-03-23T12:16:54.464632+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2417,7 +2417,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:14.584926+00:00",
+      "last_checked_at": "2026-03-23T12:16:37.647877+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2426,7 +2426,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:30.773128+00:00",
+      "last_checked_at": "2026-03-23T12:17:15.359622+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2435,7 +2435,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:51.204211+00:00",
+      "last_checked_at": "2026-03-23T12:17:05.009909+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2444,7 +2444,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:44.691110+00:00",
+      "last_checked_at": "2026-03-23T12:17:19.521565+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2453,7 +2453,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:12.939738+00:00",
+      "last_checked_at": "2026-03-23T12:17:15.481769+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2462,7 +2462,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:59.767468+00:00",
+      "last_checked_at": "2026-03-23T12:17:21.769506+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2471,7 +2471,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:05.712215+00:00",
+      "last_checked_at": "2026-03-23T12:17:24.272823+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2480,34 +2480,34 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:11.130137+00:00",
+      "last_checked_at": "2026-03-23T12:17:55.987138+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.renaissancealternatives.com/portfolio": {
       "url": "https://www.renaissancealternatives.com/portfolio",
       "status": "ok",
-      "status_code": 200,
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:51.770849+00:00",
+      "last_checked_at": "2026-03-23T12:18:07.911999+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.sosteneo.com/projects": {
       "url": "https://www.sosteneo.com/projects",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.sosteneo.com', port=443): Max retries exceeded with url: /projects (Caused by NameResolutionError(\"HTTPSConnection(host='www.sosteneo.com', port=443): Failed to resolve 'www.sosteneo.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.604395+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.604395+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:28.520977+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://scientifica.vc/portfolio-startup/": {
       "url": "https://scientifica.vc/portfolio-startup/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:04.011666+00:00",
+      "last_checked_at": "2026-03-23T12:18:13.793853+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2516,25 +2516,25 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:59.340750+00:00",
+      "last_checked_at": "2026-03-23T12:17:21.380609+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://toseed.it/portfolio/": {
       "url": "https://toseed.it/portfolio/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='toseed.it', port=443): Max retries exceeded with url: /portfolio/ (Caused by NameResolutionError(\"HTTPSConnection(host='toseed.it', port=443): Failed to resolve 'toseed.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.680795+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.680795+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:52.446686+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.higeurope.com/news/": {
       "url": "https://www.higeurope.com/news/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:09.560297+00:00",
+      "last_checked_at": "2026-03-23T12:17:22.586511+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2543,7 +2543,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:32.057687+00:00",
+      "last_checked_at": "2026-03-23T12:16:40.795627+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2552,7 +2552,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:23.950473+00:00",
+      "last_checked_at": "2026-03-23T12:17:11.381806+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2561,7 +2561,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:28.193393+00:00",
+      "last_checked_at": "2026-03-23T12:17:41.743422+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2579,7 +2579,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:06.716231+00:00",
+      "last_checked_at": "2026-03-23T12:17:08.595823+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2588,7 +2588,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:43.143740+00:00",
+      "last_checked_at": "2026-03-23T12:17:17.993793+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2597,34 +2597,34 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:42.891309+00:00",
+      "last_checked_at": "2026-03-23T12:16:45.483928+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.auroragrowthcapital.it/?page_id=3191": {
       "url": "https://www.auroragrowthcapital.it/?page_id=3191",
-      "status": "other_error",
+      "status": "timeout",
       "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.auroragrowthcapital.it', port=443): Max retries exceeded with url: /?page_id=3191 (Caused by NameResolutionError(\"HTTPSConnection(host='www.auroragrowthcapital.it', port=443): Failed to resolve 'www.auroragrowthcapital.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:07.544172+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:07.544172+00:00"
+      "error_message": "Timeout",
+      "last_checked_at": "2026-03-23T12:17:15.199766+00:00",
+      "consecutive_failures": 2,
+      "next_check_after": "2026-03-23T12:32:15.199766+00:00"
     },
     "https://wrmgroup.net/track-record/": {
       "url": "https://wrmgroup.net/track-record/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='wrmgroup.net', port=443): Max retries exceeded with url: /track-record/ (Caused by NameResolutionError(\"HTTPSConnection(host='wrmgroup.net', port=443): Failed to resolve 'wrmgroup.net' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.784300+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.784300+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:31.795913+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.spacecapital.it/it/portfolio-investments.html": {
       "url": "https://www.spacecapital.it/it/portfolio-investments.html",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:35.454768+00:00",
+      "last_checked_at": "2026-03-23T12:16:39.596987+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2642,16 +2642,16 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:08.911451+00:00",
+      "last_checked_at": "2026-03-23T12:17:11.169135+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://pranaventures.it/": {
       "url": "https://pranaventures.it/",
       "status": "ok",
-      "status_code": 200,
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:38.909484+00:00",
+      "last_checked_at": "2026-03-23T12:18:03.777504+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2660,7 +2660,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:32.016804+00:00",
+      "last_checked_at": "2026-03-23T12:18:14.175674+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2705,7 +2705,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:06.972821+00:00",
+      "last_checked_at": "2026-03-23T12:16:32.327847+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2714,7 +2714,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:08.664580+00:00",
+      "last_checked_at": "2026-03-23T12:16:34.004346+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2723,7 +2723,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:09.870582+00:00",
+      "last_checked_at": "2026-03-23T12:16:34.362382+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2747,37 +2747,37 @@
     },
     "https://www.meritosgr.it/investimenti/?fr_src=fundradar": {
       "url": "https://www.meritosgr.it/investimenti/?fr_src=fundradar",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.meritosgr.it', port=443): Max retries exceeded with url: /investimenti/?fr_src=fundradar (Caused by NameResolutionError(\"HTTPSConnection(host='www.meritosgr.it', port=443): Failed to resolve 'www.meritosgr.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:29.265930+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:29.265930+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:17:42.494598+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.meritosgr.it/team/?fr_src=fundradar": {
       "url": "https://www.meritosgr.it/team/?fr_src=fundradar",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.meritosgr.it', port=443): Max retries exceeded with url: /team/?fr_src=fundradar (Caused by NameResolutionError(\"HTTPSConnection(host='www.meritosgr.it', port=443): Failed to resolve 'www.meritosgr.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:29.268850+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:29.268850+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:17:47.182609+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.meritosgr.it/news/?fr_src=fundradar": {
       "url": "https://www.meritosgr.it/news/?fr_src=fundradar",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.meritosgr.it', port=443): Max retries exceeded with url: /news/?fr_src=fundradar (Caused by NameResolutionError(\"HTTPSConnection(host='www.meritosgr.it', port=443): Failed to resolve 'www.meritosgr.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:29.271663+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:29.271663+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:17:50.663220+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.spacecapital.it/it/investment-team.html": {
       "url": "https://www.spacecapital.it/it/investment-team.html",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:39.875752+00:00",
+      "last_checked_at": "2026-03-23T12:16:40.231396+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2786,7 +2786,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:41.873229+00:00",
+      "last_checked_at": "2026-03-23T12:16:40.745168+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2819,19 +2819,19 @@
     },
     "https://www.tscawsgr.com/it/stampa": {
       "url": "https://www.tscawsgr.com/it/stampa",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.tscawsgr.com', port=443): Max retries exceeded with url: /it/stampa (Caused by NameResolutionError(\"HTTPSConnection(host='www.tscawsgr.com', port=443): Failed to resolve 'www.tscawsgr.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.662579+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.662579+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:50.058532+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.faroalternativeinvestments.com/about-us/": {
       "url": "https://www.faroalternativeinvestments.com/about-us/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:27.285861+00:00",
+      "last_checked_at": "2026-03-23T12:17:12.458409+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2840,34 +2840,34 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:40.239921+00:00",
+      "last_checked_at": "2026-03-23T12:17:13.157991+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.tscawsgr.com/it/team": {
       "url": "https://www.tscawsgr.com/it/team",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.tscawsgr.com', port=443): Max retries exceeded with url: /it/team (Caused by NameResolutionError(\"HTTPSConnection(host='www.tscawsgr.com', port=443): Failed to resolve 'www.tscawsgr.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.656337+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.656337+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:47.708217+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.reamsgr.it/la-societa/chi-siamo-ream.html": {
       "url": "https://www.reamsgr.it/la-societa/chi-siamo-ream.html",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
-      "last_checked_at": "2026-03-20T15:42:22.801590+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T15:47:22.801590+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:10.564792+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.finintinvestments.com/it/chi-siamo/storia.php": {
       "url": "https://www.finintinvestments.com/it/chi-siamo/storia.php",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:30.529181+00:00",
+      "last_checked_at": "2026-03-23T12:17:13.960326+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2876,7 +2876,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:36.910581+00:00",
+      "last_checked_at": "2026-03-23T12:17:14.552913+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2885,7 +2885,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:24.720318+00:00",
+      "last_checked_at": "2026-03-23T12:18:15.234072+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2894,7 +2894,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:25.846249+00:00",
+      "last_checked_at": "2026-03-23T12:17:13.549930+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2903,7 +2903,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:50.404480+00:00",
+      "last_checked_at": "2026-03-23T12:18:06.990380+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2912,7 +2912,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:58.136172+00:00",
+      "last_checked_at": "2026-03-23T12:18:07.692100+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2921,7 +2921,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:03.329280+00:00",
+      "last_checked_at": "2026-03-23T12:18:08.477887+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2930,7 +2930,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:11.417897+00:00",
+      "last_checked_at": "2026-03-23T12:18:08.984246+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2939,25 +2939,25 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:18.500534+00:00",
+      "last_checked_at": "2026-03-23T12:18:09.807700+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://wrmgroup.net/media/?fr_src=fundradar": {
       "url": "https://wrmgroup.net/media/?fr_src=fundradar",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='wrmgroup.net', port=443): Max retries exceeded with url: /media/?fr_src=fundradar (Caused by NameResolutionError(\"HTTPSConnection(host='wrmgroup.net', port=443): Failed to resolve 'wrmgroup.net' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.788597+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.788597+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:41.945895+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://scientifica.vc/team/?fr_src=fundradar": {
       "url": "https://scientifica.vc/team/?fr_src=fundradar",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:17.334134+00:00",
+      "last_checked_at": "2026-03-23T12:18:16.004577+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2966,7 +2966,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:28.773837+00:00",
+      "last_checked_at": "2026-03-23T12:18:27.202796+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2975,7 +2975,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:53.220938+00:00",
+      "last_checked_at": "2026-03-23T12:16:49.634719+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2984,7 +2984,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:07.514889+00:00",
+      "last_checked_at": "2026-03-23T12:16:34.310553+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -2993,43 +2993,43 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:15.709980+00:00",
+      "last_checked_at": "2026-03-23T12:16:36.042005+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://canovasgr.it/il-team-di-canova/": {
       "url": "https://canovasgr.it/il-team-di-canova/",
       "status": "ok",
-      "status_code": 200,
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:03.534330+00:00",
+      "last_checked_at": "2026-03-23T12:16:53.922740+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://canovasgr.it/blog-canova/": {
       "url": "https://canovasgr.it/blog-canova/",
       "status": "ok",
-      "status_code": 200,
+      "status_code": 304,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:09.883453+00:00",
+      "last_checked_at": "2026-03-23T12:16:59.356660+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.fieesgr.com/press/": {
       "url": "https://www.fieesgr.com/press/",
-      "status": "ok",
-      "status_code": 200,
-      "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:40.073884+00:00",
-      "consecutive_failures": 0,
-      "next_check_after": null
+      "status": "timeout",
+      "status_code": 0,
+      "error_message": "Timeout",
+      "last_checked_at": "2026-03-23T12:18:11.703573+00:00",
+      "consecutive_failures": 1,
+      "next_check_after": "2026-03-23T12:23:11.703573+00:00"
     },
     "https://riveancapital.com/all-professionals/": {
       "url": "https://riveancapital.com/all-professionals/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:42:20.448117+00:00",
+      "last_checked_at": "2026-03-23T12:18:11.878312+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3044,55 +3044,55 @@
     },
     "https://www.unigrains.fr/fr/equipe": {
       "url": "https://www.unigrains.fr/fr/equipe",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.unigrains.fr', port=443): Max retries exceeded with url: /fr/equipe (Caused by NameResolutionError(\"HTTPSConnection(host='www.unigrains.fr', port=443): Failed to resolve 'www.unigrains.fr' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.726138+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.726138+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:17.741599+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.smart-capital.it/team/": {
       "url": "https://www.smart-capital.it/team/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.smart-capital.it', port=443): Max retries exceeded with url: /team/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.smart-capital.it', port=443): Failed to resolve 'www.smart-capital.it' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.595351+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.595351+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:22.672109+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://zestgroup.vc/en/people": {
       "url": "https://zestgroup.vc/en/people",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='zestgroup.vc', port=443): Max retries exceeded with url: /en/people (Caused by NameResolutionError(\"HTTPSConnection(host='zestgroup.vc', port=443): Failed to resolve 'zestgroup.vc' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.816187+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.816187+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:46.645400+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.unigrains.fr/fr/actualites": {
       "url": "https://www.unigrains.fr/fr/actualites",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.unigrains.fr', port=443): Max retries exceeded with url: /fr/actualites (Caused by NameResolutionError(\"HTTPSConnection(host='www.unigrains.fr', port=443): Failed to resolve 'www.unigrains.fr' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.732536+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.732536+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:33.306093+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://varde.com/news/": {
       "url": "https://varde.com/news/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='varde.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='varde.com', port=443): Failed to resolve 'varde.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.754702+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.754702+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:24.884855+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://bic-capital.com/track-record/": {
       "url": "https://bic-capital.com/track-record/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:55.550520+00:00",
+      "last_checked_at": "2026-03-23T12:16:50.778902+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3101,7 +3101,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:00.810083+00:00",
+      "last_checked_at": "2026-03-23T12:16:52.314110+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3128,7 +3128,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:05.467769+00:00",
+      "last_checked_at": "2026-03-23T12:17:24.267774+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3137,43 +3137,43 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:14.101717+00:00",
+      "last_checked_at": "2026-03-23T12:17:57.862519+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.silverlake.com/portfolio/": {
       "url": "https://www.silverlake.com/portfolio/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.silverlake.com', port=443): Max retries exceeded with url: /portfolio/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.silverlake.com', port=443): Failed to resolve 'www.silverlake.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.580535+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.580535+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:17.517016+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://hf.com/portfolio/": {
       "url": "https://hf.com/portfolio/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:39:53.688219+00:00",
+      "last_checked_at": "2026-03-23T12:17:19.640343+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.silverlake.com/news/": {
       "url": "https://www.silverlake.com/news/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.silverlake.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.silverlake.com', port=443): Failed to resolve 'www.silverlake.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.585278+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.585278+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:30.046236+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://hf.com/news/": {
       "url": "https://hf.com/news/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:00.540270+00:00",
+      "last_checked_at": "2026-03-23T12:17:20.508048+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3182,18 +3182,18 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:34.232676+00:00",
+      "last_checked_at": "2026-03-23T12:18:08.365887+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://www.ta.com/portfolio/investments/": {
       "url": "https://www.ta.com/portfolio/investments/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.ta.com', port=443): Max retries exceeded with url: /portfolio/investments/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.ta.com', port=443): Failed to resolve 'www.ta.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.641294+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.641294+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:42.002939+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.tpg.com/news-and-insights/news": {
       "url": "https://www.tpg.com/news-and-insights/news",
@@ -3206,12 +3206,12 @@
     },
     "https://www.ta.com/news/": {
       "url": "https://www.ta.com/news/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.ta.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.ta.com', port=443): Failed to resolve 'www.ta.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.647279+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.647279+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:46.301224+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c": {
       "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c",
@@ -3227,7 +3227,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:00.631325+00:00",
+      "last_checked_at": "2026-03-23T12:17:22.354390+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3236,7 +3236,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:52.420597+00:00",
+      "last_checked_at": "2026-03-23T12:16:47.429897+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3245,7 +3245,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:15.183662+00:00",
+      "last_checked_at": "2026-03-23T12:16:56.605675+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3254,7 +3254,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:20.734647+00:00",
+      "last_checked_at": "2026-03-23T12:17:35.312277+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3263,7 +3263,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:35.337051+00:00",
+      "last_checked_at": "2026-03-23T12:18:02.316869+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3272,7 +3272,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:25.205892+00:00",
+      "last_checked_at": "2026-03-23T12:16:57.055150+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3281,7 +3281,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:42.662015+00:00",
+      "last_checked_at": "2026-03-23T12:18:03.621799+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3290,25 +3290,25 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:58.920515+00:00",
+      "last_checked_at": "2026-03-23T12:16:48.301768+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://warburgpincus.com/investments/": {
       "url": "https://warburgpincus.com/investments/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='warburgpincus.com', port=443): Max retries exceeded with url: /investments/ (Caused by NameResolutionError(\"HTTPSConnection(host='warburgpincus.com', port=443): Failed to resolve 'warburgpincus.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.766133+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.766133+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:28.498371+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.azzurracapital.com/media/": {
       "url": "https://www.azzurracapital.com/media/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:08.129958+00:00",
+      "last_checked_at": "2026-03-23T12:16:49.691574+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3323,12 +3323,12 @@
     },
     "https://warburgpincus.com/news/": {
       "url": "https://warburgpincus.com/news/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='warburgpincus.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='warburgpincus.com', port=443): Failed to resolve 'warburgpincus.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.770051+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.770051+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:41.092766+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://unitedventures.com/portfolio/": {
       "url": "https://unitedventures.com/portfolio/",
@@ -3353,7 +3353,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:25.698565+00:00",
+      "last_checked_at": "2026-03-23T12:16:59.969525+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3362,7 +3362,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:33.024439+00:00",
+      "last_checked_at": "2026-03-23T12:17:01.296881+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3377,37 +3377,37 @@
     },
     "https://www.tdrcapital.com/news/": {
       "url": "https://www.tdrcapital.com/news/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.tdrcapital.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.tdrcapital.com', port=443): Failed to resolve 'www.tdrcapital.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.653256+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.653256+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:47.963179+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.stirlingsquare.com/investments": {
       "url": "https://www.stirlingsquare.com/investments",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.stirlingsquare.com', port=443): Max retries exceeded with url: /investments (Caused by NameResolutionError(\"HTTPSConnection(host='www.stirlingsquare.com', port=443): Failed to resolve 'www.stirlingsquare.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.611375+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.611375+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:34.562880+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.stirlingsquare.com/news": {
       "url": "https://www.stirlingsquare.com/news",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='www.stirlingsquare.com', port=443): Max retries exceeded with url: /news (Caused by NameResolutionError(\"HTTPSConnection(host='www.stirlingsquare.com', port=443): Failed to resolve 'www.stirlingsquare.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.616263+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.616263+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:19:14.612471+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.rhonegroup.com/portfolio/": {
       "url": "https://www.rhonegroup.com/portfolio/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:53.819924+00:00",
+      "last_checked_at": "2026-03-23T12:18:09.431763+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3416,7 +3416,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:37:30.770100+00:00",
+      "last_checked_at": "2026-03-23T12:16:38.717235+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3425,7 +3425,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:24.243405+00:00",
+      "last_checked_at": "2026-03-23T12:18:02.530420+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3443,7 +3443,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:04.229192+00:00",
+      "last_checked_at": "2026-03-23T12:17:49.658437+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3452,25 +3452,25 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:40:54.711234+00:00",
+      "last_checked_at": "2026-03-23T12:17:52.843907+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
     "https://stonepeak.com/news/": {
       "url": "https://stonepeak.com/news/",
-      "status": "other_error",
-      "status_code": 0,
-      "error_message": "HTTPSConnectionPool(host='stonepeak.com', port=443): Max retries exceeded with url: /news/ (Caused by NameResolutionError(\"HTTPSConnection(host='stonepeak.com', port=443): Failed to resolve 'stonepeak.com' ([Errno 8] nodename nor servname provided, or not known)\"))",
-      "last_checked_at": "2026-03-20T17:41:33.621381+00:00",
-      "consecutive_failures": 1,
-      "next_check_after": "2026-03-20T17:46:33.621381+00:00"
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-23T12:18:32.710205+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     },
     "https://www.oneequity.com/team/": {
       "url": "https://www.oneequity.com/team/",
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:24.516558+00:00",
+      "last_checked_at": "2026-03-23T12:17:53.224686+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3479,7 +3479,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:31.336767+00:00",
+      "last_checked_at": "2026-03-23T12:17:54.458339+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3488,7 +3488,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:41:31.791372+00:00",
+      "last_checked_at": "2026-03-23T12:17:58.920224+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3497,7 +3497,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:42.112818+00:00",
+      "last_checked_at": "2026-03-23T12:16:59.871445+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3506,7 +3506,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:48.503295+00:00",
+      "last_checked_at": "2026-03-23T12:17:00.095270+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     },
@@ -3515,7 +3515,7 @@
       "status": "ok",
       "status_code": 200,
       "error_message": null,
-      "last_checked_at": "2026-03-20T15:38:52.297899+00:00",
+      "last_checked_at": "2026-03-23T12:17:00.410039+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
     }

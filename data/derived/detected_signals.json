@@ -63303,8 +63303,799 @@
         ],
         "locations": []
       }
+    },
+    {
+      "id": "web-signal-02327",
+      "fund_id": "",
+      "fund_slug": "advent-international",
+      "signal_type": "exit_announced",
+      "title": "Cobham Ultra, an Advent portfolio company, agrees to the sale of Ultra Cyber Ltd to Airbus",
+      "what_changed": "New announcement: Cobham Ultra, an Advent portfolio company, agrees to the sale of Ultra Cyber Ltd to Airbus",
+      "source_url": "https://www.adventinternational.com/news/cobham-ultra-an-advent-portfolio-company-agrees-to-the-sale-of-ultra-cyber-ltd-to-airbus/",
+      "source_name": "Advent International",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:16:37.186949+00:00",
+      "created_at": "2026-03-23T12:16:37.186949+00:00",
+      "snapshot_id": "snap-20260323121636-d48f3ae8",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Cobham Ultra",
+          "Ultra Cyber Ltd"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02328",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "fundraise_announced",
+      "title": "360 Capital announces the \u20ac85 million closing of the Poli360 2 technology transfer fund, reaffirming its commitment to deep tech",
+      "what_changed": "New announcement: 360 Capital announces the \u20ac85 million closing of the Poli360 2 technology transfer fund, reaffirming its commitment to deep tech",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "Cdp Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:17:09.510712+00:00",
+      "created_at": "2026-03-23T12:17:09.510712+00:00",
+      "snapshot_id": "snap-20260323121704-1bc451c2",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: 360 Capital annuncia il closing a \u20ac85M del fondo di trasferimento tecnologico Poli360 2, confermando il suo impegno nel deeptech",
+      "title_original": "360 Capital annuncia il closing a \u20ac85M del fondo di trasferimento tecnologico Poli360 2, confermando il suo impegno nel deeptech"
+    },
+    {
+      "id": "web-signal-02329",
+      "fund_id": "",
+      "fund_slug": "fondo-italiano-d-investimento-sgr",
+      "signal_type": "other",
+      "title": "FII Sgr focuses on strategic sectors and an expanded offering in its new plan",
+      "what_changed": "New announcement: FII Sgr focuses on strategic sectors and an expanded offering in its new plan",
+      "source_url": "https://www.fondoitaliano.it/wp-content/uploads/20260320_Sole24Ore_FII_pianostrategico.pdf",
+      "source_name": "Fondo Italiano d\u2019Investimento SGR",
+      "published_at": "2026-03-22",
+      "observed_at": "2026-03-23T12:17:20.619682+00:00",
+      "created_at": "2026-03-23T12:17:20.619682+00:00",
+      "snapshot_id": "snap-20260323121720-e09eb0c6",
+      "diff_summary": "New news item detected (dated 2026-03-22)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: FII Sgr punta su filiere strategiche e offerta ampliata nel nuovo piano",
+      "title_original": "FII Sgr punta su filiere strategiche e offerta ampliata nel nuovo piano"
+    },
+    {
+      "id": "web-signal-02330",
+      "fund_id": "",
+      "fund_slug": "progressio-sgr",
+      "signal_type": "exit_announced",
+      "title": "Progressio sells its majority stake in ATK Sports, a leader in...",
+      "what_changed": "New announcement: Progressio sells its majority stake in ATK Sports, a leader in...",
+      "source_url": "https://www.progressiosgr.it/news/progressio-cede-la-maggioranza-di-atk-sports-leader-negli-attacchi-da-sci-alpinismo-a-siparex-eti/",
+      "source_name": "Progressio SGR",
+      "published_at": "2026-03-23",
+      "observed_at": "2026-03-23T12:18:07.280393+00:00",
+      "created_at": "2026-03-23T12:18:07.280393+00:00",
+      "snapshot_id": "snap-20260323121805-ab87e50a",
+      "diff_summary": "New news item detected (dated 2026-03-23)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Progressio cede la maggioranza di ATK Sports, leader negli...",
+      "title_original": "Progressio cede la maggioranza di ATK Sports, leader negli..."
+    },
+    {
+      "id": "web-signal-02331",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "deal_announced",
+      "title": "Educo Platform - Universidad Europea added to EQT portfolio (Social)",
+      "what_changed": "Educo Platform - Universidad Europea added to EQT portfolio (Social)",
+      "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:18:08.794340+00:00",
+      "created_at": "2026-03-23T12:18:08.794340+00:00",
+      "snapshot_id": "snap-20260323121711-6500e4d6",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Educo Platform - Universidad Europea"
+        ],
+        "people": [
+          "Universidad Europea Social",
+          "Educo Platform"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02332",
+      "fund_id": "",
+      "fund_slug": "siryo",
+      "signal_type": "deal_announced",
+      "title": "EggPlant S.r.l added to Siryo portfolio",
+      "what_changed": "EggPlant S.r.l added to Siryo portfolio",
+      "source_url": "https://www.siryo.it/investimenti",
+      "source_name": "Siryo",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:18:26.351265+00:00",
+      "created_at": "2026-03-23T12:18:26.351265+00:00",
+      "snapshot_id": "snap-20260323121821-18955309",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SRL"
+      ],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "EggPlant S.r.l"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02333",
+      "fund_id": "",
+      "fund_slug": "stonepeak",
+      "signal_type": "other",
+      "title": "GFiber and Stonepeak\u2019s Astound to combine, creating a leading independent broadband provider",
+      "what_changed": "New announcement: GFiber and Stonepeak\u2019s Astound to combine, creating a leading independent broadband provider",
+      "source_url": "https://stonepeak.com/news/gfiber-and-stonepeaks-astound-to-combine-creating-a-leading-independent-broadband-provider",
+      "source_name": "Stonepeak",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:18:33.493258+00:00",
+      "created_at": "2026-03-23T12:18:33.493258+00:00",
+      "snapshot_id": "snap-20260323121832-490bd811",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02334",
+      "fund_id": "",
+      "fund_slug": "sofinnova-partners",
+      "signal_type": "other",
+      "title": "Elevara Medicines Doses First Patient in Phase 2b START-SYNERGY Trial of ELV001 in Rheumatoid Arthritis Patients with Incomplete Response to TNFi",
+      "what_changed": "New announcement: Elevara Medicines Doses First Patient in Phase 2b START-SYNERGY Trial of ELV001 in Rheumatoid Arthritis Patients with Incomplete Response to TNFi",
+      "source_url": "https://sofinnovapartners.com/news/elevara-medicines-doses-first-patient-in-phase-2b-start-synergy-trial-of-elv001-in-rheumatoid-arthritis-patients-with-incomplete-response-to-tnfi",
+      "source_name": "Sofinnova Partners",
+      "published_at": "2026-03-16",
+      "observed_at": "2026-03-23T12:18:56.593038+00:00",
+      "created_at": "2026-03-23T12:18:56.593038+00:00",
+      "snapshot_id": "snap-20260323121856-bbe621ef",
+      "diff_summary": "New news item detected (dated 16 March, 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Incomplete Response",
+          "Elevara Medicines Doses",
+          "First Patient",
+          "Rheumatoid Arthritis Patients"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02335",
+      "fund_id": "",
+      "fund_slug": "tikehau-capital",
+      "signal_type": "deal_announced",
+      "title": "Eysa added to Tikehau Capital portfolio",
+      "what_changed": "Eysa added to Tikehau Capital portfolio",
+      "source_url": "https://www.tikehaucapital.com/en/the-company/portfolio-companies",
+      "source_name": "Tikehau Capital",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:19:01.067256+00:00",
+      "created_at": "2026-03-23T12:19:01.067256+00:00",
+      "snapshot_id": "snap-20260323121852-35fd1d56",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Eysa"
+        ],
+        "people": [
+          "Eysa Country"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02336",
+      "fund_id": "",
+      "fund_slug": "tikehau-capital",
+      "signal_type": "deal_announced",
+      "title": "FTAPI added to Tikehau Capital portfolio",
+      "what_changed": "FTAPI added to Tikehau Capital portfolio",
+      "source_url": "https://www.tikehaucapital.com/en/the-company/portfolio-companies",
+      "source_name": "Tikehau Capital",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:19:01.067256+00:00",
+      "created_at": "2026-03-23T12:19:01.067256+00:00",
+      "snapshot_id": "snap-20260323121852-35fd1d56",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "FTAPI"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02337",
+      "fund_id": "",
+      "fund_slug": "tikehau-capital",
+      "signal_type": "deal_announced",
+      "title": "KEP Metal added to Tikehau Capital portfolio (Private Equity)",
+      "what_changed": "KEP Metal added to Tikehau Capital portfolio (Private Equity)",
+      "source_url": "https://www.tikehaucapital.com/en/the-company/portfolio-companies",
+      "source_name": "Tikehau Capital",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:19:01.067256+00:00",
+      "created_at": "2026-03-23T12:19:01.067256+00:00",
+      "snapshot_id": "snap-20260323121852-35fd1d56",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "KEP Metal"
+        ],
+        "people": [
+          "Metal Solutions",
+          "Metal Private Equity"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02338",
+      "fund_id": "",
+      "fund_slug": "tikehau-capital",
+      "signal_type": "deal_announced",
+      "title": "Memority added to Tikehau Capital portfolio",
+      "what_changed": "Memority added to Tikehau Capital portfolio",
+      "source_url": "https://www.tikehaucapital.com/en/the-company/portfolio-companies",
+      "source_name": "Tikehau Capital",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:19:01.067256+00:00",
+      "created_at": "2026-03-23T12:19:01.067256+00:00",
+      "snapshot_id": "snap-20260323121852-35fd1d56",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Memority"
+        ],
+        "people": [
+          "Access Management",
+          "Memority Country"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02339",
+      "fund_id": "",
+      "fund_slug": "tikehau-capital",
+      "signal_type": "deal_announced",
+      "title": "Scioteq added to Tikehau Capital portfolio",
+      "what_changed": "Scioteq added to Tikehau Capital portfolio",
+      "source_url": "https://www.tikehaucapital.com/en/the-company/portfolio-companies",
+      "source_name": "Tikehau Capital",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:19:01.067256+00:00",
+      "created_at": "2026-03-23T12:19:01.067256+00:00",
+      "snapshot_id": "snap-20260323121852-35fd1d56",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Scioteq"
+        ],
+        "people": [
+          "The Group",
+          "Scioteq Country"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02340",
+      "fund_id": "",
+      "fund_slug": "triton",
+      "signal_type": "fundraise_announced",
+      "title": "Triton Partners successfully closes Fund 6 at \u20ac5.5 billion target",
+      "what_changed": "New announcement: Triton Partners successfully closes Fund 6 at \u20ac5.5 billion target",
+      "source_url": "https://www.triton-partners.com/media/news/triton-partners-successfully-closes-fund-6-at-55-billion-target/",
+      "source_name": "Triton",
+      "published_at": "2026-03-16",
+      "observed_at": "2026-03-23T12:19:17.635839+00:00",
+      "created_at": "2026-03-23T12:19:17.635839+00:00",
+      "snapshot_id": "snap-20260323121916-660aaafc",
+      "diff_summary": "New news item detected (dated 16/03/2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Triton Partners"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02341",
+      "fund_id": "",
+      "fund_slug": "warburg-pincus",
+      "signal_type": "deal_announced",
+      "title": "Madison International Realty added to Warburg Pincus portfolio",
+      "what_changed": "Madison International Realty added to Warburg Pincus portfolio",
+      "source_url": "https://warburgpincus.com/investments/",
+      "source_name": "Warburg Pincus",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:19:40.248897+00:00",
+      "created_at": "2026-03-23T12:19:40.248897+00:00",
+      "snapshot_id": "snap-20260323121928-810c5190",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Madison International Realty"
+        ],
+        "people": [
+          "Madison International Realty"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02342",
+      "fund_id": "",
+      "fund_slug": "ta-associates",
+      "signal_type": "deal_announced",
+      "title": "Too Lost thumb added to TA Associates portfolio",
+      "what_changed": "Too Lost thumb added to TA Associates portfolio",
+      "source_url": "https://www.ta.com/portfolio/investments/",
+      "source_name": "TA Associates",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:19:44.271936+00:00",
+      "created_at": "2026-03-23T12:19:44.271936+00:00",
+      "snapshot_id": "snap-20260323121842-6e6414cf",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Too Lost thumb"
+        ],
+        "people": [
+          "Too Lost"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02343",
+      "fund_id": "",
+      "fund_slug": "hld",
+      "signal_type": "other",
+      "title": "March 2026 Purchasing excellence Exosens & Groupe HLD awarded at the Euronext 2026 Annual Conference Exosens",
+      "what_changed": "New announcement: March 2026 Purchasing excellence Exosens & Groupe HLD awarded at the Euronext 2026 Annual Conference Exosens",
+      "source_url": "https://www.groupehld.com/en/news/exosens-and-groupe-hld-awarded-at-the-euronext-2026-annual-conference",
+      "source_name": "HLD",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:19:58.162421+00:00",
+      "created_at": "2026-03-23T12:19:58.162421+00:00",
+      "snapshot_id": "snap-20260323121728-d139a796",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Annual Conference Exosens"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02344",
+      "fund_id": "",
+      "fund_slug": "hld",
+      "signal_type": "other",
+      "title": "Exosens & Groupe HLD awarded at the Euronext 2026 Annual Conference",
+      "what_changed": "New announcement: Exosens & Groupe HLD awarded at the Euronext 2026 Annual Conference",
+      "source_url": "https://www.groupehld.com/en/news/exosens-and-groupe-hld-awarded-at-the-euronext-2026-annual-conference",
+      "source_name": "HLD",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:19:58.162421+00:00",
+      "created_at": "2026-03-23T12:19:58.162421+00:00",
+      "snapshot_id": "snap-20260323121728-d139a796",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Annual Conference"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02345",
+      "fund_id": "",
+      "fund_slug": "hld",
+      "signal_type": "other",
+      "title": "HLD Europe successfully completed its second bond issue of \u20ac300 million",
+      "what_changed": "New announcement: HLD Europe successfully completed its second bond issue of \u20ac300 million",
+      "source_url": "https://cdn.sanity.io/files/uw2tmz2e/production/f6ae9ffdd486e221826d20e7a35b838a49e52ebe.pdf",
+      "source_name": "HLD",
+      "published_at": null,
+      "observed_at": "2026-03-23T12:19:58.162421+00:00",
+      "created_at": "2026-03-23T12:19:58.162421+00:00",
+      "snapshot_id": "snap-20260323121728-d139a796",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00224",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "related_fund_slugs": [
+        "blackstone",
+        "cdp-equity",
+        "macquarie"
+      ],
+      "signal_type": "other",
+      "title": "Autostrade per l\u2019Italia (CDP Equity-Blackstone-Macquarie): Revenue to Grow in 2025, EBITDA to Remain Steady",
+      "what_changed": "Autostrade per l\u2019Italia, which has been controlled by CDP Equity, Blackstone Infrastructure Partners, and Macquarie Asset Management since 2022, closed out 2025 with operating revenue of \u20ac4.543 billion and EBITDA of \u20ac2.604 billion. This is a financial results report on an Italian infrastructure concession, not a new PE/VC transaction.",
+      "source_url": "https://bebeez.it/private-equity/autostrade-per-litalia-cdp-equity-blackstone-macquarie-nel-2025-cresciuti-i-ricavi-ebitda-stabile/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-23T06:57:39+00:00",
+      "observed_at": "2026-03-23T12:20:41.256239+00:00",
+      "created_at": "2026-03-23T12:20:41.256239+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Autostrade per l\u2019Italia"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Autostrade per l\u2019Italia, controllata da CDP Equity, Blackstone Infrastructure Partners e Macquarie Asset Management dal 2022, ha chiuso il 2025 con ricavi operativi a 4,543 miliardi di euro e EBITDA a 2,604 miliardi. \u00c8 un articolo di risultati su una concessione infrastrutturale italiana, non una nuova operazione PE/VC.",
+      "title_original": "Autostrade per l\u2019Italia (CDP Equity-Blackstone-Macquarie), nel 2025 cresciuti i ricavi, ebitda stabile"
+    },
+    {
+      "id": "rss-signal-00225",
+      "fund_id": "",
+      "fund_slug": "cdp-equity",
+      "related_fund_slugs": [
+        "blackstone",
+        "cdp-equity",
+        "macquarie"
+      ],
+      "signal_type": "other",
+      "title": "Autostrade per l\u2019Italia (CDP Equity-Blackstone-Macquarie): Revenue to Grow in 2025, EBITDA to Remain Steady",
+      "what_changed": "Autostrade per l\u2019Italia, which has been controlled by CDP Equity, Blackstone Infrastructure Partners, and Macquarie Asset Management since 2022, closed out 2025 with operating revenue of \u20ac4.543 billion and EBITDA of \u20ac2.604 billion. This is a financial results report on an Italian infrastructure concession, not a new PE/VC transaction.",
+      "source_url": "https://bebeez.it/private-equity/autostrade-per-litalia-cdp-equity-blackstone-macquarie-nel-2025-cresciuti-i-ricavi-ebitda-stabile/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-23T06:57:39+00:00",
+      "observed_at": "2026-03-23T12:20:41.256239+00:00",
+      "created_at": "2026-03-23T12:20:41.256239+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Autostrade per l\u2019Italia"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Autostrade per l\u2019Italia, controllata da CDP Equity, Blackstone Infrastructure Partners e Macquarie Asset Management dal 2022, ha chiuso il 2025 con ricavi operativi a 4,543 miliardi di euro e EBITDA a 2,604 miliardi. \u00c8 un articolo di risultati su una concessione infrastrutturale italiana, non una nuova operazione PE/VC.",
+      "title_original": "Autostrade per l\u2019Italia (CDP Equity-Blackstone-Macquarie), nel 2025 cresciuti i ricavi, ebitda stabile"
+    },
+    {
+      "id": "rss-signal-00226",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "related_fund_slugs": [
+        "blackstone",
+        "cdp-equity",
+        "macquarie"
+      ],
+      "signal_type": "other",
+      "title": "Autostrade per l\u2019Italia (CDP Equity-Blackstone-Macquarie): Revenue to Grow in 2025, EBITDA to Remain Steady",
+      "what_changed": "Autostrade per l\u2019Italia, which has been controlled by CDP Equity, Blackstone Infrastructure Partners, and Macquarie Asset Management since 2022, closed out 2025 with operating revenue of \u20ac4.543 billion and EBITDA of \u20ac2.604 billion. This is a financial results report on an Italian infrastructure concession, not a new PE/VC transaction.",
+      "source_url": "https://bebeez.it/private-equity/autostrade-per-litalia-cdp-equity-blackstone-macquarie-nel-2025-cresciuti-i-ricavi-ebitda-stabile/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-23T06:57:39+00:00",
+      "observed_at": "2026-03-23T12:20:41.256239+00:00",
+      "created_at": "2026-03-23T12:20:41.256239+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Autostrade per l\u2019Italia"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Autostrade per l\u2019Italia, controllata da CDP Equity, Blackstone Infrastructure Partners e Macquarie Asset Management dal 2022, ha chiuso il 2025 con ricavi operativi a 4,543 miliardi di euro e EBITDA a 2,604 miliardi. \u00c8 un articolo di risultati su una concessione infrastrutturale italiana, non una nuova operazione PE/VC.",
+      "title_original": "Autostrade per l\u2019Italia (CDP Equity-Blackstone-Macquarie), nel 2025 cresciuti i ricavi, ebitda stabile"
+    },
+    {
+      "id": "rss-signal-00227",
+      "fund_id": "",
+      "fund_slug": "antin-infrastructure-partners",
+      "related_fund_slugs": [
+        "antin-infrastructure-partners"
+      ],
+      "signal_type": "other",
+      "title": "Holding Funeraria Italiana (Antin Infrastructure) secures a 200 million euro debt refinancing from 17 banks to fund its development",
+      "what_changed": "Holding Funeraria Italiana, a subsidiary of Antin Infrastructure, has secured \u20ac200 million in debt refinancing from 17 banks to support its next phase of development and potential acquisitions. This is a financing transaction involving an Italian company, not a primary PE/VC transaction.",
+      "source_url": "https://bebeez.it/private-equity/holding-funeraria-italiana-antin-infrastructure-ottiene-200-mln-di-rifinanziamento-del-debito-da-17-banche-per-lo-sviluppo/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-23T06:53:51+00:00",
+      "observed_at": "2026-03-23T12:20:41.256239+00:00",
+      "created_at": "2026-03-23T12:20:41.256239+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Holding Funeraria Italiana"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "200 milioni di euro",
+      "what_changed_original": "Holding Funeraria Italiana, partecipata da Antin Infrastructure, ha ottenuto 200 milioni di euro di rifinanziamento del debito da 17 banche per sostenere la prossima fase di sviluppo e possibili acquisizioni. Si tratta di un\u2019operazione di financing su una societ\u00e0 italiana, non di una transazione PE/VC primaria.",
+      "title_original": "Holding Funeraria Italiana (Antin Infrastructure) ottiene 200 mln di rifinanziamento del debito da 17 banche, per lo sviluppo"
+    },
+    {
+      "id": "rss-signal-00228",
+      "fund_id": "",
+      "fund_slug": "progressio-sgr",
+      "related_fund_slugs": [
+        "progressio-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "The French private equity firm Siparex has acquired a majority stake (65% according to BeBeez sources) in Modena-based ATK Sports from Progressio Sgr",
+      "what_changed": "Siparex has signed an agreement to acquire a majority stake in ATK Sports from Progressio SGR, with the stake reportedly amounting to 65% according to BeBeez sources. ATK Sports, a Modena-based company and leader in high-performance ski touring bindings, represents a clear example of Italian private equity activity in the sports and outdoor sector.",
+      "source_url": "https://bebeez.it/private-equity/il-private-equity-francese-siparex-rileva-da-progressio-sgr-la-maggioranza-65-secondo-fonti-di-bebeez-della-modenese-atk-sports/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-23T06:51:00+00:00",
+      "observed_at": "2026-03-23T12:20:41.256239+00:00",
+      "created_at": "2026-03-23T12:20:41.256239+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "ATK Sports",
+          "Progressio SGR"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "65%",
+      "what_changed_original": "Siparex ha firmato l\u2019acquisizione della maggioranza di ATK Sports da Progressio SGR, con una quota indicata al 65% secondo fonti BeBeez. ATK Sports, societ\u00e0 modenese leader negli attacchi da sci alpinismo ad alte prestazioni, \u00e8 una chiara operazione PE italiana nel settore sport/outdoor.",
+      "title_original": "Il private equity francese Siparex rileva da Progressio sgr la maggioranza (65% secondo fonti di BeBeez) della modenese ATK Sports"
+    },
+    {
+      "id": "rss-signal-00229",
+      "fund_id": "",
+      "fund_slug": "three-hills",
+      "related_fund_slugs": [
+        "three-hills"
+      ],
+      "signal_type": "exit_announced",
+      "title": "Tomorrow Group (Tomorrow London Limited) is being acquired by Progetto 11. Three Hills Capital Partners and Stefano Martinetto, founder and CEO, are exiting the company.",
+      "what_changed": "Tomorrow Group, an international fashion platform based in London but linked to Italian entrepreneur Stefano Martinetto, has been acquired by Progetto 11. Three Hills Capital Partners and the founder/CEO are exiting; the article concerns an exit in the fashion sector, not a new investment.",
+      "source_url": "https://bebeez.it/private-equity/tomorrow-group-tomorrow-london-limited-viene-acquista-da-progetto-11-escono-three-hills-capital-partners-e-stefano-martinetto-fondatore-e-ceo/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-23T06:50:07+00:00",
+      "observed_at": "2026-03-23T12:20:41.256239+00:00",
+      "created_at": "2026-03-23T12:20:41.256239+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Tomorrow Group",
+          "Progetto 11",
+          "Three Hills Capital Partners",
+          "Stefano Martinetto"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Tomorrow Group, piattaforma per la moda internazionale basata a Londra ma legata all\u2019imprenditore italiano Stefano Martinetto, viene acquistata da Progetto 11. Escono Three Hills Capital Partners e il fondatore/CEO; l\u2019articolo riguarda un\u2019exit nel settore fashion, non un nuovo investimento.",
+      "title_original": "Tomorrow Group (Tomorrow London Limited) viene acquista da Progetto 11. Escono Three Hills Capital Partners e Stefano Martinetto, fondatore e CEO"
+    },
+    {
+      "id": "rss-signal-00230",
+      "fund_id": "",
+      "fund_slug": "apollo",
+      "related_fund_slugs": [
+        "apollo"
+      ],
+      "signal_type": "other",
+      "title": "Trading Floor: Private credit giants take center stage as business development companies catch their breath. Apollo rises 7.2%",
+      "what_changed": "Article is a market commentary about private credit and BDC performance, mentioning Apollo\u2019s stock move of +7.2%. It does not describe a PE/VC transaction, fundraising, or exit involving an Italian company.",
+      "source_url": "https://bebeez.it/private-equity-breakfast/trading-floor-scendono-in-campo-i-boss-del-private-credit-e-le-bdc-rifiatano-apollo-fa-72/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-23T06:30:21+00:00",
+      "observed_at": "2026-03-23T12:20:41.256239+00:00",
+      "created_at": "2026-03-23T12:20:41.256239+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Trading Floor, scendono in campo i boss del private credit e le BDC rifiatano. Apollo fa +7,2%"
+    },
+    {
+      "id": "rss-signal-00231",
+      "fund_id": "",
+      "fund_slug": "axon-partners-group",
+      "related_fund_slugs": [
+        "axon-partners-group"
+      ],
+      "signal_type": "other",
+      "title": "Otofarma is expanding in the hearing care sector and investing in innovation and organizational structure",
+      "what_changed": "Otofarma, a Campania-based hearing care distributor, is described as investing in research, technology, and organizational structure to support growth. The piece reports operational development in Italy, but no PE/VC deal, acquisition, or fundraising is announced.",
+      "source_url": "https://bebeez.it/servizi/otofarma-cresce-nel-settore-hearing-care-e-investe-in-innovazione-e-struttura-organizzativa/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-23T05:54:04+00:00",
+      "observed_at": "2026-03-23T12:20:41.256239+00:00",
+      "created_at": "2026-03-23T12:20:41.256239+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Otofarma"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Otofarma cresce nel settore hearing care e investe in innovazione e struttura organizzativa"
     }
   ],
-  "signal_count": 2326,
-  "translated_at": "2026-03-20T17:47:49.851057+00:00"
+  "signal_count": 2345,
+  "translated_at": "2026-03-23T12:21:06.995965+00:00"
 }

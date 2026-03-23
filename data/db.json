@@ -2488,9 +2488,10 @@
       ],
       "sector_tags": [
         "Renewable Energy",
+        "Biotech & Pharma",
         "Construction",
-        "Healthcare",
-        "Industrial Manufacturing"
+        "Environmental Services",
+        "Healthcare"
       ],
       "description": "Specializes in the full lifecycle management of unsubsidized clean energy infrastructure, notably large-scale solar and agrivoltaic developments like the 187 MW Sicily portfolio.",
       "geographies": [
@@ -2942,7 +2943,7 @@
         "Financial Services",
         "Healthcare",
         "Industrial Manufacturing",
-        "Food & Beverage"
+        "Retail"
       ],
       "description": "Originally the British Coal pension investment arm, this firm leads large-cap European buyouts. It maintains a deep Italian presence, recently exiting pet retailer Arcaplanet and acquiring Milan-based fintech Objectway.",
       "geographies": [
@@ -5286,10 +5287,10 @@
       ],
       "sector_tags": [
         "Industrial Manufacturing",
-        "Food & Beverage",
         "Technology",
-        "Healthcare",
-        "Professional Services"
+        "Food & Beverage",
+        "Professional Services",
+        "Healthcare"
       ],
       "description": "Formed by a veteran team of partners from Alcedo to target buyouts of niche market leaders in Northern Italy, specializing in complex generational handovers for companies like CVS Ferrari and the recently exited Panificio San Francesco.",
       "geographies": [
@@ -6015,8 +6016,8 @@
         "Industrial Manufacturing",
         "Consumer Goods",
         "Healthcare",
-        "Aerospace & Defense",
-        "Chemicals"
+        "Professional Services",
+        "Aerospace & Defense"
       ],
       "description": "Global credit specialist founded in 1988 that pioneered institutional lending to mid-sized companies. It acts as a key liquidity provider for Italian SMEs, recently financing Uteco Converting and backing leaders like Jakala and AEB.",
       "geographies": [
@@ -6411,9 +6412,9 @@
       "sector_tags": [
         "Food & Beverage",
         "Healthcare",
-        "Professional Services",
         "Hospitality & Tourism",
-        "Industrial Manufacturing"
+        "Professional Services",
+        "Aerospace & Defense"
       ],
       "description": "Tracing its roots to the investment arm of Paribas, this manager specializes in complex pan-European buyouts and operates major global platforms like the Nestl\u00e9-partnered ice cream giant Froneri.",
       "geographies": [
@@ -7840,9 +7841,9 @@
       ],
       "sector_tags": [
         "Biotech & Pharma",
-        "Environmental Services",
         "Healthcare",
         "Renewable Energy",
+        "Environmental Services",
         "Food & Beverage"
       ],
       "description": "Prioritizes research-intensive university spin-offs in life sciences and agri-food, backing ventures like EggPlant and Postbiotica that transform laboratory discoveries into scalable industrial applications.",
@@ -8008,11 +8009,10 @@
         "Buy-Out"
       ],
       "sector_tags": [
-        "Industrial Manufacturing",
-        "Consumer Goods",
         "Fashion & Luxury",
         "Healthcare",
-        "Packaging"
+        "Industrial Manufacturing",
+        "Retail"
       ],
       "description": "Independent private equity firm specializing in Italian SME buyouts, known for orchestrating industrial consolidation plays like the Gruppo Florence luxury manufacturing platform.",
       "geographies": [
@@ -8490,10 +8490,9 @@
         "Early-Stage"
       ],
       "sector_tags": [
-        "Technology",
         "Agriculture",
-        "Biotech & Pharma",
-        "Food & Beverage"
+        "Technology",
+        "Biotech & Pharma"
       ],
       "description": "Leverages Siena's life sciences ecosystem to back early-stage Italian deep-tech and biotech spin-offs. Key investments include insect protein developer Kinsect and wine data analytics platform Saturnalia.",
       "geographies": [
@@ -8542,11 +8541,10 @@
         "Buy-Out"
       ],
       "sector_tags": [
-        "Consumer Goods",
         "Industrial Manufacturing",
         "Healthcare",
         "Professional Services",
-        "Technology"
+        "Biotech & Pharma"
       ],
       "description": "Spun out from Lehman Brothers Merchant Banking in 2009, this mid-market specialist focuses on partnering with founders and families across Europe, with notable investments in Gransolar and Passione Beauty.",
       "geographies": [
@@ -8972,8 +8970,7 @@
         "Early-Stage"
       ],
       "sector_tags": [
-        "Biotech & Pharma",
-        "Healthcare"
+        "Biotech & Pharma"
       ],
       "description": "Founded by the team behind Genextra, this firm translates Italian scientific excellence into clinical-stage biotech companies, with notable investments in gene therapy and medical devices.",
       "geographies": [
@@ -9365,8 +9362,8 @@
         "Financial Services",
         "Healthcare",
         "Professional Services",
-        "Food & Beverage",
-        "Media & Entertainment"
+        "Media & Entertainment",
+        "Food & Beverage"
       ],
       "description": "Spun out of Soros Private Equity Partners in 2005, this firm is the first mainstream private equity house to achieve B Corp certification, specializing in complex buyouts and corporate carve-outs.",
       "created_at": "2026-01-26T15:27:27.990348+00:00",
@@ -9524,9 +9521,10 @@
       ],
       "sector_tags": [
         "Technology",
-        "Healthcare",
         "Professional Services",
-        "Financial Services"
+        "Healthcare",
+        "Financial Services",
+        "Hospitality & Tourism"
       ],
       "description": "Backed by the Perrodo family, this firm leverages an evergreen capital structure to pursue long-term growth and buyout investments in European mid-market leaders such as Miss Group and Crosta & Mollica.",
       "created_at": "2026-01-26T15:27:27.990377+00:00",

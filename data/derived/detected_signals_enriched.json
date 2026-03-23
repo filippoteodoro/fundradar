@@ -1,6 +1,1189 @@
 {
   "signals": [
     {
+      "id": "rss-signal-00224",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "related_fund_slugs": [
+        "blackstone",
+        "cdp-equity",
+        "macquarie"
+      ],
+      "signal_type": "report",
+      "title": "Autostrade per l\u2019Italia (CDP Equity-Blackstone-Macquarie): Revenue to grow in 2025, EBITDA to remain steady",
+      "what_changed": "Autostrade per l\u2019Italia, which has been controlled by CDP Equity, Blackstone Infrastructure Partners, and Macquarie Asset Management since 2022, closed out 2025 with operating revenue of \u20ac4543B and EBITDA of \u20ac2604B. This is a financial results report on an Italian infrastructure concession, not a new PE/VC transaction.",
+      "source_url": "https://bebeez.it/private-equity/autostrade-per-litalia-cdp-equity-blackstone-macquarie-nel-2025-cresciuti-i-ricavi-ebitda-stabile/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-23T06:57:39+00:00",
+      "observed_at": "2026-03-23T12:20:41.256239+00:00",
+      "created_at": "2026-03-23T12:20:41.256239+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Autostrade per l\u2019Italia"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Autostrade per l\u2019Italia, controllata da CDP Equity, Blackstone Infrastructure Partners e Macquarie Asset Management dal 2022, ha chiuso il 2025 con ricavi operativi a 4,543 miliardi di euro e EBITDA a 2,604 miliardi. \u00c8 un articolo di risultati su una concessione infrastrutturale italiana, non una nuova operazione PE/VC.",
+      "title_original": "Autostrade per l\u2019Italia (CDP Equity-Blackstone-Macquarie), nel 2025 cresciuti i ricavi, ebitda stabile",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": true,
+      "ml_keep_prob": 0.655,
+      "ml_keep_confidence": 0.655,
+      "ml_keep_confident": false,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.295,
+      "ml_type_confident": false,
+      "ml_confidence": 0.295,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.79,
+      "signal_types": [
+        "report",
+        "fundraise_announced"
+      ],
+      "co_fund_slugs": [
+        "cdp-equity",
+        "macquarie"
+      ],
+      "enriched_summary": "Autostrade per l\u2019Italia, controlled by CDP Equity, Blackstone Infrastructure Partners and Macquarie Asset Management, reported \u20ac4543B revenue and \u20ac2604B EBITDA for 2025.",
+      "enrichment_confidence": "high",
+      "enriched_date": "2025-12-31",
+      "enriched_at": "2026-03-23T12:31:03.808326+00:00",
+      "llm_event_type": "report",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [],
+      "type": "report"
+    },
+    {
+      "id": "rss-signal-00213",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "related_fund_slugs": [
+        "blackstone",
+        "cdp-equity",
+        "macquarie"
+      ],
+      "signal_type": "report",
+      "title": "Autostrade per l\u2019Italia (CDP Equity-Blackstone-Macquarie) has approved a new \u20ac29.8B financial plan",
+      "what_changed": "",
+      "source_url": "https://bebeez.it/private-equity/autostrade-per-litalia-cdp-equity-blackstone-macquarie-varato-il-nuovo-piano-economico-finanziario-da-298-mld-euro/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-19T06:56:57+00:00",
+      "observed_at": "2026-03-20T15:43:16.699994+00:00",
+      "created_at": "2026-03-20T15:43:16.699994+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Autostrade per l\u2019Italia (CDP Equity-Blackstone-Macquarie), varato il nuovo Piano Economico Finanziario da 29,8 mld euro",
+      "title_original": "Autostrade per l\u2019Italia (CDP Equity-Blackstone-Macquarie), varato il nuovo Piano Economico Finanziario da 29,8 mld euro",
+      "deal_amount": "\u20ac29.8B",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": true,
+      "ml_keep_prob": 0.839,
+      "ml_keep_confidence": 0.839,
+      "ml_keep_confident": true,
+      "ml_type": "other",
+      "ml_type_prob": 0.418,
+      "ml_type_confident": false,
+      "ml_confidence": 0.418,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.79,
+      "signal_types": [
+        "report"
+      ],
+      "co_fund_slugs": [
+        "cdp-equity",
+        "macquarie"
+      ],
+      "enriched_summary": "",
+      "enriched_at": "2026-03-20T16:12:50.284651+00:00",
+      "type": "report"
+    },
+    {
+      "id": "rss-signal-00167",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "related_fund_slugs": [
+        "blackstone",
+        "partners-group"
+      ],
+      "signal_type": "exit_announced",
+      "title": "Telepass up for sale. Valued at \u20ac4B. Exit in sight not only for Partners Group, but also for Mundys (Edizione-Blackstone).",
+      "what_changed": "Telepass, valued at about \u20ac4B, is reportedly fully on the market with potential exits eyed not only by Partners Group (49%) but also by Mundys/Edizione and Blackstone Infrastructure Partners (51%). Reports suggest owners are studying divestment, creating takeover speculation in the Italian toll/payment sector.",
+      "source_url": "https://bebeez.it/private-equity/tutta-telepass-sul-mercato-valutata-4-mld-euro-exit-in-vista-non-solo-per-partners-group-ma-anche-per-mundys-edizione-blackstone/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-10T06:52:57+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": true,
+      "extracted_entities": {
+        "companies": [
+          "Telepass"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac4B",
+      "title_original": "Tutta Telepass sul mercato. Valutata 4 mld euro. Exit in vista non solo per Partners Group, ma anche per Mundys (Edizione-Blackstone)",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": true,
+      "ml_keep_prob": 0.789,
+      "ml_keep_confidence": 0.789,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.659,
+      "ml_type_confident": true,
+      "ml_confidence": 0.659,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "exit_announced"
+      ],
+      "enriched_summary": "Telepass, valued at about \u20ac4B, is on the market with potential exits by Partners Group, Mundys/Edizione and Blackstone Infrastructure Partners.",
+      "enriched_date": "2026-03-11",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-03-11T09:08:21.142525+00:00",
+      "llm_event_type": "exit",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "Telepass",
+          "is_direct_investment": true,
+          "action": "exit"
+        }
+      ],
+      "type": "exit_announced"
+    },
+    {
+      "id": "seed-signal-00025",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "fund_launch",
+      "title": "Blackstone and UniCredit launch BXEF private equity fund distribution in Italy",
+      "what_changed": "Blackstone and UniCredit expanded partnership to distribute BXEF (Blackstone Private Equity Fund Strategies Sicav) to Italian wealth management clients. Follows 2023 launch of ECRED (European Private Credit Fund) which reached by January 2025.",
+      "source_url": "https://bebeez.it/private-equity/blackstone-e-unicredit-fanno-il-bis-e-siglano-accordo-per-distribuire-agli-investitori-privati-italiani-la-nuova-sicav-dedicata-al-private-equity-globale/",
+      "source_name": "BeBeez",
+      "published_at": "2024-12-03",
+      "observed_at": "2026-02-12T11:17:58.661959+00:00",
+      "created_at": "2026-02-12T11:17:58.661959+00:00",
+      "snapshot_id": "seed-2026-02-12",
+      "diff_summary": "Seeded historical signal: Blackstone and UniCredit launch BXEF private equity fund distribution in Italy",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 1,
+      "relevance_reasons": [
+        "UniCredit",
+        "Italian investors",
+        "wealth management"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "UniCredit"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": false,
+      "ml_keep_prob": 0.422,
+      "ml_keep_confidence": 0.578,
+      "ml_keep_confident": false,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.166,
+      "ml_type_confident": false,
+      "ml_confidence": 0.166,
+      "quality_score": 100,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "fund_launch"
+      ],
+      "enriched_summary": "Blackstone and UniCredit launched BXEF distribution to Italian wealth management clients.",
+      "enriched_date": null,
+      "enrichment_confidence": "high",
+      "llm_event_type": "fund",
+      "llm_type_confidence": "high",
+      "target_companies": [],
+      "enriched_at": "2026-03-23T12:31:03.921789+00:00",
+      "llm_italy_relevant": true,
+      "type": "fund_launch"
+    },
+    {
+      "id": "seed-signal-00023",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "exit_announced",
+      "title": "Blackstone sells Via Montenapoleone 8 palace to Kering for \u20ac1.3B",
+      "what_changed": "Blackstone sold the historic palazzo at Via Montenapoleone 8, Milan (11,800 sqm) to French luxury group Kering for \u20ac1.3B. Largest single real estate asset transaction ever on the Italian market. Blackstone had acquired Reale Compagnia Italiana portfolio for ~\u20ac1.1B in 2021-2022.",
+      "source_url": "https://bebeez.it/real-estate-2/supercolpo-di-blackstone-a-milano-venduto-il-palazzo-di-via-montenapoleone-8-a-kering-per-13-mld-euro/",
+      "source_name": "BeBeez",
+      "published_at": "2024-04-04",
+      "observed_at": "2026-02-12T11:17:58.661959+00:00",
+      "created_at": "2026-02-12T11:17:58.661959+00:00",
+      "snapshot_id": "seed-2026-02-12",
+      "diff_summary": "Seeded historical signal: Blackstone sells Via Montenapoleone 8 palace to Kering for \u20ac1.3B",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 1,
+      "relevance_reasons": [
+        "Via Montenapoleone",
+        "Milan",
+        "Kering",
+        "Italian real estate"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "Reale Compagnia Italiana S.p.A.",
+          "Kering"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac1.3B",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": false,
+      "ml_keep_prob": 0.321,
+      "ml_keep_confidence": 0.679,
+      "ml_keep_confident": false,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.462,
+      "ml_type_confident": false,
+      "ml_confidence": 0.462,
+      "quality_score": 100,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "exit_announced",
+        "deal_announced"
+      ],
+      "enriched_summary": "Blackstone sold the historic palazzo at Via Montenapoleone 8, Milan (11,800 sqm) to French luxury group Kering for \u20ac1.3B. Largest single real estate asset transaction ever on the Italian market.",
+      "enriched_date": "2026-02-12",
+      "enrichment_confidence": "high",
+      "llm_event_type": "exit",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "Kering",
+          "is_direct_investment": true,
+          "action": "exit"
+        }
+      ],
+      "enriched_at": "2026-03-23T12:31:03.975236+00:00",
+      "llm_italy_relevant": true,
+      "type": "exit_announced"
+    },
+    {
+      "id": "rss-signal-00049",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "signal_type": "deal_announced",
+      "title": "Eco Eridania S.p.A. (Icon Infrastructure), Ardian, Macquarie, DIF, and DWS could be among the major funds interested in investing.",
+      "what_changed": "[Rumor] Ardian, Macquarie, DIF, and DWS may be interested in investing in Eco Eridania S.p.A., currently controlled by Icon Infrastructure (hypothesis reported by Il sole24ore).",
+      "source_url": "https://bebeez.it/private-equity/eco-eridania-spa-icon-infrastructure-ardian-macquarie-dif-e-dws-potrebbero-essere-tra-i-grandi-fondi-interessati-ad-investire/",
+      "source_name": "BeBeez",
+      "published_at": "2026-01-29T06:50:54+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": true,
+      "extracted_entities": {
+        "companies": [
+          "Eco Eridania spa"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "[Rumor] Ardian, Macquarie, Dif e Dws potrebbero essere interessati a investire in Eco Eridania spa, oggi controllata da Icon Infrastructure (ipotesi riportata da Il Sole 24 Ore).",
+      "title_original": "Eco Eridania spa (Icon Infrastructure), Ardian, Macquarie, Dif e Dws potrebbero essere tra i grandi fondi interessati ad investire",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": true,
+      "ml_keep_prob": 0.886,
+      "ml_keep_confidence": 0.886,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.608,
+      "ml_type_confident": true,
+      "ml_confidence": 0.608,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "deal_announced"
+      ],
+      "co_fund_slugs": [
+        "ardian",
+        "muzinich-co"
+      ],
+      "enriched_summary": "[Rumor] Ardian, Macquarie, DIF, and DWS may be interested in investing in Eco Eridania S.p.A., currently controlled by Icon Infrastructure (hypothesis reported by Il sole24ore).",
+      "enrichment_confidence": "low",
+      "enriched_at": "2026-03-09T16:07:15.558752+00:00",
+      "target_companies": [],
+      "type": "deal_announced"
+    },
+    {
+      "id": "rss-signal-00227",
+      "fund_id": "",
+      "fund_slug": "antin-infrastructure-partners",
+      "related_fund_slugs": [
+        "antin-infrastructure-partners"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "Holding Funeraria Italiana (Antin Infrastructure) secures a \u20ac200M debt refinancing from 17 banks to fund its development",
+      "what_changed": "Holding Funeraria Italiana, a subsidiary of Antin Infrastructure, has secured \u20ac200M in debt refinancing from 17 banks to support its next phase of development and potential acquisitions. This is a financing transaction involving an Italian company, not a primary PE/VC transaction.",
+      "source_url": "https://bebeez.it/private-equity/holding-funeraria-italiana-antin-infrastructure-ottiene-200-mln-di-rifinanziamento-del-debito-da-17-banche-per-lo-sviluppo/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-23T06:53:51+00:00",
+      "observed_at": "2026-03-23T12:20:41.256239+00:00",
+      "created_at": "2026-03-23T12:20:41.256239+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Holding Funeraria Italiana"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac200M",
+      "what_changed_original": "Holding Funeraria Italiana, partecipata da Antin Infrastructure, ha ottenuto 200 milioni di euro di rifinanziamento del debito da 17 banche per sostenere la prossima fase di sviluppo e possibili acquisizioni. Si tratta di un\u2019operazione di financing su una societ\u00e0 italiana, non di una transazione PE/VC primaria.",
+      "title_original": "Holding Funeraria Italiana (Antin Infrastructure) ottiene 200 mln di rifinanziamento del debito da 17 banche, per lo sviluppo",
+      "_fund_geo_scope": "europe_wide",
+      "ml_keep": true,
+      "ml_keep_prob": 0.878,
+      "ml_keep_confidence": 0.878,
+      "ml_keep_confident": true,
+      "ml_type": "fundraise_closed",
+      "ml_type_prob": 0.64,
+      "ml_type_confident": true,
+      "ml_confidence": 0.64,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "fundraise_closed",
+        "debt_financing"
+      ],
+      "enriched_summary": "Holding Funeraria Italiana secured a \u20ac200M debt refinancing from 17 banks to fund development and acquisitions.",
+      "enrichment_confidence": "high",
+      "enriched_date": null,
+      "enriched_at": "2026-03-23T12:31:05.270377+00:00",
+      "llm_event_type": "debt",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [],
+      "type": "fundraise_closed"
+    },
+    {
+      "id": "rss-signal-00228",
+      "fund_id": "",
+      "fund_slug": "progressio-sgr",
+      "related_fund_slugs": [
+        "progressio-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "The French private equity firm Siparex has acquired a majority stake (65% according to BeBeez sources) in Modena-based ATK Sports from Progressio SGR",
+      "what_changed": "Siparex has signed an agreement to acquire a majority stake in ATK Sports from Progressio SGR, with the stake reportedly amounting to 65% according to BeBeez sources. ATK Sports, a Modena-based company and leader in high-performance ski touring bindings, represents a clear example of Italian private equity activity in the sports and outdoor sector.",
+      "source_url": "https://bebeez.it/private-equity/il-private-equity-francese-siparex-rileva-da-progressio-sgr-la-maggioranza-65-secondo-fonti-di-bebeez-della-modenese-atk-sports/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-23T06:51:00+00:00",
+      "observed_at": "2026-03-23T12:20:41.256239+00:00",
+      "created_at": "2026-03-23T12:20:41.256239+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "ATK Sports",
+          "Progressio SGR"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "65%",
+      "what_changed_original": "Siparex ha firmato l\u2019acquisizione della maggioranza di ATK Sports da Progressio SGR, con una quota indicata al 65% secondo fonti BeBeez. ATK Sports, societ\u00e0 modenese leader negli attacchi da sci alpinismo ad alte prestazioni, \u00e8 una chiara operazione PE italiana nel settore sport/outdoor.",
+      "title_original": "Il private equity francese Siparex rileva da Progressio sgr la maggioranza (65% secondo fonti di BeBeez) della modenese ATK Sports",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.73,
+      "ml_keep_confidence": 0.73,
+      "ml_keep_confident": true,
+      "ml_type": "portfolio_update",
+      "ml_type_prob": 0.559,
+      "ml_type_confident": false,
+      "ml_confidence": 0.559,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.84,
+      "signal_types": [
+        "deal_announced"
+      ],
+      "enriched_summary": "",
+      "enrichment_confidence": "high",
+      "enriched_date": null,
+      "enriched_at": "2026-03-23T12:31:00.865328+00:00",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [
+        {
+          "name": "ATK Sports",
+          "is_direct_investment": true,
+          "action": "exit"
+        }
+      ],
+      "type": "deal_announced"
+    },
+    {
+      "id": "web-signal-00075",
+      "fund_id": "",
+      "fund_slug": "progressio-sgr",
+      "signal_type": "exit_announced",
+      "title": "Progressio is selling its stake in Polenghi to an investment vehicle.",
+      "what_changed": "Polenghi ad un veicolo",
+      "source_url": "https://www.progressiosgr.it/news/progressio-cede-la-partecipazione-in-polenghi-ad-un-veicolo-controllato-dalla-holding-della-famiglia-polenghi-e-dai-nuovi-soci-credit-mutuel-equity-e-idia/",
+      "source_name": "Progressio SGR",
+      "published_at": "2026-01-09",
+      "observed_at": "2026-03-20T15:41:52.147402+00:00",
+      "created_at": "2026-03-20T15:41:52.147402+00:00",
+      "snapshot_id": "snap-20260320154148-ab87e50a",
+      "diff_summary": "New news item detected (dated 2026-01-09)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "Polenghi ad un veicolo"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Progressio cede la partecipazione in Polenghi ad un veicolo...",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.976,
+      "ml_keep_confidence": 0.976,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.271,
+      "ml_type_confident": false,
+      "ml_confidence": 0.271,
+      "quality_score": 100,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "exit_announced"
+      ],
+      "enriched_summary": "Polenghi ad un veicolo",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-03-20T16:12:54.899597+00:00",
+      "llm_event_type": "exit",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "Polenghi",
+          "is_direct_investment": true,
+          "action": "exit"
+        }
+      ],
+      "type": "exit_announced"
+    },
+    {
+      "id": "web-signal-00076",
+      "fund_id": "",
+      "fund_slug": "progressio-sgr",
+      "signal_type": "deal_announced",
+      "title": "Progressio is investing in Spindox to support its growth plan.",
+      "what_changed": "Spindox supports the growth plan",
+      "source_url": "https://www.progressiosgr.it/news/progressio-investe-in-spindox-a-supporto-del-piano-di-crescita-della-societa/",
+      "source_name": "Progressio SGR",
+      "published_at": "2025-10-24",
+      "observed_at": "2026-03-20T15:41:52.147402+00:00",
+      "created_at": "2026-03-20T15:41:52.147402+00:00",
+      "snapshot_id": "snap-20260320154148-ab87e50a",
+      "diff_summary": "New news item detected (dated 2025-10-24)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "Spindox a supporto del piano di crescita"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Progressio investe in Spindox a supporto del piano di crescita...",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.961,
+      "ml_keep_confidence": 0.961,
+      "ml_keep_confident": true,
+      "ml_type": "people_move",
+      "ml_type_prob": 0.168,
+      "ml_type_confident": false,
+      "ml_confidence": 0.168,
+      "quality_score": 100,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "deal_announced"
+      ],
+      "enriched_summary": "Spindox supports the growth plan. Spindox a supporto del piano di crescita.",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-03-20T16:12:54.695517+00:00",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "Spindox",
+          "is_direct_investment": true,
+          "action": "investment"
+        }
+      ],
+      "what_changed_original": "Spindox a supporto del piano di crescita",
+      "type": "deal_announced"
+    },
+    {
+      "id": "web-signal-00079",
+      "fund_id": "",
+      "fund_slug": "progressio-sgr",
+      "signal_type": "portfolio_update",
+      "title": "Archiva Group, partecipata da progressio investimenti IV,.",
+      "what_changed": "",
+      "source_url": "https://www.progressiosgr.it/news/archiva-group-partecipata-da-progressio-investimenti-iv-acquisisce-la-maggioranza-di-mitric-s-r-l/",
+      "source_name": "Progressio SGR",
+      "published_at": "2025-05-05",
+      "observed_at": "2026-03-20T15:41:52.147402+00:00",
+      "created_at": "2026-03-20T15:41:52.147402+00:00",
+      "snapshot_id": "snap-20260320154148-ab87e50a",
+      "diff_summary": "New news item detected (dated 2025-05-05)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Archiva Group"
+        ],
+        "locations": []
+      },
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.657,
+      "ml_keep_confidence": 0.657,
+      "ml_keep_confident": false,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.244,
+      "ml_type_confident": false,
+      "ml_confidence": 0.244,
+      "quality_score": 100,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "portfolio_update"
+      ],
+      "enriched_summary": "",
+      "enriched_at": "2026-03-20T16:12:48.108284+00:00",
+      "type": "portfolio_update"
+    },
+    {
+      "id": "web-signal-00080",
+      "fund_id": "",
+      "fund_slug": "progressio-sgr",
+      "signal_type": "fundraise_closed",
+      "title": "Progressio Investimenti IV at the first closing of the fundraising round with.",
+      "what_changed": "",
+      "source_url": "https://www.progressiosgr.it/news/progressio-investimenti-iv-al-primo-closing-della-raccolta-con-182-mln-di-euro-di-impegni-su-un-target-di-300-mln-di-euro/",
+      "source_name": "Progressio SGR",
+      "published_at": "2024-01-29",
+      "observed_at": "2026-03-20T15:41:52.147402+00:00",
+      "created_at": "2026-03-20T15:41:52.147402+00:00",
+      "snapshot_id": "snap-20260320154148-ab87e50a",
+      "diff_summary": "New news item detected (dated 2024-01-29)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Progressio investimenti IV al primo closing della raccolta con...",
+      "title_original": "Progressio investimenti IV al primo closing della raccolta con...",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.838,
+      "ml_keep_confidence": 0.838,
+      "ml_keep_confident": true,
+      "ml_type": "fund_launch",
+      "ml_type_prob": 0.336,
+      "ml_type_confident": false,
+      "ml_confidence": 0.336,
+      "quality_score": 100,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "fundraise_closed"
+      ],
+      "enriched_summary": "",
+      "enriched_at": "2026-03-20T16:12:48.308725+00:00",
+      "type": "fundraise_closed"
+    },
+    {
+      "id": "rss-signal-00007",
+      "fund_id": "",
+      "fund_slug": "progressio-sgr",
+      "signal_type": "exit_announced",
+      "title": "RMG Metalli Guizzi restructures its debt and sells its assets to Italchimici and Copper Italia",
+      "what_changed": "RMG Metalli Guizzi restructures its debt and sells company assets to Italchimici and Copper Italia as part of its restructuring plan.",
+      "source_url": "https://bebeez.it/crisi-rilanci/rmg-metalli-guizzi-ristruttura-il-debito-e-cede-gli-asset-aziendali-a-italchimici-e-copper-italia/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-10T06:45:24+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Raffineria Metalli Guizzi",
+          "Italchimici",
+          "Copper Italia"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "RMG Metalli Guizzi ristruttura il debito e cede asset aziendali ad Italchimici e Copper Italia nell\u2019ambito del risanamento.",
+      "title_original": "RMG Metalli Guizzi ristruttura il debito e cede gli asset aziendali a Italchimici e Copper Italia",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.905,
+      "ml_keep_confidence": 0.905,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.459,
+      "ml_type_confident": false,
+      "ml_confidence": 0.459,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "exit_announced"
+      ],
+      "enriched_summary": "",
+      "enriched_date": "2026-02-12",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-03-09T16:07:16.867245+00:00",
+      "llm_event_type": "exit",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "RMG Metalli Guizzi",
+          "is_direct_investment": true,
+          "action": "exit"
+        }
+      ],
+      "type": "exit_announced"
+    },
+    {
+      "id": "web-signal-01076",
+      "fund_id": "",
+      "fund_slug": "progressio-sgr",
+      "signal_type": "fundraise_closed",
+      "title": "Progressio Investimenti IV closes fundraising at \u20ac335M",
+      "what_changed": "",
+      "source_url": "https://www.progressiosgr.it/news/progressio-investimenti-iv-chiude-la-raccolta-a-335-mln-di-euro-superando-il-target-di-300-mln-di-euro/",
+      "source_name": "Progressio SGR",
+      "published_at": "2025-07-16",
+      "observed_at": "2026-02-09T09:56:52.625092+00:00",
+      "created_at": "2026-02-09T09:56:52.625092+00:00",
+      "snapshot_id": "snap-20260209095652-ab87e50a",
+      "diff_summary": "New news item detected (dated 2025-07-16)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Progressio investimenti IV chiude la raccolta a 335 mln di euro",
+      "title_original": "Progressio investimenti IV chiude la raccolta a 335 mln di euro",
+      "deal_amount": "\u20ac335M",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.738,
+      "ml_keep_confidence": 0.738,
+      "ml_keep_confident": true,
+      "ml_type": "other",
+      "ml_type_prob": 0.262,
+      "ml_type_confident": false,
+      "ml_confidence": 0.262,
+      "quality_score": 100,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "fundraise_closed",
+        "fundraise_announced"
+      ],
+      "enriched_summary": "",
+      "enriched_at": "2026-03-09T16:07:16.990649+00:00",
+      "type": "fundraise_closed"
+    },
+    {
+      "id": "rss-signal-00229",
+      "fund_id": "",
+      "fund_slug": "three-hills",
+      "related_fund_slugs": [
+        "three-hills"
+      ],
+      "signal_type": "exit_announced",
+      "title": "Tomorrow Group (Tomorrow London Limited) is being acquired by Progetto 11. Three Hills Capital Partners and Stefano Martinetto, founder and CEO, are exiting\u2026",
+      "what_changed": "Tomorrow Group, an international fashion platform based in London but linked to Italian entrepreneur Stefano Martinetto, has been acquired by Progetto 11. Three Hills Capital Partners and the founder/CEO are exiting; the article concerns an exit in the fashion sector, not a new investment.",
+      "source_url": "https://bebeez.it/private-equity/tomorrow-group-tomorrow-london-limited-viene-acquista-da-progetto-11-escono-three-hills-capital-partners-e-stefano-martinetto-fondatore-e-ceo/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-23T06:50:07+00:00",
+      "observed_at": "2026-03-23T12:20:41.256239+00:00",
+      "created_at": "2026-03-23T12:20:41.256239+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Tomorrow Group",
+          "Progetto 11",
+          "Three Hills Capital Partners",
+          "Stefano Martinetto"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Tomorrow Group, piattaforma per la moda internazionale basata a Londra ma legata all\u2019imprenditore italiano Stefano Martinetto, viene acquistata da Progetto 11. Escono Three Hills Capital Partners e il fondatore/CEO; l\u2019articolo riguarda un\u2019exit nel settore fashion, non un nuovo investimento.",
+      "title_original": "Tomorrow Group (Tomorrow London Limited) viene acquista da Progetto 11. Escono Three Hills Capital Partners e Stefano Martinetto, fondatore e CEO",
+      "_fund_geo_scope": "europe_wide",
+      "ml_keep": true,
+      "ml_keep_prob": 0.777,
+      "ml_keep_confidence": 0.777,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.441,
+      "ml_type_confident": false,
+      "ml_confidence": 0.441,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "exit_announced",
+        "deal_announced"
+      ],
+      "enriched_summary": "",
+      "enrichment_confidence": "high",
+      "enriched_date": null,
+      "enriched_at": "2026-03-23T12:31:00.373767+00:00",
+      "llm_event_type": "exit",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [
+        {
+          "name": "Tomorrow Group",
+          "is_direct_investment": true,
+          "action": "exit"
+        }
+      ],
+      "type": "exit_announced"
+    },
+    {
+      "id": "rss-signal-00170",
+      "fund_id": "",
+      "fund_slug": "three-hills",
+      "related_fund_slugs": [
+        "three-hills"
+      ],
+      "signal_type": "fund_launch",
+      "title": "Made in Italy Fund II (quadrivio & pambianco) takes control of les secrets de loly, with Weinberg Capital Partners and Three Hills",
+      "what_changed": "",
+      "source_url": "https://bebeez.it/private-equity/made-in-italy-fund-ii-quadrivio-pambianco-al-controllo-di-les-secrets-de-loly-con-weinberg-capital-partners-e-three-hills-capital-partners/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-10T06:48:11+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "sess\u00f9n"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Made in Italy Fund II (Quadrivio & Pambianco) al controllo di Les Secrets de Loly, con Weinberg Capital Partners e Three Hills",
+      "title_original": "Made in Italy Fund II (Quadrivio & Pambianco) al controllo di Les Secrets de Loly, con Weinberg Capital Partners e Three Hills",
+      "_fund_geo_scope": "europe_wide",
+      "ml_keep": true,
+      "ml_keep_prob": 0.913,
+      "ml_keep_confidence": 0.913,
+      "ml_keep_confident": true,
+      "ml_type": "fundraise_announced",
+      "ml_type_prob": 0.311,
+      "ml_type_confident": false,
+      "ml_confidence": 0.311,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "fund_launch"
+      ],
+      "enriched_summary": "",
+      "enriched_at": "2026-03-11T09:07:34.228391+00:00",
+      "type": "fund_launch"
+    },
+    {
+      "id": "rss-signal-00230",
+      "fund_id": "",
+      "fund_slug": "apollo",
+      "related_fund_slugs": [
+        "apollo"
+      ],
+      "signal_type": "exit_announced",
+      "title": "Trading Floor: Private credit giants take center stage as business development companies catch their breath. Apollo rises 7.2%",
+      "what_changed": "Article is a market commentary about private credit and BDC performance, mentioning Apollo\u2019s stock move of +7.2%. It does not describe a PE/VC transaction, fundraising, or exit involving an Italian company.",
+      "source_url": "https://bebeez.it/private-equity-breakfast/trading-floor-scendono-in-campo-i-boss-del-private-credit-e-le-bdc-rifiatano-apollo-fa-72/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-23T06:30:21+00:00",
+      "observed_at": "2026-03-23T12:20:41.256239+00:00",
+      "created_at": "2026-03-23T12:20:41.256239+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Trading Floor, scendono in campo i boss del private credit e le BDC rifiatano. Apollo fa +7,2%",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": true,
+      "ml_keep_prob": 0.918,
+      "ml_keep_confidence": 0.918,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.635,
+      "ml_type_confident": true,
+      "ml_confidence": 0.635,
+      "evidence_score": 3,
+      "quality_confidence": "medium",
+      "confidence_score": 0.79,
+      "signal_types": [
+        "exit_announced",
+        "fundraise_announced"
+      ],
+      "enriched_summary": "Apollo rose 7.2% as private credit giants and BDC s took center stage in market commentary.",
+      "enrichment_confidence": "high",
+      "enriched_date": null,
+      "enriched_at": "2026-03-23T12:31:01.768924+00:00",
+      "llm_event_type": "other",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [],
+      "type": "exit_announced"
+    },
+    {
+      "id": "rss-signal-00190",
+      "fund_id": "",
+      "fund_slug": "apollo",
+      "related_fund_slugs": [
+        "apollo"
+      ],
+      "signal_type": "other",
+      "title": "The American fund Apollo enters the fray and buys a majority stake in Atl\u00e9tico Madrid",
+      "what_changed": "US fund Apollo agrees to buy a majority stake in Atl\u00e9tico Madrid, with Reuters citing a valuation of around \u20ac2.5B; CEO Miguel \u00c1ngel Gil and president Enrique Cerezo expected to remain in place. Confirmed sports-sector acquisition by Apollo, with no direct Italian connection.",
+      "source_url": "https://startupitalia.eu/economy/apollo-azionista-maggior-atletico-madrid/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-03-09T09:47:29+00:00",
+      "observed_at": "2026-03-11T09:03:07.277168+00:00",
+      "created_at": "2026-03-11T09:03:07.277168+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Atl\u00e9tico Madrid"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac2.5B",
+      "title_original": "Il fondo americano Apollo scende in campo e compra la maggioranza dell\u2019Atletico Madrid",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": true,
+      "ml_keep_prob": 0.97,
+      "ml_keep_confidence": 0.97,
+      "ml_keep_confident": true,
+      "ml_type": "fundraise_closed",
+      "ml_type_prob": 0.334,
+      "ml_type_confident": false,
+      "ml_confidence": 0.334,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.87,
+      "signal_types": [
+        "other",
+        "deal_announced"
+      ],
+      "enriched_summary": "Apollo agrees to buy a majority stake in Atl\u00e9tico Madrid for around \u20ac2.5B; Miguel \u00c1ngel Gil and Enrique Cerezo to remain in place.",
+      "enriched_date": "2026-03-11",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-03-11T09:08:11.210059+00:00",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "llm_type_override": true,
+      "target_companies": [
+        {
+          "name": "Atl\u00e9tico Madrid",
+          "is_direct_investment": true,
+          "action": "investment"
+        }
+      ],
+      "type": "other"
+    },
+    {
+      "id": "seed-signal-00027",
+      "fund_id": "",
+      "fund_slug": "apollo",
+      "signal_type": "partnership",
+      "title": "Apollo Delos platform commits additional \u20ac150M for Italian special situations",
+      "what_changed": "Apollo strengthened and expanded the Apollo Delos platform (investment partnership with Apeiron Management S.p.A.) with an additional \u20ac150M commitment to Italy. Platform has already invested \u20ac300M over two years in Italian companies in crisis, with individual deals of \u20ac5-50 M.",
+      "source_url": "https://bebeez.it/private-equity/apollo-mette-sul-piatto-un-mld-euro-per-litalia-ed-e-solo-il-primo-passo/",
+      "source_name": "BeBeez",
+      "published_at": "2025-06-01",
+      "observed_at": "2026-02-12T11:17:58.661959+00:00",
+      "created_at": "2026-02-12T11:17:58.661959+00:00",
+      "snapshot_id": "seed-2026-02-12",
+      "diff_summary": "Seeded historical signal: Apollo Delos platform commits additional \u20ac150M for Italian special situations",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 1,
+      "relevance_reasons": [
+        "Apollo Delos",
+        "Apeiron Management",
+        "Italian special situations"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "Apeiron Management S.p.A."
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac150M",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": true,
+      "ml_keep_prob": 0.551,
+      "ml_keep_confidence": 0.551,
+      "ml_keep_confident": false,
+      "ml_type": "portfolio_update",
+      "ml_type_prob": 0.448,
+      "ml_type_confident": false,
+      "ml_confidence": 0.448,
+      "quality_score": 100,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.87,
+      "signal_types": [
+        "partnership"
+      ],
+      "enriched_summary": "Apollo strengthened and expanded the Apollo Delos platform (investment partnership with Apeiron Management S.p.A.) with an additional \u20ac150M commitment to Italy.",
+      "enrichment_confidence": "low",
+      "enriched_at": "2026-03-09T16:07:16.677389+00:00",
+      "type": "partnership"
+    },
+    {
+      "id": "seed-signal-00026",
+      "fund_id": "",
+      "fund_slug": "apollo",
+      "signal_type": "exit_announced",
+      "title": "Apollo reduces Lottomatica stake from 51.5% to 41.9% via \u20ac300M share placement",
+      "what_changed": "Apollo (via Gamma Intermediate) sold 24 million Lottomatica shares at \u20ac12.50/share for \u20ac300M gross proceeds via accelerated bookbuilding. Reduces stake from 51.5% to 41.9%. Coordinated by Barclays, Deutsche Bank, Goldman Sachs, JP Morgan.",
+      "source_url": "https://bebeez.it/private-equity/apollo-global-management-riduce-la-partecipazione-in-lottomatica-group-passando-dal-515-al-419/",
+      "source_name": "BeBeez",
+      "published_at": "2025-01-09",
+      "observed_at": "2026-02-12T11:17:58.661959+00:00",
+      "created_at": "2026-02-12T11:17:58.661959+00:00",
+      "snapshot_id": "seed-2026-02-12",
+      "diff_summary": "Seeded historical signal: Apollo reduces Lottomatica stake from 51.5% to 41.9% via \u20ac300M share placement",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 1,
+      "relevance_reasons": [
+        "Lottomatica",
+        "Italian gaming",
+        "share placement"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "Lottomatica Group S.p.A."
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac300M",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": false,
+      "ml_keep_prob": 0.436,
+      "ml_keep_confidence": 0.564,
+      "ml_keep_confident": false,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.465,
+      "ml_type_confident": false,
+      "ml_confidence": 0.465,
+      "quality_score": 100,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "exit_announced"
+      ],
+      "enriched_summary": "Apollo sold 24 M Lottomatica shares at \u20ac12.50 (\u20ac300M) reducing its stake from 51.5% to 41.9% via accelerated bookbuilding.",
+      "enriched_date": "2026-02-12",
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-02-28T07:32:11.267863+00:00",
+      "llm_event_type": "exit",
+      "llm_type_confidence": "high",
+      "target_companies": [
+        {
+          "name": "Lottomatica Group",
+          "is_direct_investment": true,
+          "action": "exit"
+        }
+      ],
+      "type": "exit_announced"
+    },
+    {
+      "id": "rss-signal-00231",
+      "fund_id": "",
+      "fund_slug": "axon-partners-group",
+      "related_fund_slugs": [
+        "axon-partners-group"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Otofarma is expanding in the hearing care sector and investing in innovation and organizational structure",
+      "what_changed": "Otofarma, a Campania-based hearing care distributor, is described as investing in research, technology, and organizational structure to support growth. The piece reports operational development in Italy, but no PE/VC deal, acquisition, or fundraising is announced.",
+      "source_url": "https://bebeez.it/servizi/otofarma-cresce-nel-settore-hearing-care-e-investe-in-innovazione-e-struttura-organizzativa/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-23T05:54:04+00:00",
+      "observed_at": "2026-03-23T12:20:41.256239+00:00",
+      "created_at": "2026-03-23T12:20:41.256239+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Otofarma"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Otofarma cresce nel settore hearing care e investe in innovazione e struttura organizzativa",
+      "_fund_geo_scope": "europe_wide",
+      "ml_keep": true,
+      "ml_keep_prob": 0.912,
+      "ml_keep_confidence": 0.912,
+      "ml_keep_confident": true,
+      "ml_type": "portfolio_update",
+      "ml_type_prob": 0.528,
+      "ml_type_confident": false,
+      "ml_confidence": 0.528,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "deal_announced",
+        "fundraise_announced"
+      ],
+      "enriched_summary": "Otofarma, a Campania-based hearing care distributor, is described as investing in research, technology, and organizational structure to support growth.",
+      "enrichment_confidence": "high",
+      "enriched_date": null,
+      "enriched_at": "2026-03-23T12:31:01.629796+00:00",
+      "llm_event_type": "other",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [],
+      "type": "deal_announced"
+    },
+    {
       "id": "rss-signal-00140",
       "fund_id": "",
       "fund_slug": "kyip-capital-sgr",
@@ -841,12 +2024,10 @@
         "alternative-capital-partners-sgr"
       ],
       "enriched_summary": "",
-      "enriched_date": null,
       "enrichment_confidence": "high",
       "enriched_at": "2026-03-20T19:43:07.215775+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
-      "llm_italy_relevant": true,
       "target_companies": [
         {
           "name": "Robin Health",
@@ -855,295 +2036,6 @@
         }
       ],
       "type": "deal_announced"
-    },
-    {
-      "id": "rss-signal-00215",
-      "fund_id": "",
-      "fund_slug": "macquarie",
-      "related_fund_slugs": [
-        "blackstone",
-        "cdp-equity",
-        "macquarie"
-      ],
-      "signal_type": "report",
-      "title": "Autostrade per l\u2019Italia (CDP Equity-Blackstone-Macquarie) has approved a new \u20ac29.8B financial plan",
-      "what_changed": "",
-      "source_url": "https://bebeez.it/private-equity/autostrade-per-litalia-cdp-equity-blackstone-macquarie-varato-il-nuovo-piano-economico-finanziario-da-298-mld-euro/",
-      "source_name": "BeBeez",
-      "published_at": "2026-03-19T06:56:57+00:00",
-      "observed_at": "2026-03-20T15:43:16.699994+00:00",
-      "created_at": "2026-03-20T15:43:16.699994+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "Autostrade per l\u2019Italia (CDP Equity-Blackstone-Macquarie), varato il nuovo Piano Economico Finanziario da 29,8 mld euro",
-      "title_original": "Autostrade per l\u2019Italia (CDP Equity-Blackstone-Macquarie), varato il nuovo Piano Economico Finanziario da 29,8 mld euro",
-      "deal_amount": "\u20ac29.8B",
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": true,
-      "ml_keep_prob": 0.839,
-      "ml_keep_confidence": 0.839,
-      "ml_keep_confident": true,
-      "ml_type": "other",
-      "ml_type_prob": 0.418,
-      "ml_type_confident": false,
-      "ml_confidence": 0.418,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.79,
-      "signal_types": [
-        "report"
-      ],
-      "co_fund_slugs": [
-        "cdp-equity",
-        "blackstone"
-      ],
-      "enriched_summary": "",
-      "enriched_at": "2026-03-20T16:12:50.284651+00:00",
-      "type": "report"
-    },
-    {
-      "id": "rss-signal-00049",
-      "fund_id": "",
-      "fund_slug": "macquarie",
-      "signal_type": "deal_announced",
-      "title": "Eco Eridania S.p.A. (Icon Infrastructure), Ardian, Macquarie, DIF, and DWS could be among the major funds interested in investing.",
-      "what_changed": "[Rumor] Ardian, Macquarie, DIF, and DWS may be interested in investing in Eco Eridania S.p.A., currently controlled by Icon Infrastructure (hypothesis reported by Il sole24ore).",
-      "source_url": "https://bebeez.it/private-equity/eco-eridania-spa-icon-infrastructure-ardian-macquarie-dif-e-dws-potrebbero-essere-tra-i-grandi-fondi-interessati-ad-investire/",
-      "source_name": "BeBeez",
-      "published_at": "2026-01-29T06:50:54+00:00",
-      "observed_at": "2026-02-12T10:53:24.152370+00:00",
-      "created_at": "2026-02-12T10:53:24.152370+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": true,
-      "extracted_entities": {
-        "companies": [
-          "Eco Eridania spa"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "[Rumor] Ardian, Macquarie, Dif e Dws potrebbero essere interessati a investire in Eco Eridania spa, oggi controllata da Icon Infrastructure (ipotesi riportata da Il Sole 24 Ore).",
-      "title_original": "Eco Eridania spa (Icon Infrastructure), Ardian, Macquarie, Dif e Dws potrebbero essere tra i grandi fondi interessati ad investire",
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": true,
-      "ml_keep_prob": 0.886,
-      "ml_keep_confidence": 0.886,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.608,
-      "ml_type_confident": true,
-      "ml_confidence": 0.608,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "deal_announced"
-      ],
-      "co_fund_slugs": [
-        "muzinich-co",
-        "ardian"
-      ],
-      "enriched_summary": "[Rumor] Ardian, Macquarie, DIF, and DWS may be interested in investing in Eco Eridania S.p.A., currently controlled by Icon Infrastructure (hypothesis reported by Il sole24ore).",
-      "enrichment_confidence": "low",
-      "enriched_at": "2026-03-09T16:07:15.558752+00:00",
-      "target_companies": [],
-      "type": "deal_announced"
-    },
-    {
-      "id": "rss-signal-00167",
-      "fund_id": "",
-      "fund_slug": "blackstone",
-      "related_fund_slugs": [
-        "blackstone",
-        "partners-group"
-      ],
-      "signal_type": "exit_announced",
-      "title": "Telepass up for sale. Valued at \u20ac4B. Exit in sight not only for Partners Group, but also for Mundys (Edizione-Blackstone).",
-      "what_changed": "Telepass, valued at about \u20ac4B, is reportedly fully on the market with potential exits eyed not only by Partners Group (49%) but also by Mundys/Edizione and Blackstone Infrastructure Partners (51%). Reports suggest owners are studying divestment, creating takeover speculation in the Italian toll/payment sector.",
-      "source_url": "https://bebeez.it/private-equity/tutta-telepass-sul-mercato-valutata-4-mld-euro-exit-in-vista-non-solo-per-partners-group-ma-anche-per-mundys-edizione-blackstone/",
-      "source_name": "BeBeez",
-      "published_at": "2026-03-10T06:52:57+00:00",
-      "observed_at": "2026-03-11T08:58:55.879953+00:00",
-      "created_at": "2026-03-11T08:58:55.879953+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": true,
-      "extracted_entities": {
-        "companies": [
-          "Telepass"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac4B",
-      "title_original": "Tutta Telepass sul mercato. Valutata 4 mld euro. Exit in vista non solo per Partners Group, ma anche per Mundys (Edizione-Blackstone)",
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": true,
-      "ml_keep_prob": 0.789,
-      "ml_keep_confidence": 0.789,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.659,
-      "ml_type_confident": true,
-      "ml_confidence": 0.659,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "exit_announced"
-      ],
-      "enriched_summary": "Telepass, valued at about \u20ac4B, is on the market with potential exits by Partners Group, Mundys/Edizione and Blackstone Infrastructure Partners.",
-      "enriched_date": "2026-03-11",
-      "enrichment_confidence": "high",
-      "enriched_at": "2026-03-11T09:08:21.142525+00:00",
-      "llm_event_type": "exit",
-      "llm_type_confidence": "high",
-      "target_companies": [
-        {
-          "name": "Telepass",
-          "is_direct_investment": true,
-          "action": "exit"
-        }
-      ],
-      "type": "exit_announced"
-    },
-    {
-      "id": "seed-signal-00025",
-      "fund_id": "",
-      "fund_slug": "blackstone",
-      "signal_type": "fund_launch",
-      "title": "Blackstone and UniCredit launch BXEF private equity fund distribution in Italy",
-      "what_changed": "Blackstone and UniCredit expanded partnership to distribute BXEF (Blackstone Private Equity Fund Strategies Sicav) to Italian wealth management clients. Follows 2023 launch of ECRED (European Private Credit Fund) which reached by January 2025.",
-      "source_url": "https://bebeez.it/private-equity/blackstone-e-unicredit-fanno-il-bis-e-siglano-accordo-per-distribuire-agli-investitori-privati-italiani-la-nuova-sicav-dedicata-al-private-equity-globale/",
-      "source_name": "BeBeez",
-      "published_at": "2024-12-03",
-      "observed_at": "2026-02-12T11:17:58.661959+00:00",
-      "created_at": "2026-02-12T11:17:58.661959+00:00",
-      "snapshot_id": "seed-2026-02-12",
-      "diff_summary": "Seeded historical signal: Blackstone and UniCredit launch BXEF private equity fund distribution in Italy",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 1,
-      "relevance_reasons": [
-        "UniCredit",
-        "Italian investors",
-        "wealth management"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "UniCredit"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": false,
-      "ml_keep_prob": 0.422,
-      "ml_keep_confidence": 0.578,
-      "ml_keep_confident": false,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.166,
-      "ml_type_confident": false,
-      "ml_confidence": 0.166,
-      "quality_score": 100,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "fund_launch"
-      ],
-      "enriched_summary": "Blackstone and UniCredit launched BXEF private equity fund distribution to Italian wealth management clients.",
-      "enriched_date": "2026-02-12",
-      "enrichment_confidence": "high",
-      "llm_event_type": "fund",
-      "llm_type_confidence": "high",
-      "target_companies": [],
-      "enriched_at": "2026-03-20T19:43:08.420575+00:00",
-      "llm_italy_relevant": true,
-      "type": "fund_launch"
-    },
-    {
-      "id": "seed-signal-00023",
-      "fund_id": "",
-      "fund_slug": "blackstone",
-      "signal_type": "exit_announced",
-      "title": "Blackstone sells Via Montenapoleone 8 palace to Kering for \u20ac1.3B",
-      "what_changed": "Blackstone sold the historic palazzo at Via Montenapoleone 8, Milan (11,800 sqm) to French luxury group Kering for \u20ac1.3B. Largest single real estate asset transaction ever on the Italian market. Blackstone had acquired Reale Compagnia Italiana portfolio for ~\u20ac1.1B in 2021-2022.",
-      "source_url": "https://bebeez.it/real-estate-2/supercolpo-di-blackstone-a-milano-venduto-il-palazzo-di-via-montenapoleone-8-a-kering-per-13-mld-euro/",
-      "source_name": "BeBeez",
-      "published_at": "2024-04-04",
-      "observed_at": "2026-02-12T11:17:58.661959+00:00",
-      "created_at": "2026-02-12T11:17:58.661959+00:00",
-      "snapshot_id": "seed-2026-02-12",
-      "diff_summary": "Seeded historical signal: Blackstone sells Via Montenapoleone 8 palace to Kering for \u20ac1.3B",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 1,
-      "relevance_reasons": [
-        "Via Montenapoleone",
-        "Milan",
-        "Kering",
-        "Italian real estate"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "Reale Compagnia Italiana S.p.A.",
-          "Kering"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac1.3B",
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": false,
-      "ml_keep_prob": 0.321,
-      "ml_keep_confidence": 0.679,
-      "ml_keep_confident": false,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.462,
-      "ml_type_confident": false,
-      "ml_confidence": 0.462,
-      "quality_score": 100,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "exit_announced",
-        "deal_announced"
-      ],
-      "enriched_summary": "Blackstone sold the historic palazzo at Via Montenapoleone 8, Milan (11,800 sqm) to French luxury group Kering for \u20ac1.3B. Largest single real estate asset transaction ever on the Italian market.",
-      "enriched_date": "2026-02-12",
-      "enrichment_confidence": "high",
-      "llm_event_type": "exit",
-      "llm_type_confidence": "high",
-      "target_companies": [
-        {
-          "name": "Kering",
-          "is_direct_investment": false,
-          "action": "exit"
-        }
-      ],
-      "enriched_at": "2026-03-20T19:43:09.262241+00:00",
-      "llm_italy_relevant": true,
-      "type": "exit_announced"
     },
     {
       "id": "rss-signal-00216",
@@ -2070,320 +2962,6 @@
       "type": "deal_announced"
     },
     {
-      "id": "web-signal-00075",
-      "fund_id": "",
-      "fund_slug": "progressio-sgr",
-      "signal_type": "exit_announced",
-      "title": "Progressio is selling its stake in Polenghi to an investment vehicle.",
-      "what_changed": "Polenghi ad un veicolo",
-      "source_url": "https://www.progressiosgr.it/news/progressio-cede-la-partecipazione-in-polenghi-ad-un-veicolo-controllato-dalla-holding-della-famiglia-polenghi-e-dai-nuovi-soci-credit-mutuel-equity-e-idia/",
-      "source_name": "Progressio SGR",
-      "published_at": "2026-01-09",
-      "observed_at": "2026-03-20T15:41:52.147402+00:00",
-      "created_at": "2026-03-20T15:41:52.147402+00:00",
-      "snapshot_id": "snap-20260320154148-ab87e50a",
-      "diff_summary": "New news item detected (dated 2026-01-09)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "Polenghi ad un veicolo"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "title_original": "Progressio cede la partecipazione in Polenghi ad un veicolo...",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.976,
-      "ml_keep_confidence": 0.976,
-      "ml_keep_confident": true,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 0.271,
-      "ml_type_confident": false,
-      "ml_confidence": 0.271,
-      "quality_score": 100,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "exit_announced"
-      ],
-      "enriched_summary": "Polenghi ad un veicolo",
-      "enrichment_confidence": "high",
-      "enriched_at": "2026-03-20T16:12:54.899597+00:00",
-      "llm_event_type": "exit",
-      "llm_type_confidence": "high",
-      "target_companies": [
-        {
-          "name": "Polenghi",
-          "is_direct_investment": true,
-          "action": "exit"
-        }
-      ],
-      "type": "exit_announced"
-    },
-    {
-      "id": "web-signal-00076",
-      "fund_id": "",
-      "fund_slug": "progressio-sgr",
-      "signal_type": "deal_announced",
-      "title": "Progressio is investing in Spindox to support its growth plan.",
-      "what_changed": "Spindox supports the growth plan",
-      "source_url": "https://www.progressiosgr.it/news/progressio-investe-in-spindox-a-supporto-del-piano-di-crescita-della-societa/",
-      "source_name": "Progressio SGR",
-      "published_at": "2025-10-24",
-      "observed_at": "2026-03-20T15:41:52.147402+00:00",
-      "created_at": "2026-03-20T15:41:52.147402+00:00",
-      "snapshot_id": "snap-20260320154148-ab87e50a",
-      "diff_summary": "New news item detected (dated 2025-10-24)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "Spindox a supporto del piano di crescita"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "title_original": "Progressio investe in Spindox a supporto del piano di crescita...",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.961,
-      "ml_keep_confidence": 0.961,
-      "ml_keep_confident": true,
-      "ml_type": "people_move",
-      "ml_type_prob": 0.168,
-      "ml_type_confident": false,
-      "ml_confidence": 0.168,
-      "quality_score": 100,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "deal_announced"
-      ],
-      "enriched_summary": "Spindox supports the growth plan. Spindox a supporto del piano di crescita.",
-      "enrichment_confidence": "high",
-      "enriched_at": "2026-03-20T16:12:54.695517+00:00",
-      "llm_event_type": "deal",
-      "llm_type_confidence": "high",
-      "target_companies": [
-        {
-          "name": "Spindox",
-          "is_direct_investment": true,
-          "action": "investment"
-        }
-      ],
-      "what_changed_original": "Spindox a supporto del piano di crescita",
-      "type": "deal_announced"
-    },
-    {
-      "id": "web-signal-00079",
-      "fund_id": "",
-      "fund_slug": "progressio-sgr",
-      "signal_type": "portfolio_update",
-      "title": "Archiva Group, partecipata da progressio investimenti IV,.",
-      "what_changed": "",
-      "source_url": "https://www.progressiosgr.it/news/archiva-group-partecipata-da-progressio-investimenti-iv-acquisisce-la-maggioranza-di-mitric-s-r-l/",
-      "source_name": "Progressio SGR",
-      "published_at": "2025-05-05",
-      "observed_at": "2026-03-20T15:41:52.147402+00:00",
-      "created_at": "2026-03-20T15:41:52.147402+00:00",
-      "snapshot_id": "snap-20260320154148-ab87e50a",
-      "diff_summary": "New news item detected (dated 2025-05-05)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [
-          "Archiva Group"
-        ],
-        "locations": []
-      },
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.657,
-      "ml_keep_confidence": 0.657,
-      "ml_keep_confident": false,
-      "ml_type": "deal_announced",
-      "ml_type_prob": 0.244,
-      "ml_type_confident": false,
-      "ml_confidence": 0.244,
-      "quality_score": 100,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "portfolio_update"
-      ],
-      "enriched_summary": "",
-      "enriched_at": "2026-03-20T16:12:48.108284+00:00",
-      "type": "portfolio_update"
-    },
-    {
-      "id": "web-signal-00080",
-      "fund_id": "",
-      "fund_slug": "progressio-sgr",
-      "signal_type": "fundraise_closed",
-      "title": "Progressio Investimenti IV at the first closing of the fundraising round with.",
-      "what_changed": "",
-      "source_url": "https://www.progressiosgr.it/news/progressio-investimenti-iv-al-primo-closing-della-raccolta-con-182-mln-di-euro-di-impegni-su-un-target-di-300-mln-di-euro/",
-      "source_name": "Progressio SGR",
-      "published_at": "2024-01-29",
-      "observed_at": "2026-03-20T15:41:52.147402+00:00",
-      "created_at": "2026-03-20T15:41:52.147402+00:00",
-      "snapshot_id": "snap-20260320154148-ab87e50a",
-      "diff_summary": "New news item detected (dated 2024-01-29)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0.0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: Progressio investimenti IV al primo closing della raccolta con...",
-      "title_original": "Progressio investimenti IV al primo closing della raccolta con...",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.838,
-      "ml_keep_confidence": 0.838,
-      "ml_keep_confident": true,
-      "ml_type": "fund_launch",
-      "ml_type_prob": 0.336,
-      "ml_type_confident": false,
-      "ml_confidence": 0.336,
-      "quality_score": 100,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "fundraise_closed"
-      ],
-      "enriched_summary": "",
-      "enriched_at": "2026-03-20T16:12:48.308725+00:00",
-      "type": "fundraise_closed"
-    },
-    {
-      "id": "rss-signal-00007",
-      "fund_id": "",
-      "fund_slug": "progressio-sgr",
-      "signal_type": "exit_announced",
-      "title": "RMG Metalli Guizzi restructures its debt and sells its assets to Italchimici and Copper Italia",
-      "what_changed": "RMG Metalli Guizzi restructures its debt and sells company assets to Italchimici and Copper Italia as part of its restructuring plan.",
-      "source_url": "https://bebeez.it/crisi-rilanci/rmg-metalli-guizzi-ristruttura-il-debito-e-cede-gli-asset-aziendali-a-italchimici-e-copper-italia/",
-      "source_name": "BeBeez",
-      "published_at": "2026-02-10T06:45:24+00:00",
-      "observed_at": "2026-02-12T10:53:24.152370+00:00",
-      "created_at": "2026-02-12T10:53:24.152370+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Raffineria Metalli Guizzi",
-          "Italchimici",
-          "Copper Italia"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "RMG Metalli Guizzi ristruttura il debito e cede asset aziendali ad Italchimici e Copper Italia nell\u2019ambito del risanamento.",
-      "title_original": "RMG Metalli Guizzi ristruttura il debito e cede gli asset aziendali a Italchimici e Copper Italia",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.905,
-      "ml_keep_confidence": 0.905,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.459,
-      "ml_type_confident": false,
-      "ml_confidence": 0.459,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "exit_announced"
-      ],
-      "enriched_summary": "",
-      "enriched_date": "2026-02-12",
-      "enrichment_confidence": "high",
-      "enriched_at": "2026-03-09T16:07:16.867245+00:00",
-      "llm_event_type": "exit",
-      "llm_type_confidence": "high",
-      "target_companies": [
-        {
-          "name": "RMG Metalli Guizzi",
-          "is_direct_investment": true,
-          "action": "exit"
-        }
-      ],
-      "type": "exit_announced"
-    },
-    {
-      "id": "web-signal-01076",
-      "fund_id": "",
-      "fund_slug": "progressio-sgr",
-      "signal_type": "fundraise_closed",
-      "title": "Progressio Investimenti IV closes fundraising at \u20ac335M",
-      "what_changed": "",
-      "source_url": "https://www.progressiosgr.it/news/progressio-investimenti-iv-chiude-la-raccolta-a-335-mln-di-euro-superando-il-target-di-300-mln-di-euro/",
-      "source_name": "Progressio SGR",
-      "published_at": "2025-07-16",
-      "observed_at": "2026-02-09T09:56:52.625092+00:00",
-      "created_at": "2026-02-09T09:56:52.625092+00:00",
-      "snapshot_id": "snap-20260209095652-ab87e50a",
-      "diff_summary": "New news item detected (dated 2025-07-16)",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 0,
-      "relevance_reasons": [],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "New announcement: Progressio investimenti IV chiude la raccolta a 335 mln di euro",
-      "title_original": "Progressio investimenti IV chiude la raccolta a 335 mln di euro",
-      "deal_amount": "\u20ac335M",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.738,
-      "ml_keep_confidence": 0.738,
-      "ml_keep_confident": true,
-      "ml_type": "other",
-      "ml_type_prob": 0.262,
-      "ml_type_confident": false,
-      "ml_confidence": 0.262,
-      "quality_score": 100,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "fundraise_closed",
-        "fundraise_announced"
-      ],
-      "enriched_summary": "",
-      "enriched_at": "2026-03-09T16:07:16.990649+00:00",
-      "type": "fundraise_closed"
-    },
-    {
       "id": "web-signal-00063",
       "fund_id": "",
       "fund_slug": "f2i-sgr",
@@ -2536,7 +3114,7 @@
       "llm_event_type": "debt",
       "llm_type_confidence": "high",
       "target_companies": [],
-      "enriched_at": "2026-03-20T19:42:12.977658+00:00",
+      "enriched_at": "2026-03-23T12:29:53.555398+00:00",
       "type": "debt_financing"
     },
     {
@@ -2724,7 +3302,7 @@
         "deal_announced"
       ],
       "enriched_summary": "RINA signed an agreement for Fondo Italiano d'Investimento to acquire a minority stake through a capital injection of up to \u20ac180M.",
-      "enriched_at": "2026-03-20T19:42:13.573348+00:00",
+      "enriched_at": "2026-03-23T12:29:54.574039+00:00",
       "type": "deal_announced"
     },
     {
@@ -2775,7 +3353,7 @@
       ],
       "enriched_summary": "Valori Asset Management invests in Fondo Italiano Consolidamento and Crescita II (FICC II); the fund has exceeded \u20ac500M in assets under management.",
       "enrichment_confidence": "low",
-      "enriched_at": "2026-03-20T19:42:13.720040+00:00",
+      "enriched_at": "2026-03-23T12:29:54.753484+00:00",
       "type": "fundraise_closed"
     },
     {
@@ -2957,8 +3535,8 @@
       "enriched_at": "2026-02-28T07:31:50.939908+00:00",
       "llm_event_type": "report",
       "llm_type_confidence": "high",
-      "target_companies": [],
       "llm_type_override": true,
+      "target_companies": [],
       "type": "deal_announced"
     },
     {
@@ -3478,6 +4056,7 @@
       "enriched_at": "2026-03-09T16:07:14.746672+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Cleafy",
@@ -3485,7 +4064,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
       "type": "fundraise_closed"
     },
     {
@@ -3534,12 +4112,11 @@
         "deal_announced"
       ],
       "enriched_summary": "Australian designer Katie Perry won a trademark case against Katy Perry in Australia's High Court.",
-      "enrichment_confidence": "high",
       "enriched_date": "2026-03-12",
+      "enrichment_confidence": "high",
       "enriched_at": "2026-03-20T19:43:06.370925+00:00",
       "llm_event_type": "other",
       "llm_type_confidence": "high",
-      "llm_italy_relevant": false,
       "target_companies": [],
       "type": "deal_announced"
     },
@@ -3647,8 +4224,8 @@
       "enriched_at": "2026-03-11T09:07:51.699285+00:00",
       "llm_event_type": "report",
       "llm_type_confidence": "high",
-      "target_companies": [],
       "llm_type_override": true,
+      "target_companies": [],
       "type": "exit_announced"
     },
     {
@@ -3991,7 +4568,6 @@
         "bain-capital"
       ],
       "enriched_summary": "Bain Capital, Clessidra and Advent have exited their stakes in Nexi, the Italian paytech specializing in digital payments. Their departures modify the shareholders' pact, reducing the syndicate to 41.",
-      "enriched_date": null,
       "enrichment_confidence": "high",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
@@ -4002,7 +4578,8 @@
           "action": "exit"
         }
       ],
-      "enriched_at": "2026-03-20T19:43:09.305701+00:00",
+      "enriched_date": "2026-02-17",
+      "enriched_at": "2026-03-23T12:31:05.542138+00:00",
       "llm_italy_relevant": true,
       "type": "exit_announced"
     },
@@ -4042,8 +4619,8 @@
       "signal_types": [
         "report"
       ],
-      "enriched_at": "2026-03-20T19:42:17.352805+00:00",
       "enriched_summary": "",
+      "enriched_at": "2026-03-20T19:42:17.352805+00:00",
       "type": "report"
     },
     {
@@ -4120,8 +4697,8 @@
       "signal_types": [
         "report"
       ],
-      "enriched_at": "2026-03-20T19:42:17.537764+00:00",
       "enriched_summary": "",
+      "enriched_at": "2026-03-20T19:42:17.537764+00:00",
       "type": "report"
     },
     {
@@ -4223,182 +4800,6 @@
         }
       ],
       "type": "deal_announced"
-    },
-    {
-      "id": "rss-signal-00190",
-      "fund_id": "",
-      "fund_slug": "apollo",
-      "related_fund_slugs": [
-        "apollo"
-      ],
-      "signal_type": "other",
-      "title": "The American fund Apollo enters the fray and buys a majority stake in Atl\u00e9tico Madrid",
-      "what_changed": "US fund Apollo agrees to buy a majority stake in Atl\u00e9tico Madrid, with Reuters citing a valuation of around \u20ac2.5B; CEO Miguel \u00c1ngel Gil and president Enrique Cerezo expected to remain in place. Confirmed sports-sector acquisition by Apollo, with no direct Italian connection.",
-      "source_url": "https://startupitalia.eu/economy/apollo-azionista-maggior-atletico-madrid/",
-      "source_name": "StartupItalia",
-      "published_at": "2026-03-09T09:47:29+00:00",
-      "observed_at": "2026-03-11T09:03:07.277168+00:00",
-      "created_at": "2026-03-11T09:03:07.277168+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Atl\u00e9tico Madrid"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac2.5B",
-      "title_original": "Il fondo americano Apollo scende in campo e compra la maggioranza dell\u2019Atletico Madrid",
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": true,
-      "ml_keep_prob": 0.97,
-      "ml_keep_confidence": 0.97,
-      "ml_keep_confident": true,
-      "ml_type": "fundraise_closed",
-      "ml_type_prob": 0.334,
-      "ml_type_confident": false,
-      "ml_confidence": 0.334,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.87,
-      "signal_types": [
-        "other",
-        "deal_announced"
-      ],
-      "enriched_summary": "Apollo agrees to buy a majority stake in Atl\u00e9tico Madrid for around \u20ac2.5B; Miguel \u00c1ngel Gil and Enrique Cerezo to remain in place.",
-      "enriched_date": "2026-03-11",
-      "enrichment_confidence": "high",
-      "enriched_at": "2026-03-11T09:08:11.210059+00:00",
-      "llm_event_type": "deal",
-      "llm_type_confidence": "high",
-      "target_companies": [
-        {
-          "name": "Atl\u00e9tico Madrid",
-          "is_direct_investment": true,
-          "action": "investment"
-        }
-      ],
-      "llm_type_override": true,
-      "type": "other"
-    },
-    {
-      "id": "seed-signal-00027",
-      "fund_id": "",
-      "fund_slug": "apollo",
-      "signal_type": "partnership",
-      "title": "Apollo Delos platform commits additional \u20ac150M for Italian special situations",
-      "what_changed": "Apollo strengthened and expanded the Apollo Delos platform (investment partnership with Apeiron Management S.p.A.) with an additional \u20ac150M commitment to Italy. Platform has already invested \u20ac300M over two years in Italian companies in crisis, with individual deals of \u20ac5-50 M.",
-      "source_url": "https://bebeez.it/private-equity/apollo-mette-sul-piatto-un-mld-euro-per-litalia-ed-e-solo-il-primo-passo/",
-      "source_name": "BeBeez",
-      "published_at": "2025-06-01",
-      "observed_at": "2026-02-12T11:17:58.661959+00:00",
-      "created_at": "2026-02-12T11:17:58.661959+00:00",
-      "snapshot_id": "seed-2026-02-12",
-      "diff_summary": "Seeded historical signal: Apollo Delos platform commits additional \u20ac150M for Italian special situations",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 1,
-      "relevance_reasons": [
-        "Apollo Delos",
-        "Apeiron Management",
-        "Italian special situations"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "Apeiron Management S.p.A."
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac150M",
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": true,
-      "ml_keep_prob": 0.551,
-      "ml_keep_confidence": 0.551,
-      "ml_keep_confident": false,
-      "ml_type": "portfolio_update",
-      "ml_type_prob": 0.448,
-      "ml_type_confident": false,
-      "ml_confidence": 0.448,
-      "quality_score": 100,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.87,
-      "signal_types": [
-        "partnership"
-      ],
-      "enriched_summary": "Apollo strengthened and expanded the Apollo Delos platform (investment partnership with Apeiron Management S.p.A.) with an additional \u20ac150M commitment to Italy.",
-      "enrichment_confidence": "low",
-      "enriched_at": "2026-03-09T16:07:16.677389+00:00",
-      "type": "partnership"
-    },
-    {
-      "id": "seed-signal-00026",
-      "fund_id": "",
-      "fund_slug": "apollo",
-      "signal_type": "exit_announced",
-      "title": "Apollo reduces Lottomatica stake from 51.5% to 41.9% via \u20ac300M share placement",
-      "what_changed": "Apollo (via Gamma Intermediate) sold 24 million Lottomatica shares at \u20ac12.50/share for \u20ac300M gross proceeds via accelerated bookbuilding. Reduces stake from 51.5% to 41.9%. Coordinated by Barclays, Deutsche Bank, Goldman Sachs, JP Morgan.",
-      "source_url": "https://bebeez.it/private-equity/apollo-global-management-riduce-la-partecipazione-in-lottomatica-group-passando-dal-515-al-419/",
-      "source_name": "BeBeez",
-      "published_at": "2025-01-09",
-      "observed_at": "2026-02-12T11:17:58.661959+00:00",
-      "created_at": "2026-02-12T11:17:58.661959+00:00",
-      "snapshot_id": "seed-2026-02-12",
-      "diff_summary": "Seeded historical signal: Apollo reduces Lottomatica stake from 51.5% to 41.9% via \u20ac300M share placement",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 1,
-      "relevance_reasons": [
-        "Lottomatica",
-        "Italian gaming",
-        "share placement"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "Lottomatica Group S.p.A."
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac300M",
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": false,
-      "ml_keep_prob": 0.436,
-      "ml_keep_confidence": 0.564,
-      "ml_keep_confident": false,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.465,
-      "ml_type_confident": false,
-      "ml_confidence": 0.465,
-      "quality_score": 100,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "exit_announced"
-      ],
-      "enriched_summary": "Apollo sold 24 M Lottomatica shares at \u20ac12.50 (\u20ac300M) reducing its stake from 51.5% to 41.9% via accelerated bookbuilding.",
-      "enriched_date": "2026-02-12",
-      "enrichment_confidence": "high",
-      "enriched_at": "2026-02-28T07:32:11.267863+00:00",
-      "llm_event_type": "exit",
-      "llm_type_confidence": "high",
-      "target_companies": [
-        {
-          "name": "Lottomatica Group",
-          "is_direct_investment": true,
-          "action": "exit"
-        }
-      ],
-      "type": "exit_announced"
     },
     {
       "id": "rss-signal-00192",
@@ -4776,7 +5177,7 @@
         "deal_announced"
       ],
       "enriched_summary": "Assist Digital announced the acquisition of a majority stake in Hyntelo.",
-      "enriched_at": "2026-03-20T19:42:20.054441+00:00",
+      "enriched_at": "2026-03-23T12:30:03.350572+00:00",
       "type": "deal_announced"
     },
     {
@@ -4945,55 +5346,6 @@
       "type": "exit_announced"
     },
     {
-      "id": "rss-signal-00170",
-      "fund_id": "",
-      "fund_slug": "three-hills",
-      "related_fund_slugs": [
-        "three-hills"
-      ],
-      "signal_type": "fund_launch",
-      "title": "Made in Italy Fund II (quadrivio & pambianco) takes control of les secrets de loly, with Weinberg Capital Partners and Three Hills",
-      "what_changed": "",
-      "source_url": "https://bebeez.it/private-equity/made-in-italy-fund-ii-quadrivio-pambianco-al-controllo-di-les-secrets-de-loly-con-weinberg-capital-partners-e-three-hills-capital-partners/",
-      "source_name": "BeBeez",
-      "published_at": "2026-03-10T06:48:11+00:00",
-      "observed_at": "2026-03-11T08:58:55.879953+00:00",
-      "created_at": "2026-03-11T08:58:55.879953+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "sess\u00f9n"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "Made in Italy Fund II (Quadrivio & Pambianco) al controllo di Les Secrets de Loly, con Weinberg Capital Partners e Three Hills",
-      "title_original": "Made in Italy Fund II (Quadrivio & Pambianco) al controllo di Les Secrets de Loly, con Weinberg Capital Partners e Three Hills",
-      "_fund_geo_scope": "europe_wide",
-      "ml_keep": true,
-      "ml_keep_prob": 0.913,
-      "ml_keep_confidence": 0.913,
-      "ml_keep_confident": true,
-      "ml_type": "fundraise_announced",
-      "ml_type_prob": 0.311,
-      "ml_type_confident": false,
-      "ml_confidence": 0.311,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "fund_launch"
-      ],
-      "enriched_summary": "",
-      "enriched_at": "2026-03-11T09:07:34.228391+00:00",
-      "type": "fund_launch"
-    },
-    {
       "id": "rss-signal-00188",
       "fund_id": "",
       "fund_slug": "nextalia-sgr",
@@ -5102,7 +5454,7 @@
         "fundraise_closed"
       ],
       "enriched_summary": "Nextalia SGR's fund Nextalia Flexible Capital completed a first closing at \u20ac200M and supported Innovo Infrastructure.",
-      "enriched_at": "2026-03-20T19:42:21.034750+00:00",
+      "enriched_at": "2026-03-23T12:30:04.825144+00:00",
       "type": "fundraise_closed"
     },
     {
@@ -5972,8 +6324,8 @@
       "enriched_at": "2026-03-09T10:14:56.322538+00:00",
       "llm_event_type": "debt",
       "llm_type_confidence": "high",
-      "target_companies": [],
       "llm_type_override": true,
+      "target_companies": [],
       "type": "deal_announced"
     },
     {
@@ -6022,13 +6374,11 @@
       ],
       "enriched_summary": "Tikehau Capital\u2019s share price rose 10.5% after record results, according to BeBeez; the article discusses market dynamics amid US BDC turbulence and the French investor\u2019s performance in private markets.",
       "enrichment_confidence": "high",
-      "enriched_date": null,
       "enriched_at": "2026-03-20T19:43:06.151417+00:00",
       "llm_event_type": "report",
       "llm_type_confidence": "high",
-      "llm_italy_relevant": true,
-      "target_companies": [],
       "llm_type_override": true,
+      "target_companies": [],
       "type": "deal_announced"
     },
     {
@@ -6080,8 +6430,8 @@
       "enriched_at": "2026-03-10T22:27:04.015331+00:00",
       "llm_event_type": "fund",
       "llm_type_confidence": "high",
-      "target_companies": [],
       "llm_type_override": true,
+      "target_companies": [],
       "type": "fundraise_closed"
     },
     {
@@ -6652,7 +7002,7 @@
         "fundraise_announced"
       ],
       "enriched_summary": "Ambienta Sustainable Credit Opportunities has reached final closing with commitments of \u20ac500M.",
-      "enriched_at": "2026-03-20T19:42:26.178752+00:00",
+      "enriched_at": "2026-03-23T12:30:13.497291+00:00",
       "type": "fundraise_closed"
     },
     {
@@ -7337,7 +7687,7 @@
         "deal_announced"
       ],
       "enriched_summary": "Sirti digital solutions announced an investment by vodafone qatar in sirti digital solutions MENA, with vodafone qatar acquiring a 51% stake.",
-      "enriched_at": "2026-03-20T19:42:28.334692+00:00",
+      "enriched_at": "2026-03-23T12:30:17.341288+00:00",
       "type": "deal_announced"
     },
     {
@@ -7477,7 +7827,7 @@
         "deal_announced"
       ],
       "enriched_summary": "LVMH acquired a 10% stake in Double R, the vehicle through which Remo Ruffini controls Moncler, and the parties said this would support increasing Double R's Moncler stake up to 18.5%.",
-      "enriched_at": "2026-03-20T19:42:28.781047+00:00",
+      "enriched_at": "2026-03-23T12:30:18.079338+00:00",
       "type": "portfolio_update"
     },
     {
@@ -8359,8 +8709,8 @@
       "enriched_at": "2026-02-23T21:49:30.284164+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
-      "target_companies": [],
       "llm_type_override": true,
+      "target_companies": [],
       "type": "partnership"
     },
     {
@@ -9150,12 +9500,10 @@
         "deal_announced"
       ],
       "enriched_summary": "",
-      "enriched_date": null,
       "enrichment_confidence": "high",
       "enriched_at": "2026-03-20T19:43:06.874248+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
-      "llm_italy_relevant": true,
       "target_companies": [
         {
           "name": "Bevy",
@@ -9596,7 +9944,7 @@
           "action": "investment"
         }
       ],
-      "enriched_at": "2026-03-20T19:43:10.150581+00:00",
+      "enriched_at": "2026-03-23T12:31:06.416941+00:00",
       "llm_italy_relevant": true,
       "type": "deal_announced"
     },
@@ -10324,7 +10672,7 @@
           "action": "investment"
         }
       ],
-      "enriched_at": "2026-03-20T19:42:38.725175+00:00",
+      "enriched_at": "2026-03-23T12:30:31.653245+00:00",
       "type": "deal_announced"
     },
     {
@@ -10531,6 +10879,7 @@
       "enriched_at": "2026-02-23T12:13:06.502420+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Pintaudi",
@@ -10538,7 +10887,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
       "type": "people_move"
     },
     {
@@ -11134,7 +11482,7 @@
         "people_move"
       ],
       "enriched_summary": "CVC DIF expands Italian presence with Milan office led by Roberta Battaglia. CVC has deployed over \u20ac5B of equity in Italy over the past decade.",
-      "enriched_at": "2026-03-20T19:42:42.168139+00:00",
+      "enriched_at": "2026-03-23T12:30:36.360011+00:00",
       "type": "people_move"
     },
     {
@@ -12073,11 +12421,9 @@
       ],
       "enriched_summary": "",
       "enrichment_confidence": "high",
-      "enriched_date": null,
       "enriched_at": "2026-03-20T19:43:11.029542+00:00",
       "llm_event_type": "fund",
       "llm_type_confidence": "high",
-      "llm_italy_relevant": true,
       "target_companies": [],
       "type": "fund_launch"
     },
@@ -12283,7 +12629,7 @@
         "other"
       ],
       "enriched_summary": "Eurazeo opens Milan office at Corso Matteotti 3. Currently raising 7th pan-European Private Debt fund with Italy having leading position, up to \u20ac500M to be deployed by the fund.",
-      "enriched_at": "2026-03-20T19:42:45.687573+00:00",
+      "enriched_at": "2026-03-23T12:30:40.074964+00:00",
       "type": "other"
     },
     {
@@ -12336,6 +12682,7 @@
       "enriched_at": "2026-02-28T07:32:05.089020+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Sun City Group",
@@ -12343,7 +12690,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
       "type": "other"
     },
     {
@@ -12401,7 +12747,7 @@
           "action": "investment"
         }
       ],
-      "enriched_at": "2026-03-20T19:42:46.100356+00:00",
+      "enriched_at": "2026-03-23T12:30:40.463388+00:00",
       "type": "portfolio_update"
     },
     {
@@ -13152,8 +13498,8 @@
       "signal_types": [
         "fundraise_announced"
       ],
-      "enriched_at": "2026-03-20T19:42:48.551381+00:00",
       "enriched_summary": "",
+      "enriched_at": "2026-03-20T19:42:48.551381+00:00",
       "type": "fundraise_announced"
     },
     {
@@ -13165,7 +13511,7 @@
       "what_changed": "FVS SGR S.p.A., active in the private equity market in the regions of Veneto, Friuli-Venezia Giulia, and Trentino-Alto Adige, is seeking a full-time, permanent employee for the role of Head of Anti-Money Laundering and Corporate Affairs. The full notice, admission requirements, and evaluation criteria are available at the following address: LINK The search is",
       "source_url": "https://fvs.nooostaging.com/2023/10/17/fvs-sgr-spa-avvia-la-procedura-di-selezione-per-responsabile-antiriciclaggio-e-affari-societari/",
       "source_name": "FVS SGR",
-      "published_at": "2023-10-17",
+      "published_at": null,
       "observed_at": "2026-02-12T17:58:24.118973+00:00",
       "created_at": "2026-02-12T17:58:24.118973+00:00",
       "snapshot_id": "snap-20260212175822-953c338c",
@@ -13220,7 +13566,6 @@
       "enriched_at": "2026-03-20T19:43:12.308050+00:00",
       "llm_event_type": "job",
       "llm_type_confidence": "high",
-      "llm_italy_relevant": true,
       "target_companies": [],
       "type": "job_posting"
     },
@@ -13354,8 +13699,8 @@
       "signal_types": [
         "report"
       ],
-      "enriched_at": "2026-03-20T19:42:49.279505+00:00",
       "enriched_summary": "Net profit to exceed 7 million in 2025",
+      "enriched_at": "2026-03-23T12:30:44.679045+00:00",
       "type": "report"
     },
     {
@@ -13394,8 +13739,8 @@
       "signal_types": [
         "report"
       ],
-      "enriched_at": "2026-03-20T19:42:49.355706+00:00",
       "enriched_summary": "",
+      "enriched_at": "2026-03-20T19:42:49.355706+00:00",
       "type": "report"
     },
     {
@@ -13937,6 +14282,62 @@
       "type": "deal_announced"
     },
     {
+      "id": "seed-signal-00024",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "portfolio_update",
+      "title": "Blackstone acquires Seves Group (Sediver) from Triton for \u20ac600M+",
+      "what_changed": "Blackstone acquired 100% of Seves Group from Triton Partners for over \u20ac600M enterprise value. Sediver, the world's leading manufacturer of toughened glass insulators, has Italian production roots with furnace in Nusco (Avellino) and assembly in Irpinia.",
+      "source_url": "https://bebeez.it/private-equity/a-blackstone-il-100-di-seves-group-che-controlla-lirpina-sediver-leader-mondiale-negli-isolanti-di-vetro-temperato-esce-triton-deal-da-oltre-600-mln/",
+      "source_name": "BeBeez",
+      "published_at": "2024-10-31",
+      "observed_at": "2026-02-12T11:17:58.661959+00:00",
+      "created_at": "2026-02-12T11:17:58.661959+00:00",
+      "snapshot_id": "seed-2026-02-12",
+      "diff_summary": "Seeded historical signal: Blackstone acquires Seves Group (Sediver) from Triton for \u20ac600M+",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 1,
+      "relevance_reasons": [
+        "Sediver",
+        "Nusco",
+        "Avellino",
+        "Irpinia",
+        "Italian manufacturing"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "Seves Group",
+          "Sediver"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac600M",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": true,
+      "ml_keep_prob": 0.655,
+      "ml_keep_confidence": 0.655,
+      "ml_keep_confident": false,
+      "ml_type": "other",
+      "ml_type_prob": 0.228,
+      "ml_type_confident": false,
+      "ml_confidence": 0.228,
+      "quality_score": 85,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.73,
+      "signal_types": [
+        "portfolio_update",
+        "deal_announced"
+      ],
+      "enriched_summary": "",
+      "enrichment_confidence": "low",
+      "enriched_at": "2026-03-09T16:13:35.225242+00:00",
+      "type": "portfolio_update"
+    },
+    {
       "id": "rss-signal-00210",
       "fund_id": "",
       "fund_slug": "kyip-capital-sgr",
@@ -14038,6 +14439,7 @@
       "enriched_at": "2026-02-23T12:12:04.549869+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "A.M.",
@@ -14045,63 +14447,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
-      "type": "portfolio_update"
-    },
-    {
-      "id": "seed-signal-00024",
-      "fund_id": "",
-      "fund_slug": "blackstone",
-      "signal_type": "portfolio_update",
-      "title": "Blackstone acquires Seves Group (Sediver) from Triton for \u20ac600M+",
-      "what_changed": "Blackstone acquired 100% of Seves Group from Triton Partners for over \u20ac600M enterprise value. Sediver, the world's leading manufacturer of toughened glass insulators, has Italian production roots with furnace in Nusco (Avellino) and assembly in Irpinia.",
-      "source_url": "https://bebeez.it/private-equity/a-blackstone-il-100-di-seves-group-che-controlla-lirpina-sediver-leader-mondiale-negli-isolanti-di-vetro-temperato-esce-triton-deal-da-oltre-600-mln/",
-      "source_name": "BeBeez",
-      "published_at": "2024-10-31",
-      "observed_at": "2026-02-12T11:17:58.661959+00:00",
-      "created_at": "2026-02-12T11:17:58.661959+00:00",
-      "snapshot_id": "seed-2026-02-12",
-      "diff_summary": "Seeded historical signal: Blackstone acquires Seves Group (Sediver) from Triton for \u20ac600M+",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "relevance_score": 1,
-      "relevance_reasons": [
-        "Sediver",
-        "Nusco",
-        "Avellino",
-        "Irpinia",
-        "Italian manufacturing"
-      ],
-      "italy_relevant": true,
-      "extracted_entities": {
-        "companies": [
-          "Seves Group",
-          "Sediver"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac600M",
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": true,
-      "ml_keep_prob": 0.655,
-      "ml_keep_confidence": 0.655,
-      "ml_keep_confident": false,
-      "ml_type": "other",
-      "ml_type_prob": 0.228,
-      "ml_type_confident": false,
-      "ml_confidence": 0.228,
-      "quality_score": 85,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.73,
-      "signal_types": [
-        "portfolio_update",
-        "deal_announced"
-      ],
-      "enriched_summary": "",
-      "enrichment_confidence": "low",
-      "enriched_at": "2026-03-09T16:13:35.225242+00:00",
       "type": "portfolio_update"
     },
     {
@@ -14153,6 +14498,7 @@
       "enriched_at": "2026-02-23T12:15:16.960711+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Domo Living",
@@ -14160,7 +14506,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
       "type": "portfolio_update"
     },
     {
@@ -14213,6 +14558,7 @@
       "enriched_at": "2026-02-23T11:39:59.627696+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Naturmet",
@@ -14220,7 +14566,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
       "type": "portfolio_update"
     },
     {
@@ -14390,7 +14735,7 @@
         "deal_announced"
       ],
       "enriched_summary": "PFC family office invested in zato S.p.A. alongside Abenex Capital.",
-      "enriched_at": "2026-03-20T19:42:52.533943+00:00",
+      "enriched_at": "2026-03-23T12:30:47.982375+00:00",
       "type": "portfolio_update"
     },
     {
@@ -14440,10 +14785,11 @@
         "deal_announced"
       ],
       "enriched_summary": "Onetag, 55% controlled since 2022 by Wise Equity through the fund Wisequity V, has announced the acquisition of Italian Ad Tech Aryel to expand in programmatic and immersive advertising.",
-      "enriched_date": "2026-03-11",
+      "enriched_date": null,
       "enrichment_confidence": "high",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Aryel",
@@ -14456,9 +14802,8 @@
           "action": "other"
         }
       ],
-      "enriched_at": "2026-03-20T19:43:12.382783+00:00",
+      "enriched_at": "2026-03-23T12:31:07.613667+00:00",
       "llm_italy_relevant": true,
-      "llm_type_override": true,
       "type": "portfolio_update"
     },
     {
@@ -14790,6 +15135,7 @@
       "enriched_summary": "No Dig Alliance acquired Suomen Putkisto Palvelu from the Boman family to expand its Nordic underground water and sewer rehabilitation business.",
       "enriched_date": "2026-02-25",
       "enrichment_confidence": "high",
+      "enriched_at": "2026-03-20T19:43:12.995342+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
       "target_companies": [
@@ -14799,8 +15145,6 @@
           "action": "investment"
         }
       ],
-      "enriched_at": "2026-03-20T19:43:12.995342+00:00",
-      "llm_italy_relevant": true,
       "type": "portfolio_update"
     },
     {
@@ -14896,7 +15240,7 @@
         "deal_announced"
       ],
       "enriched_summary": "Ambienta SGR's Gruppo Spaggiari Parma completed add\u2011on acquisitions of job 4 u S.r.l. and bitlab S.r.l. (Prima Scuola).",
-      "enriched_at": "2026-03-20T19:42:54.406927+00:00",
+      "enriched_at": "2026-03-23T12:30:50.055872+00:00",
       "type": "portfolio_update"
     },
     {
@@ -15003,6 +15347,7 @@
       "enriched_at": "2026-03-10T22:27:08.009332+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Grifo Group",
@@ -15010,7 +15355,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
       "type": "portfolio_update"
     },
     {
@@ -15112,7 +15456,6 @@
       "enriched_at": "2026-03-20T19:43:13.891418+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
-      "llm_italy_relevant": true,
       "target_companies": [
         {
           "name": "Club del Sole",
@@ -15178,11 +15521,11 @@
       "target_companies": [
         {
           "name": "Etichettificio Jolly S.r.l.",
-          "is_direct_investment": false,
+          "is_direct_investment": true,
           "action": "investment"
         }
       ],
-      "enriched_at": "2026-03-20T19:43:14.667044+00:00",
+      "enriched_at": "2026-03-23T12:31:07.927222+00:00",
       "llm_italy_relevant": true,
       "type": "portfolio_update"
     },
@@ -15346,6 +15689,7 @@
       "enriched_at": "2026-03-10T22:27:31.868419+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Terranova Web Systems (TWS)",
@@ -15353,7 +15697,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
       "type": "portfolio_update"
     },
     {
@@ -15413,7 +15756,7 @@
           "action": "investment"
         }
       ],
-      "enriched_at": "2026-03-20T19:42:56.390599+00:00",
+      "enriched_at": "2026-03-23T12:30:52.202778+00:00",
       "type": "portfolio_update"
     },
     {
@@ -15466,6 +15809,7 @@
       "enriched_at": "2026-03-09T16:07:18.303252+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Wolvenberg NV",
@@ -15473,7 +15817,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
       "type": "portfolio_update"
     },
     {
@@ -15585,6 +15928,7 @@
       "enriched_at": "2026-03-09T16:07:18.365588+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "BHB Italy",
@@ -15592,7 +15936,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
       "type": "portfolio_update"
     },
     {
@@ -15646,6 +15989,7 @@
       "enriched_at": "2026-03-09T16:07:18.379217+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Pintaudi",
@@ -15653,7 +15997,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
       "type": "portfolio_update"
     },
     {
@@ -15756,6 +16099,7 @@
       "enriched_at": "2026-02-23T17:16:07.074203+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Epilepsy GTx",
@@ -15763,7 +16107,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
       "type": "portfolio_update"
     },
     {
@@ -15860,7 +16203,7 @@
         "partnership"
       ],
       "enriched_summary": "Cherry Bank signs a strategic partnership with Apollo Global Management and opens up private markets for Italian customers.",
-      "enriched_at": "2026-03-20T19:42:57.765738+00:00",
+      "enriched_at": "2026-03-23T12:30:53.573622+00:00",
       "type": "partnership"
     },
     {
@@ -15912,6 +16255,7 @@
       "enriched_at": "2026-03-09T16:13:35.493107+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Business Changers srl",
@@ -15919,7 +16263,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
       "type": "portfolio_update"
     },
     {
@@ -15965,8 +16308,8 @@
         "portfolio_update",
         "debt_financing"
       ],
-      "enriched_at": "2026-03-20T19:42:58.077592+00:00",
       "enriched_summary": "",
+      "enriched_at": "2026-03-20T19:42:58.077592+00:00",
       "type": "portfolio_update"
     },
     {
@@ -16358,6 +16701,7 @@
       "enriched_at": "2026-02-23T11:43:19.410406+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Yahm",
@@ -16365,7 +16709,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
       "type": "portfolio_update"
     },
     {
@@ -16652,6 +16995,7 @@
       "enriched_at": "2026-03-09T16:07:16.360733+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Biolab",
@@ -16659,7 +17003,6 @@
           "action": "investment"
         }
       ],
-      "llm_type_override": true,
       "type": "job_posting"
     },
     {
@@ -17093,6 +17436,56 @@
       "type": "deal_announced"
     },
     {
+      "id": "rss-signal-00025",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "signal_type": "debt_financing",
+      "title": "Vorn Energy (Macquarie) obtains tens of millions in financing from ING for a biomethane plant in Ferrara, its first Italian project",
+      "what_changed": "",
+      "source_url": "https://bebeez.it/greenbeez/vorn-energy-macquarie-ottiene-da-ing-finanziamento-di-decine-di-mln-per-impianto-di-biometano-a-ferrara-primo-progetto-italiano/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-04T06:47:38+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 78,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Vorn Energy",
+          "ING",
+          "Macquarie Asset Management"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "tens of millions",
+      "what_changed_original": "Vorn Energy (Macquarie) ottiene da ING un finanziamento di decine di milioni per impianto biometano a Ferrara, primo progetto italiano.",
+      "title_original": "Vorn Energy (Macquarie) ottiene da ING finanziamento di decine di mln per impianto di biometano a Ferrara, primo progetto italiano",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": true,
+      "ml_keep_prob": 0.824,
+      "ml_keep_confidence": 0.824,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.182,
+      "ml_type_confident": false,
+      "ml_confidence": 0.182,
+      "evidence_score": 2,
+      "quality_confidence": "medium",
+      "confidence_score": 0.622,
+      "signal_types": [
+        "debt_financing"
+      ],
+      "enriched_summary": "",
+      "enriched_at": "2026-03-09T16:13:33.772349+00:00",
+      "target_companies": [],
+      "type": "debt_financing"
+    },
+    {
       "id": "web-signal-01644",
       "fund_id": "",
       "fund_slug": "finint-investments-sgr",
@@ -17144,6 +17537,7 @@
       "enriched_at": "2026-02-23T12:12:05.063260+00:00",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Palazzo Stella",
@@ -17151,57 +17545,6 @@
           "action": "exit"
         }
       ],
-      "llm_type_override": true,
-      "type": "debt_financing"
-    },
-    {
-      "id": "rss-signal-00025",
-      "fund_id": "",
-      "fund_slug": "macquarie",
-      "signal_type": "debt_financing",
-      "title": "Vorn Energy (Macquarie) obtains tens of millions in financing from ING for a biomethane plant in Ferrara, its first Italian project",
-      "what_changed": "",
-      "source_url": "https://bebeez.it/greenbeez/vorn-energy-macquarie-ottiene-da-ing-finanziamento-di-decine-di-mln-per-impianto-di-biometano-a-ferrara-primo-progetto-italiano/",
-      "source_name": "BeBeez",
-      "published_at": "2026-02-04T06:47:38+00:00",
-      "observed_at": "2026-02-12T10:53:24.152370+00:00",
-      "created_at": "2026-02-12T10:53:24.152370+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 78,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Vorn Energy",
-          "ING",
-          "Macquarie Asset Management"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "tens of millions",
-      "what_changed_original": "Vorn Energy (Macquarie) ottiene da ING un finanziamento di decine di milioni per impianto biometano a Ferrara, primo progetto italiano.",
-      "title_original": "Vorn Energy (Macquarie) ottiene da ING finanziamento di decine di mln per impianto di biometano a Ferrara, primo progetto italiano",
-      "_fund_geo_scope": "mixed_or_global",
-      "ml_keep": true,
-      "ml_keep_prob": 0.824,
-      "ml_keep_confidence": 0.824,
-      "ml_keep_confident": true,
-      "ml_type": "exit_announced",
-      "ml_type_prob": 0.182,
-      "ml_type_confident": false,
-      "ml_confidence": 0.182,
-      "evidence_score": 2,
-      "quality_confidence": "medium",
-      "confidence_score": 0.622,
-      "signal_types": [
-        "debt_financing"
-      ],
-      "enriched_summary": "",
-      "enriched_at": "2026-03-09T16:13:33.772349+00:00",
-      "target_companies": [],
       "type": "debt_financing"
     },
     {
@@ -17408,7 +17751,6 @@
       "enriched_at": "2026-03-20T19:43:07.082878+00:00",
       "llm_event_type": "deal",
       "llm_type_confidence": "high",
-      "llm_italy_relevant": true,
       "target_companies": [
         {
           "name": "Webgenesys",
@@ -17648,6 +17990,7 @@
       "enriched_at": "2026-03-11T09:08:52.784147+00:00",
       "llm_event_type": "exit",
       "llm_type_confidence": "high",
+      "llm_type_override": true,
       "target_companies": [
         {
           "name": "Aleph",
@@ -17655,41 +17998,40 @@
           "action": "exit"
         }
       ],
-      "llm_type_override": true,
       "type": "deal_announced"
     }
   ],
-  "signal_count": 320,
-  "translated_at": "2026-03-20T17:47:49.851057+00:00",
-  "filtered_at": "2026-03-20T19:41:36.198436+00:00",
+  "signal_count": 326,
+  "translated_at": "2026-03-23T12:21:06.995965+00:00",
+  "filtered_at": "2026-03-23T12:29:34.508471+00:00",
   "filter_stats": {
-    "original_count": 2326,
-    "filtered_count": 320,
+    "original_count": 2353,
+    "filtered_count": 326,
     "removed_invalid_fund": 40,
-    "removed_duplicates": 317,
+    "removed_duplicates": 325,
     "resolved_duplicate_ids": 526,
     "removed_strict_gate": 139,
     "removed_garbage": 153,
-    "removed_low_quality": 163,
+    "removed_low_quality": 164,
     "removed_support_only": 1,
     "removed_junior_non_italy": 1,
-    "removed_geo_irrelevant": 848,
-    "removed_misattributed": 243,
+    "removed_geo_irrelevant": 856,
+    "removed_misattributed": 244,
     "removed_orphan_fund": 0,
     "removed_ml": 0,
     "removed_cross_page": 0,
     "kept_ml_override": 0,
-    "ml_type_overrides": 57,
+    "ml_type_overrides": 58,
     "min_quality_score": 80,
     "confidence_distribution": {
-      "high": 340,
-      "medium": 71,
+      "high": 348,
+      "medium": 72,
       "low": 10
     },
     "cache_version": 2,
     "cache_reused_kept": 0,
     "cache_reused_drop": 0,
-    "cache_processed_new": 2286
+    "cache_processed_new": 2313
   },
-  "enriched_at": "2026-03-20T19:43:28.490737+00:00"
+  "enriched_at": "2026-03-23T12:31:20.034406+00:00"
 }

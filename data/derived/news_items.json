@@ -196,6 +196,12 @@
         "fingerprint": "220a141ba3a5"
       },
       {
+        "title": "360 Capital annuncia il closing a \u20ac85M del fondo di trasferimento tecnologico Poli360 2, confermando il suo impegno nel deeptech",
+        "date": null,
+        "url": null,
+        "fingerprint": "5ab7984bab9d"
+      },
+      {
         "title": "UpSurgeOn chiude un round da \u20ac5Mper supportare l\u2019espansione globale",
         "date": null,
         "url": null,
@@ -218,18 +224,6 @@
         "date": null,
         "url": null,
         "fingerprint": "bc8f92572eda"
-      },
-      {
-        "title": "Al via il terzo closing del fondo di venture debt Atempo Growth II con l\u2019ingresso di CDP Venture Capital per rafforzare la presenza in Italia. Commitment complessivo: \u20ac455M",
-        "date": null,
-        "url": null,
-        "fingerprint": "c70c973508ff"
-      },
-      {
-        "title": "Gyala chiude un round da \u20ac4M",
-        "date": null,
-        "url": null,
-        "fingerprint": "4e4065e41d24"
       },
       {
         "title": "Italy VC Monitor - Report di CDP Venture Capital e Pitchbook",
@@ -260,6 +254,18 @@
         "date": null,
         "url": null,
         "fingerprint": "2bad18e8d64b"
+      },
+      {
+        "title": "Al via il terzo closing del fondo di venture debt Atempo Growth II con l\u2019ingresso di CDP Venture Capital per rafforzare la presenza in Italia. Commitment complessivo: \u20ac455M",
+        "date": null,
+        "url": null,
+        "fingerprint": "c70c973508ff"
+      },
+      {
+        "title": "Gyala chiude un round da \u20ac4M",
+        "date": null,
+        "url": null,
+        "fingerprint": "4e4065e41d24"
       },
       {
         "title": "Sinergy Flow chiude un round late seed da \u20ac7M e accelera la transizione verso la scala industriale della sue batterie per accumulo a lunga durata",
@@ -1000,16 +1006,16 @@
         "fingerprint": "4a525922bc05"
       },
       {
-        "title": "CDP Venture Capital: dimissioni dei Consiglieri Cuzzilla e Milani",
-        "date": null,
-        "url": null,
-        "fingerprint": "c01c3cc37c12"
-      },
-      {
         "title": "Primo Ventures lancia Primo Climate",
         "date": null,
         "url": null,
         "fingerprint": "243b19bc7d89"
+      },
+      {
+        "title": "CDP Venture Capital: dimissioni dei Consiglieri Cuzzilla e Milani",
+        "date": null,
+        "url": null,
+        "fingerprint": "c01c3cc37c12"
       },
       {
         "title": "CDP Venture Capital fra gli investitori della startup che rivoluziona il trattamento dei fanghi da depurazione",
@@ -1108,16 +1114,16 @@
         "fingerprint": "79fc420cbdec"
       },
       {
-        "title": "La startup Voidless chiude round post-seed da 2,2 milioni di euro guidato da CDP Venture Capital e 360 Capital per risolvere il problema dell'overpackaging",
-        "date": null,
-        "url": null,
-        "fingerprint": "603625cb28df"
-      },
-      {
         "title": "La startup Voidless chiude round post-seed da 2,2 milioni di euro",
         "date": null,
         "url": null,
         "fingerprint": "d85bf4d073aa"
+      },
+      {
+        "title": "La startup Voidless chiude round post-seed da 2,2 milioni di euro guidato da CDP Venture Capital e 360 Capital per risolvere il problema dell'overpackaging",
+        "date": null,
+        "url": null,
+        "fingerprint": "603625cb28df"
       },
       {
         "title": "Tau Group chiude un'estensione da 11 milioni di euro del round di Serie B all'insegna della crescita e del potenziamento della capacit\u00e0 produttiva",
@@ -1240,16 +1246,16 @@
         "fingerprint": "10960371f5bf"
       },
       {
-        "title": "ClubDeal Spa completa un round di investimento da 1,5 milioni di euro",
-        "date": null,
-        "url": null,
-        "fingerprint": "5e2a7882d1ec"
-      },
-      {
         "title": "Insurtech: viteSicure chiude un bridge round da 2 milioni di euro",
         "date": null,
         "url": null,
         "fingerprint": "d1fd794f8d30"
+      },
+      {
+        "title": "ClubDeal Spa completa un round di investimento da 1,5 milioni di euro",
+        "date": null,
+        "url": null,
+        "fingerprint": "5e2a7882d1ec"
       },
       {
         "title": "CDP Venture Capital Sgr: Il nuovo Consiglio di Amministrazione nomina Agostino Scornajenchi Amministratore Delegato e Direttore Generale della Societ\u00e0",
@@ -2003,10 +2009,22 @@
     ],
     "https://www.groupehld.com/en/news/": [
       {
-        "title": "March 2026 External growth TSG continues to strengthen its technical capabilities in Europe TSG",
+        "title": "March 2026 Purchasing excellence Exosens & Groupe HLD awarded at the Euronext 2026 Annual Conference Exosens",
         "date": null,
-        "url": "https://www.groupehld.com/en/news/tsg-continues-to-strengthen-its-technical-capabilities-in-europe",
-        "fingerprint": "5301c91da526"
+        "url": "https://www.groupehld.com/en/news/exosens-and-groupe-hld-awarded-at-the-euronext-2026-annual-conference",
+        "fingerprint": "6b591c9b2bab"
+      },
+      {
+        "title": "Exosens & Groupe HLD awarded at the Euronext 2026 Annual Conference",
+        "date": null,
+        "url": "https://www.groupehld.com/en/news/exosens-and-groupe-hld-awarded-at-the-euronext-2026-annual-conference",
+        "fingerprint": "55381606947f"
+      },
+      {
+        "title": "HLD Europe successfully completed its second bond issue of \u20ac300 million",
+        "date": null,
+        "url": "https://cdn.sanity.io/files/uw2tmz2e/production/f6ae9ffdd486e221826d20e7a35b838a49e52ebe.pdf",
+        "fingerprint": "3743eb284ce1"
       },
       {
         "title": "TSG continues to strengthen its technical capabilities in Europe",
@@ -10862,6 +10880,12 @@
         "fingerprint": "61d2fe5faa65"
       },
       {
+        "title": "Cobham Ultra, an Advent portfolio company, agrees to the sale of Ultra Cyber Ltd to Airbus",
+        "date": null,
+        "url": "https://www.adventinternational.com/news/cobham-ultra-an-advent-portfolio-company-agrees-to-the-sale-of-ultra-cyber-ltd-to-airbus/",
+        "fingerprint": "d5c4f6aa9397"
+      },
+      {
         "title": "Advent to sell Prisma and Newpay to Visa",
         "date": null,
         "url": "https://www.adventinternational.com/news/advent-to-sell-prisma-and-newpay-to-visa/",
@@ -10908,12 +10932,6 @@
         "date": null,
         "url": "https://www.adventinternational.com/news/advent-leads-skyones-series-c-round-boosting-the-brazilian-software-companys-investments-in-ai-and-cloud/",
         "fingerprint": "92de37e64f35"
-      },
-      {
-        "title": "Advent completes acquisition of u-blox",
-        "date": null,
-        "url": "https://www.adventinternational.com/news/advent-completes-acquisition-of-u-blox/",
-        "fingerprint": "3c8cb3a1eaf4"
       }
     ],
     "https://www.apollo.com/insights-news/pressreleases": [
@@ -12009,6 +12027,12 @@
         "fingerprint": "407a99541089"
       },
       {
+        "title": "Elevara Medicines Doses First Patient in Phase 2b START-SYNERGY Trial of ELV001 in Rheumatoid Arthritis Patients with Incomplete Response to TNFi",
+        "date": "16 March, 2026",
+        "url": "https://sofinnovapartners.com/news/elevara-medicines-doses-first-patient-in-phase-2b-start-synergy-trial-of-elv001-in-rheumatoid-arthritis-patients-with-incomplete-response-to-tnfi",
+        "fingerprint": "b161b553f39c"
+      },
+      {
         "title": "May Health Raises $11.7M to Advance its Novel Technology to Treat PCOS-related Infertility",
         "date": "10 March, 2026",
         "url": "https://sofinnovapartners.com/news/May%20Health%20Raises%20$11.7M%20to%20Advance%20its%20Novel%20Technology%20to%20Treat%20PCOS-related%20Infertility",
@@ -12097,12 +12121,6 @@
         "date": "28 January, 2026",
         "url": "https://sofinnovapartners.com/news/Tenpoint%20Therapeutics%20Ltd.%20Announces%20FDA%20Approval%20of%20YUVEZZITM,%20the%20First%20and%20Only%20Combination%20Eye%20Drop%20Approved%20to%20Treat%20Presbyopia",
         "fingerprint": "6d12c92e0186"
-      },
-      {
-        "title": "Tenpoint Therapeutics Secures $235 Million through Series B Stock Financing and Credit Facility to Accelerate Commercialization of YUVEZZI\u2122",
-        "date": "28 January, 2026",
-        "url": "https://sofinnovapartners.com/news/Tenpoint%20Therapeutics%20Secures%20$235%20Million%20through%20Series%20B%20Stock%20Financing%20and%20Credit%20Facility%20to%20Accelerate%20Commercialization%20of%20YUVEZZI%E2%84%A2",
-        "fingerprint": "fb5c6e53fc8f"
       }
     ],
     "https://sinlocinvestimentisgr.com/news/": [
@@ -12195,6 +12213,12 @@
     ],
     "https://www.triton-partners.com/media/news/": [
       {
+        "title": "Triton Partners successfully closes Fund 6 at \u20ac5.5 billion target",
+        "date": "16/03/2026",
+        "url": "https://www.triton-partners.com/media/news/triton-partners-successfully-closes-fund-6-at-55-billion-target/",
+        "fingerprint": "7913df32c359"
+      },
+      {
         "title": "West Park has changed its name to Accelerator Unit",
         "date": "10/03/2026",
         "url": "https://www.triton-partners.com/media/news/west-park-has-changed-its-name-to-accelerator-unit/",
@@ -12223,12 +12247,6 @@
         "date": "13/01/2026",
         "url": "https://www.triton-partners.com/media/news/triton-completes-majority-stake-sale-of-kelvion-to-apollo-funds/",
         "fingerprint": "70c095e37e23"
-      },
-      {
-        "title": "Bluu unit acquires Tech Refrigeration and Air Conditioning and continues European growth",
-        "date": "13/01/2026",
-        "url": "https://www.triton-partners.com/media/news/bluu-unit-acquires-tech-refrigeration-and-air-conditioning-and-continues-european-growth/",
-        "fingerprint": "b7d18cacb5aa"
       }
     ],
     "https://www.vercapital.com/news_and_events/": [
@@ -15125,6 +15143,12 @@
     ],
     "https://www.progressiosgr.it/news-press/": [
       {
+        "title": "Progressio cede la maggioranza di ATK Sports, leader negli...",
+        "date": "2026-03-23",
+        "url": "https://www.progressiosgr.it/news/progressio-cede-la-maggioranza-di-atk-sports-leader-negli-attacchi-da-sci-alpinismo-a-siparex-eti/",
+        "fingerprint": "76cace6e5772"
+      },
+      {
         "title": "Progressio cede la partecipazione in Polenghi ad un veicolo...",
         "date": "2026-01-09",
         "url": "https://www.progressiosgr.it/news/progressio-cede-la-partecipazione-in-polenghi-ad-un-veicolo-controllato-dalla-holding-della-famiglia-polenghi-e-dai-nuovi-soci-credit-mutuel-equity-e-idia/",
@@ -15189,15 +15213,15 @@
         "date": "2024-01-29",
         "url": "https://www.progressiosgr.it/news/progressio-investimenti-iv-al-primo-closing-della-raccolta-con-182-mln-di-euro-di-impegni-su-un-target-di-300-mln-di-euro/",
         "fingerprint": "bcb973554a90"
-      },
-      {
-        "title": "Progressio SGR completa la cessione di Garda Plast",
-        "date": "2023-10-24",
-        "url": "https://www.progressiosgr.it/news/progressio-sgr-completa-la-cessione-di-garda-plast/",
-        "fingerprint": "2f6c3825779c"
       }
     ],
     "https://www.fondoitaliano.it/comunicati-e-rassegna/": [
+      {
+        "title": "FII Sgr punta su filiere strategiche e offerta ampliata nel nuovo piano",
+        "date": "2026-03-22",
+        "url": "https://www.fondoitaliano.it/wp-content/uploads/20260320_Sole24Ore_FII_pianostrategico.pdf",
+        "fingerprint": "81d8138ab507"
+      },
       {
         "title": "HNH punta a 140 milioni di fatturato nel 2026",
         "date": "2026-03-17",
@@ -15263,12 +15287,6 @@
         "date": "2026-01-10",
         "url": "https://www.fondoitaliano.it/wp-content/uploads/20260110_ilrestodelcarlno_Alimenta.pdf",
         "fingerprint": "c168d78d6ffb"
-      },
-      {
-        "title": "Il Fondo Italiano d\u2019investimento rileva il big della piadina",
-        "date": "2026-01-09",
-        "url": "https://www.fondoitaliano.it/wp-content/uploads/20260109_Sole24Ore_Alimenta.pdf",
-        "fingerprint": "eeb2ac542980"
       }
     ],
     "https://www.generali-investments.com/it/en/institutional/press-releases/": [
@@ -17475,12 +17493,6 @@
         "fingerprint": "12481bc824ac"
       },
       {
-        "title": "GLOBAL CREDIT BULLETS | Monday, 2 March 2026 - Algebris Investments",
-        "date": "2026-03-02",
-        "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPbDNqLWNPWFhRNURSSTBwMDBsTFY4VGZSY1dGVk91RjZtMHhyYjJFbWlBZ2JhSzE0X2ktNkRvQWhvU1FWVDBST3p1aVpfQlA4TThZMjNVZTVUVnZfOXlLd0hQcXFiVjA4RWxSd2RwWW9QSUQyR2Qwc2p0Y0pQdTlvRDZDcEx0Qjg?oc=5",
-        "fingerprint": "321912ca923f"
-      },
-      {
         "title": "GLOBAL CREDIT BULLETS | Monday, 16 March 2026 - Algebris Investments",
         "date": "2026-03-16",
         "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQNnQyWlVnTVFZdVpSMGNtR0tkWGhJemZGNkFnRW1IT1VkeFJybWNCU042QTN6X3NZZE02ZXZ1SEtjVjhLY1B6eDQzUTdNQlV6b3U4Wm1Lenp4MGNWQUpGQWxRY2pjRXVQS1lBT0hBUWpGMVBpdFM0TDBqTENLMzdMNnJCbV9VQkN4?oc=5",
@@ -17505,6 +17517,12 @@
         "fingerprint": "4ee750eb67fb"
       },
       {
+        "title": "GLOBAL CREDIT BULLETS | Monday, 2 March 2026 - Algebris Investments",
+        "date": "2026-03-02",
+        "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPbDNqLWNPWFhRNURSSTBwMDBsTFY4VGZSY1dGVk91RjZtMHhyYjJFbWlBZ2JhSzE0X2ktNkRvQWhvU1FWVDBST3p1aVpfQlA4TThZMjNVZTVUVnZfOXlLd0hQcXFiVjA4RWxSd2RwWW9QSUQyR2Qwc2p0Y0pQdTlvRDZDcEx0Qjg?oc=5",
+        "fingerprint": "321912ca923f"
+      },
+      {
         "title": "Alessandro Bruschetti - Algebris Investments",
         "date": "2025-09-04",
         "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1hNTJweUQxRzZRY1d0T2dPcmJQRHBiUjdTcVJLLTk1a2lnRnhJdGxnbC1FNnozU0VJZ3VnSktPSkhUZ2s4b21jTHJ4NTNMc0J0bW9hRnlBTjNQRlJNaE1yRkFkbXdKZk0zZ0RRRy1R?oc=5",
@@ -17515,6 +17533,12 @@
         "date": "2025-09-30",
         "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFA4Wl9IREpjWHRKdmFDNmNZTnhta1FBeUt5TU1maWFneFgzdDUtR2tacXhjdGkwcFo2WjltVWxIeFlXcW1CSzBpY0VDd2hWdGtLclBrNHRRS3NwLWppbkJHMENHOFlfOUIz?oc=5",
         "fingerprint": "ee20295040a3"
+      },
+      {
+        "title": "Michele Facconi - Algebris Investments",
+        "date": "2025-05-13",
+        "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5lNTFGNnpvdi1kcFBZVkhfR280RnJudWpVNGZyUFh2R3MtVDJMVDJlQ1B4eUNsU2t3dHp1V3RPTFg0aXlaQ28zXzYxMXJ1Q1hjeU5pd2F0WWMwTHVwSDNybmNQZ3d4QQ?oc=5",
+        "fingerprint": "57b3a184a38e"
       },
       {
         "title": "Ryan Foo - Algebris Investments",
@@ -17554,12 +17578,6 @@
       }
     ],
     "https://news.google.com/rss/search?q=site%3Acapdyn.com+%22Capital+Dynamics%22+when%3A30d&hl=en-US&gl=US&ceid=US:en": [
-      {
-        "title": "Capital Dynamics Adds to Solar PV Portfolio in the UK - Capital Dynamics",
-        "date": "2026-03-17",
-        "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxONzR0Nlo2dTdCU29Rd0ZrekpzVThSekdKOWRXWDJ5VGVsWWNGT2RHM2xlSFprNWFtQ2puNnlYNU9ha2NQRjVncW9WUkN0b2U3T0JPVEpCX2xwY2FXRExVUkpMcS1DbmNPZ1dhRTBuQmRWR1ZCdFEwV2RXVjJRbWhDTTRXT2xwT3Fwb2c?oc=5",
-        "fingerprint": "d3bb60c9fc9c"
-      },
       {
         "title": "SuperReturn Secondaries Europe 3/10/2026 - Capital Dynamics",
         "date": "2026-02-25",
@@ -17873,7 +17891,7 @@
       {
         "title": "Corriere L'Economia: Pmi pi\u00f9 liquide, cos\u00ec la fattura si incassa subito",
         "date": null,
-        "url": "https://www.tscawsgr.com/downloads/3642/78/0604 Corriere Economia.pdf",
+        "url": "https://www.tscawsgr.com/downloads/3642/78/0604%20Corriere%20Economia.pdf",
         "fingerprint": "088557e35336"
       },
       {
@@ -17885,25 +17903,25 @@
       {
         "title": "Avvenire Nazionale: Servizi digitali innovativi per le Pmi",
         "date": null,
-        "url": "https://www.tscawsgr.com/downloads/3644/84/0704 Avvenire - Nazionale.pdf",
+        "url": "https://www.tscawsgr.com/downloads/3644/84/0704%20Avvenire%20-%20Nazionale.pdf",
         "fingerprint": "2f6ba90c36e8"
       },
       {
         "title": "Brescia Oggi: Banco Bpm e TeamSystem per la liquidit\u00e0 delle Pmi",
         "date": null,
-        "url": "https://www.tscawsgr.com/downloads/3650/86/0704 Brescia Oggi.pdf",
+        "url": "https://www.tscawsgr.com/downloads/3650/86/0704%20Brescia%20Oggi.pdf",
         "fingerprint": "528b3edcb30a"
       },
       {
         "title": "Eco di Bergamo: Banco Bpm eTeamSystem alleate per aiutare le Pmi",
         "date": null,
-        "url": "https://www.tscawsgr.com/downloads/3651/87/0704 Eco di Bergamo.pdf",
+        "url": "https://www.tscawsgr.com/downloads/3651/87/0704%20Eco%20di%20Bergamo.pdf",
         "fingerprint": "a067fd97cae1"
       },
       {
         "title": "Milano Finanza: Banco Bpm entra nel capitale della fintech Tsfvc",
         "date": null,
-        "url": "https://www.tscawsgr.com/downloads/3654/90/0905 Milano Finanza.pdf",
+        "url": "https://www.tscawsgr.com/downloads/3654/90/0905%20Milano%20Finanza.pdf",
         "fingerprint": "cb2a452dd399"
       },
       {
@@ -17915,19 +17933,19 @@
       {
         "title": "ChannelCity Magazine: TeamSystem TalkSDigital Partner Edition, il digitale come motore di ripartenza",
         "date": null,
-        "url": "https://www.tscawsgr.com/downloads/3656/92/0208 ChannelCityMagazine.pdf",
+        "url": "https://www.tscawsgr.com/downloads/3656/92/0208%20ChannelCityMagazine.pdf",
         "fingerprint": "e6261aad7d23"
       },
       {
         "title": "Azienda Banca: Supply Chain Finance contro l'emergenza Coronavirus",
         "date": null,
-        "url": "https://www.tscawsgr.com/downloads/3657/93/1505 Azienda Banca.pdf",
+        "url": "https://www.tscawsgr.com/downloads/3657/93/1505%20Azienda%20Banca.pdf",
         "fingerprint": "6406a60b1cd9"
       },
       {
         "title": "Azienda Banca: Credito a tutto FinTech",
         "date": null,
-        "url": "https://www.tscawsgr.com/downloads/3658/94/1009 Azienda Banca.pdf",
+        "url": "https://www.tscawsgr.com/downloads/3658/94/1009%20Azienda%20Banca.pdf",
         "fingerprint": "9a329da1d312"
       }
     ],
@@ -20891,6 +20909,12 @@
     ],
     "https://stonepeak.com/news/": [
       {
+        "title": "GFiber and Stonepeak\u2019s Astound to combine, creating a leading independent broadband provider",
+        "date": null,
+        "url": "https://stonepeak.com/news/gfiber-and-stonepeaks-astound-to-combine-creating-a-leading-independent-broadband-provider",
+        "fingerprint": "c34cece12837"
+      },
+      {
         "title": "Stonepeak Wins Transport Investor of the Year, Global and North America",
         "date": null,
         "url": "https://stonepeak.com/news/stonepeak-wins-transport-investor-of-the-year-global-and-north-america",
@@ -20943,12 +20967,6 @@
         "date": null,
         "url": "https://stonepeak.com/news/stonepeaks-infrastructure-debt-note-begins-trading-on-the-asx",
         "fingerprint": "8949b605a554"
-      },
-      {
-        "title": "IFCO welcomes Stonepeak as new co-investor alongside Triton",
-        "date": null,
-        "url": "https://stonepeak.com/news/ifco-welcomes-stonepeak-as-new-co-investor-alongside-triton",
-        "fingerprint": "919aa6585f66"
       }
     ],
     "https://www.oneequity.com/news/": [
