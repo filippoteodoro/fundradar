@@ -251,7 +251,7 @@ def mark_deepl_key_exhausted(env_name: str) -> None:
 DEEPL_BATCH_TIMEOUT = 30  # seconds per DeepL batch call
 
 
-def translate_batch_with_deepl(texts: list[str], api_key: str) -> list[str]:
+def translate_batch_with_deepl(texts: list[str], api_key: str, source_lang: str | None = None) -> list[str]:
     """Translate a batch of texts to English via DeepL.
 
     Raises deepl.exceptions.QuotaExceededException when monthly quota is hit.
@@ -264,7 +264,7 @@ def translate_batch_with_deepl(texts: list[str], api_key: str) -> list[str]:
 
     def _call():
         translator = deepl.Translator(api_key)
-        return translator.translate_text(texts, target_lang="EN-US")
+        return translator.translate_text(texts, target_lang="EN-US", source_lang=source_lang)
 
     with ThreadPoolExecutor(max_workers=1) as pool:
         future = pool.submit(_call)
@@ -278,7 +278,7 @@ def translate_batch_with_deepl(texts: list[str], api_key: str) -> list[str]:
     return [results.text]
 
 
-def translate_batch_with_azure(texts: list[str], api_key: str, region: str | None = None) -> list[str]:
+def translate_batch_with_azure(texts: list[str], api_key: str, region: str | None = None, source_lang: str | None = None) -> list[str]:
     """Translate a batch of texts to English via Azure Translator REST API.
 
     Free tier: 2M chars/month. Uses the global endpoint by default.
@@ -288,6 +288,9 @@ def translate_batch_with_azure(texts: list[str], api_key: str, region: str | Non
 
     url = "https://api.cognitive.microsofttranslator.com/translate"
     params = {"api-version": "3.0", "to": "en"}
+    if source_lang:
+        params["from"] = source_lang.lower()
+        
     headers = {
         "Ocp-Apim-Subscription-Key": api_key,
         "Content-Type": "application/json",
@@ -499,13 +502,20 @@ def translate_signals_inplace(
         if batch_num % 10 == 1 or batch_num == total_batches:
             print(f"  Batch {batch_num}/{total_batches} ({translated_fields} translated so far)...", flush=True)
 
+        # Detect source language for the batch
+        batch_source_lang = None
+        if all(is_italian_text(t) for t in texts):
+            batch_source_lang = "IT"
+        elif all(is_french_text(t) for t in texts):
+            batch_source_lang = "FR"
+
         # Try DeepL keys in order
         for env_name, deepl_key in list(deepl_keys):
             try:
-                translated_texts = translate_batch_with_deepl(texts, deepl_key)
+                translated_texts = translate_batch_with_deepl(texts, deepl_key, source_lang=batch_source_lang)
                 break
             except ImportError:
-                print("  deepl SDK not installed — falling back to OpenAI for all batches")
+                print("  deepl SDK not installed — skipping DeepL")
                 deepl_keys = []
                 break
             except Exception as e:
@@ -527,7 +537,7 @@ def translate_signals_inplace(
         # Fall back to Azure Translator
         if translated_texts is None and has_azure:
             try:
-                translated_texts = translate_batch_with_azure(texts, azure_key, azure_region)
+                translated_texts = translate_batch_with_azure(texts, azure_key, azure_region, source_lang=batch_source_lang)
             except Exception as e:
                 err_str = str(e).lower()
                 if "401" in err_str or "403" in err_str:
@@ -537,96 +547,69 @@ def translate_signals_inplace(
                     print(f"  Azure Translator quota exceeded — disabling for this run")
                     has_azure = False
                 else:
-                    print(f"  Azure Translator error: {e} — falling back to OpenAI")
+                    print(f"  Azure Translator error: {e}")
                 _record_error(f"Azure Translator error: {e}")
 
-        # Fall back to OpenAI
-        if translated_texts is None:
-            if openai_client:
-                try:
-                    translated_texts = translate_batch_with_openai(openai_client, texts)
-                except Exception as e:
-                    print(f"  Translation batch error (OpenAI): {e}")
-                    stats["openai_batch_errors"] = stats.get("openai_batch_errors", 0) + 1
-                    _record_error(f"OpenAI batch translation error: {e}")
-                    unresolved.extend(batch)
-                    time.sleep(0.5)
-                    continue
-            else:
-                unresolved.extend(batch)
-                continue
-
-        for (s, field, orig_field, original), translated_text in zip(batch, translated_texts):
-            if not translated_text:
-                unresolved.append((s, field, orig_field, original))
-                continue
-            if translated_text == original:
-                # Primary translator thinks it's already English.
-                # If we were very confident it was Italian, try falling back to OpenAI individually.
-                if is_italian_text(original):
+        if translated_texts:
+            for (s, field, orig_field, original), translated_text in zip(batch, translated_texts):
+                if not translated_text or translated_text == original:
                     unresolved.append((s, field, orig_field, original))
-                continue
-            s[orig_field] = original
-            s[field] = translated_text
-            translated_fields += 1
-        time.sleep(0.2)
-
-    # Retry unresolved fields via Azure (batch), then OpenAI (individual)
-    if unresolved and has_azure:
-        print(f"  Retrying {len(unresolved)} unresolved fields via Azure Translator...", flush=True)
-        azure_unresolved: list[tuple[dict, str, str, str]] = []
-        for ri in range(0, len(unresolved), BATCH_SIZE):
-            azure_batch = unresolved[ri: ri + BATCH_SIZE]
-            azure_texts = [item[3] for item in azure_batch]
-            try:
-                azure_translated = translate_batch_with_azure(azure_texts, azure_key, azure_region)
-            except Exception as e:
-                err_str = str(e).lower()
-                if "401" in err_str or "403" in err_str or "429" in err_str or "quota" in err_str:
-                    print(f"  Azure Translator error: {e} — disabling for this run", flush=True)
-                    has_azure = False
-                    azure_unresolved.extend(azure_batch)
-                    azure_unresolved.extend(unresolved[ri + BATCH_SIZE:])
-                    break
-                else:
-                    print(f"  Azure Translator error: {e}", flush=True)
-                    azure_unresolved.extend(azure_batch)
-                    continue
-            for (s, field, orig_field, original), translated_text in zip(azure_batch, azure_translated):
-                if not translated_text:
-                    azure_unresolved.append((s, field, orig_field, original))
-                    continue
-                if translated_text == original:
-                    # Already English — trust the translator, don't forward to OpenAI.
                     continue
                 s[orig_field] = original
                 s[field] = translated_text
                 translated_fields += 1
-        azure_resolved = len(unresolved) - len(azure_unresolved)
-        if azure_resolved:
-            print(f"  Azure resolved {azure_resolved}/{len(unresolved)} fields", flush=True)
-        unresolved = azure_unresolved
+        else:
+            # Batch failed — try individual fallback for this batch immediately
+            print(f"  Batch {batch_num} failed — retrying fields individually...", flush=True)
+            for s, field, orig_field, original in batch:
+                # Try DeepL individually first
+                indiv_res = None
+                for _, deepl_key in deepl_keys:
+                    try:
+                        res = translate_batch_with_deepl([original], deepl_key, source_lang=batch_source_lang)
+                        if res and res[0] != original:
+                            indiv_res = res[0]
+                            break
+                    except Exception:
+                        continue
+                
+                # Try Azure individually second
+                if not indiv_res and has_azure:
+                    try:
+                        res = translate_batch_with_azure([original], azure_key, azure_region, source_lang=batch_source_lang)
+                        if res and res[0] != original:
+                            indiv_res = res[0]
+                    except Exception:
+                        pass
+                
+                if indiv_res:
+                    s[orig_field] = original
+                    s[field] = indiv_res
+                    translated_fields += 1
+                else:
+                    unresolved.append((s, field, orig_field, original))
+        time.sleep(0.2)
 
-    if unresolved and openai_client:
-        print(f"  Retrying {len(unresolved)} unresolved fields via OpenAI...", flush=True)
+    # Final retry for unresolved fields via OpenAI (if requested/available)
+    if unresolved and has_openai:
+        print(f"  Retrying {len(unresolved)} unresolved fields via OpenAI fallback...", flush=True)
         still_unresolved: list[tuple[dict, str, str, str]] = []
         for s, field, orig_field, original in unresolved:
             try:
                 translated_text = translate_text_with_openai(openai_client, original)
+                if translated_text and translated_text != original:
+                    s[orig_field] = original
+                    s[field] = translated_text
+                    translated_fields += 1
+                else:
+                    still_unresolved.append((s, field, orig_field, original))
             except Exception as e:
                 stats["openai_translation_errors"] += 1
                 _record_error(f"OpenAI translation error: {e}")
                 still_unresolved.append((s, field, orig_field, original))
-                continue
-            if not translated_text or translated_text == original:
-                still_unresolved.append((s, field, orig_field, original))
-                continue
-            s[orig_field] = original
-            s[field] = translated_text
-            translated_fields += 1
         openai_resolved = len(unresolved) - len(still_unresolved)
         if openai_resolved:
-            print(f"  OpenAI resolved {openai_resolved}/{len(unresolved)} fields", flush=True)
+            print(f"  OpenAI resolved {openai_resolved}/{len(unresolved)} fields")
         unresolved = still_unresolved
 
     translated_signals = sum(
