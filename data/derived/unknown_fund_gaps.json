@@ -83,6 +83,13 @@
       "signal_id": "rss-signal-00175",
       "signal_title": "Nextalia launches the Raffaello fund, dedicated to UTP and NPL",
       "alerted_at": "2026-03-20T19:32:30.373724+00:00"
+    },
+    {
+      "mention": "Italy Sinloc Investimenti SGR",
+      "suggested_slug": "italy-sinloc-investimenti",
+      "signal_id": "rss-signal-00240",
+      "signal_title": "Sinloc Investimenti SGR acquires 49% of the equity in Solis S.r.l. from Repower, which owns 13 solar power plants in Ita",
+      "alerted_at": "2026-03-27T11:11:54.091089+00:00"
     }
   ]
 }

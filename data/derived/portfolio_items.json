@@ -2664,7 +2664,7 @@
       },
       {
         "name": "EDEA",
-        "sector": "Pattini professionali, da ghiaccio, da pista e relativi accessori",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://edeaskates.com/it/",
@@ -2976,7 +2976,7 @@
       },
       {
         "name": "OCN",
-        "sector": "impianti per la trafilatura e l\u2019estrusione",
+        "sector": null,
         "status": "exited",
         "confidence": 0.95,
         "website": null,
@@ -2989,7 +2989,7 @@
       },
       {
         "name": "FARAM",
-        "sector": "mobili da ufficio e pareti divisorie",
+        "sector": null,
         "status": "exited",
         "confidence": 0.95,
         "website": "http://www.faram.com/?idD=1&idL=it",
@@ -3041,7 +3041,7 @@
       },
       {
         "name": "MG MINIGEARS",
-        "sector": "Ingranaggi di piccole e medie dimensioni e sistemi di trasmissione completi",
+        "sector": null,
         "status": "exited",
         "confidence": 0.95,
         "website": "http://hgears.com/",
@@ -3093,7 +3093,7 @@
       },
       {
         "name": "GTS GROUP",
-        "sector": "Cosmesi e apparecchiature per centri estetici",
+        "sector": null,
         "status": "exited",
         "confidence": 0.95,
         "website": "http://www.alfaparfgroup.com/",
@@ -4485,7 +4485,7 @@
       },
       {
         "name": "Phoenix",
-        "sector": "Mission-Critical Components For Aluminium Extrusion Process",
+        "sector": "Industrial Manufacturing",
         "status": "current",
         "confidence": 0.95,
         "website": "https://ambientasgr.com/portfolio/phoenix/",
@@ -7970,6 +7970,34 @@
         "source_url": "https://bebeez.it/venture-capital/d-orbit-raccoglie-110-mln-euro-da-un-club-deal-organizzato-da-azimut-exit-per-il-fondo-tt-venture-di-indaco-venture-partners-sgr-presente-dalle-fasi-iniziali/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00067"
+      },
+      {
+        "name": "Unidata",
+        "sector": "Telecommunications",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "Unidata is an Italian telecommunications operator providing fiber optic connectivity, cloud services, and IoT solutions to business and residential customers.",
+        "detail_page_url": null,
+        "headquarters": "Rome, Italy",
+        "investment_date": "2026-03-27",
+        "source_url": "https://bebeez.it/private-equity/loperatore-di-tlc-unidata-insieme-ad-azimut-libera-impresa-sgr-avvia-il-progetto-unicenter-green-data-center-tier-iv-a-roma-da-57-milioni/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00242"
+      },
+      {
+        "name": "Uni Center S.p.A",
+        "sector": "Professional Services",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "Uni Center provides integrated professional services, including accounting, tax consulting, and administrative support for small and medium-sized enterprises.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": "2026-03-27",
+        "source_url": "https://bebeez.it/private-equity/loperatore-di-tlc-unidata-insieme-ad-azimut-libera-impresa-sgr-avvia-il-progetto-unicenter-green-data-center-tier-iv-a-roma-da-57-milioni/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00242"
       }
     ],
     "cdp-equity": [
@@ -37181,6 +37209,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-27T20:34:18.466902+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Solis S.r.l",
+        "sector": "Insurance",
+        "status": "current",
+        "confidence": 0.8,
+        "website": "https://www.solismammo.com",
+        "description": "Reinsurance and risk management",
+        "detail_page_url": null,
+        "headquarters": "Addison, United States",
+        "investment_date": "2026-03-25",
+        "source_url": "https://bebeez.it/private-equity/sinloc-investimenti-sgr-acquista-da-repower-il-49-del-capitale-di-solis-srl-con-13-impianti-fotovoltaici-in-italia/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00240"
       }
     ],
     "sofinnova-partners": [
@@ -57142,7 +57184,7 @@
       },
       {
         "name": "BLOOM FRESH International",
-        "sector": "Technology",
+        "sector": "Industrial Manufacturing",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.eqtgroup.com/about/current-portfolio/bloom-fresh-international",
@@ -57565,19 +57607,6 @@
         "description": "Develops and markets veterinary pharmaceuticals",
         "detail_page_url": null,
         "headquarters": "Northwich, United Kingdom",
-        "investment_date": null,
-        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
-        "data_source": "fund_website"
-      },
-      {
-        "name": "Dellner Couplers",
-        "sector": "Industrial Manufacturing",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://www.eqtgroup.com/about/current-portfolio/dellner-couplers",
-        "description": "Manufactures train connection systems and couplers",
-        "detail_page_url": null,
-        "headquarters": "Falun, Sweden",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -61192,6 +61221,19 @@
         "description": "Online retailer for pet food and accessories across Europe",
         "detail_page_url": null,
         "headquarters": "Munich, Germany",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Dellner Couplers",
+        "sector": "Industrial Manufacturing",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/dellner-couplers",
+        "description": "Manufactures train connection systems and couplers",
+        "detail_page_url": null,
+        "headquarters": "Falun, Sweden",
         "investment_date": null,
         "source_url": "https://www.eqtgroup.com/about/current-portfolio",
         "data_source": "fund_website"
@@ -65773,7 +65815,7 @@
       },
       {
         "name": "Kinsect",
-        "sector": "Robotics, mechanisation and equipmentStageSeedInvestment2024Websitekinsect.eu",
+        "sector": "Agriculture",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.kinsect.eu/",
@@ -70510,6 +70552,20 @@
         "source_url": "https://bebeez.it/venture-capital/benewtral-chiude-un-round-da-7-mln-euro-guidato-da-cdp-venture-capital-attraverso-il-fondo-corporate-partners-i/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00009"
+      },
+      {
+        "name": "Up Surge On",
+        "sector": "Healthcare",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "UpSurgeOn is a medical technology company specializing in high-fidelity simulators and digital platforms for neurosurgical training and education.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": "2026-03-21",
+        "source_url": "https://bebeez.it/venture-capital/upsurgeon-raccoglie-5-mln-euro-da-cdp-venture-capital-e-investitori-per-scalare-la-chirurgia-del-futuro/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00246"
       }
     ],
     "eiffel": [
@@ -76445,6 +76501,20 @@
         "source_url": "https://bebeez.it/venture-capital/la-piattaforma-ai-massima-energia-raccoglie-10-mln-euro-tra-equity-e-debito/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00061"
+      },
+      {
+        "name": "Dronus",
+        "sector": "Aerospace & Defense",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "Dronus is an Italian company specializing in the design and production of professional drones for industrial monitoring, security, and environmental surveillance.",
+        "detail_page_url": null,
+        "headquarters": "Trieste, Italy",
+        "investment_date": "2026-03-25",
+        "source_url": "https://bebeez.it/venture-capital/dronus-chiude-un-round-di-serie-a-da-15-mln-euro-guidato-da-algebris-attraverso-il-fondo-climatech-che-ha-investito-4-mln/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00243"
       }
     ],
     "entangled-capital-sgr": [
@@ -87162,6 +87232,20 @@
         "source_url": "https://bebeez.it/venture-capital/lai-di-alomana-incassa-round-da-4-mln-euro-guidato-da-cdp-venture-capital-sgr/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00218"
+      },
+      {
+        "name": "Up Surge On",
+        "sector": "Healthcare",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "UpSurgeOn is a medtech company that develops high-fidelity surgical simulators and digital tools for neurosurgery training.",
+        "detail_page_url": null,
+        "headquarters": "Assago, Italy",
+        "investment_date": "2026-03-21",
+        "source_url": "https://bebeez.it/venture-capital/upsurgeon-raccoglie-5-mln-euro-da-cdp-venture-capital-e-investitori-per-scalare-la-chirurgia-del-futuro/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00246"
       }
     ],
     "equiter": [
@@ -88428,6 +88512,20 @@
         "source_url": "https://www.clessidragroup.it/clessidra-capital-credit-accompagna-linvestimento-in-health-italia-di-giovanni-giuliani-e-stefano-pellegrino/",
         "data_source": "signal_fund_press",
         "signal_id": "news-signal-20260205111507-934c2dec-7389d3e6"
+      },
+      {
+        "name": "D.i.mar S.r.l",
+        "sector": "Food & Beverage",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "D.i.mar S.r.l operates a retail chain specializing in the sale of high-quality frozen seafood products under the Sapore di Mare brand.",
+        "detail_page_url": null,
+        "headquarters": "Corridonia, Italy",
+        "investment_date": "2026-03-27",
+        "source_url": "https://bebeez.it/private-debt/sapore-di-mare-clessidra-capital-credit-sgr-acquisira-il-controllo-esclusivo-di-d-i-mar-srl-societa-a-capo-della-catena-di-pescherie-ottenuto-lok-dellagcm/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00237"
       }
     ],
     "eurizon-real-asset": [
