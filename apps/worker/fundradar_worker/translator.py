@@ -37,6 +37,7 @@ _IT_STOPWORDS = {
     "sullo", "sui", "sugli", "sulle", "che", "per", "con", "come", "tra", "fra", "e", "ed",
     "o", "ma", "non", "si", "ha", "hanno", "è", "sono", "era", "alla", "alle", "agli", "al",
     "ai", "dopo", "prima", "dal", "dai", "dalle", "dagli", "nella", "dell", "nell", "all",
+    "a", "in", "ad", "ed", "da", "su", "per", "tra", "fra",
 }
 _EN_STOPWORDS = {
     "the", "a", "an", "and", "or", "for", "with", "from", "of", "to", "in", "on", "at", "by",
@@ -45,8 +46,11 @@ _EN_STOPWORDS = {
 }
 _IT_STRONG_RE = re.compile(
     r"\b(?:annuncia|annunciato|annunciata|chiude|chiuso|chiusa|raccoglie|raccolta|acquisisce|acquisita"
-    r"|acquisito|cede|cessione|investe|finanziamento|nomina|partnership|accordo|milioni"
-    r"|cartolarizzazione|partecipazione|sottoscritto|sottoscrive)\b",
+    r"|acquisito|acquista|acquisire|rileva|rilevato|rilevata|cede|cessione|investe|investono"
+    r"|investimento|investimenti|finanziamento|nomina|partnership|accordo|milioni"
+    r"|cartolarizzazione|partecipazione|sottoscritto|sottoscrive|sigla|siglato|siglata"
+    r"|ingresso|entra|entrata|operazione|operazioni|avvia|avviato|avviata|fondo|fondi|sgr"
+    r"|immobile|immobiliare|asset|portafoglio)\b",
     re.IGNORECASE,
 )
 _FR_STOPWORDS = {
@@ -92,10 +96,8 @@ def _language_token_scores(text: str) -> tuple[int, int, int]:
     it_score = sum(1 for w in words if w in _IT_STOPWORDS)
     en_score = sum(1 for w in words if w in _EN_STOPWORDS)
     lowered = (text or "").lower()
-    if _IT_STRONG_RE.search(lowered):
-        it_score += 2
-    if _EN_STRONG_RE.search(lowered):
-        en_score += 2
+    it_score += 2 * len(_IT_STRONG_RE.findall(lowered))
+    en_score += 2 * len(_EN_STRONG_RE.findall(lowered))
     if re.search(r"[àèéìòù]", lowered):
         it_score += 1
     return it_score, en_score, len(words)
@@ -113,6 +115,12 @@ def is_italian_text(text: str) -> bool:
     if not text:
         return False
     it_score, en_score, token_count = _language_token_scores(text)
+    
+    # If English evidence is strong, require much stronger Italian evidence
+    # to avoid false positives from Italian fund names in English text.
+    if en_score >= 3:
+        return it_score > (en_score + 2)
+        
     if token_count < 4:
         # Very short text: require stronger evidence (2+ Italian markers, no English)
         # Prevents false positives on "PM&Partners I", "Corriere della Sera"
@@ -553,7 +561,10 @@ def translate_signals_inplace(
                 unresolved.append((s, field, orig_field, original))
                 continue
             if translated_text == original:
-                # Translator detected text is already English — trust it, don't retry.
+                # Primary translator thinks it's already English.
+                # If we were very confident it was Italian, try falling back to OpenAI individually.
+                if is_italian_text(original):
+                    unresolved.append((s, field, orig_field, original))
                 continue
             s[orig_field] = original
             s[field] = translated_text

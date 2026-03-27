@@ -1976,7 +1976,7 @@
         "Biotech & Pharma",
         "Industrial Manufacturing",
         "Software",
-        "Technology"
+        "Professional Services"
       ],
       "description": "Spun off from the consulting firm Bain & Company in 1984, this pioneer of operationally-focused private equity applies management consulting techniques to global buyouts. Key investments include the Italian payments giant Nexi.",
       "geographies": [
@@ -3911,10 +3911,10 @@
       ],
       "sector_tags": [
         "Consumer Goods",
-        "Industrial Manufacturing",
-        "Biotech & Pharma",
         "Fashion & Luxury",
-        "Healthcare"
+        "Biotech & Pharma",
+        "Healthcare",
+        "Industrial Manufacturing"
       ],
       "description": "Operates as a multi-asset platform within the listed Equita Group ecosystem, bridging institutional capital and Italian SMEs through private equity, debt, and infrastructure investments like the Digital 360 buyout.",
       "geographies": [
@@ -5287,10 +5287,10 @@
       ],
       "sector_tags": [
         "Industrial Manufacturing",
-        "Technology",
         "Food & Beverage",
-        "Professional Services",
-        "Healthcare"
+        "Technology",
+        "Healthcare",
+        "Professional Services"
       ],
       "description": "Formed by a veteran team of partners from Alcedo to target buyouts of niche market leaders in Northern Italy, specializing in complex generational handovers for companies like CVS Ferrari and the recently exited Panificio San Francesco.",
       "geographies": [
@@ -7841,9 +7841,9 @@
       ],
       "sector_tags": [
         "Biotech & Pharma",
+        "Environmental Services",
         "Healthcare",
         "Renewable Energy",
-        "Environmental Services",
         "Food & Beverage"
       ],
       "description": "Prioritizes research-intensive university spin-offs in life sciences and agri-food, backing ventures like EggPlant and Postbiotica that transform laboratory discoveries into scalable industrial applications.",
@@ -8009,10 +8009,11 @@
         "Buy-Out"
       ],
       "sector_tags": [
+        "Industrial Manufacturing",
+        "Consumer Goods",
         "Fashion & Luxury",
         "Healthcare",
-        "Industrial Manufacturing",
-        "Retail"
+        "Packaging"
       ],
       "description": "Independent private equity firm specializing in Italian SME buyouts, known for orchestrating industrial consolidation plays like the Gruppo Florence luxury manufacturing platform.",
       "geographies": [
@@ -8422,8 +8423,8 @@
         "Real-Estate"
       ],
       "sector_tags": [
-        "Technology",
         "Aerospace & Defense",
+        "Technology",
         "Construction",
         "Industrial Manufacturing",
         "Professional Services"
@@ -8544,7 +8545,8 @@
         "Industrial Manufacturing",
         "Healthcare",
         "Professional Services",
-        "Biotech & Pharma"
+        "Telecommunications",
+        "Agriculture"
       ],
       "description": "Spun out from Lehman Brothers Merchant Banking in 2009, this mid-market specialist focuses on partnering with founders and families across Europe, with notable investments in Gransolar and Passione Beauty.",
       "geographies": [
@@ -8970,7 +8972,8 @@
         "Early-Stage"
       ],
       "sector_tags": [
-        "Biotech & Pharma"
+        "Biotech & Pharma",
+        "Healthcare"
       ],
       "description": "Founded by the team behind Genextra, this firm translates Italian scientific excellence into clinical-stage biotech companies, with notable investments in gene therapy and medical devices.",
       "geographies": [
@@ -9362,8 +9365,8 @@
         "Financial Services",
         "Healthcare",
         "Professional Services",
-        "Media & Entertainment",
-        "Food & Beverage"
+        "Food & Beverage",
+        "Media & Entertainment"
       ],
       "description": "Spun out of Soros Private Equity Partners in 2005, this firm is the first mainstream private equity house to achieve B Corp certification, specializing in complex buyouts and corporate carve-outs.",
       "created_at": "2026-01-26T15:27:27.990348+00:00",
@@ -11248,6 +11251,11 @@
   "updated_at": "2026-01-26T20:23:50.000452Z",
   "data_source_flags_added": "2026-01-26T15:34:14.202663+00:00",
   "excluded_entities": [
+    {
+      "slug": "italy-sinloc-investimenti",
+      "name": "Italy Sinloc Investimenti SGR",
+      "reason": "mis-extraction or variant of sinloc-investimenti-sgr"
+    },
     {
       "slug": "banca-generali",
       "name": "Banca Generali",
