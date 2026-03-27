@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Pipeline step: Translate non-English signals to English (DeepL → OpenAI fallback).
+Pipeline step: Translate non-English signals to English (DeepL → Azure fallback).
 
 Runs between the rss step and the filter step so that:
   - filter_signals.py receives English text → correct keyword classification
@@ -111,7 +111,8 @@ def main() -> None:
         try:
             _result[0] = translate_signals_inplace(
                 signals_to_translate,
-                openai_api_key=os.environ.get("OPENAI_API_KEY"),
+                azure_translator_key=os.environ.get("AZURE_TRANSLATOR_KEY"),
+                azure_translator_region=os.environ.get("AZURE_TRANSLATOR_REGION"),
                 slugs_filter=slugs_filter,
             )
         except Exception as e:

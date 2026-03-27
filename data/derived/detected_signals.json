@@ -4687,7 +4687,7 @@
         "fondo-italiano-d-investimento-sgr"
       ],
       "signal_type": "people_move",
-      "title": "Fondo Italiano d'Investimento SGR: Chief Investment Officer Giampaolo Di Dio resigns",
+      "title": "Fondo Italiano d'Investimento SGR: Chief Investment Officer Giampaolo Di Dio Resigns",
       "what_changed": "Giampaolo Di Dio is stepping down as CIO of Fondo Italiano d'Investimento sgr, a management company with over \u20ac4 billion in assets, 55% owned by CDP Equity (Cassa Depositi e Prestiti) and partly owned by UniCredit, Intesa Sanpaolo, ENPAM/ENPAIA Foundations, ABI, Banco BPM, and BPER Banca. This is news of a management change, not an M&A transaction.",
       "source_url": "https://bebeez.it/manager-2/fondo-italiano-dinvestimento-sgr-il-cio-giampaolo-di-dio-se-ne-va/",
       "source_name": "BeBeez",
@@ -4713,7 +4713,7 @@
         "locations": []
       },
       "what_changed_original": "Giampaolo Di Dio lascia il ruolo di CIO di Fondo Italiano d\u2019Investimento sgr, societ\u00e0 di gestione con oltre \u20ac4 miliardi di asset controllata al 55% da CDP Equity (Cassa Depositi e Prestiti) e partecipata da UniCredit, Intesa Sanpaolo, Fondazioni ENPAM/ENPAIA, ABI, Banco BPM e BPER Banca. Notizia su un cambio manageriale, non un\u2019operazione M&A.",
-      "title_original": "Fondo Italiano d'Investimento SGR: Chief Investment Officer Giampaolo Di Dio Resigns"
+      "title_original": "Fondo Italiano d'Investimento SGR: Chief Investment Officer Giampaolo Di Dio resigns"
     },
     {
       "id": "rss-signal-00154",
@@ -18081,7 +18081,7 @@
       "fund_slug": "fondo-italiano-d-investimento-sgr",
       "signal_type": "news",
       "title": "Fondo Italiano d\u2019Investimento has launched a strategic partnership with ESG.IAMA Private",
-      "what_changed": "Fondo Italiano d\u2019Investimento launches a strategic partnership with ESG.IAMA Private",
+      "what_changed": "Fondo Italiano d\u2019Investimento has launched a strategic partnership with ESG.IAMA Private",
       "source_url": "https://www.fondoitaliano.it/en/fondo-italiano-dinvestimento-launches-strategic-partnershipwith-esg-iama-private/",
       "source_name": "fondo-italiano-d-investimento-sgr",
       "published_at": "2025-09-08",
@@ -18092,7 +18092,7 @@
       "page_category": "NEWS",
       "page_type": "NEWS",
       "quality_score": 75,
-      "what_changed_original": "Fondo Italiano d\u2019Investimento launches strategic partnership with ESG.IAMA Private",
+      "what_changed_original": "Fondo Italiano d\u2019Investimento launches a strategic partnership with ESG.IAMA Private",
       "title_original": "Fondo Italiano d\u2019Investimento launches a strategic partnership with ESG.IAMA Private"
     },
     {
@@ -20990,7 +20990,7 @@
       "fund_slug": "riello-investimenti-sgr",
       "signal_type": "deal_announced",
       "title": "RIELLO INVESTIMENTI SGR invests in Exolab Italia through the Linfa fund",
-      "what_changed": "Riello Investimenti SGR, through the Linfa fund, invests in Exolab Italia",
+      "what_changed": "Riello Investimenti SGR, through the Linfa fund, is investing in Exolab Italia",
       "source_url": "https://www.rielloinvestimenti.it/news-exolab.html",
       "source_name": "Riello Investimenti SGR",
       "published_at": "2025-04-03",
@@ -21011,7 +21011,7 @@
         "people": [],
         "locations": []
       },
-      "what_changed_original": "RIELLO INVESTIMENTI SGR, THROUGH THE LINFA FUND, INVESTS IN EXOLAB ITALIA",
+      "what_changed_original": "Riello Investimenti SGR, through the Linfa fund, invests in Exolab Italia",
       "title_original": "RIELLO INVESTIMENTI SGR INVESTS IN EXOLAB ITALIA THROUGH THE LINFA FUND"
     },
     {
@@ -45009,7 +45009,7 @@
       "fund_slug": "fondo-italiano-d-investimento-sgr",
       "signal_type": "deal_announced",
       "title": "Corradi & Ghisolfi added to the Fondo Italiano d\u2019Investimento SGR portfolio (biogas and biomethane plants)",
-      "what_changed": "Corradi & Ghisolfi added to Fondo Italiano d\u2019Investimento SGR portfolio (biogas and biomethane plants)",
+      "what_changed": "Corradi & Ghisolfi added to the Fondo Italiano d\u2019Investimento SGR portfolio (biogas and biomethane plants)",
       "source_url": "https://www.fondoitaliano.it/investimenti-diretti/",
       "source_name": "Fondo Italiano d\u2019Investimento SGR",
       "published_at": null,
@@ -45031,7 +45031,7 @@
         ],
         "locations": []
       },
-      "what_changed_original": "Corradi & Ghisolfi added to the Fondo Italiano d\u2019Investimento SGR portfolio (biogas and biomethane plants)",
+      "what_changed_original": "Corradi & Ghisolfi added to Fondo Italiano d\u2019Investimento SGR portfolio (biogas and biomethane plants)",
       "title_original": "Corradi & Ghisolfi added to Fondo Italiano d\u2019Investimento SGR portfolio (biogas and biomethane plants)"
     },
     {
@@ -65907,5 +65907,5 @@
     }
   ],
   "signal_count": 2380,
-  "translated_at": "2026-03-27T14:09:11.025364+00:00"
+  "translated_at": "2026-03-27T17:22:43.366171+00:00"
 }

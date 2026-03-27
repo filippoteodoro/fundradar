@@ -616,10 +616,10 @@ The filter (`filter_signals.py`) uses **English-language keyword patterns** to c
 ### Translation chain (never change this order)
 1. `DEEPL_API_KEY` — primary key (500K chars/month free)
 2. `DEEPL_API_KEY_2` — secondary key (auto-failover when primary exhausted)
-3. `AZURE_TRANSLATOR_KEY` — second fallback (2M chars/month free, region: `italynorth`)
-4. OpenAI `gpt-5.4-mini` — last resort fallback (paid, ~$0.10/run for all Italian signals)
+3. `AZURE_TRANSLATOR_KEY` — fallback key 1 (2M chars/month free, region: `italynorth`)
+4. `AZURE_TRANSLATOR_KEY_2` — fallback key 2
 
-DeepL exhausted keys are auto-skipped via `data/derived/deepl_quota_state.json`. Both DeepL keys exhausted → Telegram alert fires + Azure takes over. Azure auth/quota errors disable it for the current run and fall through to OpenAI. Monthly quotas reset on the 1st.
+DeepL exhausted keys are auto-skipped via `data/derived/deepl_quota_state.json`. Both DeepL keys exhausted → Telegram alert fires + Azure takes over. Azure auth/quota errors disable the specific key for the current run and fall through to the next Azure key. Monthly quotas reset on the 1st. OpenAI fallback has been removed to eliminate translation costs.
 
 ### Idempotency — how re-translation is prevented
 - `translate_signals.py` checks `title_original` / `what_changed_original`: if set and current text looks English → skip
