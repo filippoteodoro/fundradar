@@ -180,7 +180,7 @@ _RE_JOB_SELECTION = re.compile(
 # Report/annual report detection
 _RE_REPORT = re.compile(
     r"\b(?:bilancio|financial\s+results?|annual\s+report|year[\-\s]?end\s+report"
-    r"|financial\s+plan|piano\s+economico\s+finanziario"
+    r"|financial\s+plan|piano\s+economico\s+finanziario|strategic\s+plan|piano\s+strategico"
     r"|sustainability\s+report|rapporto\s+(?:annuale|di\s+sostenibilit[àa])"
     r"|esg\s+report|quarterly\s+(?:report|credit\s+check|results?)"
     r"|interim\s+report|half[\-\s]?year\s+report"
@@ -308,7 +308,7 @@ _RE_EXITED_FROM_PORTFOLIO = re.compile(
 # Standardized name: _RE_BOND_ISSUANCE (enricher called it _RE_BOND)
 _RE_BOND_ISSUANCE = re.compile(
     r"\b(?:bonds?|obbligazion\w+|emissione|rifinanzia\w+|refinanc\w+|debt\s+issuance"
-    r"|collocamento|collocare?|minibond[s]?|mini\s+bond[s]?)\b",
+    r"|collocamento|collocare?|minibond[s]?|mini\s+bond[s]?|basket\s+bond[s]?)\b",
     re.IGNORECASE,
 )
 
@@ -446,7 +446,9 @@ _RE_FUND_LEVEL_FUNDRAISE = re.compile(
     r"|\bcommitted?\s+capital\b"
     r"|\bfund\s+(?:i{1,3}|iv|v|vi{1,3}|ix|x|\d+)\s+(?:at|a|di)\s+"
     r"|\boversubscribed\b"
-    r"|\bfondo\s+di\s+(?:continuazione|debito|private\s+debt)\b",
+    r"|\bfondo\s+di\s+(?:continuazione|debito|private\s+debt)\b"
+    r"|\bsurpass\w+\s+.*?\bin\s+raised\s+capital\b"
+    r"|\bsupera\s+.*?\bin\s+capitale\s+raccolto\b",
     re.IGNORECASE,
 )
 

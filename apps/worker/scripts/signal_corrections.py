@@ -228,6 +228,16 @@ def apply_universal_demotions(text_lower: str, title_lower: str) -> Optional[str
     if _RE_FASHION_CAMPAIGN.search(text_lower):
         return "other"
 
+    # Court cases / legal disputes → other (unless deal mentioned)
+    if re.search(r"\b(?:court\s+case|legal\s+dispute|wins\s+case|lawsuit|lawyer|judge)\b", text_lower):
+        if not _matches_deal(text_lower) and not _matches_exit(text_lower):
+            return "other"
+
+    # Stock market volatility noise (e.g. Nexi collapses) → other
+    if re.search(r"\b(?:collapses?|plunges?|soars?|storm|volatility|stock\s+market)\b", text_lower):
+        if not _matches_deal(text_lower) and not _matches_exit(text_lower) and not _matches_fundraise(text_lower):
+            return "other"
+
     # Editorial format changes (magazine weekly→fortnightly etc.) → other
     if _RE_EDITORIAL_FORMAT.search(text_lower):
         return "other"
@@ -382,6 +392,10 @@ def correct_exit(text_lower: str, title_lower: str, page_category: str = "") -> 
     if _RE_EDITORIAL_FORMAT.search(text_lower):
         return "other"
 
+    # Report/Strategic Plan misclassified as exit
+    if _RE_REPORT.search(text_lower):
+        return "report"
+
     # Bond/debt issuance misclassified as exit (bond issues, green bonds, credit facilities,
     # refinancing — these are debt events, not fund exits from portfolio companies)
     if _RE_BOND_ISSUANCE.search(text_lower) and not _RE_BOND_EXCLUDE.search(text_lower):
@@ -529,6 +543,18 @@ def correct_deal(text_lower: str, title_lower: str, diff_summary_lower: str = ""
     # Job posting language → job_posting
     if _RE_JOB_SELECTION.search(text_lower):
         return "job_posting"
+
+    # Fund-level fundraise → fundraise_closed (prevents fund's own capital raise from being a deal)
+    if _RE_FUND_LEVEL_FUNDRAISE.search(text_lower):
+        return "fundraise_closed"
+
+    # Report/Strategic Plan → report
+    if _RE_REPORT.search(text_lower):
+        return "report"
+
+    # Basket bonds / project financing → debt_financing
+    if _RE_BOND_ISSUANCE.search(text_lower) or _RE_PROJECT_FINANCING.search(text_lower):
+        return "debt_financing"
 
     # Team strengthening → people_move (if no deal language)
     if _RE_TEAM_STRENGTHENING.search(text_lower) and not _matches_deal(text_lower):
