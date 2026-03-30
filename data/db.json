@@ -3623,6 +3623,51 @@
       "description_source": "gemini"
     },
     {
+      "id": "emk-capital",
+      "slug": "emk-capital",
+      "name": "EMK Capital",
+      "category": "pe",
+      "hq_city": "London",
+      "hq_country": "United Kingdom",
+      "website": "https://www.emkcapital.com/",
+      "strategy_tags": [
+        "Buy-Out",
+        "Growth"
+      ],
+      "sector_tags": [
+        "Business Services",
+        "Software",
+        "Healthcare",
+        "Education",
+        "Industrial Manufacturing",
+        "Logistics"
+      ],
+      "description": "Growth-focused private equity firm specializing in mid-market investments across Europe. Partnering with management teams to achieve transformational growth, with a strong presence in Italy through its Milan office and acquisitions like WeAreProject.",
+      "geographies": [
+        "Europe",
+        "Italy",
+        "Worldwide"
+      ],
+      "asset_class": [
+        "Private equity"
+      ],
+      "created_at": "2026-03-27T17:30:00.000Z",
+      "updated_at": "2026-03-27T17:30:00.000Z",
+      "aum_eur": 7000000000,
+      "data_source": "manual",
+      "data_confidence": "high",
+      "offices": [
+        {
+          "city": "Milan",
+          "country": "Italy",
+          "address": "Via Sant'Andrea 10A",
+          "is_hq": false,
+          "is_italy": true,
+          "source_name": "Manual"
+        }
+      ]
+    },
+    {
       "id": "entrust-global",
       "slug": "entrust-global",
       "name": "EnTrust Global",

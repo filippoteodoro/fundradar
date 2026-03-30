@@ -1493,6 +1493,8 @@ ITALY_MENTION_PATTERNS = [
         # Italian company legal suffixes — require at least one dot to avoid matching wellness "spa"
         r'\bS\.p\.A\.?\b', r'\bS\.\s*p\.\s*A\b', r'\bS\.r\.l\.?\b', r'\bS\.\s*r\.\s*l\b',
         r'\bS\.a\.s\.?\b', r'\bS\.\s*a\.\s*s\b', r'\bS\.n\.c\.?\b', r'\bS\.\s*n\.\s*c\b',
+        # Known large Italian portfolio companies that signal Italian relevance
+        r'\bWeAreProject\b',
     ]
 ]
 
@@ -2481,11 +2483,11 @@ def _is_geo_relevant_signal(signal: dict, fund_geo_scope: str, fund: dict | None
         if explicit_italy_evidence:
             return True
 
-        if fund_has_italy_geo:
-            # Italy-geo funds still require explicit Italy evidence in main feed.
-            return False
+        if fund_has_italy_geo and signal_type in CORE_GEO_TYPES:
+            # Allow core deals for funds known to be active in Italy
+            return True
 
-        # Non-Italy-geo europe-wide funds: strict mode requires explicit Italy.
+        # Non-core or non-Italy-geo funds: requires explicit Italy evidence
         return False
 
     # Mixed/global funds: strict main feed requires explicit Italy evidence.
@@ -2495,16 +2497,20 @@ def _is_geo_relevant_signal(signal: dict, fund_geo_scope: str, fund: dict | None
     return bool(italy_flag_reliable and signal_type in CORE_GEO_TYPES)
 
 
-def _boost_italy_relevance(signal: dict, fund_geo_scope: str) -> dict:
+def _boost_italy_relevance(signal: dict, fund_geo_scope: str, fund: dict | None = None) -> dict:
     """
     Promote Italy relevance for Italian-focused funds to reduce false negatives.
-    Only applies to italy_focused funds (Italian SGRs, funds with 'Italy' in geographies).
-    Pan-European and global funds do NOT get the boost — their signals must have
-    natural Italy/Europe evidence from the relevance scorer.
+    Only applies to italy_focused funds and europe_wide funds with Italy in geos.
     """
     if signal.get("italy_relevant") is True:
         return signal
-    if fund_geo_scope != "italy_focused":
+        
+    is_boostable = (fund_geo_scope == "italy_focused")
+    if not is_boostable and fund_geo_scope == "europe_wide" and fund:
+        if "Italy" in (fund.get("geographies") or []):
+            is_boostable = True
+            
+    if not is_boostable:
         return signal
 
     text = " ".join([
@@ -3980,7 +3986,7 @@ def main():
                 if not _NON_ITALY_EU_COUNTRIES_RE.search(backfill_check):
                     signal["italy_relevant"] = True
 
-        signal = _boost_italy_relevance(signal, fund_scope)
+        signal = _boost_italy_relevance(signal, fund_scope, fund)
 
         # Correct italy_relevant=False for signals with Europe/Italy text evidence
         # The initial relevance scorer may miss EMEA, Italian names, etc.

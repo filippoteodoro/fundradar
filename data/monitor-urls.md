@@ -304,6 +304,7 @@ https://www.bdtmsd.com/
 https://www.eib.org/
 https://www.bregal-unternehmerkapital.com/
 https://www.eiffel-ig.com/
+https://www.emkcapital.com/
 https://www.exor.com/
 https://www.fieesgr.com/
 https://www.gsam.com/
