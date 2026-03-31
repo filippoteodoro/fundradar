@@ -1,6 +1,648 @@
 {
   "signals": [
     {
+      "id": "rss-signal-00269",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Capsule Corporation chiude un round seed da \u20ac0.8M",
+      "what_changed": "Capsule Corporation ha chiuso un round seed da \u20ac0.8M per sviluppare sistemi di propulsione a base d\u2019acqua per piccoli satelliti e industrializzare la tecnologia. Ha partecipato CDP Venture Capital SGR tramite Takeoff Accelerator. Startup italiana con focus space tech e obiettivo di ingresso sul mercato nel 2027.",
+      "source_url": "https://financecommunity.it/capsule-corporation-chiude-un-round-seed-da-800-mila-euro/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-03-31T10:24:48+00:00",
+      "observed_at": "2026-03-31T10:43:47.465881+00:00",
+      "created_at": "2026-03-31T10:43:47.465881+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Capsule Corporation"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac0.8M",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.662,
+      "ml_keep_confidence": 0.662,
+      "ml_keep_confident": false,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.37,
+      "ml_type_confident": false,
+      "ml_confidence": 0.37,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "deal_announced",
+        "fundraise_announced"
+      ]
+    },
+    {
+      "id": "rss-signal-00246",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "deal_announced",
+      "title": "UpSurgeOn raises \u20ac5M from CDP Venture Capital and investors to revolutionize the future of surgery",
+      "what_changed": "UpSurgeOn has closed a \u20ac5M funding round led by CDP Venture Capital, through the Evoluzione Fund, with participation from other investors. The Italian deep-tech company develops surgical simulation technologies and digital platforms designed to enhance surgeons\u2019 skills.",
+      "source_url": "https://bebeez.it/venture-capital/upsurgeon-raccoglie-5-mln-euro-da-cdp-venture-capital-e-investitori-per-scalare-la-chirurgia-del-futuro/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-21T06:38:02+00:00",
+      "observed_at": "2026-03-27T11:00:58.719675+00:00",
+      "created_at": "2026-03-27T11:00:58.719675+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "UpSurgeOn"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac5M",
+      "what_changed_original": "UpSurgeOn ha chiuso un round di investimento da 5 milioni di euro guidato da CDP Venture Capital, tramite il Fondo Evoluzione, con la partecipazione di altri investitori. La deep-tech italiana sviluppa tecnologie per la simulazione chirurgica e piattaforme digitali per potenziare le abilit\u00e0 dei chirurghi.",
+      "title_original": "UpSurgeOn raccoglie 5 mln euro da CDP Venture Capital e investitori per scalare la chirurgia del futuro",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.877,
+      "ml_keep_confidence": 0.877,
+      "ml_keep_confident": true,
+      "ml_type": "fundraise_closed",
+      "ml_type_prob": 0.456,
+      "ml_type_confident": false,
+      "ml_confidence": 0.456,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "deal_announced",
+        "fundraise_announced"
+      ]
+    },
+    {
+      "id": "rss-signal-00218",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Alomana's AI raises \u20ac4M in a funding round led by CDP Venture Capital SGR",
+      "what_changed": "",
+      "source_url": "https://bebeez.it/venture-capital/lai-di-alomana-incassa-round-da-4-mln-euro-guidato-da-cdp-venture-capital-sgr/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-19T06:41:09+00:00",
+      "observed_at": "2026-03-20T15:43:16.699994+00:00",
+      "created_at": "2026-03-20T15:43:16.699994+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "L\u2019AI di Alomana incassa round da 4 mln euro guidato da CDP Venture Capital sgr",
+      "title_original": "L\u2019AI di Alomana incassa round da 4 mln euro guidato da CDP Venture Capital sgr",
+      "deal_amount": "\u20ac4M",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.887,
+      "ml_keep_confidence": 0.887,
+      "ml_keep_confident": true,
+      "ml_type": "fundraise_announced",
+      "ml_type_prob": 0.301,
+      "ml_type_confident": false,
+      "ml_confidence": 0.301,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "rss-signal-00207",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "deal_announced",
+      "title": "What are ISAAC's plans now that it has closed a \u20ac14M investment round with CDP Venture Capital?",
+      "what_changed": "ISAAC closed a \u20ac14M funding round led by CDP Venture Capital to strengthen technology, talent and market expansion. The capital will support international growth; CDP Venture Capital is an Italian investor, making the deal a confirmed Italy-relevant venture funding for the tech-focused ISAAC.",
+      "source_url": "https://startupitalia.eu/startup/isaac-i-piani-round-14-milioni-di-euro/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-03-13T16:19:48+00:00",
+      "observed_at": "2026-03-16T13:44:27.892436+00:00",
+      "created_at": "2026-03-16T13:44:27.892436+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "ISAAC"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac14M",
+      "title_original": "Quali sono i piani di ISAAC che ha chiuso un round di investimento da 14 milioni di euro con CDP Venture Capital?",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.854,
+      "ml_keep_confidence": 0.854,
+      "ml_keep_confident": true,
+      "ml_type": "portfolio_update",
+      "ml_type_prob": 0.358,
+      "ml_type_confident": false,
+      "ml_confidence": 0.358,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "deal_announced",
+        "fundraise_announced"
+      ]
+    },
+    {
+      "id": "rss-signal-00181",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "axon-partners-group",
+        "cdp-venture-capital",
+        "partners-group",
+        "ring-capital"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Isaac antisismica closes $14M round with CDP Venture Capital SGR, 360 capital, AXON Partners Group, Azimut Group, RING Capital, and nova capital",
+      "what_changed": "",
+      "source_url": "https://bebeez.it/venture-capital/isaac-antisismica-chiude-round-da-14-mln-con-cdp-venture-capital-sgr-360-capital-axon-partners-group-azimut-group-ring-capital-e-novacapital/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-04T06:46:14+00:00",
+      "observed_at": "2026-03-11T08:58:55.879953+00:00",
+      "created_at": "2026-03-11T08:58:55.879953+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Isaac Antisismica chiude round da 14 mln, con CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital e NovaCapital",
+      "title_original": "Isaac Antisismica chiude round da 14 mln, con CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital e NovaCapital",
+      "deal_amount": "$14M",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.861,
+      "ml_keep_confidence": 0.861,
+      "ml_keep_confident": true,
+      "ml_type": "other",
+      "ml_type_prob": 0.179,
+      "ml_type_confident": false,
+      "ml_confidence": 0.179,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "news-signal-20260205111509-fb1ed3df-5011ef1d",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "deal_announced",
+      "title": "CDP Venture Capital invests \u20ac21M in PSF, an innovation fund dedicated to the Space Economy",
+      "what_changed": "",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "CDP Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-02-05T11:15:09.812308+00:00",
+      "created_at": "2026-02-05T11:15:09.812308+00:00",
+      "fingerprint": "a7a4dc10dc07",
+      "extraction_source": "news_signal_generator",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "quality_score": 100,
+      "what_changed_original": "News: CDP Venture Capital investe 21 milioni di euro in PSF, un fondo di innovazione dedicato alla Space Economy",
+      "title_original": "CDP Venture Capital investe 21 milioni di euro in PSF, un fondo di innovazione dedicato alla Space Economy",
+      "deal_amount": "\u20ac21M",
+      "_fund_geo_scope": "italy_focused",
+      "italy_relevant": true,
+      "ml_keep": true,
+      "ml_keep_prob": 0.929,
+      "ml_keep_confidence": 0.929,
+      "ml_keep_confident": true,
+      "ml_type": "debt_financing",
+      "ml_type_prob": 0.274,
+      "ml_type_confident": false,
+      "ml_confidence": 0.274,
+      "evidence_score": 4,
+      "quality_confidence": "high",
+      "confidence_score": 0.92,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "rss-signal-00164",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Milan-based Alomana's AI raised \u20ac4M in a round led by CDP Venture Capital",
+      "what_changed": "Milan-based AI startup Alomana has raised \u20ac4M in a round led by CDP Venture Capital (Corporate Partners I \u2013 Service Tech fund), with participation from Founders Factory, Kairos Ventures ESG One, IAG, and others. The funding will support Alo, an operational level of artificial intelligence, confirming a VC deal in Italy.",
+      "source_url": "https://startupitalia.eu/startup/alomana-startup-4-milioni-di-euro/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-02-27T17:42:59+00:00",
+      "observed_at": "2026-03-02T08:19:15.417897+00:00",
+      "created_at": "2026-03-02T08:19:15.417897+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Alomana"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac4M",
+      "what_changed_original": "Milano-based AI startup Alomana ha raccolto 4 milioni di euro in un round guidato da CDP Venture Capital (Corporate Partners I \u2013 fondo ServiceTech), con la partecipazione di Founders Factory, Kairos Ventures ESG One, IAG e altri. Il finanziamento soster\u00e0 Alo, un livello operativo di intelligenza artificiale, confermando un deal VC in Italia.",
+      "title_original": "L\u2019AI della milanese Alomana ha raccolto 4 milioni di euro in un round guidato da CDP Venture Capital",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.88,
+      "ml_keep_confidence": 0.88,
+      "ml_keep_confident": true,
+      "ml_type": "fundraise_closed",
+      "ml_type_prob": 0.355,
+      "ml_type_confident": false,
+      "ml_confidence": 0.355,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "rss-signal-00151",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Sinergy Flow, \u20ac7M for green battery startup",
+      "what_changed": "CDP Venture Capital SGR led a \u20ac7M investment in Sinergy Flow, an Italian startup developing low-cost green flow-battery technology to integrate renewables into power systems. The funding backs R&D and commercialization in the energy storage sector and highlights active involvement by the Italian national VC arm.",
+      "source_url": "https://www.economyup.it/startup/sinergy-flow-7-milioni-di-euro-per-la-startup-delle-batterie-green/",
+      "source_name": "EconomyUp",
+      "published_at": "2026-02-25T09:35:21+00:00",
+      "observed_at": "2026-02-25T13:25:01.693311+00:00",
+      "created_at": "2026-02-25T13:25:01.693311+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Sinergy Flow"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac7M",
+      "title_original": "Sinergy Flow, 7 milioni di euro per la startup delle batterie green",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.856,
+      "ml_keep_confidence": 0.856,
+      "ml_keep_confident": true,
+      "ml_type": "portfolio_update",
+      "ml_type_prob": 0.412,
+      "ml_type_confident": false,
+      "ml_confidence": 0.412,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
+      "id": "rss-signal-00103",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "deal_announced",
+      "title": "Kampaay closes a round A extension worth over \u20ac2M",
+      "what_changed": "Kampaay closed an extension of its Series A raising over \u20ac2M, with CDP Venture Capital via the Digital Transition Fund, Kairos Partners SGR and Doorway as lead investors. The capital increase backs Kampaay\u2019s digital platform expansion in Italy and international growth plans.",
+      "source_url": "https://financecommunity.it/kampaay-chiude-unestensione-del-round-a-da-oltre-2-milioni-di-euro/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-02-16T14:42:05+00:00",
+      "observed_at": "2026-02-16T22:50:36.281018+00:00",
+      "created_at": "2026-02-16T22:50:36.281018+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Kampaay"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "over \u20ac2M",
+      "title_original": "Kampaay chiude un\u2019estensione del round A da oltre 2 milioni di euro",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.858,
+      "ml_keep_confidence": 0.858,
+      "ml_keep_confident": true,
+      "ml_type": "fundraise_closed",
+      "ml_type_prob": 0.363,
+      "ml_type_confident": false,
+      "ml_confidence": 0.363,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "deal_announced",
+        "fundraise_announced"
+      ],
+      "co_fund_slugs": [
+        "kairos-partners-sgr"
+      ]
+    },
+    {
+      "id": "rss-signal-00100",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "deal_announced",
+      "title": "Aviation deep tech company Intuos closes a \u20ac720K funding round. CDP Venture Capital is among the investors.",
+      "what_changed": "Intuos, a Rome\u2011founded deeptech aviation startup operating from L'Aquila airport, has closed a \u20ac720K funding round. Investors include CDP Venture Capital via the Manager platform. The company digitizes aeronautical operations; the confirmed deal strengthens Italian deeptech aerospace capacity and involves an Italian national development fund.",
+      "source_url": "https://startupitalia.eu/startup/intuos-chiude-un-round-da-720mila-euro/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-02-16T10:19:08+00:00",
+      "observed_at": "2026-02-16T11:23:11.549440+00:00",
+      "created_at": "2026-02-16T11:23:11.549440+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Intuos"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac720K",
+      "title_original": "La deeptech dell\u2019aviazione Intuos chiude un round da 720mila euro. Tra gli investitori anche CDP Venture Capital",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.912,
+      "ml_keep_confidence": 0.912,
+      "ml_keep_confident": true,
+      "ml_type": "fundraise_closed",
+      "ml_type_prob": 0.372,
+      "ml_type_confident": false,
+      "ml_confidence": 0.372,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "deal_announced",
+        "fundraise_announced"
+      ]
+    },
+    {
+      "id": "rss-signal-00086",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "deal_announced",
+      "title": "Event startup Kampaay raises \u20ac2M in new funding round",
+      "what_changed": "Kampaay has closed a new funding round of over \u20ac2M led by Digital Transition Fund (managed by CDP Venture Capital SGR) with participation from Kairos Partners SGR. The Italian events-technology startup provides an events-as-a-service platform aggregating catering, staffing, audiovisual and logistics services for event organization.",
+      "source_url": "https://bebeez.it/venture-capital/la-startup-degli-eventi-kampaay-incassa-nuovo-round-da-2-mln-euro/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-13T06:37:32+00:00",
+      "observed_at": "2026-02-13T14:32:40.644764+00:00",
+      "created_at": "2026-02-13T14:32:40.644764+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Kampaay"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "over \u20ac2M",
+      "title_original": "La startup degli eventi Kampaay incassa nuovo round da 2 mln euro",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.835,
+      "ml_keep_confidence": 0.835,
+      "ml_keep_confident": true,
+      "ml_type": "fundraise_closed",
+      "ml_type_prob": 0.484,
+      "ml_type_confident": false,
+      "ml_confidence": 0.484,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "deal_announced",
+        "fundraise_announced"
+      ],
+      "co_fund_slugs": [
+        "kairos-partners-sgr"
+      ]
+    },
+    {
+      "id": "rss-signal-00075",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "deal_announced",
+      "title": "BeNewtral, the startup that replaces cement in construction, closes a \u20ac7M funding round. Lead investor is CDP Venture Capital.",
+      "what_changed": "BeNewtral closes a $7M round led by CDP Venture Capital; acquires pilot plant in Pavia with a capacity of over 25,000 tons/year.",
+      "source_url": "https://startupitalia.eu/startup/benewtral-sostituisce-il-cemento-round/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-02-09T14:50:07+00:00",
+      "observed_at": "2026-02-12T10:54:37.680036+00:00",
+      "created_at": "2026-02-12T10:54:37.680036+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "BeNewtral"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac7M",
+      "what_changed_original": "BeNewtral chiude un round da 7 milioni guidato da CDP Venture Capital; acquistato impianto pilota a Pavia per oltre 25.000 t/anno.",
+      "title_original": "BeNewtral, la startup che sostituisce il cemento nell\u2019edilizia chiude un round da 7 milioni di euro. Lead investor \u00e8 CDP Venture Capital",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.883,
+      "ml_keep_confidence": 0.883,
+      "ml_keep_confident": true,
+      "ml_type": "other",
+      "ml_type_prob": 0.267,
+      "ml_type_confident": false,
+      "ml_confidence": 0.267,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "deal_announced",
+        "people_move"
+      ],
+      "co_fund_slugs": [
+        "eureka-venture-sgr"
+      ]
+    },
+    {
+      "id": "rss-signal-00009",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "deal_announced",
+      "title": "Be Newtral closes a \u20ac7M round led by CDP Venture Capital through the Corporate Partners Ifund",
+      "what_changed": "Be Newtral closes a \u20ac7M round led by CDP Venture Capital SGR through its Corporate Partners I (Infratech) fund.",
+      "source_url": "https://bebeez.it/venture-capital/benewtral-chiude-un-round-da-7-mln-euro-guidato-da-cdp-venture-capital-attraverso-il-fondo-corporate-partners-i/",
+      "source_name": "BeBeez",
+      "published_at": "2026-02-10T06:40:56+00:00",
+      "observed_at": "2026-02-12T10:53:24.152370+00:00",
+      "created_at": "2026-02-12T10:53:24.152370+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "BeNewtral (ex ReHouseIT srl)"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac7M",
+      "what_changed_original": "BeNewtral chiude un round da 7 mln euro guidato da CDP Venture Capital sgr tramite il comparto Corporate Partners I (Infratech).",
+      "title_original": "BeNewtral chiude un round da 7 mln euro guidato da CDP Venture Capital attraverso il fondo Corporate Partners I",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.929,
+      "ml_keep_confidence": 0.929,
+      "ml_keep_confident": true,
+      "ml_type": "debt_financing",
+      "ml_type_prob": 0.32,
+      "ml_type_confident": false,
+      "ml_confidence": 0.32,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "deal_announced"
+      ],
+      "co_fund_slugs": [
+        "eureka-venture-sgr"
+      ]
+    },
+    {
+      "id": "rss-signal-00270",
+      "fund_id": "",
+      "fund_slug": "style-capital-sgr",
+      "related_fund_slugs": [
+        "style-capital-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Aumento di capitale da \u20ac15M per Luisaviaroma (Style Capital)",
+      "what_changed": "Luisaviaroma, e-tailer multibrand italiano partecipato da Style Capital, ha deliberato un aumento di capitale fino a \u20ac15M. Sono in corso interlocuzioni avanzate con investitori attuali e nuovi per sostenere un piano di ristrutturazione. Si tratta di una negoziazione, non di un\u2019operazione gi\u00e0 chiusa.",
+      "source_url": "https://financecommunity.it/aumento-di-capitale-da-15-milioni-di-euro-per-luisaviaroma-style-capital/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-03-31T09:34:25+00:00",
+      "observed_at": "2026-03-31T10:43:47.465881+00:00",
+      "created_at": "2026-03-31T10:43:47.465881+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 100,
+      "is_rumor": true,
+      "extracted_entities": {
+        "companies": [
+          "Luisaviaroma"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "\u20ac15M",
+      "_fund_geo_scope": "mixed_or_global",
+      "ml_keep": true,
+      "ml_keep_prob": 0.746,
+      "ml_keep_confidence": 0.746,
+      "ml_keep_confident": true,
+      "ml_type": "exit_announced",
+      "ml_type_prob": 0.378,
+      "ml_type_confident": false,
+      "ml_confidence": 0.378,
+      "evidence_score": 5,
+      "quality_confidence": "high",
+      "confidence_score": 1.0,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
       "id": "rss-signal-00248",
       "fund_id": "",
       "fund_slug": "kyip-capital-sgr",
@@ -1026,609 +1668,6 @@
       "confidence_score": 0.92,
       "signal_types": [
         "debt_financing"
-      ]
-    },
-    {
-      "id": "rss-signal-00267",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "related_fund_slugs": [
-        "cdp-venture-capital"
-      ],
-      "signal_type": "deal_announced",
-      "title": "Capsule Corporation secures an 800,000-euro funding round from Takeoff Accelerator (CDP Venture Capital S.gr.) and other investors",
-      "what_changed": "Capsule Corporation, an Italian startup specializing in water-based propulsion systems for small satellites, has closed an \u20ac800K seed round. The funding was led by CDP Venture Capital S.gr. through Takeoff Accelerator, with participation from kopa ventures, Moonstone Venture Capital, and business angels.",
-      "source_url": "https://bebeez.it/venture-capital/capsule-corporation-si-assicura-round-da-800k-euro-dal-takeoff-accelerator-cdp-venture-capital-sgr-e-altri-investitori/",
-      "source_name": "BeBeez",
-      "published_at": "2026-03-31T05:37:49+00:00",
-      "observed_at": "2026-03-31T08:03:46.716088+00:00",
-      "created_at": "2026-03-31T08:03:46.716088+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Capsule Corporation",
-          "CDP Venture Capital sgr",
-          "kopa ventures",
-          "Moonstone Venture Capital",
-          "Takeoff Accelerator"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac0.8M",
-      "what_changed_original": "Capsule Corporation, startup italiana di propulsione ad acqua per piccoli satelliti, ha chiuso un round seed da 800 mila euro. Il finanziamento \u00e8 stato guidato da CDP Venture Capital sgr tramite Takeoff Accelerator, con kopa ventures, Moonstone Venture Capital e business angel.",
-      "title_original": "Capsule Corporation si assicura round da 800k euro dal Takeoff Accelerator (CDP Venture Capital sgr) e altri investitori",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.767,
-      "ml_keep_confidence": 0.767,
-      "ml_keep_confident": true,
-      "ml_type": "portfolio_update",
-      "ml_type_prob": 0.332,
-      "ml_type_confident": false,
-      "ml_confidence": 0.332,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "deal_announced",
-        "fundraise_announced"
-      ]
-    },
-    {
-      "id": "rss-signal-00246",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "related_fund_slugs": [
-        "cdp-venture-capital"
-      ],
-      "signal_type": "deal_announced",
-      "title": "UpSurgeOn raises \u20ac5M from CDP Venture Capital and investors to revolutionize the future of surgery",
-      "what_changed": "UpSurgeOn has closed a \u20ac5M funding round led by CDP Venture Capital, through the Evoluzione Fund, with participation from other investors. The Italian deep-tech company develops surgical simulation technologies and digital platforms designed to enhance surgeons\u2019 skills.",
-      "source_url": "https://bebeez.it/venture-capital/upsurgeon-raccoglie-5-mln-euro-da-cdp-venture-capital-e-investitori-per-scalare-la-chirurgia-del-futuro/",
-      "source_name": "BeBeez",
-      "published_at": "2026-03-21T06:38:02+00:00",
-      "observed_at": "2026-03-27T11:00:58.719675+00:00",
-      "created_at": "2026-03-27T11:00:58.719675+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "UpSurgeOn"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac5M",
-      "what_changed_original": "UpSurgeOn ha chiuso un round di investimento da 5 milioni di euro guidato da CDP Venture Capital, tramite il Fondo Evoluzione, con la partecipazione di altri investitori. La deep-tech italiana sviluppa tecnologie per la simulazione chirurgica e piattaforme digitali per potenziare le abilit\u00e0 dei chirurghi.",
-      "title_original": "UpSurgeOn raccoglie 5 mln euro da CDP Venture Capital e investitori per scalare la chirurgia del futuro",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.877,
-      "ml_keep_confidence": 0.877,
-      "ml_keep_confident": true,
-      "ml_type": "fundraise_closed",
-      "ml_type_prob": 0.456,
-      "ml_type_confident": false,
-      "ml_confidence": 0.456,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "deal_announced",
-        "fundraise_announced"
-      ]
-    },
-    {
-      "id": "rss-signal-00218",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "related_fund_slugs": [
-        "cdp-venture-capital"
-      ],
-      "signal_type": "deal_announced",
-      "title": "Alomana's AI raises \u20ac4M in a funding round led by CDP Venture Capital SGR",
-      "what_changed": "",
-      "source_url": "https://bebeez.it/venture-capital/lai-di-alomana-incassa-round-da-4-mln-euro-guidato-da-cdp-venture-capital-sgr/",
-      "source_name": "BeBeez",
-      "published_at": "2026-03-19T06:41:09+00:00",
-      "observed_at": "2026-03-20T15:43:16.699994+00:00",
-      "created_at": "2026-03-20T15:43:16.699994+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "L\u2019AI di Alomana incassa round da 4 mln euro guidato da CDP Venture Capital sgr",
-      "title_original": "L\u2019AI di Alomana incassa round da 4 mln euro guidato da CDP Venture Capital sgr",
-      "deal_amount": "\u20ac4M",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.887,
-      "ml_keep_confidence": 0.887,
-      "ml_keep_confident": true,
-      "ml_type": "fundraise_announced",
-      "ml_type_prob": 0.301,
-      "ml_type_confident": false,
-      "ml_confidence": 0.301,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "rss-signal-00207",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "related_fund_slugs": [
-        "cdp-venture-capital"
-      ],
-      "signal_type": "deal_announced",
-      "title": "What are ISAAC's plans now that it has closed a \u20ac14M investment round with CDP Venture Capital?",
-      "what_changed": "ISAAC closed a \u20ac14M funding round led by CDP Venture Capital to strengthen technology, talent and market expansion. The capital will support international growth; CDP Venture Capital is an Italian investor, making the deal a confirmed Italy-relevant venture funding for the tech-focused ISAAC.",
-      "source_url": "https://startupitalia.eu/startup/isaac-i-piani-round-14-milioni-di-euro/",
-      "source_name": "StartupItalia",
-      "published_at": "2026-03-13T16:19:48+00:00",
-      "observed_at": "2026-03-16T13:44:27.892436+00:00",
-      "created_at": "2026-03-16T13:44:27.892436+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "ISAAC"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac14M",
-      "title_original": "Quali sono i piani di ISAAC che ha chiuso un round di investimento da 14 milioni di euro con CDP Venture Capital?",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.854,
-      "ml_keep_confidence": 0.854,
-      "ml_keep_confident": true,
-      "ml_type": "portfolio_update",
-      "ml_type_prob": 0.358,
-      "ml_type_confident": false,
-      "ml_confidence": 0.358,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "deal_announced",
-        "fundraise_announced"
-      ]
-    },
-    {
-      "id": "rss-signal-00181",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "related_fund_slugs": [
-        "axon-partners-group",
-        "cdp-venture-capital",
-        "partners-group",
-        "ring-capital"
-      ],
-      "signal_type": "deal_announced",
-      "title": "Isaac antisismica closes $14M round with CDP Venture Capital SGR, 360 capital, AXON Partners Group, Azimut Group, RING Capital, and nova capital",
-      "what_changed": "",
-      "source_url": "https://bebeez.it/venture-capital/isaac-antisismica-chiude-round-da-14-mln-con-cdp-venture-capital-sgr-360-capital-axon-partners-group-azimut-group-ring-capital-e-novacapital/",
-      "source_name": "BeBeez",
-      "published_at": "2026-03-04T06:46:14+00:00",
-      "observed_at": "2026-03-11T08:58:55.879953+00:00",
-      "created_at": "2026-03-11T08:58:55.879953+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "Isaac Antisismica chiude round da 14 mln, con CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital e NovaCapital",
-      "title_original": "Isaac Antisismica chiude round da 14 mln, con CDP Venture Capital sgr, 360 Capital, Axon Partners Group, Azimut Group, Ring Capital e NovaCapital",
-      "deal_amount": "$14M",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.861,
-      "ml_keep_confidence": 0.861,
-      "ml_keep_confident": true,
-      "ml_type": "other",
-      "ml_type_prob": 0.179,
-      "ml_type_confident": false,
-      "ml_confidence": 0.179,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "news-signal-20260205111509-fb1ed3df-5011ef1d",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "signal_type": "deal_announced",
-      "title": "CDP Venture Capital invests \u20ac21M in PSF, an innovation fund dedicated to the Space Economy",
-      "what_changed": "",
-      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
-      "source_name": "CDP Venture Capital",
-      "published_at": null,
-      "observed_at": "2026-02-05T11:15:09.812308+00:00",
-      "created_at": "2026-02-05T11:15:09.812308+00:00",
-      "fingerprint": "a7a4dc10dc07",
-      "extraction_source": "news_signal_generator",
-      "page_category": "NEWS",
-      "page_type": "NEWS",
-      "quality_score": 100,
-      "what_changed_original": "News: CDP Venture Capital investe 21 milioni di euro in PSF, un fondo di innovazione dedicato alla Space Economy",
-      "title_original": "CDP Venture Capital investe 21 milioni di euro in PSF, un fondo di innovazione dedicato alla Space Economy",
-      "deal_amount": "\u20ac21M",
-      "_fund_geo_scope": "italy_focused",
-      "italy_relevant": true,
-      "ml_keep": true,
-      "ml_keep_prob": 0.929,
-      "ml_keep_confidence": 0.929,
-      "ml_keep_confident": true,
-      "ml_type": "debt_financing",
-      "ml_type_prob": 0.274,
-      "ml_type_confident": false,
-      "ml_confidence": 0.274,
-      "evidence_score": 4,
-      "quality_confidence": "high",
-      "confidence_score": 0.92,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "rss-signal-00164",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "related_fund_slugs": [
-        "cdp-venture-capital"
-      ],
-      "signal_type": "deal_announced",
-      "title": "Milan-based Alomana's AI raised \u20ac4M in a round led by CDP Venture Capital",
-      "what_changed": "Milan-based AI startup Alomana has raised \u20ac4M in a round led by CDP Venture Capital (Corporate Partners I \u2013 Service Tech fund), with participation from Founders Factory, Kairos Ventures ESG One, IAG, and others. The funding will support Alo, an operational level of artificial intelligence, confirming a VC deal in Italy.",
-      "source_url": "https://startupitalia.eu/startup/alomana-startup-4-milioni-di-euro/",
-      "source_name": "StartupItalia",
-      "published_at": "2026-02-27T17:42:59+00:00",
-      "observed_at": "2026-03-02T08:19:15.417897+00:00",
-      "created_at": "2026-03-02T08:19:15.417897+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Alomana"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac4M",
-      "what_changed_original": "Milano-based AI startup Alomana ha raccolto 4 milioni di euro in un round guidato da CDP Venture Capital (Corporate Partners I \u2013 fondo ServiceTech), con la partecipazione di Founders Factory, Kairos Ventures ESG One, IAG e altri. Il finanziamento soster\u00e0 Alo, un livello operativo di intelligenza artificiale, confermando un deal VC in Italia.",
-      "title_original": "L\u2019AI della milanese Alomana ha raccolto 4 milioni di euro in un round guidato da CDP Venture Capital",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.88,
-      "ml_keep_confidence": 0.88,
-      "ml_keep_confident": true,
-      "ml_type": "fundraise_closed",
-      "ml_type_prob": 0.355,
-      "ml_type_confident": false,
-      "ml_confidence": 0.355,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "rss-signal-00151",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "related_fund_slugs": [
-        "cdp-venture-capital"
-      ],
-      "signal_type": "deal_announced",
-      "title": "Sinergy Flow, \u20ac7M for green battery startup",
-      "what_changed": "CDP Venture Capital SGR led a \u20ac7M investment in Sinergy Flow, an Italian startup developing low-cost green flow-battery technology to integrate renewables into power systems. The funding backs R&D and commercialization in the energy storage sector and highlights active involvement by the Italian national VC arm.",
-      "source_url": "https://www.economyup.it/startup/sinergy-flow-7-milioni-di-euro-per-la-startup-delle-batterie-green/",
-      "source_name": "EconomyUp",
-      "published_at": "2026-02-25T09:35:21+00:00",
-      "observed_at": "2026-02-25T13:25:01.693311+00:00",
-      "created_at": "2026-02-25T13:25:01.693311+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Sinergy Flow"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac7M",
-      "title_original": "Sinergy Flow, 7 milioni di euro per la startup delle batterie green",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.856,
-      "ml_keep_confidence": 0.856,
-      "ml_keep_confident": true,
-      "ml_type": "portfolio_update",
-      "ml_type_prob": 0.412,
-      "ml_type_confident": false,
-      "ml_confidence": 0.412,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "deal_announced"
-      ]
-    },
-    {
-      "id": "rss-signal-00103",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "signal_type": "deal_announced",
-      "title": "Kampaay closes a round A extension worth over \u20ac2M",
-      "what_changed": "Kampaay closed an extension of its Series A raising over \u20ac2M, with CDP Venture Capital via the Digital Transition Fund, Kairos Partners SGR and Doorway as lead investors. The capital increase backs Kampaay\u2019s digital platform expansion in Italy and international growth plans.",
-      "source_url": "https://financecommunity.it/kampaay-chiude-unestensione-del-round-a-da-oltre-2-milioni-di-euro/",
-      "source_name": "FinanceCommunity",
-      "published_at": "2026-02-16T14:42:05+00:00",
-      "observed_at": "2026-02-16T22:50:36.281018+00:00",
-      "created_at": "2026-02-16T22:50:36.281018+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Kampaay"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "over \u20ac2M",
-      "title_original": "Kampaay chiude un\u2019estensione del round A da oltre 2 milioni di euro",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.858,
-      "ml_keep_confidence": 0.858,
-      "ml_keep_confident": true,
-      "ml_type": "fundraise_closed",
-      "ml_type_prob": 0.363,
-      "ml_type_confident": false,
-      "ml_confidence": 0.363,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "deal_announced",
-        "fundraise_announced"
-      ],
-      "co_fund_slugs": [
-        "kairos-partners-sgr"
-      ]
-    },
-    {
-      "id": "rss-signal-00100",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "signal_type": "deal_announced",
-      "title": "Aviation deep tech company Intuos closes a \u20ac720K funding round. CDP Venture Capital is among the investors.",
-      "what_changed": "Intuos, a Rome\u2011founded deeptech aviation startup operating from L'Aquila airport, has closed a \u20ac720K funding round. Investors include CDP Venture Capital via the Manager platform. The company digitizes aeronautical operations; the confirmed deal strengthens Italian deeptech aerospace capacity and involves an Italian national development fund.",
-      "source_url": "https://startupitalia.eu/startup/intuos-chiude-un-round-da-720mila-euro/",
-      "source_name": "StartupItalia",
-      "published_at": "2026-02-16T10:19:08+00:00",
-      "observed_at": "2026-02-16T11:23:11.549440+00:00",
-      "created_at": "2026-02-16T11:23:11.549440+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Intuos"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac720K",
-      "title_original": "La deeptech dell\u2019aviazione Intuos chiude un round da 720mila euro. Tra gli investitori anche CDP Venture Capital",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.912,
-      "ml_keep_confidence": 0.912,
-      "ml_keep_confident": true,
-      "ml_type": "fundraise_closed",
-      "ml_type_prob": 0.372,
-      "ml_type_confident": false,
-      "ml_confidence": 0.372,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "deal_announced",
-        "fundraise_announced"
-      ]
-    },
-    {
-      "id": "rss-signal-00086",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "signal_type": "deal_announced",
-      "title": "Event startup Kampaay raises \u20ac2M in new funding round",
-      "what_changed": "Kampaay has closed a new funding round of over \u20ac2M led by Digital Transition Fund (managed by CDP Venture Capital SGR) with participation from Kairos Partners SGR. The Italian events-technology startup provides an events-as-a-service platform aggregating catering, staffing, audiovisual and logistics services for event organization.",
-      "source_url": "https://bebeez.it/venture-capital/la-startup-degli-eventi-kampaay-incassa-nuovo-round-da-2-mln-euro/",
-      "source_name": "BeBeez",
-      "published_at": "2026-02-13T06:37:32+00:00",
-      "observed_at": "2026-02-13T14:32:40.644764+00:00",
-      "created_at": "2026-02-13T14:32:40.644764+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "Kampaay"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "over \u20ac2M",
-      "title_original": "La startup degli eventi Kampaay incassa nuovo round da 2 mln euro",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.835,
-      "ml_keep_confidence": 0.835,
-      "ml_keep_confident": true,
-      "ml_type": "fundraise_closed",
-      "ml_type_prob": 0.484,
-      "ml_type_confident": false,
-      "ml_confidence": 0.484,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "deal_announced",
-        "fundraise_announced"
-      ],
-      "co_fund_slugs": [
-        "kairos-partners-sgr"
-      ]
-    },
-    {
-      "id": "rss-signal-00075",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "signal_type": "deal_announced",
-      "title": "BeNewtral, the startup that replaces cement in construction, closes a \u20ac7M funding round. Lead investor is CDP Venture Capital.",
-      "what_changed": "BeNewtral closes a $7M round led by CDP Venture Capital; acquires pilot plant in Pavia with a capacity of over 25,000 tons/year.",
-      "source_url": "https://startupitalia.eu/startup/benewtral-sostituisce-il-cemento-round/",
-      "source_name": "StartupItalia",
-      "published_at": "2026-02-09T14:50:07+00:00",
-      "observed_at": "2026-02-12T10:54:37.680036+00:00",
-      "created_at": "2026-02-12T10:54:37.680036+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "BeNewtral"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac7M",
-      "what_changed_original": "BeNewtral chiude un round da 7 milioni guidato da CDP Venture Capital; acquistato impianto pilota a Pavia per oltre 25.000 t/anno.",
-      "title_original": "BeNewtral, la startup che sostituisce il cemento nell\u2019edilizia chiude un round da 7 milioni di euro. Lead investor \u00e8 CDP Venture Capital",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.883,
-      "ml_keep_confidence": 0.883,
-      "ml_keep_confident": true,
-      "ml_type": "other",
-      "ml_type_prob": 0.267,
-      "ml_type_confident": false,
-      "ml_confidence": 0.267,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "deal_announced",
-        "people_move"
-      ],
-      "co_fund_slugs": [
-        "eureka-venture-sgr"
-      ]
-    },
-    {
-      "id": "rss-signal-00009",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "signal_type": "deal_announced",
-      "title": "Be Newtral closes a \u20ac7M round led by CDP Venture Capital through the Corporate Partners Ifund",
-      "what_changed": "Be Newtral closes a \u20ac7M round led by CDP Venture Capital SGR through its Corporate Partners I (Infratech) fund.",
-      "source_url": "https://bebeez.it/venture-capital/benewtral-chiude-un-round-da-7-mln-euro-guidato-da-cdp-venture-capital-attraverso-il-fondo-corporate-partners-i/",
-      "source_name": "BeBeez",
-      "published_at": "2026-02-10T06:40:56+00:00",
-      "observed_at": "2026-02-12T10:53:24.152370+00:00",
-      "created_at": "2026-02-12T10:53:24.152370+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 100,
-      "is_rumor": false,
-      "extracted_entities": {
-        "companies": [
-          "BeNewtral (ex ReHouseIT srl)"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "deal_amount": "\u20ac7M",
-      "what_changed_original": "BeNewtral chiude un round da 7 mln euro guidato da CDP Venture Capital sgr tramite il comparto Corporate Partners I (Infratech).",
-      "title_original": "BeNewtral chiude un round da 7 mln euro guidato da CDP Venture Capital attraverso il fondo Corporate Partners I",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.929,
-      "ml_keep_confidence": 0.929,
-      "ml_keep_confident": true,
-      "ml_type": "debt_financing",
-      "ml_type_prob": 0.32,
-      "ml_type_confident": false,
-      "ml_confidence": 0.32,
-      "evidence_score": 5,
-      "quality_confidence": "high",
-      "confidence_score": 1.0,
-      "signal_types": [
-        "deal_announced"
-      ],
-      "co_fund_slugs": [
-        "eureka-venture-sgr"
       ]
     },
     {
@@ -4350,8 +4389,8 @@
         "deal_announced"
       ],
       "co_fund_slugs": [
-        "ardian",
-        "muzinich-co"
+        "muzinich-co",
+        "ardian"
       ]
     },
     {
@@ -12659,6 +12698,52 @@
       ]
     },
     {
+      "id": "rss-signal-00263",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "portfolio_update",
+      "title": "Digital sovereignty: TIM and CDP are taking steps to identify startups and SMEs with the right technology to reduce Italy\u2019s reliance on non-EU technologies",
+      "what_changed": "TIM and CDP Venture Capital are evaluating startups and SMEs for partnerships in the areas of digital sovereignty and European technologies. The article describes scouting activities and potential industrial, commercial, and technological synergies, without announcing any investment or completed PE/VC transaction.",
+      "source_url": "https://startupitalia.eu/economy/tim-e-cdp-venture-capital-protocollo/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-03-30T16:31:11+00:00",
+      "observed_at": "2026-03-30T20:55:16.276929+00:00",
+      "created_at": "2026-03-30T20:55:16.276929+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": true,
+      "extracted_entities": {
+        "companies": [
+          "TIM"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "TIM e CDP Venture Capital stanno valutando startup e PMI per collaborazioni su sovranit\u00e0 digitale e tecnologie europee. L\u2019articolo descrive attivit\u00e0 di scouting e possibili sinergie industriali, commerciali e tecnologiche, senza annunciare un investimento o un\u2019operazione PE/VC chiusa.",
+      "title_original": "Sovranit\u00e0 digitale, si muovono TIM e CDP per trovare startup e PMI con la tecnologia adatta a rendere l\u2019Italia meno dipendente dalle tecnologie extra Ue",
+      "_fund_geo_scope": "italy_focused",
+      "ml_keep": true,
+      "ml_keep_prob": 0.812,
+      "ml_keep_confidence": 0.812,
+      "ml_keep_confident": true,
+      "ml_type": "portfolio_update",
+      "ml_type_prob": 0.679,
+      "ml_type_confident": true,
+      "ml_confidence": 0.679,
+      "evidence_score": 3,
+      "quality_confidence": "high",
+      "confidence_score": 0.73,
+      "signal_types": [
+        "portfolio_update"
+      ]
+    },
+    {
       "id": "rss-signal-00210",
       "fund_id": "",
       "fund_slug": "kyip-capital-sgr",
@@ -12939,52 +13024,6 @@
       "signal_types": [
         "portfolio_update",
         "deal_announced"
-      ]
-    },
-    {
-      "id": "rss-signal-00263",
-      "fund_id": "",
-      "fund_slug": "cdp-venture-capital",
-      "related_fund_slugs": [
-        "cdp-venture-capital"
-      ],
-      "signal_type": "portfolio_update",
-      "title": "Digital sovereignty: TIM and CDP are taking steps to identify startups and SMEs with the right technology to reduce Italy\u2019s reliance on non-EU technologies",
-      "what_changed": "TIM and CDP Venture Capital are evaluating startups and SMEs for partnerships in the areas of digital sovereignty and European technologies. The article describes scouting activities and potential industrial, commercial, and technological synergies, without announcing any investment or completed PE/VC transaction.",
-      "source_url": "https://startupitalia.eu/economy/tim-e-cdp-venture-capital-protocollo/",
-      "source_name": "StartupItalia",
-      "published_at": "2026-03-30T16:31:11+00:00",
-      "observed_at": "2026-03-30T20:55:16.276929+00:00",
-      "created_at": "2026-03-30T20:55:16.276929+00:00",
-      "page_category": "NEWS",
-      "page_type": "RSS_ITEM",
-      "extraction_source": "rss_monitor",
-      "italy_relevant": true,
-      "quality_score": 85,
-      "is_rumor": true,
-      "extracted_entities": {
-        "companies": [
-          "TIM"
-        ],
-        "people": [],
-        "locations": []
-      },
-      "what_changed_original": "TIM e CDP Venture Capital stanno valutando startup e PMI per collaborazioni su sovranit\u00e0 digitale e tecnologie europee. L\u2019articolo descrive attivit\u00e0 di scouting e possibili sinergie industriali, commerciali e tecnologiche, senza annunciare un investimento o un\u2019operazione PE/VC chiusa.",
-      "title_original": "Sovranit\u00e0 digitale, si muovono TIM e CDP per trovare startup e PMI con la tecnologia adatta a rendere l\u2019Italia meno dipendente dalle tecnologie extra Ue",
-      "_fund_geo_scope": "italy_focused",
-      "ml_keep": true,
-      "ml_keep_prob": 0.812,
-      "ml_keep_confidence": 0.812,
-      "ml_keep_confident": true,
-      "ml_type": "portfolio_update",
-      "ml_type_prob": 0.679,
-      "ml_type_confident": true,
-      "ml_confidence": 0.679,
-      "evidence_score": 3,
-      "quality_confidence": "high",
-      "confidence_score": 0.73,
-      "signal_types": [
-        "portfolio_update"
       ]
     },
     {
@@ -15136,6 +15175,47 @@
       ]
     },
     {
+      "id": "web-signal-02397",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "deal_announced",
+      "title": "EMK acquires majority stake in We Are Project",
+      "what_changed": "",
+      "source_url": "https://www.emkcapital.com/news/emk-acquires-majority-stake-in-weareproject",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:35.389955+00:00",
+      "created_at": "2026-03-30T22:13:35.389955+00:00",
+      "snapshot_id": "snap-20260330221335-e4e25382",
+      "diff_summary": "New news item detected (dated 6 Nov)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "_fund_geo_scope": "europe_wide",
+      "ml_keep": true,
+      "ml_keep_prob": 0.841,
+      "ml_keep_confidence": 0.841,
+      "ml_keep_confident": true,
+      "ml_type": "deal_announced",
+      "ml_type_prob": 0.213,
+      "ml_type_confident": false,
+      "ml_confidence": 0.213,
+      "quality_score": 81,
+      "evidence_score": 1,
+      "quality_confidence": "low",
+      "confidence_score": 0.504,
+      "signal_types": [
+        "deal_announced"
+      ]
+    },
+    {
       "id": "web-signal-02091",
       "fund_id": "",
       "fund_slug": "sinloc-investimenti-sgr",
@@ -16163,12 +16243,12 @@
       ]
     }
   ],
-  "signal_count": 356,
-  "translated_at": "2026-03-31T09:34:40.135441+00:00",
-  "filtered_at": "2026-03-31T10:37:59.617711+00:00",
+  "signal_count": 358,
+  "translated_at": "2026-03-31T10:43:55.776753+00:00",
+  "filtered_at": "2026-03-31T11:16:34.810487+00:00",
   "filter_stats": {
-    "original_count": 2499,
-    "filtered_count": 356,
+    "original_count": 2501,
+    "filtered_count": 358,
     "removed_invalid_fund": 40,
     "removed_duplicates": 351,
     "resolved_duplicate_ids": 525,
@@ -16177,7 +16257,7 @@
     "removed_low_quality": 163,
     "removed_support_only": 1,
     "removed_junior_non_italy": 2,
-    "removed_geo_irrelevant": 923,
+    "removed_geo_irrelevant": 922,
     "removed_misattributed": 254,
     "removed_orphan_fund": 0,
     "removed_ml": 0,
@@ -16186,13 +16266,13 @@
     "ml_type_overrides": 62,
     "min_quality_score": 80,
     "confidence_distribution": {
-      "high": 381,
+      "high": 383,
       "medium": 73,
-      "low": 13
+      "low": 14
     },
     "cache_version": 2,
     "cache_reused_kept": 0,
     "cache_reused_drop": 0,
-    "cache_processed_new": 2459
+    "cache_processed_new": 2461
   }
 }

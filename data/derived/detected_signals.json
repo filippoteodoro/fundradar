@@ -68579,8 +68579,68 @@
         ],
         "locations": []
       }
+    },
+    {
+      "id": "rss-signal-00269",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "Capsule Corporation chiude un round seed da 800 mila euro",
+      "what_changed": "Capsule Corporation ha chiuso un round seed da 800 mila euro per sviluppare sistemi di propulsione a base d\u2019acqua per piccoli satelliti e industrializzare la tecnologia. Ha partecipato Cdp Venture Capital sgr tramite Takeoff Accelerator. Startup italiana con focus space tech e obiettivo di ingresso sul mercato nel 2027.",
+      "source_url": "https://financecommunity.it/capsule-corporation-chiude-un-round-seed-da-800-mila-euro/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-03-31T10:24:48+00:00",
+      "observed_at": "2026-03-31T10:43:47.465881+00:00",
+      "created_at": "2026-03-31T10:43:47.465881+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Capsule Corporation"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "800 mila euro"
+    },
+    {
+      "id": "rss-signal-00270",
+      "fund_id": "",
+      "fund_slug": "style-capital-sgr",
+      "related_fund_slugs": [
+        "style-capital-sgr"
+      ],
+      "signal_type": "other",
+      "title": "Aumento di capitale da 15 milioni di euro per Luisaviaroma (Style Capital)",
+      "what_changed": "Luisaviaroma, e-tailer multibrand italiano partecipato da Style Capital, ha deliberato un aumento di capitale fino a 15 milioni di euro. Sono in corso interlocuzioni avanzate con investitori attuali e nuovi per sostenere un piano di ristrutturazione. Si tratta di una negoziazione, non di un\u2019operazione gi\u00e0 chiusa.",
+      "source_url": "https://financecommunity.it/aumento-di-capitale-da-15-milioni-di-euro-per-luisaviaroma-style-capital/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-03-31T09:34:25+00:00",
+      "observed_at": "2026-03-31T10:43:47.465881+00:00",
+      "created_at": "2026-03-31T10:43:47.465881+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": true,
+      "extracted_entities": {
+        "companies": [
+          "Luisaviaroma"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "15 milioni di euro"
     }
   ],
   "signal_count": 2468,
-  "translated_at": "2026-03-31T09:34:40.135441+00:00"
+  "translated_at": "2026-03-31T10:43:55.776753+00:00"
 }

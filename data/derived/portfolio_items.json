@@ -70596,7 +70596,7 @@
         "signal_id": "rss-signal-00246"
       },
       {
-        "name": "Capsule Corporation",
+        "name": "Capsule",
         "sector": "Healthcare",
         "status": "current",
         "confidence": 0.8,
@@ -87290,14 +87290,14 @@
         "signal_id": "rss-signal-00246"
       },
       {
-        "name": "Capsule Corporation",
-        "sector": "Software",
+        "name": "Capsule",
+        "sector": "Healthcare",
         "status": "current",
         "confidence": 0.8,
         "website": null,
-        "description": "Capsule is a digital platform that allows users to collect, organize, and share digital memories and content in a secure and private environment.",
+        "description": "A technology-driven healthcare company that operates a digital pharmacy providing same-day prescription delivery and medication management services.",
         "detail_page_url": null,
-        "headquarters": "Milan, Italy",
+        "headquarters": "New York, USA",
         "investment_date": "2026-03-31",
         "source_url": "https://bebeez.it/venture-capital/capsule-corporation-si-assicura-round-da-800k-euro-dal-takeoff-accelerator-cdp-venture-capital-sgr-e-altri-investitori/",
         "data_source": "signal_news_verified",

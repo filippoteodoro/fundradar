@@ -1205,7 +1205,11 @@ def _reclassify_signal_type(signal: dict, text: str, fund: dict | None = None) -
                             first_entity = re.match(r"^([A-Za-z][\w\s]{2,30}?)\s+(?:has\s+completed|completes?|acquir)", (signal.get("title") or ""), re.IGNORECASE)
                             if first_entity:
                                 acquirer_name = first_entity.group(1).lower().strip()
-                                if fund_name not in acquirer_name:
+                                # Use word-level match so "emk capital" matches acquirer "emk"
+                                # (substring check fails when fund_name is longer than acquirer_name)
+                                _fund_words = [w for w in fund_name.split() if len(w) >= 3]
+                                _fund_is_acquirer = any(w in acquirer_name for w in _fund_words)
+                                if not _fund_is_acquirer:
                                     return "exit_announced"
 
         # fund_launch false positives: "Xth investimento per Fund N" or "nuovo investimento per il fondo" → deal
@@ -1501,7 +1505,8 @@ ITALY_MENTION_PATTERNS = [
         r'\bS\.p\.A\.?\b', r'\bS\.\s*p\.\s*A\b', r'\bS\.r\.l\.?\b', r'\bS\.\s*r\.\s*l\b',
         r'\bS\.a\.s\.?\b', r'\bS\.\s*a\.\s*s\b', r'\bS\.n\.c\.?\b', r'\bS\.\s*n\.\s*c\b',
         # Known large Italian portfolio companies that signal Italian relevance
-        r'\bWeAreProject\b',
+        # Note: clean_display_text() expands CamelCase brand names, so match both forms
+        r'\bWeAreProject\b', r'\bWe\s+Are\s+Project\b',
     ]
 ]
 

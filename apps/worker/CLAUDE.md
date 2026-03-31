@@ -322,12 +322,20 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 
 `apply_type_corrections()` `other` rescue — in addition to the existing "names/appoints X as role" rescue, a **standalone professional title** rescue fires when the title contains managing director / head of / chief * officer / etc. with no PE fund/investment language. Catches "Michele Romualdi managing director, Head of Investor Relations" type signals.
 
+`correct_deal()` `_RE_REPORT` guard — the "strategic plan" pattern in `_RE_REPORT` matches incidental mentions like "in line with the Group's 2024–2026 Strategic Plan". The check has an `_RE_ACQUISITION_VERBS` title guard: if the TITLE has acquisition verbs, the report pattern in the body doesn't demote the signal. Without this, "X acquires Y (deal part of strategic plan)" → report. Do NOT remove the title guard.
+
+`_reclassify_signal_type()` secured-loan check — `\bsecures?\b.{0,40}\b(?:loan|prestito)\b` in the TITLE bypasses the `_RE_BOND_EXCLUDE` guard that fires when speculative acquisition language appears elsewhere in the headline ("could this be a precursor to acquisitions?"). `_RE_BOND_EXCLUDE` includes `\bacqui\w+\b` which matches "acquisitions" from speculative questions. The title-only check is authoritative. There's also a matching post-ML guard in `filter_signals.py` since ML may still predict `deal_announced` from the "acquisitions" text.
+
 `correct_deal()` / `correct_exit()` / `other` rescue — fund_launch rescue: when a signal contains explicit fund-launch verbs (`launches/lancia/nasce/avvia`) followed by a fund vehicle word within 80 chars, it is reclassified to `fund_launch` regardless of what type arrived. "TeamSystem Capital@Work launches FPAM 1 fund to invest in invoices" is a fund launch — the "invests in" describes the fund's mandate. This required fixes in 4 places:
 1. `_RE_LAUNCH_FUND` / `_RE_FUND_LAUNCH_VERBS` in `signal_patterns.py` — uses `(?:es|ed)?` so conjugated forms (`launches`, `launched`) match `\blaunch\b`. Do not remove the conjugation suffix or "launches" will stop matching.
 2. `correct_exit()` in `signal_corrections.py` — moved `_RE_LAUNCH_FUND` check BEFORE `_RE_INVEST_VERBS` check. ML often predicts `exit_announced` for PA-invoice signals; without this the invest-verbs → deal path fired first.
 3. `correct_deal()` in `signal_corrections.py` — fund_launch rescue at end of `correct_deal()` (covers ML-predicted `deal_announced`).
 4. `other` rescue in `apply_type_corrections()` — fund_launch check BEFORE `_RE_INVEST_VERBS → deal_announced` (covers rule-classified `other`).
 5. `filter_signals.py` post-ML fund_launch block — added `and not has_fund_vehicle` guard to `elif _RE_INVEST_VERBS` so fund mandate language doesn't override a correctly-classified `fund_launch`.
+
+`demoted_to_other_by_editorial` flag in `filter_signals.py` — set `True` when `apply_universal_demotions()` returns `"other"` (investor meetings, press reviews, call-for-applications, conference listings, etc.). Two guards rely on it: (1) the post-ML rescue block skips re-classification of intentionally-demoted signals, (2) the **final reconciliation** block (re-runs `apply_universal_demotions()` on the fully-cleaned text) skips re-promotion to `exit_announced`/`deal_announced` when this flag is set. Without guard (2), AI-generated `what_changed` text like "this is NOT a news item about... exit" contains the word "exit", which matches `_RE_STRONG_EXIT_VERBS` (`\bexits?\b`) and undoes the demotion. Guard prevents this false re-promotion.
+
+`_reclassify_signal_type()` fund-as-acquirer check — when a signal is from the fund's own website domain and the title starts with "[Entity] acquires...", the code checks whether the entity is the fund itself. Uses **word-level matching** (`any(w in acquirer_name for w in fund_name_words)`), not substring match. Substring match fails when `fund_name = "emk capital"` and `acquirer_name = "emk"` — "emk capital" is not a substring of "emk" so it would wrongly return `exit_announced`. The word-level check correctly identifies "emk" as one of the fund name words and skips the exit reclassification. Only words ≥3 chars are used for matching.
 
 `_cdt_normalize_casing()` person-name casing — two patterns for person names in appointment context:
 1. **Forward** (line ~1447): `(appointed|...) [lowercase name]` → capitalizes the name after the verb.
@@ -372,7 +380,7 @@ The filter uses an optional sklearn ML classifier (`signal_classifier.py`) for c
 
 **The ML can override rule-based corrections** — so the rule giving the correct type in step 1 may be silently reverted to "other" in step 2. The post-ML rescue block (step 3) guards against this for most cases.
 
-**`demoted_to_other_by_editorial` flag**: when `apply_universal_demotions()` explicitly returned "other" (investor meetings, press reviews, call_for_applications, etc.), this flag is set `True` and the post-ML rescue is disabled — preventing re-classification of intentionally demoted signals.
+**`demoted_to_other_by_editorial` flag**: when `apply_universal_demotions()` explicitly returned "other" (investor meetings, press reviews, call_for_applications, etc.), this flag is set `True` and the post-ML rescue is disabled — preventing re-classification of intentionally demoted signals. The **final reconciliation** block also re-runs `apply_universal_demotions()` — the flag prevents it from re-promoting the signal to exit/deal even when the full text contains exit/deal vocabulary in a negating context (e.g., AI-generated `what_changed`: "this is NOT a news item about... exit").
 
 **To diagnose a signal that "corrections fix in isolation but stays other in output"**: run `apply_universal_demotions()` and `apply_type_corrections("other", ...)` on the text first. If corrections give the right type, the ML is overriding — check whether `demoted_to_other_by_editorial` should be False for this signal. See `docs/check_signals.md` Issue 20.
 

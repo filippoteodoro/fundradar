@@ -19753,14 +19753,70 @@
         }
       ],
       "type": "deal_announced"
+    },
+    {
+      "id": "web-signal-02397",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "deal_announced",
+      "title": "EMK acquires majority stake in We Are Project",
+      "what_changed": "",
+      "source_url": "https://www.emkcapital.com/news/emk-acquires-majority-stake-in-weareproject",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:35.389955+00:00",
+      "created_at": "2026-03-30T22:13:35.389955+00:00",
+      "snapshot_id": "snap-20260330221335-e4e25382",
+      "diff_summary": "New news item detected (dated 6 Nov)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "_fund_geo_scope": "europe_wide",
+      "ml_keep": true,
+      "ml_keep_prob": 0.841,
+      "ml_keep_confidence": 0.841,
+      "ml_keep_confident": true,
+      "ml_type": "people_move",
+      "ml_type_prob": 0.255,
+      "ml_type_confident": false,
+      "ml_confidence": 0.255,
+      "quality_score": 81,
+      "evidence_score": 1,
+      "quality_confidence": "low",
+      "confidence_score": 0.504,
+      "signal_types": [
+        "deal_announced"
+      ],
+      "enriched_summary": "EMK Capital acquired a majority stake in We Are Project.",
+      "enriched_date": null,
+      "enrichment_confidence": "high",
+      "enriched_at": "2026-03-31T11:17:47.850209+00:00",
+      "llm_event_type": "deal",
+      "llm_type_confidence": "high",
+      "llm_italy_relevant": true,
+      "target_companies": [
+        {
+          "name": "We Are Project",
+          "is_direct_investment": true,
+          "action": "investment"
+        }
+      ],
+      "type": "deal_announced"
     }
   ],
-  "signal_count": 356,
-  "translated_at": "2026-03-31T09:34:40.135441+00:00",
-  "filtered_at": "2026-03-31T10:06:41.803775+00:00",
+  "signal_count": 357,
+  "translated_at": "2026-03-31T10:43:55.776753+00:00",
+  "filtered_at": "2026-03-31T11:16:34.810487+00:00",
   "filter_stats": {
-    "original_count": 2499,
-    "filtered_count": 356,
+    "original_count": 2501,
+    "filtered_count": 358,
     "removed_invalid_fund": 40,
     "removed_duplicates": 351,
     "resolved_duplicate_ids": 525,
@@ -19769,7 +19825,7 @@
     "removed_low_quality": 163,
     "removed_support_only": 1,
     "removed_junior_non_italy": 2,
-    "removed_geo_irrelevant": 923,
+    "removed_geo_irrelevant": 922,
     "removed_misattributed": 254,
     "removed_orphan_fund": 0,
     "removed_ml": 0,
@@ -19778,14 +19834,14 @@
     "ml_type_overrides": 62,
     "min_quality_score": 80,
     "confidence_distribution": {
-      "high": 381,
+      "high": 383,
       "medium": 73,
-      "low": 13
+      "low": 14
     },
     "cache_version": 2,
     "cache_reused_kept": 0,
     "cache_reused_drop": 0,
-    "cache_processed_new": 2459
+    "cache_processed_new": 2461
   },
-  "enriched_at": "2026-03-31T10:08:52.467591+00:00"
+  "enriched_at": "2026-03-31T11:18:34.051443+00:00"
 }
