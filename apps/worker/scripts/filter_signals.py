@@ -2466,28 +2466,10 @@ def _is_geo_relevant_signal(signal: dict, fund_geo_scope: str, fund: dict | None
             return False
         return True
 
-    # Europe-wide funds: two sub-tiers based on whether Italy is in their geographies.
-    #
-    # Funds WITH 'Italy' in geos (Investindustrial, Ibla Capital, Charme Capital, etc.):
-    #   core types pass (like italy_focused), non-core need Europe evidence.
-    #   These are Italian-active PE firms classified europe_wide only because they
-    #   also have 'Europe' in geos without SGR/SICAF suffix.
-    #
-    # Funds WITHOUT 'Italy' in geos (L Catterton, BC Partners, Oakley Capital, etc.):
-    #   ALL types require Italy mention or pan-European context in the text.
-    #   A French PE deal by CAPZA (no Italy in geos) is not relevant.
+    # Europe-wide funds: ALL signals require explicit Italy evidence in text.
     if fund_geo_scope == "europe_wide":
-        fund_geos = (fund.get("geographies") or []) if fund else []
-        fund_has_italy_geo = "Italy" in fund_geos
-
         if explicit_italy_evidence:
             return True
-
-        if fund_has_italy_geo and signal_type in CORE_GEO_TYPES:
-            # Allow core deals for funds known to be active in Italy
-            return True
-
-        # Non-core or non-Italy-geo funds: requires explicit Italy evidence
         return False
 
     # Mixed/global funds: strict main feed requires explicit Italy evidence.
@@ -2500,16 +2482,12 @@ def _is_geo_relevant_signal(signal: dict, fund_geo_scope: str, fund: dict | None
 def _boost_italy_relevance(signal: dict, fund_geo_scope: str, fund: dict | None = None) -> dict:
     """
     Promote Italy relevance for Italian-focused funds to reduce false negatives.
-    Only applies to italy_focused funds and europe_wide funds with Italy in geos.
+    Only applies to italy_focused funds.
     """
     if signal.get("italy_relevant") is True:
         return signal
         
     is_boostable = (fund_geo_scope == "italy_focused")
-    if not is_boostable and fund_geo_scope == "europe_wide" and fund:
-        if "Italy" in (fund.get("geographies") or []):
-            is_boostable = True
-            
     if not is_boostable:
         return signal
 
