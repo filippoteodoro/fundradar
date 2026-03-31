@@ -2957,6 +2957,7 @@ def run_monitor(
     use_extractor_urls: bool = True,
     force_extract: bool = False,
     slugs_filter: list[str] | None = None,
+    no_notify: bool = False,
 ):
     """
     Run the website monitor.
@@ -3067,7 +3068,8 @@ def run_monitor(
                 pruned = prune_stale_url_statuses(data_dir)
                 if pruned > 0:
                     print(f"\nURL status cleanup: removed {pruned} stale entries")
-                send_url_failure_alerts(data_dir)
+                if not no_notify:
+                    send_url_failure_alerts(data_dir)
             except Exception as e:
                 print(f"\nWarning: URL failure alerting failed: {e}")
 
@@ -3091,6 +3093,7 @@ if __name__ == "__main__":
     use_extractor_urls = True  # Use extractor URLS declarations (preferred)
     force_extract = False  # Force re-extraction even if content unchanged
     slugs_filter = None  # Only process these specific fund slugs
+    no_notify = False  # Suppress Telegram alerts (set automatically for --slugs runs)
 
     args = sys.argv[1:]
     for i, arg in enumerate(args):
@@ -3116,6 +3119,8 @@ if __name__ == "__main__":
             use_extractor_urls = True
         elif arg == "--force-extract":
             force_extract = True
+        elif arg == "--no-notify":
+            no_notify = True
         elif arg == "--help" or arg == "-h":
             print("Usage: python -m fundradar_worker.monitor [OPTIONS]")
             print("\nOptions:")
@@ -3127,6 +3132,7 @@ if __name__ == "__main__":
             print("  --no-fund-urls     Use monitor_urls.json instead of fund_urls.json")
             print("  --extractor-urls   Use extractor URLS declarations (new, preferred)")
             print("  --force-extract    Re-extract all funds (bypasses daily freshness skip + content hash)")
+            print("  --no-notify        Suppress Telegram alerts (auto-set for --slugs runs)")
             print("  --help, -h         Show this help message")
             sys.exit(0)
 
@@ -3162,7 +3168,7 @@ if __name__ == "__main__":
             print("Force extraction enabled (will re-extract even if content unchanged)")
         print()
 
-        signals = run_monitor(data_dir, config_file=config_file, limit=limit, skip_backoff=skip_backoff, use_fund_urls=use_fund_urls, use_extractor_urls=use_extractor_urls, force_extract=force_extract, slugs_filter=slugs_filter)
+        signals = run_monitor(data_dir, config_file=config_file, limit=limit, skip_backoff=skip_backoff, use_fund_urls=use_fund_urls, use_extractor_urls=use_extractor_urls, force_extract=force_extract, slugs_filter=slugs_filter, no_notify=no_notify)
 
         if signals:
             print("\nGenerated Signals:")

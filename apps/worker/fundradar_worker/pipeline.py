@@ -799,7 +799,7 @@ def run_step(step: dict, dry_run: bool = False) -> tuple[bool, int]:
     return all_ok, result.returncode
 
 
-def run_pipeline(only_step: str | None = None, dry_run: bool = False):
+def run_pipeline(only_step: str | None = None, dry_run: bool = False, no_notify: bool = False):
     """Run the full pipeline or a single step.
 
     Enrichment steps with retry_on_partial=True are automatically retried
@@ -921,7 +921,7 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
     failed = [n for n, ok in results.items() if not ok]
     if failed:
         print(f"\n  {len(failed)} step(s) failed.")
-        if not dry_run:
+        if not dry_run and not no_notify:
             _send_pipeline_alert(results, retry_log, step_details, None, total_elapsed)
         sys.exit(1)
     else:
@@ -997,7 +997,8 @@ def run_pipeline(only_step: str | None = None, dry_run: bool = False):
                 print(f"  Pipeline: fully self-healed")
 
             # Send Telegram alert with pipeline summary
-            _send_pipeline_alert(results, retry_log, step_details, report, total_elapsed)
+            if not no_notify:
+                _send_pipeline_alert(results, retry_log, step_details, report, total_elapsed)
 
         print(f"\n  All steps passed.")
 
@@ -1008,6 +1009,7 @@ if __name__ == "__main__":
     dry_run = False
     force_extract = False
     slugs_filter = None
+    no_notify = False
 
     i = 0
     while i < len(args):
@@ -1029,8 +1031,15 @@ if __name__ == "__main__":
         elif args[i].startswith("--slugs="):
             slugs_filter = args[i].split("=", 1)[1]
             i += 1
+        elif args[i] == "--no-notify":
+            no_notify = True
+            i += 1
         else:
             i += 1
+
+    # Targeted runs (--slugs) are development/maintenance runs — suppress Telegram.
+    if slugs_filter:
+        no_notify = True
 
     # Pass flags to relevant step commands
     for step in STEPS:
@@ -1039,6 +1048,8 @@ if __name__ == "__main__":
                 step["command"].append("--force-extract")
             if slugs_filter:
                 step["command"].extend(["--slugs", slugs_filter])
+            if no_notify:
+                step["command"].append("--no-notify")
         elif step["name"] == "translate" and slugs_filter:
             step["command"].extend(["--slugs", slugs_filter])
         elif step["name"] in ("enrich_portfolio", "enrich_portfolio_final") and slugs_filter:
@@ -1047,5 +1058,7 @@ if __name__ == "__main__":
             step["command"].extend(["--slugs", slugs_filter])
         elif step["name"] == "signal_to_portfolio" and slugs_filter:
             step["command"].extend(["--slugs", slugs_filter])
+        if step["name"] == "filter" and no_notify:
+            step["command"].append("--no-notify")
 
-    run_pipeline(only_step=step_name, dry_run=dry_run)
+    run_pipeline(only_step=step_name, dry_run=dry_run, no_notify=no_notify)

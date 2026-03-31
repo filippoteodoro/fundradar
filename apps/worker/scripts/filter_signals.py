@@ -3482,6 +3482,11 @@ def _parse_args() -> argparse.Namespace:
         action="store_true",
         help="Ignore signal_filter_progress.json and fully rescore the raw signal history.",
     )
+    parser.add_argument(
+        "--no-notify",
+        action="store_true",
+        help="Suppress Telegram alerts (unknown fund gaps, etc.).",
+    )
     return parser.parse_args()
 
 
@@ -4640,7 +4645,7 @@ def main():
         from fundradar_worker.alerting import AlertConfig, send_unknown_fund_alerts
         known_slugs = set(funds_by_slug.keys())
         gaps = detect_unknown_fund_mentions(persisted_filtered, known_slugs, invalid_slugs=slug_normalizer.invalid_slugs)
-        if gaps:
+        if gaps and not args.no_notify:
             send_unknown_fund_alerts(gaps, AlertConfig.from_env())
     except Exception as _gap_exc:
         print(f"Warning: fund gap detection failed: {_gap_exc}")
