@@ -65,7 +65,8 @@ _FR_STRONG_RE = re.compile(
 )
 _EN_STRONG_RE = re.compile(
     r"\b(?:announced|announces|closed|closing|raised|acquired|acquires|acquisition|sold|sale|invested"
-    r"|investment|appointed|appointment|agreement|partnership|million|debt|financing|launched|launch)\b",
+    r"|investment|appointed|appointment|agreement|partnership|million|debt|financing|launched|launch"
+    r"|closes|launches|raises|exit|exits|invests|invest|presents|completes|strategic|equity|private)\b",
     re.IGNORECASE,
 )
 _TRANSLATION_NETWORK_ERROR_HINTS = (
