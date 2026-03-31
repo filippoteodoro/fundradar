@@ -6,6 +6,7 @@ targets deeper portfolio/press URLs that historically returned usable content.
 import re
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
+from fundradar_worker.date_utils import MONTH_NAMES as _MONTH_NAMES
 
 DOMAIN = "www.algebris.com"
 

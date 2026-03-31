@@ -1,6 +1,7 @@
 """Site-specific extractors for www.baincapitalprivateequity.com."""
 import re
 from bs4 import BeautifulSoup
+from fundradar_worker.date_utils import MONTH_NAMES as _MONTH_NAMES
 
 DOMAIN = "www.baincapitalprivateequity.com"
 

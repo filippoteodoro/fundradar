@@ -7,6 +7,7 @@ headless browser. Company cards load dynamically.
 import re
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+from fundradar_worker.date_utils import MONTH_NAMES as _MONTH_NAMES
 
 DOMAIN = "www.bridgepointgroup.com"
 

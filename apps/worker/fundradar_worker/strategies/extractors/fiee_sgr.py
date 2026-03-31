@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from datetime import datetime
 import re
+from fundradar_worker.date_utils import MONTH_NAMES as _MONTH_NAMES
 
 DOMAIN = "www.fieesgr.com"
 

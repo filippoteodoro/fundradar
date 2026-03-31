@@ -7,6 +7,7 @@ The data is in script tags with self.__next_f.push() containing JSON.
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import re
+from fundradar_worker.date_utils import MONTH_NAMES as _MONTH_NAMES
 
 DOMAIN = "www.eqtgroup.com"
 
