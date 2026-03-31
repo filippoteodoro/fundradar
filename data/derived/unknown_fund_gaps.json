@@ -1,76 +1,6 @@
 {
   "gaps": [
     {
-      "mention": "CDP VC SGR",
-      "suggested_slug": "cdp-vc",
-      "signal_id": "news-signal-20260205111509-fb1ed3df-595543c0",
-      "signal_title": "Primo space and CDP VC SGR invest \u20ac5.1M in Sidereus Space Dynamics",
-      "alerted_at": "2026-02-27T15:48:22.665070+00:00"
-    },
-    {
-      "mention": "Finanziaria Internazionale Investments SGR",
-      "suggested_slug": "finanziaria-internazionale-investments",
-      "signal_id": "web-signal-01779",
-      "signal_title": "NOTICE: Amendments to the Management Regulations of the Italian reserved investment fund named \"Fondo Finint Bond",
-      "alerted_at": "2026-02-27T15:48:22.665070+00:00"
-    },
-    {
-      "mention": "Capital Alternative Funds SGR",
-      "suggested_slug": "capital-alternative-funds",
-      "signal_id": "rss-signal-00113",
-      "signal_title": "Banco BPM provides financing to Atena Societ\u00e0 Agricola, based in Arezzo, which is owned by the Idea Agro fund (De A Capi",
-      "alerted_at": "2026-02-27T15:48:22.665070+00:00"
-    },
-    {
-      "mention": "Credem Private Equity SGR",
-      "suggested_slug": "credem-private-equity",
-      "signal_id": "rss-signal-00120",
-      "signal_title": "Nineteenth acquisition in a row for finlogic (Credem Private Equity, Aurora Growth Capital, and PM&Partners SGR), which ",
-      "alerted_at": "2026-02-27T15:48:22.665070+00:00"
-    },
-    {
-      "mention": "Generali Real Estate SGR",
-      "suggested_slug": "generali-real-estate",
-      "signal_id": "web-signal-01782",
-      "signal_title": "The Banca Finint Group and Savim invest in urban regeneration: the former Turin Public Prosecutor's Office will become a",
-      "alerted_at": "2026-02-27T17:40:52.855128+00:00"
-    },
-    {
-      "mention": "Hedge Invest SGR",
-      "suggested_slug": "hedge-invest",
-      "signal_id": "web-signal-01784",
-      "signal_title": "Finint Investments acquires Hedge Invest and consolidates its leadership in alternative investments in Italy and abroad",
-      "alerted_at": "2026-02-27T17:40:52.855128+00:00"
-    },
-    {
-      "mention": "SME Development Fund FVS SGR",
-      "suggested_slug": "sme-development-fund-fvs",
-      "signal_id": "web-signal-01310",
-      "signal_title": "FVS SGR sells its stake in the IQT Group to Accenture. First divestment of the SME Development Fund",
-      "alerted_at": "2026-02-27T17:40:52.855128+00:00"
-    },
-    {
-      "mention": "ARMES FVS SGR",
-      "suggested_slug": "armes-fvs",
-      "signal_id": "web-signal-01322",
-      "signal_title": "FVS Sgr: Fundraise - ARMES",
-      "alerted_at": "2026-02-27T17:40:52.855128+00:00"
-    },
-    {
-      "mention": "Blackstone Private Equity Fund",
-      "suggested_slug": "blackstone-private-equity-fund",
-      "signal_id": "seed-signal-00025",
-      "signal_title": "Blackstone and UniCredit launch BXEF private equity fund distribution in Italy",
-      "alerted_at": "2026-02-27T17:40:52.855128+00:00"
-    },
-    {
-      "mention": "Kryalos SGR",
-      "suggested_slug": "kryalos",
-      "signal_id": "seed-signal-00029",
-      "signal_title": "EQT Real Estate acquires 12-building logistics portfolio in Northern Italy for \u20ac230M",
-      "alerted_at": "2026-02-27T17:40:52.855128+00:00"
-    },
-    {
       "mention": "TechFund Italia SGR",
       "suggested_slug": "techfund-italia",
       "signal_id": "3",
@@ -90,6 +20,83 @@
       "signal_id": "rss-signal-00240",
       "signal_title": "Sinloc Investimenti SGR acquires 49% of the equity in Solis S.r.l. from Repower, which owns 13 solar power plants in Ita",
       "alerted_at": "2026-03-27T11:11:54.091089+00:00"
+    },
+    {
+      "mention": "Finanziaria Internazionale Investments SGR",
+      "suggested_slug": "finanziaria-internazionale-investments",
+      "signal_id": "web-signal-02366",
+      "signal_title": "NOTICE: Amendments to the Management Regulations of the Italian closed-end investment fund named \"Fondo Finint Bond",
+      "alerted_at": "2026-03-29T16:02:28.825660+00:00"
+    },
+    {
+      "mention": "Credem Private Equity SGR",
+      "suggested_slug": "credem-private-equity",
+      "signal_id": "rss-signal-00120",
+      "signal_title": "Nineteenth acquisition in a row for finlogic (Credem Private Equity, Aurora Growth Capital, and PM&Partners SGR), which ",
+      "alerted_at": "2026-03-29T16:02:28.825660+00:00"
+    },
+    {
+      "mention": "Capital Alternative Funds SGR",
+      "suggested_slug": "capital-alternative-funds",
+      "signal_id": "rss-signal-00113",
+      "signal_title": "Banco BPM provides financing to Atena Societ\u00e0 Agricola, based in Arezzo, which is owned by the Idea Agro fund (De A Capi",
+      "alerted_at": "2026-03-29T16:02:28.825660+00:00"
+    },
+    {
+      "mention": "Blackstone Private Equity Fund",
+      "suggested_slug": "blackstone-private-equity-fund",
+      "signal_id": "seed-signal-00025",
+      "signal_title": "Blackstone and UniCredit launch BXEF private equity fund distribution in Italy",
+      "alerted_at": "2026-03-30T21:09:02.550016+00:00"
+    },
+    {
+      "mention": "Anthilia Capital Partners SGR",
+      "suggested_slug": "anthilia-capital-partners",
+      "signal_id": "rss-signal-00256",
+      "signal_title": "Private credit, Anthilia smonta il caso USA: Europa pi\u00f9 solida grazie a disciplina e selezione",
+      "alerted_at": "2026-03-30T21:09:02.550016+00:00"
+    },
+    {
+      "mention": "Generali Real Estate SGR",
+      "suggested_slug": "generali-real-estate",
+      "signal_id": "web-signal-02369",
+      "signal_title": "The Banca Finint Group and Savim are investing in urban renewal: the former Turin Public Prosecutor\u2019s Office will be con",
+      "alerted_at": "2026-03-30T21:09:02.550016+00:00"
+    },
+    {
+      "mention": "Hedge Invest SGR",
+      "suggested_slug": "hedge-invest",
+      "signal_id": "web-signal-02371",
+      "signal_title": "Finint Investments acquires Hedge Invest and strengthens its leadership in alternative investments in Italy and abroad",
+      "alerted_at": "2026-03-30T21:09:02.550016+00:00"
+    },
+    {
+      "mention": "SME Development Fund FVS SGR",
+      "suggested_slug": "sme-development-fund-fvs",
+      "signal_id": "web-signal-01310",
+      "signal_title": "FVS SGR sells its stake in the IQT Group to Accenture. First divestment of the SME Development Fund",
+      "alerted_at": "2026-03-30T21:09:02.550016+00:00"
+    },
+    {
+      "mention": "ARMES FVS SGR",
+      "suggested_slug": "armes-fvs",
+      "signal_id": "web-signal-01322",
+      "signal_title": "FVS Sgr: Fundraising - ARMES",
+      "alerted_at": "2026-03-30T21:09:02.550016+00:00"
+    },
+    {
+      "mention": "Kryalos SGR",
+      "suggested_slug": "kryalos",
+      "signal_id": "seed-signal-00029",
+      "signal_title": "EQT Real Estate acquires 12-building logistics portfolio in Northern Italy for \u20ac230M",
+      "alerted_at": "2026-03-30T21:09:02.550016+00:00"
+    },
+    {
+      "mention": "Moonstone Venture Capital",
+      "suggested_slug": "moonstone-venture-capital",
+      "signal_id": "rss-signal-00267",
+      "signal_title": "Capsule Corporation si assicura round da \u20ac800K dal Takeoff Accelerator (CDP Venture Capital sgr) e altri investitori",
+      "alerted_at": "2026-03-31T08:10:55.773823+00:00"
     }
   ]
 }

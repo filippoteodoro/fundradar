@@ -3,7 +3,7 @@ import re
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
-DOMAIN = "emkcapital.com"
+DOMAIN = "www.emkcapital.com"
 
 # URL paths for monitoring
 URLS = {

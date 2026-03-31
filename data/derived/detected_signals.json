@@ -65904,8 +65904,956 @@
       "deal_amount": "12 milioni di euro",
       "what_changed_original": "Cleafy, startup italiana di cybersecurity fondata nel 2014, ha chiuso un round da 12 milioni di euro. L\u2019azienda, guidata da Matteo Bogana, ha sedi anche a Londra, Barcellona e Bogot\u00e0 e punta ora all\u2019espansione in America Latina. United Ventures risulta il fondo coinvolto.",
       "title_original": "Cleafy, la cybersecurity italiana fa boom. \u00abPartiti in cinque in un garage, ora siamo cento persone. Si punta all\u2019America Latina\u00bb"
+    },
+    {
+      "id": "web-signal-02395",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "deal_announced",
+      "title": "L&S added to EMK Capital portfolio",
+      "what_changed": "L&S added to EMK Capital portfolio",
+      "source_url": "https://emkcapital.com/our-portfolio",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T19:48:07.292697+00:00",
+      "created_at": "2026-03-30T19:48:07.292697+00:00",
+      "snapshot_id": "snap-20260330194806-21ee1f06",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "LS"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00250",
+      "fund_id": "",
+      "fund_slug": "dea-capital-alternative-funds-sgr",
+      "related_fund_slugs": [
+        "dea-capital-alternative-funds-sgr",
+        "green-arrow-capital-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Private equity nella morsa: la pressione su raccolta ed exit spinge verso le aggregazioni",
+      "what_changed": "Lo scorso agosto Green Arrow Capital e Dea Capital hanno finalizzato l\u2019accordo per il passaggio di Dea Capital Alternative Funds SGR a Green Arrow. L\u2019operazione, nel settore del private equity/fund management, ha creato il pi\u00f9 grande gestore italiano, con forte rilevanza per il mercato nazionale.",
+      "source_url": "https://bebeez.it/insight-views/private-equity-nella-morsa-la-pressione-su-raccolta-ed-exit-spinge-verso-le-aggregazioni/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-30T05:59:12+00:00",
+      "observed_at": "2026-03-30T20:54:43.070514+00:00",
+      "created_at": "2026-03-30T20:54:43.070514+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Dea Capital Alternative Funds SGR",
+          "Green Arrow Capital"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00251",
+      "fund_id": "",
+      "fund_slug": "green-arrow-capital-sgr",
+      "related_fund_slugs": [
+        "dea-capital-alternative-funds-sgr",
+        "green-arrow-capital-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Private equity nella morsa: la pressione su raccolta ed exit spinge verso le aggregazioni",
+      "what_changed": "Lo scorso agosto Green Arrow Capital e Dea Capital hanno finalizzato l\u2019accordo per il passaggio di Dea Capital Alternative Funds SGR a Green Arrow. L\u2019operazione, nel settore del private equity/fund management, ha creato il pi\u00f9 grande gestore italiano, con forte rilevanza per il mercato nazionale.",
+      "source_url": "https://bebeez.it/insight-views/private-equity-nella-morsa-la-pressione-su-raccolta-ed-exit-spinge-verso-le-aggregazioni/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-30T05:59:12+00:00",
+      "observed_at": "2026-03-30T20:54:43.070514+00:00",
+      "created_at": "2026-03-30T20:54:43.070514+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Dea Capital Alternative Funds SGR",
+          "Green Arrow Capital"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00252",
+      "fund_id": "",
+      "fund_slug": "21-invest",
+      "related_fund_slugs": [
+        "21-invest"
+      ],
+      "signal_type": "other",
+      "title": "Sistema 21 Invest-Tages, con 21 Next tre verticali e gi\u00e0 quattro piedi oltreconfine",
+      "what_changed": "Articolo di taglio editoriale su 21 Invest e il percorso di crescita del gruppo, con riferimento al posizionamento internazionale e alle strategie di sviluppo. Non emerge una transazione di private equity/VC annunciata o conclusa, ma un approfondimento sul business model del gestore.",
+      "source_url": "https://bebeez.it/insight-views/sistema-21-invest-tages-con-21-next-tre-verticali-e-gia-quattro-piedi-oltreconfine/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-30T05:58:58+00:00",
+      "observed_at": "2026-03-30T20:54:43.070514+00:00",
+      "created_at": "2026-03-30T20:54:43.070514+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00253",
+      "fund_id": "",
+      "fund_slug": "dea-capital-alternative-funds-sgr",
+      "related_fund_slugs": [
+        "dea-capital-alternative-funds-sgr",
+        "green-arrow-capital-sgr"
+      ],
+      "signal_type": "other",
+      "title": "Sistema Green Arrow-Dea Capital Alternative Funds, quando il buy and build avviene sui gestori",
+      "what_changed": "Approfondimento sul sistema Green Arrow-Dea Capital Alternative Funds e sul buy-and-build applicato ai gestori, in un contesto di aggregazione del settore. Non viene descritta una nuova operazione di investimento o acquisizione, ma un\u2019analisi del mercato e delle dinamiche tra manager.",
+      "source_url": "https://bebeez.it/insight-views/sistema-green-arrow-dea-capital-alternative-funds-quando-il-buy-and-build-avviene-sui-gestori/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-30T05:57:41+00:00",
+      "observed_at": "2026-03-30T20:54:43.070514+00:00",
+      "created_at": "2026-03-30T20:54:43.070514+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00254",
+      "fund_id": "",
+      "fund_slug": "green-arrow-capital-sgr",
+      "related_fund_slugs": [
+        "dea-capital-alternative-funds-sgr",
+        "green-arrow-capital-sgr"
+      ],
+      "signal_type": "other",
+      "title": "Sistema Green Arrow-Dea Capital Alternative Funds, quando il buy and build avviene sui gestori",
+      "what_changed": "Approfondimento sul sistema Green Arrow-Dea Capital Alternative Funds e sul buy-and-build applicato ai gestori, in un contesto di aggregazione del settore. Non viene descritta una nuova operazione di investimento o acquisizione, ma un\u2019analisi del mercato e delle dinamiche tra manager.",
+      "source_url": "https://bebeez.it/insight-views/sistema-green-arrow-dea-capital-alternative-funds-quando-il-buy-and-build-avviene-sui-gestori/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-30T05:57:41+00:00",
+      "observed_at": "2026-03-30T20:54:43.070514+00:00",
+      "created_at": "2026-03-30T20:54:43.070514+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00255",
+      "fund_id": "",
+      "fund_slug": "apax-partners",
+      "related_fund_slugs": [
+        "apax-partners"
+      ],
+      "signal_type": "other",
+      "title": "Sistema Azimut, polo di aggregazione, multi asset e multi area",
+      "what_changed": "Articolo di analisi sul sistema Azimut e sul suo ruolo di polo di aggregazione multi-asset e multi-area. Il testo richiama il passato MBO del 2002, ma non segnala una nuova operazione PE/VC annunciata da Apax Partners o da altri soggetti.",
+      "source_url": "https://bebeez.it/insight-views/sistema-azimut-polo-di-aggregazione-multi-asset-e-multi-area/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-30T05:56:29+00:00",
+      "observed_at": "2026-03-30T20:54:43.070514+00:00",
+      "created_at": "2026-03-30T20:54:43.070514+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Azimut Holding"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00256",
+      "fund_id": "",
+      "fund_slug": "anthilia-sgr",
+      "related_fund_slugs": [
+        "anthilia-sgr"
+      ],
+      "signal_type": "other",
+      "title": "Private credit, Anthilia smonta il caso Usa: Europa pi\u00f9 solida grazie a disciplina e selezione",
+      "what_changed": "Intervista/analisi su Anthilia Capital Partners SGR e sul mercato italiano del private credit, con focus su disciplina e selezione rispetto al caso Usa. Non \u00e8 una notizia di deal, raccolta o exit: si tratta di commento settoriale con rilevanza informativa per il mercato italiano.",
+      "source_url": "https://bebeez.it/insight-views/private-credit-anthilia-smonta-il-caso-usa-europa-piu-solida-grazie-a-disciplina-e-selezione/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-30T05:54:49+00:00",
+      "observed_at": "2026-03-30T20:54:43.070514+00:00",
+      "created_at": "2026-03-30T20:54:43.070514+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Anthilia Capital Partners SGR"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00257",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "other",
+      "title": "BeNewtral accelera il go-to-market del cemento green ReBind in un mercato italiano da 3,5 mld euro",
+      "what_changed": "BeNewtral, startup innovativa pavese del cleantech, avvia il go-to-market di ReBind, cemento clinker-free con emissioni fino al 90% inferiori al Portland. L\u2019articolo non descrive un investimento o un\u2019operazione PE/VC, ma l\u2019espansione commerciale di una societ\u00e0 italiana con forte rilevanza locale.",
+      "source_url": "https://bebeez.it/insight-views/benewtral-accelera-il-go-to-market-del-cemento-green-rebind-in-un-mercato-italiano-da-35-mld-euro/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-30T05:52:33+00:00",
+      "observed_at": "2026-03-30T20:54:43.070514+00:00",
+      "created_at": "2026-03-30T20:54:43.070514+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "BeNewtral",
+          "ReBind"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00258",
+      "fund_id": "",
+      "fund_slug": "dea-capital-alternative-funds-sgr",
+      "related_fund_slugs": [
+        "dea-capital-alternative-funds-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "La tedesca Manova Partners, accanto al Fondo Callisto (Kryalos sgr), compra due immobili logistici in Italia da Dea Capital Real Estate sgr. Deal vale 51 mln",
+      "what_changed": "Manova Partners, insieme al Fondo Callisto gestito da Kryalos sgr, compra due immobili logistici in Italia da un fondo gestito da DeA Capital Real Estate sgr. Il deal vale 51 milioni di euro e riguarda asset logistici a Campogalliano, vicino Modena, con forte componente italiana.",
+      "source_url": "https://bebeez.it/real-estate-2/la-tedesca-manova-partners-accanto-al-fondo-callisto-kryalos-sgr-compra-due-immobili-logistici-in-italia-da-dea-capital-real-estate-sgr-deal-vale-51-mln/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-30T05:41:35+00:00",
+      "observed_at": "2026-03-30T20:54:43.070514+00:00",
+      "created_at": "2026-03-30T20:54:43.070514+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Manova Partners",
+          "Fondo Callisto",
+          "DeA Capital Real Estate sgr",
+          "Fondo GO Italia VI"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "51 mln euro"
+    },
+    {
+      "id": "rss-signal-00259",
+      "fund_id": "",
+      "fund_slug": "smart-capital",
+      "related_fund_slugs": [
+        "smart-capital"
+      ],
+      "signal_type": "exit_announced",
+      "title": "Smart Capital chiude il 2025 con utile a 8,9 ln euro e NAV per azione a 1,99 euro. Le exit di ALA, MGM e In.Un.Up. fanno la differenza",
+      "what_changed": "Smart Capital ha chiuso il 2025 con utile consolidato di 8,9 milioni di euro, NAV per azione a 1,99 euro e attivo a 95,1 milioni. Il risultato \u00e8 trainato dalle exit di ALA, MGM e In.Un.Up., con forte crescita rispetto al 2024.",
+      "source_url": "https://bebeez.it/club-deal/smart-capital-chiude-il-2025-con-utile-a-89-ln-euro-e-nav-per-azione-a-199-euro-le-exit-di-ala-mgm-e-in-un-up-fanno-la-differenza/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-30T05:39:41+00:00",
+      "observed_at": "2026-03-30T20:54:43.070514+00:00",
+      "created_at": "2026-03-30T20:54:43.070514+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "ALA",
+          "MGM",
+          "In.Un.Up."
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "8,9 milioni di euro"
+    },
+    {
+      "id": "rss-signal-00260",
+      "fund_id": "",
+      "fund_slug": "partners-group",
+      "related_fund_slugs": [
+        "partners-group"
+      ],
+      "signal_type": "other",
+      "title": "Trading Floor: Nelle nebbie roventi delle geopolitica vince Mutares (+6,44%), seguita da Italmobiliare (+5,6%) e Partners Group (+4%). A picco 3i (-14,2%)",
+      "what_changed": "Articolo di mercato su titoli quotati del private capital, con performance settimanali di Mutares, Italmobiliare, Partners Group e 3i. Non descrive alcuna operazione di private equity o venture capital, ma solo andamenti borsistici, quindi non \u00e8 rilevante come deal PE/VC.",
+      "source_url": "https://bebeez.it/private-equity-breakfast/trading-floor-nelle-nebbie-roventi-delle-geopolitica-vince-mutares-644-seguita-da-italmobiliare-56-e-partners-group-4-a-picco-3i-142/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-30T05:30:19+00:00",
+      "observed_at": "2026-03-30T20:54:43.070514+00:00",
+      "created_at": "2026-03-30T20:54:43.070514+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Mutares",
+          "Italmobiliare",
+          "Partners Group",
+          "3i"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00261",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "other",
+      "title": "Effetto Scornajenchi su Snam, la svolta su innovazione e startup",
+      "what_changed": "Articolo di analisi su Snam e il nuovo piano industriale sotto Scornajenchi, che porta l\u2019esperienza maturata in Cdp Venture Capital. Si parla di pi\u00f9 investimenti, venture building e innovazione/startup, ma non di un\u2019operazione PE/VC annunciata. Forte connessione italiana tramite Snam e Cdp.",
+      "source_url": "https://www.economyup.it/innovazione/effetto-scornajenchi-su-snam-la-svolta-su-innovazione-e-startup/",
+      "source_name": "EconomyUp",
+      "published_at": "2026-03-30T14:19:15+00:00",
+      "observed_at": "2026-03-30T20:55:01.323600+00:00",
+      "created_at": "2026-03-30T20:55:01.323600+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Snam",
+          "Cdp Venture Capital"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00262",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "related_fund_slugs": [
+        "blackstone"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "Lunga vita (economica) al Life Sciences. Blackstone ha annunciato la chiusura definitiva del fondo da 6,3 miliardi di dollari sulle scienze della vita",
+      "what_changed": "Blackstone ha chiuso definitivamente un fondo da 6,3 miliardi di dollari dedicato alle scienze della vita. La piattaforma, attiva dal 2018, gestisce 15 miliardi di dollari e ha un tasso di approvazione dell\u201986% degli asset in Fase III. Nessun legame diretto con l\u2019Italia.",
+      "source_url": "https://startupitalia.eu/startup/blackstone-life-sciences-vita-economica/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-03-30T16:55:11+00:00",
+      "observed_at": "2026-03-30T20:55:16.276929+00:00",
+      "created_at": "2026-03-30T20:55:16.276929+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "6,3 miliardi di dollari"
+    },
+    {
+      "id": "rss-signal-00263",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "other",
+      "title": "Sovranit\u00e0 digitale, si muovono TIM e CDP per trovare startup e PMI con la tecnologia adatta a rendere l\u2019Italia meno dipendente dalle tecnologie extra Ue",
+      "what_changed": "TIM e CDP Venture Capital stanno valutando startup e PMI per collaborazioni su sovranit\u00e0 digitale e tecnologie europee. L\u2019articolo descrive attivit\u00e0 di scouting e possibili sinergie industriali, commerciali e tecnologiche, senza annunciare un investimento o un\u2019operazione PE/VC chiusa.",
+      "source_url": "https://startupitalia.eu/economy/tim-e-cdp-venture-capital-protocollo/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-03-30T16:31:11+00:00",
+      "observed_at": "2026-03-30T20:55:16.276929+00:00",
+      "created_at": "2026-03-30T20:55:16.276929+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": true,
+      "extracted_entities": {
+        "companies": [
+          "TIM"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02396",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "deal_announced",
+      "title": "L&S added to EMK Capital portfolio",
+      "what_changed": "L&S added to EMK Capital portfolio",
+      "source_url": "https://www.emkcapital.com/our-portfolio",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:33.503597+00:00",
+      "created_at": "2026-03-30T22:13:33.503597+00:00",
+      "snapshot_id": "snap-20260330221332-59df6543",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "LS"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02397",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "deal_announced",
+      "title": "EMK acquires majority stake in WeAreProject",
+      "what_changed": "New announcement: EMK acquires majority stake in WeAreProject",
+      "source_url": "https://www.emkcapital.com/news/emk-acquires-majority-stake-in-weareproject",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:35.389955+00:00",
+      "created_at": "2026-03-30T22:13:35.389955+00:00",
+      "snapshot_id": "snap-20260330221335-e4e25382",
+      "diff_summary": "New news item detected (dated 6 Nov)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02398",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "people_move",
+      "title": "EMK appoints Tim Sullivan as Senior GP Adviser",
+      "what_changed": "New announcement: EMK appoints Tim Sullivan as Senior GP Adviser",
+      "source_url": "https://www.emkcapital.com/news/emk-appoints-tim-sullivan-as-senior-gp-adviser",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:35.389955+00:00",
+      "created_at": "2026-03-30T22:13:35.389955+00:00",
+      "snapshot_id": "snap-20260330221335-e4e25382",
+      "diff_summary": "New news item detected (dated 30 Oct)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Tim Sullivan"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02399",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "deal_announced",
+      "title": "EMK acquires majority stake in Globe Groupe",
+      "what_changed": "New announcement: EMK acquires majority stake in Globe Groupe",
+      "source_url": "https://www.emkcapital.com/news/emk-acquires-majority-stake-in-globe-groupe",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:35.389955+00:00",
+      "created_at": "2026-03-30T22:13:35.389955+00:00",
+      "snapshot_id": "snap-20260330221335-e4e25382",
+      "diff_summary": "New news item detected (dated 28 Oct)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Globe Groupe"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02400",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "other",
+      "title": "EMK Capital publishes its Responsible Investment Report for 2024",
+      "what_changed": "New announcement: EMK Capital publishes its Responsible Investment Report for 2024",
+      "source_url": "https://www.emkcapital.com/news/emk-capital-publishes-its-responsible-investment-report-for-2024",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:35.389955+00:00",
+      "created_at": "2026-03-30T22:13:35.389955+00:00",
+      "snapshot_id": "snap-20260330221335-e4e25382",
+      "diff_summary": "New news item detected (dated 5 Sep)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Responsible Investment Report"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02401",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "deal_announced",
+      "title": "EMK acquires majority stake in Argos",
+      "what_changed": "New announcement: EMK acquires majority stake in Argos",
+      "source_url": "https://www.emkcapital.com/news/emk-acquires-majority-stake-in-argos",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:35.389955+00:00",
+      "created_at": "2026-03-30T22:13:35.389955+00:00",
+      "snapshot_id": "snap-20260330221335-e4e25382",
+      "diff_summary": "New news item detected (dated 31 Jul)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02402",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "other",
+      "title": "EMK Capital Receives Five-Star Ratings Across All UN PRI Categories",
+      "what_changed": "New announcement: EMK Capital Receives Five-Star Ratings Across All UN PRI Categories",
+      "source_url": "https://www.emkcapital.com/news/emk-capital-receives-five-star-ratings-across-all-un-pri-categories",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:35.389955+00:00",
+      "created_at": "2026-03-30T22:13:35.389955+00:00",
+      "snapshot_id": "snap-20260330221335-e4e25382",
+      "diff_summary": "New news item detected (dated 16 Dec)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Star Ratings Across",
+          "Capital Receives Five"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02403",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "deal_announced",
+      "title": "EMK acquires majority stake in March",
+      "what_changed": "New announcement: EMK acquires majority stake in March",
+      "source_url": "https://www.emkcapital.com/news/emk-acquires-majority-stake-in-march",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:35.389955+00:00",
+      "created_at": "2026-03-30T22:13:35.389955+00:00",
+      "snapshot_id": "snap-20260330221335-e4e25382",
+      "diff_summary": "New news item detected (dated 24 Nov)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02404",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "other",
+      "title": "EMK Capital becomes a signatory of the 2024 Global Investor Statement",
+      "what_changed": "New announcement: EMK Capital becomes a signatory of the 2024 Global Investor Statement",
+      "source_url": "https://www.emkcapital.com/news/emk-capital-becomes-a-signatory-of-the-2024-global-investor-statement",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:35.389955+00:00",
+      "created_at": "2026-03-30T22:13:35.389955+00:00",
+      "snapshot_id": "snap-20260330221335-e4e25382",
+      "diff_summary": "New news item detected (dated 8 Nov)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Global Investor Statement"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02405",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "deal_announced",
+      "title": "EMK acquires majority stake in Arctic Seafarm",
+      "what_changed": "New announcement: EMK acquires majority stake in Arctic Seafarm",
+      "source_url": "https://www.emkcapital.com/news/emk-acquires-majority-stake-in-arctic-seafarm",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:35.389955+00:00",
+      "created_at": "2026-03-30T22:13:35.389955+00:00",
+      "snapshot_id": "snap-20260330221335-e4e25382",
+      "diff_summary": "New news item detected (dated 10 Oct)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Arctic Seafarm"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02406",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "deal_announced",
+      "title": "EMK acquires majority stake in Pinerock Group",
+      "what_changed": "New announcement: EMK acquires majority stake in Pinerock Group",
+      "source_url": "https://www.emkcapital.com/news/emk-acquires-majority-stake-in-pinerock-group",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:35.389955+00:00",
+      "created_at": "2026-03-30T22:13:35.389955+00:00",
+      "snapshot_id": "snap-20260330221335-e4e25382",
+      "diff_summary": "New news item detected (dated 26 Sep)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Pinerock Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02407",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "other",
+      "title": "Reconomy wins BVCA Top Recognition for Excellence in ESG 2024",
+      "what_changed": "New announcement: Reconomy wins BVCA Top Recognition for Excellence in ESG 2024",
+      "source_url": "https://www.emkcapital.com/news/reconomy-wins-bvca-top-recognition-for-excellence-in-esg-2024",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:35.389955+00:00",
+      "created_at": "2026-03-30T22:13:35.389955+00:00",
+      "snapshot_id": "snap-20260330221335-e4e25382",
+      "diff_summary": "New news item detected (dated 19 Sep)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Top Recognition"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02408",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "signal_type": "other",
+      "title": "EMK publishes its Responsible Investment Report for 2023",
+      "what_changed": "New announcement: EMK publishes its Responsible Investment Report for 2023",
+      "source_url": "https://www.emkcapital.com/news/emk-publishes-its-responsible-investment-report-for-2023",
+      "source_name": "EMK Capital",
+      "published_at": null,
+      "observed_at": "2026-03-30T22:13:35.389955+00:00",
+      "created_at": "2026-03-30T22:13:35.389955+00:00",
+      "snapshot_id": "snap-20260330221335-e4e25382",
+      "diff_summary": "New news item detected (dated 18 Sep)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Responsible Investment Report"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00264",
+      "fund_id": "",
+      "fund_slug": "renaissance-partners",
+      "related_fund_slugs": [
+        "renaissance-partners"
+      ],
+      "signal_type": "deal_announced",
+      "title": "U-Power Group (Renaissance Partners) ottiene un aumento della linea capex per l\u2019acquisizione di Cerva Group",
+      "what_changed": "U-Power Group, controllata dal 2023 da Renaissance Partners, ha ottenuto un aumento della linea capex dalle banche finanziatrici per finalizzare l\u2019acquisizione di Cerva Group. L\u2019operazione riguarda un gruppo europeo del settore calzature e abbigliamento da lavoro, con connessione italiana tramite il controllo del fondo.",
+      "source_url": "https://financecommunity.it/u-power-group-renaissance-partners-ottiene-un-aumento-della-linea-capex-per-lacquisizione-di-cerva-group/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-03-30T15:40:21+00:00",
+      "observed_at": "2026-03-30T22:20:58.416856+00:00",
+      "created_at": "2026-03-30T22:20:58.416856+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "U-Power Group",
+          "Cerva Group"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00265",
+      "fund_id": "",
+      "fund_slug": "quadrivio-group",
+      "related_fund_slugs": [
+        "quadrivio-group"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Tre nuove acquisizioni per CareHub (Quadrivio Group)",
+      "what_changed": "CareHub, tramite la holding Brexia Med, ha perfezionato tre nuove acquisizioni: Fisioter, Braconi e Media Salutis. Il gruppo sanitario arriva a 14 societ\u00e0 e 19 centri polispecialistici in varie regioni italiane, rafforzando la presenza in Abruzzo. Quadrivio Group \u00e8 indicato come soggetto industriale/fondista collegato.",
+      "source_url": "https://financecommunity.it/tre-nuove-acquisizioni-per-carehub-quadrivio-group/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-03-30T10:36:11+00:00",
+      "observed_at": "2026-03-30T22:20:58.416856+00:00",
+      "created_at": "2026-03-30T22:20:58.416856+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "CareHub",
+          "Brexia Med",
+          "Fisioter",
+          "Braconi",
+          "Media Salutis"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00266",
+      "fund_id": "",
+      "fund_slug": "tamburi-investment-partners",
+      "related_fund_slugs": [
+        "tamburi-investment-partners"
+      ],
+      "signal_type": "other",
+      "title": "Ovs (Tamburi Investment Partners) ottiene finanziamento da 300 mln al 2031. Sar\u00e0 prodromico di acquisizioni?",
+      "what_changed": "OVS, gruppo quotato e partecipato da Tamburi Investment Partners (TIP), ha sottoscritto un finanziamento da 300 milioni di euro con scadenza 2031. L\u2019articolo si chiede se il prestito sia funzionale a future acquisizioni, ma il focus \u00e8 sul funding del retailer italiano, non su un deal PE/VC.",
+      "source_url": "https://bebeez.it/ma-e-corporate-finance/ovs-tamburi-investment-partners-ottiene-finanziamento-da-300-mln-al-2031-sara-prodromico-di-acquisizioni/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-31T05:52:48+00:00",
+      "observed_at": "2026-03-31T08:03:46.716088+00:00",
+      "created_at": "2026-03-31T08:03:46.716088+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "OVS",
+          "Tamburi Investment Partners"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "300 milioni di euro"
+    },
+    {
+      "id": "rss-signal-00267",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "Capsule Corporation si assicura round da 800k euro dal Takeoff Accelerator (CDP Venture Capital sgr) e altri investitori",
+      "what_changed": "Capsule Corporation, startup italiana di propulsione ad acqua per piccoli satelliti, ha chiuso un round seed da 800 mila euro. Il finanziamento \u00e8 stato guidato da CDP Venture Capital sgr tramite Takeoff Accelerator, con kopa ventures, Moonstone Venture Capital e business angel.",
+      "source_url": "https://bebeez.it/venture-capital/capsule-corporation-si-assicura-round-da-800k-euro-dal-takeoff-accelerator-cdp-venture-capital-sgr-e-altri-investitori/",
+      "source_name": "BeBeez",
+      "published_at": "2026-03-31T05:37:49+00:00",
+      "observed_at": "2026-03-31T08:03:46.716088+00:00",
+      "created_at": "2026-03-31T08:03:46.716088+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Capsule Corporation",
+          "CDP Venture Capital sgr",
+          "kopa ventures",
+          "Moonstone Venture Capital",
+          "Takeoff Accelerator"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "800 mila euro"
+    },
+    {
+      "id": "rss-signal-00268",
+      "fund_id": "",
+      "fund_slug": "ambienta-sgr",
+      "related_fund_slugs": [
+        "ambienta-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Ambienta investe nella vicentina The Bridge. Gli advisor",
+      "what_changed": "Ambienta SGR ha acquisito una quota di maggioranza di The Bridge, azienda vicentina attiva in bevande e yogurt vegetali. La famiglia fondatrice Negro Marcigaglia reinveste al fianco del fondo. L\u2019operazione, di cui non \u00e8 indicato il valore, rafforza la presenza PE italiana nel food sostenibile.",
+      "source_url": "https://financecommunity.it/ambienta-investe-nella-vicentina-the-bridge-gli-advisor/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-03-31T08:00:54+00:00",
+      "observed_at": "2026-03-31T08:03:49.944759+00:00",
+      "created_at": "2026-03-31T08:03:49.944759+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "The Bridge",
+          "Negro Marcigaglia"
+        ],
+        "people": [],
+        "locations": []
+      }
     }
   ],
-  "signal_count": 2380,
-  "translated_at": "2026-03-27T17:22:43.366171+00:00"
+  "signal_count": 2408,
+  "translated_at": "2026-03-31T08:21:37.182401+00:00"
 }

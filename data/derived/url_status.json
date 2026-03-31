@@ -3518,6 +3518,33 @@
       "last_checked_at": "2026-03-27T10:58:21.020386+00:00",
       "consecutive_failures": 0,
       "next_check_after": null
+    },
+    "https://www.emkcapital.com/our-portfolio": {
+      "url": "https://www.emkcapital.com/our-portfolio",
+      "status": "ok",
+      "status_code": 200,
+      "error_message": null,
+      "last_checked_at": "2026-03-31T08:21:22.076577+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.emkcapital.com/our-people": {
+      "url": "https://www.emkcapital.com/our-people",
+      "status": "ok",
+      "status_code": 304,
+      "error_message": null,
+      "last_checked_at": "2026-03-31T08:21:22.907536+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
+    },
+    "https://www.emkcapital.com/news": {
+      "url": "https://www.emkcapital.com/news",
+      "status": "ok",
+      "status_code": 304,
+      "error_message": null,
+      "last_checked_at": "2026-03-31T08:21:24.649063+00:00",
+      "consecutive_failures": 0,
+      "next_check_after": null
     }
   }
 }

@@ -102,7 +102,9 @@
     "credem-private-equity-sgr": "credem-euromobiliare-private-asset-sgr",
     "credem-private-equity": "credem-euromobiliare-private-asset-sgr",
     "credem-euromobiliare-private-asset": "credem-euromobiliare-private-asset-sgr",
-    "credem-europrivateasset": "credem-euromobiliare-private-asset-sgr"
+    "credem-europrivateasset": "credem-euromobiliare-private-asset-sgr",
+    "emk": "emk-capital",
+    "emk-capital-partners": "emk-capital"
   },
   "reverse_lookup": {
     "21-invest": [

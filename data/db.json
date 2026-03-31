@@ -362,8 +362,8 @@
         "Biotech & Pharma",
         "Energy",
         "Industrial Manufacturing",
-        "Automotive",
-        "Consumer Goods"
+        "Aerospace & Defense",
+        "Automotive"
       ],
       "description": "Founded by Davide Serra, this global specialist leverages its financial roots to drive industrial decarbonization and circular economy investments, including the strategic consolidation of Italy's water sector via the Aquanexa platform.",
       "geographies": [
@@ -1976,7 +1976,7 @@
         "Biotech & Pharma",
         "Industrial Manufacturing",
         "Software",
-        "Professional Services"
+        "Technology"
       ],
       "description": "Spun off from the consulting firm Bain & Company in 1984, this pioneer of operationally-focused private equity applies management consulting techniques to global buyouts. Key investments include the Italian payments giant Nexi.",
       "geographies": [
@@ -2488,10 +2488,10 @@
       ],
       "sector_tags": [
         "Renewable Energy",
+        "Healthcare",
         "Biotech & Pharma",
         "Construction",
-        "Environmental Services",
-        "Healthcare"
+        "Environmental Services"
       ],
       "description": "Specializes in the full lifecycle management of unsubsidized clean energy infrastructure, notably large-scale solar and agrivoltaic developments like the 187 MW Sicily portfolio.",
       "geographies": [
@@ -3635,18 +3635,16 @@
         "Growth"
       ],
       "sector_tags": [
-        "Business Services",
-        "Software",
-        "Healthcare",
+        "Technology",
+        "Construction",
+        "Professional Services",
         "Education",
-        "Industrial Manufacturing",
-        "Logistics"
+        "Industrial Manufacturing"
       ],
       "description": "Growth-focused private equity firm specializing in mid-market investments across Europe. Partnering with management teams to achieve transformational growth, with a strong presence in Italy through its Milan office and acquisitions like WeAreProject.",
       "geographies": [
         "Europe",
-        "Italy",
-        "Worldwide"
+        "Italy"
       ],
       "asset_class": [
         "Private equity"
@@ -3665,7 +3663,9 @@
           "is_italy": true,
           "source_name": "Manual"
         }
-      ]
+      ],
+      "investment_min_eur": 100000000,
+      "investment_max_eur": 300000000
     },
     {
       "id": "entrust-global",
@@ -7835,6 +7835,7 @@
         "Real-Estate"
       ],
       "sector_tags": [
+        "Insurance",
         "Real Estate"
       ],
       "description": "Specializes in public-private partnerships and urban regeneration, leveraging the support of Italian banking foundations to drive local development. Key investments include large-scale student housing and energy infrastructure projects.",
