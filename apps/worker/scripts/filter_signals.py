@@ -74,6 +74,7 @@ from signal_patterns import (
     _RE_HAS_ANY_PE_VERB,
     _RE_INTERNSHIP,
     _RE_INTERVIEW,
+    _RE_INTERVIEW_EDITORIAL,
     _RE_INVEST_VERBS,
     _RE_INVESTOR_MEETING,
     _RE_JOB_POSTING_RECLASSIFY,
@@ -1411,6 +1412,12 @@ def _reclassify_signal_type(signal: dict, text: str, fund: dict | None = None) -
     if _RE_CREDIT_FACILITY.search(text_lower) and not _matches_any(DEAL_CLASSIFY_PATTERNS, text_lower):
         return "debt_financing"
     if _RE_PROJECT_FINANCING.search(text_lower) and not _matches_any(DEAL_CLASSIFY_PATTERNS, text_lower) and not _RE_BOND_EXCLUDE.search(text_lower):
+        return "debt_financing"
+    # "Secures a loan" in the TITLE is authoritative even if bond_exclude fires on speculative
+    # acquisition language elsewhere in the text. e.g. "X secures €300M loan. Could this precede
+    # acquisitions?" — bond_exclude matches "acquisitions" but the primary event is the loan.
+    _signal_title = (signal.get("title") or "").lower()
+    if re.search(r"\bsecures?\b.{0,40}\b(?:loan|prestito)\b", _signal_title):
         return "debt_financing"
     if _RE_DEBT_FINANCING_BROAD.search(text_lower) and not _RE_BOND_EXCLUDE.search(text_lower):
         return "debt_financing"
@@ -4041,6 +4048,27 @@ def main():
         if signal.get("signal_type") == "deal_announced" and _RE_REPORT.search(post_ml_text):
             signal["signal_type"] = "report"
 
+        # Post-ML: interview/editorial pieces misclassified as exit_announced or deal_announced.
+        # ML sees exit/deal vocabulary in interview context and fires at high confidence.
+        # _RE_INTERVIEW_EDITORIAL is authoritative — if it matches, type is not a real event.
+        if signal.get("signal_type") in ("exit_announced", "deal_announced") and _RE_INTERVIEW_EDITORIAL.search(post_ml_text):
+            signal["signal_type"] = "other"
+            demoted_to_other_by_editorial = True
+
+        # Post-ML: acquisition signals misclassified as report by ML.
+        # ML sees financial-results vocabulary in acquisition articles and sets report.
+        # "X acquires Y" with strong acquisition verbs → deal_announced.
+        if signal.get("signal_type") == "report" and _RE_ACQUISITION_VERBS.search(post_ml_text):
+            signal["signal_type"] = "deal_announced"
+
+        # Post-ML: "secures a loan" in TITLE → debt_financing.
+        # ML sees "acquisitions" in speculative headline question and overrides to deal_announced.
+        # "X secures €300M loan. Could this precede acquisitions?" — the primary event is the loan.
+        if signal.get("signal_type") == "deal_announced":
+            _secured_loan_title = (signal.get("title") or "").lower()
+            if re.search(r"\bsecures?\b.{0,40}\b(?:loan|prestito)\b", _secured_loan_title):
+                signal["signal_type"] = "debt_financing"
+
         # Post-ML: re-apply rule-based rescue for signals ML demoted to 'other'.
         # ML may override correct rule-based classifications (fund_launch, report, debt_financing,
         # people_move, deal_announced). Re-apply apply_type_corrections("other") which has tight,
@@ -4456,9 +4484,16 @@ def main():
 
         _final_demotion = apply_universal_demotions(_final_text, _final_title)
         if _final_demotion is not None:
-            signal["signal_type"] = _final_demotion
-            if _final_demotion == "other":
-                demoted_to_other_by_editorial = True
+            # Don't re-promote an editorially-demoted signal back to exit/deal.
+            # The post-ML editorial guard already set "other" intentionally — the final
+            # reconciliation must not undo it by matching exit/deal verbs in negating context
+            # (e.g., AI-generated what_changed: "this is NOT a news item about... exit").
+            if demoted_to_other_by_editorial and _final_demotion in ("exit_announced", "deal_announced"):
+                pass  # keep "other"
+            else:
+                signal["signal_type"] = _final_demotion
+                if _final_demotion == "other":
+                    demoted_to_other_by_editorial = True
         else:
             _editorial_skip = (
                 signal.get("signal_type") == "other"

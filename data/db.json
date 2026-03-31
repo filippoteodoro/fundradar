@@ -1976,7 +1976,7 @@
         "Biotech & Pharma",
         "Industrial Manufacturing",
         "Software",
-        "Technology"
+        "Professional Services"
       ],
       "description": "Spun off from the consulting firm Bain & Company in 1984, this pioneer of operationally-focused private equity applies management consulting techniques to global buyouts. Key investments include the Italian payments giant Nexi.",
       "geographies": [
@@ -2943,7 +2943,7 @@
         "Financial Services",
         "Healthcare",
         "Industrial Manufacturing",
-        "Retail"
+        "Food & Beverage"
       ],
       "description": "Originally the British Coal pension investment arm, this firm leads large-cap European buyouts. It maintains a deep Italian presence, recently exiting pet retailer Arcaplanet and acquiring Milan-based fintech Objectway.",
       "geographies": [
@@ -5015,10 +5015,10 @@
       ],
       "sector_tags": [
         "Technology",
-        "Healthcare",
-        "Industrial Manufacturing",
         "Software",
-        "Automotive"
+        "Healthcare",
+        "Financial Services",
+        "Food & Beverage"
       ],
       "description": "Pioneered the Sicaf investment model in Italy to drive digital transformation within traditional SMEs, executing buyouts and expansion rounds in the healthcare and industrial manufacturing sectors.",
       "geographies": [
@@ -5332,10 +5332,10 @@
       ],
       "sector_tags": [
         "Industrial Manufacturing",
-        "Food & Beverage",
         "Technology",
-        "Healthcare",
-        "Professional Services"
+        "Food & Beverage",
+        "Professional Services",
+        "Healthcare"
       ],
       "description": "Formed by a veteran team of partners from Alcedo to target buyouts of niche market leaders in Northern Italy, specializing in complex generational handovers for companies like CVS Ferrari and the recently exited Panificio San Francesco.",
       "geographies": [
@@ -10650,7 +10650,7 @@
         "Technology",
         "Financial Services",
         "Media & Entertainment",
-        "Aerospace & Defense"
+        "Retail"
       ],
       "description": "Founded by former Google Italy head Massimiliano Magrini, this independent firm specializes in technology-driven digital transformation with landmark investments in gaming platform Faceit and space logistics provider D-Orbit.",
       "geographies": [

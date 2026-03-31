@@ -10,6 +10,18 @@
     ],
     "https://www.b4investimenti.it/news/": [
       {
+        "title": "Ferper: la complessit\u00e0 come leva di eccellenza industriale",
+        "date": "Marzo 31, 2026",
+        "url": "https://b4investimenti.it/2026/03/31/ferper-la-complessita-come-leva-di-eccellenza-industriale/",
+        "fingerprint": "6f9190323d49"
+      },
+      {
+        "title": "Fabrizio Baroni torna alla LIUC Business School il corso di Board Effectiveness & Corporate Governance",
+        "date": "Febbraio 23, 2026",
+        "url": "https://b4investimenti.it/2026/02/23/fabrizio-baroni-torna-alla-liuc-business-school-il-corso-di-board-effectiveness-corporate-governance/",
+        "fingerprint": "a5497adebaac"
+      },
+      {
         "title": "L\u2019ingresso di B4 nel capitale di Vay in prima pagina su Fabrics & Furnishings International",
         "date": "Febbraio 12, 2026",
         "url": "https://b4investimenti.it/2026/02/12/lingresso-di-b4-nel-capitale-di-vay-in-prima-pagina-su-fabrics-furnishings-international/",
@@ -226,6 +238,12 @@
         "fingerprint": "f1a488be8bcc"
       },
       {
+        "title": "TIM e CDP Venture Capital firmano un'intesa per l'innovazione e lo sviluppo delle startup e delle tecnologie italiane",
+        "date": null,
+        "url": null,
+        "fingerprint": "236ae349ad1d"
+      },
+      {
         "title": "Italy VC Monitor - Report di CDP Venture Capital e Pitchbook",
         "date": null,
         "url": null,
@@ -236,12 +254,6 @@
         "date": null,
         "url": null,
         "fingerprint": "487749ad341d"
-      },
-      {
-        "title": "Google Cloud e CDP Venture Capital annunciano una collaborazione strategica per accelerare l'innovazione in Italia",
-        "date": null,
-        "url": null,
-        "fingerprint": "6ee62b4b9374"
       },
       {
         "title": "CDP Venture Capital Sgr lancia il nuovo strumento \"Applica ora\" per le startup",
@@ -404,6 +416,12 @@
         "date": null,
         "url": null,
         "fingerprint": "5f1f78f1124a"
+      },
+      {
+        "title": "Google Cloud e CDP Venture Capital annunciano una collaborazione strategica per accelerare l'innovazione in Italia",
+        "date": null,
+        "url": null,
+        "fingerprint": "6ee62b4b9374"
       },
       {
         "title": "Streetbeat raccoglie 15M$ per potenziare il trading con intelligenza artificiale destinato ai gestori patrimoniali",
@@ -694,16 +712,16 @@
         "fingerprint": "24f9e098d945"
       },
       {
-        "title": "Round da 5M\u20ac per Resilco, per la trasformazione dei rifiuti",
-        "date": null,
-        "url": null,
-        "fingerprint": "f991802f2151"
-      },
-      {
         "title": "Round da 5 milioni di euro per la startup tech Resilco",
         "date": null,
         "url": null,
         "fingerprint": "c417d3850b6c"
+      },
+      {
+        "title": "Round da 5M\u20ac per Resilco, per la trasformazione dei rifiuti",
+        "date": null,
+        "url": null,
+        "fingerprint": "f991802f2151"
       },
       {
         "title": "Sofinnova Partners raccoglie 165 milioni di euro per il proprio fondo di accelerazione biotech, il pi\u00f9 grande in Europa, superando il proprio target anche grazie ad un particolare contributo dell\u2019industria farmaceutica",
@@ -5241,12 +5259,6 @@
         "fingerprint": "7ddcfa74484e"
       },
       {
-        "title": "Venture Capital Fellowship \u2013 Andera Life Sciences",
-        "date": "03.02.2026",
-        "url": "https://www.anderapartners.com/en/venture-capital-internship-andera-life-sciences/",
-        "fingerprint": "2b08ea711611"
-      },
-      {
         "title": "The Europeanisation of Private Equity: Transcending Borders to Build an Integrated Platform.",
         "date": "26.01.2026",
         "url": "https://www.anderapartners.com/en/the-europeanisation-of-private-equity-transcending-borders-to-build-an-integrated-platform/",
@@ -7570,6 +7582,12 @@
         "fingerprint": "bb2d753bb925"
       },
       {
+        "title": "ITAGO completes the fourth acquisition of the Eco-Techno Group and creates \u201cRhevalia group\u201d",
+        "date": "2025-10-01T17:02:05+02:00",
+        "url": "https://www.itagopartners.it/itago-completes-the-fourth-acquisition-of-the-eco-techno-group-and-creates-rhevalia-group/",
+        "fingerprint": "83b6f4efeb1a"
+      },
+      {
         "title": "Itago creates an engineering platform for the digitalization and monitoring of infrastructures",
         "date": "2025-09-10T12:07:03+02:00",
         "url": "https://www.itagopartners.it/itago-creates-an-engineering-platform-for-the-digitalization-and-monitoring-of-infrastructures/",
@@ -7610,12 +7628,6 @@
         "date": "2024-03-29T15:38:46+02:00",
         "url": "https://www.itagopartners.it/in-memory-of-daniel-kahneman/",
         "fingerprint": "0cfbc0f57ea0"
-      },
-      {
-        "title": "ITAGO sells majority stake in CVS Ferrari to Taylor Group",
-        "date": "2024-02-06T16:14:54+02:00",
-        "url": "https://www.itagopartners.it/itago-sells-majority-stake-in-cvs-ferrari-to-taylor-group/",
-        "fingerprint": "897372904067"
       }
     ],
     "https://www.liftt.com/media": [
@@ -9310,10 +9322,10 @@
     ],
     "https://kyipcapital.com/news/": [
       {
-        "title": "Marco Bragadin nominato Chief Executive Officer di Datlas Group",
+        "title": "KYIP Capital entra in Chiron Group per sviluppare una piattaforma...",
         "date": null,
-        "url": "https://kyipcapital.com/marco-bragadin-nominato-chief-executive-officer-di-datlas-group/",
-        "fingerprint": "0470eabc1acb"
+        "url": "https://kyipcapital.com/chiron-group/",
+        "fingerprint": "0d9d935f93f5"
       }
     ],
     "https://www.armoniasgr.it/newsroom/": [
@@ -10862,6 +10874,18 @@
         "fingerprint": "61d2fe5faa65"
       },
       {
+        "title": "Advent advances up to $1 billion defense technology commitment with investment in Saronic",
+        "date": null,
+        "url": "https://www.adventinternational.com/news/advent-advances-up-to-1-billion-defense-technology-commitment-with-investment-in-saronic/",
+        "fingerprint": "b2dd7aa658e5"
+      },
+      {
+        "title": "Atwell Partners with Advent International to accelerate next phase of growth",
+        "date": null,
+        "url": "https://www.adventinternational.com/news/atwell-partners-with-advent-international-to-accelerate-next-phase-of-growth/",
+        "fingerprint": "d500e3e1f2a3"
+      },
+      {
         "title": "Advent expands defense focus with commitment to invest up to $1 billion in next-generation defense technology",
         "date": null,
         "url": "https://www.adventinternational.com/news/advent-expands-defense-focus-with-commitment-to-invest-up-to-1-billion-in-next-generation-defense-technology/",
@@ -10902,18 +10926,6 @@
         "date": null,
         "url": "https://www.adventinternational.com/news/advent-pursues-anz-opportunities-in-business-services-healthcare-technology/",
         "fingerprint": "fdfd22ead0e9"
-      },
-      {
-        "title": "Congratulations to our new Advent partners",
-        "date": null,
-        "url": "https://www.adventinternational.com/news/congratulations-to-our-new-advent-partners/",
-        "fingerprint": "e227f85a5b72"
-      },
-      {
-        "title": "Advent and Nextalia complete the acquisition of a 38.74% stake in Tinexta",
-        "date": null,
-        "url": "https://www.adventinternational.com/news/advent-and-nextalia-complete-the-acquisition-of-a-38-74-stake-in-tinexta/",
-        "fingerprint": "8b9bd4d56076"
       }
     ],
     "https://www.apollo.com/insights-news/pressreleases": [
@@ -10970,6 +10982,12 @@
         "date": null,
         "url": "https://www.apollo.com/insights-news/pressreleases/2026/02/apollo-provides-1-billion-hybrid-capital-solution-to-aldar-3241678",
         "fingerprint": "81f98044dc47"
+      },
+      {
+        "title": "Apollo Sent the Following Letter to Clients and Partners",
+        "date": null,
+        "url": "https://www.apollo.com/insights-news/pressreleases/2026/02/apollo-sent-the-following-letter-to-clients-and-partners-3240705",
+        "fingerprint": "5b730a434ceb"
       }
     ],
     "https://www.ardian.com/news-insights": [
@@ -10986,10 +11004,10 @@
         "fingerprint": "47b9a8d7ea9e"
       },
       {
-        "title": "Ardian at Davos 2026: Mark Benedetti on global economic challenges",
+        "title": "Why infrastructure is attracting private wealth investors",
         "date": null,
         "url": null,
-        "fingerprint": "18302d85f595"
+        "fingerprint": "11ea8739b665"
       },
       {
         "title": "Ardian & Sicer: Innovating ceramic surfaces with quality and sustainability at the core",
@@ -12009,6 +12027,24 @@
         "fingerprint": "407a99541089"
       },
       {
+        "title": "Signadori Bio appoints Dr. Selwyn Ho, MB BS as Chief Executive Officer to lead company into next stage of growth",
+        "date": "31 March, 2026",
+        "url": "https://sofinnovapartners.com/news/signadori-bio-appoints-dr-selwyn-ho-mb-bs-as-chief-executive-officer-to-lead-company-into-next-stage-of-growth",
+        "fingerprint": "6d853a04fc9c"
+      },
+      {
+        "title": "Abivax Announces Full Year 2025 Financial Results and Provides Business Updates",
+        "date": "23 March, 2026",
+        "url": "https://sofinnovapartners.com/news/abivax-announces-full-year-2025-financial-results-and-provides-business-updates",
+        "fingerprint": "5387cb8a36ef"
+      },
+      {
+        "title": "Sensorion Reports Six-Month Update from the Audiogene Phase 1/2 Trial of SENS-501 and Advances GJB2-GT (SENS-601) Toward First-in-Human Clinical Development",
+        "date": "23 March, 2026",
+        "url": "https://sofinnovapartners.com/news/sensorion-reports-six-month-update-from-the-audiogene-phase-1-2-trial-of-sens-501-and-advances-gjb2-gt-sens-601-toward-first-in-human-clinical-development",
+        "fingerprint": "c74f2dfb47c0"
+      },
+      {
         "title": "Elevara Medicines Doses First Patient in Phase 2b START-SYNERGY Trial of ELV001 in Rheumatoid Arthritis Patients with Incomplete Response to TNFi",
         "date": "16 March, 2026",
         "url": "https://sofinnovapartners.com/news/elevara-medicines-doses-first-patient-in-phase-2b-start-synergy-trial-of-elv001-in-rheumatoid-arthritis-patients-with-incomplete-response-to-tnfi",
@@ -12019,6 +12055,12 @@
         "date": "10 March, 2026",
         "url": "https://sofinnovapartners.com/news/May%20Health%20Raises%20$11.7M%20to%20Advance%20its%20Novel%20Technology%20to%20Treat%20PCOS-related%20Infertility",
         "fingerprint": "2ecc34fb4c65"
+      },
+      {
+        "title": "Adapt or Go Extinct: Novameat Unveils the Ingredient That Will Save the Global Meat Crisis",
+        "date": "6 March, 2026",
+        "url": "https://sofinnovapartners.com/news/adapt-or-go-extinct-novameat-unveils-the-ingredient-that-will-save-the-global-meat-crisis",
+        "fingerprint": "bc9baf5e7f2a"
       },
       {
         "title": "Boehringer Ingelheim licenses novel oral therapeutics program for immune diseases from Sitryx Therapeutics",
@@ -12079,30 +12121,6 @@
         "date": "5 February, 2026",
         "url": "https://sofinnovapartners.com/news/ashley-lakner-phd-joins-cure51-as-chief-scientific-officer-cso",
         "fingerprint": "530ada3680ec"
-      },
-      {
-        "title": "BrightHeart Announces Voluson\u2122 Solution Store Collaboration to Deliver Expert-Level AI Support Across the Full Prenatal Ultrasound Exam",
-        "date": "5 February, 2026",
-        "url": "https://sofinnovapartners.com/news/brightheart-announces-voluson-tm-solution-store-collaboration-to-deliver-expert-level-ai-support-across-the-full-prenatal-ultrasound-exam",
-        "fingerprint": "59d55cc4ef33"
-      },
-      {
-        "title": "Mainstay Medical Announces Exclusive Coverage of ReActiv8\u00ae by Blue Cross Blue Shield",
-        "date": "4 February, 2026",
-        "url": "https://sofinnovapartners.com/news/mainstay-medical-announces-exclusive-coverage-of-reactiv8-r-by-blue-cross-blue-shield",
-        "fingerprint": "553691e6d8b1"
-      },
-      {
-        "title": "NodThera Appoints Geoff McDonough, M.D., as Chief Executive Officer",
-        "date": "4 February, 2026",
-        "url": "https://sofinnovapartners.com/news/NodThera%20Appoints%20Geoff%20McDonough,%20M.D.,%20as%20Chief%20Executive%20Officer",
-        "fingerprint": "a5f6e32a7453"
-      },
-      {
-        "title": "Tenpoint Therapeutics Ltd. Announces FDA Approval of YUVEZZITM, the First and Only Combination Eye Drop Approved to Treat Presbyopia",
-        "date": "28 January, 2026",
-        "url": "https://sofinnovapartners.com/news/Tenpoint%20Therapeutics%20Ltd.%20Announces%20FDA%20Approval%20of%20YUVEZZITM,%20the%20First%20and%20Only%20Combination%20Eye%20Drop%20Approved%20to%20Treat%20Presbyopia",
-        "fingerprint": "6d12c92e0186"
       }
     ],
     "https://sinlocinvestimentisgr.com/news/": [
@@ -12595,6 +12613,18 @@
     ],
     "https://www.bluegemcp.com/news": [
       {
+        "title": "Bluegem Capital Partners Expands Internationally",
+        "date": "24/03/2026",
+        "url": "https://www.bluegemcp.com/news/bluegem-expands",
+        "fingerprint": "eff857ca6d76"
+      },
+      {
+        "title": "Bluegem Capital Partners Continues To Grow",
+        "date": "28/02/2026",
+        "url": "https://www.bluegemcp.com/news/bluegem-growth",
+        "fingerprint": "c9ed7450fe41"
+      },
+      {
         "title": "Bluegem Win Award at the Capital Finance International Awards 2025",
         "date": "22/01/2026",
         "url": "https://www.bluegemcp.com/news/cfi-awards",
@@ -12629,21 +12659,15 @@
         "date": "18/03/2024",
         "url": "https://www.bluegemcp.com/news/pai-partners-to-acquire-beautynova",
         "fingerprint": "85964d38068d"
-      },
-      {
-        "title": "Bluegem agrees sale of Dr Vranjes",
-        "date": "04/01/2024",
-        "url": "https://www.bluegemcp.com/news/bluegem-agrees-sale-of-dr-vranjes",
-        "fingerprint": "7ce65ea5dc6d"
-      },
-      {
-        "title": "Bluegem new team additions and promotions",
-        "date": "27/02/2023",
-        "url": "https://www.bluegemcp.com/news/bluegem-new-team-additions",
-        "fingerprint": "374ad5765742"
       }
     ],
     "https://www.lcatterton.com/Press.html": [
+      {
+        "title": "L Catterton Real Estate and Cedar Capital Partners Launch Strategic Luxury Hospitality Platform.",
+        "date": "2026-03-25",
+        "url": "https://www.lcatterton.com/Press.html#!/LCRE-cedarcp",
+        "fingerprint": "f2a4df376b92"
+      },
       {
         "title": "L Catterton Announces Combination of Bel Cosm\u00e9ticos and Mundo do Cabeleireiro to Create Leading Beauty Retailer in Brazil",
         "date": "2026-03-09",
@@ -14583,6 +14607,12 @@
     ],
     "https://www.abenex.com/wp-json/wp/v2/posts?per_page=20&_fields=id,title,date,link,excerpt": [
       {
+        "title": "Abenex announces the final closing of its Small Cap Fund II at \u20ac180m, exceeding its target size",
+        "date": "2026-03-30T11:52:56",
+        "url": "https://www.abenex.com/abenex-small-cap-ii-final-closing-180m/",
+        "fingerprint": "ec3ca076dc14"
+      },
+      {
         "title": "Abenex March 2026 Promotions announcements",
         "date": "2026-03-12T09:22:32",
         "url": "https://www.abenex.com/abenex-march-2026-promotions-announcements/",
@@ -14695,12 +14725,6 @@
         "date": "2025-02-24T15:41:01",
         "url": "https://www.abenex.com/abenex-office-building-renovation-paris-17/",
         "fingerprint": "12f62fc3a2de"
-      },
-      {
-        "title": "Groupe Emeraude Capital a newly established group of wealth advisors benefits from the support of Abenex as lead shareholder alongside Ark\u00e9a Capital to structure and accelerate its growth",
-        "date": "2025-01-22T10:41:27",
-        "url": "https://www.abenex.com/emeraude-capital-wealth-advisors/",
-        "fingerprint": "a6823fbfc158"
       }
     ],
     "https://www.equinox-investments.com/news": [
@@ -15105,16 +15129,16 @@
         "fingerprint": "7e393e6f9cf4"
       },
       {
-        "title": "Carve-outs: Where complexity becomes opportunity",
-        "date": null,
-        "url": "https://www.apax.com/news-views/carve-outs-where-complexity-becomes-opportunity/",
-        "fingerprint": "3bdb95de5b1c"
-      },
-      {
         "title": "Oncourse carve-out",
         "date": null,
         "url": "https://www.apax.com/news-views/oncourse-carve-out/",
         "fingerprint": "f21e19b7395b"
+      },
+      {
+        "title": "Carve-outs: Where complexity becomes opportunity",
+        "date": null,
+        "url": "https://www.apax.com/news-views/carve-outs-where-complexity-becomes-opportunity/",
+        "fingerprint": "3bdb95de5b1c"
       },
       {
         "title": "Annual Investor Meeting 2026",
@@ -15223,6 +15247,48 @@
     ],
     "https://www.fondoitaliano.it/comunicati-e-rassegna/": [
       {
+        "title": "Il digitale sale in elicottero la commessa dagli States per la novarese Mecaer",
+        "date": "2026-03-30",
+        "url": "https://www.fondoitaliano.it/wp-content/uploads/20260330_LaRepubblica_Mecaer.pdf",
+        "fingerprint": "983f310a80a5"
+      },
+      {
+        "title": "Intervista Sole 24 Ore \u00abFondo Italiano d\u2019Investimento, vocazione sistemica\u00bb",
+        "date": "2026-03-27",
+        "url": "https://www.fondoitaliano.it/wp-content/uploads/20260327_Sole24Ore_Intervista-DL-2.pdf",
+        "fingerprint": "1eb260be9f4f"
+      },
+      {
+        "title": "FII, fondo da 1 miliardo per le filiere strategiche",
+        "date": "2026-03-27",
+        "url": "https://www.fondoitaliano.it/wp-content/uploads/20260327_Il-messaggero_piano-strategico-2026-30.pdf",
+        "fingerprint": "5537398b1fa6"
+      },
+      {
+        "title": "Fondo Italiano presenta il nuovo piano",
+        "date": "2026-03-27",
+        "url": "https://www.fondoitaliano.it/wp-content/uploads/20260327_MF_piano-strategico-2026-30.pdf",
+        "fingerprint": "53c92e292123"
+      },
+      {
+        "title": "Fondo Italiano, il nuovo piano",
+        "date": "2026-03-27",
+        "url": "https://www.fondoitaliano.it/wp-content/uploads/CorrieredellaSera_27032026_piano-strategico-2026-30.pdf",
+        "fingerprint": "89d50bd5f20b"
+      },
+      {
+        "title": "NUOVO PIANO PER IL FONDO ITALIANO",
+        "date": "2026-03-27",
+        "url": "https://www.fondoitaliano.it/wp-content/uploads/20260327_Libero_piano-strategico-2026-30.pdf",
+        "fingerprint": "a98b4f84ff54"
+      },
+      {
+        "title": "Fondo Italiano d\u2019Investimento presenta il Piano Strategico 2026-2030",
+        "date": "2026-03-27",
+        "url": "https://www.fondoitaliano.it/fondo-italiano-dinvestimento-presenta-il-piano-strategico-2026-2030/",
+        "fingerprint": "9a5de34ace08"
+      },
+      {
         "title": "FII Sgr punta su filiere strategiche e offerta ampliata nel nuovo piano",
         "date": "2026-03-22",
         "url": "https://www.fondoitaliano.it/wp-content/uploads/20260320_Sole24Ore_FII_pianostrategico.pdf",
@@ -15251,48 +15317,6 @@
         "date": "2026-02-23",
         "url": "https://www.fondoitaliano.it/wp-content/uploads/20260220_LargoConsumo_Alimenta.pdf",
         "fingerprint": "70ac1f3d6f9c"
-      },
-      {
-        "title": "Private capital e filiera agroalimentare: il modello FIAF",
-        "date": "2026-02-11",
-        "url": "https://www.fondoitaliano.it/wp-content/uploads/MAG_FinanceCommunity_2026-02-11-.pdf",
-        "fingerprint": "9b50c4c2feef"
-      },
-      {
-        "title": "Fondo Italiano Sgr rileva Vetraco e accelera su ricerca e sviluppo",
-        "date": "2026-01-26",
-        "url": "https://www.fondoitaliano.it/wp-content/uploads/20260123_IlGiorno_Vetraco.pdf",
-        "fingerprint": "0fc8635cf8f8"
-      },
-      {
-        "title": "Il Fondo Italiano rileva il gruppo Vetraco: mercati esteri nel mirino",
-        "date": "2026-01-21",
-        "url": "https://www.fondoitaliano.it/wp-content/uploads/20260121_Sole24Ore_Vetraco.pdf",
-        "fingerprint": "6957b7cf4e93"
-      },
-      {
-        "title": "Fondo Italiano d\u2019Investimento entra nel capitale di Vetraco",
-        "date": "2026-01-21",
-        "url": "https://www.fondoitaliano.it/fondo-italiano-dinvestimento-entra-nel-capitale-di-vetraco/",
-        "fingerprint": "b1652d55f0fb"
-      },
-      {
-        "title": "Dalla piadina alla pinsa il Fondo Italiano prende il controllo di Alimenta",
-        "date": "2026-01-19",
-        "url": "https://www.fondoitaliano.it/wp-content/uploads/20260110_CorriereRomagna_Alimenta.pdf",
-        "fingerprint": "6bccfc461773"
-      },
-      {
-        "title": "Piadine dorate",
-        "date": "2026-01-17",
-        "url": "https://www.fondoitaliano.it/wp-content/uploads/20260117_MF_Alimenta.pdf",
-        "fingerprint": "5d285f95b0b1"
-      },
-      {
-        "title": "La piadina cambia padrone il Fondo Italiano prende il controllo di Alimenta",
-        "date": "2026-01-10",
-        "url": "https://www.fondoitaliano.it/wp-content/uploads/20260110_ilrestodelcarlno_Alimenta.pdf",
-        "fingerprint": "c168d78d6ffb"
       }
     ],
     "https://www.generali-investments.com/it/en/institutional/press-releases/": [
@@ -15605,6 +15629,12 @@
     ],
     "https://www.cinven.com/news-insights/": [
       {
+        "title": "Cinven welcomes strategic minority investment in Envu from GIC",
+        "date": null,
+        "url": "https://www.cinven.com/news-insights/cinven-welcomes-strategic-minority-investment-in-envu-from-gic/",
+        "fingerprint": "1c05dfdda576"
+      },
+      {
         "title": "Executing Excellence: Inside the playbook of top private equity dealmakers",
         "date": null,
         "url": "https://www.cinven.com/news-insights/executing-excellence-inside-the-playbook-of-top-private-equity-dealmakers/",
@@ -15657,12 +15687,6 @@
         "date": null,
         "url": "https://www.cinven.com/news-insights/cinven-to-invest-in-flint-global/",
         "fingerprint": "cdf71d7ca197"
-      },
-      {
-        "title": "Why Founders Choose Cinven",
-        "date": null,
-        "url": "https://www.cinven.com/news-insights/why-founders-choose-cinven/",
-        "fingerprint": "d3d0bf5301c6"
       }
     ],
     "https://www.ardian.com/news-insights/press-releases": [
@@ -15711,6 +15735,12 @@
     ],
     "https://www.permira.com/news-and-insights/in-the-news/": [
       {
+        "title": "Ian Jackson joined Bloomberg\u2019s Credit Edge podcast to discuss the opportunities emerging across credit markets",
+        "date": "30 Mar 2026",
+        "url": "https://www.bloomberg.com/news/audio/2026-03-26/credit-edge-permira-likes-battered-software-loans",
+        "fingerprint": "3ab13ebe4f52"
+      },
+      {
         "title": "Permira was named Large-Cap Firm of the Year (EMEA) in the 2025 Private Equity International Awards",
         "date": "2 Mar 2026",
         "url": "https://www.privateequityinternational.com/pei-awards-2025-emea-winners/",
@@ -15751,12 +15781,6 @@
         "date": "17 Dec 2025",
         "url": "https://www.privateequityinternational.com/meeting-the-challenge-of-hiring-specialist-private-wealth-talent/?utm_source=newsletter-daily&utm_medium=email&utm_campaign=pei-daily-bronze&utm_content=16-12-2025",
         "fingerprint": "3c15dcb56b25"
-      },
-      {
-        "title": "Philip Muelder and Daniel Brenhouse spoke to PE Hub about the intersection of Services and Technology & AI as an attractive investment theme",
-        "date": "16 Dec 2025",
-        "url": "https://www.pehub.com/permiras-philip-muelder-valuations-growing-for-a-grade-services-companies/",
-        "fingerprint": "d949b8d4c6a0"
       }
     ],
     "https://www.permira.com/news-and-insights/announcements/": [
@@ -15829,6 +15853,12 @@
         "fingerprint": "5242bc039c44"
       },
       {
+        "title": "Blackstone Announces Final Close of Record $6.3 Billion Life Sciences Fund \u2013 the Largest Private Fund Dedicated to Life Sciences",
+        "date": "2026-03-30",
+        "url": "https://www.blackstone.com/news/press/blackstone-announces-final-close-of-record-6-3-billion-life-sciences-fund-the-largest-private-fund-dedicated-to-life-sciences/",
+        "fingerprint": "8f61ca397a28"
+      },
+      {
         "title": "Blackstone Announces First-Quarter 2026 Investor Call",
         "date": "2026-03-26",
         "url": "https://www.blackstone.com/news/press/blackstone-announces-first-quarter-2026-investor-call/",
@@ -15893,15 +15923,27 @@
         "date": "2026-03-03",
         "url": "https://www.blackstone.com/news/press/teva-and-blackstone-life-sciences-announce-400-million-strategic-growth-capital-agreement-to-advance-duvakitug/",
         "fingerprint": "af93bbdbe5ab"
-      },
-      {
-        "title": "Blackstone Credit & Insurance Announces Upsize to Midstream Joint Venture with EQT Corporation",
-        "date": "2026-03-02",
-        "url": "https://www.blackstone.com/news/press/blackstone-credit-insurance-announces-upsize-to-midstream-joint-venture-with-eqt-corporation/",
-        "fingerprint": "a8af80f8158c"
       }
     ],
     "https://www.blackstone.com/en/news": [
+      {
+        "title": "Jon Gray on His Confidence in Private Credit\u2019s Enduring Premium",
+        "date": null,
+        "url": "https://www.blackstone.com/insights/article/jon-gray-on-his-confidence-in-private-credits-enduring-premium/",
+        "fingerprint": "c3e325ea7862"
+      },
+      {
+        "title": "Jon Gray at Top Advisor Conference Breaks Down Facts on Private Credit",
+        "date": null,
+        "url": "https://www.blackstone.com/insights/article/jon-gray-at-top-advisor-conference-breaks-down-facts-on-private-credit/",
+        "fingerprint": "d02629e4a5ea"
+      },
+      {
+        "title": "Decoding the Real Estate Cycle",
+        "date": null,
+        "url": "https://www.blackstone.com/insights/article/decoding-the-real-estate-cycle/",
+        "fingerprint": "526363253566"
+      },
       {
         "title": "Propelling the Growth of Leading Franchisors",
         "date": null,
@@ -15955,32 +15997,26 @@
         "date": null,
         "url": "https://www.blackstone.com/deal-dam-is-breaking-top-questions-on-private-equity-momentum-surge/",
         "fingerprint": "5540f4ae0a5a"
-      },
-      {
-        "title": "Rethinking the 60%",
-        "date": null,
-        "url": "https://www.blackstone.com/insights/article/rethinking-the-60/",
-        "fingerprint": "ce7c4488491f"
-      },
-      {
-        "title": "Market Views: Is Everything a Bubble?",
-        "date": null,
-        "url": "https://www.blackstone.com/insights/article/market-views-is-everything-a-bubble/",
-        "fingerprint": "2a0ffc482da1"
-      },
-      {
-        "title": "40 Years in 40 Seconds",
-        "date": null,
-        "url": "https://www.blackstone.com/insights/article/40-years-in-40-seconds/",
-        "fingerprint": "690c5444dd09"
       }
     ],
     "https://www.macquarie.com/it/en/about/news.html": [
       {
-        "title": "\u2018We\u2019re in your corner\u2019 as RBA increases Australia\u2019s official cash rate",
-        "date": "2026-03-17",
-        "url": "https://www.macquarie.com/it/en/about/news/2026/we-are-in-your-corner-as-rba-increases-australias-official-cash-rate.html",
-        "fingerprint": "0207dac8d2a2"
+        "title": "Our response to the RBA\u2019s merchant card payment costs and surcharging review",
+        "date": "2026-03-31",
+        "url": "https://www.macquarie.com/it/en/about/news/2026/our-response-to-the-rbas-merchant-card-payment-costs-and-surcharging-review.html",
+        "fingerprint": "7f818e70bc9c"
+      },
+      {
+        "title": "Our response to the RBA\u2019s merchant card payment costs and surcharging review",
+        "date": null,
+        "url": "https://www.macquarie.com/it/en/about/news/2026/our-response-to-the-rbas-merchant-card-payment-costs-and-surcharging-review.html",
+        "fingerprint": "bc03f3c279c8"
+      },
+      {
+        "title": "Macquarie to sell meter asset provider OnStream",
+        "date": null,
+        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-to-sell-meter-asset-provider-onstream.html",
+        "fingerprint": "d701be36bddf"
       },
       {
         "title": "\u2018We\u2019re in your corner\u2019 as RBA increases Australia\u2019s official cash rate",
@@ -15999,26 +16035,26 @@
         "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-and-gabia-form-strategic-partnership-to-develop-next-generation-hyperscale-data-centre-platform-in-south-korea.html",
         "fingerprint": "c74a0ea85471"
-      },
-      {
-        "title": "Macquarie Asset Management announces sale of Macquarie AirFinance",
-        "date": null,
-        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-announces-sale-of-macquarie-airfinance.html",
-        "fingerprint": "8e3360fa5058"
-      },
-      {
-        "title": "Macquarie Asset Management to acquire South American tower operations of IHS Towers",
-        "date": null,
-        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-to-acquire-south-american-tower-operations-of-ihs-towers.html",
-        "fingerprint": "882b2f14aeba"
       }
     ],
     "https://www.macquarie.com/it/en/about/company/macquarie-asset-management/news.html": [
       {
-        "title": "\u2018We\u2019re in your corner\u2019 as RBA increases Australia\u2019s official cash rate",
-        "date": "2026-03-17",
-        "url": "https://www.macquarie.com/it/en/about/news/2026/we-are-in-your-corner-as-rba-increases-australias-official-cash-rate.html",
-        "fingerprint": "0207dac8d2a2"
+        "title": "Our response to the RBA\u2019s merchant card payment costs and surcharging review",
+        "date": "2026-03-31",
+        "url": "https://www.macquarie.com/it/en/about/news/2026/our-response-to-the-rbas-merchant-card-payment-costs-and-surcharging-review.html",
+        "fingerprint": "7f818e70bc9c"
+      },
+      {
+        "title": "Our response to the RBA\u2019s merchant card payment costs and surcharging review",
+        "date": null,
+        "url": "https://www.macquarie.com/it/en/about/news/2026/our-response-to-the-rbas-merchant-card-payment-costs-and-surcharging-review.html",
+        "fingerprint": "bc03f3c279c8"
+      },
+      {
+        "title": "Macquarie to sell meter asset provider OnStream",
+        "date": null,
+        "url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-to-sell-meter-asset-provider-onstream.html",
+        "fingerprint": "d701be36bddf"
       },
       {
         "title": "\u2018We\u2019re in your corner\u2019 as RBA increases Australia\u2019s official cash rate",
@@ -16127,18 +16163,6 @@
         "date": null,
         "url": "https://www.macquarie.com/it/en/about/news/2025/macquarie-group-board-appointment.html",
         "fingerprint": "a3cb29cd234a"
-      },
-      {
-        "title": "Macquarie Group expands prize for organisations building climate resilience solutions to Australia and the Pacific Islands",
-        "date": null,
-        "url": "https://www.macquarie.com/it/en/about/news/2025/macquarie-group-expands-prize-for-organisations-building-climate-resilience-solutions-to-australia-and-the-pacific-islands.html",
-        "fingerprint": "2cc8bca83463"
-      },
-      {
-        "title": "Macquarie Group completes sale of Macquarie Asset Management\u2019s public investments business in North America and Europe to Nomura",
-        "date": null,
-        "url": "https://www.macquarie.com/it/en/about/news/2025/macquarie-group-completes-sale-of-macquarie-asset-managements-public-investments-business-in-north-america-and-europe-to-nomura.html",
-        "fingerprint": "6c288c22b47d"
       }
     ],
     "https://www.equityclub.eu/en/news": [
@@ -17107,16 +17131,22 @@
     ],
     "https://www.astorg.com/news": [
       {
-        "title": "Astorg Portfolio Company Solabia accelerates expansion plan with three strategic acquisitionsIndustrials05 March 2026",
+        "title": "Astorg Mid Cap to acquire Barkene, a leading multi-specialist B2B technical services platformBusiness Services30 March 2026",
         "date": null,
-        "url": "https://www.astorg.com/news/astorg-portfolio-company-solabia-accelerates-expansion-plan-with-three-strategic-acquisitions",
-        "fingerprint": "9f077c842f07"
+        "url": "https://www.astorg.com/news/astorg-mid-cap-to-acquire-barkene-a-leading-multi-specialist-b2b-technical-services-platform",
+        "fingerprint": "c136a45c4536"
       },
       {
         "title": "Astorg and Nordic Capital Announce Agreement to Sell Clario to Thermo Fisher ScientificHealthcare29 October 2025",
         "date": null,
         "url": "https://www.astorg.com/news/astorg-and-nordic-capital-announce-agreement-to-sell-clario-to-thermo-fisher-scientific",
         "fingerprint": "0b0cf27264aa"
+      },
+      {
+        "title": "Astorg Portfolio Company Solabia accelerates expansion plan with three strategic acquisitionsIndustrials05 March 2026",
+        "date": null,
+        "url": "https://www.astorg.com/news/astorg-portfolio-company-solabia-accelerates-expansion-plan-with-three-strategic-acquisitions",
+        "fingerprint": "9f077c842f07"
       },
       {
         "title": "Astorg-backed Redslim acquires CatMan Solution to create a global data powerhouseTech16 September 2025",
@@ -17147,12 +17177,6 @@
         "date": null,
         "url": "https://www.astorg.com/news/astorg-to-acquire-solabia-a-leading-biotech-ingredient-solutions-provider",
         "fingerprint": "10652b3dc12d"
-      },
-      {
-        "title": "IQ-EQ enters the ANZ market with AMAL Group acquisitionBusiness Services16 April 2025",
-        "date": null,
-        "url": "https://www.astorg.com/news/iq-eq-enters-the-anz-market-with-amal-group-acquisition",
-        "fingerprint": "7907a6f40e71"
       }
     ],
     "https://www.higeurope.com/news/": [
@@ -17499,12 +17523,6 @@
         "fingerprint": "8c9ea4a7f2e4"
       },
       {
-        "title": "GLOBAL CREDIT BULLETS | Monday, 9 March 2026 - Algebris Investments",
-        "date": "2026-03-09",
-        "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNV3R4MFJIbEU1TGR5TVJnTlo3YUpQRTB1dkFDVDZLczBxdzBHX2E5Q25iQnlEc3pSWFFiSG9keC10X1R0MUh5ZVBiUE9tNzRtVDM2VUZBTjl4MXhMOUZBNDZNUnN0MmdXeVFmMzV2eVJEX0Y0LTlMWlNOdmxDdFdESXFtTnpMbVk?oc=5",
-        "fingerprint": "12481bc824ac"
-      },
-      {
         "title": "GLOBAL CREDIT BULLETS | Monday, 23 March 2026 - Algebris Investments",
         "date": "2026-03-23",
         "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQOHpLVkhmZlRHb1lxd3VsTmw0N2lDWmYzNFJuX2VWYXlSOW1KMTFFckJwR051QTMwRmdTREQ5amNwaXJfQ3Z2NjV4Nmp3Y0ZUM1VzbHlJRTBTTlNXSXVseC05eDEtbno3LTl0blo4b21wdDNTNXFRTnc3a0ItOG00dkdOTzNZRE9Y?oc=5",
@@ -17523,16 +17541,28 @@
         "fingerprint": "53e707684beb"
       },
       {
-        "title": "War in the Middle East: The market enters a new phase of volatility. - Algebris Investments",
-        "date": "2026-03-11",
-        "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNVDdDSjN6bm5udWNIV0MxVjl5dzljanRWUERnclZMRm52SmdYa3NwRmREbUJDRGFFNElNbzdSa1o5ekpWRFZSc194RmQwYUxBMVhUenc2S2ZFR3Z5UXktaDZKaklVVk5hQ3lrZDdQcW1vaGJFNnpJQWxfWnZDZDY3cHMyX2duQncxQUdtdnBKZWxaRW9pcGdVOFNrbWdMbW5oYUE?oc=5",
-        "fingerprint": "168cc76e0e66"
+        "title": "GLOBAL CREDIT BULLETS | Monday, 30 March 2026 - Algebris Investments",
+        "date": "2026-03-30",
+        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPS01lbGw0b2NfZGlCTFY2Z1B3bkNDenNKell1ZzZMUFlHZmZqdDBPNVFkanZpZVp5VnFMN2RZQUV2bm93dHpkeEluVlN5MUxKb0Z2MndUODlBanBuREpPSm1FOVM5UHlUZWs4b2doMUE2OTM0aEZkRXlmVFNDSUhrb3ZPUnZGdUZ1?oc=5",
+        "fingerprint": "9a98ede9c7e4"
+      },
+      {
+        "title": "GLOBAL CREDIT BULLETS | Monday, 9 March 2026 - Algebris Investments",
+        "date": "2026-03-09",
+        "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNV3R4MFJIbEU1TGR5TVJnTlo3YUpQRTB1dkFDVDZLczBxdzBHX2E5Q25iQnlEc3pSWFFiSG9keC10X1R0MUh5ZVBiUE9tNzRtVDM2VUZBTjl4MXhMOUZBNDZNUnN0MmdXeVFmMzV2eVJEX0Y0LTlMWlNOdmxDdFdESXFtTnpMbVk?oc=5",
+        "fingerprint": "12481bc824ac"
       },
       {
         "title": "Policies and Complaints - Algebris Investments",
         "date": "2026-03-06",
         "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE91aWlYQ3Mwa2ZENVh2VFFSZjJ3al9FOTlzYXREN2E1aXpXR1pNLVRfYkFVNktMZDBDUmlDblVKX0tNNjE5anFReXkwVmotQTEta3BheEpwXzBSOVhfNkE?oc=5",
         "fingerprint": "fa8e31f76c70"
+      },
+      {
+        "title": "War in the Middle East: The market enters a new phase of volatility. - Algebris Investments",
+        "date": "2026-03-11",
+        "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNVDdDSjN6bm5udWNIV0MxVjl5dzljanRWUERnclZMRm52SmdYa3NwRmREbUJDRGFFNElNbzdSa1o5ekpWRFZSc194RmQwYUxBMVhUenc2S2ZFR3Z5UXktaDZKaklVVk5hQ3lrZDdQcW1vaGJFNnpJQWxfWnZDZDY3cHMyX2duQncxQUdtdnBKZWxaRW9pcGdVOFNrbWdMbW5oYUE?oc=5",
+        "fingerprint": "168cc76e0e66"
       },
       {
         "title": "Alessandro Bruschetti - Algebris Investments",
@@ -17569,6 +17599,12 @@
         "date": "2025-08-27",
         "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE42RnYzWVd1UEktVnVMS01HeXZkVzJITUNHZ3lZckViVjZTT1FGc1RYYkxuaVFnelhuME9BekEyMVNKZ24wLVdKMnZSTEhNRXl4REU3SnR0dWdVS0dudlhSYTVpNA?oc=5",
         "fingerprint": "d264cffce5c8"
+      },
+      {
+        "title": "Global Equity Archives - Algebris Investments",
+        "date": "2024-12-11",
+        "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBnVUFWSXhjTGQ3Z1hjQUZzdzhTOEhKYWppa1p5RTBXNWV5QVZteGxndHFUVmhhSzBUVzhPdXh6UWVJY0VPcHZhU2J6ZlZYUFY0dGRQbGU1bEwzSUJCSGpLZk9aRnBZdw?oc=5",
+        "fingerprint": "fd2e07e28223"
       }
     ],
     "https://news.google.com/rss/search?q=site%3Acapdyn.com+%22Capital+Dynamics%22+when%3A30d&hl=en-US&gl=US&ceid=US:en": [
@@ -17577,18 +17613,6 @@
         "date": "2026-03-26",
         "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPMlIwWkIzakdVS2lCVEV3SVFVWUtPU3NBNDZ3TS1oVmJrc21pSURDQm02OWRISC14bXYtY2FvNThHY2M3U0hvSTJTTS1jTGcxc3RDV194dzhSeEV1OXhJM1B2N0hEZ3daQ3ZsNzZ4aFgxb3dBZVFWR2l4RGNLWGdqa3R2dkZER0NPVC1yNkFKcy1NdFJidVI2YkhyZmhNNm9BNVZTRlFWV0cxRUta?oc=5",
         "fingerprint": "92dc5b823bc1"
-      },
-      {
-        "title": "SuperReturn Secondaries Europe 3/10/2026 - Capital Dynamics",
-        "date": "2026-02-25",
-        "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5jMklWSVFldUtoVXlfQ2ItNUpCT0NWWm1HLUJQekNrdjVyekpCeEJ5MDltWWYxbFl1VFJHSUFVbmFETmpXNjFSQUJTWUFGOXc2U0JCQVhTWVhhZmNvSEFrRnhmQXoyTlZkZWcwbzhn?oc=5",
-        "fingerprint": "6d50b9b1332b"
-      },
-      {
-        "title": "Patrimonia 4/8/2026 - Capital Dynamics",
-        "date": "2026-02-25",
-        "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE44RXYySVlBTFdZTEQ5RmgyRDlzclpZdTB6SmNIdjJtT0NselhnU3dvaF9VOE8xbENvZzBDTldjQk56bXdaSE1vUm8xOHd3clpaOVM4?oc=5",
-        "fingerprint": "d2b496eb56b5"
       },
       {
         "title": "News, Research & Events - Capital Dynamics",
@@ -17612,6 +17636,12 @@
       }
     ],
     "https://www.finintinvestments.com/it/press/comunicati-stampa.php": [
+      {
+        "title": "Gruppo Banca Finint: supporto operativo e di de-risking per Banca Progetto",
+        "date": "2026-03-27",
+        "url": "http://www.finintinvestments.com/files/siti/bancafinint.com/27.03%20CS%20Gruppo%20Banca%20Finint_Banca%20ProgettoDEF.pdf",
+        "fingerprint": "e8dcb5593d13"
+      },
       {
         "title": "Social housing: inaugurati 76 nuovi alloggi nell\u2019ex caserma Osoppo di Udine",
         "date": "2026-03-11",
@@ -17665,12 +17695,6 @@
         "date": "2025-09-11",
         "url": "http://www.finintinvestments.com/files/siti/finintsgr.com/press/comunicati_stampa/20250903%20CS%20Finint%20E4G_AM_.pdf",
         "fingerprint": "b5af97064e7c"
-      },
-      {
-        "title": "Riello Investimenti Sgr e Finint Investments insieme per sostenere ERREBIELLE ed espandere il Design Made in Italy",
-        "date": "2025-06-30",
-        "url": "http://www.finintinvestments.com/files/siti/bancafinint.com/2025-06-30%20CS_Bond%20Errebielle_Riello_Finint%20Investments_final.pdf",
-        "fingerprint": "7ed733a69908"
       }
     ],
     "https://wrmgroup.net/media/?fr_src=fundradar": [
@@ -20209,6 +20233,12 @@
     ],
     "https://p101.it/news-press/latest-news/": [
       {
+        "title": "P101 presents \u201cState of Italian VC\u201d",
+        "date": "2026-03-30T11:34:37+00:00",
+        "url": null,
+        "fingerprint": "21368cb6c9fe"
+      },
+      {
         "title": "Libraesva and Cyber Guru Announce Strategic Combination to Create a Leading European Human-Centric Cybersecurity Provider",
         "date": "2026-01-27T16:20:47+00:00",
         "url": null,
@@ -20255,32 +20285,44 @@
         "date": "2025-04-03T08:00:00+00:00",
         "url": null,
         "fingerprint": "65c61e112a81"
-      },
-      {
-        "title": "Cyber Guru and Mantra Join Forces to Redefine the Cybersecurity Awareness Landscape",
-        "date": "2025-03-14T10:09:19+00:00",
-        "url": null,
-        "fingerprint": "3f13c6d728d4"
       }
     ],
     "https://www.tpg.com/news-and-insights/news": [
       {
+        "title": "TPG and Allianz Lead USD 350 Million Strategic Investment in Cambridge Mobile Telematics to Accelerate AI-Driven Road Safety",
+        "date": "2026-03-24T10:59:13",
+        "url": "https://www.tpg.com/news-and-insights/tpg-and-allianz-lead-usd-350-million-strategic-investment-in-cambridge-mobile-telematics-to-accelerate-ai-driven-road-safety",
+        "fingerprint": "8edda2f5109e"
+      },
+      {
+        "title": "Velotic\u2122 Launches to Shape Future of Industrial & Manufacturing Software",
+        "date": "2026-03-17T12:57:54",
+        "url": "https://www.tpg.com/news-and-insights/velotic-launches-to-shape-future-of-industrial-manufacturing-software",
+        "fingerprint": "61d8d84d67be"
+      },
+      {
+        "title": "TPG Establishes One Aged Care \u2013 A Senior Healthcare Services Platform to Serve Growing Regional Needs",
+        "date": "2026-03-17T01:57:59",
+        "url": "https://www.tpg.com/news-and-insights/tpg-establishes-one-aged-care-a-senior-healthcare-services-platform-to-serve-growing-regional-needs",
+        "fingerprint": "3fdac7ea6b2a"
+      },
+      {
         "title": "TPG Announces Completion of $4.75 Billion Sale of Intersect to Google; Launches IPX Power as Independent Power Producer",
-        "date": "2026-03-10T15:35:36",
+        "date": null,
         "url": "https://www.tpg.com/news-and-insights/tpg-announces-completion-of-4-75-billion-sale-of-intersect-to-google-launches-ipx-power-as-independent-power-producer",
-        "fingerprint": "8c8a7d37dbee"
+        "fingerprint": "7dc67e831475"
       },
       {
         "title": "TPG Partners with Findhelp to Expand Access to Essential Services for Underserved Populations",
-        "date": "2026-03-03T13:28:46",
+        "date": null,
         "url": "https://www.tpg.com/news-and-insights/tpg-partners-with-findhelp-to-expand-access-to-essential-services-for-underserved-populations",
-        "fingerprint": "c23aa05b6bcc"
+        "fingerprint": "aff6769cd09c"
       },
       {
         "title": "TPG Peppertree and Telecom Infrastructure Industry Veteran Bernard Borghei Announce Billion Dollar Investment Partnership",
-        "date": "2026-02-17T15:48:58",
+        "date": null,
         "url": "https://www.tpg.com/news-and-insights/tpg-peppertree-and-telecom-infrastructure-industry-veteran-bernard-borghei-announce-billion-dollar-investment-partnership",
-        "fingerprint": "0778e4dfaf49"
+        "fingerprint": "1b942d9e21ea"
       },
       {
         "title": "TPG to Acquire Majority Stake in Sabre Industries from Blackstone Energy Transition Partners",
@@ -20317,316 +20359,388 @@
         "date": null,
         "url": "https://www.tpg.com/news-and-insights/onemain-financial-and-tpg-extend-and-expand-forward-flow-agreement-to-invest-in-consumer-and-auto-loans",
         "fingerprint": "706745b05e20"
-      },
-      {
-        "title": "Elevex Capital Announces $1 Billion Forward Flow Agreement With TPG",
-        "date": null,
-        "url": "https://www.tpg.com/news-and-insights/elevex-capital-announces-1-billion-forward-flow-agreement-with-tpg",
-        "fingerprint": "b0bc51c27ec5"
-      },
-      {
-        "title": "TPG and Lennar Announce Strategic Partnership to Recapitalize Quarterra",
-        "date": null,
-        "url": "https://www.tpg.com/news-and-insights/tpg-and-lennar-announce-strategic-partnership-to-recapitalize-quarterra",
-        "fingerprint": "540e326b9896"
-      },
-      {
-        "title": "TPG and Jackson Financial Inc. Announce Strategic Partnership to Accelerate Growth",
-        "date": null,
-        "url": "https://www.tpg.com/news-and-insights/tpg-and-jackson-financial-inc-announce-strategic-partnership-to-accelerate-growth",
-        "fingerprint": "9fee7c587b65"
       }
     ],
     "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c": [
       {
-        "title": "Investor Relations",
+        "title": "Business model",
+        "date": null,
+        "url": "https://tipspa.it/en/about-us/business-model/",
+        "fingerprint": "98e3b301f17f"
+      },
+      {
+        "title": "Advisory activity",
+        "date": null,
+        "url": "https://tipspa.it/en/about-us/advisory-activity/",
+        "fingerprint": "49f115aa25ae"
+      },
+      {
+        "title": "Investor relations",
         "date": null,
         "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c",
         "fingerprint": "57ebcedd79af"
       },
       {
-        "title": "Corporate Governance",
+        "title": "Shareholders",
+        "date": null,
+        "url": "https://tipspa.it/en/investor-relations/shareholders/",
+        "fingerprint": "6846bb75ed62"
+      },
+      {
+        "title": "Share capital and dividends",
+        "date": null,
+        "url": "https://tipspa.it/en/share-capital-and-dividends/",
+        "fingerprint": "c553cf8e8d7d"
+      },
+      {
+        "title": "Own Shares Press Releases",
+        "date": null,
+        "url": "https://tipspa.it/en/homepage-eng/own-shares-press-releases/",
+        "fingerprint": "31ac3c197086"
+      },
+      {
+        "title": "Annual and quarterly reports",
+        "date": null,
+        "url": "https://tipspa.it/en/annual-quarterly-reports/",
+        "fingerprint": "59897179d382"
+      },
+      {
+        "title": "Presentations",
+        "date": null,
+        "url": "https://tipspa.it/en/presentations/",
+        "fingerprint": "667056408747"
+      },
+      {
+        "title": "Finalcial calendar",
+        "date": null,
+        "url": "https://tipspa.it/en/investor-relations/financial-calendar/",
+        "fingerprint": "4728b247d45a"
+      },
+      {
+        "title": "Filing Consob",
+        "date": null,
+        "url": "https://tipspa.it/en/consob-filing/",
+        "fingerprint": "74c2ed6e0c85"
+      },
+      {
+        "title": "Warrant TIP 2015-2020",
+        "date": null,
+        "url": "https://tipspa.it/en/warrant-tip-2015-2020-disclaimer/",
+        "fingerprint": "ceeca1f90f3e"
+      },
+      {
+        "title": "TIP bonds 2014-2020",
+        "date": null,
+        "url": "https://tipspa.it/en/investor-relations/tip-bonds-2014-2020/",
+        "fingerprint": "95f8a1fecb73"
+      },
+      {
+        "title": "TIP bonds 2019-2024",
+        "date": null,
+        "url": "https://tipspa.it/en/investor-relations/tip-bonds-2019-2024/",
+        "fingerprint": "b42186c8c84e"
+      },
+      {
+        "title": "TIP bonds 2024-2029",
+        "date": null,
+        "url": "https://tipspa.it/en/investor-relations/tip-bonds-2024-2029/",
+        "fingerprint": "f79a0417304e"
+      },
+      {
+        "title": "TIP bonds 2025-2029",
+        "date": null,
+        "url": "https://tipspa.it/en/investor-relations/tip-bonds-2025-2029/",
+        "fingerprint": "49cc64b8821d"
+      },
+      {
+        "title": "Financial analyst coverage",
+        "date": null,
+        "url": "https://tipspa.it/en/investor-relations/financial-analyst-coverage/",
+        "fingerprint": "86520bfa9eff"
+      },
+      {
+        "title": "Listing information",
+        "date": null,
+        "url": "https://tipspa.it/en/investor-relations/listing-information/",
+        "fingerprint": "bfb1b8f841e6"
+      },
+      {
+        "title": "IR Contacts",
+        "date": null,
+        "url": "https://tipspa.it/en/investor-relations/ir-contacts/",
+        "fingerprint": "1f0f0d6161be"
+      },
+      {
+        "title": "Merger by incorporation of Tip-Pre IPO S.p.A. and Betaclub S.r.l. into TIP S.p.A.",
+        "date": null,
+        "url": "https://tipspa.it/en/investor-relations/merger-by-incorporation-of-tip-pre-ipo-s-p-a-and-betaclub-s-r-l-into-tip-s-p-a/",
+        "fingerprint": "bff244aa5e46"
+      },
+      {
+        "title": "Corporate governance",
         "date": null,
         "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c",
         "fingerprint": "80a5091ff7ad"
       },
       {
-        "title": "Sustainability",
+        "title": "Board of directors",
         "date": null,
-        "url": "https://www.tipspa.it/en/page/6049f4f224e1f808a0e82c98",
-        "fingerprint": "744927e4b987"
+        "url": "https://tipspa.it/en/corporate-governance/board-of-directors/",
+        "fingerprint": "5638395be1d3"
       },
       {
-        "title": "Contact Us",
+        "title": "Committees",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/committees/",
+        "fingerprint": "8f1573ee5040"
+      },
+      {
+        "title": "Shareholder\u2019s Mettings",
+        "date": null,
+        "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c",
+        "fingerprint": "0566e2316279"
+      },
+      {
+        "title": "Notes of shareholders meeting",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/notes-of-shareholders-meeting/",
+        "fingerprint": "b9b834f904d9"
+      },
+      {
+        "title": "General proxies form",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/general-proxies-form/",
+        "fingerprint": "8b451f22d032"
+      },
+      {
+        "title": "Designated representative proxy",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/designated-representative-proxy/",
+        "fingerprint": "37af0716c7f9"
+      },
+      {
+        "title": "Shareholder\u2019s Meeting regulations",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/shareholders-meeting-regulations/",
+        "fingerprint": "18d2f5c76253"
+      },
+      {
+        "title": "Increased voting right",
+        "date": null,
+        "url": "https://tipspa.it/en/increased-voting-right/",
+        "fingerprint": "ecad395398ac"
+      },
+      {
+        "title": "Company bylaws",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/company-bylaws/",
+        "fingerprint": "05eb713e4df2"
+      },
+      {
+        "title": "Code of ethics",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/code-of-ethics/",
+        "fingerprint": "f51fc46f26ec"
+      },
+      {
+        "title": "Organizational, Management and Control Model Legislative Decree 231/2001",
+        "date": null,
+        "url": "https://tipspa.it/en/organizational-management-and-control-model-legislative-decree-231-2001/",
+        "fingerprint": "595c58dc6829"
+      },
+      {
+        "title": "Whistleblowing",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/whistleblowing/",
+        "fingerprint": "f7155852d2ea"
+      },
+      {
+        "title": "Report on corporate governance",
+        "date": null,
+        "url": "https://tipspa.it/en/report-on-corporate-governance/",
+        "fingerprint": "fad497f625ed"
+      },
+      {
+        "title": "Remuneration report",
+        "date": null,
+        "url": "https://tipspa.it/en/relazione-in-materia-di-remunerazione-copy/",
+        "fingerprint": "b014e8f73ccb"
+      },
+      {
+        "title": "Incentive plans",
+        "date": null,
+        "url": "https://tipspa.it/en/incentive-plans/",
+        "fingerprint": "42ca31888cd8"
+      },
+      {
+        "title": "Regulations and Procedures",
+        "date": null,
+        "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c",
+        "fingerprint": "7d10e15a9be7"
+      },
+      {
+        "title": "Code for administration board",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/code-for-administration-board/",
+        "fingerprint": "ee7822442493"
+      },
+      {
+        "title": "Organizational code of the audit and risks related parties committee sustainability",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/organizational-code-of-the-audit-and-risks-related-parties-committee-sustainability/",
+        "fingerprint": "61365a20eb8b"
+      },
+      {
+        "title": "Code of internal dealing",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/code-of-internal-dealing/",
+        "fingerprint": "8f84986cba86"
+      },
+      {
+        "title": "Internal dealing",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/internal-dealing/",
+        "fingerprint": "b3c6979876a9"
+      },
+      {
+        "title": "Communication scheme of transactions on issuers\u2019 securities (annex 3F)",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/communication-scheme-of-transactions-on-issuers-securities-annex-3f/",
+        "fingerprint": "f942c5fc8d81"
+      },
+      {
+        "title": "Market Communication Code of Conduct",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/market-communication-code-of-conduct/",
+        "fingerprint": "aea0a4be2614"
+      },
+      {
+        "title": "Procedure for managing the register of persons having access to inside information",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/procedure-for-managing-the-register-of-persons-having-access-to-inside-information/",
+        "fingerprint": "dd9cbaf9a271"
+      },
+      {
+        "title": "Policy for the management of dialogue with the generality of shareholders",
+        "date": null,
+        "url": "https://tipspa.it/en/corporate-governance/policy-for-the-management-of-dialogue-with-the-generality-of-shareholders/",
+        "fingerprint": "c45de11f6a5b"
+      },
+      {
+        "title": "Sustainability",
+        "date": null,
+        "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c",
+        "fingerprint": "cde622b81630"
+      },
+      {
+        "title": "Sustainability Reports",
+        "date": null,
+        "url": "https://tipspa.it/en/sustainability/sustainability-reports/",
+        "fingerprint": "435addb40536"
+      },
+      {
+        "title": "Rating and Certifications",
+        "date": null,
+        "url": "https://tipspa.it/en/sustainability/rating-and-certifications/",
+        "fingerprint": "9458f1656b91"
+      },
+      {
+        "title": "In the press",
+        "date": null,
+        "url": "https://tipspa.it/en/in-the-press/",
+        "fingerprint": "6b0a428f1049"
+      },
+      {
+        "title": "Publications",
+        "date": null,
+        "url": "https://tipspa.it/en/publications/",
+        "fingerprint": "b405c650553b"
+      },
+      {
+        "title": "Contact us",
         "date": null,
         "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c",
         "fingerprint": "acd67c5ddfa9"
       },
       {
-        "title": "Business model",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d25fb25bac35e0a5a5eb2bc",
-        "fingerprint": "7628952e4d91"
-      },
-      {
-        "title": "Investment activity",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d2600e2bac35e0a5a5eb2bd",
-        "fingerprint": "3fe4dda1dd24"
-      },
-      {
-        "title": "Advisory activity",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d260174bac35e0a5a5eb2be",
-        "fingerprint": "1ceaea063d44"
-      },
-      {
-        "title": "Shareholders",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb260",
-        "fingerprint": "81c5eb2e42b1"
-      },
-      {
-        "title": "Share capital and dividends",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b682bac35e0a5a5eb2b8",
-        "fingerprint": "63788aca468f"
-      },
-      {
-        "title": "Annual and quarterly reports",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b682bac35e0a5a5eb2a1",
-        "fingerprint": "b442fa97fce3"
-      },
-      {
-        "title": "Presentations",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b681bac35e0a5a5eb27c",
-        "fingerprint": "88055b1c4910"
-      },
-      {
-        "title": "Financial calendar",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb26d",
-        "fingerprint": "757c58905e24"
-      },
-      {
-        "title": "Consob filing",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b682bac35e0a5a5eb2a8",
-        "fingerprint": "7ee233a3ff0e"
-      },
-      {
-        "title": "Warrant TIP 2015-2020",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25a",
-        "fingerprint": "e50ed4481562"
-      },
-      {
-        "title": "TIP bonds 2014-2020",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d35cae50d824825717a1fdc",
-        "fingerprint": "ec3cc4f06f1e"
-      },
-      {
-        "title": "TIP bonds 2019-2024",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5de1553b9d2a713560218e0a",
-        "fingerprint": "5c9a713d4bcf"
-      },
-      {
-        "title": "TIP bonds 2024-2029",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/665879784e8a690954ec3a86",
-        "fingerprint": "03e7cbb1e6c6"
-      },
-      {
-        "title": "TIP bonds 2025-2029",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/68348fe64e8a690954ec449c",
-        "fingerprint": "d317f92837ea"
-      },
-      {
-        "title": "Merger by incorporation of Tip-Pre IPO S.p.A. and Betaclub S.r.l. into TIP S.p.A.",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/610173b224e1f808a0e8324f",
-        "fingerprint": "ffb3d22dba1c"
-      },
-      {
-        "title": "Financial analyst coverage",
-        "date": null,
-        "url": "https://www.tipspa.it/en/",
-        "fingerprint": "13b9e0c2f89a"
-      },
-      {
-        "title": "Listing information",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b682bac35e0a5a5eb2ab",
-        "fingerprint": "992f286306d1"
-      },
-      {
-        "title": "Ir contacts",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b682bac35e0a5a5eb2b2",
-        "fingerprint": "79e257ac056c"
-      },
-      {
-        "title": "Board of directors",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25f",
-        "fingerprint": "8a8723458659"
-      },
-      {
-        "title": "Committees",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b681bac35e0a5a5eb29e",
-        "fingerprint": "a7c80dcddb4c"
-      },
-      {
-        "title": "Shareholders' meetings",
-        "date": null,
-        "url": "https://www.tipspa.it/en/",
-        "fingerprint": "bcec3b287de4"
-      },
-      {
-        "title": "Increased voting right",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/66581a234e8a690954ec3a6f",
-        "fingerprint": "1c9c2a541b25"
-      },
-      {
-        "title": "Company bylaws",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b682bac35e0a5a5eb2a7",
-        "fingerprint": "7d2cc4bf00cb"
-      },
-      {
-        "title": "Code of ethics",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb26e",
-        "fingerprint": "0b7616237dac"
-      },
-      {
-        "title": "Organizational, Management and Control Model Legislative Decree 231/2001",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b681bac35e0a5a5eb291",
-        "fingerprint": "0d35dd79a836"
-      },
-      {
-        "title": "Whistleblowing",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/64959e0a4e8a690954ec2e41",
-        "fingerprint": "c77ed794c4b1"
-      },
-      {
-        "title": "Report on corporate governance",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/6735c8094e8a690954ec3f31",
-        "fingerprint": "88f3722dde1b"
-      },
-      {
-        "title": "Remuneration report",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b681bac35e0a5a5eb27d",
-        "fingerprint": "55399f1c8a11"
-      },
-      {
-        "title": "Incentive plans",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b681bac35e0a5a5eb298",
-        "fingerprint": "b743102af782"
-      },
-      {
-        "title": "Regulations and Procedures",
-        "date": null,
-        "url": "https://www.tipspa.it/en/",
-        "fingerprint": "10afd9b9177f"
-      },
-      {
-        "title": "In the press",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b681bac35e0a5a5eb28a",
-        "fingerprint": "e1574f132e87"
-      },
-      {
-        "title": "Publications",
-        "date": null,
-        "url": "https://www.tipspa.it/en/page/5d261aa6bac35e0a5a5eb2bf",
-        "fingerprint": "e95c63b2b774"
-      },
-      {
         "title": "Info request",
         "date": null,
-        "url": "https://www.tipspa.it/en/contact-us",
-        "fingerprint": "383fc7da0c31"
+        "url": "https://tipspa.it/en/info-request/",
+        "fingerprint": "0bdd42bfc163"
       },
       {
         "title": "Work with us",
         "date": null,
-        "url": "https://www.tipspa.it/en/application",
-        "fingerprint": "7efdd5338f27"
+        "url": "https://tipspa.it/en/work-with-us/",
+        "fingerprint": "407a60152361"
       },
       {
         "title": "Main contacts",
         "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b681bac35e0a5a5eb293",
-        "fingerprint": "8be26cfb9a88"
+        "url": "https://tipspa.it/en/main-contacts/",
+        "fingerprint": "e2dd952ad8e8"
       },
       {
-        "title": "legal notes",
+        "title": "Legal notes",
         "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb24d",
-        "fingerprint": "b85a70d58045"
+        "url": "https://tipspa.it/en/legal-notes/",
+        "fingerprint": "b52f94c3f06d"
       },
       {
-        "title": "email news",
+        "title": "Email news",
         "date": null,
-        "url": "https://www.tipspa.it/en/newsletter",
-        "fingerprint": "088ef21dd28c"
+        "url": "https://tipspa.it/en/email-news/",
+        "fingerprint": "4898851c0472"
       },
       {
-        "title": "company info",
+        "title": "Company info",
         "date": null,
-        "url": "https://www.tipspa.it/en/page/5d24b681bac35e0a5a5eb287",
-        "fingerprint": "d93f6108da35"
+        "url": "https://tipspa.it/en/company-info/",
+        "fingerprint": "97dedb317d5f"
       },
       {
-        "title": "privacy policy",
+        "title": "Privacy Policy",
         "date": null,
-        "url": "https://www.tipspa.it/en/page/5d25e97fbac35e0a5a5eb2ba",
-        "fingerprint": "e81d19d80020"
+        "url": "https://tipspa.it/en/privacy-policy/",
+        "fingerprint": "25018f7f3c0a"
       },
       {
-        "title": "shareholders privacy",
+        "title": "Shareholders privacy",
         "date": null,
-        "url": "https://www.tipspa.it/en/page/5d25e9f0bac35e0a5a5eb2bb",
-        "fingerprint": "c7349be21122"
+        "url": "https://tipspa.it/en/shareholders-privacy/",
+        "fingerprint": "29601950b229"
       },
       {
-        "title": "cookie policy",
+        "title": "Cookie policy",
         "date": null,
-        "url": "https://www.tipspa.it/en/page/5d25e825bac35e0a5a5eb2b9",
-        "fingerprint": "2ab531abc437"
+        "url": "https://tipspa.it/en/cookie-policy/",
+        "fingerprint": "8ae252fef894"
       },
       {
-        "title": "choice of individual cookies",
+        "title": "Choice of individual cookies",
         "date": null,
-        "url": null,
-        "fingerprint": "4b37a40fe0ed"
+        "url": "https://www.tipspa.it/en/page/5d24b680bac35e0a5a5eb25c",
+        "fingerprint": "7cb6aff60423"
       }
     ],
     "https://www.platinumequity.com/our-news/": [
       {
-        "title": "Read More Three Deals in Two Weeks: Months After Platinum Equity\u2019s Successful $2.28B Fundraise, Small Cap Continues Momentum in 2026 Founder and CEO Tom Gores believes firm has developed \u2018powerful\u2019 lo",
+        "title": "Read More Platinum Equity\u2019s Female Leaders Explain How They Drive the Firm\u2019s Success VP Sports & Entertainment Sarah Clay: \u2018We bring different strengths to the table.\u2019 Read More",
         "date": null,
-        "url": "https://www.platinumequity.com/news/three-deals-in-two-weeks-months-after-platinum-equitys-successful-2-28m-fundraise-small-cap-continues-momentum-in-2026/",
-        "fingerprint": "1b99feee9061"
+        "url": "https://www.platinumequity.com/news/platinum-equitys-female-leaders-explain-how-they-drive-the-firms-success/",
+        "fingerprint": "f52f3a38837e"
       },
       {
         "title": "PlayPower to Acquire BCI Burke",
         "date": null,
         "url": "https://www.platinumequity.com/news/playpower-to-acquire-bci-burke/",
         "fingerprint": "43b43319928a"
+      },
+      {
+        "title": "Platinum Equity\u2019s Female Leaders Explain How They Drive the Firm\u2019s Success",
+        "date": null,
+        "url": "https://www.platinumequity.com/news/platinum-equitys-female-leaders-explain-how-they-drive-the-firms-success/",
+        "fingerprint": "f4b318ea853b"
       },
       {
         "title": "Three Deals in Two Weeks: Months After Platinum Equity\u2019s Successful $2.28B Fundraise, Small Cap Continues Momentum in 2026",
@@ -20675,12 +20789,6 @@
         "date": null,
         "url": "https://www.platinumequity.com/news/platinum-equity-founder-tom-gores-donates-350000-to-say-detroit/",
         "fingerprint": "3bc83cebeedf"
-      },
-      {
-        "title": "Inside the Husky-CompoSecure Merger: A Conversation with Platinum Equity's Louis Samson and Delara Zarrabi",
-        "date": null,
-        "url": "https://www.platinumequity.com/news/inside-the-husky-composecure-merger-a-conversation-with-platinum-equitys-louis-samson-and-delara-zarrabi/",
-        "fingerprint": "ad3e3c0b4282"
       }
     ],
     "https://www.azzurracapital.com/media/": [
@@ -20759,10 +20867,22 @@
         "fingerprint": "d332837d6f90"
       },
       {
-        "title": "Middle East Conflict Key Points: The risk of unintended consequences remains high",
+        "title": "ICG Real Estate announces \u20ac1.4bn final close for second Metropolitan fund",
         "date": null,
         "url": "https://www.icgam.com/news-insights-analysis/#news",
-        "fingerprint": "ae200dca9314"
+        "fingerprint": "d6d9dee43ebf"
+      },
+      {
+        "title": "Meet ICG at SuperReturn International 2026",
+        "date": null,
+        "url": "https://www.icgam.com/2026/03/27/meet-icg-at-superreturn-international-2026/",
+        "fingerprint": "eec874756bce"
+      },
+      {
+        "title": "Middle East Conflict Key Points: The risk of unintended consequences remains high",
+        "date": null,
+        "url": "https://www.icgam.com/2026/03/20/middle-east-conflict-key-points-the-risk-of-unintended-consequences-remains-high/",
+        "fingerprint": "cdd467cd1c25"
       },
       {
         "title": "ICG Infra stringe una partnership con Comcreta, azienda leader nella manutenzione ferroviaria",
@@ -20781,18 +20901,6 @@
         "date": null,
         "url": "https://www.icgam.com/2026/03/17/icg-appoints-luke-schlafly-as-global-head-of-insurance-client-solutions/",
         "fingerprint": "75de7ae2be64"
-      },
-      {
-        "title": "Board Changes",
-        "date": null,
-        "url": "https://www.icgam.com/2026/03/10/board-changes-jonathon-bond/",
-        "fingerprint": "499918735fb4"
-      },
-      {
-        "title": "Commencement of Share Buyback Programme and Appointment of Non-Executive Director",
-        "date": null,
-        "url": "https://www.icgam.com/2026/02/19/commencement-of-share-buyback-programme-and-appointment-of-non-executive-director/",
-        "fingerprint": "733d2a979656"
       },
       {
         "title": "2026 Macro and Private Markets Outlook: Sustained Resilience",
@@ -22187,6 +22295,12 @@
     ],
     "https://www.patrizia.ag/en/press-releases-pr/": [
       {
+        "title": "PATRIZIA celebrates 20 years on the Frankfurt Stock Exchange",
+        "date": "2026-03-31",
+        "url": "https://www.patrizia.ag/en/news-detail/patrizia-celebrates-20-years-on-the-frankfurt-stock-exchange/",
+        "fingerprint": "d2ba37b785d7"
+      },
+      {
         "title": "EIB Global provides USD 70 million cornerstone commitment to support PATRIZIA\u2019s energy transition strategy across Asia",
         "date": "2026-03-16",
         "url": "https://www.patrizia.ag/en/news-detail/eib-global-provides-usd-70-million-cornerstone-commitment-to-support-patrizias-energy-transition-strategy-across-asia/",
@@ -22203,12 +22317,6 @@
         "date": "2026-03-09",
         "url": "https://www.patrizia.ag/en/news-detail/patrizia-launches-eur-500m-berlin-residential-development-programme-as-part-of-its-pan-european-living-strategy/",
         "fingerprint": "d90f3825c876"
-      },
-      {
-        "title": "PATRIZIA FY 2025 financial results: Strong EBITDA growth and increase in dividend per share",
-        "date": "2026-03-04",
-        "url": "https://www.patrizia.ag/en/news-detail/patrizia-fy-2025-financial-results-strong-ebitda-growth-and-increase-in-dividend-per-share-1/",
-        "fingerprint": "29f1c44afe71"
       }
     ],
     "https://emkcapital.com/news": [

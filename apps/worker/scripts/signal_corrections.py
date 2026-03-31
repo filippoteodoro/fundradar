@@ -549,7 +549,9 @@ def correct_deal(text_lower: str, title_lower: str, diff_summary_lower: str = ""
         return "fundraise_closed"
 
     # Report/Strategic Plan → report
-    if _RE_REPORT.search(text_lower):
+    # Guard: don't demote if TITLE has acquisition verbs — "X acquires Y... (part of strategic plan)"
+    # is a deal announcement, not a report.
+    if _RE_REPORT.search(text_lower) and not _RE_ACQUISITION_VERBS.search(title_lower):
         return "report"
 
     # Basket bonds / project financing → debt_financing
@@ -1219,6 +1221,17 @@ def apply_type_corrections(
         # words required (unlike in correct_deal() which guards further).
         if _RE_DEBT_RESTRUCTURING.search(text_lower):
             return "debt_financing"
+
+        # Fund close verbs → fundraise_closed. Must run BEFORE invest_verbs rescue.
+        # "[SGR] closes [Fund Name] at €Xm" — present-tense "closes" now covered by
+        # _RE_FUNDRAISE_CLOSED_VERBS. Guard: must also have a fund/SGR keyword so bare
+        # "closes" in e.g. "deal closes on Friday" doesn't fire.
+        if _RE_FUNDRAISE_CLOSED_VERBS.search(text_lower) and re.search(
+            r"\b(?:sgr|fund|fondo|vehicle|veicolo|capital|lp|partnerships?)\b", text_lower
+        ):
+            result = correct_fundraise(text_lower, title_lower)
+            if result in ("fundraise_closed", "fundraise_announced"):
+                return result
 
         # Investment/acquisition language over-demoted to other → deal_announced.
         # Guard against editorial/interview pieces that mention investing abstractly.

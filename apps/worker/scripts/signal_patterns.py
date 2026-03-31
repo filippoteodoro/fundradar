@@ -337,7 +337,8 @@ _RE_DEBT_FINANCING_BROAD = re.compile(
     r"|\bunitranche\b"
     r"|\bprovid(?:es?|ed|ing)\b.{0,30}\bfinanc(?:ing|e)\b"
     r"|\bfinancing\s+support\b"
-    r"|\breceives?\s+financ(?:ing|e)\s+from\b",
+    r"|\breceives?\s+financ(?:ing|e)\s+from\b"
+    r"|\bsecures?\b.{0,40}\b(?:loan|prestito)\b",
     re.IGNORECASE,
 )
 
@@ -579,7 +580,7 @@ _RE_JOB_POSTING_RECLASSIFY = re.compile(
 
 # Fundraise closing verbs (completed closes)
 _RE_FUNDRAISE_CLOSED_VERBS = re.compile(
-    r"\bfinal close\b|\bhard cap\b|\bclosed\b|\bchiude\b|\bchius[oa]\b|\bcomplet\w+\b"
+    r"\bfinal close\b|\bhard cap\b|\bclos(?:es|ed)\b|\bchiude\b|\bchius[oa]\b|\bcomplet\w+\b"
     r"|\bclosing\s+(?:del|di|per|of)\s+(?:il\s+)?(?:fondo|fund|veicolo|oversubscribed)\b"
     r"|\b(?:primo|secondo|terzo|first|second|third|final|successful)\s+clos(?:e|ing)\b")
 
@@ -718,7 +719,7 @@ _RE_PORTFOLIO_CO_AS_ACQUIRER = re.compile(
 # Interview patterns (for people_move/partnership reclassification)
 _RE_INTERVIEW_EDITORIAL = re.compile(
     r"\bintervist\w+\b|\binterview\w*\b|\bsat\s+down\s+with\b|\bsits?\s+down\s+with\b|\breflects?\s+on\b"
-    r"|\bexplains?\b|\bspiega\b|\bracconta\b", re.IGNORECASE)
+    r"|\bexplains?\b|\bspiega\b|\bracconta\b|\bin.depth\s+look\b|\banalysis\s+of\b", re.IGNORECASE)
 
 # People-related language (to confirm people_move signals)
 _RE_PEOPLE_LANGUAGE = re.compile(
