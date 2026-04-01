@@ -55,7 +55,6 @@ export default async function RootLayout({
       <head />
       <body style={{ margin: 0, fontFamily: 'system-ui, sans-serif', background: '#fafafa' }}>
         <style dangerouslySetInnerHTML={{ __html: `
-          .mobile-show { display: none; }
           .grecaptcha-badge { visibility: hidden !important; }
           @media (max-width: 768px) {
             .hamburger {
@@ -73,8 +72,6 @@ export default async function RootLayout({
             main {
               padding: 16px !important;
             }
-            .mobile-hide { display: none !important; }
-            .mobile-show { display: inline !important; }
             .header-inner { gap: 8px !important; }
             .beta-badge { font-size: 11px !important; padding: 2px 8px 2px 5px !important; gap: 4px !important; }
             .beta-badge > span:first-child { width: 13px !important; height: 13px !important; font-size: 9px !important; }

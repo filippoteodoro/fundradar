@@ -660,8 +660,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
                     style={{ color: '#1976d2', textDecoration: 'none', fontWeight: 500 }}
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <span className="mobile-hide">{fund.name}</span>
-                    <span className="mobile-show">{getShortName(fund)}</span>
+                    {isMobile ? getShortName(fund) : fund.name}
                   </a>
                   {(() => {
                     const r = matchReasons.get(fund.slug);
@@ -686,8 +685,7 @@ export function FundsTable({ funds, portfolioCompanyNames = {}, onFilteredFundsC
                       whiteSpace: 'nowrap',
                     }}
                   >
-                    <span className="mobile-hide">{FUND_CATEGORY_LABELS[fund.category]}</span>
-                    <span className="mobile-show">{SHORT_CATEGORY_LABELS[FUND_CATEGORY_LABELS[fund.category]] || FUND_CATEGORY_LABELS[fund.category]}</span>
+                    {isMobile ? (SHORT_CATEGORY_LABELS[FUND_CATEGORY_LABELS[fund.category]] || FUND_CATEGORY_LABELS[fund.category]) : FUND_CATEGORY_LABELS[fund.category]}
                   </span>
                 </td>
                 <td style={{ padding: '10px 12px', borderBottom: '1px solid #eee', color: '#666', whiteSpace: 'nowrap' }}>
