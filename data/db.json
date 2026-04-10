@@ -122,10 +122,7 @@
         "Buy-Out"
       ],
       "sector_tags": [
-        "Real Estate",
-        "Construction",
-        "Industrial Manufacturing",
-        "Professional Services"
+        "Real Estate"
       ],
       "description": "Originally the French private equity arm of ABN AMRO before a 2008 management buyout, this firm specializes in mid-market transformations, recently acquiring Italian metal recycling specialist Zato.",
       "geographies": [
@@ -188,7 +185,7 @@
         "Financial Services",
         "Aerospace & Defense",
         "Hospitality & Tourism",
-        "Professional Services"
+        "Industrial Manufacturing"
       ],
       "description": "Established in 1984 as a spinoff from TA Associates, this global firm pioneered a sector-specialized approach to complex buyouts. Notable Italian transactions include the landmark consolidation of Nexi and the take-private of Tinexta.",
       "geographies": [
@@ -1976,7 +1973,7 @@
         "Biotech & Pharma",
         "Industrial Manufacturing",
         "Software",
-        "Technology"
+        "Professional Services"
       ],
       "description": "Spun off from the consulting firm Bain & Company in 1984, this pioneer of operationally-focused private equity applies management consulting techniques to global buyouts. Key investments include the Italian payments giant Nexi.",
       "geographies": [
@@ -3471,8 +3468,7 @@
       "sector_tags": [
         "Technology",
         "Aerospace & Defense",
-        "Biotech & Pharma",
-        "Software"
+        "Biotech & Pharma"
       ],
       "description": "Specializes in commercializing Italian deep tech and robotics research as the manager of the RoboIT National Technology Transfer Hub, backing university spin-offs in AI, space tech, and industrial automation.",
       "geographies": [
@@ -5015,10 +5011,10 @@
       ],
       "sector_tags": [
         "Technology",
-        "Healthcare",
-        "Industrial Manufacturing",
         "Software",
-        "Automotive"
+        "Healthcare",
+        "Financial Services",
+        "Food & Beverage"
       ],
       "description": "Pioneered the Sicaf investment model in Italy to drive digital transformation within traditional SMEs, executing buyouts and expansion rounds in the healthcare and industrial manufacturing sectors.",
       "geographies": [
@@ -5332,10 +5328,10 @@
       ],
       "sector_tags": [
         "Industrial Manufacturing",
-        "Food & Beverage",
         "Technology",
-        "Healthcare",
-        "Professional Services"
+        "Food & Beverage",
+        "Professional Services",
+        "Healthcare"
       ],
       "description": "Formed by a veteran team of partners from Alcedo to target buyouts of niche market leaders in Northern Italy, specializing in complex generational handovers for companies like CVS Ferrari and the recently exited Panificio San Francesco.",
       "geographies": [
@@ -5990,8 +5986,8 @@
       ],
       "sector_tags": [
         "Professional Services",
-        "Hospitality & Tourism",
         "Technology",
+        "Hospitality & Tourism",
         "Healthcare",
         "Financial Services"
       ],
@@ -6061,8 +6057,8 @@
         "Industrial Manufacturing",
         "Consumer Goods",
         "Healthcare",
-        "Professional Services",
-        "Aerospace & Defense"
+        "Aerospace & Defense",
+        "Chemicals"
       ],
       "description": "Global credit specialist founded in 1988 that pioneered institutional lending to mid-sized companies. It acts as a key liquidity provider for Italian SMEs, recently financing Uteco Converting and backing leaders like Jakala and AEB.",
       "geographies": [
@@ -6284,10 +6280,10 @@
       ],
       "sector_tags": [
         "Energy",
-        "Financial Services",
         "Healthcare",
+        "Financial Services",
         "Real Estate",
-        "Retail"
+        "Software"
       ],
       "description": "Italy's first impact investing firm, founded by Luciano Balbo to support ventures addressing critical social and environmental needs. Key investments include circular economy marketplace Refurbed and digital staffing platform Jobtech.",
       "geographies": [
@@ -8347,8 +8343,8 @@
         "Automotive",
         "Consumer Goods",
         "Industrial Manufacturing",
-        "Professional Services",
-        "Biotech & Pharma"
+        "Biotech & Pharma",
+        "Hospitality & Tourism"
       ],
       "description": "Club deal platform initiated by Mediobanca that organizes direct investments from prominent Italian family offices into mid-market leaders, notably backing the IPO of Philogen and the expansion of Jakala.",
       "geographies": [
@@ -10650,7 +10646,7 @@
         "Technology",
         "Financial Services",
         "Media & Entertainment",
-        "Aerospace & Defense"
+        "Retail"
       ],
       "description": "Founded by former Google Italy head Massimiliano Magrini, this independent firm specializes in technology-driven digital transformation with landmark investments in gaming platform Faceit and space logistics provider D-Orbit.",
       "geographies": [
@@ -10746,8 +10742,7 @@
         "Transportation & Logistics",
         "Energy",
         "Construction",
-        "Technology",
-        "Professional Services"
+        "Technology"
       ],
       "description": "European infrastructure investment firm managing EUR 33 billion across five flagship funds. In Italy, owns Hippocrates (460+ pharmacy network) and previously held Grandi Stazioni Retail (exited 2024 at 2.6x).",
       "geographies": [

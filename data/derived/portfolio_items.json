@@ -1450,6 +1450,19 @@
     ],
     "abenex": [
       {
+        "name": "De Hooge Waerder",
+        "sector": "Augment knowledge & resources",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.abenex.com/company/de-hooge-waerder/",
+        "description": "Strategy: Mid Cap En",
+        "detail_page_url": null,
+        "headquarters": "Alkmaar, Netherlands",
+        "investment_date": null,
+        "source_url": "https://www.abenex.com/portfolios/",
+        "data_source": "fund_website"
+      },
+      {
         "name": "Zato",
         "sector": "Industrial Manufacturing",
         "status": "current",
@@ -1646,7 +1659,7 @@
       },
       {
         "name": "Groupe Leader Insurance",
-        "sector": "Real Estate",
+        "sector": "Insurance",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/leader-insurance-group/",
@@ -5314,6 +5327,19 @@
     ],
     "apax-partners": [
       {
+        "name": "MillTech",
+        "sector": "Financial Services",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.apax.com/partnerships/milltech/",
+        "description": "MillTech FX is a multi-bank foreign exchange marketplace that provides corporate and institutional clients with access to competitive FX execution and automation.",
+        "detail_page_url": null,
+        "headquarters": "London, United Kingdom",
+        "investment_date": null,
+        "source_url": "https://www.apax.com/partnerships/",
+        "data_source": "fund_website"
+      },
+      {
         "name": "iD Fresh Food",
         "sector": "Food & Beverage",
         "status": "current",
@@ -5446,7 +5472,7 @@
       {
         "name": "GreytHR",
         "sector": "Software",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.95,
         "website": "https://www.apax.com/partnerships/greythr/",
         "description": "Develops cloud-based HR and payroll management software for SMBs",
@@ -10463,6 +10489,20 @@
         "source_url": "https://www.f2isgr.it/en/media/press-releases/f2i-si-aggiudica-la-concessione-del-porto-turistico-di-lavagna.html",
         "data_source": "signal_fund_press",
         "signal_id": "web-signal-00772"
+      },
+      {
+        "name": "Marina di Lavagna",
+        "sector": "Transportation & Logistics",
+        "status": "current",
+        "confidence": 0.9,
+        "website": null,
+        "description": "Marina di Lavagna is one of the largest tourist ports in the Mediterranean, providing extensive mooring services and nautical infrastructure.",
+        "detail_page_url": null,
+        "headquarters": "Lavagna, Italy",
+        "investment_date": "2026-04-01",
+        "source_url": "https://www.f2isgr.it/en/media/press-releases/f2i-levante-firma-la-concessione-e-avvia-la-gestione-della-nuova-marina-di-lavagna.html",
+        "data_source": "signal_fund_press",
+        "signal_id": "web-signal-02506"
       }
     ],
     "fsi": [
@@ -13194,7 +13234,7 @@
       {
         "name": "Digited",
         "sector": "Education",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.95,
         "website": "https://digited.it",
         "description": "Digital learning platform",
@@ -21723,32 +21763,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "ASTM",
-        "sector": "Construction",
-        "status": "current",
-        "confidence": 0.95,
-        "website": null,
-        "description": "Major strategic partnership alongside Ardian Infrastructure",
-        "detail_page_url": null,
-        "headquarters": "Turin, Italy",
-        "investment_date": null,
-        "source_url": "https://www.ardian.com/expertise/our-portfolio",
-        "data_source": "fund_website"
-      },
-      {
-        "name": "Alvest",
-        "sector": "Aerospace & Defense",
-        "status": "current",
-        "confidence": 0.95,
-        "website": null,
-        "description": "Alvest is the world leader in airport Ground Support Equipment (\u201cGSE\u201d) full-lifecycle solutions",
-        "detail_page_url": null,
-        "headquarters": "Paris, France",
-        "investment_date": null,
-        "source_url": "https://www.ardian.com/expertise/our-portfolio",
-        "data_source": "fund_website"
-      },
-      {
         "name": "RENAISSANCE",
         "sector": "Real Estate",
         "status": "current",
@@ -21770,6 +21784,32 @@
         "description": "How a successful public-private partnership build a leading satellite data business",
         "detail_page_url": null,
         "headquarters": "Toulouse, France",
+        "investment_date": null,
+        "source_url": "https://www.ardian.com/expertise/our-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "ASTM",
+        "sector": "Construction",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Major strategic partnership alongside Ardian Infrastructure",
+        "detail_page_url": null,
+        "headquarters": "Turin, Italy",
+        "investment_date": null,
+        "source_url": "https://www.ardian.com/expertise/our-portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Alvest",
+        "sector": "Aerospace & Defense",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Alvest is the world leader in airport Ground Support Equipment (\u201cGSE\u201d) full-lifecycle solutions",
+        "detail_page_url": null,
+        "headquarters": "Paris, France",
         "investment_date": null,
         "source_url": "https://www.ardian.com/expertise/our-portfolio",
         "data_source": "fund_website"
@@ -30921,7 +30961,7 @@
         "sector": "Technology",
         "status": "current",
         "confidence": 0.95,
-        "website": null,
+        "website": "https://www.randompower.eu/",
         "description": "Random Power is a quantum technology company developing on-silicon Quantum Random Number Generators (QRNGs) for applications in cryptography, privacy, and AI.",
         "detail_page_url": null,
         "headquarters": "Milan, Italy",
@@ -32534,19 +32574,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Arche MC2",
-        "sector": "Technology",
-        "status": "current",
-        "confidence": 0.95,
-        "website": "https://montefiore.eu/en/portfolio/arche-mc2/",
-        "description": "A software publisher specializing in digital solutions for the healthcare, social, and home care sectors.",
-        "detail_page_url": null,
-        "headquarters": "Paris, France",
-        "investment_date": null,
-        "source_url": "https://montefiore.eu/en/portfolio/",
-        "data_source": "fund_website"
-      },
-      {
         "name": "Asmodee",
         "sector": "Media & Entertainment",
         "status": "current",
@@ -33454,6 +33481,19 @@
         "data_source": "fund_website"
       },
       {
+        "name": "Arche MC2",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": "https://montefiore.eu/en/portfolio/arche-mc2/",
+        "description": "A software publisher specializing in digital solutions for the healthcare, social, and home care sectors.",
+        "detail_page_url": null,
+        "headquarters": "Paris, France",
+        "investment_date": null,
+        "source_url": "https://montefiore.eu/en/portfolio/",
+        "data_source": "fund_website"
+      },
+      {
         "name": "European Camping",
         "sector": "Hospitality & Tourism",
         "status": "exited",
@@ -33509,7 +33549,7 @@
       },
       {
         "name": "Accadueo Impianti",
-        "sector": "Water & Utilities",
+        "sector": "Cleaner planet",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -33522,7 +33562,7 @@
       },
       {
         "name": "Sustainable Platform",
-        "sector": "Financial Services",
+        "sector": "Cleaner planet",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -33535,7 +33575,7 @@
       },
       {
         "name": "Refurbed",
-        "sector": "Retail",
+        "sector": "Cleaner planet",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -33600,7 +33640,7 @@
       },
       {
         "name": "Fifteen",
-        "sector": "Transportation & Logistics",
+        "sector": "Cleaner planet",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -39661,9 +39701,22 @@
         "data_source": "fund_website"
       },
       {
+        "name": "Lux Entertainment",
+        "sector": "Media & Entertainment",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.rbw.it/it/",
+        "description": "Leader in Italy in the production of animated and Live Action content, with a portfolio of globally successful IPs such as Winx Club, Mermaid Magic, The Tearsmith, and My Name is Vendetta.",
+        "detail_page_url": null,
+        "headquarters": "Loreto, Italy",
+        "investment_date": null,
+        "source_url": "https://www.equityclub.eu/en/investments-details",
+        "data_source": "fund_website"
+      },
+      {
         "name": "Jakala",
         "sector": "Professional Services",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.85,
         "website": "http://www.jakala.com",
         "description": "Jakala was one of the first marketing technology, or \u2018martech', groups in Italy. Today it is one of the top five in Europe. Jakala helps its clients, particularly large corporations, make the best use of technology and data to enhance and develop their business through innovative sales and marketing projects. Jakala Group was founded in 2000 through the vision of Matteo de Brabant, Founder and Chairman. It was the first company in Italy to combine marketing and technology. In 2014 it merged with Seri System, and one year later with Value Lab, creating an integrated group in the world of Sales & Marketing services. Jakala has over 1,000 employees, 60% of whom are under 35 years old and 50% of them are women. Region: Italy Sector: Technology Date of Investment: July 2021 Website: https://www.jakala.com/",
@@ -43830,10 +43883,45 @@
         "data_source": "fund_website"
       },
       {
+        "name": "Random Power",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.randompower.eu/",
+        "description": "Random Power is a quantum technology company developing on-silicon Quantum Random Number Generators (QRNGs) for applications in cryptography, privacy, and AI.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://emeraldmanagers.com/quantum-randomness-random-power-raises-e2-6-million-3m-led-by-emerald-development-managers-lp-and-deep-ocean-capital-sgr/",
+        "data_source": "gemini_missing_asset",
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-14T11:52:31.971071+00:00",
+        "gemini_confidence": "high",
+        "gemini_reason": "Deep Ocean Capital SGR co-led a \u20ac2.6M Seed round for Random Power in December 2025 to accelerate the industrial development of its QRNG technology.",
+        "gemini_evidence_urls": [
+          "https://emeraldmanagers.com/quantum-randomness-random-power-raises-e2-6-million-3m-led-by-emerald-development-managers-lp-and-deep-ocean-capital-sgr/",
+          "https://www.nordic9.com/news/random-power-raised-e26m-in-a-seed-funding-round-led-by-emerald-development-managers-and-deep-ocean-capital-joined-by-obloo-and-40jemz-ventures-deal251201/"
+        ]
+      },
+      {
+        "name": "K3RX",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.k3rx.com/",
+        "description": "K3RX is an innovative Italian startup and CNR spin-off developing ultra-high-temperature carbon-ceramic composite components engineered to withstand extreme heat, wear, and oxidation in the most demanding operating environments. Leveraging proprietary technologies and exclusive licensed IP derived f",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": null,
+        "source_url": "https://www.deepoceancapital.it/portfolios-companies/",
+        "data_source": "fund_website"
+      },
+      {
         "name": "OhmSpace",
         "sector": "Aerospace & Defense",
         "status": "current",
-        "confidence": 0.9,
+        "confidence": 0.95,
         "website": "https://scientifica.vc/portfolio/ohmspace/?media_link=1",
         "description": "OhmSpace is an Italian aerospace startup developing advanced high-temperature resistojet propulsion systems for satellites, ranging from LEO constellations to geostationary platforms.",
         "detail_page_url": null,
@@ -43841,39 +43929,41 @@
         "investment_date": null,
         "source_url": "https://www.cdpventurecapital.it/cdp-vc/it/stampa/comunicati/OhmSpace_Successfully_Closes_a_2.5M_Seed_Round_Capital.page",
         "data_source": "gemini_missing_asset",
+        "curation_locked": true,
+        "curation_source": "gemini_audit_missing_asset",
+        "curation_applied_at": "2026-02-14T11:52:31.971026+00:00",
         "gemini_confidence": "high",
         "gemini_reason": "Deep Ocean Capital SGR invested \u20ac600,000 in OhmSpace's \u20ac2.5M Seed round in November 2025 via its Deep Blue Ventures and Deep Blue Ventures Space funds.",
         "gemini_evidence_urls": [
           "https://www.cdpventurecapital.it/cdp-vc/it/stampa/comunicati/OhmSpace_Successfully_Closes_a_2.5M_Seed_Round_Capital.page",
           "https://legalcommunity.it/alpeggiani-e-laward-nel-seed-round-da-25-milioni-di-ohmspace/"
-        ],
-        "curation_locked": true,
-        "curation_source": "gemini_audit_missing_asset",
-        "curation_applied_at": "2026-02-14T11:52:31.971026+00:00",
-        "curation_note": null
+        ]
       },
       {
-        "name": "Random Power",
+        "name": "UpSurgeOn",
         "sector": "Technology",
         "status": "current",
-        "confidence": 0.9,
-        "website": null,
-        "description": "Random Power is a quantum technology company developing on-silicon Quantum Random Number Generators (QRNGs) for applications in cryptography, privacy, and AI.",
+        "confidence": 0.95,
+        "website": "https://www.upsurgeon.com/",
+        "description": "UpSurgeOn is an Italian MedTech startup specialized in advanced surgical training through hyper-realistic physical simulators integrated with augmented and virtual reality technologies. Founded in 2017 by a multidisciplinary team of neurosurgeons, engineers, and digital experts, the company aims to",
         "detail_page_url": null,
-        "headquarters": "Milan, Italy",
+        "headquarters": "Assago, Italy",
         "investment_date": null,
-        "source_url": "https://emeraldmanagers.com/quantum-randomness-random-power-raises-e2-6-million-3m-led-by-emerald-development-managers-lp-and-deep-ocean-capital-sgr/",
-        "data_source": "gemini_missing_asset",
-        "gemini_confidence": "high",
-        "gemini_reason": "Deep Ocean Capital SGR co-led a \u20ac2.6M Seed round for Random Power in December 2025 to accelerate the industrial development of its QRNG technology.",
-        "gemini_evidence_urls": [
-          "https://emeraldmanagers.com/quantum-randomness-random-power-raises-e2-6-million-3m-led-by-emerald-development-managers-lp-and-deep-ocean-capital-sgr/",
-          "https://www.nordic9.com/news/random-power-raised-e26m-in-a-seed-funding-round-led-by-emerald-development-managers-and-deep-ocean-capital-joined-by-obloo-and-40jemz-ventures-deal251201/"
-        ],
-        "curation_locked": true,
-        "curation_source": "gemini_audit_missing_asset",
-        "curation_applied_at": "2026-02-14T11:52:31.971071+00:00",
-        "curation_note": null
+        "source_url": "https://www.deepoceancapital.it/portfolios-companies/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Gyala",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://gyala.com/",
+        "description": "Gyala is an Italian cybersecurity company developing advanced software solutions to protect complex and mission-critical IT, OT, and IoT environments. Founded by a team with deep experience in defense, systems engineering, and cyber intelligence, Gyala leverages proprietary technology originally dev",
+        "detail_page_url": null,
+        "headquarters": "Rome, Italy",
+        "investment_date": null,
+        "source_url": "https://www.deepoceancapital.it/portfolios-companies/",
+        "data_source": "fund_website"
       },
       {
         "name": "Rara Factory",
@@ -43911,20 +44001,6 @@
         "source_url": "https://bebeez.it/venture-capital/k3rx-incassa-round-da-165-mln-euro-lo-guidano-deep-ocean-capital-sgr-e-roboit/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00111"
-      },
-      {
-        "name": "Gyala",
-        "sector": "Software",
-        "status": "current",
-        "confidence": 0.8,
-        "website": "https://gyala.com/en/",
-        "description": "Provides cybersecurity software for protecting critical industrial systems",
-        "detail_page_url": null,
-        "headquarters": "Rome, Italy",
-        "investment_date": "2026-03-11",
-        "source_url": "https://bebeez.it/venture-capital/la-cybersecurity-di-gyala-incassa-round-da-4-mln-euro-lo-guida-deep-ocean-sgr/",
-        "data_source": "signal_news_verified",
-        "signal_id": "rss-signal-00178"
       }
     ],
     "friulia": [
@@ -46868,12 +46944,25 @@
     ],
     "advent-international": [
       {
+        "name": "Saronic",
+        "sector": "Industrial Manufacturing",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "A leader in autonomous maritime systems",
+        "detail_page_url": null,
+        "headquarters": "Austin, Texas",
+        "investment_date": null,
+        "source_url": "https://www.adventinternational.com/investments/",
+        "data_source": "fund_website"
+      },
+      {
         "name": "tbi bank",
         "sector": "Financial Services",
         "status": "current",
         "confidence": 0.95,
         "website": null,
-        "description": "A leading tech-led challenger bank in Southeast Europe and regional leader in payment plan solutions",
+        "description": "A leading consumer finance challenger bank in Southeast Europe",
         "detail_page_url": null,
         "headquarters": "Sofia, Bulgaria",
         "investment_date": null,
@@ -46987,7 +47076,7 @@
       {
         "name": "PatientPoint",
         "sector": "Healthcare",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.95,
         "website": null,
         "description": "Provider of digital patient engagement and health education in medical offices",
@@ -48556,19 +48645,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Coherent",
-        "sector": "Technology",
-        "status": "current",
-        "confidence": 0.95,
-        "website": null,
-        "description": "Manufactures materials, networking components, and laser systems",
-        "detail_page_url": null,
-        "headquarters": "Saxonburg, United States",
-        "investment_date": null,
-        "source_url": "https://www.baincapitalprivateequity.com/portfolio",
-        "data_source": "fund_website"
-      },
-      {
         "name": "Concert Golf Partners",
         "sector": "Hospitality & Tourism",
         "status": "current",
@@ -49130,7 +49206,7 @@
       {
         "name": "Nexi",
         "sector": "Financial Services",
-        "status": "current",
+        "status": "exited",
         "confidence": 0.95,
         "website": null,
         "description": "A leading European paytech company (formerly ICBPI) providing digital payment services for banks, businesses, and public administrations.",
@@ -49292,19 +49368,6 @@
         "description": "Provides HVAC and sustainability services for commercial buildings",
         "detail_page_url": null,
         "headquarters": "Charlotte, United States",
-        "investment_date": null,
-        "source_url": "https://www.baincapitalprivateequity.com/portfolio",
-        "data_source": "fund_website"
-      },
-      {
-        "name": "Showa Aircraft Industries",
-        "sector": "Aerospace & Defense",
-        "status": "current",
-        "confidence": 0.95,
-        "website": null,
-        "description": "Manufactures honeycomb core materials and aerospace equipment",
-        "detail_page_url": null,
-        "headquarters": "Akishima, Japan",
         "investment_date": null,
         "source_url": "https://www.baincapitalprivateequity.com/portfolio",
         "data_source": "fund_website"
@@ -49583,6 +49646,19 @@
         "data_source": "fund_website"
       },
       {
+        "name": "Coherent",
+        "sector": "Technology",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Manufactures materials, networking components, and laser systems",
+        "detail_page_url": null,
+        "headquarters": "Saxonburg, United States",
+        "investment_date": null,
+        "source_url": "https://www.baincapitalprivateequity.com/portfolio",
+        "data_source": "fund_website"
+      },
+      {
         "name": "Engineering Ingegneria Informatica",
         "sector": "Technology",
         "status": "exited",
@@ -49591,6 +49667,19 @@
         "description": "Engineering Ingegneria Informatica is a leading IT services and software company that provides digital transformation solutions to public and private organizations. It specializes in areas such as cloud computing, cybersecurity, and business process outsourcing.",
         "detail_page_url": null,
         "headquarters": "Rome, Italy",
+        "investment_date": null,
+        "source_url": "https://www.baincapitalprivateequity.com/portfolio",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Showa Aircraft Industries",
+        "sector": "Aerospace & Defense",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Manufactures honeycomb core materials and aerospace equipment",
+        "detail_page_url": null,
+        "headquarters": "Akishima, Japan",
         "investment_date": null,
         "source_url": "https://www.baincapitalprivateequity.com/portfolio",
         "data_source": "fund_website"
@@ -55864,6 +55953,19 @@
     ],
     "wise-equity-sgr": [
       {
+        "name": "FAS",
+        "sector": "Consumer Goods",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "http://www.fas.it/",
+        "description": "European leader in innovative and interconnected retail tech vending machines manufacturing",
+        "detail_page_url": null,
+        "headquarters": "Corropoli, Italy",
+        "investment_date": null,
+        "source_url": "https://www.wisesgr.com/en/investimenti",
+        "data_source": "fund_website"
+      },
+      {
         "name": "Marullo",
         "sector": "Food & Beverage",
         "status": "current",
@@ -56592,20 +56694,6 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-14T11:52:31.951085+00:00",
         "curation_note": null
-      },
-      {
-        "name": "Fas",
-        "sector": "Consumer Goods",
-        "status": "current",
-        "confidence": 0.8,
-        "website": null,
-        "description": "Fas S.p.A. is an Italian manufacturer specializing in the production of absorbent hygiene products for personal care, including baby diapers and adult incontinence products.",
-        "detail_page_url": null,
-        "headquarters": "Corropoli, Italy",
-        "investment_date": "2026-02-27",
-        "source_url": "https://bebeez.it/private-equity/il-fondo-wise-equity-vi-al-suo-sesto-investimento-firma-accordo-per-acquisire-fas-distributori-automatici-dalla-famiglia-adriani/",
-        "data_source": "signal_news_verified",
-        "signal_id": "rss-signal-00161"
       },
       {
         "name": "Wanho",
@@ -60383,6 +60471,19 @@
         "data_source": "fund_website"
       },
       {
+        "name": "Starcloud",
+        "sector": "Space",
+        "status": "current",
+        "confidence": 0.95,
+        "website": "https://www.eqtgroup.com/about/current-portfolio/starcloud",
+        "description": "Starcloud is a Chinese cloud-native digital infrastructure provider specializing in hybrid cloud management and enterprise digital transformation solutions.",
+        "detail_page_url": null,
+        "headquarters": "Beijing, China",
+        "investment_date": null,
+        "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+        "data_source": "fund_website"
+      },
+      {
         "name": "Statera",
         "sector": "Energy",
         "status": "current",
@@ -63470,6 +63571,20 @@
         "source_url": "https://www.rielloinvestimenti.it/news-apreamare.html",
         "data_source": "signal_fund_press",
         "signal_id": "web-signal-01363"
+      },
+      {
+        "name": "Neoh",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "Neoh is an Italian cybersecurity company specializing in managed security services, cloud security, and digital risk protection for corporate enterprises.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": "2026-04-02",
+        "source_url": "https://bebeez.it/venture-capital/riello-investimenti-sgr-partecipa-al-round-di-neoh-startup-svizzera-in-cui-a-febbraio-ha-investito-giovanni-ferrero-mediante-il-suo-veicolo-teseo-capital/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00285"
       }
     ],
     "partners-group": [
@@ -65369,6 +65484,20 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-27T20:34:18.444323+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Star 7 S.p.A",
+        "sector": "Professional Services",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "STAR7 provides a comprehensive range of content and product information services, including technical authoring, translation, and digital publishing for global industrial companies.",
+        "detail_page_url": null,
+        "headquarters": "Valle San Bartolomeo, Italy",
+        "investment_date": "2026-04-02",
+        "source_url": "https://bebeez.it/private-equity/argos-fund-acquista-il-75-di-star7-e-punta-al-delisting-dopo-la-chiusura-delloperazione/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00284"
       }
     ],
     "mito-technology": [
@@ -70555,11 +70684,11 @@
       },
       {
         "name": "K3RX",
-        "sector": "Biotech & Pharma",
+        "sector": "Technology",
         "status": "current",
         "confidence": 0.8,
-        "website": null,
-        "description": "A biotechnology firm dedicated to the research and development of innovative therapeutic treatments.",
+        "website": "https://www.k3rx.com/",
+        "description": "K3RX is an innovative Italian startup and CNR spin-off developing ultra-high-temperature carbon-ceramic composite components engineered to withstand extreme heat, wear, and oxidation in the most demanding operating environments. Leveraging proprietary technologies and exclusive licensed IP derived f",
         "detail_page_url": null,
         "headquarters": "Milan, Italy",
         "investment_date": "2026-02-21",
@@ -70608,6 +70737,20 @@
         "source_url": "https://bebeez.it/venture-capital/capsule-corporation-si-assicura-round-da-800k-euro-dal-takeoff-accelerator-cdp-venture-capital-sgr-e-altri-investitori/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00267"
+      },
+      {
+        "name": "Care Glance",
+        "sector": "Healthcare",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "Care Glance is a digital health company that develops remote monitoring solutions and tele-medicine platforms to improve the management of chronic patients.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": "2026-04-09",
+        "source_url": "https://startupitalia.eu/startup/teiacare-medtech-round-scaleup/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00302"
       }
     ],
     "eiffel": [
@@ -84911,11 +85054,11 @@
       },
       {
         "name": "Gyala",
-        "sector": "Software",
+        "sector": "Technology",
         "status": "current",
         "confidence": 0.95,
-        "website": "https://gyala.com/en/",
-        "description": "Provides cybersecurity software for protecting critical industrial systems",
+        "website": "https://gyala.com/",
+        "description": "Gyala is an Italian cybersecurity company developing advanced software solutions to protect complex and mission-critical IT, OT, and IoT environments. Founded by a team with deep experience in defense, systems engineering, and cyber intelligence, Gyala leverages proprietary technology originally dev",
         "detail_page_url": null,
         "headquarters": "Rome, Italy",
         "investment_date": null,
@@ -87302,6 +87445,20 @@
         "source_url": "https://bebeez.it/venture-capital/capsule-corporation-si-assicura-round-da-800k-euro-dal-takeoff-accelerator-cdp-venture-capital-sgr-e-altri-investitori/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00267"
+      },
+      {
+        "name": "Care Glance",
+        "sector": "Healthcare",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "Care Glance is a digital health startup that develops a platform for telemonitoring and managing chronic patients to improve clinical outcomes.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": "2026-04-09",
+        "source_url": "https://startupitalia.eu/startup/careglance-round-3d-sensori-infrarossi/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00303"
       }
     ],
     "equiter": [
@@ -88582,6 +88739,20 @@
         "source_url": "https://bebeez.it/private-debt/sapore-di-mare-clessidra-capital-credit-sgr-acquisira-il-controllo-esclusivo-di-d-i-mar-srl-societa-a-capo-della-catena-di-pescherie-ottenuto-lok-dellagcm/",
         "data_source": "signal_news_verified",
         "signal_id": "rss-signal-00237"
+      },
+      {
+        "name": "Sopran Ciodue",
+        "sector": "Professional Services",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "Sopran Ciodue is a leading Italian group in the fire protection and workplace safety sector, providing maintenance services, products, and specialized training.",
+        "detail_page_url": null,
+        "headquarters": "Trezzano sul Naviglio, Italy",
+        "investment_date": "2026-04-02",
+        "source_url": "https://bebeez.it/private-equity/clessidra-private-equity-sgr-acquisisce-la-lombarda-sopran-ciodue-sicurezza-e-sistemi-antincendio-dai-fondatori-leonardo-ciampoli-e-renato-casiroli/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00286"
       }
     ],
     "eurizon-real-asset": [
@@ -94679,6 +94850,34 @@
         "curation_source": "gemini_audit_missing_asset",
         "curation_applied_at": "2026-02-27T20:34:18.453572+00:00",
         "curation_note": null
+      },
+      {
+        "name": "Teia Care",
+        "sector": "Healthcare",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "Teia Care develops AI-based solutions to improve the quality of care and safety for elderly residents in nursing homes.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": "2026-04-09",
+        "source_url": "https://startupitalia.eu/lifestyle/fiorentina-in-campo-contro-crystal-palace/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00299"
+      },
+      {
+        "name": "Care Glance",
+        "sector": "Healthcare",
+        "status": "current",
+        "confidence": 0.8,
+        "website": null,
+        "description": "Care Glance provides a digital platform designed to streamline communication and monitoring between nurses and patients, particularly in home care settings.",
+        "detail_page_url": null,
+        "headquarters": "Milan, Italy",
+        "investment_date": "2026-04-09",
+        "source_url": "https://startupitalia.eu/startup/teiacare-medtech-round-scaleup/",
+        "data_source": "signal_news_verified",
+        "signal_id": "rss-signal-00302"
       }
     ],
     "hellman-friedman": [
@@ -95598,6 +95797,19 @@
         "data_source": "fund_website"
       },
       {
+        "name": "Casago (formerly Vacasa)",
+        "sector": "Hospitality & Tourism",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Travel Technology",
+        "detail_page_url": null,
+        "headquarters": "Portland, Oregon",
+        "investment_date": null,
+        "source_url": "https://www.silverlake.com/portfolio/",
+        "data_source": "fund_website"
+      },
+      {
         "name": "Cast & Crew",
         "sector": "Professional Services",
         "status": "current",
@@ -95663,14 +95875,14 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Clari",
+        "name": "Clari/Salesloft",
         "sector": "Software",
         "status": "current",
         "confidence": 0.95,
         "website": null,
         "description": "Enterprise Software",
         "detail_page_url": null,
-        "headquarters": "Sunnyvale, California",
+        "headquarters": "Sunnyvale, California and Atlanta, Georgia",
         "investment_date": null,
         "source_url": "https://www.silverlake.com/portfolio/",
         "data_source": "fund_website"
@@ -97353,19 +97565,6 @@
         "data_source": "fund_website"
       },
       {
-        "name": "Vacasa",
-        "sector": "Hospitality & Tourism",
-        "status": "current",
-        "confidence": 0.95,
-        "website": null,
-        "description": "Travel Technology",
-        "detail_page_url": null,
-        "headquarters": "Portland, Oregon, USA",
-        "investment_date": null,
-        "source_url": "https://www.silverlake.com/portfolio/",
-        "data_source": "fund_website"
-      },
-      {
         "name": "Vantage Data Centers",
         "sector": "Technology",
         "status": "current",
@@ -97522,6 +97721,19 @@
         "data_source": "fund_website"
       },
       {
+        "name": "Clari",
+        "sector": "Software",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Enterprise Software",
+        "detail_page_url": null,
+        "headquarters": "Sunnyvale, California",
+        "investment_date": null,
+        "source_url": "https://www.silverlake.com/portfolio/",
+        "data_source": "fund_website"
+      },
+      {
         "name": "Equinox",
         "sector": "Hospitality & Tourism",
         "status": "exited",
@@ -97530,6 +97742,19 @@
         "description": "A luxury fitness and lifestyle brand operating high-end health clubs and hotels globally.",
         "detail_page_url": null,
         "headquarters": "New York, USA",
+        "investment_date": null,
+        "source_url": "https://www.silverlake.com/portfolio/",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Vacasa",
+        "sector": "Hospitality & Tourism",
+        "status": "exited",
+        "confidence": 0.95,
+        "website": null,
+        "description": "Travel Technology",
+        "detail_page_url": null,
+        "headquarters": "Portland, Oregon, USA",
         "investment_date": null,
         "source_url": "https://www.silverlake.com/portfolio/",
         "data_source": "fund_website"
@@ -103153,6 +103378,19 @@
         "data_source": "fund_website"
       },
       {
+        "name": "Sapphire Gas Solutions",
+        "sector": "Energy",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "A premier LNG and CNG service provider focused on delivering natural gas solutions for industrial, utility, and commercial applications.",
+        "detail_page_url": "https://www.antin-ip.com/investments/sapphire-gas-solutions",
+        "headquarters": "Conroe, USA",
+        "investment_date": null,
+        "source_url": "https://antin-ip.com/investments",
+        "data_source": "fund_website"
+      },
+      {
         "name": "SNRG",
         "sector": "Energy",
         "status": "current",
@@ -103265,6 +103503,19 @@
         "description": "A neutral wholesale operator of fiber optic telecommunications infrastructure in Spain.",
         "detail_page_url": "https://www.antin-ip.com/investments/lyntia",
         "headquarters": "Madrid, Spain",
+        "investment_date": null,
+        "source_url": "https://antin-ip.com/investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "NorthC",
+        "sector": "Technology",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "A leading regional data center operator in the Netherlands, Germany, and Switzerland, providing colocation and connectivity services.",
+        "detail_page_url": "https://www.antin-ip.com/investments/northc",
+        "headquarters": "Utrecht, Netherlands",
         "investment_date": null,
         "source_url": "https://antin-ip.com/investments",
         "data_source": "fund_website"
@@ -103538,6 +103789,19 @@
         "description": "A leading international operator of nurseries and early childhood education centers.",
         "detail_page_url": "https://www.antin-ip.com/investments/babilou-family",
         "headquarters": "Paris, France",
+        "investment_date": null,
+        "source_url": "https://antin-ip.com/investments",
+        "data_source": "fund_website"
+      },
+      {
+        "name": "Emsere",
+        "sector": "Construction",
+        "status": "current",
+        "confidence": 0.95,
+        "website": null,
+        "description": "A global provider of equipment solutions for clinical trials, specializing in the rental and management of medical devices for the pharmaceutical industry.",
+        "detail_page_url": "https://www.antin-ip.com/investments/emsere",
+        "headquarters": "Sint-Michielsgestel, Netherlands",
         "investment_date": null,
         "source_url": "https://antin-ip.com/investments",
         "data_source": "fund_website"

@@ -65161,18 +65161,18 @@
       }
     },
     {
-      "id": "web-signal-02376",
+      "id": "web-signal-02536",
       "fund_id": "",
       "fund_slug": "platinum-equity",
       "signal_type": "fundraise_announced",
       "title": "Platinum Equity: Fundraise - Two Weeks",
-      "what_changed": "Founder and CEO Tom Gores believes firm has developed \u2018powerful\u2019 lower-middle market franchise that draws on three decades of experience.",
+      "what_changed": "New fundraise involving Two Weeks",
       "source_url": "https://www.platinumequity.com/news/three-deals-in-two-weeks-months-after-platinum-equitys-successful-2-28m-fundraise-small-cap-continues-momentum-in-2026/",
       "source_name": "Platinum Equity",
       "published_at": null,
-      "observed_at": "2026-03-27T10:59:17.064765+00:00",
-      "created_at": "2026-03-27T10:59:17.064765+00:00",
-      "snapshot_id": "snap-20260327105914-6bb5def5",
+      "observed_at": "2026-04-10T07:29:03.356136+00:00",
+      "created_at": "2026-04-10T07:29:03.356136+00:00",
+      "snapshot_id": "snap-20260410072901-6bb5def5",
       "diff_summary": "New news item detected",
       "page_category": "NEWS",
       "page_type": "NEWS",
@@ -65185,10 +65185,9 @@
         ],
         "people": [
           "Two Weeks",
-          "Tom Gores",
           "Small Cap Continues",
-          "Read More Three",
-          "Months After Platinum"
+          "Three Deals",
+          "After Platinum Equity"
         ],
         "locations": []
       }
@@ -68588,8 +68587,8 @@
         "cdp-venture-capital"
       ],
       "signal_type": "fundraise_closed",
-      "title": "Capsule Corporation chiude un round seed da 800 mila euro",
-      "what_changed": "Capsule Corporation ha chiuso un round seed da 800 mila euro per sviluppare sistemi di propulsione a base d\u2019acqua per piccoli satelliti e industrializzare la tecnologia. Ha partecipato Cdp Venture Capital sgr tramite Takeoff Accelerator. Startup italiana con focus space tech e obiettivo di ingresso sul mercato nel 2027.",
+      "title": "Capsule Corporation closes an \u20ac800,000 seed round",
+      "what_changed": "Capsule Corporation has closed an \u20ac800,000 seed round to develop water-based propulsion systems for small satellites and commercialize the technology. CDP Venture Capital SGR participated through Takeoff Accelerator. The Italian startup focuses on space technology and aims to enter the market in 2027.",
       "source_url": "https://financecommunity.it/capsule-corporation-chiude-un-round-seed-da-800-mila-euro/",
       "source_name": "FinanceCommunity",
       "published_at": "2026-03-31T10:24:48+00:00",
@@ -68608,7 +68607,9 @@
         "people": [],
         "locations": []
       },
-      "deal_amount": "800 mila euro"
+      "deal_amount": "800 mila euro",
+      "what_changed_original": "Capsule Corporation ha chiuso un round seed da 800 mila euro per sviluppare sistemi di propulsione a base d\u2019acqua per piccoli satelliti e industrializzare la tecnologia. Ha partecipato Cdp Venture Capital sgr tramite Takeoff Accelerator. Startup italiana con focus space tech e obiettivo di ingresso sul mercato nel 2027.",
+      "title_original": "Capsule Corporation chiude un round seed da 800 mila euro"
     },
     {
       "id": "rss-signal-00270",
@@ -68618,8 +68619,8 @@
         "style-capital-sgr"
       ],
       "signal_type": "other",
-      "title": "Aumento di capitale da 15 milioni di euro per Luisaviaroma (Style Capital)",
-      "what_changed": "Luisaviaroma, e-tailer multibrand italiano partecipato da Style Capital, ha deliberato un aumento di capitale fino a 15 milioni di euro. Sono in corso interlocuzioni avanzate con investitori attuali e nuovi per sostenere un piano di ristrutturazione. Si tratta di una negoziazione, non di un\u2019operazione gi\u00e0 chiusa.",
+      "title": "Luisaviaroma Secures \u20ac15 Million Capital Increase (Style Capital)",
+      "what_changed": "Luisaviaroma, an Italian multi-brand e-tailer backed by Style Capital, has approved a capital increase of up to \u20ac15 million. Advanced discussions are underway with existing and new investors to support a restructuring plan. This is a negotiation, not a deal that has already been finalized.",
       "source_url": "https://financecommunity.it/aumento-di-capitale-da-15-milioni-di-euro-per-luisaviaroma-style-capital/",
       "source_name": "FinanceCommunity",
       "published_at": "2026-03-31T09:34:25+00:00",
@@ -68638,9 +68639,3539 @@
         "people": [],
         "locations": []
       },
-      "deal_amount": "15 milioni di euro"
+      "deal_amount": "15 milioni di euro",
+      "what_changed_original": "Luisaviaroma, e-tailer multibrand italiano partecipato da Style Capital, ha deliberato un aumento di capitale fino a 15 milioni di euro. Sono in corso interlocuzioni avanzate con investitori attuali e nuovi per sostenere un piano di ristrutturazione. Si tratta di una negoziazione, non di un\u2019operazione gi\u00e0 chiusa.",
+      "title_original": "Aumento di capitale da 15 milioni di euro per Luisaviaroma (Style Capital)"
+    },
+    {
+      "id": "web-signal-02469",
+      "fund_id": "",
+      "fund_slug": "algebris",
+      "signal_type": "other",
+      "title": "GLOBAL EQUITY BULLETS | Wednesday, 25 March 2026 - Algebris Investments",
+      "what_changed": "New announcement: GLOBAL EQUITY BULLETS | Wednesday, 25 March 2026 - Algebris Investments",
+      "source_url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPeUhkek9RNExsT2ZKVjcyX1dvdFExb2dZblRkY210UldZQnVZUy1ZaUx1LUpvVmJrWXhrN3VQWkUwMTBucmpHb0hUWnlDcTZSYXJ2NlItY1htWk50UjRWa0MxSEZOOGxVVVVKQVl2Sjdta05xZ3VBV3IzUWlXQmxsTGRPNTFobmszNnFGcQ?oc=5",
+      "source_name": "Algebris",
+      "published_at": "2026-03-25",
+      "observed_at": "2026-04-10T07:24:47.318411+00:00",
+      "created_at": "2026-04-10T07:24:47.318411+00:00",
+      "snapshot_id": "snap-20260410072446-decd999b",
+      "diff_summary": "New news item detected (dated 2026-03-25)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Algebris Investments"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02470",
+      "fund_id": "",
+      "fund_slug": "algebris",
+      "signal_type": "other",
+      "title": "GLOBAL CREDIT BULLETS | Tuesday, 7 April 2026 - Algebris Investments",
+      "what_changed": "New announcement: GLOBAL CREDIT BULLETS | Tuesday, 7 April 2026 - Algebris Investments",
+      "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOY1NKekJTc19IQjRGMDZJWlFUSW80WUhnMGRFTzFvOGcwRkpYaHFiUWZVcW4yWUlnZDNwWkdHd3NmTGJ6MUJ0S1ZwZUgzSUo2cktMalJ1M3YyWm52Mk9uUmE5NFYwYkdISVF6XzJnTUhzZVpVcWNpOVBOUXRIN1JTMEhtTXVmcEcy?oc=5",
+      "source_name": "Algebris",
+      "published_at": "2026-04-07",
+      "observed_at": "2026-04-10T07:24:47.318411+00:00",
+      "created_at": "2026-04-10T07:24:47.318411+00:00",
+      "snapshot_id": "snap-20260410072446-decd999b",
+      "diff_summary": "New news item detected (dated 2026-04-07)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Algebris Investments"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02471",
+      "fund_id": "",
+      "fund_slug": "advent-international",
+      "signal_type": "deal_announced",
+      "title": "Saronic added to Advent International portfolio (Industrial)",
+      "what_changed": "Saronic added to Advent International portfolio (Industrial)",
+      "source_url": "https://www.adventinternational.com/investments/",
+      "source_name": "Advent International",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:24:47.935426+00:00",
+      "created_at": "2026-04-10T07:24:47.935426+00:00",
+      "snapshot_id": "snap-20260410072447-f5461bc6",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Saronic"
+        ],
+        "people": [
+          "Saronic Industrial"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02472",
+      "fund_id": "",
+      "fund_slug": "capital-dynamics-sgr",
+      "signal_type": "other",
+      "title": "0100 Europe 2026 - Capital Dynamics",
+      "what_changed": "New announcement: 0100 Europe 2026 - Capital Dynamics",
+      "source_url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE96T2E1NnBnUVFUd1Z1a0hCbWNLcF9oanFWQjRFbWdMNmk3SjFfSm5WcUxFcm00NThLUGtPMlFMQ2ptaXFTUWtjdF95dkNhQW1GYmdXRnBWQW8?oc=5",
+      "source_name": "Capital Dynamics SGR",
+      "published_at": "2026-04-02",
+      "observed_at": "2026-04-10T07:24:48.048633+00:00",
+      "created_at": "2026-04-10T07:24:48.048633+00:00",
+      "snapshot_id": "snap-20260410072447-0b1e545e",
+      "diff_summary": "New news item detected (dated 2026-04-02)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Capital Dynamics"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02473",
+      "fund_id": "",
+      "fund_slug": "capital-dynamics-sgr",
+      "signal_type": "people_move",
+      "title": "Capital Dynamics and Solo Renewables Agree \u00a3100m Joint Venture for Long Duration Energy Storage System in Northern Ireland - Capital Dynamics",
+      "what_changed": "New announcement: Capital Dynamics and Solo Renewables Agree \u00a3100m Joint Venture for Long Duration Energy Storage System in Northern Ireland - Capital Dynamics",
+      "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOMVp5THBFT285anJDWFJyN3hnMzZ2SU5BYUVTNTB2QUlIOXUwWEN4N09aWjMwb3hXajFOQTVpRE5FYlA1MWxOb0syb29ycTVUczA2OFN3WGhLSm16YUtBa2VYemxZWHZwUzR3NEd1V1ZJdHVIQ1dvakJzMFl3NDZKaXFvcVczXzdpS3htNndPRFJ0NUtjYjc0XzdZM010UUFsbFA0bVdTTmdXR2hz?oc=5",
+      "source_name": "Capital Dynamics SGR",
+      "published_at": "2026-03-31",
+      "observed_at": "2026-04-10T07:24:48.048633+00:00",
+      "created_at": "2026-04-10T07:24:48.048633+00:00",
+      "snapshot_id": "snap-20260410072447-0b1e545e",
+      "diff_summary": "New news item detected (dated 2026-03-31)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Capital Dynamics",
+          "Northern Ireland",
+          "Storage System",
+          "Solo Renewables Agree",
+          "Long Duration Energy",
+          "Joint Venture"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02474",
+      "fund_id": "",
+      "fund_slug": "capital-dynamics-sgr",
+      "signal_type": "other",
+      "title": "SuperReturn North America 2026 - Capital Dynamics",
+      "what_changed": "New announcement: SuperReturn North America 2026 - Capital Dynamics",
+      "source_url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE10RHVmZmFmRjNTalJwVHdiVGtuUzY2TDFtbVFGQUlyWjhWSU5RcDRuU0RJQksyOGZVUDhqWHVua0hMdDlZb3ZjTl83eFg4VHhYYWFDSEVkb2xBYjctZEZCaHFFZjRWa0FnOFBN?oc=5",
+      "source_name": "Capital Dynamics SGR",
+      "published_at": "2026-03-16",
+      "observed_at": "2026-04-10T07:24:48.048633+00:00",
+      "created_at": "2026-04-10T07:24:48.048633+00:00",
+      "snapshot_id": "snap-20260410072447-0b1e545e",
+      "diff_summary": "New news item detected (dated 2026-03-16)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "North America",
+          "Capital Dynamics"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02475",
+      "fund_id": "",
+      "fund_slug": "advent-international",
+      "signal_type": "people_move",
+      "title": "New team member: Zojajha Ayub",
+      "what_changed": "New team member: Zojajha Ayub (Senior Associate, New York)",
+      "source_url": "https://www.adventinternational.com/our-team/",
+      "source_name": "Advent International",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:24:48.555051+00:00",
+      "created_at": "2026-04-10T07:24:48.555051+00:00",
+      "snapshot_id": "snap-20260410072448-2413b6a7",
+      "diff_summary": "1 new team member via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Zojajha Ayub"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02476",
+      "fund_id": "",
+      "fund_slug": "antin-infrastructure-partners",
+      "signal_type": "deal_announced",
+      "title": "Sapphire Gas Solutions added to Antin Infrastructure Partners portfolio (Energy & environment)",
+      "what_changed": "Sapphire Gas Solutions added to Antin Infrastructure Partners portfolio (Energy & environment)",
+      "source_url": "https://antin-ip.com/investments",
+      "source_name": "Antin Infrastructure Partners",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:24:54.008712+00:00",
+      "created_at": "2026-04-10T07:24:54.008712+00:00",
+      "snapshot_id": "snap-20260410072451-1d6d36a5",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Sapphire Gas Solutions"
+        ],
+        "people": [
+          "Sapphire Gas Solutions"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02477",
+      "fund_id": "",
+      "fund_slug": "antin-infrastructure-partners",
+      "signal_type": "deal_announced",
+      "title": "NorthC added to Antin Infrastructure Partners portfolio (Digital)",
+      "what_changed": "NorthC added to Antin Infrastructure Partners portfolio (Digital)",
+      "source_url": "https://antin-ip.com/investments",
+      "source_name": "Antin Infrastructure Partners",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:24:54.008712+00:00",
+      "created_at": "2026-04-10T07:24:54.008712+00:00",
+      "snapshot_id": "snap-20260410072451-1d6d36a5",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "NorthC"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02478",
+      "fund_id": "",
+      "fund_slug": "antin-infrastructure-partners",
+      "signal_type": "deal_announced",
+      "title": "Emsere added to Antin Infrastructure Partners portfolio (Social infrastructure)",
+      "what_changed": "Emsere added to Antin Infrastructure Partners portfolio (Social infrastructure)",
+      "source_url": "https://antin-ip.com/investments",
+      "source_name": "Antin Infrastructure Partners",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:24:54.008712+00:00",
+      "created_at": "2026-04-10T07:24:54.008712+00:00",
+      "snapshot_id": "snap-20260410072451-1d6d36a5",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Emsere"
+        ],
+        "people": [
+          "Emsere Social"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02479",
+      "fund_id": "",
+      "fund_slug": "apax-partners",
+      "signal_type": "deal_announced",
+      "title": "MillTech added to Apax Partners portfolio",
+      "what_changed": "MillTech added to Apax Partners portfolio",
+      "source_url": "https://www.apax.com/partnerships/",
+      "source_name": "Apax Partners",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:24:54.480692+00:00",
+      "created_at": "2026-04-10T07:24:54.480692+00:00",
+      "snapshot_id": "snap-20260410072451-687af4bc",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "MillTech"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02480",
+      "fund_id": "",
+      "fund_slug": "apollo",
+      "signal_type": "other",
+      "title": "Apollo to Announce First Quarter 2026 Financial Results on May 6, 2026",
+      "what_changed": "New announcement: Apollo to Announce First Quarter 2026 Financial Results on May 6, 2026",
+      "source_url": "https://www.apollo.com/insights-news/pressreleases/2026/04/apollo-to-announce-first-quarter-2026-financial-results-on-may-6-2026-3267000",
+      "source_name": "Apollo",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:24:55.071978+00:00",
+      "created_at": "2026-04-10T07:24:55.071978+00:00",
+      "snapshot_id": "snap-20260410072454-76d10fe8",
+      "diff_summary": "New news item detected (dated 2026-05-06)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Financial Results",
+          "Announce First Quarter"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02481",
+      "fund_id": "",
+      "fund_slug": "apollo",
+      "signal_type": "deal_announced",
+      "title": "Apollo Funds Acquire Gatehouse Living Group from Gatehouse Bank",
+      "what_changed": "New announcement: Apollo Funds Acquire Gatehouse Living Group from Gatehouse Bank",
+      "source_url": "https://www.apollo.com/insights-news/pressreleases/2026/04/apollo-funds-acquire-gatehouse-living-group-from-gatehouse-bank-3266566",
+      "source_name": "Apollo",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:24:55.071978+00:00",
+      "created_at": "2026-04-10T07:24:55.071978+00:00",
+      "snapshot_id": "snap-20260410072454-76d10fe8",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Gatehouse Bank",
+          "Apollo Funds Acquire",
+          "Gatehouse Living Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02482",
+      "fund_id": "",
+      "fund_slug": "abenex",
+      "signal_type": "deal_announced",
+      "title": "De Hooge Waerder added to Abenex portfolio (Augment knowledge & resources)",
+      "what_changed": "De Hooge Waerder added to Abenex portfolio (Augment knowledge & resources)",
+      "source_url": "https://www.abenex.com/portfolios/",
+      "source_name": "Abenex",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:24:55.282362+00:00",
+      "created_at": "2026-04-10T07:24:55.282362+00:00",
+      "snapshot_id": "snap-20260410072450-2caf27f3",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "De Hooge Waerder"
+        ],
+        "people": [
+          "Mid Cap En",
+          "De Hooge Waerder"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02483",
+      "fund_id": "",
+      "fund_slug": "ambienta-sgr",
+      "signal_type": "people_move",
+      "title": "New team members: Riccardo Abate (+2 more)",
+      "what_changed": "New team members: Riccardo Abate, Matteo Ambroggio, Silvia Ferrario",
+      "source_url": "https://ambientasgr.com/firm/team/",
+      "source_name": "Ambienta SGR",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:24:56.474680+00:00",
+      "created_at": "2026-04-10T07:24:56.474680+00:00",
+      "snapshot_id": "snap-20260410072449-c54b2ffb",
+      "diff_summary": "3 new team members via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Riccardo Abate",
+          "Matteo Ambroggio",
+          "Silvia Ferrario"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02484",
+      "fund_id": "",
+      "fund_slug": "apax-partners",
+      "signal_type": "other",
+      "title": "Apax digital funds invest 60 million in milltech to fuel north american expansion",
+      "what_changed": "New announcement: Apax digital funds invest 60 million in milltech to fuel north american expansion",
+      "source_url": "https://www.apax.com/news-views/apax-digital-funds-invest-60-million-in-milltech-to-fuel-north-american-expansion/",
+      "source_name": "Apax Partners",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:24:57.250844+00:00",
+      "created_at": "2026-04-10T07:24:57.250844+00:00",
+      "snapshot_id": "snap-20260410072457-1ff51925",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02485",
+      "fund_id": "",
+      "fund_slug": "andera-partners",
+      "signal_type": "deal_announced",
+      "title": "Tecnikabel acquires EIS Wire & Cable, expanding its presence in the USA within the industrial a\u2026",
+      "what_changed": "andera MidCap | Press releases",
+      "source_url": "https://www.anderapartners.com/en/tecnikabel-acquires-eis-wire-cable-expanding-its-presence-in-the-usa-within-the-industrial-automation-and-defence-sectors/",
+      "source_name": "Andera Partners",
+      "published_at": "2026-04-09",
+      "observed_at": "2026-04-10T07:25:00.473304+00:00",
+      "created_at": "2026-04-10T07:25:00.473304+00:00",
+      "snapshot_id": "snap-20260410072458-b2f977d3",
+      "diff_summary": "New news item detected (dated 09.04.2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02486",
+      "fund_id": "",
+      "fund_slug": "andera-partners",
+      "signal_type": "deal_announced",
+      "title": "Andera Partners portfolio company, Tubulis, acquired by Gilead, adding a potentially best-in-class a\u2026",
+      "what_changed": "andera Life Sciences | Press releases",
+      "source_url": "https://www.anderapartners.com/en/andera-partners-portfolio-company-tubulis-acquired-by-gilead-adding-a-potentially-best-in-class-antibody-drug-conjugate-and-a-next-generation-platform-to-gileads-oncology-pipeline/",
+      "source_name": "Andera Partners",
+      "published_at": "2026-04-07",
+      "observed_at": "2026-04-10T07:25:00.473304+00:00",
+      "created_at": "2026-04-10T07:25:00.473304+00:00",
+      "snapshot_id": "snap-20260410072458-b2f977d3",
+      "diff_summary": "New news item detected (dated 07.04.2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Life Sciences",
+          "Andera Partners"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02487",
+      "fund_id": "",
+      "fund_slug": "bain-capital",
+      "signal_type": "people_move",
+      "title": "New team members: Ankit AggarwalPrincipal (+29 more)",
+      "what_changed": "New team members added: Ankit AggarwalPrincipal, Ankit AggarwalPrincipalMumbai, Emily AshworthManaging Director, Emily AshworthManaging DirectorBoston, Eric AndersonManaging Director (+25 more)",
+      "source_url": "https://www.baincapitalprivateequity.com/people",
+      "source_name": "Website Monitor",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:25:26.411051+00:00",
+      "created_at": "2026-04-10T07:25:26.411051+00:00",
+      "snapshot_id": "snap-20260410072513-7f7c41ae",
+      "diff_summary": "30 new team members detected",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Ankit AggarwalPrincipal",
+          "Ankit AggarwalPrincipalMumbai",
+          "Emily AshworthManaging Director",
+          "Emily AshworthManaging DirectorBoston",
+          "Eric AndersonManaging Director",
+          "Eric AndersonManaging DirectorBoston",
+          "James BathOperating Partner",
+          "James BathOperating PartnerLondon",
+          "John BelitsosPartner",
+          "John BelitsosPartnerBoston",
+          "Josh BekensteinSenior Advisor",
+          "Josh BekensteinSenior AdvisorBoston",
+          "Ken AshidaCo-Chairman",
+          "Ken AshidaCo-ChairmanTokyo",
+          "Luca BassiPartner",
+          "Luca BassiPartnerLondon",
+          "Maria AndrisaniPartner",
+          "Maria AndrisaniPartnerLondon",
+          "Nicholas BendtManaging Director",
+          "Nicholas BendtManaging DirectorLondon",
+          "Pranit BhandariVice President",
+          "Pranit BhandariVice PresidentMumbai",
+          "Saahil BhatiaManaging Director",
+          "Saahil BhatiaManaging DirectorMumbai",
+          "Seamus Bann",
+          "Seamus BannBoston",
+          "Steven BarnesSenior Advisor",
+          "Steven BarnesSenior AdvisorBoston",
+          "William BihrleManaging Director",
+          "William BihrleManaging DirectorBoston"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02488",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "other",
+      "title": "DAE and Blackstone Credit & Insurance Announce Multi-Billion Dollar Global Aviation Leasing Investment Program",
+      "what_changed": "New announcement: DAE and Blackstone Credit & Insurance Announce Multi-Billion Dollar Global Aviation Leasing Investment Program",
+      "source_url": "https://www.blackstone.com/news/press/dae-and-blackstone-credit-insurance-announce-multi-billion-dollar-global-aviation-leasing-investment-program/",
+      "source_name": "Blackstone",
+      "published_at": "2026-04-09",
+      "observed_at": "2026-04-10T07:25:38.493323+00:00",
+      "created_at": "2026-04-10T07:25:38.493323+00:00",
+      "snapshot_id": "snap-20260410072536-5bc8ee81",
+      "diff_summary": "New news item detected (dated 2026-04-09)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Insurance Announce Multi",
+          "Aviation Leasing Investment",
+          "Billion Dollar Global",
+          "Blackstone Credit"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02489",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "fundraise_announced",
+      "title": "Blackstone Closes Flagship Opportunistic Credit Fund at Over $10B, Hitting Hard Cap",
+      "what_changed": "New announcement: Blackstone Closes Flagship Opportunistic Credit Fund at Over $10B, Hitting Hard Cap",
+      "source_url": "https://www.blackstone.com/news/press/blackstone-closes-flagship-opportunistic-credit-fund-at-over-10b-hitting-hard-cap/",
+      "source_name": "Blackstone",
+      "published_at": "2026-04-07",
+      "observed_at": "2026-04-10T07:25:38.493323+00:00",
+      "created_at": "2026-04-10T07:25:38.493323+00:00",
+      "snapshot_id": "snap-20260410072536-5bc8ee81",
+      "diff_summary": "New news item detected (dated 2026-04-07)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Hitting Hard Cap",
+          "Opportunistic Credit Fund",
+          "Blackstone Closes Flagship"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02490",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "other",
+      "title": "Blackstone Announces Top-Ranked Professional Golfer, Tommy Fleetwood, as Global Brand Ambassador",
+      "what_changed": "New announcement: Blackstone Announces Top-Ranked Professional Golfer, Tommy Fleetwood, as Global Brand Ambassador",
+      "source_url": "https://www.blackstone.com/news/press/blackstone-announces-top-ranked-professional-golfer-tommy-fleetwood-as-global-brand-ambassador/",
+      "source_name": "Blackstone",
+      "published_at": "2026-03-31",
+      "observed_at": "2026-04-10T07:25:38.493323+00:00",
+      "created_at": "2026-04-10T07:25:38.493323+00:00",
+      "snapshot_id": "snap-20260410072536-5bc8ee81",
+      "diff_summary": "New news item detected (dated 2026-03-31)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Global Brand Ambassador",
+          "Tommy Fleetwood",
+          "Ranked Professional Golfer",
+          "Blackstone Announces Top"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02491",
+      "fund_id": "",
+      "fund_slug": "ardian",
+      "signal_type": "exit_announced",
+      "title": "Ardian Announces Sale of Acousti Engineering",
+      "what_changed": "New announcement: Ardian Announces Sale of Acousti Engineering",
+      "source_url": "https://www.ardian.com/news-insights/press-releases/ardian-announces-sale-acousti-engineering",
+      "source_name": "Ardian",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:25:42.402202+00:00",
+      "created_at": "2026-04-10T07:25:42.402202+00:00",
+      "snapshot_id": "snap-20260410072542-1d0e2537",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Ardian Announces Sale",
+          "Acousti Engineering"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02492",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "other",
+      "title": "What\u2019s Really Happening In Private Credit?",
+      "what_changed": "New announcement: What\u2019s Really Happening In Private Credit?",
+      "source_url": "https://www.blackstone.com/en/news",
+      "source_name": "Blackstone",
+      "published_at": "2026-04-08",
+      "observed_at": "2026-04-10T07:25:43.182906+00:00",
+      "created_at": "2026-04-10T07:25:43.182906+00:00",
+      "snapshot_id": "snap-20260410072542-3b6323a1",
+      "diff_summary": "New news item detected (dated 2026-04-08)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Really Happening In",
+          "Private Credit"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02493",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "other",
+      "title": "Private Credit: Myth vs. Fact",
+      "what_changed": "New announcement: Private Credit: Myth vs. Fact",
+      "source_url": "https://www.blackstone.com/en/news",
+      "source_name": "Blackstone",
+      "published_at": "2026-03-31",
+      "observed_at": "2026-04-10T07:25:43.182906+00:00",
+      "created_at": "2026-04-10T07:25:43.182906+00:00",
+      "snapshot_id": "snap-20260410072542-3b6323a1",
+      "diff_summary": "New news item detected (dated 2026-03-31)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Private Credit"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02494",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "other",
+      "title": "Introducing Tommy Fleetwood, our first Global Brand Ambassador",
+      "what_changed": "New announcement: Introducing Tommy Fleetwood, our first Global Brand Ambassador",
+      "source_url": "https://www.blackstone.com/en/news",
+      "source_name": "Blackstone",
+      "published_at": "2026-03-31",
+      "observed_at": "2026-04-10T07:25:43.182906+00:00",
+      "created_at": "2026-04-10T07:25:43.182906+00:00",
+      "snapshot_id": "snap-20260410072542-3b6323a1",
+      "diff_summary": "New news item detected (dated 2026-03-31)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Introducing Tommy Fleetwood",
+          "Global Brand Ambassador"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02495",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "other",
+      "title": "Jon Gray on His Confidence in Private Credit\u2019s Enduring Premium",
+      "what_changed": "New announcement: Jon Gray on His Confidence in Private Credit\u2019s Enduring Premium",
+      "source_url": "https://www.blackstone.com/en/news",
+      "source_name": "Blackstone",
+      "published_at": "2026-03-26",
+      "observed_at": "2026-04-10T07:25:43.182906+00:00",
+      "created_at": "2026-04-10T07:25:43.182906+00:00",
+      "snapshot_id": "snap-20260410072542-3b6323a1",
+      "diff_summary": "New news item detected (dated 2026-03-26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Jon Gray",
+          "Private Credit",
+          "His Confidence",
+          "Enduring Premium"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02496",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "other",
+      "title": "Jon Gray at Top Advisor Conference Breaks Down Facts on Private Credit",
+      "what_changed": "New announcement: Jon Gray at Top Advisor Conference Breaks Down Facts on Private Credit",
+      "source_url": "https://www.blackstone.com/en/news",
+      "source_name": "Blackstone",
+      "published_at": "2026-03-26",
+      "observed_at": "2026-04-10T07:25:43.182906+00:00",
+      "created_at": "2026-04-10T07:25:43.182906+00:00",
+      "snapshot_id": "snap-20260410072542-3b6323a1",
+      "diff_summary": "New news item detected (dated 2026-03-26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Jon Gray",
+          "Private Credit",
+          "Breaks Down Facts",
+          "Top Advisor Conference"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02497",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "signal_type": "other",
+      "title": "Decoding the Real Estate Cycle",
+      "what_changed": "New announcement: Decoding the Real Estate Cycle",
+      "source_url": "https://www.blackstone.com/en/news",
+      "source_name": "Blackstone",
+      "published_at": "2026-03-24",
+      "observed_at": "2026-04-10T07:25:43.182906+00:00",
+      "created_at": "2026-04-10T07:25:43.182906+00:00",
+      "snapshot_id": "snap-20260410072542-3b6323a1",
+      "diff_summary": "New news item detected (dated 2026-03-24)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Real Estate Cycle"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02498",
+      "fund_id": "",
+      "fund_slug": "clessidra-sgr",
+      "signal_type": "deal_announced",
+      "title": "Clessidra Private Equity acquires the Sopran Ciodue Group. Partnership with founder Leonardo Ciampoli and the team to support growth and consolidation",
+      "what_changed": "New announcement: Clessidra Private Equity acquires the Sopran Ciodue Group. Partnership with founder Leonardo Ciampoli and the team to support growth and consolidation",
+      "source_url": "https://www.clessidragroup.it/clessidra-private-equity-acquisisce-il-gruppo-sopran-ciodue/",
+      "source_name": "Clessidra SGR",
+      "published_at": "2026-04-02",
+      "observed_at": "2026-04-10T07:26:42.450050+00:00",
+      "created_at": "2026-04-10T07:26:42.450050+00:00",
+      "snapshot_id": "snap-20260410072642-51d9d6e8",
+      "diff_summary": "New news item detected (dated 2026-04-02)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Gruppo Sopran Ciodue",
+          "Clessidra Private Equity",
+          "Leonardo Ciampoli"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Clessidra Private Equity acquisisce il Gruppo Sopran Ciodue. Partnership con il fondatore, Leonardo Ciampoli e il team per sostenere crescita e consolidamento",
+      "title_original": "Clessidra Private Equity acquisisce il Gruppo Sopran Ciodue. Partnership con il fondatore, Leonardo Ciampoli e il team per sostenere crescita e consolidamento"
+    },
+    {
+      "id": "web-signal-02499",
+      "fund_id": "",
+      "fund_slug": "deep-ocean-capital-sgr",
+      "signal_type": "deal_announced",
+      "title": "K3RX added to Deep Ocean Capital SGR portfolio (Deep Tech / Venture Capital)",
+      "what_changed": "K3RX added to Deep Ocean Capital SGR portfolio (Deep Tech / Venture Capital)",
+      "source_url": "https://www.deepoceancapital.it/portfolios-companies/",
+      "source_name": "Deep Ocean Capital SGR",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:26:48.382880+00:00",
+      "created_at": "2026-04-10T07:26:48.382880+00:00",
+      "snapshot_id": "snap-20260410072646-8982ff93",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italian)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "K3RX"
+        ],
+        "people": [
+          "Venture Capital",
+          "Deep Tech"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02500",
+      "fund_id": "",
+      "fund_slug": "deep-ocean-capital-sgr",
+      "signal_type": "deal_announced",
+      "title": "UpSurgeOn added to Deep Ocean Capital SGR portfolio (Deep Tech / Venture Capital)",
+      "what_changed": "UpSurgeOn added to Deep Ocean Capital SGR portfolio (Deep Tech / Venture Capital)",
+      "source_url": "https://www.deepoceancapital.it/portfolios-companies/",
+      "source_name": "Deep Ocean Capital SGR",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:26:48.382880+00:00",
+      "created_at": "2026-04-10T07:26:48.382880+00:00",
+      "snapshot_id": "snap-20260410072646-8982ff93",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italian)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "UpSurgeOn"
+        ],
+        "people": [
+          "Venture Capital",
+          "Deep Tech"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02501",
+      "fund_id": "",
+      "fund_slug": "carlyle",
+      "signal_type": "deal_announced",
+      "title": "Resilient growth, rising costs, growing divergence added to Carlyle portfolio",
+      "what_changed": "Resilient growth, rising costs, growing divergence added to Carlyle portfolio",
+      "source_url": "https://www.carlyle.com/our-business/portfolio-of-investments",
+      "source_name": "Carlyle",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:26:48.711937+00:00",
+      "created_at": "2026-04-10T07:26:48.711937+00:00",
+      "snapshot_id": "snap-20260410072620-bfdf99b5",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Resilient growth, rising costs, growing divergence"
+        ],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02502",
+      "fund_id": "",
+      "fund_slug": "cvc-capital-partners",
+      "signal_type": "people_move",
+      "title": "New team member: GonzaloAlonso De Las Fuentes",
+      "what_changed": "New team member: GonzaloAlonso De Las Fuentes",
+      "source_url": "https://www.cvc.com/about/our-people",
+      "source_name": "CVC",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:26:50.971586+00:00",
+      "created_at": "2026-04-10T07:26:50.971586+00:00",
+      "snapshot_id": "snap-20260410072648-76766a7f",
+      "diff_summary": "1 new team member via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "GonzaloAlonso De Las Fuentes"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02503",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "other",
+      "title": "CareGlance closes a \u20ac3.5 million funding round to accelerate the commercialization of 3D sensors for industrial automation",
+      "what_changed": "New announcement: CareGlance closes a \u20ac3.5 million funding round to accelerate the commercialization of 3D sensors for industrial automation",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "Cdp Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:26:56.912176+00:00",
+      "created_at": "2026-04-10T07:26:56.912176+00:00",
+      "snapshot_id": "snap-20260410072651-1bc451c2",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: CareGlance chiude un round da \u20ac3,5M per accelerare l\u2019industrializzazione dei sensori 3D per l\u2019automazione industriale",
+      "title_original": "CareGlance chiude un round da \u20ac3,5M per accelerare l\u2019industrializzazione dei sensori 3D per l\u2019automazione industriale"
+    },
+    {
+      "id": "web-signal-02504",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "signal_type": "other",
+      "title": "WEARABLE ROBOTICS, a spin-off of the Sant\u2019Anna School of Advanced Studies in Pisa, has closed a \u20ac5 million funding round to accelerate its development",
+      "what_changed": "New announcement: WEARABLE ROBOTICS, a spin-off of the Sant\u2019Anna School of Advanced Studies in Pisa, has closed a \u20ac5 million funding round to accelerate its development",
+      "source_url": "https://www.cdpventurecapital.it/it/newsroom.page",
+      "source_name": "Cdp Venture Capital",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:26:56.912176+00:00",
+      "created_at": "2026-04-10T07:26:56.912176+00:00",
+      "snapshot_id": "snap-20260410072651-1bc451c2",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Scuola Superiore Sant"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: WEARABLE ROBOTICS, spin-off della Scuola Superiore Sant\u2019Anna di Pisa, chiude un round di investimento da 5 milioni di euro per accelerare lo sviluppo",
+      "title_original": "WEARABLE ROBOTICS, spin-off della Scuola Superiore Sant\u2019Anna di Pisa, chiude un round di investimento da 5 milioni di euro per accelerare lo sviluppo"
+    },
+    {
+      "id": "web-signal-02505",
+      "fund_id": "",
+      "fund_slug": "the-equity-club",
+      "signal_type": "deal_announced",
+      "title": "Lux Entertainment added to The Equity Club portfolio",
+      "what_changed": "Lux Entertainment added to The Equity Club portfolio",
+      "source_url": "https://www.equityclub.eu/en/investments-details",
+      "source_name": "The Equity Club",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:27:14.200160+00:00",
+      "created_at": "2026-04-10T07:27:14.200160+00:00",
+      "snapshot_id": "snap-20260410072711-3fef848f",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italy)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [
+          "Lux Entertainment"
+        ],
+        "people": [
+          "Winx Club",
+          "Live Action",
+          "The Tearsmith",
+          "My Name",
+          "Lux Entertainment Leader",
+          "Mermaid Magic"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02506",
+      "fund_id": "",
+      "fund_slug": "f2i-sgr",
+      "signal_type": "other",
+      "title": "F2i Levante signs concession agreement and launches management of the new Marina di Lavagna",
+      "what_changed": "New announcement: F2i Levante signs concession agreement and launches management of the new Marina di Lavagna",
+      "source_url": "https://www.f2isgr.it/en/media/press-releases/f2i-levante-firma-la-concessione-e-avvia-la-gestione-della-nuova-marina-di-lavagna.html",
+      "source_name": "F2i SGR",
+      "published_at": "2026-04-01",
+      "observed_at": "2026-04-10T07:27:31.750566+00:00",
+      "created_at": "2026-04-10T07:27:31.750566+00:00",
+      "snapshot_id": "snap-20260410072731-35afd7eb",
+      "diff_summary": "New news item detected (dated 2026-04-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02507",
+      "fund_id": "",
+      "fund_slug": "cvc-dif",
+      "signal_type": "other",
+      "title": "Keynote interview: CVC DIF on Europe\u2019s mid-market moment",
+      "what_changed": "New announcement: Keynote interview: CVC DIF on Europe\u2019s mid-market moment",
+      "source_url": "https://www.cvcdif.com/news-insights/keynote-interview-cvc-dif-on-europe-s-mid-market-moment",
+      "source_name": "CVC DIF",
+      "published_at": "2026-04-08",
+      "observed_at": "2026-04-10T07:27:34.075133+00:00",
+      "created_at": "2026-04-10T07:27:34.075133+00:00",
+      "snapshot_id": "snap-20260410072733-eeb00fe7",
+      "diff_summary": "New news item detected (dated April 8, 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02508",
+      "fund_id": "",
+      "fund_slug": "cvc-dif",
+      "signal_type": "people_move",
+      "title": "Enrico Del Prete joins CVC DIF as Partner and Co-Head of Value-Add strategyDIF Value-Add",
+      "what_changed": "New announcement: Enrico Del Prete joins CVC DIF as Partner and Co-Head of Value-Add strategyDIF Value-Add",
+      "source_url": "https://www.cvcdif.com/news-insights/enrico-del-prete-joins-cvc-dif-as-partner-and-co-head-of-value-add-strategy",
+      "source_name": "CVC DIF",
+      "published_at": "2026-04-01",
+      "observed_at": "2026-04-10T07:27:34.075133+00:00",
+      "created_at": "2026-04-10T07:27:34.075133+00:00",
+      "snapshot_id": "snap-20260410072733-eeb00fe7",
+      "diff_summary": "New news item detected (dated April 1, 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Enrico Del Prete"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02509",
+      "fund_id": "",
+      "fund_slug": "faro-value",
+      "signal_type": "other",
+      "title": "FARO Value unveils its investment funds",
+      "what_changed": "Media: FARO is a virtuous ecosystem in which relationships, knowledge and skills act as an engine...",
+      "source_url": "https://www.farovalue.com/en/faro-alternative-investments-unveils-the-4-investment-sub-funds-and-annunces-overall-funding-target-of-around-e1bn-bt-2026/",
+      "source_name": "FARO Value",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:27:34.442354+00:00",
+      "created_at": "2026-04-10T07:27:34.442354+00:00",
+      "snapshot_id": "snap-20260410072734-aa516696",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "FARO Value svela i suoi fondi di investimento"
+    },
+    {
+      "id": "web-signal-02510",
+      "fund_id": "",
+      "fund_slug": "finint-investments-sgr",
+      "signal_type": "other",
+      "title": "Finint Investments has been selected by the Telemaco Pension Fund to manage a \u20ac147 million multi-strategy private debt AIF mandate",
+      "what_changed": "New announcement: Finint Investments has been selected by the Telemaco Pension Fund to manage a \u20ac147 million multi-strategy private debt AIF mandate",
+      "source_url": "http://www.finintinvestments.com/files/siti/bancafinint.com/02.04%20CS_Finint%20Investments_Fondo%20Telemaco.pdf",
+      "source_name": "Finint Investments SGR",
+      "published_at": "2026-04-02",
+      "observed_at": "2026-04-10T07:27:34.491395+00:00",
+      "created_at": "2026-04-10T07:27:34.491395+00:00",
+      "snapshot_id": "snap-20260410072734-2111bf67",
+      "diff_summary": "New news item detected (dated 2026-04-02)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Finint Investments",
+          "Fondo Pensione Telemaco"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Finint Investments selezionata dal Fondo Pensione Telemaco per la gestione di un mandato in FIA di private debt multi-strategy da 147 milioni di euro",
+      "title_original": "Finint Investments selezionata dal Fondo Pensione Telemaco per la gestione di un mandato in FIA di private debt multi-strategy da 147 milioni di euro"
+    },
+    {
+      "id": "web-signal-02511",
+      "fund_id": "",
+      "fund_slug": "fondo-italiano-d-investimento-sgr",
+      "signal_type": "deal_announced",
+      "title": "Italian Investment Fund: \u201cThis Is How Targeted Measures Help SMEs Grow\u201d",
+      "what_changed": "New announcement: Italian Investment Fund \u201cHow Targeted Initiatives Help SMEs Grow\u201d",
+      "source_url": "https://www.fondoitaliano.it/wp-content/uploads/20260402_Il-Messaggero_intevistaDL.pdf",
+      "source_name": "Fondo Italiano d\u2019Investimento SGR",
+      "published_at": "2026-04-02",
+      "observed_at": "2026-04-10T07:27:43.680745+00:00",
+      "created_at": "2026-04-10T07:27:43.680745+00:00",
+      "snapshot_id": "snap-20260410072743-e09eb0c6",
+      "diff_summary": "New news item detected (dated 2026-04-02)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italiano)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Fondo italiano d\u2019investimento \u00abCos\u00ec gli interventi mirati fanno crescere le Pmi\u00bb",
+      "title_original": "Fondo italiano d\u2019investimento \u00abCos\u00ec gli interventi mirati fanno crescere le Pmi\u00bb"
+    },
+    {
+      "id": "web-signal-02512",
+      "fund_id": "",
+      "fund_slug": "fondo-italiano-d-investimento-sgr",
+      "signal_type": "other",
+      "title": "Mecaer upgrades the instrumentation on Md helicopters",
+      "what_changed": "New announcement: Mecaer upgrades the instrumentation on Md helicopters",
+      "source_url": "https://www.fondoitaliano.it/wp-content/uploads/20260401_LaStampa_Mecaer.pdf",
+      "source_name": "Fondo Italiano d\u2019Investimento SGR",
+      "published_at": "2026-04-01",
+      "observed_at": "2026-04-10T07:27:43.680745+00:00",
+      "created_at": "2026-04-10T07:27:43.680745+00:00",
+      "snapshot_id": "snap-20260410072743-e09eb0c6",
+      "diff_summary": "New news item detected (dated 2026-04-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Mecaer aggiorna le strumentazioni di Md helicopters",
+      "title_original": "Mecaer aggiorna le strumentazioni di Md helicopters"
+    },
+    {
+      "id": "web-signal-02513",
+      "fund_id": "",
+      "fund_slug": "eqt",
+      "signal_type": "deal_announced",
+      "title": "Starcloud added to EQT portfolio (Space)",
+      "what_changed": "Starcloud added to EQT portfolio (Space)",
+      "source_url": "https://www.eqtgroup.com/about/current-portfolio",
+      "source_name": "EQT",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:27:51.147575+00:00",
+      "created_at": "2026-04-10T07:27:51.147575+00:00",
+      "snapshot_id": "snap-20260410072706-6500e4d6",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Starcloud"
+        ],
+        "people": [
+          "Starcloud Space"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02514",
+      "fund_id": "",
+      "fund_slug": "hld",
+      "signal_type": "deal_announced",
+      "title": "TSG continues its acquisition strategy in Europe",
+      "what_changed": "New announcement: TSG continues its acquisition strategy in Europe",
+      "source_url": "https://www.groupehld.com/en/news/tsg-continues-its-acquisition-strategy-in-europe",
+      "source_name": "HLD",
+      "published_at": "2026-04-01",
+      "observed_at": "2026-04-10T07:27:55.826502+00:00",
+      "created_at": "2026-04-10T07:27:55.826502+00:00",
+      "snapshot_id": "snap-20260410072754-d139a796",
+      "diff_summary": "New news item detected (dated 2026-04-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02515",
+      "fund_id": "",
+      "fund_slug": "hld",
+      "signal_type": "other",
+      "title": "International growth: Kiloutou expands into Ireland",
+      "what_changed": "New announcement: International growth: Kiloutou expands into Ireland",
+      "source_url": "https://www.groupehld.com/en/news/international-growth-kiloutou-expands-into-ireland",
+      "source_name": "HLD",
+      "published_at": "2026-04-01",
+      "observed_at": "2026-04-10T07:27:55.826502+00:00",
+      "created_at": "2026-04-10T07:27:55.826502+00:00",
+      "snapshot_id": "snap-20260410072754-d139a796",
+      "diff_summary": "New news item detected (dated 2026-04-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02516",
+      "fund_id": "",
+      "fund_slug": "hld",
+      "signal_type": "other",
+      "title": "Groupe Kiloutou confirms its strong growth trend",
+      "what_changed": "New announcement: Groupe Kiloutou confirms its strong growth trend",
+      "source_url": "https://www.groupehld.com/en/news/groupe-kiloutou-confirms-its-strong-growth-trend",
+      "source_name": "HLD",
+      "published_at": "2026-04-01",
+      "observed_at": "2026-04-10T07:27:55.826502+00:00",
+      "created_at": "2026-04-10T07:27:55.826502+00:00",
+      "snapshot_id": "snap-20260410072754-d139a796",
+      "diff_summary": "New news item detected (dated 2026-04-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Groupe Kiloutou"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02517",
+      "fund_id": "",
+      "fund_slug": "hld",
+      "signal_type": "other",
+      "title": "M-Cube embraces a new phase of growth",
+      "what_changed": "New announcement: M-Cube embraces a new phase of growth",
+      "source_url": "https://www.groupehld.com/en/news/m-cube-embraces-a-new-phase-of-growth",
+      "source_name": "HLD",
+      "published_at": "2026-03-01",
+      "observed_at": "2026-04-10T07:27:55.826502+00:00",
+      "created_at": "2026-04-10T07:27:55.826502+00:00",
+      "snapshot_id": "snap-20260410072754-d139a796",
+      "diff_summary": "New news item detected (dated 2026-03-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02518",
+      "fund_id": "",
+      "fund_slug": "hld",
+      "signal_type": "other",
+      "title": "TSG continues to strengthen its technical capabilities in Europe",
+      "what_changed": "New announcement: TSG continues to strengthen its technical capabilities in Europe",
+      "source_url": "https://www.groupehld.com/en/news/tsg-continues-to-strengthen-its-technical-capabilities-in-europe",
+      "source_name": "HLD",
+      "published_at": "2026-03-01",
+      "observed_at": "2026-04-10T07:27:55.826502+00:00",
+      "created_at": "2026-04-10T07:27:55.826502+00:00",
+      "snapshot_id": "snap-20260410072754-d139a796",
+      "diff_summary": "New news item detected (dated 2026-03-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02519",
+      "fund_id": "",
+      "fund_slug": "hld",
+      "signal_type": "other",
+      "title": "Jimmy Fairly launches in New York",
+      "what_changed": "New announcement: Jimmy Fairly launches in New York",
+      "source_url": "https://www.groupehld.com/en/news/jimmy-fairly-launches-in-new-york",
+      "source_name": "HLD",
+      "published_at": "2025-12-01",
+      "observed_at": "2026-04-10T07:27:55.826502+00:00",
+      "created_at": "2026-04-10T07:27:55.826502+00:00",
+      "snapshot_id": "snap-20260410072754-d139a796",
+      "diff_summary": "New news item detected (dated 2025-12-01)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Jimmy Fairly",
+          "New York"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02520",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "INSIGHT: Private Equity Can Drive the Growth of Italian Tech",
+      "what_changed": "Press Review",
+      "source_url": "https://hat.it/insight-private-equity-can-drive-the-growth-of-italian-tech/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2026-03-28",
+      "observed_at": "2026-04-10T07:28:10.247059+00:00",
+      "created_at": "2026-04-10T07:28:10.247059+00:00",
+      "snapshot_id": "snap-20260410072806-de86d2e1",
+      "diff_summary": "New news item detected (dated 28-03-2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.4,
+      "relevance_reasons": [
+        "Italy mentioned (italian)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Private Equity Can",
+          "Italian Tech Press"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02521",
+      "fund_id": "",
+      "fund_slug": "hat-sicaf",
+      "signal_type": "other",
+      "title": "Empowering Entrepreneurs, Not Replacing Them: HAT SGR at Private Equity Days 2026",
+      "what_changed": "Press Review",
+      "source_url": "https://hat.it/empowering-entrepreneurs-not-replacing-them-hat-sgr-at-private-equity-days-2026/",
+      "source_name": "HAT Sicaf",
+      "published_at": "2026-03-19",
+      "observed_at": "2026-04-10T07:28:10.247059+00:00",
+      "created_at": "2026-04-10T07:28:10.247059+00:00",
+      "snapshot_id": "snap-20260410072806-de86d2e1",
+      "diff_summary": "New news item detected (dated 19-03-2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Press Review",
+          "Not Replacing Them",
+          "Empowering Entrepreneurs",
+          "Private Equity Days"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02522",
+      "fund_id": "",
+      "fund_slug": "eiffel",
+      "signal_type": "other",
+      "title": "Solidariet\u00e0 Veneto Pension Fund has invested in Eiffel Energy Transition III",
+      "what_changed": "Eiffel announces that Solidariet\u00e0 Veneto Fondo Pensione has joined as an investor in Eiffel Energy Transition III (EET3), a fund dedicated to financing European renewable energy assets under construction.",
+      "source_url": "https://www.eiffel-ig.com/articles/solidarieta-veneto-fondo-pensione-invests-in-eiffel-energy-transition-iii/",
+      "source_name": "Eiffel Investment Group",
+      "published_at": "2026-03-23",
+      "observed_at": "2026-04-10T07:28:19.892250+00:00",
+      "created_at": "2026-04-10T07:28:19.892250+00:00",
+      "snapshot_id": "snap-20260410072819-7c7e9f5b",
+      "diff_summary": "New news item detected (dated 2026-03-23)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.21,
+      "relevance_reasons": [
+        "Italian regions: Veneto"
+      ],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Veneto Fondo Pensione",
+          "Eiffel Energy Transition"
+        ],
+        "locations": [
+          "Veneto"
+        ]
+      },
+      "what_changed_original": "Eiffel annonce l'entr\u00e9e de Solidariet\u00e0 Veneto Fondo Pensione en tant qu'investisseur dans Eiffel Energy Transition III (EET3), un fonds d\u00e9di\u00e9 au financement des actifs europ\u00e9ens d'\u00e9nergies renouvelables en construction.",
+      "title_original": "Solidariet\u00e0 Veneto Fondo Pensione investit dans Eiffel Energy Transition III"
+    },
+    {
+      "id": "web-signal-02523",
+      "fund_id": "",
+      "fund_slug": "eiffel",
+      "signal_type": "other",
+      "title": "SCorp-io raises \u20ac5 million from the \u00cele-de-France Decarbonization Fund to reduce energy consumption in commercial buildings",
+      "what_changed": "SCorp-io, a company specializing in smart building management systems (BMS), has announced a \u20ac5 million funding round led by \u00cele-de-France D\u00e9carbonation, an investment fund initiated by the \u00cele-de-France Region and managed by Eiffel Investment Group to finance the growth of innovative startups and SMEs",
+      "source_url": "https://www.eiffel-ig.com/articles/scorp-io-leve-5-me-aupres-du-fonds-ile-de-france-decarbonation-pour-reduire-les-consommations-denergie-des-batiments-tertiaires/",
+      "source_name": "Eiffel Investment Group",
+      "published_at": "2026-03-30",
+      "observed_at": "2026-04-10T07:28:19.892250+00:00",
+      "created_at": "2026-04-10T07:28:19.892250+00:00",
+      "snapshot_id": "snap-20260410072819-7c7e9f5b",
+      "diff_summary": "New news item detected (dated 2026-03-30)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Gestion Technique",
+          "Eiffel Investment Group"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "SCorp-io, sp\u00e9cialis\u00e9e dans la Gestion Technique du B\u00e2timent (GTB) intelligente, annonce une lev\u00e9e de fonds de 5 M\u20ac men\u00e9e par \u00cele-de-France D\u00e9carbonation, fonds d\u2019investissement initi\u00e9 par la R\u00e9gion \u00cele-de-France et g\u00e9r\u00e9 par Eiffel Investment Group pour financer la croissance de startups et PME innov",
+      "title_original": "SCorp-io l\u00e8ve 5 M\u20ac aupr\u00e8s du Fonds \u00cele-de-France D\u00e9carbonation pour r\u00e9duire les consommations d\u2019\u00e9nergie des b\u00e2timents tertiaires"
+    },
+    {
+      "id": "web-signal-02524",
+      "fund_id": "",
+      "fund_slug": "l-catterton",
+      "signal_type": "people_move",
+      "title": "New team member: Kazayuki Muto",
+      "what_changed": "New team member: Kazayuki Muto (Investment and Operating Team)",
+      "source_url": "https://www.lcatterton.com/People.html",
+      "source_name": "L Catterton",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:28:24.554254+00:00",
+      "created_at": "2026-04-10T07:28:24.554254+00:00",
+      "snapshot_id": "snap-20260410072823-c9110584",
+      "diff_summary": "1 new team member via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Kazayuki Muto"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02525",
+      "fund_id": "",
+      "fund_slug": "l-catterton",
+      "signal_type": "other",
+      "title": "Mars Men Announces $27.5M Series A Led byLCatterton to Accelerate Growth of Breakout Men\u2019s Wellness Brand",
+      "what_changed": "New announcement: Mars Men Announces $27.5M Series A Led byLCatterton to Accelerate Growth of Breakout Men\u2019s Wellness Brand",
+      "source_url": "https://www.lcatterton.com/Press.html#!/LC-mars-men",
+      "source_name": "L Catterton",
+      "published_at": "2026-03-30",
+      "observed_at": "2026-04-10T07:28:33.155958+00:00",
+      "created_at": "2026-04-10T07:28:33.155958+00:00",
+      "snapshot_id": "snap-20260410072832-40e04f41",
+      "diff_summary": "New news item detected (dated 2026-03-30)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Mars Men Announces",
+          "Wellness Brand",
+          "Accelerate Growth",
+          "Breakout Men"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02526",
+      "fund_id": "",
+      "fund_slug": "l-catterton",
+      "signal_type": "other",
+      "title": "L Catterton Real Estate Announces Recapitalization of QUARTZ SHINSAIBASHI in Osaka, Japan",
+      "what_changed": "New announcement: L Catterton Real Estate Announces Recapitalization of QUARTZ SHINSAIBASHI in Osaka, Japan",
+      "source_url": "https://www.lcatterton.com/Press.html#!/LCRE-quartz-shinsaibashi",
+      "source_name": "L Catterton",
+      "published_at": "2026-03-30",
+      "observed_at": "2026-04-10T07:28:33.155958+00:00",
+      "created_at": "2026-04-10T07:28:33.155958+00:00",
+      "snapshot_id": "snap-20260410072832-40e04f41",
+      "diff_summary": "New news item detected (dated 2026-03-30)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Catterton Real Estate",
+          "Announces Recapitalization"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02527",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "other",
+      "title": "BluWave Recognizes One Equity Partners with 2026 Top PE Innovator Award",
+      "what_changed": "New announcement: BluWave Recognizes One Equity Partners with 2026 Top PE Innovator Award",
+      "source_url": "https://www.oneequity.com/news/bluwave-recognizes-one-equity-partners-with-2026-top-pe-innovator-award/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:28:35.375344+00:00",
+      "created_at": "2026-04-10T07:28:35.375344+00:00",
+      "snapshot_id": "snap-20260410072833-287778b2",
+      "diff_summary": "New news item detected (dated 03.23.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Recognizes One Equity",
+          "Innovator Award"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02528",
+      "fund_id": "",
+      "fund_slug": "one-equity-partners",
+      "signal_type": "exit_announced",
+      "title": "One Equity Partners Completes Sale of Anvil International",
+      "what_changed": "New announcement: One Equity Partners Completes Sale of Anvil International",
+      "source_url": "https://www.oneequity.com/news/one-equity-partners-completes-sale-of-anvil-international/",
+      "source_name": "One Equity Partners",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:28:35.375344+00:00",
+      "created_at": "2026-04-10T07:28:35.375344+00:00",
+      "snapshot_id": "snap-20260410072833-287778b2",
+      "diff_summary": "New news item detected (dated 03.23.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Anvil International",
+          "Completes Sale",
+          "One Equity Partners"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02529",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "signal_type": "exit_announced",
+      "title": "Macquarie Asset Management agrees to sale of interest in Safeway Concessions",
+      "what_changed": "New announcement: Macquarie Asset Management agrees to sale of interest in Safeway Concessions",
+      "source_url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-agrees-to-sale-of-interest-in-safeway-concessions.html",
+      "source_name": "Macquarie",
+      "published_at": "2026-04-07",
+      "observed_at": "2026-04-10T07:28:35.638751+00:00",
+      "created_at": "2026-04-10T07:28:35.638751+00:00",
+      "snapshot_id": "snap-20260410072834-6f55edda",
+      "diff_summary": "New news item detected (dated 2026-04-07)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Safeway Concessions",
+          "Macquarie Asset Management"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02530",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "signal_type": "other",
+      "title": "Macquarie Asset Management makes \u00a3100 million debt investment in Places for People",
+      "what_changed": "New announcement: Macquarie Asset Management makes \u00a3100 million debt investment in Places for People",
+      "source_url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-makes-100-million-debt-investment-in-places-for-people.html",
+      "source_name": "Macquarie",
+      "published_at": "2026-04-02",
+      "observed_at": "2026-04-10T07:28:35.638751+00:00",
+      "created_at": "2026-04-10T07:28:35.638751+00:00",
+      "snapshot_id": "snap-20260410072834-6f55edda",
+      "diff_summary": "New news item detected (dated 2026-04-02)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Macquarie Asset Management"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02531",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "signal_type": "other",
+      "title": "Macquarie to sell meter asset provider OnStream",
+      "what_changed": "New announcement: Macquarie to sell meter asset provider OnStream",
+      "source_url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-to-sell-meter-asset-provider-onstream.html",
+      "source_name": "Macquarie",
+      "published_at": "2026-03-24",
+      "observed_at": "2026-04-10T07:28:35.638751+00:00",
+      "created_at": "2026-04-10T07:28:35.638751+00:00",
+      "snapshot_id": "snap-20260410072834-6f55edda",
+      "diff_summary": "New news item detected (dated 2026-03-24)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02532",
+      "fund_id": "",
+      "fund_slug": "macquarie",
+      "signal_type": "deal_announced",
+      "title": "Macquarie Asset Management to acquire additional stake in Last Mile Infrastructure",
+      "what_changed": "New announcement: Macquarie Asset Management to acquire additional stake in Last Mile Infrastructure",
+      "source_url": "https://www.macquarie.com/it/en/about/news/2026/macquarie-asset-management-to-acquire-additional-stake-in-last-mile-infrastructure.html",
+      "source_name": "Macquarie",
+      "published_at": "2026-02-05",
+      "observed_at": "2026-04-10T07:28:48.486876+00:00",
+      "created_at": "2026-04-10T07:28:48.486876+00:00",
+      "snapshot_id": "snap-20260410072847-a03de6e6",
+      "diff_summary": "New news item detected (dated 2026-02-05)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Last Mile Infrastructure",
+          "Macquarie Asset Management"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02533",
+      "fund_id": "",
+      "fund_slug": "patrizia",
+      "signal_type": "people_move",
+      "title": "PATRIZIA appoints Dr. Steffen Hartmann to strengthen company\u2019s smart real asset commercial platform",
+      "what_changed": "PATRIZIA has appointed Dr. Steffen Hartmann as Head of Fund Management Real Estate Core Commercial, bolstering the company\u2019s smart real asset commercial platform in Europe.",
+      "source_url": "https://www.patrizia.ag/en/news-detail/patrizia-appoints-dr-steffen-hartmann-to-strengthen-companys-smart-real-asset-commercial-platform/",
+      "source_name": "PATRIZIA",
+      "published_at": "2026-04-02",
+      "observed_at": "2026-04-10T07:28:49.255847+00:00",
+      "created_at": "2026-04-10T07:28:49.255847+00:00",
+      "snapshot_id": "snap-20260410072848-168e4ed5",
+      "diff_summary": "New news item detected (dated 2026-04-02)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Estate Core Commercial",
+          "Fund Management Real",
+          "Dr. Steffen Hartmann"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02534",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "signal_type": "other",
+      "title": "TeiaCare raises \u20ac7M in a funding round led by P101 SGR to accelerate growth and internationalization",
+      "what_changed": "New announcement: TeiaCare raises \u20ac7M in a funding round led by P101 SGR to accelerate growth and internationalization",
+      "source_url": "https://p101.it/news-press/latest-news/",
+      "source_name": "P101 SGR",
+      "published_at": "2026-04-09",
+      "observed_at": "2026-04-10T07:28:50.577599+00:00",
+      "created_at": "2026-04-10T07:28:50.577599+00:00",
+      "snapshot_id": "snap-20260410072849-607d7c6d",
+      "diff_summary": "New news item detected (dated 2026-04-09T08:00:00+00:00)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02535",
+      "fund_id": "",
+      "fund_slug": "partners-group",
+      "signal_type": "people_move",
+      "title": "Partners Group appoints Pete Zippelius as new Co-Head of Private Equity Health & Life",
+      "what_changed": "New announcement: Partners Group appoints Pete Zippelius as new Co-Head of Private Equity Health & Life",
+      "source_url": "https://www.partnersgroup.com/news-and-views/press-releases/corporate-news/detail?news_id=70fe2797-034f-4c35-aad1-b209e7135da1",
+      "source_name": "Partners Group",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:28:52.478373+00:00",
+      "created_at": "2026-04-10T07:28:52.478373+00:00",
+      "snapshot_id": "snap-20260410072852-b7711bcf",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Private Equity Health",
+          "Pete Zippelius",
+          "Partners Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02536",
+      "fund_id": "",
+      "fund_slug": "riello-investimenti-sgr",
+      "signal_type": "deal_announced",
+      "title": "Riello Investimenti SGR, through the Linfa fund, is investing in Neoh",
+      "what_changed": "New announcement: Riello Investimenti SGR, through the Linfa fund, is investing in Neoh",
+      "source_url": "https://www.rielloinvestimenti.it/news-neoh.html",
+      "source_name": "Riello Investimenti SGR",
+      "published_at": "2026-04-01",
+      "observed_at": "2026-04-10T07:29:18.077853+00:00",
+      "created_at": "2026-04-10T07:29:18.077853+00:00",
+      "snapshot_id": "snap-20260410072915-968d984f",
+      "diff_summary": "New news item detected (dated 1 aprile 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Riello Investimenti"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Riello Investimenti SGR, attraverso il fondo Linfa, investe in Neoh",
+      "title_original": "Riello Investimenti SGR, attraverso il fondo Linfa, investe in Neoh"
+    },
+    {
+      "id": "web-signal-02537",
+      "fund_id": "",
+      "fund_slug": "riello-investimenti-sgr",
+      "signal_type": "deal_announced",
+      "title": "Riello Investimenti SGR, through the Linfa fund, is investing in Foreverland",
+      "what_changed": "New announcement: Riello Investimenti SGR, through the Linfa fund, is investing in Foreverland",
+      "source_url": "https://www.rielloinvestimenti.it/news-foreverland.html",
+      "source_name": "Riello Investimenti SGR",
+      "published_at": "2026-03-24",
+      "observed_at": "2026-04-10T07:29:18.077853+00:00",
+      "created_at": "2026-04-10T07:29:18.077853+00:00",
+      "snapshot_id": "snap-20260410072915-968d984f",
+      "diff_summary": "New news item detected (dated 24 marzo 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.3,
+      "relevance_reasons": [
+        "Italian entity types: SGR"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Riello Investimenti"
+        ],
+        "locations": []
+      },
+      "what_changed_original": "New announcement: Riello Investimenti SGR, attraverso il fondo Linfa, investe in Foreverland",
+      "title_original": "Riello Investimenti SGR, attraverso il fondo Linfa, investe in Foreverland"
+    },
+    {
+      "id": "web-signal-02538",
+      "fund_id": "",
+      "fund_slug": "oakley-capital",
+      "signal_type": "fundraise_announced",
+      "title": "Oakley completes fourth Miles in March challenge, raising funds for World Cancer Research Fund and War Child",
+      "what_changed": "New announcement: Oakley completes fourth Miles in March challenge, raising funds for World Cancer Research Fund and War Child",
+      "source_url": "https://www.oakleycapital.com/news-and-insights/oakley-completes-fourth-miles-in-march-challenge-raising-funds-for-world-cancer-research-fund-and-war-child",
+      "source_name": "Oakley Capital",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:29:28.162221+00:00",
+      "created_at": "2026-04-10T07:29:28.162221+00:00",
+      "snapshot_id": "snap-20260410072927-9c409e53",
+      "diff_summary": "New news item detected (dated 08.04.26)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "War Child",
+          "World Cancer Research"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02539",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "deal_announced",
+      "title": "Casago (formerly Vacasa) added to Silver Lake portfolio",
+      "what_changed": "Casago (formerly Vacasa) added to Silver Lake portfolio",
+      "source_url": "https://www.silverlake.com/portfolio/",
+      "source_name": "Silver Lake",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:29:36.670790+00:00",
+      "created_at": "2026-04-10T07:29:36.670790+00:00",
+      "snapshot_id": "snap-20260410072930-f09b320e",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Casago (formerly Vacasa)"
+        ],
+        "people": [
+          "Travel Technology"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02540",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "signal_type": "deal_announced",
+      "title": "Clari/Salesloft added to Silver Lake portfolio",
+      "what_changed": "Clari/Salesloft added to Silver Lake portfolio",
+      "source_url": "https://www.silverlake.com/portfolio/",
+      "source_name": "Silver Lake",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:29:36.670790+00:00",
+      "created_at": "2026-04-10T07:29:36.670790+00:00",
+      "snapshot_id": "snap-20260410072930-f09b320e",
+      "diff_summary": "New portfolio company detected via extraction",
+      "page_category": "PORTFOLIO",
+      "page_type": "PORTFOLIO",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [
+          "Clari/Salesloft"
+        ],
+        "people": [
+          "Salesloft Enterprise Software"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02541",
+      "fund_id": "",
+      "fund_slug": "sagard",
+      "signal_type": "people_move",
+      "title": "New team members: Aikta Jain (+4 more)",
+      "what_changed": "New team members: Aikta Jain (Managing Director, Capital Formation), Christophe de Dardel, Paul Newsome, Bernard Sabrier, Mark Zund",
+      "source_url": "https://www.sagard.com/team/",
+      "source_name": "Sagard",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:29:42.552753+00:00",
+      "created_at": "2026-04-10T07:29:42.552753+00:00",
+      "snapshot_id": "snap-20260410072922-7b8d5d9d",
+      "diff_summary": "5 new team members via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Aikta Jain",
+          "Christophe de Dardel",
+          "Paul Newsome",
+          "Bernard Sabrier",
+          "Mark Zund"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02542",
+      "fund_id": "",
+      "fund_slug": "permira",
+      "signal_type": "other",
+      "title": "SILA announces strategic investment from Permira",
+      "what_changed": "New announcement: SILA announces strategic investment from Permira",
+      "source_url": "https://www.permira.com/news-and-insights/announcements/sila-announces-strategic-investment-from-permira/",
+      "source_name": "Permira",
+      "published_at": "2026-04-08",
+      "observed_at": "2026-04-10T07:29:50.332442+00:00",
+      "created_at": "2026-04-10T07:29:50.332442+00:00",
+      "snapshot_id": "snap-20260410072949-efaed21f",
+      "diff_summary": "New news item detected (dated 8 Apr 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02543",
+      "fund_id": "",
+      "fund_slug": "permira",
+      "signal_type": "other",
+      "title": "Ergomed Group Announces Board Chair Transition",
+      "what_changed": "New announcement: Ergomed Group Announces Board Chair Transition",
+      "source_url": "https://www.permira.com/news-and-insights/announcements/ergomed-group-announces-board-chair-transition/",
+      "source_name": "Permira",
+      "published_at": "2026-04-07",
+      "observed_at": "2026-04-10T07:29:50.332442+00:00",
+      "created_at": "2026-04-10T07:29:50.332442+00:00",
+      "snapshot_id": "snap-20260410072949-efaed21f",
+      "diff_summary": "New news item detected (dated 7 Apr 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Ergomed Group Announces",
+          "Board Chair Transition"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02544",
+      "fund_id": "",
+      "fund_slug": "permira",
+      "signal_type": "other",
+      "title": "Permira to realise its investment in Hana Group\u2019s European operations",
+      "what_changed": "New announcement: Permira to realise its investment in Hana Group\u2019s European operations",
+      "source_url": "https://www.permira.com/news-and-insights/announcements/permira-to-realise-its-investment-in-hana-group-s-european-operations/",
+      "source_name": "Permira",
+      "published_at": "2026-04-01",
+      "observed_at": "2026-04-10T07:29:50.332442+00:00",
+      "created_at": "2026-04-10T07:29:50.332442+00:00",
+      "snapshot_id": "snap-20260410072949-efaed21f",
+      "diff_summary": "New news item detected (dated 1 Apr 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Hana Group"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02545",
+      "fund_id": "",
+      "fund_slug": "permira",
+      "signal_type": "other",
+      "title": "Silvia Oteri spoke with PE Hub as part of its Women in PE 2026 ranking, sharing her perspectives on healthcare investing and diversity in building stronger businesses",
+      "what_changed": "New announcement: Silvia Oteri spoke with PE Hub as part of its Women in PE 2026 ranking, sharing her perspectives on healthcare investing and diversity in building stronger businesses",
+      "source_url": "https://www.pehub.com/silvia-oteri-permira-women-in-private-equity-2026/",
+      "source_name": "Permira",
+      "published_at": "2026-04-01",
+      "observed_at": "2026-04-10T07:30:06.375230+00:00",
+      "created_at": "2026-04-10T07:30:06.375230+00:00",
+      "snapshot_id": "snap-20260410073005-7f91dce7",
+      "diff_summary": "New news item detected (dated 1 Apr 2026)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Silvia Oteri"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02546",
+      "fund_id": "",
+      "fund_slug": "tikehau-capital",
+      "signal_type": "people_move",
+      "title": "New team members: Daniele Germano (+2 more)",
+      "what_changed": "New team members: Daniele Germano (Co-Head of Italy Head of Sales Italy), Victoria Gillam (Co-Head of the United Kingdom Deputy General Counsel Head of Investment Legal), Bart Mathijssen (Co-Head of Belgium)",
+      "source_url": "https://www.tikehaucapital.com/en/the-company/teams",
+      "source_name": "Tikehau Capital",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:30:10.013824+00:00",
+      "created_at": "2026-04-10T07:30:10.013824+00:00",
+      "snapshot_id": "snap-20260410072955-b939f6d8",
+      "diff_summary": "3 new team members via extraction",
+      "page_category": "TEAM",
+      "page_type": "TEAM",
+      "relevance_score": 0.44,
+      "relevance_reasons": [
+        "Italy mentioned (italy)"
+      ],
+      "italy_relevant": true,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Daniele Germano",
+          "Victoria Gillam",
+          "Bart Mathijssen"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02547",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "people_move",
+      "title": "TPG Appoints Admiral William H. McRaven as Independent Director",
+      "what_changed": "New announcement: TPG Appoints Admiral William H. McRaven as Independent Director",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-appoints-admiral-william-h-mcraven-as-independent-director",
+      "source_name": "TPG",
+      "published_at": "2026-04-09",
+      "observed_at": "2026-04-10T07:30:15.864066+00:00",
+      "created_at": "2026-04-10T07:30:15.864066+00:00",
+      "snapshot_id": "snap-20260410073015-c8b13c68",
+      "diff_summary": "New news item detected (dated 2026-04-09T20:14:05)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Appoints Admiral William",
+          "Independent Director"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02548",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "deal_announced",
+      "title": "Blackstone and TPG Complete Acquisition of Hologic",
+      "what_changed": "New announcement: Blackstone and TPG Complete Acquisition of Hologic",
+      "source_url": "https://www.tpg.com/news-and-insights/blackstone-and-tpg-complete-acquisition-of-hologic",
+      "source_name": "TPG",
+      "published_at": "2026-04-07",
+      "observed_at": "2026-04-10T07:30:15.864066+00:00",
+      "created_at": "2026-04-10T07:30:15.864066+00:00",
+      "snapshot_id": "snap-20260410073015-c8b13c68",
+      "diff_summary": "New news item detected (dated 2026-04-07T13:22:48)",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Complete Acquisition"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02549",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "other",
+      "title": "Velotic\u2122 Launches to Shape Future of Industrial & Manufacturing Software",
+      "what_changed": "New announcement: Velotic\u2122 Launches to Shape Future of Industrial & Manufacturing Software",
+      "source_url": "https://www.tpg.com/news-and-insights/velotic-launches-to-shape-future-of-industrial-manufacturing-software",
+      "source_name": "TPG",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:30:15.864066+00:00",
+      "created_at": "2026-04-10T07:30:15.864066+00:00",
+      "snapshot_id": "snap-20260410073015-c8b13c68",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Shape Future",
+          "Manufacturing Software"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "web-signal-02550",
+      "fund_id": "",
+      "fund_slug": "tpg",
+      "signal_type": "other",
+      "title": "TPG Establishes One Aged Care \u2013 A Senior Healthcare Services Platform to Serve Growing Regional Needs",
+      "what_changed": "New announcement: TPG Establishes One Aged Care \u2013 A Senior Healthcare Services Platform to Serve Growing Regional Needs",
+      "source_url": "https://www.tpg.com/news-and-insights/tpg-establishes-one-aged-care-a-senior-healthcare-services-platform-to-serve-growing-regional-needs",
+      "source_name": "TPG",
+      "published_at": null,
+      "observed_at": "2026-04-10T07:30:15.864066+00:00",
+      "created_at": "2026-04-10T07:30:15.864066+00:00",
+      "snapshot_id": "snap-20260410073015-c8b13c68",
+      "diff_summary": "New news item detected",
+      "page_category": "NEWS",
+      "page_type": "NEWS",
+      "relevance_score": 0.0,
+      "relevance_reasons": [],
+      "italy_relevant": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [
+          "Senior Healthcare Services",
+          "Establishes One Aged",
+          "Serve Growing Regional"
+        ],
+        "locations": []
+      }
+    },
+    {
+      "id": "rss-signal-00271",
+      "fund_id": "",
+      "fund_slug": "azimut-libera-impresa-sgr",
+      "related_fund_slugs": [
+        "azimut-libera-impresa-sgr",
+        "como-venture"
+      ],
+      "signal_type": "people_move",
+      "title": "This Week's Management Shuffles. News from Azimut Libera Impresa SGR, CMI Strategi\u00e9s, and Lake Como Venture Lab",
+      "what_changed": "Azimut Libera Impresa SGR has selected the seven members of its Strategic Advisory Committee, which is designed to support the investment team. This announcement concerns governance and internal organization, not an investment transaction. The story is set in Italy and relates to the asset management firm and its private capital ecosystem.",
+      "source_url": "https://bebeez.it/manager-2/i-giri-di-poltrone-della-settimana-notizie-da-azimut-libera-impresa-sgr-lake-como-venture-lab/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-10T05:55:22+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Azimut Libera Impresa sgr"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Azimut Libera Impresa sgr ha scelto i sette membri del suo Comitato Strategico consultivo, pensato per affiancare il team di investimento. La notizia riguarda governance e organizzazione interna, non un\u2019operazione di investimento. Il tema \u00e8 italiano, legato alla sgr e al suo ecosistema di private capital.",
+      "title_original": "I giri di poltrone della settimana. Notizie da Azimut Libera Impresa sgr, CMI Strategi\u00e9s, Lake Como Venture Lab"
+    },
+    {
+      "id": "rss-signal-00272",
+      "fund_id": "",
+      "fund_slug": "como-venture",
+      "related_fund_slugs": [
+        "azimut-libera-impresa-sgr",
+        "como-venture"
+      ],
+      "signal_type": "people_move",
+      "title": "This Week's Management Shuffles. News from Azimut Libera Impresa SGR, CMI Strategi\u00e9s, and Lake Como Venture Lab",
+      "what_changed": "Azimut Libera Impresa SGR has selected the seven members of its Strategic Advisory Committee, which is designed to support the investment team. This announcement concerns governance and internal organization, not an investment transaction. The story is set in Italy and relates to the asset management firm and its private capital ecosystem.",
+      "source_url": "https://bebeez.it/manager-2/i-giri-di-poltrone-della-settimana-notizie-da-azimut-libera-impresa-sgr-lake-como-venture-lab/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-10T05:55:22+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Azimut Libera Impresa sgr"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Azimut Libera Impresa sgr ha scelto i sette membri del suo Comitato Strategico consultivo, pensato per affiancare il team di investimento. La notizia riguarda governance e organizzazione interna, non un\u2019operazione di investimento. Il tema \u00e8 italiano, legato alla sgr e al suo ecosistema di private capital.",
+      "title_original": "I giri di poltrone della settimana. Notizie da Azimut Libera Impresa sgr, CMI Strategi\u00e9s, Lake Como Venture Lab"
+    },
+    {
+      "id": "rss-signal-00273",
+      "fund_id": "",
+      "fund_slug": "aurora-growth-capital",
+      "related_fund_slugs": [
+        "aurora-growth-capital",
+        "the-equity-club"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Club del Sole (The Equity CLub, Aurora Growth Capital) acquisisce Le Gorette Cecina easy camping village, sua 29esima struttura",
+      "what_changed": "Club del Sole, a company backed by The Equity Club and Aurora Growth Capital, has acquired Le Gorette Cecina Easy Camping Village in Marina di Cecina. This marks the 29th add-on acquisition for the Italian chain of holiday villages. The deal has been finalized and strengthens the company\u2019s presence along the Tuscan coast.",
+      "source_url": "https://bebeez.it/private-equity/club-del-sole-the-equity-club-aurora-growth-capital-acquisisce-le-gorette-cecina-easy-camping-village-sua-29esima-struttura/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-10T05:51:03+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Club del Sole",
+          "Le Gorette Cecina easy camping village"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Club del Sole, partecipata da The Equity CLub e Aurora Growth Capital, ha acquisito Le Gorette Cecina easy camping village a Marina di Cecina. \u00c8 la 29esima operazione di add-on della catena italiana di villaggi turistici. Il deal \u00e8 confermato e rafforza la presenza lungo la costa toscana."
+    },
+    {
+      "id": "rss-signal-00274",
+      "fund_id": "",
+      "fund_slug": "the-equity-club",
+      "related_fund_slugs": [
+        "aurora-growth-capital",
+        "the-equity-club"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Club del Sole (The Equity CLub, Aurora Growth Capital) acquisisce Le Gorette Cecina easy camping village, sua 29esima struttura",
+      "what_changed": "Club del Sole, a company backed by The Equity Club and Aurora Growth Capital, has acquired Le Gorette Cecina Easy Camping Village in Marina di Cecina. This marks the 29th add-on acquisition for the Italian chain of holiday villages. The deal has been finalized and strengthens the company\u2019s presence along the Tuscan coast.",
+      "source_url": "https://bebeez.it/private-equity/club-del-sole-the-equity-club-aurora-growth-capital-acquisisce-le-gorette-cecina-easy-camping-village-sua-29esima-struttura/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-10T05:51:03+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Club del Sole",
+          "Le Gorette Cecina easy camping village"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Club del Sole, partecipata da The Equity CLub e Aurora Growth Capital, ha acquisito Le Gorette Cecina easy camping village a Marina di Cecina. \u00c8 la 29esima operazione di add-on della catena italiana di villaggi turistici. Il deal \u00e8 confermato e rafforza la presenza lungo la costa toscana."
+    },
+    {
+      "id": "rss-signal-00275",
+      "fund_id": "",
+      "fund_slug": "ambienta-sgr",
+      "related_fund_slugs": [
+        "ambienta-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "No Dig Alliance (Ambienta SGR) acquires the Norwegian company Altiva (network access point maintenance), its second add-on acquisition in two months",
+      "what_changed": "No Dig Alliance, a subsidiary of Ambienta SGR, has acquired Altiva in Norway, marking the second add-on acquisition in two months for the trenchless services platform for water and sewer networks. The transaction has been confirmed but has no direct connection to Italy, except for the involvement of the Ambienta SGR fund.",
+      "source_url": "https://bebeez.it/private-equity/no-dig-alliance-ambienta-sgr-acquisisce-la-norvegese-altiva-manutenzione-dei-punti-di-accesso-alla-rete-secondo-add-on-in-due-mesi/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-10T05:50:39+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "No Dig Alliance",
+          "Altiva"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "No Dig Alliance, controllata da Ambienta sgr, ha acquisito Altiva in Norvegia, secondo add-on in due mesi per la piattaforma di servizi trenchless per reti idriche e fognarie. L\u2019operazione \u00e8 confermata ma non ha un collegamento italiano diretto, salvo il coinvolgimento del fondo Ambienta sgr.",
+      "title_original": "No Dig Alliance (Ambienta sgr) acquisisce la norvegese Altiva (manutenzione dei punti di accesso alla rete), secondo add-on in due mesi"
+    },
+    {
+      "id": "rss-signal-00276",
+      "fund_id": "",
+      "fund_slug": "andera-partners",
+      "related_fund_slugs": [
+        "andera-partners",
+        "equiter"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Turin-based Tecnikabel (Andera Partners and Equiter) acquires a controlling stake in the U.S. company Eis Wire & Cable and expands its presence in industrial automation and defense",
+      "what_changed": "Tecnikabel, a subsidiary of Andera Partners and Equiter in partnership with the Garaffi family, has acquired the U.S.-based company Eis Wire & Cable. The deal covers specialty cables, industrial automation, and defense. The company has strong ties to Italy thanks to Tecnikabel\u2019s headquarters in Volpiano, near Turin.",
+      "source_url": "https://bebeez.it/private-equity/la-societa-torinese-tecnikabel-andera-partners-ed-equiter-va-al-controllo-dellamericana-eis-wire-cable-e-cresce-in-automazione-industriale-e-difesa/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-10T05:49:20+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Tecnikabel",
+          "EIS Wire & Cable"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Tecnikabel, controllata da Andera Partners ed Equiter insieme alla famiglia Garaffi, ha rilevato l\u2019americana Eis Wire & Cable. L\u2019operazione riguarda cavi speciali, automazione industriale e difesa. La connessione italiana \u00e8 forte grazie alla sede di Tecnikabel a Volpiano, nel Torinese.",
+      "title_original": "La societ\u00e0 torinese Tecnikabel (Andera Partners ed Equiter) va al controllo dell\u2019americana Eis Wire & Cable e cresce in automazione industriale e difesa"
+    },
+    {
+      "id": "rss-signal-00277",
+      "fund_id": "",
+      "fund_slug": "equiter",
+      "related_fund_slugs": [
+        "andera-partners",
+        "equiter"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Turin-based Tecnikabel (Andera Partners and Equiter) acquires a controlling stake in the U.S. company Eis Wire & Cable and expands its presence in industrial automation and defense",
+      "what_changed": "Tecnikabel, a subsidiary of Andera Partners and Equiter in partnership with the Garaffi family, has acquired the U.S.-based company Eis Wire & Cable. The deal covers specialty cables, industrial automation, and defense. The company has strong ties to Italy thanks to Tecnikabel\u2019s headquarters in Volpiano, near Turin.",
+      "source_url": "https://bebeez.it/private-equity/la-societa-torinese-tecnikabel-andera-partners-ed-equiter-va-al-controllo-dellamericana-eis-wire-cable-e-cresce-in-automazione-industriale-e-difesa/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-10T05:49:20+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Tecnikabel",
+          "EIS Wire & Cable"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Tecnikabel, controllata da Andera Partners ed Equiter insieme alla famiglia Garaffi, ha rilevato l\u2019americana Eis Wire & Cable. L\u2019operazione riguarda cavi speciali, automazione industriale e difesa. La connessione italiana \u00e8 forte grazie alla sede di Tecnikabel a Volpiano, nel Torinese.",
+      "title_original": "La societ\u00e0 torinese Tecnikabel (Andera Partners ed Equiter) va al controllo dell\u2019americana Eis Wire & Cable e cresce in automazione industriale e difesa"
+    },
+    {
+      "id": "rss-signal-00278",
+      "fund_id": "",
+      "fund_slug": "hellman-friedman",
+      "related_fund_slugs": [
+        "hellman-friedman",
+        "silver-lake"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Teamsystem (Hellman & Friedman) Expands in France and Turkey with the Acquisition of ACD and DIA Yaz\u0131l\u0131m",
+      "what_changed": "TeamSystem, an Italian software and digital services group controlled by Hellman & Friedman, has announced two add-on acquisitions in France and Turkey: ACD and DIA Yaz\u0131l\u0131m. The article also mentions the other financial investors, Silver Lake Partners, ADIA, and CapitalG. No financial terms were disclosed.",
+      "source_url": "https://bebeez.it/private-equity/teamsystem-hellmanfriedman-cresce-in-francia-e-turchia-acquisendo-acd-e-dia-yazilim/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-09T05:48:39+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "TeamSystem",
+          "ACD",
+          "DIA Yaz\u0131l\u0131m"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "TeamSystem, gruppo italiano di software e servizi digitali controllato da Hellman&Friedman, annuncia due acquisizioni add-on in Francia e Turchia: ACD e DIA Yaz\u0131l\u0131m. L\u2019articolo cita anche gli altri azionisti finanziari Silver Lake Partners, ADIA e CapitalG. Nessun importo \u00e8 indicato.",
+      "title_original": "Teamsystem (Hellman&Friedman) cresce in Francia e Turchia, acquisendo ACD e DIA Yaz\u0131l\u0131m"
+    },
+    {
+      "id": "rss-signal-00279",
+      "fund_id": "",
+      "fund_slug": "silver-lake",
+      "related_fund_slugs": [
+        "hellman-friedman",
+        "silver-lake"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Teamsystem (Hellman & Friedman) Expands in France and Turkey with the Acquisition of ACD and DIA Yaz\u0131l\u0131m",
+      "what_changed": "TeamSystem, an Italian software and digital services group controlled by Hellman & Friedman, has announced two add-on acquisitions in France and Turkey: ACD and DIA Yaz\u0131l\u0131m. The article also mentions the other financial investors, Silver Lake Partners, ADIA, and CapitalG. No financial terms were disclosed.",
+      "source_url": "https://bebeez.it/private-equity/teamsystem-hellmanfriedman-cresce-in-francia-e-turchia-acquisendo-acd-e-dia-yazilim/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-09T05:48:39+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "TeamSystem",
+          "ACD",
+          "DIA Yaz\u0131l\u0131m"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "TeamSystem, gruppo italiano di software e servizi digitali controllato da Hellman&Friedman, annuncia due acquisizioni add-on in Francia e Turchia: ACD e DIA Yaz\u0131l\u0131m. L\u2019articolo cita anche gli altri azionisti finanziari Silver Lake Partners, ADIA e CapitalG. Nessun importo \u00e8 indicato.",
+      "title_original": "Teamsystem (Hellman&Friedman) cresce in Francia e Turchia, acquisendo ACD e DIA Yaz\u0131l\u0131m"
+    },
+    {
+      "id": "rss-signal-00280",
+      "fund_id": "",
+      "fund_slug": "emk-capital",
+      "related_fund_slugs": [
+        "emk-capital"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Project Informatica (EMK Capital) is set to acquire Sistemi Hardware & Software S.p.A. and its subsidiary Stackna S.r.l.",
+      "what_changed": "Project Informatica, a subsidiary of EMK Capital, is in the process of acquiring Sistemi Hardware & Software S.p.A. and its subsidiary Stackna S.r.l., according to an AGCM bulletin. This is therefore an Italian transaction that has not yet been finalized. No financial terms have been disclosed.",
+      "source_url": "https://bebeez.it/private-equity/project-informatica-emk-capital-sta-per-acquisire-sistemi-hardware-software-spa-e-la-controllata-stackna-srl/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-07T05:53:37+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": true,
+      "extracted_entities": {
+        "companies": [
+          "Project Informatica",
+          "Sistemi Hardware & Software spa",
+          "Stackna srl"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Project Informatica, controllata da EMK Capital, \u00e8 in via di acquisizione di Sistemi Hardware & Software spa e della controllata Stackna srl, secondo un bollettino Agcm. Si tratta quindi di una transazione italiana ancora non finalizzata. Nessun importo \u00e8 indicato.",
+      "title_original": "Project Informatica (EMK Capital) sta per acquisire Sistemi Hardware & Software spa e la controllata Stackna srl"
+    },
+    {
+      "id": "rss-signal-00281",
+      "fund_id": "",
+      "fund_slug": "blackstone",
+      "related_fund_slugs": [
+        "blackstone"
+      ],
+      "signal_type": "exit_announced",
+      "title": "Kering has sold 80% of the property at Via Montenapoleone 8 (Milan) to the Al-Mirqab Group for \u20ac1.161 billion, representing an 11.63% increase over the total purchase price",
+      "what_changed": "Kering has sold 80% of the property at Via Montenapoleone 8 in Milan to the Al-Mirqab Group for \u20ac1.161 billion. The asset had been purchased two years earlier by Blackstone for \u20ac1.3 billion; the transaction involves a prestigious Italian property.",
+      "source_url": "https://bebeez.it/real-estate-2/kering-cede-l80-dellimmobile-di-via-montenapoleone-8-milano-ad-al-mirqab-group-per-1161-mld-1163-rispetto-al-valore-totale-di-acquisto/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-03T05:51:04+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Kering",
+          "Al-Mirqab Group",
+          "Blackstone"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "1,161 mld",
+      "what_changed_original": "Kering ha ceduto l\u201980% dell\u2019immobile di via Montenapoleone 8 a Milano ad Al-Mirqab Group per 1,161 miliardi di euro. L\u2019asset era stato acquistato due anni prima da Blackstone per 1,3 miliardi; l\u2019operazione riguarda un immobile italiano di pregio.",
+      "title_original": "Kering cede l\u201980% dell\u2019immobile di via Montenapoleone 8 (Milano) ad Al-Mirqab Group, per 1,161 mld. +11,63% rispetto al valore totale di acquisto"
+    },
+    {
+      "id": "rss-signal-00282",
+      "fund_id": "",
+      "fund_slug": "alkemia-sgr",
+      "related_fund_slugs": [
+        "alkemia-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Sys-Dat Group (Alkemia Capital Partners) acquires the remaining 30% and gains control of Humatics (AI and machine learning)",
+      "what_changed": "Sys-Dat Group, a portfolio company of Alkemia Capital Partners, has acquired the remaining 30% of Humatics and taken control of the company. Humatics, a center of excellence in artificial intelligence and machine learning founded in 2016 as a spin-off from the University of Verona, is an Italian tech company.",
+      "source_url": "https://bebeez.it/private-equity/sys-dat-group-alkemia-capital-partners-rileva-il-rimanente-30-e-arriva-al-controllo-di-humatics-ai-e-machine-learning/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-03T05:48:13+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Sys-Dat Group",
+          "Humatics",
+          "Universit\u00e0 di Verona"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Sys-Dat Group, partecipata da Alkemia Capital Partners, acquisisce il restante 30% di Humatics e ne assume il controllo. Humatics, centro di eccellenza in intelligenza artificiale e machine learning nato nel 2016 come spin-off dell\u2019Universit\u00e0 di Verona, \u00e8 un\u2019operazione italiana nel settore tech.",
+      "title_original": "Sys-Dat Group (Alkemia Capital Partners) rileva il rimanente 30% e arriva al controllo di Humatics (ai e machine learning)"
+    },
+    {
+      "id": "rss-signal-00283",
+      "fund_id": "",
+      "fund_slug": "smart-capital",
+      "related_fund_slugs": [
+        "smart-capital"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "Smart Capital has completed a capital increase of \u20ac7.9 million, as approved in November 2025",
+      "what_changed": "Smart Capital S.p.A., a private equity and PIPE holding company listed on Euronext Growth Milan Pro, has completed a \u20ac7.9 million capital increase, which was approved by the Board of Directors in November 2025. The transaction involves an Italian publicly traded company and also includes CDP Equity.",
+      "source_url": "https://bebeez.it/club-deal/smart-capital-chiude-laumento-di-capitale-a-79-mln-euro-come-deliberato-a-novembre-2025/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-03T05:45:05+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Smart Capital",
+          "Euronext Growth Milan Pro",
+          "CDP Equity"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "7,9 mln euro",
+      "what_changed_original": "Smart Capital spa, holding di private equity e PIPE quotata su Euronext Growth Milan Pro, ha chiuso un aumento di capitale da 7,9 milioni di euro, deliberato dal Cda nel novembre 2025. L\u2019operazione riguarda una societ\u00e0 italiana del mercato quotato e coinvolge anche CDP Equity.",
+      "title_original": "Smart Capital chiude l\u2019aumento di capitale a 7,9 mln euro, come deliberato a novembre 2025"
+    },
+    {
+      "id": "rss-signal-00284",
+      "fund_id": "",
+      "fund_slug": "argos-wityu",
+      "related_fund_slugs": [
+        "argos-wityu"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Argos Fund acquires 75% of Star7 and plans to delist the company following the completion of the transaction",
+      "what_changed": "Argos Fund has acquired a 75% stake in Star7 S.p.A., a company listed on Euronext Growth Milan that operates in the fields of language services and content engineering, and is aiming for delisting. The transaction constitutes a controlling stake acquisition in a listed Italian company.",
+      "source_url": "https://bebeez.it/private-equity/argos-fund-acquista-il-75-di-star7-e-punta-al-delisting-dopo-la-chiusura-delloperazione/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-02T05:52:55+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Star7",
+          "Euronext Growth Milan"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Argos Fund acquista il 75% di Star7 spa, societ\u00e0 quotata su Euronext Growth Milan attiva nei servizi linguistici e nell\u2019ingegneria dei contenuti, e punta al delisting. L\u2019operazione \u00e8 un\u2019acquisizione di controllo in una societ\u00e0 italiana quotata.",
+      "title_original": "Argos Fund acquista il 75% di Star7 e punta al delisting dopo la chiusura dell\u2019operazione"
+    },
+    {
+      "id": "rss-signal-00285",
+      "fund_id": "",
+      "fund_slug": "riello-investimenti-sgr",
+      "related_fund_slugs": [
+        "riello-investimenti-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Riello Investimenti SGR is participating in the funding round for Neoh, a Swiss startup in which Giovanni Ferrero invested in February through his investment vehicle Teseo Capital",
+      "what_changed": "Riello Investimenti SGR, through Linfa, has participated in a new funding round for Neoh, an agrifoodtech startup based in Austria and Switzerland that develops sugar substitutes for confectionery products. The article mentions a round involving Italian investors but does not specify the amount.",
+      "source_url": "https://bebeez.it/venture-capital/riello-investimenti-sgr-partecipa-al-round-di-neoh-startup-svizzera-in-cui-a-febbraio-ha-investito-giovanni-ferrero-mediante-il-suo-veicolo-teseo-capital/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-02T05:47:18+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Neoh",
+          "Linfa"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Riello Investimenti SGR, tramite Linfa, ha partecipato al nuovo round di Neoh, startup agrifoodtech con sede in Austria/\u201csvizzera\u201d attiva nello sviluppo di formule per sostituire lo zucchero nei prodotti dolciari. L\u2019articolo segnala un round con investitori italiani, ma non indica l\u2019importo.",
+      "title_original": "Riello Investimenti sgr partecipa al round di Neoh, startup svizzera in cui a febbraio ha investito Giovanni Ferrero mediante il suo veicolo Teseo Capital"
+    },
+    {
+      "id": "rss-signal-00286",
+      "fund_id": "",
+      "fund_slug": "clessidra-sgr",
+      "related_fund_slugs": [
+        "clessidra-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Clessidra Private Equity S.G.R. acquires Lombardy-based Sopran Ciodue (security and fire protection systems) from its founders, Leonardo Ciampoli and Renato Casiroli",
+      "what_changed": "Clessidra Private Equity sgr has acquired Sopran Ciodue from its founders, Leonardo Ciampoli and Renato Casiroli. The Lombardy-based company operates in the fields of fire safety and occupational safety; the transaction, confirmed in a press release, will be financed by Banca Ifis.",
+      "source_url": "https://bebeez.it/private-equity/clessidra-private-equity-sgr-acquisisce-la-lombarda-sopran-ciodue-sicurezza-e-sistemi-antincendio-dai-fondatori-leonardo-ciampoli-e-renato-casiroli/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-02T05:41:13+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Sopran Ciodue",
+          "Leonardo Ciampoli",
+          "Renato Casiroli",
+          "Banca Ifis"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Clessidra Private Equity sgr ha acquisito Sopran Ciodue dai fondatori Leonardo Ciampoli e Renato Casiroli. La societ\u00e0 lombarda opera nella sicurezza antincendio e sul lavoro; la transazione, confermata dal comunicato stampa, sar\u00e0 finanziata da Banca Ifis.",
+      "title_original": "Clessidra Private Equity sgr acquisisce la lombarda Sopran Ciodue (sicurezza e sistemi antincendio) dai fondatori, Leonardo Ciampoli e Renato Casiroli"
+    },
+    {
+      "id": "rss-signal-00287",
+      "fund_id": "",
+      "fund_slug": "nextalia-sgr",
+      "related_fund_slugs": [
+        "nextalia-sgr"
+      ],
+      "signal_type": "other",
+      "title": "Digit\u2019Ed (Nextalia sgr): Providence Equity Partners submits a non-binding offer to Rothschild, which is advising on the sale alongside Banca IMI",
+      "what_changed": "Providence Equity Partners has submitted a non-binding offer to Rothschild for Digit\u2019Ed, an education group controlled by Nextalia SGR. The article refers to exploratory discussions regarding a sale and preliminary interest, not a completed transaction. No financial terms have been disclosed. Italian involvement through Digit\u2019Ed and Nextalia.",
+      "source_url": "https://bebeez.it/private-equity/digited-nextalia-sgr-providence-equity-partners-presenta-offerta-non-vincolante-a-rothschild-advisor-con-banca-imi-nel-processo-di-vendita/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-01T05:52:24+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": true,
+      "extracted_entities": {
+        "companies": [
+          "Digit\u2019Ed",
+          "Rothschild",
+          "Nextalia sgr",
+          "Providence Equity Partners"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Providence Equity Partners ha presentato a Rothschild un\u2019offerta non vincolante per Digit\u2019Ed, polo education controllato da Nextalia sgr. L\u2019articolo parla di esplorazione della vendita e interesse preliminare, non di operazione conclusa. Nessun importo \u00e8 indicato. Coinvolgimento italiano tramite Digit\u2019Ed e Nextalia.",
+      "title_original": "Digit\u2019Ed (Nextalia sgr), Providence Equity Partners presenta offerta non vincolante a Rothschild, advisor con Banca IMI nel processo di vendita"
+    },
+    {
+      "id": "rss-signal-00288",
+      "fund_id": "",
+      "fund_slug": "ambienta-sgr",
+      "related_fund_slugs": [
+        "ambienta-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Ambienta SGR acquires a controlling stake in Vicenza-based The Bridge (plant-based beverages). The founding Negro Marcigaglia family is reinvesting",
+      "what_changed": "Ambienta SGR, through its Ambienta Small Cap fund, has acquired a majority stake in The Bridge, a Vicenza-based company specializing in plant-based beverages and yogurt. The founding Negro Marcigaglia family is reinvesting alongside the private equity firm. The transaction involves an Italian sustainable food company; the amount of the deal has not been disclosed.",
+      "source_url": "https://bebeez.it/private-equity/ambienta-sgr-va-al-controllo-della-vicentina-the-bridge-bevande-vegetali-la-famiglia-fondatrice-negro-marcigaglia-reinveste/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-01T05:50:15+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Ambienta sgr",
+          "Ambienta Small Cap",
+          "The Bridge",
+          "Negro Marcigaglia"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Ambienta sgr, tramite il fondo Ambienta Small Cap, ha acquisito la maggioranza della vicentina The Bridge, societ\u00e0 di bevande e yogurt vegetali. La famiglia fondatrice Negro Marcigaglia reinveste al fianco del private equity. L\u2019operazione riguarda una realt\u00e0 italiana del food sostenibile; l\u2019importo non \u00e8 indicato.",
+      "title_original": "Ambienta sgr va al controllo della vicentina The Bridge (bevande vegetali). La famiglia fondatrice Negro Marcigaglia reinveste"
+    },
+    {
+      "id": "rss-signal-00289",
+      "fund_id": "",
+      "fund_slug": "white-bridge-investments",
+      "related_fund_slugs": [
+        "white-bridge-investments"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Tikedo (White Bridge Investments) acquires three companies in Spain and launches Tikedo Barcelona. Consolidated revenue exceeds \u20ac80 million",
+      "what_changed": "Tikedo, a subsidiary of White Bridge Investments II, has acquired the business units of CMYK Grafica, Etiquetas Alvilab, and Etyprinter in Spain, creating Tikedo Barcelona. The transaction strengthens the group\u2019s position in the label printing sector and brings consolidated revenue to over 80 million euros. No financial terms were disclosed.",
+      "source_url": "https://bebeez.it/private-equity/tikedo-white-bridge-investments-acquisisce-tre-aziende-in-spagna-e-da-vita-a-tikedo-barcelona-superati-gli-80-mln-di-fatturato-consolidato/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-01T05:48:14+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Tikedo",
+          "White Bridge Investments II",
+          "CMYK Grafica",
+          "Etiquetas Alvilab",
+          "Etyprinter",
+          "Tikedo Barcelona"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Tikedo, controllata da White Bridge Investments II, ha acquisito in Spagna i rami d\u2019azienda di CMYK Grafica, Etiquetas Alvilab ed Etyprinter, creando Tikedo Barcelona. L\u2019operazione rafforza il gruppo nel settore stampa etichette e porta il fatturato consolidato oltre 80 milioni di euro. Nessun importo indicato.",
+      "title_original": "Tikedo (White Bridge Investments) acquisisce tre aziende in Spagna e d\u00e0 vita a Tikedo Barcelona. Superati gli 80 mln di fatturato consolidato"
+    },
+    {
+      "id": "rss-signal-00290",
+      "fund_id": "",
+      "fund_slug": "the-equity-club",
+      "related_fund_slugs": [
+        "the-equity-club"
+      ],
+      "signal_type": "deal_announced",
+      "title": "The Equity Club 2.0 is investing \u20ac25 million for a 45% stake in Lux Entertainment's immersive experiences",
+      "what_changed": "The Equity Club 2.0 has announced a \u20ac25 million investment to acquire a 45% stake in Lux Entertainment, a Rome-based group specializing in large-scale experiential events. The transaction is being carried out through a club deal led by Roberto Ferraresi and Filippo Penatti, in partnership with Mediobanca.",
+      "source_url": "https://bebeez.it/club-deal/the-equity-club-2-0-investe-25-mln-euro-per-il-45-delle-esperienze-immersive-di-lux-entertainment/",
+      "source_name": "BeBeez",
+      "published_at": "2026-04-01T05:45:58+00:00",
+      "observed_at": "2026-04-10T07:32:36.073123+00:00",
+      "created_at": "2026-04-10T07:32:36.073123+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "The Equity Club 2.0",
+          "Lux Entertainment",
+          "Mediobanca",
+          "Roberto Ferraresi",
+          "Filippo Penatti"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "25 mln euro",
+      "what_changed_original": "The Equity Club 2.0 ha annunciato un investimento di 25 milioni di euro per acquisire il 45% di Lux Entertainment, gruppo con sede a Roma attivo in eventi esperienziali su larga scala. L\u2019operazione \u00e8 condotta tramite il club deal guidato da Roberto Ferraresi e Filippo Penatti, in partnership con Mediobanca.",
+      "title_original": "The Equity Club 2.0 investe 25 mln euro per il 45% delle esperienze immersive di Lux Entertainment"
+    },
+    {
+      "id": "rss-signal-00291",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "CareGlance Secures \u20ac3.5 Million Funding Round",
+      "what_changed": "CareGlance, a deep-tech startup with offices in Milan and Bari, has closed a \u20ac3.5 million seed round. The round was led by CDP Venture Capital through the Rilancio Fund, with participation from Eureka Venture SGR. The funds will be used to develop 3D infrared sensors based on OCT technology.",
+      "source_url": "https://financecommunity.it/round-da-35-milioni-di-euro-per-careglance/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-04-09T15:22:40+00:00",
+      "observed_at": "2026-04-10T07:32:47.673291+00:00",
+      "created_at": "2026-04-10T07:32:47.673291+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "CareGlance"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "3,5 milioni di euro",
+      "what_changed_original": "CareGlance, startup deep-tech con sedi a Milano e Bari, ha chiuso un round seed da 3,5 milioni di euro. L\u2019operazione \u00e8 guidata da Cdp Venture Capital tramite il Fondo Rilancio, con la partecipazione di Eureka Venture sgr. I capitali serviranno allo sviluppo di sensori 3D a infrarossi basati su tecnologia OCT.",
+      "title_original": "Round da 3,5 milioni di euro per CareGlance"
+    },
+    {
+      "id": "rss-signal-00292",
+      "fund_id": "",
+      "fund_slug": "azimut-libera-impresa-sgr",
+      "related_fund_slugs": [
+        "azimut-libera-impresa-sgr"
+      ],
+      "signal_type": "other",
+      "title": "Ali SGR establishes a committee of expert co-investors",
+      "what_changed": "Azimut Libera Impresa, an asset management company within the Azimut Group led by Marco Belletti, has established a new strategic committee of expert co-investors. The initiative aims to support medium-sized Italian companies by providing capital and sector-specific expertise, but does not involve any specific investment or M&A transaction.",
+      "source_url": "https://financecommunity.it/ali-sgr-istituisce-un-comitato-di-esperti-coinvestitori/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-04-09T14:41:26+00:00",
+      "observed_at": "2026-04-10T07:32:47.673291+00:00",
+      "created_at": "2026-04-10T07:32:47.673291+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Azimut Libera Impresa"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Azimut Libera Impresa, sgr del gruppo Azimut guidata da Marco Belletti, ha istituito un nuovo comitato strategico di esperti coinvestitori. L\u2019iniziativa mira a supportare le medie imprese italiane con capitale e competenze settoriali, ma non descrive un\u2019operazione di investimento o M&A specifica.",
+      "title_original": "Ali sgr istituisce un comitato di esperti coinvestitori"
+    },
+    {
+      "id": "rss-signal-00293",
+      "fund_id": "",
+      "fund_slug": "bain-capital",
+      "related_fund_slugs": [
+        "bain-capital"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Hscale (Bain Capital) will invest up to 2 billion euros in a data center in Bollate (Milan)",
+      "what_changed": "Hscale, a subsidiary of Bain Capital, has finalized the purchase of a site in Bollate, in the province of Milan, to develop a large data center. The project involves investments of up to 2 billion euros and includes the seller, Develog, which operates in the digital and logistics infrastructure sectors.",
+      "source_url": "https://financecommunity.it/hscale-bain-capital-investira-fino-a-2-miliardi-di-euro-per-un-data-center-a-milano/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-04-09T14:33:57+00:00",
+      "observed_at": "2026-04-10T07:32:47.673291+00:00",
+      "created_at": "2026-04-10T07:32:47.673291+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Hscale",
+          "Bain Capital",
+          "Develog"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "fino a 2 miliardi di euro",
+      "what_changed_original": "Hscale, societ\u00e0 controllata da Bain Capital, ha finalizzato l\u2019acquisto di un\u2019area a Bollate, in provincia di Milano, per sviluppare un grande data center. Il progetto prevede investimenti fino a 2 miliardi di euro e coinvolge il venditore Develog, attivo in infrastrutture digitali e logistiche.",
+      "title_original": "Hscale (Bain Capital) investir\u00e0 fino a 2 miliardi di euro per un data center a Bollate (Milano)"
+    },
+    {
+      "id": "rss-signal-00294",
+      "fund_id": "",
+      "fund_slug": "andera-partners",
+      "related_fund_slugs": [
+        "andera-partners",
+        "equiter"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Tecnikabel acquires Eis Wire & Cable. The advisors involved",
+      "what_changed": "Tecnikabel, a company based in Volpiano (Turin) and controlled by Andera Partners and Equiter together with the Garaffi family, has acquired EIS Wire & Cable, a Massachusetts-based company specializing in specialty cables. The transaction strengthens the Italian group\u2019s international presence in the cable industry.",
+      "source_url": "https://financecommunity.it/tecnikabel-acquisisce-eis-wire-cable-gli-advisor-coinvolti/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-04-09T13:39:27+00:00",
+      "observed_at": "2026-04-10T07:32:47.673291+00:00",
+      "created_at": "2026-04-10T07:32:47.673291+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Tecnikabel",
+          "EIS Wire & Cable"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Tecnikabel, azienda di Volpiano (Torino) controllata da Andera Partners ed Equiter insieme alla famiglia Garaffi, ha acquisito EIS Wire & Cable, societ\u00e0 con sede nel Massachusetts attiva nei cavi speciali. L\u2019operazione rafforza la presenza internazionale del gruppo italiano nel settore dei cablaggi.",
+      "title_original": "Tecnikabel acquisisce Eis Wire & Cable. Gli advisor coinvolti"
+    },
+    {
+      "id": "rss-signal-00295",
+      "fund_id": "",
+      "fund_slug": "equiter",
+      "related_fund_slugs": [
+        "andera-partners",
+        "equiter"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Tecnikabel acquires Eis Wire & Cable. The advisors involved",
+      "what_changed": "Tecnikabel, a company based in Volpiano (Turin) and controlled by Andera Partners and Equiter together with the Garaffi family, has acquired EIS Wire & Cable, a Massachusetts-based company specializing in specialty cables. The transaction strengthens the Italian group\u2019s international presence in the cable industry.",
+      "source_url": "https://financecommunity.it/tecnikabel-acquisisce-eis-wire-cable-gli-advisor-coinvolti/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-04-09T13:39:27+00:00",
+      "observed_at": "2026-04-10T07:32:47.673291+00:00",
+      "created_at": "2026-04-10T07:32:47.673291+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Tecnikabel",
+          "EIS Wire & Cable"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Tecnikabel, azienda di Volpiano (Torino) controllata da Andera Partners ed Equiter insieme alla famiglia Garaffi, ha acquisito EIS Wire & Cable, societ\u00e0 con sede nel Massachusetts attiva nei cavi speciali. L\u2019operazione rafforza la presenza internazionale del gruppo italiano nel settore dei cablaggi.",
+      "title_original": "Tecnikabel acquisisce Eis Wire & Cable. Gli advisor coinvolti"
+    },
+    {
+      "id": "rss-signal-00296",
+      "fund_id": "",
+      "fund_slug": "equiter",
+      "related_fund_slugs": [
+        "equiter"
+      ],
+      "signal_type": "deal_announced",
+      "title": "The project finance advisors for BERH Sardegna 1 (Equiter)",
+      "what_changed": "Banco Bpm has completed a project finance transaction for BERH Sardegna 1, a company in which Equiter holds a stake, for the construction, partial refinancing, and acquisition of a portfolio of seven renewable energy plants in Italy with a total capacity of approximately 22 MW. The transaction involves energy assets located across various Italian regions.",
+      "source_url": "https://financecommunity.it/gli-advisor-del-project-finance-di-berh-sardegna-1-equiter/",
+      "source_name": "FinanceCommunity",
+      "published_at": "2026-04-09T12:54:48+00:00",
+      "observed_at": "2026-04-10T07:32:47.673291+00:00",
+      "created_at": "2026-04-10T07:32:47.673291+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 85,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Banco Bpm",
+          "BERH Sardegna 1"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "circa 22 MW",
+      "what_changed_original": "Banco Bpm ha concluso un\u2019operazione di project finance per BERH Sardegna 1, societ\u00e0 partecipata da Equiter, destinata a costruzione, rifinanziamento parziale e acquisizione di un portafoglio di sette impianti rinnovabili in Italia per circa 22 MW. L\u2019operazione riguarda asset energetici distribuiti in varie regioni italiane.",
+      "title_original": "Gli advisor del project finance di BERH Sardegna 1 (Equiter)"
+    },
+    {
+      "id": "rss-signal-00297",
+      "fund_id": "",
+      "fund_slug": "origine-sgr",
+      "related_fund_slugs": [
+        "origine-sgr"
+      ],
+      "signal_type": "other",
+      "title": "Adriano Goldschmied, the \u201cgodfather of denim,\u201d has passed away",
+      "what_changed": "An obituary for Adriano Goldschmied, the Italian denim entrepreneur known as the \u201cgodfather of denim.\u201d The piece is about his life and influence in fashion, not a PE/VC deal or fund activity, despite the pre-matched fund name.",
+      "source_url": "https://www.pambianconews.com/2026/04/05/addio-al-padrino-del-denim-adriano-goldschmied-479782/",
+      "source_name": "Pambianco News",
+      "published_at": "2026-04-05T18:20:30+00:00",
+      "observed_at": "2026-04-10T07:33:02.622477+00:00",
+      "created_at": "2026-04-10T07:33:02.622477+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "Si \u00e8 spento il \u2018padrino del denim\u2019 Adriano Goldschmied"
+    },
+    {
+      "id": "rss-signal-00298",
+      "fund_id": "",
+      "fund_slug": "united-ventures",
+      "related_fund_slugs": [
+        "united-ventures"
+      ],
+      "signal_type": "other",
+      "title": "Would you invest in a startup powered by AI agents? Four Italian investors weigh in",
+      "what_changed": "An opinion/market analysis piece on startups created using AI agents, featuring insights from Massimiliano Magrini (United Ventures), Gianluca Dettori (Primo Capital), Stefano Peroncini (Eureka), and Giancarlo Rocchietti (Club degli Investitori). No deals or investment amounts are announced; the focus is on the Italian VC ecosystem.",
+      "source_url": "https://www.economyup.it/startup/investireste-su-una-startup-fatta-con-agenti-ai-quattro-investitori-italiani-rispondono/",
+      "source_name": "EconomyUp",
+      "published_at": "2026-04-08T07:30:00+00:00",
+      "observed_at": "2026-04-10T07:33:08.765791+00:00",
+      "created_at": "2026-04-10T07:33:08.765791+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [],
+        "people": [],
+        "locations": []
+      },
+      "what_changed_original": "Articolo di taglio opinion/market su startup create con agenti AI, con le risposte di Massimiliano Magrini (United Ventures), Gianluca Dettori (Primo Capital), Stefano Peroncini (Eureka) e Giancarlo Rocchietti (Club degli Investitori). Nessun deal o importo \u00e8 annunciato; focus sull\u2019ecosistema italiano VC.",
+      "title_original": "Investireste su una startup fatta con agenti AI? Quattro investitori italiani rispondono"
+    },
+    {
+      "id": "rss-signal-00299",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "related_fund_slugs": [
+        "p101-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Fiorentina is set to face English side Crystal Palace\u2014where and how can you watch the match via live stream?",
+      "what_changed": "TeiaCare, an Italian medtech scaleup, raised 7 million euro in a round led by P101 SGR. The funding will support scaling the business and international expansion for its solutions aimed at improving care for vulnerable people.",
+      "source_url": "https://startupitalia.eu/lifestyle/fiorentina-in-campo-contro-crystal-palace/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-04-09T17:40:00+00:00",
+      "observed_at": "2026-04-10T07:34:03.651842+00:00",
+      "created_at": "2026-04-10T07:34:03.651842+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "TeiaCare"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "7 milioni di euro",
+      "title_original": "La Fiorentina scende in campo contro gli inglesi del Crystal Palace, dove e come seguire il match in diretta streaming?"
+    },
+    {
+      "id": "rss-signal-00300",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital",
+        "liftt",
+        "p101-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Seven million euros for TeiaCare\u2019s medtech solutions. Full details of the funding round led by P101",
+      "what_changed": "Italian startup CareGlance closed a 3.5 million euro financing round led by CDP Venture Capital, Eureka! and Liftt. The company develops 3D sensors for industrial applications, with a focus on Industry 4.0 and 5.0 use cases.",
+      "source_url": "https://startupitalia.eu/startup/teiacare-medtech-round-scaleup/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-04-09T14:39:50+00:00",
+      "observed_at": "2026-04-10T07:34:03.651842+00:00",
+      "created_at": "2026-04-10T07:34:03.651842+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "CareGlance"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "3,5 milioni di euro",
+      "title_original": "Sette milioni di euro per le soluzioni medtech di TeiaCare. Tutti i dettagli del round guidato da P101"
+    },
+    {
+      "id": "rss-signal-00301",
+      "fund_id": "",
+      "fund_slug": "liftt",
+      "related_fund_slugs": [
+        "cdp-venture-capital",
+        "liftt",
+        "p101-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Seven million euros for TeiaCare\u2019s medtech solutions. Full details of the funding round led by P101",
+      "what_changed": "Italian startup CareGlance closed a 3.5 million euro financing round led by CDP Venture Capital, Eureka! and Liftt. The company develops 3D sensors for industrial applications, with a focus on Industry 4.0 and 5.0 use cases.",
+      "source_url": "https://startupitalia.eu/startup/teiacare-medtech-round-scaleup/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-04-09T14:39:50+00:00",
+      "observed_at": "2026-04-10T07:34:03.651842+00:00",
+      "created_at": "2026-04-10T07:34:03.651842+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "CareGlance"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "3,5 milioni di euro",
+      "title_original": "Sette milioni di euro per le soluzioni medtech di TeiaCare. Tutti i dettagli del round guidato da P101"
+    },
+    {
+      "id": "rss-signal-00302",
+      "fund_id": "",
+      "fund_slug": "p101-sgr",
+      "related_fund_slugs": [
+        "cdp-venture-capital",
+        "liftt",
+        "p101-sgr"
+      ],
+      "signal_type": "deal_announced",
+      "title": "Seven million euros for TeiaCare\u2019s medtech solutions. Full details of the funding round led by P101",
+      "what_changed": "Italian startup CareGlance closed a 3.5 million euro financing round led by CDP Venture Capital, Eureka! and Liftt. The company develops 3D sensors for industrial applications, with a focus on Industry 4.0 and 5.0 use cases.",
+      "source_url": "https://startupitalia.eu/startup/teiacare-medtech-round-scaleup/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-04-09T14:39:50+00:00",
+      "observed_at": "2026-04-10T07:34:03.651842+00:00",
+      "created_at": "2026-04-10T07:34:03.651842+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "CareGlance"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "3,5 milioni di euro",
+      "title_original": "Sette milioni di euro per le soluzioni medtech di TeiaCare. Tutti i dettagli del round guidato da P101"
+    },
+    {
+      "id": "rss-signal-00303",
+      "fund_id": "",
+      "fund_slug": "cdp-venture-capital",
+      "related_fund_slugs": [
+        "cdp-venture-capital",
+        "liftt"
+      ],
+      "signal_type": "other",
+      "title": "CareGlance's 3D sensors have secured \u20ac3.5 million in funding. The round was led by CDP Venture, Eureka!, and Liftt",
+      "what_changed": "The article is a product review of a refurbished iPhone 16 from Refurbed, discussing Apple smartphone performance. It is consumer-tech commentary, not a PE/VC deal, and does not indicate any transaction involving the company.",
+      "source_url": "https://startupitalia.eu/startup/careglance-round-3d-sensori-infrarossi/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-04-09T14:32:11+00:00",
+      "observed_at": "2026-04-10T07:34:03.651842+00:00",
+      "created_at": "2026-04-10T07:34:03.651842+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Refurbed"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "I sensori 3D di CareGlance mettono a segno un finanziamento da 3 milioni e mezzo di euro. Nel round investono Cdp Venture, Eureka! e Liftt"
+    },
+    {
+      "id": "rss-signal-00304",
+      "fund_id": "",
+      "fund_slug": "liftt",
+      "related_fund_slugs": [
+        "cdp-venture-capital",
+        "liftt"
+      ],
+      "signal_type": "other",
+      "title": "CareGlance's 3D sensors have secured \u20ac3.5 million in funding. The round was led by CDP Venture, Eureka!, and Liftt",
+      "what_changed": "The article is a product review of a refurbished iPhone 16 from Refurbed, discussing Apple smartphone performance. It is consumer-tech commentary, not a PE/VC deal, and does not indicate any transaction involving the company.",
+      "source_url": "https://startupitalia.eu/startup/careglance-round-3d-sensori-infrarossi/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-04-09T14:32:11+00:00",
+      "observed_at": "2026-04-10T07:34:03.651842+00:00",
+      "created_at": "2026-04-10T07:34:03.651842+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": false,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Refurbed"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "title_original": "I sensori 3D di CareGlance mettono a segno un finanziamento da 3 milioni e mezzo di euro. Nel round investono Cdp Venture, Eureka! e Liftt"
+    },
+    {
+      "id": "rss-signal-00305",
+      "fund_id": "",
+      "fund_slug": "mito-technology",
+      "related_fund_slugs": [
+        "mito-technology"
+      ],
+      "signal_type": "fundraise_closed",
+      "title": "Wearable Robotics secures $5 million in funding and aims for international expansion. Details",
+      "what_changed": "Wearable Robotics has raised \u20ac5 million with the support of MITO Technology. The startup aims to strengthen its sales channels and accelerate its international expansion, with a focus on North American markets and new partnerships in the wearable robotics sector.",
+      "source_url": "https://startupitalia.eu/startup/wearable-robotics-round-5-milioni-di-euro/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-04-02T14:50:49+00:00",
+      "observed_at": "2026-04-10T07:34:03.651842+00:00",
+      "created_at": "2026-04-10T07:34:03.651842+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "Wearable Robotics"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "5 milioni di euro",
+      "what_changed_original": "Wearable Robotics ha raccolto 5 milioni di euro con il supporto di MITO Technology. La startup punta a rafforzare i canali commerciali e ad accelerare l\u2019espansione internazionale, con focus sui mercati nordamericani e nuove partnership nel settore della robotica indossabile.",
+      "title_original": "La tecnologia di Wearable Robotics si aggiudica un finanziamento da 5 milioni e punta all\u2019espansione internazionale. I dettagli"
+    },
+    {
+      "id": "rss-signal-00306",
+      "fund_id": "",
+      "fund_slug": "prana-ventures",
+      "related_fund_slugs": [
+        "prana-ventures"
+      ],
+      "signal_type": "exit_announced",
+      "title": "Online publishing: ZNEXT acquires a majority stake in the startup Factanza Media. The deal is worth \u20ac5.1 million",
+      "what_changed": "ZNEXT acquires a majority stake in Factanza Media for \u20ac5.1 million. The deal involves the online publishing sector and allows the previous investors, Primo Capital and Prana Ventures, to exit, marking a transaction involving an Italian startup.",
+      "source_url": "https://startupitalia.eu/economy/znext-acquisisce-factanza/",
+      "source_name": "StartupItalia",
+      "published_at": "2026-04-01T08:41:31+00:00",
+      "observed_at": "2026-04-10T07:34:03.651842+00:00",
+      "created_at": "2026-04-10T07:34:03.651842+00:00",
+      "page_category": "NEWS",
+      "page_type": "RSS_ITEM",
+      "extraction_source": "rss_monitor",
+      "italy_relevant": true,
+      "quality_score": 80,
+      "is_rumor": false,
+      "extracted_entities": {
+        "companies": [
+          "ZNEXT",
+          "Factanza Media",
+          "Primo Capital",
+          "Prana Ventures"
+        ],
+        "people": [],
+        "locations": []
+      },
+      "deal_amount": "5,1 milioni di euro",
+      "what_changed_original": "ZNEXT acquisisce la maggioranza di Factanza Media per 5,1 milioni di euro. L\u2019operazione riguarda l\u2019editoria online e consente l\u2019uscita degli investitori precedenti, Primo Capital e Prana Ventures, con una transazione che coinvolge una startup italiana.",
+      "title_original": "Editoria online, ZNEXT acquisisce la maggioranza della startup Factanza Media. Sul piatto 5,1 milioni di euro"
     }
   ],
-  "signal_count": 2468,
-  "translated_at": "2026-03-31T10:43:55.776753+00:00"
+  "signal_count": 2550,
+  "translated_at": "2026-04-10T07:34:21.268498+00:00"
 }

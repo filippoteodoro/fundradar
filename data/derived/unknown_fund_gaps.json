@@ -97,6 +97,13 @@
       "signal_id": "rss-signal-00267",
       "signal_title": "Capsule Corporation si assicura round da \u20ac800K dal Takeoff Accelerator (CDP Venture Capital sgr) e altri investitori",
       "alerted_at": "2026-03-31T08:10:55.773823+00:00"
+    },
+    {
+      "mention": "Clessidra Private Equity SGR",
+      "suggested_slug": "clessidra-private-equity",
+      "signal_id": "rss-signal-00286",
+      "signal_title": "Clessidra Private Equity S.G.R. acquires Lombardy-based Sopran Ciodue (security and fire protection systems) from its fo",
+      "alerted_at": "2026-04-10T07:43:22.332415+00:00"
     }
   ]
 }
