@@ -322,7 +322,7 @@
       "related_fund_slugs": [
         "cdp-venture-capital"
       ],
-      "signal_type": "deal_announced",
+      "signal_type": "partnership",
       "title": "Digital sovereignty: TIM and CDP are taking steps to identify startups and SMEs with the right technology to reduce Italy\u2019s reliance on non-EU technologies",
       "what_changed": "TIM and CDP Venture Capital are evaluating startups and SMEs for partnerships in the areas of digital sovereignty and European technologies. The article describes scouting activities and potential industrial, commercial, and technological synergies, without announcing any investment or completed PE/VC transaction.",
       "source_url": "https://startupitalia.eu/economy/tim-e-cdp-venture-capital-protocollo/",
@@ -350,7 +350,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "deal_announced"
+        "partnership"
       ]
     },
     {
@@ -1291,7 +1291,7 @@
       "id": "web-signal-02436",
       "fund_id": "",
       "fund_slug": "fondo-italiano-d-investimento-sgr",
-      "signal_type": "deal_announced",
+      "signal_type": "report",
       "title": "Fondo Italiano d\u2019Investimento presents its 2026\u20132030 strategic plan",
       "what_changed": "",
       "source_url": "https://www.fondoitaliano.it/fondo-italiano-dinvestimento-presenta-il-piano-strategico-2026-2030/",
@@ -1324,7 +1324,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "deal_announced"
+        "report"
       ]
     },
     {
@@ -2099,7 +2099,7 @@
       "related_fund_slugs": [
         "azimut-libera-impresa-sgr"
       ],
-      "signal_type": "deal_announced",
+      "signal_type": "other",
       "title": "Ali SGR establishes a committee of expert co-investors",
       "what_changed": "Azimut Libera Impresa, an asset management company within the Azimut Group led by Marco Belletti, has established a new strategic committee of expert co-investors. The initiative aims to support medium-sized Italian companies by providing capital and sector-specific expertise, but does not involve any specific investment or M&A transaction.",
       "source_url": "https://financecommunity.it/ali-sgr-istituisce-un-comitato-di-esperti-coinvestitori/",
@@ -2127,7 +2127,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "deal_announced"
+        "other"
       ]
     },
     {
@@ -2138,7 +2138,7 @@
         "azimut-libera-impresa-sgr",
         "como-venture"
       ],
-      "signal_type": "deal_announced",
+      "signal_type": "other",
       "title": "This week's management shuffles. News from Azimut Libera Impresa sgr, CMI strategi\u00e9s, and Lake COMO Venture Lab",
       "what_changed": "Azimut Libera Impresa sgr has selected the seven members of its Strategic Advisory Committee, which is designed to support the investment team. This announcement concerns governance and internal organization, not an investment transaction. The story is set in Italy and relates to the asset management firm and its private capital ecosystem.",
       "source_url": "https://bebeez.it/manager-2/i-giri-di-poltrone-della-settimana-notizie-da-azimut-libera-impresa-sgr-lake-como-venture-lab/",
@@ -2166,7 +2166,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "deal_announced"
+        "other"
       ],
       "co_fund_slugs": [
         "como-venture"
@@ -3644,7 +3644,7 @@
       "related_fund_slugs": [
         "smart-capital"
       ],
-      "signal_type": "exit_announced",
+      "signal_type": "report",
       "title": "Smart Capital ended 2025 with a profit of \u20ac8.9M and a NAV per share of \u20ac1.99. The exits of ALA, MGM, and In.Un.Up. made all the difference",
       "what_changed": "Smart Capital closed out 2025 with consolidated earnings of \u20ac8.9M, NAV per share of \u20ac1.99, and total assets of \u20ac95.1M. The results were driven by the exits of ALA, MGM, and In.Un.Up., with strong growth compared to 2024.",
       "source_url": "https://bebeez.it/club-deal/smart-capital-chiude-il-2025-con-utile-a-89-ln-euro-e-nav-per-azione-a-199-euro-le-exit-di-ala-mgm-e-in-un-up-fanno-la-differenza/",
@@ -3675,7 +3675,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "exit_announced",
+        "report",
         "fundraise_announced"
       ]
     },
@@ -3970,7 +3970,7 @@
       "id": "web-signal-02737",
       "fund_id": "",
       "fund_slug": "progressio-sgr",
-      "signal_type": "deal_announced",
+      "signal_type": "fundraise_closed",
       "title": "Progressio Investimenti IV has reached its first fundraising closing with \u20ac182M in commitments out of a target of \u20ac300M",
       "what_changed": "",
       "source_url": "https://www.progressiosgr.it/news/progressio-investimenti-iv-al-primo-closing-della-raccolta-con-182-mln-di-euro-di-impegni-su-un-target-di-300-mln-di-euro/",
@@ -3999,7 +3999,7 @@
       "quality_confidence": "high",
       "confidence_score": 1.0,
       "signal_types": [
-        "deal_announced",
+        "fundraise_closed",
         "fundraise_announced"
       ]
     },
@@ -4642,7 +4642,7 @@
       "id": "web-signal-02555",
       "fund_id": "",
       "fund_slug": "capital-dynamics-sgr",
-      "signal_type": "deal_announced",
+      "signal_type": "other",
       "title": "B\u00f6rsen-Zeitung: Why attractive secondaries opportunities lie beyond mega-deals - Capital Dynamics",
       "what_changed": "",
       "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMEpoUWRrSUZkeExzVDdJNi1CdjFEdUR5NFM5cDZaZWd2dFl1ck50SkM3U09MdGN3ZVNHU0ozRUxETW51bTBpeGVUQzh1U0pUSzlxQm9PcldHMVg3aEIzaFRYb3Y3U2JLejZNay1qUm1rN0FaSlk0cU8zeERwcFpqRmNzZ0xuRTZ5dENQSG9JWVlOdHNaTVdxNl9LQmhJaE95THk2QVJraU4?oc=5",
@@ -4670,7 +4670,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.84,
       "signal_types": [
-        "deal_announced"
+        "other"
       ]
     },
     {
@@ -4806,7 +4806,7 @@
       "related_fund_slugs": [
         "united-ventures"
       ],
-      "signal_type": "deal_announced",
+      "signal_type": "other",
       "title": "An opinion/market analysis piece on startups created using AI agents, featuring insights from Massimiliano Magrini (United Ventures), Gianluca Dettori (Primo Capital), Stefano Peroncini (Eureka), and Giancarlo Rocchietti",
       "what_changed": "An opinion/market analysis piece on startups created using AI agents, featuring insights from Massimiliano Magrini (United Ventures), Gianluca Dettori (Primo Capital), Stefano Peroncini (Eureka), and Giancarlo Rocchietti (Club degli Investitori). No deals or investment amounts are announced; the focus is on the Italian VC ecosystem.",
       "source_url": "https://www.economyup.it/startup/investireste-su-una-startup-fatta-con-agenti-ai-quattro-investitori-italiani-rispondono/",
@@ -4832,7 +4832,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "deal_announced"
+        "other"
       ]
     },
     {
