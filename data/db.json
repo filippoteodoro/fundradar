@@ -66,11 +66,11 @@
         "All-Stages"
       ],
       "sector_tags": [
-        "Financial Services",
         "Consumer Goods",
         "Construction",
         "Environmental Services",
-        "Healthcare"
+        "Healthcare",
+        "Industrial Manufacturing"
       ],
       "description": "Independent SGR and early adopter of ELTIF structures in Italy, targeting digital transformation and sustainability through growth capital in companies such as Treedom, SkinLabo, and Datrix.",
       "geographies": [
@@ -122,7 +122,10 @@
         "Buy-Out"
       ],
       "sector_tags": [
-        "Real Estate"
+        "Real Estate",
+        "Construction",
+        "Industrial Manufacturing",
+        "Professional Services"
       ],
       "description": "Originally the French private equity arm of ABN AMRO before a 2008 management buyout, this firm specializes in mid-market transformations, recently acquiring Italian metal recycling specialist Zato.",
       "geographies": [
@@ -185,7 +188,7 @@
         "Financial Services",
         "Aerospace & Defense",
         "Hospitality & Tourism",
-        "Industrial Manufacturing"
+        "Professional Services"
       ],
       "description": "Established in 1984 as a spinoff from TA Associates, this global firm pioneered a sector-specialized approach to complex buyouts. Notable Italian transactions include the landmark consolidation of Nexi and the take-private of Tinexta.",
       "geographies": [
@@ -312,7 +315,7 @@
         "Food & Beverage",
         "Agriculture",
         "Healthcare",
-        "Packaging"
+        "Technology"
       ],
       "description": "Focuses on succession-driven buyouts and growth capital for family-owned SMEs in Northern Italy. The firm targets niche leaders in the food and industrial sectors, recently acquiring Marino Belotti and exiting Gourmet Italian Food.",
       "geographies": [
@@ -703,7 +706,7 @@
         "Energy",
         "Construction",
         "Education",
-        "Environmental Services"
+        "Packaging"
       ],
       "description": "Operates as a specialist in sustainability-driven buyouts, using a proprietary methodology to target mid-market companies that enable resource efficiency and pollution control across European industrial sectors.",
       "geographies": [
@@ -932,7 +935,7 @@
         "Software",
         "Healthcare",
         "Professional Services",
-        "Food & Beverage"
+        "Financial Services"
       ],
       "description": "A pioneer of the sector-specialist investment model since 1972, this global firm focuses on large-cap buyouts and digital transformation, recently executing major exits for assets like Idealista and the IT services group Lutech.",
       "geographies": [
@@ -1505,11 +1508,11 @@
         "Buy-Out"
       ],
       "sector_tags": [
-        "Fashion & Luxury",
         "Industrial Manufacturing",
-        "Construction",
+        "Fashion & Luxury",
         "Food & Beverage",
-        "Healthcare"
+        "Healthcare",
+        "Construction"
       ],
       "description": "Independent private equity firm founded by seasoned Italian financiers to partner with family-owned SMEs, focusing on succession-led buyouts for iconic brands like Aspesi and specialized leaders like Quick Group.",
       "geographies": [
@@ -1973,7 +1976,7 @@
         "Biotech & Pharma",
         "Industrial Manufacturing",
         "Software",
-        "Professional Services"
+        "Technology"
       ],
       "description": "Spun off from the consulting firm Bain & Company in 1984, this pioneer of operationally-focused private equity applies management consulting techniques to global buyouts. Key investments include the Italian payments giant Nexi.",
       "geographies": [
@@ -2486,7 +2489,7 @@
       "sector_tags": [
         "Renewable Energy",
         "Healthcare",
-        "Biotech & Pharma",
+        "Technology",
         "Construction",
         "Environmental Services"
       ],
@@ -2714,7 +2717,7 @@
         "Industrial Manufacturing",
         "Financial Services",
         "Healthcare",
-        "Professional Services"
+        "Energy"
       ],
       "description": "Operates as the strategic investment arm of Italy\u2019s National Promotional Institution, taking significant equity stakes in national champions like Fincantieri and Open Fiber to support sovereign industrial policy.",
       "geographies": [
@@ -3069,10 +3072,10 @@
       ],
       "sector_tags": [
         "Food & Beverage",
-        "Financial Services",
         "Industrial Manufacturing",
-        "Transportation & Logistics",
-        "Fashion & Luxury"
+        "Financial Services",
+        "Fashion & Luxury",
+        "Transportation & Logistics"
       ],
       "description": "Founded by Claudio Sposito and now part of the Italmobiliare Group, this firm specializes in complex buyouts of Italian mid-market companies, with a track record including landmark deals such as Sisal, Cerved, and Nexi.",
       "geographies": [
@@ -4007,9 +4010,9 @@
         "Real-Estate"
       ],
       "sector_tags": [
+        "Financial Services",
         "Healthcare",
         "Agriculture",
-        "Financial Services",
         "Automotive",
         "Energy"
       ],
@@ -4069,8 +4072,8 @@
         "Technology",
         "Fashion & Luxury",
         "Financial Services",
-        "Healthcare",
-        "Biotech & Pharma"
+        "Biotech & Pharma",
+        "Healthcare"
       ],
       "description": "Formed through the 2001 merger of Lazard-linked entities, this group scales European champions like Deezer and Back Market while expanding its Italian private debt operations via a newly established Milan office.",
       "geographies": [
@@ -4342,10 +4345,10 @@
       ],
       "sector_tags": [
         "Transportation & Logistics",
-        "Energy",
-        "Telecommunications",
         "Construction",
-        "Financial Services"
+        "Energy",
+        "Financial Services",
+        "Healthcare"
       ],
       "description": "Italy's largest independent infrastructure manager, established in 2007 by Cassa Depositi e Prestiti and major banks. It manages strategic national assets across energy, telecom, and transport, including FiberCop and EI Towers.",
       "geographies": [
@@ -4606,10 +4609,10 @@
       ],
       "sector_tags": [
         "Industrial Manufacturing",
-        "Food & Beverage",
         "Transportation & Logistics",
         "Construction",
-        "Professional Services"
+        "Healthcare",
+        "Chemicals"
       ],
       "description": "Functions as the regional development agency for Friuli Venezia Giulia, supporting local economic growth through strategic minority investments in regional champions like Pintaudi and Bio4Dreams.",
       "geographies": [
@@ -4747,8 +4750,8 @@
         "Replacement"
       ],
       "sector_tags": [
-        "Industrial Manufacturing",
         "Food & Beverage",
+        "Industrial Manufacturing",
         "Technology",
         "Transportation & Logistics",
         "Education"
@@ -4844,8 +4847,8 @@
         "Real-Estate"
       ],
       "sector_tags": [
-        "Consumer Goods",
         "Food & Beverage",
+        "Consumer Goods",
         "Industrial Manufacturing",
         "Hospitality & Tourism",
         "Retail"
@@ -4900,8 +4903,8 @@
         "Professional Services",
         "Retail",
         "Healthcare",
-        "Industrial Manufacturing",
-        "Technology"
+        "Technology",
+        "Industrial Manufacturing"
       ],
       "description": "Employs an operationally-intensive strategy for complex mid-market buyouts and carve-outs, building on a global track record established by its Blackstone and Bain-trained founders to transform assets like WeAreProject.",
       "geographies": [
@@ -4961,9 +4964,9 @@
       ],
       "sector_tags": [
         "Technology",
-        "Industrial Manufacturing",
         "Energy",
         "Healthcare",
+        "Industrial Manufacturing",
         "Renewable Energy"
       ],
       "description": "Independent private equity firm specializing in the digital transition of European SMEs, notably backing the global expansion of luxury retailer Luisa Via Roma and healthcare technology provider GPI.",
@@ -5058,10 +5061,10 @@
       ],
       "sector_tags": [
         "Professional Services",
-        "Industrial Manufacturing",
         "Healthcare",
-        "Consumer Goods",
-        "Aerospace & Defense"
+        "Industrial Manufacturing",
+        "Aerospace & Defense",
+        "Consumer Goods"
       ],
       "description": "Operates as an evergreen investment group backed by prominent European industrial families, providing permanent capital to market leaders like Kiloutou and Ba&sh without the constraints of traditional fund lifecycles.",
       "geographies": [
@@ -5328,10 +5331,10 @@
       ],
       "sector_tags": [
         "Industrial Manufacturing",
-        "Technology",
         "Food & Beverage",
-        "Professional Services",
-        "Healthcare"
+        "Technology",
+        "Healthcare",
+        "Professional Services"
       ],
       "description": "Formed by a veteran team of partners from Alcedo to target buyouts of niche market leaders in Northern Italy, specializing in complex generational handovers for companies like CVS Ferrari and the recently exited Panificio San Francesco.",
       "geographies": [
@@ -5641,11 +5644,11 @@
         "Early-Stage"
       ],
       "sector_tags": [
-        "Technology",
         "Healthcare",
+        "Technology",
         "Biotech & Pharma",
-        "Industrial Manufacturing",
-        "Environmental Services"
+        "Education",
+        "Energy"
       ],
       "description": "Operates as a technology transfer specialist born from the partnership between Compagnia di San Paolo and Politecnico di Torino, backing deep tech breakthroughs like newcleo and Sparrow Quantum.",
       "geographies": [
@@ -5821,9 +5824,9 @@
       "sector_tags": [
         "Industrial Manufacturing",
         "Food & Beverage",
-        "Consumer Goods",
         "Biotech & Pharma",
-        "Chemicals"
+        "Chemicals",
+        "Consumer Goods"
       ],
       "description": "Specializes in mid-market buyouts of Italian SMEs like Italcer and Croci, leveraging a legacy of cross-border expansion expertise established during its origins as Mandarin Capital Partners.",
       "geographies": [
@@ -5986,8 +5989,8 @@
       ],
       "sector_tags": [
         "Professional Services",
-        "Technology",
         "Hospitality & Tourism",
+        "Technology",
         "Healthcare",
         "Financial Services"
       ],
@@ -6057,8 +6060,8 @@
         "Industrial Manufacturing",
         "Consumer Goods",
         "Healthcare",
-        "Aerospace & Defense",
-        "Chemicals"
+        "Professional Services",
+        "Aerospace & Defense"
       ],
       "description": "Global credit specialist founded in 1988 that pioneered institutional lending to mid-sized companies. It acts as a key liquidity provider for Italian SMEs, recently financing Uteco Converting and backing leaders like Jakala and AEB.",
       "geographies": [
@@ -6453,8 +6456,8 @@
       "sector_tags": [
         "Food & Beverage",
         "Healthcare",
-        "Hospitality & Tourism",
         "Professional Services",
+        "Hospitality & Tourism",
         "Aerospace & Defense"
       ],
       "description": "Tracing its roots to the investment arm of Paribas, this manager specializes in complex pan-European buyouts and operates major global platforms like the Nestl\u00e9-partnered ice cream giant Froneri.",
@@ -6748,10 +6751,10 @@
       ],
       "sector_tags": [
         "Retail",
-        "Packaging",
-        "Consumer Goods",
         "Hospitality & Tourism",
-        "Mining & Metals"
+        "Packaging",
+        "Transportation & Logistics",
+        "Consumer Goods"
       ],
       "description": "Launched by KKR to manage non-performing exposures, this platform partners with banks to stabilize and grow distressed European companies through fresh capital and operational turnaround expertise.",
       "geographies": [
@@ -6899,9 +6902,9 @@
       "sector_tags": [
         "Food & Beverage",
         "Professional Services",
-        "Healthcare",
         "Technology",
-        "Consumer Goods"
+        "Consumer Goods",
+        "Healthcare"
       ],
       "description": "Established by former Ibersuizas partners, this independent firm specializes in Iberian middle-market buyouts and complex carve-outs, notably acquiring Serveo from Ferrovial and the supermarket group Condis.",
       "geographies": [
@@ -7360,8 +7363,8 @@
       "sector_tags": [
         "Industrial Manufacturing",
         "Food & Beverage",
-        "Consumer Goods",
         "Technology",
+        "Consumer Goods",
         "Professional Services"
       ],
       "description": "Established by the Riello industrial family, this firm manages specialized impact and buyout vehicles targeting Italian SMEs, with recent landmark deals including the acquisition of Filtes International and a Series A lead in Finapp.",
@@ -8343,8 +8346,8 @@
         "Automotive",
         "Consumer Goods",
         "Industrial Manufacturing",
-        "Biotech & Pharma",
-        "Hospitality & Tourism"
+        "Professional Services",
+        "Biotech & Pharma"
       ],
       "description": "Club deal platform initiated by Mediobanca that organizes direct investments from prominent Italian family offices into mid-market leaders, notably backing the IPO of Philogen and the expansion of Jakala.",
       "geographies": [
@@ -8534,8 +8537,7 @@
       ],
       "sector_tags": [
         "Agriculture",
-        "Technology",
-        "Biotech & Pharma"
+        "Technology"
       ],
       "description": "Leverages Siena's life sciences ecosystem to back early-stage Italian deep-tech and biotech spin-offs. Key investments include insect protein developer Kinsect and wine data analytics platform Saturnalia.",
       "geographies": [
@@ -10646,7 +10648,7 @@
         "Technology",
         "Financial Services",
         "Media & Entertainment",
-        "Retail"
+        "Aerospace & Defense"
       ],
       "description": "Founded by former Google Italy head Massimiliano Magrini, this independent firm specializes in technology-driven digital transformation with landmark investments in gaming platform Faceit and space logistics provider D-Orbit.",
       "geographies": [
@@ -10742,7 +10744,8 @@
         "Transportation & Logistics",
         "Energy",
         "Construction",
-        "Technology"
+        "Technology",
+        "Professional Services"
       ],
       "description": "European infrastructure investment firm managing EUR 33 billion across five flagship funds. In Italy, owns Hippocrates (460+ pharmacy network) and previously held Grandi Stazioni Retail (exited 2024 at 2.6x).",
       "geographies": [
