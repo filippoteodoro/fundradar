@@ -1373,3 +1373,86 @@ class TestMar2026AuditRegressions:
         from signal_patterns import _RE_REPORT
         assert _RE_REPORT.search("annual m&a review for the bakery sector 2025"), "annual M&A review should match"
         assert _RE_REPORT.search("m&a report: europe-focused activity in 2025"), "m&a report should match"
+
+
+class TestMay2026MisclassificationPatterns:
+    """Regression tests for the 8 misclassifications surfaced by the May 2026
+    signal-quality audit (commit 17e688f).
+
+    Each was a `deal_announced`/`exit_announced` signal with no `target_companies`
+    extracted by the LLM enricher — a strong indicator of misclassification.
+    The patches below ensure the universal-demotion or type-correction layer
+    catches each pattern before it reaches the website.
+    """
+
+    # 1. Strategic plan presentation → report
+    def test_presents_strategic_plan_is_report(self):
+        """'Fondo Italiano d'Investimento presents its 2026-2030 strategic plan' → report."""
+        text = "fondo italiano d'investimento presents its 2026-2030 strategic plan"
+        ud = apply_universal_demotions(text, text)
+        result = ud if ud is not None else apply_type_corrections("deal_announced", text, text)
+        assert result == "report", f"Expected report, got {result}"
+
+    # 2. "Ended YYYY with profit of €X" → report (annual results)
+    def test_ended_year_with_profit_is_report(self):
+        """'Smart Capital ended 2025 with a profit of €8.9M' → report (annual results)."""
+        text = "smart capital ended 2025 with a profit of €8.9m and a nav per share of €1.99"
+        ud = apply_universal_demotions(text, text)
+        result = ud if ud is not None else apply_type_corrections("exit_announced", text, text)
+        assert result == "report", f"Expected report, got {result}"
+
+    # 3. "Reached its first ... closing/fundraising" → fundraise_closed
+    def test_reached_first_closing_is_fundraise_closed(self):
+        """'Progressio Investimenti IV has reached its first fundraising closing with €182M' → fundraise_closed."""
+        text = "progressio investimenti iv has reached its first fundraising closing with €182m in commitments"
+        ud = apply_universal_demotions(text, text)
+        result = ud if ud is not None else apply_type_corrections("deal_announced", text, text)
+        assert result == "fundraise_closed", f"Expected fundraise_closed, got {result}"
+
+    def test_reached_first_close_short_form_is_fundraise_closed(self):
+        """Short form: 'Fund X reaches first close at €100M' → fundraise_closed."""
+        text = "fund x reaches first close at €100m"
+        ud = apply_universal_demotions(text, text)
+        result = ud if ud is not None else apply_type_corrections("deal_announced", text, text)
+        assert result == "fundraise_closed", f"Expected fundraise_closed, got {result}"
+
+    # 4. "Establishes a committee" → other (governance, not a deal)
+    def test_establishes_committee_is_other(self):
+        """'Ali SGR establishes a committee of expert co-investors' → other."""
+        text = "ali sgr establishes a committee of expert co-investors"
+        ud = apply_universal_demotions(text, text)
+        result = ud if ud is not None else apply_type_corrections("deal_announced", text, text)
+        assert result == "other", f"Expected other, got {result}"
+
+    # 5. "This week's management shuffles" → other (news roundup)
+    def test_management_shuffles_is_other(self):
+        """'This week's management shuffles. News from Azimut Libera Impresa, CMI, Lake Como' → other."""
+        text = "this week's management shuffles. news from azimut libera impresa sgr, cmi strategies, and lake como ventures"
+        ud = apply_universal_demotions(text, text)
+        result = ud if ud is not None else apply_type_corrections("deal_announced", text, text)
+        assert result == "other", f"Expected other, got {result}"
+
+    # 6. "Why X opportunities lie..." with press source prefix → other (opinion)
+    def test_why_opportunities_press_prefix_is_other(self):
+        """'Börsen-Zeitung: Why attractive secondaries opportunities lie beyond mega-deals' → other."""
+        text = "börsen-zeitung: why attractive secondaries opportunities lie beyond mega-deals - capital dynamics"
+        ud = apply_universal_demotions(text, text)
+        result = ud if ud is not None else apply_type_corrections("deal_announced", text, text)
+        assert result == "other", f"Expected other, got {result}"
+
+    # 7. Explicit "An opinion/market analysis piece" → other
+    def test_opinion_market_analysis_piece_is_other(self):
+        """'An opinion/market analysis piece on startups created using AI agents' → other."""
+        text = "an opinion/market analysis piece on startups created using ai agents, featuring insights from massimiliano"
+        ud = apply_universal_demotions(text, text)
+        result = ud if ud is not None else apply_type_corrections("deal_announced", text, text)
+        assert result == "other", f"Expected other, got {result}"
+
+    # 8. "Taking steps to identify..." strategic-initiative pattern → other
+    # (Not strictly partnership — no agreement is named. 'Other' is the safer default.)
+    def test_taking_steps_to_identify_is_other(self):
+        """'Digital sovereignty: TIM and CDP are taking steps to identify startups and SMEs' → other."""
+        text = "digital sovereignty: tim and cdp are taking steps to identify startups and smes with the right technology"
+        ud = apply_universal_demotions(text, text)
+        result = ud if ud is not None else apply_type_corrections("deal_announced", text, text)
+        assert result == "other", f"Expected other, got {result}"

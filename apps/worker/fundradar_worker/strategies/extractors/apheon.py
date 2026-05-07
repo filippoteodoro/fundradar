@@ -33,6 +33,17 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
     companies = []
     seen_names = set()
 
+    # Caption / description prefixes to reject (these aren't company names)
+    _CAPTION_RE = re.compile(r"^(photo|image|picture|caption|figure)\s*[:\-—–]", re.I)
+
+    def _looks_like_description(text: str) -> bool:
+        # Real company names are short. Captions and descriptions are long.
+        if len(text) > 50 or len(text.split()) > 5:
+            return True
+        if _CAPTION_RE.search(text):
+            return True
+        return False
+
     # Strategy 1: Find links to individual portfolio pages
     for link in soup.find_all("a", href=True):
         href = link.get("href", "")
@@ -61,6 +72,8 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
                     name = alt
 
         if not name or len(name) < 2:
+            continue
+        if _looks_like_description(name):
             continue
 
         name_lower = name.lower()
@@ -110,6 +123,8 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
         for heading in soup.find_all(["h3", "h4", "h5"]):
             name = heading.get_text(strip=True)
             if not name or len(name) < 2 or len(name) > 60:
+                continue
+            if _looks_like_description(name):
                 continue
             name_lower = name.lower()
             if name_lower in seen_names:

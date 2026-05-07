@@ -110,9 +110,10 @@ _RE_FUNDRAISE_CLOSING = re.compile(
     r"\bchius[oa]\b.*\bclosing\b|\bclosing\b.*\bchius[oa]\b"
     r"|\bchiude\b.*\bclosing\b|\bchiuso il closing\b|\bfinal close\b|\bhard cap\b"
     r"|\bclosing\s+(?:del|di|per|of)\s+(?:il\s+)?(?:fondo|fund|veicolo|oversubscribed)\b"
-    r"|\b(?:primo|secondo|terzo|first|second|third|successful)\s+closing\b"
+    r"|\b(?:primo|secondo|terzo|first|second|third|successful)\s+(?:fundraising\s+|fundraise\s+)?clos(?:e|ing)\b"
+    r"|\breach\w*\s+(?:its\s+)?(?:first|second|third|final)\s+(?:fundraising\s+|fundraise\s+)?clos(?:e|ing)\b"
     r"|\brealizza\b.*\bclosing\b"
-    r"|\b(?:announces?|completes?|closes?)\s+(?:its?\s+)?(?:first|second|final)\s+closing\b",
+    r"|\b(?:announces?|completes?|closes?)\s+(?:its?\s+)?(?:first|second|final)\s+(?:fundraising\s+)?clos(?:e|ing)\b",
     re.IGNORECASE,
 )
 
@@ -191,6 +192,9 @@ _RE_REPORT = re.compile(
     r"|\bnet\s+profit\b"
     r"|\butile\s+netto\b"
     r"|\bcompletes?\s+turnaround\b"
+    # Annual results phrasings: "ended 2025 with a profit", "NAV per share/unit/quota"
+    r"|\bended?\s+\d{4}\s+with\s+(?:a\s+|an\s+)?(?:profit|loss|net\s+income|ebitda|gain)\b"
+    r"|\bnav\s+per\s+(?:share|unit|quota)\b"
     r"|\bvolumes?\s+(?:up|down|grew|declined)\b.{0,40}\b(?:profit|utile|revenue|ricavi)\b"
     r"|\b(?:profit|utile)\b.{0,40}\b(?:volumes?\s+(?:up|down|grew)|revenue|ricavi)\b"
     r"|\b(?:global|annual|yearly|sector)\s+review\s+of\s+(?:m&a|mergers?|acquisitions?|deals?)\b"
@@ -932,3 +936,57 @@ def _extract_portfolio_company_name(signal: dict, summary: str, title: str) -> s
     if m:
         candidate = m.group(1).strip()
     return candidate
+
+
+# ── May 2026 misclassification patterns (commit 17e688f follow-up) ───────────
+# Each pattern targets a specific class of signal that the ML classifier
+# wrongly labels as deal_announced because of incidental investment vocabulary.
+
+# "[Fund] presents its [YYYY-YYYY] strategic plan" — strategic-plan presentation,
+# not a deal. The full _RE_REPORT also matches "strategic plan" but is gated by
+# `not _matches_deal()`, which returns True for Italian fund names containing
+# "investimento". This pattern bypasses that guard.
+_RE_STRATEGIC_PLAN_PRESENTATION = re.compile(
+    r"\bpresent\w*\s+(?:its|the|new|a|an)?\s*"
+    r"(?:\d{4}\s*[-–—]\s*\d{4}\s+)?"
+    r"(?:strategic\s+plan|piano\s+strategico|business\s+plan|piano\s+industriale)\b",
+    re.IGNORECASE,
+)
+
+# Governance — "establishes a committee", "establishes an advisory board"
+_RE_COMMITTEE_ESTABLISHMENT = re.compile(
+    r"\bestablish\w+\s+(?:a\s+|an\s+|the\s+)?"
+    r"(?:committee|comitato|advisory\s+board|investment\s+committee|board\s+of\s+advisors)\b",
+    re.IGNORECASE,
+)
+
+# News roundup / management shuffles aggregator
+# Matches "this week's management shuffles" and "news from [fund A], [fund B], and [fund C]"
+_RE_MANAGEMENT_ROUNDUP = re.compile(
+    r"\b(?:management\s+shuffles?|management\s+shake[\-\s]?up|management\s+changes\s+this\s+week)\b"
+    r"|\bthis\s+week.s?\s+(?:management\s+)?(?:shuffles?|news|round[\-\s]?up|update)\b"
+    r"|\bnews\s+from\s+\w+(?:\s+\w+){0,3}\s*(?:sgr|capital|partners|ventures?)?\s*,\s*"
+    r"\w+(?:\s+\w+){0,3}\s*,\s*and\s+\w+",
+    re.IGNORECASE,
+)
+
+# Press-source-prefixed opinion: "Source: Why ..." (Börsen-Zeitung, FT, Reuters style)
+# These are editorial republishings of opinion pieces, not PE events.
+_RE_PRESS_SOURCE_OPINION = re.compile(
+    r"^[\w\-À-ſ]+(?:\s+\w+){0,3}\s*:\s*why\s+\w",
+    re.IGNORECASE,
+)
+
+# Explicit "opinion piece", "market analysis piece", "analysis article" — editorial content
+_RE_OPINION_PIECE = re.compile(
+    r"\b(?:an\s+)?(?:opinion|market\s+analysis|analysis|commentary|editorial)"
+    r"[\s/]+(?:piece|article|column)\b",
+    re.IGNORECASE,
+)
+
+# Strategic-initiative scouting: "taking steps to identify/find/select startups"
+# These are announcements of intent to scout, not actual deals.
+_RE_TAKING_STEPS_TO_SCOUT = re.compile(
+    r"\btaking\s+steps?\s+to\s+(?:identify|find|locate|select|engage|partner)\b",
+    re.IGNORECASE,
+)

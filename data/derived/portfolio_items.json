@@ -69591,19 +69591,6 @@
     ],
     "apheon": [
       {
-        "name": "Sustainability generates long-term and higher value",
-        "sector": null,
-        "status": "current",
-        "confidence": 0.95,
-        "website": null,
-        "description": null,
-        "detail_page_url": null,
-        "headquarters": null,
-        "investment_date": null,
-        "source_url": "https://www.apheon.com/investment/",
-        "data_source": "fund_website"
-      },
-      {
         "name": "A holistic and collective approach",
         "sector": null,
         "status": "current",
@@ -80789,19 +80776,6 @@
         "description": "Operates an online marketplace for automotive financing and insurance",
         "detail_page_url": null,
         "headquarters": "York, United Kingdom",
-        "investment_date": null,
-        "source_url": "https://www.bridgepointgroup.com/private-equity/portfolio",
-        "data_source": "fund_website"
-      },
-      {
-        "name": "Photo - team members in conversation",
-        "sector": null,
-        "status": "current",
-        "confidence": 0.95,
-        "website": null,
-        "description": null,
-        "detail_page_url": null,
-        "headquarters": null,
         "investment_date": null,
         "source_url": "https://www.bridgepointgroup.com/private-equity/portfolio",
         "data_source": "fund_website"

@@ -104,6 +104,13 @@ from signal_patterns import (
     _RE_ROLE_OPENING_TITLE,
     _RE_PEOPLE_APPOINTMENT_RESCUE,
     _RE_VALUE_CREATION,
+    # May 2026 misclassification patterns (commit 17e688f follow-up)
+    _RE_STRATEGIC_PLAN_PRESENTATION,
+    _RE_COMMITTEE_ESTABLISHMENT,
+    _RE_MANAGEMENT_ROUNDUP,
+    _RE_PRESS_SOURCE_OPINION,
+    _RE_OPINION_PIECE,
+    _RE_TAKING_STEPS_TO_SCOUT,
 )
 
 
@@ -190,6 +197,44 @@ def apply_universal_demotions(text_lower: str, title_lower: str) -> Optional[str
         return "other"
     if re.search(r"^(?:press\s+review|rassegna\s+stampa)\s*:", title_lower):
         return "other"
+
+    # ── May 2026 misclassification patterns ───────────────────────────────────
+    # Each fires BEFORE the deal-language guards because the ML classifier and
+    # _matches_deal() get false-positives from incidental investment vocabulary
+    # (Italian "investimento", "investors" near "co-investors", etc).
+
+    # Strategic-plan presentation → report (no deal target, just announcing the plan)
+    if _RE_STRATEGIC_PLAN_PRESENTATION.search(text_lower):
+        return "report"
+
+    # Committee / advisory board establishment → other (governance, not a deal)
+    if _RE_COMMITTEE_ESTABLISHMENT.search(text_lower):
+        return "other"
+
+    # News roundup / weekly management shuffles → other (multi-fund summary)
+    if _RE_MANAGEMENT_ROUNDUP.search(text_lower):
+        return "other"
+
+    # Press-source-prefixed opinion ("Börsen-Zeitung: Why ...") → other
+    if _RE_PRESS_SOURCE_OPINION.search(text_lower):
+        return "other"
+
+    # Explicit "opinion piece" / "market analysis piece" → other
+    if _RE_OPINION_PIECE.search(text_lower):
+        return "other"
+
+    # "Taking steps to identify/find/scout startups" — strategic-initiative
+    # announcement, not a deal. Guarded by absence of acquisition verbs so a
+    # legit "taking steps to acquire X" stays as deal_announced.
+    if _RE_TAKING_STEPS_TO_SCOUT.search(text_lower):
+        if not _RE_ACQUISITION_VERBS.search(text_lower):
+            return "other"
+
+    # "Reached/announces/completes its first/second/final fundraising closing" → fundraise_closed
+    # _RE_FUNDRAISE_CLOSING covers this; firing here lets us return the
+    # specific type without depending on rule-classified original_type.
+    if _RE_FUNDRAISE_CLOSING.search(text_lower):
+        return "fundraise_closed"
 
     # Podcast/talk/webinar series (e.g., "#innoistalk", "webinar series") → other
     if re.search(r"(?:#\w+talk\b|\bpodcast\s+(?:series|episode|ep\.?)|\bwebinar\s+series)\b", text_lower):

@@ -28,10 +28,23 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
     companies = []
     seen_names = set()
 
+    # Caption / description prefixes to reject (these aren't company names)
+    _CAPTION_RE = re.compile(r"^(photo|image|picture|caption|figure)\s*[:\-—–]", re.I)
+
+    def _looks_like_description(text: str) -> bool:
+        # Real company names are short. Captions and descriptions are long.
+        if len(text) > 50 or len(text.split()) > 5:
+            return True
+        if _CAPTION_RE.search(text):
+            return True
+        return False
+
     # Look for h3/h4 elements that might be company names
     for heading in soup.find_all(["h3", "h4"]):
         name = heading.get_text(strip=True)
         if not name or len(name) < 2:
+            continue
+        if _looks_like_description(name):
             continue
 
         # Skip navigation/section headings
@@ -77,6 +90,11 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
     for img in soup.find_all("img", alt=True):
         alt = img.get("alt", "").strip()
         if not alt or len(alt) < 2:
+            continue
+        # Reject captions like "Photo - team members in conversation" — common
+        # in editorial sections of fund websites where img alts describe scenes
+        # rather than company logos.
+        if _looks_like_description(alt):
             continue
 
         alt_lower = alt.lower()
