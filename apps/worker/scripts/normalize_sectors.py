@@ -101,6 +101,9 @@ SECTOR_KEYWORDS = {
     "automazione": "Technology",
     "digitale": "Technology",
     "elettronica": "Technology",
+    "photonic": "Technology",
+    "iot": "Technology",
+    "sensing": "Technology",
     # Financial
     "fintech": "Financial Services",
     "banking": "Financial Services",
@@ -192,6 +195,7 @@ SECTOR_KEYWORDS = {
     "siderurgic": "Industrial Manufacturing",
     "stampaggio": "Industrial Manufacturing",
     "componenti": "Industrial Manufacturing",
+    "industry": "Industrial Manufacturing",  # generic — distinct from "industrial"
     "produzione": "Industrial Manufacturing",
     "arredamento": "Industrial Manufacturing",
     "furniture": "Industrial Manufacturing",
@@ -212,6 +216,7 @@ SECTOR_KEYWORDS = {
     "defence": "Aerospace & Defense",
     "aerospaziale": "Aerospace & Defense",
     "difesa": "Aerospace & Defense",
+    "satellite": "Aerospace & Defense",
     # Energy
     "energy": "Energy",
     "oil": "Energy",
@@ -268,11 +273,16 @@ SECTOR_KEYWORDS = {
     "trasport": "Transportation & Logistics",
     "spedizion": "Transportation & Logistics",
     "navigazione": "Transportation & Logistics",
+    "rent-a-car": "Transportation & Logistics",
+    "car rental": "Transportation & Logistics",
     # Agriculture
     "agriculture": "Agriculture",
     "agri": "Agriculture",
     "farming": "Agriculture",
     "agricol": "Agriculture",
+    "fishing": "Agriculture",
+    "fisheries": "Agriculture",
+    "aquaculture": "Agriculture",
     # Chemicals
     "chemical": "Chemicals",
     "chimic": "Chemicals",
@@ -280,9 +290,12 @@ SECTOR_KEYWORDS = {
     "environmental": "Environmental Services",
     "ambiente": "Environmental Services",
     "ambientale": "Environmental Services",
+    "enviroment": "Environmental Services",  # common typo
+    "enviromental": "Environmental Services",
     # Professional Services
     "consulting": "Professional Services",
     "professional services": "Professional Services",
+    "facility management": "Professional Services",
     "advisory": "Professional Services",
     "accounting": "Professional Services",
     "legal": "Professional Services",
@@ -350,7 +363,22 @@ GARBAGE_SECTORS = {
     "-", "read more", "elevate", "n/a", "other", "other,", "rmb",
     "latin america", "americas", "asia pacific", "emea", "europe",
     "not specified", "unknown", "tbd", "various",
+    # Investment strategy / vehicle / theme labels (not company sectors)
+    "turnaround", "buy-out", "buyout", "growth equity", "venture capital",
+    "private equity", "secondary", "secondaries",
+    # Italian fund vehicle types — these aren't companies, they're product names
+    "oicvm", "fia chiusi non riservati", "fia chiusi riservati", "sicav",
+    "comparti 8a+ sicav", "gestione di portafogli", "gestioni patrimoniali",
+    "fondo aperto", "fondo chiuso",
+    # Impact-investing taglines (not sectors)
+    "cleaner planet", "better society", "sustainable future",
 }
+
+# Phrase suffixes/markers that indicate a description, not a sector
+_DESCRIPTION_MARKERS = (
+    " operator", " manufacturer", " homes", " factory",
+    "manufacturer of ", "processing and ", "distribution of ",
+)
 
 
 def is_garbage_sector(sector: str) -> bool:
@@ -365,9 +393,14 @@ def is_garbage_sector(sector: str) -> bool:
     # Anything over 50 chars is a business description, not a sector name
     if len(sector) > 50 and " " in sector:
         return True
-    # More than 5 words → almost certainly a description
-    if len(lower.split()) > 5:
+    # 4+ words → almost certainly a description
+    # (canonical taxonomy max is 3 words: "Transportation & Logistics")
+    if len(lower.split()) >= 4:
         return True
+    # Description markers — "Sport centre operator", "Manufacturer of broths", etc.
+    for marker in _DESCRIPTION_MARKERS:
+        if marker in lower:
+            return True
     # Starts with "SECTOR" prefix (scrape artifact)
     if sector.startswith("SECTOR"):
         return True

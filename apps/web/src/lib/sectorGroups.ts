@@ -152,6 +152,7 @@ const SECTOR_TAG_ALIASES: Record<string, string> = {
   'artificial intelligence creative': 'Software',
   'artificial intelligence esg': 'Software',
   'aerospace': 'Aerospace & Defense',
+  'space': 'Aerospace & Defense',
   'biotech': 'Biotech & Pharma',
   'biopharmaceuticals': 'Biotech & Pharma',
   'biotechnology': 'Biotech & Pharma',

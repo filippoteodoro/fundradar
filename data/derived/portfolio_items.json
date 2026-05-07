@@ -1450,7 +1450,7 @@
     "abenex": [
       {
         "name": "De Hooge Waerder",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/de-hooge-waerder/",
@@ -1476,7 +1476,7 @@
       },
       {
         "name": "Groupe Emeraude",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/emeraude-capital/",
@@ -1502,7 +1502,7 @@
       },
       {
         "name": "Santis LAB",
-        "sector": "Elevate quality of life",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/santis-lab/",
@@ -1515,7 +1515,7 @@
       },
       {
         "name": "Only creative entrepreneurs",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/only-creative-entrepreneurs/",
@@ -1541,7 +1541,7 @@
       },
       {
         "name": "Skin Artists Group",
-        "sector": "Elevate quality of life",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/skin-artists-group/",
@@ -1554,7 +1554,7 @@
       },
       {
         "name": "Di Marco",
-        "sector": "Elevate quality of life",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/di-marco/",
@@ -1580,7 +1580,7 @@
       },
       {
         "name": "Origin Group",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/origin-group/",
@@ -1593,7 +1593,7 @@
       },
       {
         "name": "IPSSI",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/ipssi/",
@@ -1606,7 +1606,7 @@
       },
       {
         "name": "Propri\u00e9t\u00e9s Priv\u00e9es",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/proprietes-privees/",
@@ -1619,7 +1619,7 @@
       },
       {
         "name": "ISCG",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/iscg/",
@@ -1632,7 +1632,7 @@
       },
       {
         "name": "Aerow",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/aerow/",
@@ -1645,7 +1645,7 @@
       },
       {
         "name": "ESCG",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/escg/",
@@ -1684,7 +1684,7 @@
       },
       {
         "name": "EDL",
-        "sector": "Elevate quality of life",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/edl/",
@@ -1710,7 +1710,7 @@
       },
       {
         "name": "Inlog",
-        "sector": "Elevate quality of life",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/inlog/",
@@ -1749,7 +1749,7 @@
       },
       {
         "name": "Ikos",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/ikos/",
@@ -1762,7 +1762,7 @@
       },
       {
         "name": "ADF Group",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/adf-group/",
@@ -1788,7 +1788,7 @@
       },
       {
         "name": "Eur\u00eaka Education",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/eureka-education/",
@@ -1814,7 +1814,7 @@
       },
       {
         "name": "Premista",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/premista/",
@@ -1827,7 +1827,7 @@
       },
       {
         "name": "Opalians",
-        "sector": "Elevate quality of life",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/opalians/",
@@ -1840,7 +1840,7 @@
       },
       {
         "name": "LP Promotion",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/lp-promotion/",
@@ -1879,7 +1879,7 @@
       },
       {
         "name": "Laboratoire Lescuyer",
-        "sector": "Elevate quality of life",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/laboratoire-lescuyer/",
@@ -1892,7 +1892,7 @@
       },
       {
         "name": "Cisbio",
-        "sector": "Elevate quality of life",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/cisbio/",
@@ -1905,7 +1905,7 @@
       },
       {
         "name": "Point Vision",
-        "sector": "Elevate quality of life",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/point-vision/",
@@ -1970,7 +1970,7 @@
       },
       {
         "name": "Cassis M\u00e9hari club",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/cassis-mehari-club/",
@@ -1983,7 +1983,7 @@
       },
       {
         "name": "Prosol \u2013 Grand frais",
-        "sector": "Elevate quality of life",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/prosol-grand-frais/",
@@ -2009,7 +2009,7 @@
       },
       {
         "name": "Dupont Restauration",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/dupont-restauration/",
@@ -2035,7 +2035,7 @@
       },
       {
         "name": "R\u00e9ponse",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/reponse/",
@@ -2048,7 +2048,7 @@
       },
       {
         "name": "R\u00e9tif",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/retif/",
@@ -2061,7 +2061,7 @@
       },
       {
         "name": "Findis",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/findis/",
@@ -2074,7 +2074,7 @@
       },
       {
         "name": "NextiraOne",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/nextiraone/",
@@ -2113,7 +2113,7 @@
       },
       {
         "name": "Nutrition & Sant\u00e9",
-        "sector": "Elevate quality of life",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/nutrition-sante/",
@@ -2152,7 +2152,7 @@
       },
       {
         "name": "Score",
-        "sector": "Augment knowledge & resources",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.abenex.com/company/score/",
@@ -2859,7 +2859,7 @@
       },
       {
         "name": "SWISSCARE",
-        "sector": "Nutrizione e cosmesi naturale",
+        "sector": null,
         "status": "exited",
         "confidence": 0.95,
         "website": "https://swisscare.it/",
@@ -2937,7 +2937,7 @@
       },
       {
         "name": "MCS ITALY",
-        "sector": "Generatori di aria calda professionali",
+        "sector": null,
         "status": "exited",
         "confidence": 0.95,
         "website": "http://www.masterheaters.it/",
@@ -2950,7 +2950,7 @@
       },
       {
         "name": "MASI AGRICOLA",
-        "sector": "Vini di alta qualit\u00e0",
+        "sector": null,
         "status": "exited",
         "confidence": 0.95,
         "website": "http://www.masi.it/",
@@ -3106,7 +3106,7 @@
       },
       {
         "name": "CASA DI CURA DI ABANO TERME",
-        "sector": "Gestione strutture ospedaliere private",
+        "sector": null,
         "status": "exited",
         "confidence": 0.95,
         "website": "http://www.policlinicoabano.it/",
@@ -4524,7 +4524,7 @@
       },
       {
         "name": "Next Imaging",
-        "sector": "Technology/Machine Vision",
+        "sector": "Technology",
         "status": "exited",
         "confidence": 0.95,
         "website": "https://ambientasgr.com/portfolio/next-imaging/",
@@ -4589,7 +4589,7 @@
       },
       {
         "name": "Calucem",
-        "sector": "Cac Producer To Reduce Emissions",
+        "sector": null,
         "status": "exited",
         "confidence": 0.95,
         "website": "https://ambientasgr.com/portfolio/calucem/",
@@ -4641,7 +4641,7 @@
       },
       {
         "name": "Lakesight",
-        "sector": "Machine Vision For Industry 4.0",
+        "sector": null,
         "status": "exited",
         "confidence": 0.95,
         "website": "https://ambientasgr.com/portfolio/lakesight-technologies/",
@@ -14411,7 +14411,7 @@
       },
       {
         "name": "Serveo",
-        "sector": "Facility Management",
+        "sector": "Professional Services",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -14424,7 +14424,7 @@
       },
       {
         "name": "Condis",
-        "sector": "Regional proximity grocery chain",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -14476,7 +14476,7 @@
       },
       {
         "name": "Interal",
-        "sector": "Manufacturer of broths and soups",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -14554,7 +14554,7 @@
       },
       {
         "name": "Supera",
-        "sector": "Sport centre operator",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -14580,7 +14580,7 @@
       },
       {
         "name": "Centauro",
-        "sector": "Rent-a-car operator",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -14619,7 +14619,7 @@
       },
       {
         "name": "Ram\u00f3n Sabater",
-        "sector": "Processing and distribution of spices",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -14632,7 +14632,7 @@
       },
       {
         "name": "Laulagun",
-        "sector": "Large bearings for windmills",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -14645,7 +14645,7 @@
       },
       {
         "name": "Iberconsa",
-        "sector": "Wild-catch fishing",
+        "sector": "Agriculture",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -14684,7 +14684,7 @@
       },
       {
         "name": "Vitalia Home",
-        "sector": "Elderly care homes",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -14749,7 +14749,7 @@
       },
       {
         "name": "The Ice Cream Factory",
-        "sector": "Ice-creams manufacturer",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -16082,7 +16082,7 @@
       },
       {
         "name": "Horizon Ag",
-        "sector": "Private Equity",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -16095,7 +16095,7 @@
       },
       {
         "name": "Juan Navarro Garcia",
-        "sector": "Private Equity",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -16108,7 +16108,7 @@
       },
       {
         "name": "KEP Metal",
-        "sector": "Private Equity",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -19906,7 +19906,7 @@
       },
       {
         "name": "Rhiag",
-        "sector": "Services",
+        "sector": "Professional Services",
         "status": "exited",
         "confidence": 0.95,
         "website": "https://www.alphape.com/portfolio/10",
@@ -29070,7 +29070,7 @@
       },
       {
         "name": "MECH-I-TRONIC",
-        "sector": "INDUSTRY 4.0",
+        "sector": "Industrial Manufacturing",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/mech-i-tronic/",
@@ -30577,7 +30577,7 @@
     "liftt": [
       {
         "name": "Agate",
-        "sector": "Sensing & IoT",
+        "sector": "Technology",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -30616,7 +30616,7 @@
       },
       {
         "name": "Aria Sensing",
-        "sector": "Sensing & IoT",
+        "sector": "Technology",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -30642,7 +30642,7 @@
       },
       {
         "name": "Careglance",
-        "sector": "Photonics",
+        "sector": "Technology",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -30824,7 +30824,7 @@
       },
       {
         "name": "Evoralis",
-        "sector": "Enviroment",
+        "sector": "Environmental Services",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -31162,7 +31162,7 @@
       },
       {
         "name": "Specto Photonics",
-        "sector": "Photonics",
+        "sector": "Technology",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -31188,7 +31188,7 @@
       },
       {
         "name": "Steerlight",
-        "sector": "Sensing & IoT",
+        "sector": "Technology",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -31201,7 +31201,7 @@
       },
       {
         "name": "Subphoton",
-        "sector": "Photonics",
+        "sector": "Technology",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -31214,7 +31214,7 @@
       },
       {
         "name": "Test",
-        "sector": "Enviroment",
+        "sector": "Environmental Services",
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -33688,7 +33688,7 @@
       },
       {
         "name": "Accadueo Impianti",
-        "sector": "Cleaner planet",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -33701,7 +33701,7 @@
       },
       {
         "name": "Sustainable Platform",
-        "sector": "Cleaner planet",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -33714,7 +33714,7 @@
       },
       {
         "name": "Refurbed",
-        "sector": "Cleaner planet",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -33779,7 +33779,7 @@
       },
       {
         "name": "Fifteen",
-        "sector": "Cleaner planet",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -34382,7 +34382,7 @@
     "pillarstone": [
       {
         "name": "Bluwater S.p.A",
-        "sector": "Turnaround",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -34395,7 +34395,7 @@
       },
       {
         "name": "CSM Italy S.r.l",
-        "sector": "Turnaround",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -41946,7 +41946,7 @@
       },
       {
         "name": "Business Changers srl",
-        "sector": "IT Consulting & Software",
+        "sector": null,
         "status": "current",
         "confidence": 0.8,
         "website": "https://business-changers.it",
@@ -44421,7 +44421,7 @@
       },
       {
         "name": "IOTTY S.r.l",
-        "sector": "Beni e serv. di consumo",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.friulia.it/it/partecipate/iotty-s-r-l",
@@ -44746,7 +44746,7 @@
       },
       {
         "name": "SERVIZI E FINANZA FVG S.R.L",
-        "sector": "Attivit\u00e0 finanz. e assicurative",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.friulia.it/it/partecipate/servizi-e-finanza-fvg-s-r-l",
@@ -59362,7 +59362,7 @@
       },
       {
         "name": "Radius Global Infrastructure",
-        "sector": "Infrastructure / TMT",
+        "sector": "Construction",
         "status": "exited",
         "confidence": 0.95,
         "website": "https://www.eqtgroup.com/about/current-portfolio/radius",
@@ -66174,7 +66174,7 @@
       },
       {
         "name": "Etichettificio Jolly",
-        "sector": "Industrial",
+        "sector": "Industrial Manufacturing",
         "status": "current",
         "confidence": 0.75,
         "website": null,
@@ -75137,7 +75137,7 @@
     "8a-investimenti-sgr": [
       {
         "name": "8a+ Eiger",
-        "sector": "OICVM",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -75150,7 +75150,7 @@
       },
       {
         "name": "8a+ Latemar",
-        "sector": "OICVM",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -75163,7 +75163,7 @@
       },
       {
         "name": "8a+ NextamBilanciato",
-        "sector": "OICVM",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -75176,7 +75176,7 @@
       },
       {
         "name": "8a+ NextamObbligazionario Misto",
-        "sector": "OICVM",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -75189,7 +75189,7 @@
       },
       {
         "name": "8a+ Sacro Monte",
-        "sector": "Comparti 8a+ SICAV",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -75202,7 +75202,7 @@
       },
       {
         "name": "Linea Equity 30",
-        "sector": "Gestione di portafogli",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -75215,7 +75215,7 @@
       },
       {
         "name": "Linea Equity 50",
-        "sector": "Gestione di portafogli",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -75228,7 +75228,7 @@
       },
       {
         "name": "Linea Equity 80",
-        "sector": "Gestione di portafogli",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -75241,7 +75241,7 @@
       },
       {
         "name": "Gestioni personalizzate",
-        "sector": "Gestione di portafogli",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -75254,7 +75254,7 @@
       },
       {
         "name": "8a+ Real Innovation",
-        "sector": "FIA Chiusi non riservati",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -75267,7 +75267,7 @@
       },
       {
         "name": "8a+ Real Italy ELTIF",
-        "sector": "FIA Chiusi non riservati",
+        "sector": null,
         "status": "current",
         "confidence": 0.95,
         "website": null,
@@ -76418,7 +76418,7 @@
       },
       {
         "name": "CBG Acciai",
-        "sector": "Industry",
+        "sector": "Industrial Manufacturing",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.groupehld.com/en/participations/cbg-acciai",
@@ -76457,7 +76457,7 @@
       },
       {
         "name": "Exosens",
-        "sector": "Industry",
+        "sector": "Industrial Manufacturing",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.groupehld.com/en/participations/exosens",
@@ -76522,7 +76522,7 @@
       },
       {
         "name": "MVG",
-        "sector": "Industry",
+        "sector": "Industrial Manufacturing",
         "status": "current",
         "confidence": 0.95,
         "website": "https://www.groupehld.com/en/participations/mvg",
@@ -81985,7 +81985,7 @@
       },
       {
         "name": "MECH-I-TRONIC",
-        "sector": "INDUSTRY 4.0",
+        "sector": "Industrial Manufacturing",
         "status": "current",
         "confidence": 0.95,
         "website": "https://hat.it/partner/mech-i-tronic/",
