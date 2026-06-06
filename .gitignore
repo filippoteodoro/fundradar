@@ -127,3 +127,7 @@ coverage/
 
 # Vercel
 .vercel/
+
+# Un-ignored: app-consumed derived data that must live on GitHub (cold-backup safety, 2026-06-07)
+!/data/derived/team_items.json
+!/data/derived/quality_baselines.json

@@ -1,0 +1,245 @@
+{
+  "baselines": {
+    "ring-capital:portfolio": {
+      "fund_slug": "ring-capital",
+      "data_type": "portfolio",
+      "baseline_count": 6,
+      "baseline_confidence": 0.9500000000000001,
+      "last_successful": "2026-05-07T07:02:33.519254+00:00",
+      "extraction_methods": []
+    },
+    "ream-sgr:portfolio": {
+      "fund_slug": "ream-sgr",
+      "data_type": "portfolio",
+      "baseline_count": 1,
+      "baseline_confidence": 0.95,
+      "last_successful": "2026-05-07T07:02:36.921178+00:00",
+      "extraction_methods": []
+    },
+    "rivean-capital:portfolio": {
+      "fund_slug": "rivean-capital",
+      "data_type": "portfolio",
+      "baseline_count": 108,
+      "baseline_confidence": 0.9500000000000018,
+      "last_successful": "2026-05-07T07:02:38.404697+00:00",
+      "extraction_methods": []
+    },
+    "scientifica-vc:portfolio": {
+      "fund_slug": "scientifica-vc",
+      "data_type": "portfolio",
+      "baseline_count": 22,
+      "baseline_confidence": 0.9499999999999996,
+      "last_successful": "2026-05-07T07:02:39.749730+00:00",
+      "extraction_methods": []
+    },
+    "sefea-impact-sgr:portfolio": {
+      "fund_slug": "sefea-impact-sgr",
+      "data_type": "portfolio",
+      "baseline_count": 1,
+      "baseline_confidence": 0.95,
+      "last_successful": "2026-05-07T07:02:49.508667+00:00",
+      "extraction_methods": []
+    },
+    "silver-lake:portfolio": {
+      "fund_slug": "silver-lake",
+      "data_type": "portfolio",
+      "baseline_count": 172,
+      "baseline_confidence": 0.9499999999999991,
+      "last_successful": "2026-05-07T07:02:50.331901+00:00",
+      "extraction_methods": []
+    },
+    "siryo:portfolio": {
+      "fund_slug": "siryo",
+      "data_type": "portfolio",
+      "baseline_count": 8,
+      "baseline_confidence": 0.9500000000000001,
+      "last_successful": "2026-05-07T07:02:51.350574+00:00",
+      "extraction_methods": []
+    },
+    "sosteneo:portfolio": {
+      "fund_slug": "sosteneo",
+      "data_type": "portfolio",
+      "baseline_count": 6,
+      "baseline_confidence": 0.9500000000000001,
+      "last_successful": "2026-05-07T07:02:53.628883+00:00",
+      "extraction_methods": []
+    },
+    "star-capital-sgr:portfolio": {
+      "fund_slug": "star-capital-sgr",
+      "data_type": "portfolio",
+      "baseline_count": 6,
+      "baseline_confidence": 0.9500000000000001,
+      "last_successful": "2026-05-07T07:02:54.692847+00:00",
+      "extraction_methods": []
+    },
+    "sofinnova-partners:portfolio": {
+      "fund_slug": "sofinnova-partners",
+      "data_type": "portfolio",
+      "baseline_count": 138,
+      "baseline_confidence": 0.9500000000000016,
+      "last_successful": "2026-05-07T07:02:57.115604+00:00",
+      "extraction_methods": []
+    },
+    "sienna-pe:portfolio": {
+      "fund_slug": "sienna-pe",
+      "data_type": "portfolio",
+      "baseline_count": 6,
+      "baseline_confidence": 0.9500000000000001,
+      "last_successful": "2026-05-07T07:02:58.142115+00:00",
+      "extraction_methods": []
+    },
+    "style-capital-sgr:portfolio": {
+      "fund_slug": "style-capital-sgr",
+      "data_type": "portfolio",
+      "baseline_count": 3,
+      "baseline_confidence": 0.9499999999999998,
+      "last_successful": "2026-05-07T07:02:58.487606+00:00",
+      "extraction_methods": []
+    },
+    "three-hills:portfolio": {
+      "fund_slug": "three-hills",
+      "data_type": "portfolio",
+      "baseline_count": 12,
+      "baseline_confidence": 0.9499999999999998,
+      "last_successful": "2026-05-07T07:03:04.292408+00:00",
+      "extraction_methods": []
+    },
+    "toseed:portfolio": {
+      "fund_slug": "toseed",
+      "data_type": "portfolio",
+      "baseline_count": 9,
+      "baseline_confidence": 0.9500000000000001,
+      "last_successful": "2026-05-07T07:03:08.967935+00:00",
+      "extraction_methods": []
+    },
+    "stirling-square-capital-partners:portfolio": {
+      "fund_slug": "stirling-square-capital-partners",
+      "data_type": "portfolio",
+      "baseline_count": 39,
+      "baseline_confidence": 0.95,
+      "last_successful": "2026-05-07T07:03:09.780385+00:00",
+      "extraction_methods": []
+    },
+    "towerbrook:portfolio": {
+      "fund_slug": "towerbrook",
+      "data_type": "portfolio",
+      "baseline_count": 106,
+      "baseline_confidence": 0.9500000000000017,
+      "last_successful": "2026-05-07T07:03:13.849434+00:00",
+      "extraction_methods": []
+    },
+    "trilantic-europe:portfolio": {
+      "fund_slug": "trilantic-europe",
+      "data_type": "portfolio",
+      "baseline_count": 34,
+      "baseline_confidence": 0.9499999999999995,
+      "last_successful": "2026-05-07T07:03:15.052993+00:00",
+      "extraction_methods": []
+    },
+    "21-invest:portfolio": {
+      "fund_slug": "21-invest",
+      "data_type": "portfolio",
+      "baseline_count": 2,
+      "baseline_confidence": 0.95,
+      "last_successful": "2026-05-07T07:03:24.357384+00:00",
+      "extraction_methods": []
+    },
+    "tpg:portfolio": {
+      "fund_slug": "tpg",
+      "data_type": "portfolio",
+      "baseline_count": 30,
+      "baseline_confidence": 0.6466666666666667,
+      "last_successful": "2026-05-07T07:03:25.953196+00:00",
+      "extraction_methods": []
+    },
+    "ta-associates:portfolio": {
+      "fund_slug": "ta-associates",
+      "data_type": "portfolio",
+      "baseline_count": 27,
+      "baseline_confidence": 0.5999999999999999,
+      "last_successful": "2026-05-07T07:03:26.306756+00:00",
+      "extraction_methods": []
+    },
+    "vertis-sgr:portfolio": {
+      "fund_slug": "vertis-sgr",
+      "data_type": "portfolio",
+      "baseline_count": 58,
+      "baseline_confidence": 0.9500000000000008,
+      "last_successful": "2026-05-07T07:03:35.662195+00:00",
+      "extraction_methods": []
+    },
+    "warburg-pincus:portfolio": {
+      "fund_slug": "warburg-pincus",
+      "data_type": "portfolio",
+      "baseline_count": 174,
+      "baseline_confidence": 0.949999999999999,
+      "last_successful": "2026-05-07T07:03:38.235741+00:00",
+      "extraction_methods": []
+    },
+    "united-ventures:portfolio": {
+      "fund_slug": "united-ventures",
+      "data_type": "portfolio",
+      "baseline_count": 24,
+      "baseline_confidence": 0.9499999999999996,
+      "last_successful": "2026-05-07T07:03:41.727819+00:00",
+      "extraction_methods": []
+    },
+    "wrm-group:portfolio": {
+      "fund_slug": "wrm-group",
+      "data_type": "portfolio",
+      "baseline_count": 14,
+      "baseline_confidence": 0.9499999999999998,
+      "last_successful": "2026-05-07T07:03:44.891600+00:00",
+      "extraction_methods": []
+    },
+    "xgen-venture-sgr:portfolio": {
+      "fund_slug": "xgen-venture-sgr",
+      "data_type": "portfolio",
+      "baseline_count": 10,
+      "baseline_confidence": 0.95,
+      "last_successful": "2026-05-07T07:03:45.084771+00:00",
+      "extraction_methods": []
+    },
+    "vam-investments:portfolio": {
+      "fund_slug": "vam-investments",
+      "data_type": "portfolio",
+      "baseline_count": 13,
+      "baseline_confidence": 0.9499999999999998,
+      "last_successful": "2026-05-07T07:03:45.104544+00:00",
+      "extraction_methods": []
+    },
+    "zest-group:portfolio": {
+      "fund_slug": "zest-group",
+      "data_type": "portfolio",
+      "baseline_count": 5,
+      "baseline_confidence": 0.95,
+      "last_successful": "2026-05-07T07:03:45.694670+00:00",
+      "extraction_methods": []
+    },
+    "l-catterton:portfolio": {
+      "fund_slug": "l-catterton",
+      "data_type": "portfolio",
+      "baseline_count": 308,
+      "baseline_confidence": 0.9499999999999945,
+      "last_successful": "2026-05-07T07:04:41.888714+00:00",
+      "extraction_methods": []
+    },
+    "permira:portfolio": {
+      "fund_slug": "permira",
+      "data_type": "portfolio",
+      "baseline_count": 8,
+      "baseline_confidence": 0.9500000000000001,
+      "last_successful": "2026-05-07T12:10:42.823600+00:00",
+      "extraction_methods": []
+    },
+    "hat-sicaf:portfolio": {
+      "fund_slug": "hat-sicaf",
+      "data_type": "portfolio",
+      "baseline_count": 17,
+      "baseline_confidence": 0.9499999999999997,
+      "last_successful": "2026-05-07T12:10:51.933450+00:00",
+      "extraction_methods": []
+    }
+  },
+  "updated_at": "2026-05-07T12:10:51.933822+00:00"
+}
