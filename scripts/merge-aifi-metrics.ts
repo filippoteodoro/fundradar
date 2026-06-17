@@ -45,6 +45,10 @@ const EXCLUDED_SLUGS = new Set([
   'ersel',
   'ersel-asset-management-sgr',
   'zenit-sgr',
+  'generali-real-estate',
+  'arca-fondi',
+  'hedge-invest',
+  'credem-private-equity',
   // Not PE/VC funds (asset managers, holding companies, export credit).
   // Retained as explicit exclusions for compatibility with AIFI scrape naming.
   'generali-investments',

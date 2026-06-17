@@ -11352,6 +11352,76 @@
       "slug": "xenon-private-equity",
       "name": "Xenon Private Equity",
       "reason": "explicitly reviewed and not tracked"
+    },
+    {
+      "slug": "anthilia-capital-partners",
+      "name": "Anthilia Capital Partners SGR",
+      "reason": "variant of anthilia-sgr"
+    },
+    {
+      "slug": "finanziaria-internazionale-investments",
+      "name": "Finanziaria Internazionale Investments SGR",
+      "reason": "variant of finint-investments-sgr"
+    },
+    {
+      "slug": "capital-alternative-funds",
+      "name": "Capital Alternative Funds SGR",
+      "reason": "mis-extraction of dea-capital-alternative-funds-sgr"
+    },
+    {
+      "slug": "blackstone-private-equity-fund",
+      "name": "Blackstone Private Equity Fund",
+      "reason": "fund vehicle (BXEF) of blackstone"
+    },
+    {
+      "slug": "consilium-private-equity-fund",
+      "name": "Consilium Private Equity Fund",
+      "reason": "fund vehicle of consilium-sgr"
+    },
+    {
+      "slug": "armonia-italy-fund-ii-armonia",
+      "name": "Arm\u00f2nia Italy Fund II Arm\u00f2nia SGR",
+      "reason": "fund vehicle of armonia-sgr"
+    },
+    {
+      "slug": "sme-development-fund-fvs",
+      "name": "SME Development Fund FVS SGR",
+      "reason": "fund vehicle of fvs-sgr"
+    },
+    {
+      "slug": "armes-fvs",
+      "name": "ARMES FVS SGR",
+      "reason": "fund vehicle (ARMES) of fvs-sgr"
+    },
+    {
+      "slug": "npl-nextalia-investment-magagement",
+      "name": "NPL Nextalia Investment Magagement SGR",
+      "reason": "fund vehicle (Raffaello UTP/NPL) of nextalia-sgr"
+    },
+    {
+      "slug": "clessidra-private-equity",
+      "name": "Clessidra Private Equity SGR",
+      "reason": "variant of clessidra-sgr"
+    },
+    {
+      "slug": "generali-real-estate",
+      "name": "Generali Real Estate SGR",
+      "reason": "asset manager (real estate), not PE/VC"
+    },
+    {
+      "slug": "arca-fondi",
+      "name": "Arca Fondi SGR",
+      "reason": "asset manager (mutual funds), not PE/VC"
+    },
+    {
+      "slug": "hedge-invest",
+      "name": "Hedge Invest SGR",
+      "reason": "hedge fund manager, not PE/VC"
+    },
+    {
+      "slug": "credem-private-equity",
+      "name": "Credem Private Equity SGR",
+      "reason": "bank-affiliated (Credem), not currently tracked"
     }
   ]
 }

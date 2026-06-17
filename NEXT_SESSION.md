@@ -39,13 +39,13 @@ Mostly bot-blocking (403) or moved pages (404), from the June log:
   aimpact was previously documented as a *temporary* 503 — 13× 404 suggests the site restructured; verify live before editing URLs.
 - 403 (bot-blocked, likely transient): `apax.com` (3 paths), `oakleycapital.com` (3 paths). Per worker-doc rule, do NOT null these — they're blocked, not gone.
 
-## LOW — 16 "unknown fund" gap-detector alerts (mostly NOT new funds)
-Per the PE/VC-only scope rule, most are noise — triage before adding anything:
-- **Fund vehicles of tracked managers (alias, don't add):** Blackstone PE Fund, Armònia Italy Fund II, ARMES/SME Development Fund (FVS), NPL Nextalia (Raffaello), Clessidra PE.
-- **Name-variants of existing db.json funds (alias):** Anthilia Capital Partners (=anthilia-sgr), Finanziaria Internazionale Investments (=finint-investments-sgr), Capital Alternative Funds (=dea-capital-alternative-funds-sgr).
-- **Excluded entity types (add to db.json `excluded_entities`):** Generali Real Estate (asset mgr), Arca Fondi (asset mgr), Hedge Invest (hedge fund), Credem PE (bank-affiliated).
-- **Possibly genuine new PE/VC — evaluate:** Kryalos (real estate PE), Consilium, Soprarno/L&B Capital.
-Adding aliases/exclusions stops the repeat alerts (30-day dedup window in `unknown_fund_gaps.json`).
+## DONE — 16 "unknown fund" gap-detector alerts triaged
+14 added to `db.json["excluded_entities"]` (slug_normalizer now suppresses the gap-detector alerts);
+the 4 non-PE/VC types also mirrored into `merge-aifi-metrics.ts` EXCLUDED_SLUGS. Consilium turned out to be
+TRACKED (consilium-sgr), so its "Fund" is a vehicle, not new.
+**Still to evaluate as possibly-genuine new PE/VC** (NOT excluded — they'll keep alerting until decided):
+- **Kryalos SGR** — real-estate PE/RE asset manager. Borderline (RE focus). Decide in/out.
+- **Soprarno SGR** (now L&B Capital, ex-Banca Ifigest) — small PE. Verify it's PE/VC, then add or exclude.
 
 ## LOW — standalone enrich script reads the wrong .env path
 `scripts/enrich_portfolio_gemini_full.py` loads `ROOT_ENV_PATH` (repo-root `.env`, which doesn't exist) —
