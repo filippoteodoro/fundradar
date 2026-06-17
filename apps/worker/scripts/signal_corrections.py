@@ -278,10 +278,22 @@ def apply_universal_demotions(text_lower: str, title_lower: str) -> Optional[str
         if not _matches_deal(text_lower) and not _matches_exit(text_lower):
             return "other"
 
-    # Stock market volatility noise (e.g. Nexi collapses) → other
-    if re.search(r"\b(?:collapses?|plunges?|soars?|storm|volatility|stock\s+market)\b", text_lower):
+    # Stock market volatility / price-move commentary → other
+    # Covers "Nexi collapses on the stock market", "Trading Floor:" market columns,
+    # and "[entity] rises 7.2%" share-price moves. Guarded so a real transaction in
+    # a market column (e.g. "Trading Floor: Apollo exits X") still classifies correctly.
+    if (re.search(r"\b(?:collapses?|plunges?|soars?|storm|volatility|stock\s+market)\b", text_lower)
+            or re.search(r"^\s*trading\s+floor\s*:", title_lower)
+            or re.search(r"\b(?:rises?|rose|fell|falls?|gains?|gained|drops?|dropped|jumps?|jumped|climbs?|climbed|slips?|slid|surges?|surged|tumbles?|tumbled)\s+(?:by\s+)?\d+(?:\.\d+)?\s*%", text_lower)):
         if not _matches_deal(text_lower) and not _matches_exit(text_lower) and not _matches_fundraise(text_lower):
             return "other"
+
+    # Antitrust / regulatory-conduct news → other (a competition-authority probe is
+    # not a PE transaction, even when the text trips deal-word heuristics like "conduct").
+    if re.search(r"\banti-?competitive\b", text_lower) and re.search(
+        r"\b(?:investigation|probe|conduct|authority|antitrust|inquiry|regulator)\b", text_lower
+    ):
+        return "other"
 
     # Editorial format changes (magazine weekly→fortnightly etc.) → other
     if _RE_EDITORIAL_FORMAT.search(text_lower):

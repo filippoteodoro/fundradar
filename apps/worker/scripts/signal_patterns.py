@@ -963,10 +963,11 @@ _RE_COMMITTEE_ESTABLISHMENT = re.compile(
 # News roundup / management shuffles aggregator
 # Matches "this week's management shuffles" and "news from [fund A], [fund B], and [fund C]"
 _RE_MANAGEMENT_ROUNDUP = re.compile(
-    r"\b(?:management\s+shuffles?|management\s+shake[\-\s]?up|management\s+changes\s+this\s+week)\b"
-    r"|\bthis\s+week.s?\s+(?:management\s+)?(?:shuffles?|news|round[\-\s]?up|update)\b"
-    r"|\bnews\s+from\s+\w+(?:\s+\w+){0,3}\s*(?:sgr|capital|partners|ventures?)?\s*,\s*"
-    r"\w+(?:\s+\w+){0,3}\s*,\s*and\s+\w+",
+    r"\b(?:management|executive|leadership|people|c-suite)\s+shuffles?\b"
+    r"|\b(?:management\s+shake[\-\s]?up|management\s+changes\s+this\s+week)\b"
+    r"|\bthis\s+week.s?\s+(?:\w+\s+)?(?:shuffles?|news|round[\-\s]?up|update)\b"
+    # "news from X, Y, Z, ..." — a multi-entity press digest (3+ comma-separated items)
+    r"|\bnews\s+from\s+\w+(?:\s+\w+){0,3}(?:\s*,\s*(?:and\s+)?\w+(?:\s+\w+){0,3}){2,}",
     re.IGNORECASE,
 )
 

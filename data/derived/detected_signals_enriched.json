@@ -2132,7 +2132,7 @@
         "ambienta-sgr",
         "investindustrial"
       ],
-      "signal_type": "fundraise_announced",
+      "signal_type": "other",
       "title": "This week's executive appointments. News from Ambienta sgr, Investindustrial, studio legale leone \u2013 avvocati associati, gitti and partners, and mediocredito\u2026",
       "what_changed": "Weekly staffing roundup covering personnel changes at Italian private equity firms, including J\u00e9r\u00f4me Losson joining Ambienta sgr as Partner and Head of Portfolio Operations, Private Equity. It also mentions Investindustrial among other firms, but no deal or fundraising is reported.",
       "source_url": "https://bebeez.it/manager-2/i-giri-di-poltrone-della-settimana-notizie-da-ambienta-sgr-investindustrial-studio-legale-leone-avvocati-associati-gitti-e-partners-mediocredito-centrale/",
@@ -2160,8 +2160,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "fundraise_announced",
-        "people_move"
+        "other"
       ],
       "co_fund_slugs": [
         "ambienta-sgr"
@@ -3127,7 +3126,7 @@
         "kkr",
         "vam-investments"
       ],
-      "signal_type": "deal_announced",
+      "signal_type": "other",
       "title": "This week's executive shuffles. News from KKR, Anthropic, Carlyle, Gruppo Florence, ana cap, Dea Capital Real Estate sgr, and Alba Leasing",
       "what_changed": "An industry news article covering various topics, including KKR\u2019s announcement that it will open an office in Milan to strengthen its investments in Italy. The article also mentions Anthropic, Carlyle, Gruppo Florence, Ana Cap, Dea Capital Real Estate sgr, and Alba Leasing, though it does not highlight any major PE/VC deals.",
       "source_url": "https://bebeez.it/manager-2/i-giri-di-poltrone-della-settimana-notizie-da-kkr-anthropic-carlyle-anacap-dea-capital-real-estate-sgr/",
@@ -3161,7 +3160,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "deal_announced"
+        "other"
       ],
       "co_fund_slugs": [
         "vam-investments",
@@ -4907,8 +4906,8 @@
         "blackstone",
         "partners-group"
       ],
-      "signal_type": "exit_announced",
-      "title": "Evergreen funds, la tensione sale: Blackstone chiude il rubinetto e Partners Group ammette il contagio al private equity",
+      "signal_type": "other",
+      "title": "Evergreen funds, tension rises: Blackstone shuts off the tap and Partners Group admits the contagion to private equity",
       "what_changed": "Article about stress in evergreen private credit and private equity funds, noting redemption restrictions affecting Blackstone and spillover to Partners Group. No Italian company, transaction, or fundraising is described; it is market commentary rather than a PE/VC deal.",
       "source_url": "https://bebeez.it/private-equity-breakfast/evergreen-funds-la-tensione-sale-blackstone-chiude-il-rubinetto-e-partners-group-ammette-il-contagio-al-private-equity/",
       "source_name": "BeBeez",
@@ -4931,8 +4930,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "exit_announced",
-        "fundraise_announced"
+        "other"
       ],
       "co_fund_slugs": [
         "partners-group"
@@ -4946,7 +4944,8 @@
       "llm_italy_relevant": true,
       "target_companies": [],
       "llm_type_override": true,
-      "type": "exit_announced"
+      "type": "exit_announced",
+      "title_original": "Evergreen funds, la tensione sale: Blackstone chiude il rubinetto e Partners Group ammette il contagio al private equity"
     },
     {
       "id": "rss-signal-00281",
@@ -6072,7 +6071,7 @@
       "related_fund_slugs": [
         "apollo"
       ],
-      "signal_type": "exit_announced",
+      "signal_type": "other",
       "title": "Trading Floor: Private credit giants take center stage as business development companies catch their breath. Apollo rises 7.2%",
       "what_changed": "Article is a market commentary about private credit and BDC performance, mentioning Apollo\u2019s stock move of +7.2%. It does not describe a PE/VC transaction, fundraising, or exit involving an Italian company.",
       "source_url": "https://bebeez.it/private-equity-breakfast/trading-floor-scendono-in-campo-i-boss-del-private-credit-e-le-bdc-rifiatano-apollo-fa-72/",
@@ -6097,8 +6096,7 @@
       "quality_confidence": "medium",
       "confidence_score": 0.79,
       "signal_types": [
-        "exit_announced",
-        "fundraise_announced"
+        "other"
       ],
       "enriched_summary": "Apollo rose 7.2% as private credit giants and BDC s took center stage in market commentary.",
       "enrichment_confidence": "high",
@@ -8730,7 +8728,7 @@
       "related_fund_slugs": [
         "merito-sgr"
       ],
-      "signal_type": "deal_announced",
+      "signal_type": "other",
       "title": "Did Mastercard, Pay Pal, and Visa engage in anti-competitive conduct? The Financial Conduct Authority\u2019s investigation",
       "what_changed": "Article about a UK Financial Conduct Authority investigation into potential anti-competitive conduct by Mastercard, Pay Pal and Visa. No PE/VC transaction is described, and the authority says it has reached no conclusions yet. No Italian deal relevance is indicated.",
       "source_url": "https://startupitalia.eu/economy/mastercard-paypal-e-visa-hanno-tenuto-condotte-anticoncorrenziali-lindagine-della-financial-conduct-authority/",
@@ -8759,7 +8757,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "deal_announced"
+        "other"
       ],
       "enriched_summary": "No PE/VC transaction is described; the piece covers FCA scrutiny of Mastercard, Pay Pal and Visa over possible anti-competitive conduct.",
       "enriched_date": "2026-05-07",
@@ -8823,7 +8821,7 @@
       "related_fund_slugs": [
         "merito-sgr"
       ],
-      "signal_type": "exit_announced",
+      "signal_type": "other",
       "title": "Nexi collapses on the stock market after positive results in 2025. What is happening to Italian fintech? Bertoluzzo",
       "what_changed": "Nexi shares fall despite positive 2025 results; article analyzes market reaction and quotes CEO Bertoluzzo on an uncertain period. This is a stock-market/business news item about the Italian fintech Nexi, not a private equity transaction or exit, and does not report any PE/VC deal or investor activity.",
       "source_url": "https://startupitalia.eu/economy/nexi-risultati-2025-crollo-in-borsa/",
@@ -8850,7 +8848,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "exit_announced"
+        "other"
       ],
       "enriched_summary": "Nexi shares plunged despite positive 2025 results, with CEO Bertoluzzo citing an uncertain period.",
       "enriched_date": "2026-03-11",
@@ -9314,8 +9312,8 @@
       "id": "web-signal-00046",
       "fund_id": "",
       "fund_slug": "fondo-italiano-d-investimento-sgr",
-      "signal_type": "exit_announced",
-      "title": "HNH sale a \u20ac117M punta a 140 a fine 2026",
+      "signal_type": "other",
+      "title": "HNH rises to \u20ac117M, targets \u20ac140M by end of 2026",
       "what_changed": "",
       "source_url": "https://www.fondoitaliano.it/wp-content/uploads/20260312_710200607.pdf",
       "source_name": "Fondo Italiano d\u2019Investimento SGR",
@@ -9341,7 +9339,7 @@
       "quality_confidence": "high",
       "confidence_score": 0.92,
       "signal_types": [
-        "exit_announced"
+        "other"
       ],
       "enriched_summary": "HNH Hotel Group is being sold in a \u20ac117M deal aiming for \u20ac140M by end-2026.",
       "enriched_date": "2026-03-12",
@@ -9356,7 +9354,8 @@
           "action": "exit"
         }
       ],
-      "type": "exit_announced"
+      "type": "exit_announced",
+      "title_original": "HNH sale a \u20ac117M punta a 140 a fine 2026"
     },
     {
       "id": "rss-signal-00153",
@@ -20227,7 +20226,7 @@
         "the-equity-club"
       ],
       "signal_type": "portfolio_update",
-      "title": "Club del Sole (THE Equity CLUB, Aurora Growth Capital) acquisisce Le Gorette Cecina easy camping village, sua 29 esima struttura",
+      "title": "Club del Sole (THE Equity CLUB, Aurora Growth Capital) acquires Le Gorette Cecina easy camping village, its 29th property",
       "what_changed": "Club del Sole, a company backed by THE Equity CLUB and Aurora Growth Capital, has acquired Le Gorette Cecina easy camping village in Marina di Cecina. This marks the 29th add-on acquisition for the Italian chain of holiday villages. The deal has been finalized and strengthens the company\u2019s presence along the Tuscan coast.",
       "source_url": "https://bebeez.it/private-equity/club-del-sole-the-equity-club-aurora-growth-capital-acquisisce-le-gorette-cecina-easy-camping-village-sua-29esima-struttura/",
       "source_name": "BeBeez",
@@ -20279,7 +20278,8 @@
           "action": "investment"
         }
       ],
-      "type": "portfolio_update"
+      "type": "portfolio_update",
+      "title_original": "Club del Sole (THE Equity CLUB, Aurora Growth Capital) acquisisce Le Gorette Cecina easy camping village, sua 29 esima struttura"
     },
     {
       "id": "rss-signal-00123-ab3074b9",

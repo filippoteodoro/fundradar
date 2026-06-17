@@ -17,14 +17,19 @@ copy, so gitignored dirs were left behind. No backup found anywhere on disk (Tra
 values e.g. Ardian → "Telecommunications"). Restored from git this run per the worker-doc rule. It will
 recur every run. Fix: make the step not overwrite curated `db.json` sector_tags (or consciously accept its output).
 
-## MED — ~6 news-digest/commentary signals mis-tagged as deal/exit
-Should be `other`. Fix systemically in `signal_corrections.py::apply_universal_demotions()` + a test, then
-refilter + re-enrich. IDs: `rss-signal-00119` (carlyle, "This week's executive shuffles"),
-`rss-signal-00230` (apollo, "Trading Floor:"), `rss-signal-00062`/`00193` (merito-sgr, Mastercard/Nexi commentary).
+## DONE — news-digest/commentary signals mis-tagged as deal/exit
+Systemic patterns added to `signal_corrections.py` (stock-move %, "Trading Floor:" column, antitrust/regulatory)
++ extended `_RE_MANAGEMENT_ROUNDUP` (executive shuffles, long "news from" lists), with 5 tests. 7 signals
+re-typed to `other` in filtered+enriched (119/062/105 auto-demote; 230/193 patched — ML trained on old labels
+overrode the rule-based demotion, so the model was retrained on the corrected set, macro-F1 0.46).
+Note: rss-230/193 still trip `_matches_exit` guards at filter time, so the systemic catch for *future*
+stock-commentary that also mentions a transaction is imperfect — watch for recurrence.
 
-## LOW — ~3 untranslated Italian titles slipped DeepL
-`rss-signal-00101` (blackstone), `rss-signal-00274` (the-equity-club), `web-signal-00046` (fondo-italiano).
-Free fix: set English title + `title_original` directly in `detected_signals_{filtered,enriched}.json` (Pitfall #27).
+## DONE — 3 untranslated Italian titles patched
+Set English title + `title_original` in filtered+enriched (Pitfall #27): rss-101 (blackstone), web-046
+(fondo-italiano), rss-274 (the-equity-club). Two were ALSO mis-typed via Italian false-friends — "sale"
+(Italian "rises", not English "sale") and "chiude il rubinetto" (redemption gating, not an exit) — both
+re-typed `exit`→`other`. Root cause is still the single-DeepL-key gap with no fallback (see below).
 
 ## LOW — 53 portfolio entries await Gemini sector enrichment (ROOT CAUSE: step timeout)
 Telegram showed `enrich_portfolio` + `enrich_portfolio_final` both hit `timeout (exit -1)` — that's why 53

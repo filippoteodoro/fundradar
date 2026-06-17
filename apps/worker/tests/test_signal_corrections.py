@@ -157,6 +157,30 @@ class TestUniversalDemotions:
         result = apply_universal_demotions("apollo acquires majority stake in nouryon for €3b", "")
         assert result is None
 
+    # ── News-digest / market-commentary / regulatory demotions (June 2026 regressions) ──
+    def test_executive_shuffles_roundup_demoted(self):
+        # "this week's executive shuffles" + long "news from X, Y, ..." digest (rss-119/105)
+        t = "this week's executive shuffles. news from kkr, anthropic, carlyle, gruppo florence, ana cap, and alba leasing"
+        assert apply_universal_demotions(t, t) == "other"
+
+    def test_trading_floor_column_demoted(self):
+        # market column prefix + share-price move (rss-230)
+        t = "trading floor: private credit giants take center stage. apollo rises 7.2%"
+        assert apply_universal_demotions(t, t) == "other"
+
+    def test_share_price_move_demoted(self):
+        assert apply_universal_demotions("nexi shares fall 12% in milan trading", "") == "other"
+
+    def test_antitrust_investigation_demoted(self):
+        # fires even though "conduct" trips deal heuristics (rss-062)
+        t = "did mastercard, paypal, and visa engage in anti-competitive conduct? the fca investigation"
+        assert apply_universal_demotions(t, t) == "other"
+
+    def test_real_exit_in_market_column_preserved(self):
+        # guarded: a real transaction in a market column must NOT be demoted
+        t = "trading floor: permira exits golden goose, selling its stake for €2.5b"
+        assert apply_universal_demotions(t, t) != "other"
+
     def test_opinion_demoted(self):
         result = apply_universal_demotions("our outlook for european private equity in 2025", "")
         assert result == "other"
