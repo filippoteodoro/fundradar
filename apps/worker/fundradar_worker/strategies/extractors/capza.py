@@ -293,7 +293,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
                     day_text = day_el.get_text(strip=True)
                     month_text = month_el.get_text(strip=True).rstrip("'").lower()
                     year_text = year_el.get_text(strip=True)
-                    month_num = month_map.get(month_text[:3])
+                    month_num = _MONTH_NAMES.get(month_text[:3])
                     if month_num and day_text.isdigit() and year_text.isdigit():
                         date = f"{year_text}-{month_num}-{day_text.zfill(2)}"
 

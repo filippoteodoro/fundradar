@@ -152,7 +152,7 @@ def extract_news(html: str, base_url: str) -> list[dict]:
                 m = re.match(r"(\d{1,2})\s+(\w+)\s+(\d{4})", date_text)
                 if m:
                     day, month_abbr, year = m.groups()
-                    month_num = month_map.get(month_abbr)
+                    month_num = _MONTH_NAMES.get(month_abbr)
                     if month_num:
                         date = f"{year}-{month_num}-{day.zfill(2)}"
 
