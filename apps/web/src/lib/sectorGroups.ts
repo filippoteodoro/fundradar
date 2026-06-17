@@ -98,6 +98,7 @@ const SECTOR_TAG_ALIASES: Record<string, string> = {
   'textiles': 'Fashion & Luxury',
   'furniture': 'Consumer Goods',
   'cosmetics': 'Consumer Goods',
+  'beauty': 'Consumer Goods',
   'beauty cosmetics': 'Consumer Goods',
   'nutraceuticals cosmetics': 'Healthcare',
   'food': 'Food & Beverage',

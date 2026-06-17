@@ -160,12 +160,6 @@
         "confidence": 0.95
       },
       {
-        "name": "Tom Allen",
-        "title": "Managing Director",
-        "role": "partner",
-        "confidence": 0.95
-      },
-      {
         "name": "Manuel Almagro",
         "title": "Vice President, Frankfurt",
         "role": "manager",
@@ -274,6 +268,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Jasmine Azizi",
+        "title": "Vice President, Boston",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
         "name": "Global reach",
         "title": null,
         "role": null,
@@ -283,13 +283,19 @@
     "alto-partners-sgr": [
       {
         "name": "Team di Gestione",
-        "title": null,
+        "title": "Dopo aver costituito Alto Partners nel 2000, Stefano Scarpis ricopre le cariche di Presidente e Partner. Precedentemente, dal 1996 al 2000, ha lavorato presso Fidia SGR, gestore di fondi di private eq",
         "role": null,
         "confidence": 0.95
       },
       {
-        "name": "Business Advisors",
-        "title": null,
+        "name": "Senior Advisors",
+        "title": "In Alto Partners da aprile 2025, Nicola Volpi ricopre il ruolo di Senior Advisor, mettendo a disposizione un\u2019esperienza pi\u00f9 che trentennale nel settore del Private Equity. Ha avviato la sua carriera n",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Team Finanza, Amministrazione e Supporto",
+        "title": "Alessia Orsili \u00e8 Chief Financial Officer di Alto Partners da maggio 2026. In tale ruolo, supervisiona le attivit\u00e0 finanziarie della societ\u00e0 e dei fondi in gestione, coordinandosi con le principali fun",
         "role": null,
         "confidence": 0.95
       }
@@ -350,8 +356,8 @@
         "confidence": 0.95
       },
       {
-        "name": "Federico Beggio",
-        "title": "Senior Investment Manager",
+        "name": "Federico Del Giudice",
+        "title": "Investment Analyst",
         "role": null,
         "confidence": 0.95
       },
@@ -500,6 +506,12 @@
         "title": null,
         "role": null,
         "confidence": 0.95
+      },
+      {
+        "name": "Stefano Vittorio Kuhn",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
       }
     ],
     "anima-alternative-sgr": [
@@ -590,52 +602,34 @@
     ],
     "abenex": [
       {
-        "name": "Anne-Sophie Charpentier",
-        "title": "Talent Management Director",
-        "role": "director",
-        "confidence": 0.95
-      },
-      {
-        "name": "Laurent Chevreau",
-        "title": "CFO",
-        "role": "director",
-        "confidence": 0.95
-      },
-      {
-        "name": "Herv\u00e9 Claquin",
-        "title": "Partner and Founder",
-        "role": "partner",
-        "confidence": 0.95
-      },
-      {
-        "name": "Gabriel Bart",
-        "title": "Investor Relations Principal",
+        "name": "B Corp",
+        "title": null,
         "role": null,
-        "confidence": 0.95
+        "confidence": 0.7
       },
       {
-        "name": "Patrice Verrier",
-        "title": "Managing Partner",
-        "role": "partner",
-        "confidence": 0.95
-      },
-      {
-        "name": "Lana Szymoniak",
-        "title": "Sustainability Analyst",
-        "role": "associate",
-        "confidence": 0.95
-      },
-      {
-        "name": "Antoine Bouvatier",
-        "title": "General Counsel",
+        "name": "Pierre Mancini",
+        "title": null,
         "role": null,
-        "confidence": 0.95
+        "confidence": 0.7
       },
       {
-        "name": "Caroline Folleas",
-        "title": "Partner",
-        "role": "partner",
-        "confidence": 0.95
+        "name": "Alberto Di Marco",
+        "title": null,
+        "role": null,
+        "confidence": 0.7
+      },
+      {
+        "name": "Hugues Souparis",
+        "title": null,
+        "role": null,
+        "confidence": 0.7
+      },
+      {
+        "name": "Pascal Dupont",
+        "title": null,
+        "role": null,
+        "confidence": 0.7
       }
     ],
     "arca-space-capital": [
@@ -792,13 +786,13 @@
         "confidence": 0.95
       },
       {
-        "name": "Keith Beattie",
+        "name": "Monty Baul",
         "title": null,
         "role": null,
         "confidence": 0.95
       },
       {
-        "name": "Keith BeattiePartner, Head of Operations",
+        "name": "Monty BaulHead of Change",
         "title": null,
         "role": null,
         "confidence": 0.95
@@ -1538,6 +1532,12 @@
         "confidence": 0.7
       },
       {
+        "name": "Kehinde Adenle",
+        "title": null,
+        "role": null,
+        "confidence": 0.7
+      },
+      {
         "name": "Ikbal S. Ahluwalia",
         "title": null,
         "role": null,
@@ -1604,6 +1604,18 @@
         "confidence": 0.7
       },
       {
+        "name": "Josh Bullock",
+        "title": null,
+        "role": null,
+        "confidence": 0.7
+      },
+      {
+        "name": "Jeremy Burkhalter",
+        "title": null,
+        "role": null,
+        "confidence": 0.7
+      },
+      {
         "name": "Elton Bursuk",
         "title": null,
         "role": null,
@@ -1629,24 +1641,6 @@
       },
       {
         "name": "Luke Charalambous",
-        "title": null,
-        "role": null,
-        "confidence": 0.7
-      },
-      {
-        "name": "Lakshman Charanjiva",
-        "title": null,
-        "role": null,
-        "confidence": 0.7
-      },
-      {
-        "name": "Abhishek Chawla",
-        "title": null,
-        "role": null,
-        "confidence": 0.7
-      },
-      {
-        "name": "Samuel Chen",
         "title": null,
         "role": null,
         "confidence": 0.7
@@ -1867,12 +1861,6 @@
       },
       {
         "name": "Erica Dan",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Ombeline Danjoux",
         "title": null,
         "role": null,
         "confidence": 0.95
@@ -2130,6 +2118,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Wand\u00e9 Koita",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
+      },
+      {
         "name": "Constantin Kryvian",
         "title": null,
         "role": null,
@@ -2203,12 +2197,6 @@
       },
       {
         "name": "Victor Maucourt",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Thomas Meurisse",
         "title": null,
         "role": null,
         "confidence": 0.95
@@ -2394,6 +2382,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Alejandro TORRIGLIA",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
+      },
+      {
         "name": "Marta Merry del Val Mor\u00e9nes",
         "title": null,
         "role": null,
@@ -2456,8 +2450,8 @@
     ],
     "bu": [
       {
-        "name": "Corporate FunctionsYanik StampfliTechnology",
-        "title": "Associate",
+        "name": "Corporate FunctionsSharon ShinAssociate",
+        "title": "Director",
         "role": null,
         "confidence": 0.7
       },
@@ -2468,7 +2462,25 @@
         "confidence": 0.7
       },
       {
-        "name": "Corporate FunctionsSharon ShinAssociate",
+        "name": "Capital FormationImogen HillierSenior",
+        "title": "Associate",
+        "role": null,
+        "confidence": 0.7
+      },
+      {
+        "name": "Corporate FunctionsHenry BorgersSenior",
+        "title": "Associate",
+        "role": null,
+        "confidence": 0.7
+      },
+      {
+        "name": "Corporate FunctionsDr. Emina LibicLegal",
+        "title": "Manager",
+        "role": null,
+        "confidence": 0.7
+      },
+      {
+        "name": "Corporate FunctionsKaylee SchroennAssociate",
         "title": "Director",
         "role": null,
         "confidence": 0.7
@@ -2480,20 +2492,8 @@
         "confidence": 0.7
       },
       {
-        "name": "Corporate FunctionsKaylee SchroennAssociate",
-        "title": "Director",
-        "role": null,
-        "confidence": 0.7
-      },
-      {
-        "name": "Capital FormationImogen HillierSenior",
+        "name": "Corporate FunctionsYanik StampfliTechnology",
         "title": "Associate",
-        "role": null,
-        "confidence": 0.7
-      },
-      {
-        "name": "Corporate FunctionsDr. Emina LibicLegal",
-        "title": "Manager",
         "role": null,
         "confidence": 0.7
       }
@@ -2530,36 +2530,6 @@
         "confidence": 0.95
       },
       {
-        "name": "Tax Director & Co-COO",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "General Counsel & Co-COO",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Executive Assistant",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Business Development Director - Luxembourg",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Legal Counsel",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
         "name": "Office Manager",
         "title": null,
         "role": null,
@@ -2567,6 +2537,12 @@
       },
       {
         "name": "Finance and Compliance Assistant",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Legal Counsel",
         "title": null,
         "role": null,
         "confidence": 0.95
@@ -2591,6 +2567,24 @@
       },
       {
         "name": "Senior Investment Associate",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "General Counsel & COO",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Executive Assistant",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Business Development Director - Luxembourg",
         "title": null,
         "role": null,
         "confidence": 0.95
@@ -2711,7 +2705,7 @@
       },
       {
         "name": "Hamish Grant",
-        "title": "Head of Investor Services",
+        "title": "Group Head of Secondaries",
         "role": "manager",
         "confidence": 0.95
       },
@@ -2758,6 +2752,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Marcus Wallinder",
+        "title": "Partner, Group Head of Investor Relations",
+        "role": "partner",
+        "confidence": 0.95
+      },
+      {
         "name": "Christian Jones",
         "title": "Partner, Global Head of Corporate Affairs",
         "role": "partner",
@@ -2794,12 +2794,6 @@
         "confidence": 0.95
       },
       {
-        "name": "Ana Simionescu",
-        "title": "Vice PresidentLondon",
-        "role": null,
-        "confidence": 0.95
-      },
-      {
         "name": "Tiyam Afshari",
         "title": "DirectorStockholm",
         "role": "director",
@@ -2807,7 +2801,7 @@
       },
       {
         "name": "Maxime Alban",
-        "title": "Managing DirectorParis",
+        "title": "PartnerParis",
         "role": "partner",
         "confidence": 0.95
       },
@@ -2819,7 +2813,7 @@
       },
       {
         "name": "Ravi Amin",
-        "title": "Senior AssociateLondon",
+        "title": "Vice PresidentLondon",
         "role": null,
         "confidence": 0.95
       },
@@ -2890,6 +2884,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Dovile Bielinyte",
+        "title": "Vice PresidentLondon",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
         "name": "Heidi Bjornstad Hanstad",
         "title": "Senior AssociateStockholm",
         "role": null,
@@ -2917,12 +2917,6 @@
         "name": "Anja Bogaert",
         "title": "Investment DirectorLondon",
         "role": "director",
-        "confidence": 0.95
-      },
-      {
-        "name": "Melih Boughazi",
-        "title": "AnalystParis",
-        "role": null,
         "confidence": 0.95
       },
       {
@@ -3017,7 +3011,7 @@
       },
       {
         "name": "Aoife Clarkin",
-        "title": "Senior AssociateLondon",
+        "title": "Vice PresidentLondon",
         "role": null,
         "confidence": 0.95
       },
@@ -3389,7 +3383,7 @@
       },
       {
         "name": "Cameron Imray",
-        "title": "Senior AssociateLondon",
+        "title": "Vice PresidentLondon",
         "role": null,
         "confidence": 0.95
       },
@@ -3461,7 +3455,7 @@
       },
       {
         "name": "J. B. Kiley",
-        "title": "Managing DirectorNew York",
+        "title": "PartnerNew York",
         "role": "partner",
         "confidence": 0.95
       },
@@ -3641,7 +3635,7 @@
       },
       {
         "name": "Rebecca Maxwell",
-        "title": "Senior AssociateLondon",
+        "title": "Vice PresidentLondon",
         "role": null,
         "confidence": 0.95
       },
@@ -3755,7 +3749,7 @@
       },
       {
         "name": "Vivian Ngan",
-        "title": "Managing DirectorLondon",
+        "title": "PartnerLondon",
         "role": "partner",
         "confidence": 0.95
       },
@@ -3779,7 +3773,7 @@
       },
       {
         "name": "Philip O'Leary",
-        "title": "Managing DirectorLondon",
+        "title": "PartnerLondon",
         "role": "partner",
         "confidence": 0.95
       },
@@ -4060,8 +4054,8 @@
         "confidence": 0.95
       },
       {
-        "name": "Carly Sinicrope",
-        "title": "AssociateLondon",
+        "name": "Ana Simionescu",
+        "title": "Vice PresidentLondon",
         "role": null,
         "confidence": 0.95
       },
@@ -4758,66 +4752,6 @@
         "title": "Investment Manager",
         "role": null,
         "confidence": 0.95
-      },
-      {
-        "name": "Mukul Agarwal",
-        "title": "Associate",
-        "role": "associate",
-        "confidence": 0.95
-      },
-      {
-        "name": "Andr\u00e9s Tim\u00f3n Calleja",
-        "title": "Associate",
-        "role": "associate",
-        "confidence": 0.95
-      },
-      {
-        "name": "Daan den Butter",
-        "title": "Associate",
-        "role": "associate",
-        "confidence": 0.95
-      },
-      {
-        "name": "Martijn Daemen",
-        "title": "Associate",
-        "role": "associate",
-        "confidence": 0.95
-      },
-      {
-        "name": "Antonia Kaspar",
-        "title": "Associate",
-        "role": "associate",
-        "confidence": 0.95
-      },
-      {
-        "name": "Riccardo Cella Mazzariol",
-        "title": "Associate",
-        "role": "associate",
-        "confidence": 0.95
-      },
-      {
-        "name": "Aaron McGowan",
-        "title": "Associate",
-        "role": "associate",
-        "confidence": 0.95
-      },
-      {
-        "name": "Robin Pauli",
-        "title": "Associate",
-        "role": "associate",
-        "confidence": 0.95
-      },
-      {
-        "name": "Tito Pipping",
-        "title": "Associate",
-        "role": "associate",
-        "confidence": 0.95
-      },
-      {
-        "name": "Emma Qerkezi",
-        "title": "Associate",
-        "role": "associate",
-        "confidence": 0.95
       }
     ],
     "eurazeo": [
@@ -5040,12 +4974,6 @@
         "title": "Manager",
         "role": null,
         "confidence": 0.7
-      },
-      {
-        "name": "Simone ManiniHR",
-        "title": "Manager",
-        "role": null,
-        "confidence": 0.7
       }
     ],
     "f2i-sgr": [
@@ -5228,13 +5156,13 @@
         "confidence": 0.95
       },
       {
-        "name": "Eugenio Razelli",
+        "name": "Cristiana Ruella",
         "title": "Assistente",
         "role": null,
         "confidence": 0.95
       },
       {
-        "name": "Cristiana Ruella",
+        "name": "Eugenio Razelli",
         "title": "Assistente",
         "role": null,
         "confidence": 0.95
@@ -5360,12 +5288,6 @@
         "confidence": 0.95
       },
       {
-        "name": "Federica Nosenzo",
-        "title": "ESG Analyst",
-        "role": "analyst",
-        "confidence": 0.95
-      },
-      {
         "name": "Anny Giavelli",
         "title": "ESG Manager",
         "role": null,
@@ -5393,6 +5315,12 @@
         "name": "Luca Capuano",
         "title": "Principal",
         "role": "principal",
+        "confidence": 0.95
+      },
+      {
+        "name": "Anastasia Paciotta",
+        "title": "Legal Associate",
+        "role": "associate",
         "confidence": 0.95
       },
       {
@@ -5959,8 +5887,8 @@
       },
       {
         "name": "Marika Savegnago",
-        "title": "Associate",
-        "role": "associate",
+        "title": "Investment Manager",
+        "role": "manager",
         "confidence": 0.95
       },
       {
@@ -6014,8 +5942,20 @@
         "confidence": 0.95
       },
       {
+        "name": "Manuela Fabbri",
+        "title": "Associate",
+        "role": "associate",
+        "confidence": 0.95
+      },
+      {
         "name": "Giuliano Galiano",
         "title": "Senior Analyst",
+        "role": "associate",
+        "confidence": 0.95
+      },
+      {
+        "name": "Manuel Di Felice",
+        "title": "Analyst",
         "role": "associate",
         "confidence": 0.95
       },
@@ -6448,12 +6388,6 @@
         "confidence": 0.95
       },
       {
-        "name": "Huseyin Sevin\u00e7",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
         "name": "Fran\u00e7ois Serot Almeras Latour",
         "title": null,
         "role": null,
@@ -6474,12 +6408,6 @@
       {
         "name": "Alexis Rostand",
         "title": "Managing Director",
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Charles Plissonnier",
-        "title": null,
         "role": null,
         "confidence": 0.95
       },
@@ -6636,12 +6564,6 @@
       {
         "name": "Fabrice Dumonteil",
         "title": "CEO",
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Bertrand de Williencourt",
-        "title": null,
         "role": null,
         "confidence": 0.95
       },
@@ -6830,8 +6752,20 @@
         "confidence": 0.95
       },
       {
+        "name": "Manuela Fabbri",
+        "title": "Associate",
+        "role": "associate",
+        "confidence": 0.95
+      },
+      {
         "name": "Giuliano Galiano",
         "title": "Senior Analyst",
+        "role": "associate",
+        "confidence": 0.95
+      },
+      {
+        "name": "Manuel Di Felice",
+        "title": "Analyst",
         "role": "associate",
         "confidence": 0.95
       },
@@ -7086,7 +7020,7 @@
         "confidence": 0.95
       },
       {
-        "name": "Claudia Bonaccorsi",
+        "name": "Giorgio Gueli",
         "title": "Business Analyst",
         "role": null,
         "confidence": 0.95
@@ -7290,14 +7224,8 @@
         "confidence": 0.95
       },
       {
-        "name": "Duncan Priston",
-        "title": "Managing Director & Co-Head of EU Bayside Capital",
-        "role": "partner",
-        "confidence": 0.95
-      },
-      {
         "name": "Andrew Scotland",
-        "title": "Managing Director & Co-Head of H.I.G. Bayside, Europe",
+        "title": "Managing Director & Head of H.I.G. Bayside, Europe",
         "role": "partner",
         "confidence": 0.95
       },
@@ -7382,12 +7310,6 @@
       {
         "name": "Raffaele Legnani",
         "title": "Managing Director, Head of Milan Office",
-        "role": "partner",
-        "confidence": 0.95
-      },
-      {
-        "name": "Michael Lucas",
-        "title": "Managing Director",
         "role": "partner",
         "confidence": 0.95
       },
@@ -7773,7 +7695,7 @@
       },
       {
         "name": "Alain B\u00e9nichou",
-        "title": "Senior Advisor",
+        "title": "Senior Advisor Ext.",
         "role": "advisor",
         "confidence": 0.95
       },
@@ -7887,7 +7809,7 @@
       },
       {
         "name": "Jean-Marc Espalioux",
-        "title": "Senior Advisor",
+        "title": "Senior Advisor Ext.",
         "role": "advisor",
         "confidence": 0.95
       },
@@ -7919,6 +7841,12 @@
         "name": "Julien Jacquet",
         "title": "Senior Associate",
         "role": "associate",
+        "confidence": 0.95
+      },
+      {
+        "name": "S\u00e9bastien Hoarau",
+        "title": "Financial Controller Private Wealth",
+        "role": null,
         "confidence": 0.95
       },
       {
@@ -8001,7 +7929,7 @@
       },
       {
         "name": "Olivier Nataf",
-        "title": "Head of Sustainability & Impact",
+        "title": "Sustainability & Impact",
         "role": null,
         "confidence": 0.95
       },
@@ -8048,15 +7976,15 @@
         "confidence": 0.95
       },
       {
-        "name": "Simone Rodi",
-        "title": "Director",
-        "role": "director",
-        "confidence": 0.95
-      },
-      {
         "name": "Jordan Sadoun",
         "title": "Investment Manager",
         "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Simone Rodi",
+        "title": "Managing Director",
+        "role": "director",
         "confidence": 0.95
       },
       {
@@ -8220,12 +8148,6 @@
       {
         "name": "Giorgio Pagliero",
         "title": "Partecipazioni Industriali",
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Elena Maina",
-        "title": "Partecipazioni Immobiliari",
         "role": null,
         "confidence": 0.95
       },
@@ -8446,6 +8368,12 @@
         "confidence": 0.7
       },
       {
+        "name": "Giuseppe Iademarco",
+        "title": null,
+        "role": null,
+        "confidence": 0.7
+      },
+      {
         "name": "Giovanni Mascanzoni",
         "title": null,
         "role": null,
@@ -8598,12 +8526,6 @@
         "confidence": 0.95
       },
       {
-        "name": "Lucas Kreifels",
-        "title": "Lucas joined PAI in 2021 as a member of the Investment Group. He is also part of the DACH Team. He has been involved in the Apleona, Motel One and Theramex investments.",
-        "role": null,
-        "confidence": 0.95
-      },
-      {
         "name": "Victoire Lerebours-Pigeonni\u00e8re",
         "title": "Victoire joined PAI in 2023 as a member of the Investment Group.",
         "role": null,
@@ -8660,12 +8582,6 @@
       {
         "name": "Lukas Rueth",
         "title": "Lukas joined PAI in 2025 as a member of the Investment Group.",
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Umberto Sajonia Coburgo Gotha",
-        "title": "Umberto joined PAI in 2025 as a member of the Investment Group.",
         "role": null,
         "confidence": 0.95
       },
@@ -8874,12 +8790,6 @@
         "confidence": 0.95
       },
       {
-        "name": "PartnerMark Blower",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
         "name": "Partner \u2013 CFO/COOMichael Ede",
         "title": null,
         "role": null,
@@ -8898,7 +8808,7 @@
         "confidence": 0.95
       },
       {
-        "name": "Investment ManagerAngus Duthie-Jackson",
+        "name": "Portfolio AdvisorAngus Duthie-Jackson",
         "title": null,
         "role": null,
         "confidence": 0.95
@@ -8982,6 +8892,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Senior AdvisorMark Blower",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
+      },
+      {
         "name": "Investment DirectorMark Deed",
         "title": null,
         "role": null,
@@ -8989,6 +8905,12 @@
       },
       {
         "name": "Senior AdvisorMartin le Huray",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Financial AccountantMatthew Morey",
         "title": null,
         "role": null,
         "confidence": 0.95
@@ -9215,12 +9137,6 @@
       },
       {
         "name": "Filippo Cavalli",
-        "title": "Partner",
-        "role": "partner",
-        "confidence": 1.0
-      },
-      {
-        "name": "Stefano Malagoli",
         "title": "Partner",
         "role": "partner",
         "confidence": 1.0
@@ -9478,12 +9394,6 @@
         "confidence": 0.95
       },
       {
-        "name": "Giovanni Maria Pagano",
-        "title": "Analyst",
-        "role": "associate",
-        "confidence": 0.95
-      },
-      {
         "name": "Pier Paolo Parrella",
         "title": "Analyst",
         "role": "associate",
@@ -9516,18 +9426,6 @@
       {
         "name": "Samir Khouaja",
         "title": "Audit & Risk Manager",
-        "role": "manager",
-        "confidence": 0.95
-      },
-      {
-        "name": "Simona Spinelli",
-        "title": "Head of Legal, Compliance & Corporate Affairs",
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Filippo Dal Canto",
-        "title": "Business Development Manager",
         "role": "manager",
         "confidence": 0.95
       },
@@ -9622,7 +9520,7 @@
         "confidence": 0.95
       },
       {
-        "name": "Lorena Sheaj",
+        "name": "Lorena Shehaj",
         "title": "Office Manager",
         "role": "manager",
         "confidence": 0.95
@@ -9643,12 +9541,6 @@
       },
       {
         "name": "Luigi Terranova",
-        "title": "CEO & Managing Partner",
-        "role": "partner",
-        "confidence": 0.95
-      },
-      {
-        "name": "Andrea Tomasch\u00c3\u00b9",
         "title": "CEO & Managing Partner",
         "role": "partner",
         "confidence": 0.95
@@ -9726,6 +9618,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Widad Fadlo",
+        "title": "Fund Administration Associate",
+        "role": "associate",
+        "confidence": 0.95
+      },
+      {
         "name": "Marco Gaiani",
         "title": "Founder Linfa",
         "role": "partner",
@@ -9735,6 +9633,18 @@
         "name": "Mauro Odorico",
         "title": "Co-Founder Linfa",
         "role": "partner",
+        "confidence": 0.95
+      },
+      {
+        "name": "Carolina Fiorica",
+        "title": "Investment Manager",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Umberto Ronco",
+        "title": "Investment Analyst",
+        "role": null,
         "confidence": 0.95
       },
       {
@@ -10094,6 +10004,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Pierfrancesco Bosco",
+        "title": "Associate Director",
+        "role": "director",
+        "confidence": 0.95
+      },
+      {
         "name": "Scott Brugmans",
         "title": "Associate Director",
         "role": "director",
@@ -10360,6 +10276,12 @@
       {
         "name": "Giuseppe Falci",
         "title": "Universit\u00e0 di Catania",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Alessandro Barbarulo",
+        "title": "Arterra Bioscience",
         "role": null,
         "confidence": 0.95
       }
@@ -10798,6 +10720,18 @@
         "confidence": 0.95
       },
       {
+        "name": "Gianluca Milani",
+        "title": "Valuation Analyst",
+        "role": "associate",
+        "confidence": 0.95
+      },
+      {
+        "name": "Valuation Analyst",
+        "title": "Gianluca Milani",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
         "name": "Mattia Murru",
         "title": "Investment Analyst",
         "role": "associate",
@@ -10871,12 +10805,6 @@
       },
       {
         "name": "Alberto Ridolfi",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Valuation Analyst",
         "title": null,
         "role": null,
         "confidence": 0.95
@@ -11161,6 +11089,12 @@
       },
       {
         "name": "Ali Alagheband",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Francesco Aldorisio",
         "title": null,
         "role": null,
         "confidence": 0.95
@@ -12144,12 +12078,6 @@
         "confidence": 0.95
       },
       {
-        "name": "Michel Klingler",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
         "name": "Philip Klitirinos",
         "title": null,
         "role": null,
@@ -12181,12 +12109,6 @@
       },
       {
         "name": "Lauren Lacasse",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "George Lahdo",
         "title": null,
         "role": null,
         "confidence": 0.95
@@ -12456,6 +12378,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Steve McMichael",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
+      },
+      {
         "name": "Racel McMurray",
         "title": null,
         "role": null,
@@ -12463,6 +12391,12 @@
       },
       {
         "name": "Peter McNally",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Griffin McNaughtan",
         "title": null,
         "role": null,
         "confidence": 0.95
@@ -12720,19 +12654,7 @@
         "confidence": 0.95
       },
       {
-        "name": "Renata Punwasee",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
         "name": "Jawad Qazi",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Muhammad Rabbani",
         "title": null,
         "role": null,
         "confidence": 0.95
@@ -12817,12 +12739,6 @@
       },
       {
         "name": "Joe Romeo",
-        "title": null,
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Navneet Roopra",
         "title": null,
         "role": null,
         "confidence": 0.95
@@ -13507,8 +13423,8 @@
       },
       {
         "name": "Paolo Galli",
-        "title": "Acquisition & Finance",
-        "role": null,
+        "title": "Senior Partner",
+        "role": "partner",
         "confidence": 0.95
       },
       {
@@ -13519,7 +13435,7 @@
       },
       {
         "name": "Carlo Michelini",
-        "title": "Senior Partner Infrastructure",
+        "title": "Senior Partner",
         "role": "partner",
         "confidence": 0.95
       },
@@ -13543,37 +13459,43 @@
       },
       {
         "name": "Guido Prearo",
-        "title": "Head of Investments & International Projects Development",
-        "role": "director",
+        "title": "Senior Partner",
+        "role": "partner",
         "confidence": 0.95
       },
       {
         "name": "Pietro Pacchione",
-        "title": "Project Development",
-        "role": null,
+        "title": "Senior Partner",
+        "role": "partner",
         "confidence": 0.95
       },
       {
         "name": "Saverio Rod\u00e0",
-        "title": "Investment Director",
-        "role": "director",
+        "title": "Partner",
+        "role": "partner",
         "confidence": 0.95
       },
       {
         "name": "Andrea Vespasiano",
-        "title": "Investment Director",
-        "role": "director",
+        "title": "Partner",
+        "role": "partner",
         "confidence": 0.95
       },
       {
         "name": "Giovanni Damia",
-        "title": "Investment Director",
-        "role": "director",
+        "title": "Principal",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Andrea Mormone",
+        "title": "Principal",
+        "role": null,
         "confidence": 0.95
       },
       {
         "name": "Luca Gianni",
-        "title": "Project Development & Asset Management Director",
+        "title": "Director",
         "role": "director",
         "confidence": 0.95
       },
@@ -13621,7 +13543,7 @@
       },
       {
         "name": "Eugenio Vecellio",
-        "title": "Sales Director",
+        "title": "Head of Sales & Marketing",
         "role": "director",
         "confidence": 0.95
       },
@@ -15046,6 +14968,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Claudia BOTTINI",
+        "title": "Claudia BOTTINI",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
         "name": "Julie Bourget",
         "title": "Julie Bourget",
         "role": null,
@@ -15096,6 +15024,12 @@
       {
         "name": "Lucine Cornet",
         "title": "Lucine Cornet",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Jean-Pierre COTTET",
+        "title": "Jean-Pierre COTTET",
         "role": null,
         "confidence": 0.95
       },
@@ -15382,6 +15316,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Charles VRILLON",
+        "title": "Charles VRILLON",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
         "name": "Noura Zeroual",
         "title": "Noura Zeroual",
         "role": null,
@@ -15504,32 +15444,32 @@
         "confidence": 0.95
       },
       {
-        "name": "Alessia Orsili",
-        "title": "Head of administration & accounting",
-        "role": null,
-        "confidence": 0.95
-      },
-      {
         "name": "Domenico Nachiro",
-        "title": "ADMINISTRATION",
+        "title": "Administration",
         "role": null,
         "confidence": 0.95
       },
       {
         "name": "Maria Varini",
-        "title": "ADMINISTRATION",
+        "title": "Administration",
         "role": null,
         "confidence": 0.95
       },
       {
         "name": "Ilaria Nicastri",
-        "title": "ADMINISTRATION",
+        "title": "Administration",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Alessia Retini",
+        "title": "Administration",
         "role": null,
         "confidence": 0.95
       },
       {
         "name": "Elena Negri",
-        "title": "ADMINISTRATION",
+        "title": "Administration",
         "role": null,
         "confidence": 0.95
       },
@@ -15954,6 +15894,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Evan Einstein",
+        "title": "Global Leadership Team",
+        "role": "partner",
+        "confidence": 0.95
+      },
+      {
         "name": "Dennis Ever",
         "title": "Global Leadership Team",
         "role": "partner",
@@ -16296,6 +16242,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Katya Chang",
+        "title": "Investment and Operating Team",
+        "role": "investment_team",
+        "confidence": 0.95
+      },
+      {
         "name": "Yikai Chia",
         "title": "Investment and Operating Team",
         "role": "investment_team",
@@ -16344,12 +16296,6 @@
         "confidence": 0.95
       },
       {
-        "name": "Evan Einstein",
-        "title": "Investment and Operating Team",
-        "role": "investment_team",
-        "confidence": 0.95
-      },
-      {
         "name": "Jing Yi Fang",
         "title": "Investment and Operating Team",
         "role": "investment_team",
@@ -16374,6 +16320,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Sherry Fu",
+        "title": "Investment and Operating Team",
+        "role": "investment_team",
+        "confidence": 0.95
+      },
+      {
         "name": "Hikaru Fukuda",
         "title": "Investment and Operating Team",
         "role": "investment_team",
@@ -16387,12 +16339,6 @@
       },
       {
         "name": "Julia Giorgio",
-        "title": "Investment and Operating Team",
-        "role": "investment_team",
-        "confidence": 0.95
-      },
-      {
-        "name": "Sarah Goldberg",
         "title": "Investment and Operating Team",
         "role": "investment_team",
         "confidence": 0.95
@@ -16440,6 +16386,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Anoop Kumar Gupta",
+        "title": "Investment and Operating Team",
+        "role": "investment_team",
+        "confidence": 0.95
+      },
+      {
         "name": "Nandini Gupta",
         "title": "Investment and Operating Team",
         "role": "investment_team",
@@ -16459,6 +16411,12 @@
       },
       {
         "name": "Tyler He",
+        "title": "Investment and Operating Team",
+        "role": "investment_team",
+        "confidence": 0.95
+      },
+      {
+        "name": "Emmy Jo Hearnden",
         "title": "Investment and Operating Team",
         "role": "investment_team",
         "confidence": 0.95
@@ -16776,12 +16734,6 @@
         "confidence": 0.95
       },
       {
-        "name": "Sofia Salvadore",
-        "title": "Investment and Operating Team",
-        "role": "investment_team",
-        "confidence": 0.95
-      },
-      {
         "name": "Juliana Salvatierra",
         "title": "Investment and Operating Team",
         "role": "investment_team",
@@ -16813,12 +16765,6 @@
       },
       {
         "name": "Kevin Shan",
-        "title": "Investment and Operating Team",
-        "role": "investment_team",
-        "confidence": 0.95
-      },
-      {
-        "name": "Lily Shaw",
         "title": "Investment and Operating Team",
         "role": "investment_team",
         "confidence": 0.95
@@ -16878,7 +16824,7 @@
         "confidence": 0.95
       },
       {
-        "name": "Eri Tominaga",
+        "name": "Enzo Pizzato Tondo",
         "title": "Investment and Operating Team",
         "role": "investment_team",
         "confidence": 0.95
@@ -17226,6 +17172,12 @@
         "confidence": 0.95
       },
       {
+        "name": "Mizuki Kawamoto, CFA",
+        "title": "Professional Team",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
         "name": "Matthew Kershner",
         "title": "Professional Team",
         "role": null,
@@ -17251,12 +17203,6 @@
       },
       {
         "name": "Thomas LaCalamito",
-        "title": "Professional Team",
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Ken Langan",
         "title": "Professional Team",
         "role": null,
         "confidence": 0.95
@@ -17298,12 +17244,6 @@
         "confidence": 0.95
       },
       {
-        "name": "Matthew Mahoney",
-        "title": "Professional Team",
-        "role": null,
-        "confidence": 0.95
-      },
-      {
         "name": "Noanna Malkames",
         "title": "Professional Team",
         "role": null,
@@ -17311,12 +17251,6 @@
       },
       {
         "name": "Melissa Marano",
-        "title": "Professional Team",
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Molly Martindale",
         "title": "Professional Team",
         "role": null,
         "confidence": 0.95
@@ -17371,6 +17305,12 @@
       },
       {
         "name": "Georgia Nikolaou",
+        "title": "Professional Team",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Jack Niven",
         "title": "Professional Team",
         "role": null,
         "confidence": 0.95
@@ -17491,12 +17431,6 @@
       },
       {
         "name": "Megan Rueda",
-        "title": "Professional Team",
-        "role": null,
-        "confidence": 0.95
-      },
-      {
-        "name": "Elyse Scherer",
         "title": "Professional Team",
         "role": null,
         "confidence": 0.95
@@ -17658,7 +17592,7 @@
         "confidence": 0.95
       },
       {
-        "name": "Jagjeet Harode",
+        "name": "Matt Jackson",
         "title": "LCatterton Portfolio Operations*",
         "role": null,
         "confidence": 0.95
@@ -17836,6 +17770,684 @@
         "title": "Senior Advisor Team",
         "role": "advisor",
         "confidence": 0.95
+      }
+    ],
+    "ares-management": [
+      {
+        "name": "Michael Arougheti",
+        "title": "Mr. Arougheti is a Co-Founder, the Chief Executive Officer and a Director of Ares Management Corporation. He is a member of the Ares Operating Committee, the Ares Enterprise Risk Committee and is Co-C",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "CNBC: Interview with Michael Arougheti",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Kipp deVeer",
+        "title": "Mr. deVeer is a Director and Co-President of Ares Management Corporation. He is Co-Chair of the Ares Operating Committee and is a member of several of the firm's Investment Committees. He also serves ",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "CNBC: Interview with Kipp deVeer",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Blair Jacobson",
+        "title": "Mr. Jacobson is a Partner and Co-President of Ares Management Corporation. He is a Co-Chair of the Ares Operating Committee and a member of the Ares Enterprise Risk Committee. Additionally, he serves ",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Jarrod Phillips",
+        "title": "Mr. Phillips is a Partner and Chief Financial Officer of Ares Management Corporation. He serves on the Ares Operating Committee and the Ares Enterprise Risk Committee. Prior to this, he served as Chie",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "The Origins of Private Credit",
+        "title": null,
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Jessica Dosen",
+        "title": "Ms. Dosen is a Partner and Global Head of Ares Human Resources Group. Ms. Dosen is responsible for the planning and execution of the firm's overall people strategy and overseeing all aspects of the Hu",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Naseem Sagati Aghili",
+        "title": "Ms. Sagati Aghili is a Partner, General Counsel and Corporate Secretary of Ares Management Corporation. She serves on the Ares Operating Committee and the Ares Enterprise Risk Committee. In her role a",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Vijay Kasarabada",
+        "title": "Mr. Kasarabada is a Partner, Chief Information Officer and Head of Technology in the Ares Technology and Information Security Group. Additionally, he serves on the Ares Operating Committee and the Are",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Peter Ogilvie",
+        "title": "Mr. Ogilvie is a Partner and the firm's Chief Operating Officer and Head of Strategy. He serves as a member of the Ares Operating Committee and the Ares Enterprise Risk Committee. Additionally, he ser",
+        "role": null,
+        "confidence": 0.95
+      }
+    ],
+    "carlyle": [
+      {
+        "name": "Main navigation",
+        "title": "Who We Are",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Board of Directors",
+        "title": "Executive Officer",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Harvey M. Schwartz",
+        "title": "Chief Executive Officer and Director",
+        "role": "director",
+        "confidence": 0.95
+      },
+      {
+        "name": "William E. Conway, Jr.",
+        "title": "Co-Founder and Co-Chairman",
+        "role": "partner",
+        "confidence": 0.95
+      },
+      {
+        "name": "David M. Rubenstein",
+        "title": "Co-Founder and Co-Chairman",
+        "role": "partner",
+        "confidence": 0.95
+      },
+      {
+        "name": "Daniel A. D'Aniello",
+        "title": "Co-Founder and Chairman Emeritus",
+        "role": "partner",
+        "confidence": 0.95
+      },
+      {
+        "name": "Afsaneh Beschloss",
+        "title": "Director",
+        "role": "director",
+        "confidence": 0.95
+      },
+      {
+        "name": "Sharda Cherwoo",
+        "title": "Director",
+        "role": "director",
+        "confidence": 0.95
+      },
+      {
+        "name": "Linda H. Filler",
+        "title": "Director",
+        "role": "director",
+        "confidence": 0.95
+      },
+      {
+        "name": "Lawton W. Fitt",
+        "title": "Director",
+        "role": "director",
+        "confidence": 0.95
+      },
+      {
+        "name": "James H. Hance, Jr.",
+        "title": "Operating Executive and Director",
+        "role": "director",
+        "confidence": 0.95
+      },
+      {
+        "name": "Mark S. Ordan",
+        "title": "Lead Independent Director",
+        "role": "director",
+        "confidence": 0.95
+      },
+      {
+        "name": "Derica W. Rice",
+        "title": "Director",
+        "role": "director",
+        "confidence": 0.95
+      },
+      {
+        "name": "William J. Shaw",
+        "title": "Director",
+        "role": "director",
+        "confidence": 0.95
+      },
+      {
+        "name": "Anthony Welters",
+        "title": "Director",
+        "role": "director",
+        "confidence": 0.95
+      },
+      {
+        "name": "Amal Alibair",
+        "title": "North America Head of Client Business",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Matt Anderson",
+        "title": "Chief Digital Officer",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Charles Andrews",
+        "title": "Chief Accounting Officer",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Ruulke Bagijn",
+        "title": "Global Head of Carlyle AlpInvest",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Akhil Bansal",
+        "title": "Head of Asset-Backed Finance",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Lauren Basmadjian",
+        "title": "Global Head of Liquid Credit",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Brian Bernasek",
+        "title": "Co-Head of Americas Corporate Private Equity",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Alex Chi",
+        "title": "Deputy Chief Investment Officer for Global Credit and Head of Direct Lending",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Shane Clifford",
+        "title": "Head of Global Wealth",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Jeffrey Ferguson",
+        "title": "General Counsel",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Pooja Goyal",
+        "title": "Chief Investment Officer, Infrastructure Group",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Michael Hacker",
+        "title": "Global Head of Portfolio Finance",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Daniel Harris",
+        "title": "Head of Public Investor Relations",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Sandra Horbach",
+        "title": "Chair of Americas Corporate Private Equity",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Mark Jenkins",
+        "title": "Co-President and Head of Global Credit & Insurance",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Vladimir Lasocki",
+        "title": "Co-Head of Europe Technology",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Lindsay LoBue",
+        "title": "Chief Operating Officer",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Brian Marcus",
+        "title": "Head of Cross Platform Investing for Global Credit",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Heather Mitchell",
+        "title": "Chief Risk Officer, Head of EMEA and Global General Counsel for Investments",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Jeff Nedelman",
+        "title": "Co-President and Global Head of Client Business",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Matt O'Connor",
+        "title": "Chief Investment Officer, International Energy",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Chris Perriello",
+        "title": "Global Head of Secondaries",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Justin Plouffe",
+        "title": "Chief Financial Officer",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Alexander Popov",
+        "title": "Head of Credit Opportunities",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "John Redett",
+        "title": "Co-President and Head of Global Private Equity",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Matthew Savino",
+        "title": "Global Head of Capital Markets",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Brian Schreiber",
+        "title": "Head of Carlyle Insurance Solutions",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "L\u00facia Soares",
+        "title": "Chief Information Officer and Head of Technology Transformation",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Megan Starr",
+        "title": "Chief People Officer",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "James Stavridis",
+        "title": "Vice Chairman",
+        "role": "partner",
+        "confidence": 0.95
+      },
+      {
+        "name": "Robert Stuckey",
+        "title": "Head of U.S. Real Estate",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Jason Thomas",
+        "title": "Head of Global Research & Investment Strategy",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Michael Wand",
+        "title": "Head of Europe Private Equity and Co-Head of Europe Technology",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Steve Wise",
+        "title": "Co-Head of Americas Corporate Private Equity",
+        "role": "manager",
+        "confidence": 0.95
+      },
+      {
+        "name": "Kazuhiro Yamada",
+        "title": "Chairman and Co-Head of Carlyle Japan",
+        "role": "partner",
+        "confidence": 0.95
+      },
+      {
+        "name": "Xiang-Dong (X.D.) Yang",
+        "title": "Co-Head of Asia Buyout, Chairman of Asia, ex-Japan",
+        "role": "partner",
+        "confidence": 0.95
+      },
+      {
+        "name": "Operating Executives & Advisors",
+        "title": "* The following individuals are paid consultants and not employees of The Carlyle Group.",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Tamotsu Adachi",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Mark Allen",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Hiroyuki Aota",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "James A. Attwood, Jr.",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Young J. Bang",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Mark Blaufuss",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Jonathan E. Colby",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Jeff Currie",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Marco De Benedetti",
+        "title": "Chairman of Italy",
+        "role": "partner",
+        "confidence": 0.95
+      },
+      {
+        "name": "Elmer Doty",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Francis A. Finelli",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Thomas Fouss\u00e9",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Charles Geoly",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Randall Hickok",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Chikatomo Hodo",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Dayle Hogg",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Hongjiang Zhang",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Renee James",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Georgette Kiser",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Yoshinori Komiya",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Minoru Koshibe",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Richard Leonard",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Dr. Martin Madaus",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Michael Martin",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Edward J. Mathias",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Kevin McCarthy",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Alan Middleton",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Donna Morea",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Yasuo Nishiguchi",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Mary Petrovich",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Adrien Pinsard",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Lawrence B. Prior, III",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Aditya Puri",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Thomas W. Rabaut",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Charles O. Rossotti",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Eriko Sakurai",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Henrik Slipsager",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Paddy Spink",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "David L. Squier",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Wilko Stark",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Shiho Takano",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Gijs van Engelen",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Ed Vilandrie",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Claudius (Bud) E. Watts IV",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Dr. Stefan Weingartner",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Dr. Daniel Yergin",
+        "title": "Senior Advisor",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Luca Zacchetti",
+        "title": "Operating Executive",
+        "role": null,
+        "confidence": 0.95
+      },
+      {
+        "name": "Subscribe to Our Newsletters",
+        "title": "Subscribe to our newsletter to stay in the loop.",
+        "role": null,
+        "confidence": 0.95
+      }
+    ],
+    "dea-capital-alternative-funds-sgr": [
+      {
+        "name": "Presenza Internazionale",
+        "title": null,
+        "role": null,
+        "confidence": 0.7
       }
     ]
   }
