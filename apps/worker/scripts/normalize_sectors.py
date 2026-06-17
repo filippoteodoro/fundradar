@@ -462,7 +462,11 @@ def normalize_aifi_tags(tags: list[str]) -> list[str]:
                 canonical.append(mapped)
                 seen.add(mapped)
         # else: unknown non-canonical tag — drop it
-    return sorted(canonical)
+    # Preserve the curated input order (primary sector first) — do NOT sort.
+    # Sorting alphabetically rewrote 166/194 funds' sector_tags every run with no
+    # content change, producing a broad, misleading db.json diff. Dedup above already
+    # keeps first-occurrence order, so canonicalization is order-stable.
+    return canonical
 
 
 def main():
@@ -599,11 +603,16 @@ def main():
         for s in sorted(non_canonical):
             print(f"    \"{s}\"")
 
-    # ─── 5. Derive fund sector_tags from portfolio companies ─────────────────
-    # Portfolio sectors are ground truth — AIFI tags are often incomplete/wrong.
-    # For any fund with enough portfolio sector data, replace sector_tags entirely.
+    # ─── 5. Derive fund sector_tags from portfolio companies (EMPTY funds only) ──
+    # db.json fund sector_tags are CURATED core data (hand-written to match the
+    # fund's profile/description) — NEVER overwrite them from portfolio frequency.
+    # Doing so produced a broad, lossy db.json rewrite every pipeline run (e.g.
+    # Ardian's curated tags collapsed to "Telecommunications", its top portfolio
+    # sector). We only DERIVE tags for funds that have NO sector_tags yet, filling
+    # the gap; funds with existing tags keep them. To refresh a specific fund's
+    # tags from portfolio, edit db.json manually — that is a deliberate curation act.
     print("\n" + "=" * 60)
-    print("STEP 5: Derive fund sector_tags from portfolio companies")
+    print("STEP 5: Derive fund sector_tags from portfolio (empty funds only)")
     print("=" * 60)
 
     derived_count = 0
@@ -623,15 +632,20 @@ def main():
             kept_aifi += 1
             continue  # No portfolio sector data — keep existing tags
 
+        # Only fill funds that have NO curated sector_tags — never overwrite curated values.
+        old_tags = fund.get("sector_tags", [])
+        if old_tags:
+            kept_aifi += 1
+            continue
+
         # Take top sectors (up to 5), sorted by frequency then alphabetically
         top_sectors = sorted(sector_counts.keys(), key=lambda s: (-sector_counts[s], s))[:5]
-        old_tags = fund.get("sector_tags", [])
-        if old_tags != top_sectors:
+        if top_sectors:
             fund["sector_tags"] = top_sectors
             derived_count += 1
             if derived_count <= 15:
                 print(f"  {fund['name']}:")
-                print(f"    was:  {old_tags}")
+                print(f"    was:  (empty)")
                 print(f"    now:  {top_sectors} (from {len(companies)} companies)")
 
     empty_remaining = sum(1 for f in funds if not f.get("sector_tags"))
