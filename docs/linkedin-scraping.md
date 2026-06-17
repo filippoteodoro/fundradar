@@ -1,5 +1,14 @@
 Linkedin scraping
 
+> ⚠️ **OPERATING RULE — scrape YEARLY ONLY, never routine.** LinkedIn people data is
+> refreshed at most once a year per fund, and only on an explicit manual request. It is
+> **not** part of `pnpm pipeline` and must never be re-run to "refresh" data, fix one fund,
+> or fill a gap. Each run costs Apify credits and the HarvestAPI `--rich` actor is capped at
+> 10 runs/month. The committed `linkedin/fund_people_stats.json` + `team_items.json` are the
+> live website source and persist between scrapes — a missing local `linkedin/raw/` does not
+> justify a re-scrape. Regenerate stats from existing `raw/` via `process_manual_profiles.py`
+> (free). Full cadence rules: apps/worker/CLAUDE.md §"LinkedIn Scraping Cadence".
+
 How “No‑Account” Scraping Works
 LinkedIn’s public pages (e.g., https://www.linkedin.com/company/google, https://www.linkedin.com/in/username) can be viewed in a normal browser without logging in. However, after a few requests, LinkedIn presents a login wall and blocks further access. To scrape at scale, attackers use a combination of technical workarounds:
 

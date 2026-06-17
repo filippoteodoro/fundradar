@@ -494,9 +494,11 @@ To add a new ecosystem newsroom: set `"is_ecosystem_newsroom": true` in the fund
 - `data/derived/linkedin/manual_profiles.json` is the source of truth for funds covered via manually curated LinkedIn profile links.
 - Do not infer manual profile coverage from mega-fund skip sets.
 
-### LinkedIn Scraping Cadence
+### LinkedIn Scraping Cadence — YEARLY ONLY, NEVER ROUTINE
 
-People data does not need frequent refreshing — professionals change jobs infrequently, so **once a year per fund is sufficient**. Target Italian domestic/mid-size funds first — their small teams mean 25 profiles ≈ full coverage with 100% Italy relevance. Mega-funds in `MEGA_FUNDS_TO_SKIP` and `FOREIGN_FUNDS_TO_SKIP` are handled via `manual_profiles.json` (free, title-based classification) and do not use Apify budget.
+**LinkedIn scraping runs at most ONCE PER YEAR per fund, and only on explicit manual request.** Professionals change jobs infrequently, so people data does not need frequent refreshing — once a year per fund is sufficient. It is **never** part of `pnpm pipeline` and must **never** be run to "refresh" data, fix one fund, or fill a gap noticed during a normal run. Every scrape costs Apify credits (paid) and the HarvestAPI `--rich` actor is capped at 10 runs/month, so casual runs waste budget and the run allowance.
+
+The committed derived outputs (`linkedin/fund_people_stats.json`, `team_items.json`) are the live website source and persist between scrapes — a missing `linkedin/raw/` dir does NOT justify a re-scrape. To regenerate stats from already-scraped `raw/` files (free, no Apify), use `process_manual_profiles.py` instead. Target Italian domestic/mid-size funds first — their small teams mean 25 profiles ≈ full coverage with 100% Italy relevance. Mega-funds in `MEGA_FUNDS_TO_SKIP` and `FOREIGN_FUNDS_TO_SKIP` are handled via `manual_profiles.json` (free, title-based classification) and do not use Apify budget.
 
 ### ⚠️ HarvestAPI Actor Limits
 

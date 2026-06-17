@@ -2,6 +2,19 @@
 Batch scraper for LinkedIn people data.
 
 Processes all funds in batches with progress tracking and cost monitoring.
+
+⚠️ RUN CADENCE: ONCE PER YEAR, MANUALLY. NOT part of `pnpm pipeline`.
+Professionals change jobs infrequently, so people data does not need frequent
+refreshing — once a year per fund is sufficient. Each run costs Apify credits
+(paid) and the HarvestAPI `--rich` actor is capped at 10 runs/month on the free
+plan, so casual/automated runs waste both budget and the run allowance.
+
+DO NOT re-scrape to "refresh" data, fix a single fund, or as part of a routine
+pipeline run. The committed derived outputs (`fund_people_stats.json`,
+`team_items.json`) are the live source for the website and persist between
+scrapes. To regenerate stats from already-scraped `raw/` files (free, no Apify),
+use `process_manual_profiles.py` instead. See apps/worker/CLAUDE.md
+§"LinkedIn Scraping Cadence" and docs/linkedin-scraping.md.
 """
 
 import json
