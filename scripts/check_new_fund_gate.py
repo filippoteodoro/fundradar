@@ -35,6 +35,9 @@ EXTRACTOR_DIR_PREFIX = "apps/worker/fundradar_worker/strategies/extractors/"
 # _detect_alias_target_changes() producing non-empty candidate slugs.
 # Changes to the invalid_slugs list (exclusions) produce no candidates and
 # should not trigger the gate — including them here caused false positives.
+# db.json IS a trigger path, but main() only FAILS on an empty candidate set when
+# the `funds` array actually changed — edits confined to other top-level keys
+# (e.g. excluded_entities) skip gracefully instead of erroring.
 TRIGGER_RELATIVE_PATHS = {str(DB_REL)}
 REQUIRED_REFRESH_ARTIFACTS = {str(REPORT_REL), str(ASSET_AUDIT_REL)}
 EXTRACTOR_PATH_RE = re.compile(
@@ -357,16 +360,24 @@ def main() -> int:
     candidate_slugs = {slug for slug in candidate_slugs if slug in db_slugs}
     established_slugs = {slug for slug in established_slugs if slug in db_slugs}
 
+    # A db.json change only counts as a fund-affecting trigger when the `funds`
+    # array itself changed. Changes confined to other top-level keys (e.g.
+    # `excluded_entities`) add no fund candidates and must NOT fail the gate —
+    # otherwise routine exclusion edits error with "no candidate slugs".
+    new_db_slugs, changed_db_slugs = _detect_db_changed_slugs(args.base_ref.strip(), db_now)
+    extractor_changed = any(path.startswith(EXTRACTOR_DIR_PREFIX) for path in changed_files)
+    fund_affecting_trigger = extractor_changed or bool(new_db_slugs or changed_db_slugs)
+
     if not candidate_slugs:
-        if trigger_changed:
+        if fund_affecting_trigger:
             print(
-                "New-fund gate error: triggering files changed but no candidate slugs were detected. "
+                "New-fund gate error: a fund-affecting file changed but no candidate slugs were detected. "
                 "Pass --slugs explicitly.",
                 file=sys.stderr,
             )
             return 1
-        if relevant_changed:
-            print("No fund-triggering changes detected; skipping new-fund gate.")
+        if trigger_changed or relevant_changed:
+            print("db.json changed only outside the funds array (e.g. excluded_entities); skipping new-fund gate.")
             return 0
         print("No relevant fund-quality changes detected; skipping new-fund gate.")
         return 0
