@@ -47,6 +47,13 @@ Per the PE/VC-only scope rule, most are noise — triage before adding anything:
 - **Possibly genuine new PE/VC — evaluate:** Kryalos (real estate PE), Consilium, Soprarno/L&B Capital.
 Adding aliases/exclusions stops the repeat alerts (30-day dedup window in `unknown_fund_gaps.json`).
 
+## LOW — standalone enrich script reads the wrong .env path
+`scripts/enrich_portfolio_gemini_full.py` loads `ROOT_ENV_PATH` (repo-root `.env`, which doesn't exist) —
+not `apps/worker/.env`, where the keys live. So it prints "GEMINI_API_KEY not set" and no-ops unless run via
+`pnpm pipeline` (which loads the worker .env) or with the env pre-sourced (`set -a; . ./.env; set +a`).
+Fix: point the script's env load at `apps/worker/.env` (or have `paths.py` resolve both). Other standalone
+scripts likely share this. Workaround used this session: sourced the worker .env before running.
+
 ## LOW — 6 translation fields unresolved (Telegram alert)
 DeepL left 6 fields untranslated (only `DEEPL_API_KEY` configured; no `DEEPL_API_KEY_2`/Azure fallback).
 Overlaps the ~3 Italian titles above. Either add an Azure fallback key, or patch titles directly (free).
