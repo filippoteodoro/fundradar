@@ -34,14 +34,18 @@ from dotenv import load_dotenv, dotenv_values
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, PORTFOLIO_FILE, ROOT_ENV_PATH as ENV_PATH, SECTOR_TAXONOMY
+from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, PORTFOLIO_FILE, ROOT_ENV_PATH, WORKER_ENV_PATH, SECTOR_TAXONOMY
 from fundradar_worker.io_utils import safe_json_write, backup_before_write, load_progress_file
 
-load_dotenv(ENV_PATH, override=False)
-if ENV_PATH.exists() and not os.environ.get("GEMINI_API_KEY"):
-    env_vars = dotenv_values(ENV_PATH)
-    if env_vars.get("GEMINI_API_KEY"):
-        os.environ["GEMINI_API_KEY"] = env_vars["GEMINI_API_KEY"]
+# Load both env files (worker .env holds the keys in this checkout; root .env may
+# not exist). Loading only ROOT_ENV_PATH made standalone runs no-op with
+# "GEMINI_API_KEY not set" even though apps/worker/.env had the key.
+for _env_path in (ROOT_ENV_PATH, WORKER_ENV_PATH):
+    load_dotenv(_env_path, override=False)
+    if _env_path.exists() and not os.environ.get("GEMINI_API_KEY"):
+        _env_vars = dotenv_values(_env_path)
+        if _env_vars.get("GEMINI_API_KEY"):
+            os.environ["GEMINI_API_KEY"] = _env_vars["GEMINI_API_KEY"]
 
 PROGRESS_FILE = DATA_DIR / "enrichment_portfolio_full_progress.json"
 

@@ -23,11 +23,7 @@ pnpm pipeline
 
 Run this from the repo root exactly as usual. Manual `source apps/worker/.venv/bin/activate` is optional because the root `pnpm` worker commands activate the worker environment internally.
 
-If this checkout lives in iCloud Drive, keep rebuildable worker state outside iCloud. On this machine the supported layout is:
-
-```bash
-apps/worker/.venv -> ~/Code/Fundradar/apps/worker/.venv
-```
+This checkout lives at `~/Code/Fundradar` (non-iCloud local mirror), so the worker `.venv` is a real directory at `apps/worker/.venv` — no symlink needed. If the repo is ever moved back under iCloud Drive, keep the venv outside iCloud and symlink it back in (`apps/worker/.venv -> ~/Code/Fundradar/apps/worker/.venv`) to avoid offload/duplication breaking imports.
 
 The pipeline preflight checks for dangerous local-state conditions before any API spend. Treat preflight failures as environment/storage problems first, not scraper regressions.
 

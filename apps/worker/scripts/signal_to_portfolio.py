@@ -37,12 +37,14 @@ from dotenv import load_dotenv
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, ENRICHED_SIGNALS_FILE, PORTFOLIO_FILE, COMPANY_PROFILES_FILE, ROOT_ENV_PATH, SECTOR_TAXONOMY
+from fundradar_worker.paths import PROJECT_ROOT, DATA_DIR, DB_PATH, ENRICHED_SIGNALS_FILE, PORTFOLIO_FILE, COMPANY_PROFILES_FILE, ROOT_ENV_PATH, WORKER_ENV_PATH, SECTOR_TAXONOMY
 from fundradar_worker.portfolio_validation import clean_portfolio_name, is_valid_portfolio_entry
 from fundradar_worker.url_utils import extract_domain, is_same_domain
 from fundradar_worker.io_utils import safe_json_write, backup_before_write, load_progress_file, load_funds_by_slug as _load_funds_by_slug_shared
 
-load_dotenv(ROOT_ENV_PATH, override=False)
+# Load both env files — worker .env holds the keys in this checkout; root .env may not exist.
+for _env_path in (ROOT_ENV_PATH, WORKER_ENV_PATH):
+    load_dotenv(_env_path, override=False)
 
 PROGRESS_FILE = DATA_DIR / "signal_to_portfolio_progress.json"
 
