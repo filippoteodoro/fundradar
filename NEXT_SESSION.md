@@ -1,68 +1,32 @@
 # NEXT_SESSION
 
-Goal: clean up the fallout from the iCloud→local move and the deferred signal-quality items
-surfaced by the June 2026 pipeline refresh (commit `deaf68a`). Site is live & current; these are follow-ups.
+Site is live & current (June 2026 refresh). The iCloud→local move fallout and the deferred
+signal-quality items from that run are resolved (see git log). Only these follow-ups remain —
+all need a user decision, live investigation, or credentials, not a clean code fix.
 
-## HIGH — missing gitignored data (iCloud→local move dropped them)
-Repo now lives at `/Users/filippoteodoro/Code/Fundradar` (off iCloud). The move was a clone/partial
-copy, so gitignored dirs were left behind. No backup found anywhere on disk (Trash empty, TM unmounted).
-- `data/derived/linkedin/raw/` — **GONE, irreplaceable**. **Decision: do NOT re-scrape** — LinkedIn is a
-  yearly-only manual job (cadence now hard-documented in `batch_scraper.py`, worker CLAUDE.md, linkedin-scraping.md).
-  Committed `linkedin/fund_people_stats.json` + `team_items.json` are the live site source and are intact. Loss accepted.
-- `data/pem/*.pdf` — GONE. `pem_deals.json` committed & present. Only needed to re-ingest PEM. Locate PDFs or accept.
-- `data/models/` — was missing; **already regenerated** via `train_signal_classifier.py` (free, no action).
-
-## MED — db.json sector_tags clobbered every pipeline run
-`normalize_sectors` rewrites curated fund-level `sector_tags` in `data/db.json` (broad diff, drops curated
-values e.g. Ardian → "Telecommunications"). Restored from git this run per the worker-doc rule. It will
-recur every run. Fix: make the step not overwrite curated `db.json` sector_tags (or consciously accept its output).
-
-## DONE — news-digest/commentary signals mis-tagged as deal/exit
-Systemic patterns added to `signal_corrections.py` (stock-move %, "Trading Floor:" column, antitrust/regulatory)
-+ extended `_RE_MANAGEMENT_ROUNDUP` (executive shuffles, long "news from" lists), with 5 tests. 7 signals
-re-typed to `other` in filtered+enriched (119/062/105 auto-demote; 230/193 patched — ML trained on old labels
-overrode the rule-based demotion, so the model was retrained on the corrected set, macro-F1 0.46).
-Note: rss-230/193 still trip `_matches_exit` guards at filter time, so the systemic catch for *future*
-stock-commentary that also mentions a transaction is imperfect — watch for recurrence.
-
-## DONE — 3 untranslated Italian titles patched
-Set English title + `title_original` in filtered+enriched (Pitfall #27): rss-101 (blackstone), web-046
-(fondo-italiano), rss-274 (the-equity-club). Two were ALSO mis-typed via Italian false-friends — "sale"
-(Italian "rises", not English "sale") and "chiude il rubinetto" (redemption gating, not an exit) — both
-re-typed `exit`→`other`. Root cause is still the single-DeepL-key gap with no fallback (see below).
-
-## LOW — 53 portfolio entries await Gemini sector enrichment (ROOT CAUSE: step timeout)
-Telegram showed `enrich_portfolio` + `enrich_portfolio_final` both hit `timeout (exit -1)` — that's why 53
-entries remain (mostly sector-only: portobello-capital 16, trilantic-europe 7, …). The pipeline marks these
-steps optional so it still completed. Clear by running standalone (no step timeout):
-`python apps/worker/scripts/enrich_portfolio_gemini_full.py --pipeline` (small Gemini cost). Or bump the
-step timeout for the two Gemini portfolio steps in `pipeline.py`. Not user-blocking.
-
-## LOW — 11 persistent URL failures (extractor maintenance)
-Mostly bot-blocking (403) or moved pages (404), from the June log:
-- 404 (persistent): `aimpact.org/portafoglio` + `/en/news` (13×), `triton-partners.com/media/news/`, `cherrybaycapital.com/cherries/` + `/about/team/`.
-  aimpact was previously documented as a *temporary* 503 — 13× 404 suggests the site restructured; verify live before editing URLs.
-- 403 (bot-blocked, likely transient): `apax.com` (3 paths), `oakleycapital.com` (3 paths). Per worker-doc rule, do NOT null these — they're blocked, not gone.
-
-## DONE — 16 "unknown fund" gap-detector alerts triaged
-14 added to `db.json["excluded_entities"]` (slug_normalizer now suppresses the gap-detector alerts);
-the 4 non-PE/VC types also mirrored into `merge-aifi-metrics.ts` EXCLUDED_SLUGS. Consilium turned out to be
-TRACKED (consilium-sgr), so its "Fund" is a vehicle, not new.
-**Still to evaluate as possibly-genuine new PE/VC** (NOT excluded — they'll keep alerting until decided):
-- **Kryalos SGR** — real-estate PE/RE asset manager. Borderline (RE focus). Decide in/out.
+## Evaluate 2 possibly-genuine new PE/VC funds
+The gap detector flagged these; they were NOT excluded and will keep alerting until decided:
+- **Kryalos SGR** — real-estate PE/RE asset manager. Borderline (RE focus). Decide in (add fund + extractor) or out (`excluded_entities`).
 - **Soprarno SGR** (now L&B Capital, ex-Banca Ifigest) — small PE. Verify it's PE/VC, then add or exclude.
 
-## LOW — standalone enrich script reads the wrong .env path
-`scripts/enrich_portfolio_gemini_full.py` loads `ROOT_ENV_PATH` (repo-root `.env`, which doesn't exist) —
-not `apps/worker/.env`, where the keys live. So it prints "GEMINI_API_KEY not set" and no-ops unless run via
-`pnpm pipeline` (which loads the worker .env) or with the env pre-sourced (`set -a; . ./.env; set +a`).
-Fix: point the script's env load at `apps/worker/.env` (or have `paths.py` resolve both). Other standalone
-scripts likely share this. Workaround used this session: sourced the worker .env before running.
+## 11 persistent URL failures — verify live before editing extractor URLs
+Worker-doc rule: do NOT null URLs that are merely blocked/down.
+- 403 bot-block (likely transient, leave): `apax.com` (3 paths), `oakleycapital.com` (3 paths).
+- 404 persistent (investigate): `aimpact.org/portafoglio`+`/en/news` (13×, was a *temporary* 503 — likely restructured),
+  `triton-partners.com/media/news/`, `cherrybaycapital.com/cherries/`+`/about/team/`.
 
-## LOW — 6 translation fields unresolved (Telegram alert)
-DeepL left 6 fields untranslated (only `DEEPL_API_KEY` configured; no `DEEPL_API_KEY_2`/Azure fallback).
-Overlaps the ~3 Italian titles above. Either add an Azure fallback key, or patch titles directly (free).
+## Translation: single-DeepL-key gap (no fallback)
+Only `DEEPL_API_KEY` is configured; ~6 fields/run go untranslated and leak Italian into the filter (false-friend
+mis-typing, e.g. "sale"=rises). Add `DEEPL_API_KEY_2` or an Azure Translator key to restore the documented fallback chain.
 
-## NOTE — stale doc paths
-Worker `CLAUDE.md` still cites the old iCloud Tier-1 path (`~/Library/Mobile Documents/…/Fundradar/`).
-Repo is now at `~/Code/Fundradar`. Update when the CLAUDE.md/AGENTS.md migration (already in flight) lands.
+## `data/pem/*.pdf` source PDFs lost in the move
+`pem_deals.json` (derived) is committed & intact, so nothing is user-facing. Only needed to RE-ingest PEM.
+Locate the original PDFs (off-machine backup?) or accept that PEM can't be re-ingested.
+
+## Optional / watch
+- `enrich_portfolio` + `enrich_portfolio_final` hit the pipeline step timeout (the cause of the now-cleared 53-entry
+  backlog). Bump the step timeout for those two Gemini steps in `pipeline.py` if the backlog recurs.
+- rss-230/193 stock-commentary demotions are patched but trip `_matches_exit` guards at filter time, so similar
+  *future* market-commentary that also names a transaction may slip — watch the audit.
+- Fundradar-root `AGENTS.md` (untracked, your in-flight CLAUDE.md→AGENTS.md migration) still cites the old iCloud
+  Tier-1 path; update when that migration lands. (Worker `CLAUDE.md` + `runbook.md` already corrected.)
