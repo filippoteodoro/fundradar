@@ -9,5 +9,4 @@ Pre-rewrite backup: `~/Code/Archive/fundradar-pre-rewrite-2026-09-21.bundle` (no
 - Until expiry, `fundradar.co` 308-redirects to `fundradar.vercel.app` (Vercel project domain setting). Nothing to do at expiry.
 
 ## Operator action
-- Vercel: reconnect the Git link (fundradar → Settings → Git) to the recreated repo, or pushes do not deploy.
 - Revoke the old `CLAUDE_CODE_OAUTH_TOKEN` (it was an Actions secret on the deleted repo; no workflow uses it).
