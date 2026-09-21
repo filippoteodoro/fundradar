@@ -6,8 +6,8 @@ Closed bot PRs #1/#2 keep the dead Gemini key in read-only `refs/pull/*`; harmle
 Pre-rewrite backup: `~/Code/Archive/fundradar-pre-rewrite-2026-09-21.bundle` (not on GitHub). Backlog: `to_do.md`.
 
 ## Operator actions (the agent was blocked)
-- **Stripe:** find the account that Fundradar used. Delete the webhook to `fundradar.co/api/stripe/webhook`.
-  Archive the product and price. Cancel any subscriptions. Roll or delete the secret key.
+- **Stripe (Fundradar account):** subscription canceled, webhook deleted, product archived.
+  Remaining: roll the live secret key (Developers > API keys > Roll, expire now). Its Vercel copy is deleted.
 - **GTM `GTM-P6LBQD4B`:** delete the "GA4 - Purchase Event" tag and the LinkedIn Insight Tag.
 
 ## Before the repo goes public (operator decision)
