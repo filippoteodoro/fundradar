@@ -6,7 +6,7 @@
  * which funds need the most data improvement work.
  *
  * Sections scored: Profile (15%), AIFI (20%), Portfolio (40%), Signals (25%)
- * Team is excluded (dummy/placeholder data until real LinkedIn scraping is implemented).
+ * Team is excluded from the score.
  *
  * Cache: one module-level variable, same no-TTL pattern as data.ts.
  */

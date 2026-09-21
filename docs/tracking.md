@@ -8,11 +8,8 @@ the visitor clicks Accept in the cookie banner. It stores the choice in `fundrad
 
 ## Container ID
 
-`ConsentManager.tsx` reads `NEXT_PUBLIC_GTM_ID`. If the variable is not set, it falls back to `GTM-P6LBQD4B`,
-the container of the original Fundradar deployment.
-
-**A fork must set `NEXT_PUBLIC_GTM_ID` to its own container**, or visitors who accept cookies send analytics
-to the original container. To run without Google Tag Manager, remove the loader code from `ConsentManager.tsx`.
+`ConsentManager.tsx` reads `NEXT_PUBLIC_GTM_ID`. If the variable is not set, Google Tag Manager never loads.
+To use analytics in a fork, set `NEXT_PUBLIC_GTM_ID` to your own container.
 
 ## Tags
 

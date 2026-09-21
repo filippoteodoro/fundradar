@@ -5,7 +5,8 @@ import Link from 'next/link';
 
 type ConsentState = 'accepted' | 'rejected' | null;
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? 'GTM-P6LBQD4B';
+// Unset in a fork means no analytics at all, never another project's container.
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 const CONSENT_KEY = 'fundradar_cookie_consent_v1';
 const CONSENT_MAX_AGE_MS = 180 * 24 * 60 * 60 * 1000; // 6 months
 
@@ -15,6 +16,7 @@ type ConsentWindow = Window & {
 
 // Google Tag Manager (which carries the GA4 tag) loads only after the visitor accepts optional cookies.
 function loadGtmIfNeeded() {
+  if (!GTM_ID) return;
   if (document.querySelector(`script[data-fundradar-gtm="${GTM_ID}"]`)) return;
 
   const w = window as ConsentWindow;

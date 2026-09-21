@@ -2,6 +2,14 @@
 
 Open backlog for contributors. Each item is independent. Open an issue before large changes.
 
+## Hide zero-Italy funds on the website
+`data/derived/gemini_fund_asset_zero_italy_verified.json` lists funds with zero Italian assets, but `getAllFunds()`
+in `apps/web/src/lib/data.ts` still returns them (for example `canova-sgr`). The spec is in `apps/web/CLAUDE.md`.
+
+## Make the top-AUM signal backfill survive a full filter run
+`scripts/backfill_top_aum_signals.py` writes only to the filtered and enriched signal files, so a full filter run
+can drop those signals. Feed them through the raw signal input instead.
+
 ## Decide on 2 fund candidates
 The gap detector flags these. Add each one (fund entry + extractor) or exclude it (`db.json["excluded_entities"]`):
 - **Kryalos SGR**: real-estate focus. Borderline for the PE/VC scope.

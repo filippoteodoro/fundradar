@@ -89,8 +89,6 @@ API keys are listed in the root `README.md`. The code also reads these settings:
 | `FUNDRADAR_TELEGRAM_BOT_TOKEN`, `FUNDRADAR_TELEGRAM_CHAT_ID` | empty | Optional Telegram alerts; empty disables them |
 | `FUNDRADAR_ALERT_WEBHOOK` | empty | Optional webhook for alerts |
 
-`apps/worker/.env.example` also lists variables that the code does not read (for example `FUNDRADAR_LOG_LEVEL`, `SUPABASE_URL`). Setting them has no effect.
-
 ### Domain-Specific Configuration
 
 Per-domain settings are in `data/derived/domain_policies.json`. The file is gitignored; create it when you need an override:
