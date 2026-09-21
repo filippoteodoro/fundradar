@@ -21,9 +21,9 @@ function TermsContact() {
   }
 
   return (
-    <Link href="/about#contact" style={{ color: '#0066cc', textDecoration: 'none' }}>
-      contact form
-    </Link>
+    <a href="https://github.com/filippoteodoro/fundradar/issues" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'none' }}>
+      GitHub Issues
+    </a>
   );
 }
 

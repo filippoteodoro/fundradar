@@ -7,12 +7,11 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/'],
     },
     sitemap: `${base}/sitemap.xml`,
     host: base,
   };
 }
 
-// Note: llms.txt and llms-full.txt are served as static files from /public/
+// Note: llms.txt and llms-full.txt are route handlers in src/app/llms*.txt/
 // AI crawlers discover them at /llms.txt per the llmstxt.org specification

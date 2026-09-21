@@ -1147,7 +1147,7 @@ Fundradar auto-deploys from `main` on Vercel:
 1. Push to `main`
 2. Vercel builds the Next.js app from `apps/web/`
 3. `generateStaticParams()` pre-renders the new fund page
-4. Live at `fundradar.co/funds/{slug}` within ~2 minutes
+4. Live at `fundradar.vercel.app/funds/{slug}` within ~2 minutes
 
 ---
 
@@ -1657,8 +1657,8 @@ If a bad signal/tag/classification appears, do not apply one-off data-only fixes
 
 ## 19. Post-Deployment Checklist
 
-- [ ] Fund appears on `fundradar.co`
-- [ ] Fund detail page loads at `fundradar.co/funds/{slug}`
+- [ ] Fund appears on `fundradar.vercel.app`
+- [ ] Fund detail page loads at `fundradar.vercel.app/funds/{slug}`
 - [ ] Portfolio tab shows companies
 - [ ] Signals tab shows signals (if any)
 - [ ] Fund appears on `/map` (if geocoded — see [Section 13](#13-geocoding--map-optional))

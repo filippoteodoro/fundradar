@@ -52,7 +52,6 @@ export default async function RootLayout({
       <head />
       <body style={{ margin: 0, fontFamily: 'system-ui, sans-serif', background: '#fafafa' }}>
         <style dangerouslySetInnerHTML={{ __html: `
-          .grecaptcha-badge { visibility: hidden !important; }
           @media (max-width: 768px) {
             .hamburger {
               display: block !important;

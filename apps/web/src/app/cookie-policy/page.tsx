@@ -46,9 +46,6 @@ export default function CookiePolicyPage() {
               <strong>Cookieless analytics</strong>: Vercel Analytics and Speed Insights collect
               aggregate data without cookies.
             </li>
-            <li>
-              <strong>Anti-spam</strong>: Google reCAPTCHA on the contact form.
-            </li>
           </ul>
         </section>
 

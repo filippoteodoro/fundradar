@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import ContactForm from './ContactForm';
 import { CARD_STYLE, CARD_PADDING } from '@/lib/ui';
 
 export const metadata: Metadata = {
@@ -82,12 +81,18 @@ export default function AboutPage() {
 
       <section id="contact" style={{ ...CARD_STYLE, padding: CARD_PADDING, marginBottom: '24px' }}>
         <h2 style={{ fontSize: '18px', margin: '0 0 12px 0' }}>Contact</h2>
-        <p style={{ lineHeight: 1.6, color: '#444', marginBottom: '16px' }}>
-          For questions, data corrections, or partnership inquiries, please use the form below.
-          We also very much welcome feedback on how to improve the site — whether it&apos;s a missing fund,
-          an incorrect fund detail, a broken page, or a feature idea, we&apos;d love to hear from you.
+        <p style={{ lineHeight: 1.6, color: '#444', margin: 0 }}>
+          For questions and data corrections, open an issue on{' '}
+          <a
+            href="https://github.com/filippoteodoro/fundradar/issues"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#0066cc', textDecoration: 'none' }}
+          >
+            GitHub Issues
+          </a>
+          .
         </p>
-        <ContactForm />
       </section>
     </div>
   );

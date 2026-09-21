@@ -77,7 +77,7 @@ Built and maintained almost entirely by AI agents — from website monitoring an
 
 ## Fund Directory
 
-URL: https://fundradar.co
+URL: https://fundradar.vercel.app
 
 The home page is a searchable, filterable table of all ${totalFunds} tracked funds. Users can filter by:
 
@@ -100,7 +100,7 @@ ${catTable(categories)}
 
 ## Signals Feed
 
-URL: https://fundradar.co/signals
+URL: https://fundradar.vercel.app/signals
 
 A real-time feed of publicly observable fund activity, updated weekly. Each signal includes:
 
@@ -142,7 +142,7 @@ Only signals scoring above the quality threshold (75-80) are displayed. Raw sign
 
 ## Fund Profile Pages
 
-URL pattern: https://fundradar.co/funds/{slug}
+URL pattern: https://fundradar.vercel.app/funds/{slug}
 
 Each of the ${totalFunds} funds has a dedicated profile page with multiple tabs:
 
@@ -179,7 +179,7 @@ Each of the ${totalFunds} funds has a dedicated profile page with multiple tabs:
 
 ## Companies Directory
 
-URL: https://fundradar.co/companies
+URL: https://fundradar.vercel.app/companies
 
 A searchable directory of ${portfolioRounded.toLocaleString()}+ portfolio companies across all tracked funds. Each company page shows:
 
@@ -192,7 +192,7 @@ A searchable directory of ${portfolioRounded.toLocaleString()}+ portfolio compan
 
 ## Interactive Map
 
-URL: https://fundradar.co/map
+URL: https://fundradar.vercel.app/map
 
 A geographic visualization of fund locations plotted on an interactive map. Supports the same filters as the home table (category, strategy, AUM, etc.). Useful for seeing the concentration of PE/VC activity across Italian cities and European financial centers.
 
@@ -269,13 +269,13 @@ Traditional PE/VC databases (Preqin, PitchBook, Mergermarket, Dealogic) charge t
 - Signal pipeline: Python workers with Playwright for website monitoring
 - Translation: DeepL (primary) with Azure and OpenAI fallbacks
 - Enrichment: OpenAI for signal summarization and entity extraction
-- Canonical URL: https://fundradar.co
+- Canonical URL: https://fundradar.vercel.app
 
 ---
 
 ## Contact
 
-For questions, corrections, or data inquiries, use the contact form at [fundradar.co/about](https://fundradar.co/about).
+For questions and data corrections, open an issue on [GitHub Issues](https://github.com/filippoteodoro/fundradar/issues).
 `;
 
   return new Response(body, {

@@ -47,15 +47,15 @@ Fundradar tracks investment funds operating in Italy — PE, VC, growth equity, 
 
 ## Key Pages
 
-- [Fund Directory](https://fundradar.co): Searchable table of all ${totalFunds} tracked funds with filters by category, strategy, AUM, and geography
-- [Signals Feed](https://fundradar.co/signals): Real-time feed of fund activity signals (deals, exits, fundraises, hires, launches)
-- [Interactive Map](https://fundradar.co/map): Geographic view of fund locations across Italy and Europe
-- [Companies](https://fundradar.co/companies): Directory of ${portfolioRounded.toLocaleString()}+ portfolio companies across all tracked funds
-- [About](https://fundradar.co/about): Data sources, reliability contract, methodology
+- [Fund Directory](https://fundradar.vercel.app): Searchable table of all ${totalFunds} tracked funds with filters by category, strategy, AUM, and geography
+- [Signals Feed](https://fundradar.vercel.app/signals): Real-time feed of fund activity signals (deals, exits, fundraises, hires, launches)
+- [Interactive Map](https://fundradar.vercel.app/map): Geographic view of fund locations across Italy and Europe
+- [Companies](https://fundradar.vercel.app/companies): Directory of ${portfolioRounded.toLocaleString()}+ portfolio companies across all tracked funds
+- [About](https://fundradar.vercel.app/about): Data sources, reliability contract, methodology
 
 ## Fund Profiles
 
-Each fund has a dedicated profile page at \`https://fundradar.co/funds/{slug}\` with:
+Each fund has a dedicated profile page at \`https://fundradar.vercel.app/funds/{slug}\` with:
 
 - Fund overview: AUM, strategy, investment range, sectors, geography
 - Portfolio companies with status tracking (current/exited)
@@ -101,8 +101,8 @@ All data is freely accessible via the website. There is no public API.
 
 ## Contact
 
-- Website: [fundradar.co](https://fundradar.co)
-- Contact form: [fundradar.co/about](https://fundradar.co/about)
+- Website: [fundradar.vercel.app](https://fundradar.vercel.app)
+- Questions and data corrections: [GitHub Issues](https://github.com/filippoteodoro/fundradar/issues)
 `;
 
   return new Response(body, {

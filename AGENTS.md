@@ -45,7 +45,7 @@ Keep the repo root lean. One-off audit scripts/reports, unused reference assets,
 apps/
   web/                          Next.js frontend (see apps/web/CLAUDE.md)
     src/
-      app/                        Next.js App Router routes (pages, API routes)
+      app/                        Next.js App Router routes (pages, text routes)
       components/                 React components
       lib/                        ALL data loading + signal processing (data.ts, signals_unified.ts, signalProcessing.ts)
   worker/                       Python pipeline (see apps/worker/CLAUDE.md)
@@ -230,7 +230,7 @@ Content hashing skips unchanged pages — use `--force-extract` after updating e
 3. Push to `main` — Vercel auto-deploys
 
 ### Free, no accounts, no payments
-Fundradar is a free, open-source project (MIT License). There are no user accounts, no subscriptions, no payments, and no email digests. The only `/api` route is `/api/contact` (contact form). Do not add account, payment, or subscriber code.
+Fundradar is a free, open-source project (MIT License). There are no user accounts, no subscriptions, no payments, and no email digests. The site has no `/api` routes; questions and data corrections go to GitHub Issues. Do not add account, payment, or subscriber code.
 
 ## Common Pitfalls
 

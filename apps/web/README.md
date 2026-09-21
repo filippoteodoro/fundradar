@@ -14,7 +14,6 @@ Next.js 14 App Router application for the Fundradar directory.
 ```
 src/
 ├── app/                 # App Router pages
-│   ├── api/            # API routes (contact form)
 │   ├── funds/          # Fund detail pages
 │   ├── signals/        # Signals feed
 │   ├── map/            # Fund map view

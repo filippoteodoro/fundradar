@@ -286,7 +286,7 @@ When a fund has no working website extractor (common for large international PE 
 
 All data is freely accessible. There are no user accounts, subscriptions, or payments.
 
-- `src/app/api/contact/route.ts` — contact form, the only API route (needs reCAPTCHA + Resend env vars)
+- The site has no API routes. Questions and data corrections go to GitHub Issues.
 - `src/components/ConsentManager.tsx` — loads Google Tag Manager only after the visitor accepts optional cookies. Keep `/cookie-policy` and `/privacy-policy` in sync with what loads (see `docs/tracking.md`).
 
 ## Map & Address Data

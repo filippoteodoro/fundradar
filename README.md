@@ -117,7 +117,7 @@ All fund pages are statically generated at build time via `generateStaticParams(
 ### Vercel environment
 
 - The site is read-only: it serves the committed JSON in `data/` and writes nothing at runtime.
-- The site runs without environment variables. The contact form needs `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`, `RECAPTCHA_SECRET_KEY`, `RESEND_API_KEY`, and `CONTACT_EMAIL`.
+- The site needs no environment variables. Optional: `NEXT_PUBLIC_GTM_ID` (Google Tag Manager and Analytics, loaded only after cookie consent), `NEXT_PUBLIC_BASE_URL` (canonical URL; default `https://fundradar.vercel.app`), and `NEXT_PUBLIC_LEGAL_CONTROLLER_NAME` / `_EMAIL` / `NEXT_PUBLIC_LEGAL_JURISDICTION` (legal pages).
 
 ## Setup
 

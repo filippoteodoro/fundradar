@@ -21,9 +21,9 @@ function ControllerContact() {
   }
 
   return (
-    <Link href="/about#contact" style={{ color: '#0066cc', textDecoration: 'none' }}>
-      contact form
-    </Link>
+    <a href="https://github.com/filippoteodoro/fundradar/issues" target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'none' }}>
+      GitHub Issues
+    </a>
   );
 }
 
@@ -48,7 +48,6 @@ export default function PrivacyPolicyPage() {
             process only:
           </p>
           <ul style={{ margin: 0, paddingLeft: '20px', lineHeight: 1.8, color: '#444' }}>
-            <li>Contact-form data: name, email, message, IP address, and anti-spam metadata.</li>
             <li>
               Analytics data, only if you accept optional cookies: page views and browser/device data
               collected by Google Analytics through Google Tag Manager.
@@ -64,8 +63,6 @@ export default function PrivacyPolicyPage() {
         <section style={{ marginBottom: '20px' }}>
           <h2 style={{ fontSize: '18px', margin: '0 0 8px 0' }}>3. Purposes and legal bases (GDPR)</h2>
           <ul style={{ margin: 0, paddingLeft: '20px', lineHeight: 1.8, color: '#444' }}>
-            <li>Reply to contact-form messages: legitimate interest.</li>
-            <li>Security, anti-spam, and abuse prevention (rate limits, reCAPTCHA): legitimate interest.</li>
             <li>Google Analytics: consent.</li>
             <li>Cookieless aggregate analytics and hosting logs: legitimate interest.</li>
           </ul>
@@ -78,8 +75,7 @@ export default function PrivacyPolicyPage() {
           </p>
           <ul style={{ margin: 0, paddingLeft: '20px', lineHeight: 1.8, color: '#444' }}>
             <li>Vercel: hosting, Vercel Analytics, and Speed Insights.</li>
-            <li>Google: Tag Manager, Analytics, and reCAPTCHA.</li>
-            <li>Resend: contact-form email delivery.</li>
+            <li>Google: Tag Manager and Analytics.</li>
           </ul>
           <p style={{ margin: '8px 0 0 0', lineHeight: 1.6, color: '#444' }}>
             Some providers may process data outside the EEA under GDPR safeguards such as adequacy
@@ -90,7 +86,6 @@ export default function PrivacyPolicyPage() {
         <section style={{ marginBottom: '20px' }}>
           <h2 style={{ fontSize: '18px', margin: '0 0 8px 0' }}>5. Retention</h2>
           <ul style={{ margin: 0, paddingLeft: '20px', lineHeight: 1.8, color: '#444' }}>
-            <li>Contact messages: up to 24 months from the last reply.</li>
             <li>Cookie consent choice: up to 6 months, stored in your browser.</li>
             <li>Analytics data: as set by the analytics provider.</li>
           </ul>
