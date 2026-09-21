@@ -16,7 +16,7 @@ Actionable funds are grouped into three categories:
 
 ## STEP 1: CHECK STATUS AND CLAIM A FUND
 
-cd "/Users/filippoteodoro/Code/Fundradar"
+cd "$(git rev-parse --show-toplevel)"
 python3 scripts/url_discovery_worker.py status
 
 # Claim a fund:
@@ -192,7 +192,7 @@ asyncio.run(test())
 
 ## STEP 6: MARK COMPLETE
 
-cd /Users/filippoteodoro/Code/Fundradar
+cd "$(git rev-parse --show-toplevel)"
 
 # If successful (with portfolio URL if you discovered it):
 python3 scripts/url_discovery_worker.py complete YOUR_FUND_ID https://portfolio-url

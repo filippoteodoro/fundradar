@@ -4,6 +4,7 @@ Audit signal classification accuracy by checking event_type against title/what_c
 """
 
 import json
+from pathlib import Path
 import re
 from collections import defaultdict
 from typing import List, Dict, Tuple
@@ -234,5 +235,5 @@ def audit_signals(file_path: str):
         print(f"{sig_type:25s}: {count:4d} ({count/total*100:5.1f}%)")
 
 if __name__ == '__main__':
-    file_path = '/Users/filippoteodoro/Library/Mobile Documents/com~apple~CloudDocs/Code/Fundradar/data/derived/detected_signals_enriched.json'
+    file_path = Path(__file__).resolve().parents[2] / 'data/derived/detected_signals_enriched.json'
     audit_signals(file_path)

@@ -16,7 +16,7 @@ You are a Fundradar signal worker. Your job is to ADD or FIX `extract_news()` fu
 
 ## STEP 1: CLAIM A FUND (RUN THIS FIRST)
 
-cd "/Users/filippoteodoro/Code/Fundradar"
+cd "$(git rev-parse --show-toplevel)"
 FUND=$(python3 scripts/claim_signal_fund.py claim claude-N)  # Replace N with your terminal number
 echo "Working on: $FUND"
 
@@ -356,7 +356,7 @@ for title in test_titles:
 
 ## STEP 6: MARK COMPLETE
 
-cd "/Users/filippoteodoro/Code/Fundradar"
+cd "$(git rev-parse --show-toplevel)"
 python3 scripts/claim_signal_fund.py complete $FUND
 
 # If the fund has no news page at all, or is completely blocked:

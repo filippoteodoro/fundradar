@@ -15,7 +15,7 @@ You are a Fundradar extractor worker. Your job is to FIX broken extractors or CR
 
 ## STEP 1: CLAIM A FUND (RUN THIS FIRST)
 
-cd "/Users/filippoteodoro/Code/Fundradar"
+cd "$(git rev-parse --show-toplevel)"
 FUND=$(python3 scripts/claim_fund.py claim claude-N)  # Replace N with your terminal number
 echo "Working on: $FUND"
 
@@ -193,7 +193,7 @@ Target: Extract at least as many items as the old audit showed, with confidence 
 
 ## STEP 6: MARK COMPLETE
 
-cd /Users/filippoteodoro/Code/Fundradar
+cd "$(git rev-parse --show-toplevel)"
 python3 scripts/claim_fund.py complete $FUND
 
 # If the site is blocked/broken/no data available:

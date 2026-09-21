@@ -3887,11 +3887,11 @@ ok so I started creating the repo as you said and i put in the files in point 0 
 
 Last login: Wed Jan 21 20:57:29 on ttys000
 You have new mail.
-(base) filippoteodoro@Filippos-MacBook-Pro ~ % cd '/Users/filippoteodoro/Library/Mobile Documents/com~apple~CloudDocs/Code/Fundradar'           
-(base) filippoteodoro@Filippos-MacBook-Pro Fundradar % ls
+$  cd '~/Code/Fundradar'           
+$  ls
 CLAUDE.rtf	data		github		packages
 apps		docs		layout.rtf	scripts
-(base) filippoteodoro@Filippos-MacBook-Pro Fundradar % 
+$  
 
 
 I couldn't create md files with textedit so i did create rtf files, is it fine? I edited the layout file like this fundradar/
@@ -3942,7 +3942,7 @@ RTF non è ideale: Claude Code lavora meglio con .md/.txt (testo puro, diff p
 0) Converti subito RTF → Markdown (2 minuti)
 Dal tuo repo:
 
-cd "/Users/filippoteodoro/Library/Mobile Documents/com~apple~CloudDocs/Code/Fundradar" mkdir -p docs # Converti i file principali in md (macOS ha textutil) textutil -convert txt -output CLAUDE.md CLAUDE.rtf textutil -convert txt -output docs/spec.md docs/spec.rtf textutil -convert txt -output docs/layout.md layout.rtf textutil -convert txt -output docs/reliability-contract.md docs/reliability-contract.rtf # (opzionale) rimuovi gli .rtf dopo verifica # rm CLAUDE.rtf docs/spec.rtf layout.rtf docs/reliability-contract.rtf
+cd "~/Code/Fundradar" mkdir -p docs # Converti i file principali in md (macOS ha textutil) textutil -convert txt -output CLAUDE.md CLAUDE.rtf textutil -convert txt -output docs/spec.md docs/spec.rtf textutil -convert txt -output docs/layout.md layout.rtf textutil -convert txt -output docs/reliability-contract.md docs/reliability-contract.rtf # (opzionale) rimuovi gli .rtf dopo verifica # rm CLAUDE.rtf docs/spec.rtf layout.rtf docs/reliability-contract.rtf
 Poi apri i .md creati e fai un check veloce che il testo sia leggibile.
 Se TextEdit ti crea RTF: usa VS Code, CotEditor, o anche nano/vim. Esempio:
 
