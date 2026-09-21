@@ -137,3 +137,6 @@ coverage/
 
 # Local agent scratch (internal prompts, never published)
 /scratchpad/
+
+# TypeScript incremental build cache
+*.tsbuildinfo
