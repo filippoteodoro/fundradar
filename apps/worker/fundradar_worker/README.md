@@ -18,6 +18,7 @@ This is the core Python module for data collection, processing, and monitoring.
 | `playwright_fetcher.py` | Browser-based fetching for JavaScript-heavy sites |
 | `playwright_pool.py` | Browser instance pool management |
 | `detail_page_fetcher.py` | Fetches detail pages (portfolio companies, team members) |
+
 ### Content Analysis
 | File | Purpose |
 |------|---------|
@@ -46,7 +47,7 @@ This is the core Python module for data collection, processing, and monitoring.
 | `normalizer.py` | Text normalization and cleaning |
 | `url_utils.py` | URL parsing and manipulation |
 | `url_generator.py` | Generates monitored URLs from extractor URLS declarations |
-| `parse_monitor_urls.py` | Parses the monitor-urls.md file |
+| `parse_monitor_urls.py` | Parses `data/monitor-urls.md` |
 | `entity_resolver.py` | Matches entities across data sources |
 
 ### Reliability
@@ -60,14 +61,14 @@ This is the core Python module for data collection, processing, and monitoring.
 
 ## Subdirectories
 
-### `/strategies/`
-Extraction strategy implementations (CSS selectors, AI extraction, hybrid approaches).
+### `strategies/`
+Generic extraction strategies (`next_data`, `json_ld`, `html_cards`, `logo_grid`) and `strategies/extractors/`, which holds one fund-specific extractor per fund.
 
-### `/extractors/`
+### `extractors/`
 Page-type specific extractors (news, portfolio, team pages).
 
-### `/linkedin/`
-LinkedIn-specific scraping and profile analysis.
+### `linkedin/`
+LinkedIn scraping and profile analysis. See [`docs/linkedin-scraping.md`](../../../docs/linkedin-scraping.md).
 
 ## Common Commands
 
@@ -85,4 +86,4 @@ python -m fundradar_worker.cli --help
 
 ## Output Files
 
-All output goes to `/data/derived/`. See that directory's README for file descriptions.
+All output goes to `data/derived/`. See [`data/derived/README.md`](../../../data/derived/README.md) for file descriptions.

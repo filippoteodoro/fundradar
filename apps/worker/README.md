@@ -1,6 +1,6 @@
 # Fundradar Worker
 
-Python worker for website scraping, data extraction, change detection, and signal generation.
+Python worker for website scraping, data extraction, change detection and signal processing.
 
 ## Setup
 
@@ -8,33 +8,35 @@ Python worker for website scraping, data extraction, change detection, and signa
 cd apps/worker
 python -m venv .venv
 source .venv/bin/activate
-pip install -e .
-```
-
-### Playwright Setup (for JS-heavy sites)
-
-```bash
+pip install -e ".[dev]"      # add ",ml" for the optional signal classifier
 playwright install chromium
 ```
 
+API keys go in `apps/worker/.env`. The key list is in the root [README](../../README.md#api-keys-pipeline-only). Other settings are in [`docs/runbook.md`](../../docs/runbook.md#configuration).
+
 ## Commands
 
-From project root:
+From the repo root:
 ```bash
-pnpm pipeline              # Full pipeline: monitor → filter → enrich
+pnpm pipeline                  # Full 10-step pipeline
 pnpm pipeline --force-extract  # Re-extract all (use after updating extractors)
-pnpm pipeline:signals      # Filter + enrich only (skip fetching)
-pnpm worker:monitor        # Fetch websites, extract data, detect changes
-pnpm worker:ingest         # Process PEM PDFs → pem_deals.json
-pnpm worker:aifi           # Scrape AIFI member data
-pnpm worker:geocode        # Geocode fund addresses
+pnpm pipeline:signals          # Filter + enrich only (no fetching)
+pnpm worker:monitor            # Fetch websites, extract data, detect changes
+pnpm worker:ingest             # Process PEM PDFs → pem_deals.json (needs local PDFs in data/pem/)
+pnpm worker:aifi               # Scrape AIFI member data
+pnpm worker:geocode            # Geocode fund addresses
 ```
+
+The root commands activate `apps/worker/.venv` themselves.
 
 ## Architecture
 
 ```
-monitor (fetch + extract + diff) → filter (quality scoring) → enrich (AI summaries)
+monitor → rss → translate → normalize_sectors → normalize_portfolio → enrich_portfolio
+        → filter → enrich → signal_to_portfolio → enrich_portfolio_final
 ```
+
+The step list is `STEPS` in `fundradar_worker/pipeline.py`. [`CLAUDE.md`](./CLAUDE.md) describes each step.
 
 ### Key Modules
 
@@ -54,34 +56,11 @@ monitor (fetch + extract + diff) → filter (quality scoring) → enrich (AI sum
 
 ### Extraction Strategy
 
-1. Fund-specific extractor (`strategies/extractors/{fund}.py`) runs first
-2. If it returns results, generic strategies are **skipped**
-3. If no extractor exists or returns nothing: generic chain runs (NEXT_DATA → JSON_LD → HTML_CARDS → LOGO_GRID)
+1. The fund-specific extractor (`strategies/extractors/{fund}.py`) runs first.
+2. If it returns results, generic strategies are **skipped**.
+3. If no extractor exists or it returns nothing, the generic chain runs (NEXT_DATA → JSON_LD → HTML_CARDS → LOGO_GRID).
 
-### Fund-Specific Extractors
-
-Each extractor in `strategies/extractors/` exports:
-- `DOMAIN` — the domain it handles
-- `URLS` — dict of page paths (`portfolio`, `team`, `news`)
-- `EXTRACTORS` — dict mapping data types to extraction functions
-
-### Bot-Blocked Funds (Extractor-Level Routing)
-
-For bot-protected domains, we prefer extractor-level URL routing (deep endpoints or
-API endpoints) instead of changing monitor/pipeline behavior.
-
-Updated extractor routing:
-- `algebris.py`: Google News RSS fallback scoped to `site:algebris.com` (official site currently hard-blocked by Akamai)
-- `capital_dynamics_sgr.py`: Google News RSS fallback scoped to `site:capdyn.com` / `site:capitaldynamics.com` (official site currently behind Cloudflare challenge)
-- `carlyle.py`: `/our-business/portfolio-of-investments` + `/media-room/news-release-archive`
-- `oxy_capital.py`: WordPress API endpoint for news (`/wp-json/wp/v2/posts...`)
-- `sagitta_sgr.py`: team + newsroom routing, portfolio disabled due blocked path
-
-Verification (single fund):
-```bash
-pnpm pipeline --slugs algebris --force-extract
-pnpm pipeline --slugs carlyle --force-extract
-```
+Each extractor exports `DOMAIN`, `URLS` (page paths for `portfolio`, `team`, `news`) and `EXTRACTORS` (data type → function). Bot-protected domains get extractor-level URL routing; see [`docs/runbook.md`](../../docs/runbook.md#bot-protected-domain-keeps-returning-403).
 
 ## Tests
 
@@ -92,5 +71,6 @@ pytest
 
 ## See Also
 
-- `CLAUDE.md` in this directory for detailed worker architecture docs
-- Root `CLAUDE.md` for project-wide instructions
+- [`CLAUDE.md`](./CLAUDE.md) in this directory for detailed worker notes
+- Root [`AGENTS.md`](../../AGENTS.md) for project-wide rules
+- [`docs/ADDING_A_FUND.md`](../../docs/ADDING_A_FUND.md) to add a fund

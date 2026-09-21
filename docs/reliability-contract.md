@@ -1,9 +1,9 @@
-# Fundradar Reliability Contract (v1)
+# Fundradar Reliability Contract
 
 ## What Fundradar guarantees
 - Every Signal is backed by a clickable source URL.
 - Every Signal shows observed date and (when known) published date.
-- We store snapshots to allow auditing “what changed”.
+- The worker stores page snapshots locally, so a pipeline operator can audit “what changed”.
 - We show recency clearly.
 
 ## What Fundradar does NOT guarantee

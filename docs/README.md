@@ -1,48 +1,24 @@
 # Documentation
 
-## Core Docs
+Project-wide rules are in the root [`AGENTS.md`](../AGENTS.md). App details are in [`apps/web/CLAUDE.md`](../apps/web/CLAUDE.md) and [`apps/worker/CLAUDE.md`](../apps/worker/CLAUDE.md).
+
+## Guides
 
 | Document | Purpose |
 |----------|---------|
-| `data-flow.md` | Data pipeline, source hierarchy, file → loader → page mapping |
-| `runbook.md` | Operations, troubleshooting, common procedures |
-| `spec.md` | Product specification (note: tech stack references are outdated) |
-| `reliability-contract.md` | Data reliability rules |
+| [`ADDING_A_FUND.md`](ADDING_A_FUND.md) | Add a fund end to end: research, `db.json` entry, extractor, pipeline, quality gates |
+| [`check_signals.md`](check_signals.md) | Diagnose signal quality issues and find the function to fix |
+| [`runbook.md`](runbook.md) | Run the worker, configure it, troubleshoot failures |
+| [`linkedin-scraping.md`](linkedin-scraping.md) | LinkedIn people data: cadence, commands, raw-data protection |
 
-## Scraping Docs
-
-| Document | Purpose |
-|----------|---------|
-| `websites-scraping.md` | Website scraping approach and strategy |
-| `linkedin-scraping.md` | LinkedIn scraping implementation |
-
-## Workflow Docs
+## Reference
 
 | Document | Purpose |
 |----------|---------|
-| `fund-page-audit-workflow.md` | How to audit fund pages |
-| `fund-quality-optimization-workflow.md` | Quality optimization process |
+| [`data-flow.md`](data-flow.md) | Pipeline steps, source hierarchy, file → loader → page mapping |
+| [`reliability-contract.md`](reliability-contract.md) | What the site guarantees about its data, and UI language rules |
+| [`tracking.md`](tracking.md) | Consent-gated analytics (Google Tag Manager) |
 
-## Site Docs
+## Archive
 
-| Document | Purpose |
-|----------|---------|
-| `tracking.md` | Consent-gated analytics (GTM + GA4) setup |
-
-## Subagent Prompts
-
-| Document | Purpose |
-|----------|---------|
-| `EXTRACTOR_WORKER_PROMPT.md` | Prompt for extractor-building subagents |
-| `SIGNAL_WORKER_PROMPT.md` | Prompt for signal analysis subagents |
-| `URL_DISCOVERY_WORKER_PROMPT.md` | Prompt for URL discovery subagents |
-
-## UI
-
-| Document | Purpose |
-|----------|---------|
-| `layout.md` | UI layout guidelines |
-
-## Archived
-
-Sprint plans and deprecated docs are in `/archive/`.
+Historical audits, sprint plans and deprecated material are in [`archive/`](../archive/README.md). They do not describe the current code.

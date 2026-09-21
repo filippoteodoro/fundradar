@@ -24,14 +24,16 @@ The MIT License covers the code. Third-party content keeps the rights of its own
 
 ## API keys (pipeline only)
 
-The web app needs no keys. The worker pipeline reads keys from `apps/worker/.env` (see `apps/worker/.env.example`):
+The web app needs no keys. The worker reads keys from `apps/worker/.env` or the root `.env` (templates: `apps/worker/.env.example`, `.env.example`):
 
 | Key | Used for |
 |-----|----------|
-| `GEMINI_API_KEY` | Signal enrichment and fund audits |
-| `DEEPL_API_KEY` or `AZURE_TRANSLATOR_KEY` | Italian-to-English translation |
-| `OPENAI_API_KEY` | Optional signal classification |
-| `APIFY_API_TOKEN` | Optional LinkedIn scraping |
+| `OPENAI_API_KEY` | Signal enrichment (pipeline step 8; the step fails without it) |
+| `DEEPL_API_KEY`, `DEEPL_API_KEY_2` | Italian-to-English translation (primary) |
+| `AZURE_TRANSLATOR_KEY`, `AZURE_TRANSLATOR_REGION` | Translation fallback |
+| `GEMINI_API_KEY` | Optional portfolio enrichment and the fund audit scripts |
+| `APIFY_API_TOKEN` | Optional LinkedIn scraping (see `docs/linkedin-scraping.md`) |
+| `FUNDRADAR_TELEGRAM_BOT_TOKEN`, `FUNDRADAR_TELEGRAM_CHAT_ID` | Optional pipeline alerts to a Telegram chat |
 
 ## Quick Start
 
@@ -59,7 +61,7 @@ The pipeline runs a preflight before any step. It stops on low free disk space a
 | Worker | Python 3.10+, Playwright, BeautifulSoup |
 | Types | `@fundradar/shared` (TypeScript) |
 | Monorepo | pnpm workspaces |
-| Hosting | Vercel (auto-deploys from `main`) |
+| Hosting | Vercel |
 
 ## Project Structure
 
@@ -99,31 +101,29 @@ fundradar/
 
 ## Deployment
 
-The site auto-deploys to Vercel on push to `main`.
+The live site runs on Vercel. To host a fork, import it into a Vercel project and set the Root Directory to `apps/web`. `apps/web/vercel.json` sets the install and build commands:
 
-- **Repo**: [github.com/filippoteodoro/fundradar](https://github.com/filippoteodoro/fundradar)
-- **Vercel Root Directory**: `apps/web`
 - **Build**: `cd ../.. && pnpm -F @fundradar/shared build && pnpm -F web build`
-- **Install**: `cd ../.. && pnpm install`
+- **Install**: `cd ../.. && pnpm install --frozen-lockfile`
 
 All fund pages are statically generated at build time via `generateStaticParams()`. Data refreshes on each deploy.
 
-### Deployment workflow
+### Data refresh workflow
 
-1. Run `pnpm pipeline` locally to update data
-2. Commit updated data files in `data/derived/`
-3. Push to `main` — Vercel auto-deploys
+1. Run `pnpm pipeline` locally to update data.
+2. Commit the updated files in `data/derived/`.
+3. Push. The connected Vercel project redeploys.
 
 ### Vercel environment
 
 - The site is read-only: it serves the committed JSON in `data/` and writes nothing at runtime.
-- The site needs no environment variables. Optional: `NEXT_PUBLIC_GTM_ID` (Google Tag Manager and Analytics, loaded only after cookie consent), `NEXT_PUBLIC_BASE_URL` (canonical URL; default `https://fundradar.vercel.app`), and `NEXT_PUBLIC_LEGAL_CONTROLLER_NAME` / `_EMAIL` / `NEXT_PUBLIC_LEGAL_JURISDICTION` (legal pages).
+- The site needs no environment variables. Optional: `NEXT_PUBLIC_GTM_ID` (Google Tag Manager, loaded only after cookie consent; a fork must set its own, see `docs/tracking.md`), `NEXT_PUBLIC_BASE_URL` (canonical URL; default `https://fundradar.vercel.app`), and `NEXT_PUBLIC_LEGAL_CONTROLLER_NAME` / `_EMAIL` / `NEXT_PUBLIC_LEGAL_JURISDICTION` (legal pages).
 
 ## Setup
 
 ### Prerequisites
 - Node.js 20+
-- pnpm 8+
+- pnpm 9 (the version is pinned in `package.json` → `packageManager`)
 - Python 3.10+
 
 ### Python Worker
@@ -131,18 +131,21 @@ All fund pages are statically generated at build time via `generateStaticParams(
 cd apps/worker
 python -m venv .venv
 source .venv/bin/activate
-pip install -e ".[dev]"
+pip install -e ".[dev]"          # add ",ml" for the optional signal classifier
 playwright install chromium
 ```
 
 ## Key Documentation
 
-- `AGENTS.md` — project-wide architecture and rules
-- `apps/web/CLAUDE.md` — web app specifics (caching, data loading)
-- `apps/worker/CLAUDE.md` — worker specifics (extraction, pipeline)
-- `docs/data-flow.md` — data pipeline and source hierarchy
-- `docs/runbook.md` — operations and troubleshooting
-- `docs/tracking.md` — consent-gated analytics setup
+- [`AGENTS.md`](AGENTS.md) — project-wide architecture and rules
+- [`apps/web/CLAUDE.md`](apps/web/CLAUDE.md) — web app specifics (caching, data loading)
+- [`apps/worker/CLAUDE.md`](apps/worker/CLAUDE.md) — worker specifics (extraction, pipeline)
+- [`docs/README.md`](docs/README.md) — index of task guides
+- [`docs/ADDING_A_FUND.md`](docs/ADDING_A_FUND.md) — add a fund, end to end
+- [`docs/check_signals.md`](docs/check_signals.md) — diagnose and fix signal quality issues
+- [`docs/data-flow.md`](docs/data-flow.md) — data pipeline and source hierarchy
+- [`docs/runbook.md`](docs/runbook.md) — operations and troubleshooting
+- [`docs/tracking.md`](docs/tracking.md) — consent-gated analytics setup
 
 ## Contributing
 

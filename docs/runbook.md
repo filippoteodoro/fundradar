@@ -1,12 +1,13 @@
-# Fundradar Worker Production Runbook
+# Fundradar Worker Runbook
 
-Operations and troubleshooting for the Fundradar scraping worker.
+Operations and troubleshooting for the Fundradar worker.
 
 ## Prerequisites
 
-- Python 3.11+
+- Python 3.10+ (CI uses 3.11)
+- Node.js 20 and pnpm 9 (monorepo commands)
 - Playwright (`playwright install chromium`)
-- pnpm (monorepo commands)
+- API keys in `apps/worker/.env` (list: root `README.md` → "API keys")
 
 ## Running the Pipeline
 
@@ -16,13 +17,9 @@ Operations and troubleshooting for the Fundradar scraping worker.
 pnpm pipeline
 ```
 
-Run this from the repo root exactly as usual. Manual `source apps/worker/.venv/bin/activate` is optional because the root `pnpm` worker commands activate the worker environment internally.
+Run it from the repo root. The root `pnpm` worker commands activate `apps/worker/.venv` themselves.
 
-This checkout lives at `~/Code/Fundradar` (non-iCloud local mirror), so the worker `.venv` is a real directory at `apps/worker/.venv` — no symlink needed. If the repo is ever moved back under iCloud Drive, keep the venv outside iCloud and symlink it back in (`apps/worker/.venv -> ~/Code/Fundradar/apps/worker/.venv`) to avoid offload/duplication breaking imports.
-
-The pipeline preflight checks for dangerous local-state conditions before any API spend. Treat preflight failures as environment/storage problems first, not scraper regressions.
-
-Repo commands should run under the nvm-managed Node 20 toolchain. If a login shell resolves `/usr/local/bin/node` instead, initialize nvm in `~/.zprofile` as well as `~/.zshrc` so non-interactive login shells inherit the default Node before any legacy Homebrew install.
+The pipeline runs a preflight before any API spend. Treat a preflight failure as an environment or storage problem first, not as a scraper regression.
 
 ### Re-extract after updating extractors
 
@@ -61,40 +58,58 @@ python -m fundradar_worker.cli scrape-fund investindustrial --force
 
 ### Monitor with options
 
+Run these from `apps/worker` with the venv active:
+
 ```bash
 python -m fundradar_worker.monitor --limit 10
+python -m fundradar_worker.monitor --slugs fund-slug
 python -m fundradar_worker.monitor --skip-backoff
 python -m fundradar_worker.monitor --force-extract
 ```
+
+`--limit` applies before `--slugs`. Do not combine them, or the target fund can drop out.
 
 ## Configuration
 
 ### Environment Variables
 
+API keys are listed in the root `README.md`. The code also reads these settings:
+
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `FUNDRADAR_LOG_LEVEL` | `INFO` | Log level |
-| `FUNDRADAR_MAX_CONCURRENT` | `3` | Max concurrent browser contexts |
-| `FUNDRADAR_RATE_LIMIT_DEFAULT` | `2.0` | Seconds between requests to same domain |
-| `FUNDRADAR_REQUEST_TIMEOUT` | `30` | Request timeout in seconds |
-| `FUNDRADAR_CIRCUIT_FAILURE_THRESHOLD` | `5` | Failures before circuit opens |
-| `FUNDRADAR_CIRCUIT_COOLDOWN` | `300` | Seconds before circuit half-opens |
-| `PLAYWRIGHT_HEADLESS` | `true` | Run browsers in headless mode |
+| `FUNDRADAR_MAX_WORKERS` | `8` | Parallel domain workers in the monitor |
+| `FUNDRADAR_MAX_TOTAL_TIMEOUT` | `3600` | Upper limit in seconds for the monitor batch timeout |
+| `FUNDRADAR_RATE_LIMIT_DEFAULT` | `2.0` | Seconds between requests to the same domain |
+| `FUNDRADAR_GLOBAL_RATE_LIMIT` | `120` | Max requests per minute across all domains |
+| `FUNDRADAR_CIRCUIT_FAILURE_THRESHOLD` | `5` | Failures before the circuit opens |
+| `FUNDRADAR_CIRCUIT_COOLDOWN` | `300` | Seconds before the circuit half-opens |
+| `FUNDRADAR_SHUTDOWN_TIMEOUT` | `30` | Seconds to wait for a graceful shutdown |
+| `PLAYWRIGHT_HEADLESS` | headless | Set `false` to show the browser |
+| `SIGNAL_MIN_QUALITY` | `80` | Filter quality threshold |
+| `FUNDRADAR_TELEGRAM_BOT_TOKEN`, `FUNDRADAR_TELEGRAM_CHAT_ID` | empty | Optional Telegram alerts; empty disables them |
+| `FUNDRADAR_ALERT_WEBHOOK` | empty | Optional webhook for alerts |
+
+`apps/worker/.env.example` also lists variables that the code does not read (for example `FUNDRADAR_LOG_LEVEL`, `SUPABASE_URL`). Setting them has no effect.
 
 ### Domain-Specific Configuration
 
-Per-domain settings are in `data/derived/domain_policies.json`:
+Per-domain settings are in `data/derived/domain_policies.json`. The file is gitignored; create it when you need an override:
 
 ```json
 {
-  "www.example.com": {
-    "requires_headless": true,
-    "ssl_verify": false,
-    "rate_limit_seconds": 3.0,
-    "reason": "JS-rendered SPA"
+  "policies": {
+    "www.example.com": {
+      "requires_headless": true,
+      "ssl_verify": false,
+      "rate_limit_delay": 3.0,
+      "timeout": 60,
+      "reason": "JS-rendered SPA"
+    }
   }
 }
 ```
+
+Other keys: `retry_count`, `skip_monitoring`. A lookup tries the domain with and without `www.`.
 
 ### Fund-Specific Extractors
 
@@ -103,7 +118,7 @@ Each fund's scraping logic is in `apps/worker/fundradar_worker/strategies/extrac
 - `URLS` — which page paths to fetch
 - `EXTRACTORS` — extraction functions per data type
 
-Fund-specific extractor notes:
+Fund-specific extractor notes (examples of routing patterns; the extractor files are the source of truth):
 - `yarpa-investimenti-sgr`: custom `team`/`news` extractors; `portfolio` is `None` (fund-of-funds, no company-level portfolio page)
   - `team`: `https://www.yarpa.it/le-persone/`; `news`: `https://www.yarpa.it/press/`
 - `eiffel`: reads embedded `__FRONTITY_CONNECT_STATE__` JSON (JS-app rendered); `portfolio` is `None` (no stable public portfolio grid)
@@ -173,39 +188,30 @@ python -m fundradar_worker.cli reset-backoff --all
 1. Verify Playwright is installed: `playwright install chromium`
 2. Add headless requirement to `data/derived/domain_policies.json`:
    ```json
-   { "domain.com": { "requires_headless": true } }
+   { "policies": { "domain.com": { "requires_headless": true } } }
    ```
 3. Re-run: `pnpm pipeline --slugs fund-slug --force-extract`
 
-If Playwright suddenly asks to install browsers again after previously working, first check whether a cleaner tool removed `~/Library/Caches/ms-playwright`. CCleaner, `mac-cleaner-cli`, and similar tools can delete the browser runtime without removing the Python `playwright` package.
-
-### `pnpm` / `node` Hits ICU or Legacy Node Errors
-
-**Symptom:** `node -v` or `pnpm` fails from a login shell with a missing ICU library under `/usr/local/bin/node`.
-
-**Fix:**
-1. Check the login-shell resolution path: `zsh -lc 'which node && node -v && which pnpm && pnpm -v'`
-2. If it points to `/usr/local/bin/node`, initialize nvm in `~/.zprofile` and run the nvm default version in login shells.
-3. Re-test before debugging the repo itself. This is a machine PATH issue, not a Fundradar build failure.
+If Playwright asks to install browsers again after it worked before, a disk-cleaner tool may have deleted the Playwright browser cache. Run `playwright install chromium` again.
 
 ### Preflight Blocks Before Pipeline Starts
 
-**Symptom:** Pipeline exits before step execution with warnings about low free disk, missing canonical outputs, or iCloud artifacts.
+**Symptom:** Pipeline exits before step execution with warnings about low free disk, missing canonical outputs, or file-sync artifacts.
 
 **Fix:**
 1. Free disk space first if the warning mentions critically low space.
-2. Check `data/derived/` for iCloud placeholders or numbered copies instead of changing output paths.
-3. Move conflict copies out of the repo into `~/Code/Fundradar/recovery/` and keep the canonical filename in place.
+2. Check `data/derived/` for sync placeholders (`.icloud`) or numbered copies (`name 2.json`). Do not change output paths.
+3. Move conflict copies out of the repo and keep the canonical filename in place.
 4. Re-run `pnpm pipeline` only after the preflight warnings are resolved.
 
 The preflight is intentionally conservative. It is cheaper to stop than to spend API calls while `data/derived/` or the worker environment is in an unsafe state.
 
 ### Global Monitor Timeout / `STUCK:` Domains
 
-The monitor batch timeout is dynamic and based on domain waves plus per-domain sequential work. If it fires, the monitor now stops scheduling more domain URLs, cancels queued domain tasks, and gives in-flight fetches one per-URL timeout window to drain before cleanup.
+The monitor batch timeout is dynamic and based on domain waves plus per-domain sequential work. If it fires, the monitor stops scheduling more domain URLs, cancels queued domain tasks, and gives in-flight fetches one per-URL timeout window to drain before cleanup.
 
 If this warning still appears repeatedly:
-1. Treat it as a real slow/stuck-domain problem, not as an iCloud/output-path issue.
+1. Treat it as a real slow or stuck domain, not as an output-path issue.
 2. Check the listed domains first for bot protection, broken pages, or JS-heavy pages that should be routed more narrowly in the extractor.
 3. Only raise the timeout after confirming the domain behavior is legitimate and the extractor URL set is correct.
 
@@ -245,7 +251,7 @@ instead of monitor/pipeline changes:
    pnpm pipeline --slugs fund-slug --force-extract
    ```
 
-Current extractor-routed blocked funds:
+Extractor-routed blocked funds (check the extractor files for the current routing):
 - `algebris` (news via scoped RSS fallback)
 - `capital-dynamics-sgr` (news via scoped RSS fallback)
 - `carlyle`
@@ -291,7 +297,7 @@ Expected behavior:
 - The same signal should appear on each tagged fund page without duplicating cards in `/signals`.
 
 How it works:
-- RSS monitor emits `related_fund_slugs` for each signal when multiple funds are involved.
+- The RSS monitor writes `related_fund_slugs` for each signal when multiple funds are involved.
 - Web loaders keep backward compatibility by inferring extra fund tags from signal text for older rows.
 - Both layers suppress speculative-only candidate mentions (for example `among interested bidders`,
   `in the running`, `fra/tra gli interessati`) so passive rumor mentions do not become related fund tags.
@@ -315,16 +321,12 @@ also infers extra tags for legacy rows that predate this field.
 
 ### Translation Failures (IT→EN)
 
-`enrich_signals_openai.py` sends a Telegram alert when Italian fields are
-detected but translation is blocked/partial (e.g., DeepL/OpenAI DNS/connectivity
-errors, missing API keys).
+When Italian fields remain but translation is blocked or partial (DNS or connectivity
+errors, missing API keys), `enrich_signals_openai.py` logs it. If Telegram is configured
+(`FUNDRADAR_TELEGRAM_BOT_TOKEN` and `FUNDRADAR_TELEGRAM_CHAT_ID`), it also sends an alert.
 
-Required env vars for Telegram delivery:
-- `FUNDRADAR_TELEGRAM_BOT_TOKEN`
-- `FUNDRADAR_TELEGRAM_CHAT_ID`
-
-Optional toggle:
-- `SIGNAL_TRANSLATION_ALERTS=1` (default on; set `0` to disable)
+Toggles:
+- `SIGNAL_TRANSLATION_ALERTS=1` (default on; set `0` to disable the alert)
 - `SIGNAL_ENRICH_STRICT_NETWORK=1` (default on):
   - when DNS/API connectivity degrades during enrich, script exits with code `2`
   - pipeline auto-retries and records a step warning instead of silently passing
@@ -334,16 +336,18 @@ Latest network health status is persisted to:
 
 ### Rate Limiting / Timeouts
 
+Both fixes below edit `data/derived/domain_policies.json`.
+
 **Fix:** Increase delay in `data/derived/domain_policies.json`:
 ```json
-{ "domain.com": { "rate_limit_seconds": 5.0 } }
+{ "policies": { "domain.com": { "rate_limit_delay": 5.0 } } }
 ```
 
 ### SSL Certificate Errors
 
 **Fix:** Disable SSL verification in `data/derived/domain_policies.json`:
 ```json
-{ "domain.com": { "ssl_verify": false } }
+{ "policies": { "domain.com": { "ssl_verify": false } } }
 ```
 
 ### 304 Not Modified + --force-extract

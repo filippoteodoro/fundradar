@@ -45,5 +45,5 @@ All data comes from JSON files in `data/` and `data/derived/`. See `src/lib/data
 
 ## See Also
 
-- `CLAUDE.md` in this directory for detailed web architecture docs
-- Root `AGENTS.md` for project-wide instructions
+- [`CLAUDE.md`](./CLAUDE.md) in this directory for detailed web architecture notes
+- Root [`AGENTS.md`](../../AGENTS.md) for project-wide rules

@@ -1,7 +1,6 @@
-# Web App — Claude Code Instructions
+# Web App — Agent and Contributor Notes
 
-## AI Model Policy
-**DO NOT use ChatGPT 4o for any task.** That model hallucinates too frequently. Use `gpt-5.4-mini` or better for all OpenAI API calls.
+Project-wide rules are in the root `AGENTS.md`. This file owns the web app details.
 
 ## Architecture
 Next.js 14 App Router. All data from JSON files on disk — no database, no API layer for data reads. Components use inline styles (no Tailwind). Charts use Recharts.
@@ -19,9 +18,11 @@ cachedPemDeals        → pem_deals.json
 cachedFilteredSignals → detected_signals_filtered.json
 cachedPortfolios      → portfolio_items.json (includes fund_source_urls)
 cachedLinkedInUrls    → linkedin/fund_linkedin_urls.json
-cachedTeamAnalytics   → fund_people_stats.json
+cachedTeamAnalytics   → linkedin/fund_people_stats.json
 cachedCompanyProfiles → company_profiles.json (canonical sector/HQ/description/website per company)
 ```
+
+`data.ts` has more `let cached*` variables (aliases, PEM status overrides, companies, company signal index). Run `grep -n "^let cached" apps/web/src/lib/data.ts` for the full list.
 
 ### What NOT To Do
 - Do NOT add a new `let cached*` variable without understanding that it persists forever
@@ -47,23 +48,24 @@ Falls back to `../../` if none match — **this fallback can be wrong** in non-s
 
 ### Error Handling — Inconsistent
 - Some loaders log errors with `console.error` (loadDatabase, loadFilteredSignals, loadPortfolios)
-- Some loaders silently return empty defaults (loadPortfolioSourceUrls)
+- Some loaders return empty defaults with only a warning, or with no log
 - File-not-found vs parse-error are not distinguished
 - Follow the existing pattern of whichever loader is closest to what you're adding
 
 ## Fund Visibility — Gemini-Confirmed Zero-Italy Funds
 
-**Rule**: Funds confirmed by Gemini to have zero Italian assets must NOT appear on the website.
+**Rule** (stated in root `AGENTS.md`): funds that Gemini confirms have zero Italian assets must NOT appear on the website.
 
 A fund is "confirmed zero-Italy" when **all** of these are true:
 1. `completion_ready=True` in `gemini_fund_asset_audit.json` (audit ran fully)
 2. `italian_portfolio_count=0` (no existing Italian entries)
 3. `missing_assets=[]` (Gemini found nothing missing either)
 
-**Current confirmed list**: `gemini_fund_asset_zero_italy_verified.json` → `verified_slugs[]`
-Current entries: `["canova-sgr"]`
+**Confirmed list**: `data/derived/gemini_fund_asset_zero_italy_verified.json` → `verified_slugs[]` (committed).
 
-**Implementation needed** (not yet done): Filter `getAllFunds()` to exclude slugs in `verified_slugs`. Load `gemini_fund_asset_zero_italy_verified.json` at startup (add to the cache list), join against `getAllFunds()`, and strip the matching slugs before returning. The fund page at `/funds/[slug]` should 404 for hidden funds. `generateStaticParams()` must also exclude them.
+**Status**: the web app does not read this file. `getAllFunds()` still returns the listed funds.
+
+**Implementation spec**: filter `getAllFunds()` to exclude slugs in `verified_slugs`. Load `gemini_fund_asset_zero_italy_verified.json` at startup (add to the cache list), join against `getAllFunds()`, and strip the matching slugs before returning. The fund page at `/funds/[slug]` should 404 for hidden funds. `generateStaticParams()` must also exclude them.
 
 **Important**: only hide funds that are IN `verified_slugs`. Do NOT hide funds simply because they have 0 portfolio entries — those may not have been audited yet. The whitelist is the authoritative gate.
 
@@ -83,7 +85,7 @@ Current entries: `["canova-sgr"]`
 | `getAllPortfolioCompanyNames()` | `Record<string, string[]>` | `portfolio_items.json` |
 | `getAllCompanies()` | `Company[]` | aggregated from all funds' `getPortfolioForFund()` |
 | `getCompanyBySlug(slug)` | `Company \| undefined` | via `getAllCompanies()` |
-| `getTeamAnalyticsForFund(slug)` | `TeamAnalytics \| null` | `fund_people_stats.json` |
+| `getTeamAnalyticsForFund(slug)` | `TeamAnalytics \| null` | `linkedin/fund_people_stats.json` |
 | `isMegaFund(slug)` | `boolean` | `MEGA_FUNDS` set in `data.ts` |
 | `getManualLinkedinProfileFundSlugs()` | `string[]` | `linkedin/manual_profiles.json` (+ alias normalization) |
 | `isManualLinkedinProfileFund(slug)` | `boolean` | via `getManualLinkedinProfileFundSlugs()` |
@@ -99,11 +101,11 @@ Company pages (`/companies/[slug]`) display a single `Company` object aggregated
 
 **Why this works**: `signal_to_portfolio.py` runs a KB normalization pass on every pipeline execution that ensures all fund portfolio entries for the same company have the same sector/HQ/website (filling gaps and upgrading non-standard sectors). By the time `getAllCompanies()` runs, first-fund-wins is harmless because all funds agree.
 
-**Remaining limitation**: HQ in the KB is selected by most-common vote (not Gemini-source-aware). If a wrong HQ from scraping appears in more funds than the Gemini-correct one, the web page will show the wrong one. Current workaround: manual fix in `portfolio_items.json` for the conflicting entries (they show up in the `signal_to_portfolio.py` conflict report). Improvement path: weight entries with `headquarters_source_url` set higher in the KB vote.
+**Limitation**: the KB selects HQ by most-common vote, not by source. If a wrong scraped HQ appears in more funds than the Gemini-correct one, the web page shows the wrong one. Fix the conflicting entries in `portfolio_items.json` by hand (the `signal_to_portfolio.py` conflict report lists them). A possible code fix: give entries with `headquarters_source_url` more weight in the KB vote.
 
 ## LinkedIn People Analytics Source-of-Truth
 
-- `MEGA_FUNDS` is only for excluding misleading dummy analytics for global funds with no real data.
+- `MEGA_FUNDS` in `data.ts` marks global funds for which team analytics would mislead. It does not control data loading.
 - "Italy-only profiles" note coverage comes only from `data/derived/linkedin/manual_profiles.json`.
 - Never infer manual-profile coverage from mega-fund membership.
 
@@ -115,7 +117,7 @@ Company pages (`/companies/[slug]`) display a single `Company` object aggregated
 | `/funds/[slug]` | `getFundBySlug()` | `db.json` |
 | `/funds/[slug]` | `getPortfolioForFund()` | `portfolio_items.json` + `pem_deals.json` |
 | `/funds/[slug]` | `getDealsForFund()` | `pem_deals.json` |
-| `/funds/[slug]` | `getTeamAnalyticsForFund()` | `fund_people_stats.json` |
+| `/funds/[slug]` | `getTeamAnalyticsForFund()` | `linkedin/fund_people_stats.json` |
 | `/funds/[slug]` | `getSignalsForFund()` | `detected_signals_filtered.json` ONLY |
 | `/companies` | `getAllCompanies()` | aggregated from all `getPortfolioForFund()` |
 | `/companies/[slug]` | `getCompanyBySlug()` | aggregated from all `getPortfolioForFund()` |
@@ -195,7 +197,7 @@ Merges from 2 sources:
    - If no match: added as new entry with `status: 'exited'`
    - `entry_date` is fabricated as `${source_year}-01-01` when only year is known
 
-Portfolio entries do NOT come from signals (too fragile — primary source of garbage entries). Deal signals are visible in the Signals tab but do not create portfolio entries.
+The web merge does not read signals. Signal-derived portfolio entries reach `portfolio_items.json` only through the worker step `signal_to_portfolio.py`, which validates target names first.
 
 **Watch out**: The in-place mutation pattern means the cached `websiteCompanies` array gets modified. This is safe because the cache is populated fresh per server start, but it would break if anyone added cache clearing without re-reading the portfolio file.
 
@@ -362,7 +364,7 @@ Internal-only module for evaluating data completeness per fund. NOT displayed on
 | AIFI | 20% | AUM, fund count, portfolio count, executives, investment range, contacts |
 | Profile | 15% | Category, website, description, location, sector/strategy tags |
 
-**Team is excluded** — `fund_people_stats.json` contains dummy/placeholder data. Re-enable when real LinkedIn data is available.
+**Team is excluded** — `fund_people_stats.json` covers only some funds, so a team score would penalize the others.
 
 ### Signal Quality Fields (undeclared in TS)
 

@@ -1,11 +1,13 @@
-# Worker — Claude Code Instructions
+# Worker — Agent and Contributor Notes
+
+Project-wide rules are in the root `AGENTS.md`. This file owns the worker details.
 
 ## Architecture
 Python 3.10+ worker. Fetches fund websites, extracts structured data, detects changes, and enriches signals. All output is JSON files in `data/derived/` consumed by the web app.
 
 Key modules: core pipeline, fund-specific extractors (with URLS dicts), domain policies.
 
-## Pipeline (9 steps)
+## Pipeline (10 steps)
 
 > When signal quality is wrong — wrong type, missing signals, garbage passing through, text artifacts, portfolio not updated — see [`/docs/check_signals.md`](/docs/check_signals.md) for the full diagnostic and fix guide.
 
@@ -15,10 +17,10 @@ monitor → rss → translate → normalize_sectors → normalize_portfolio → 
 
 1. **monitor** — Fetch pages via Playwright/requests, extract data using strategies, detect changes via diffing. Exit detection: companies removed from fund website are marked `status: "exited"` (not silently dropped). Signal-derived and Gemini-enriched entries are preserved unchanged.
 2. **rss** — Fetch Italian news RSS feeds (BeBeez, FinanceCommunity, Il Sole 24 Ore, etc.), match articles to funds, append signals. Optional: skipped if no feeds configured.
-3. **translate** (`translate_signals.py`) — **CRITICAL ORDER** — Translates Italian/French signal text to English using DeepL (primary, 500K chars/month free × 2 keys) with OpenAI fallback. Writes back to `detected_signals.json` with originals in `*_original` fields. **Must run BEFORE filter** — filter patterns are English-language; Italian signals score lower and get misclassified. Optional: skips gracefully if no API keys, but quality degrades. Shared logic in `fundradar_worker/translator.py`.
+3. **translate** (`translate_signals.py`) — **CRITICAL ORDER** — Translates Italian/French signal text to English with DeepL (primary) and Azure Translator (fallback). Writes back to `detected_signals.json` with originals in `*_original` fields. **Must run BEFORE filter** — filter patterns are English-language; Italian signals score lower and get misclassified. Optional: skips gracefully if no API keys, but quality degrades. Shared logic in `fundradar_worker/translator.py`.
 4. **normalize_sectors** — Normalize fund + company sectors to canonical 30-sector taxonomy. `is_garbage_sector()` rejects: >50 chars with spaces, >5 words, known junk values. Unmapped sectors that survive are left as-is and reported — add a keyword to `SECTOR_KEYWORDS` to fix, or fix the extractor. **Real sector names are short** — the longest canonical is "Transportation & Logistics" (26 chars). Anything longer is a description that slipped through an extractor.
 5. **normalize_portfolio** — Normalize company data across fund portfolios (names, dedup)
-6. **enrich_portfolio** (`enrich_portfolio_gemini_full.py`) — Fill missing sector/HQ/description via Gemini 3 Flash with Google Search grounding. **Optional**: auto-skips if `GEMINI_API_KEY` not set. Capped at 50 API calls in pipeline mode.
+6. **enrich_portfolio** (`enrich_portfolio_gemini_full.py`) — Fill missing sector/HQ/description through Gemini (`GEMINI_MODEL`) with Google Search grounding. **Optional**: auto-skips if `GEMINI_API_KEY` not set. Capped at 50 API calls in pipeline mode.
 7. **filter** (`filter_signals.py`) — Multi-gate quality pipeline, threshold at score >= 80 (configurable via `SIGNAL_MIN_QUALITY` env var):
    - Garbage detection (regex patterns), dedup (composite key + semantic 50% word overlap)
    - Misattribution detection (signals naming a different fund than tagged)
@@ -30,7 +32,7 @@ monitor → rss → translate → normalize_sectors → normalize_portfolio → 
    - Exit detection uses proper domain matching via `fund.get("website")` from db.json (not slug heuristics)
    - Ecosystem newsrooms flagged via `fund.get("is_ecosystem_newsroom")` in db.json (not hardcoded)
    - Incremental cache: warm runs reuse unchanged raw-signal fingerprints from `data/derived/signal_filter_progress.json` and fully rescore only new/changed raw signals. The cache auto-invalidates when filter code, shared signal-cleaning/correction code, `data/db.json`, or filter thresholds change. Use `python scripts/filter_signals.py --force-full` only when you intentionally want to bypass reuse.
-8. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). Also extracts `target_companies` for deal/exit signals (used by step 9). **DO NOT use ChatGPT 4o** — it hallucinates too frequently. Use `gpt-5.4-mini` or better. Contains a safety-net translation pass for any Italian that survived step 3 (e.g., LLM-generated Italian summaries). **enriched_summary coverage is intentionally <100%** — signals where the LLM summary is title-redundant (85%+ word overlap) get `enriched_summary=""` and the frontend falls back to displaying the title. This is correct behavior, not data loss. Progress tracking (`signal_enrichment_progress.json`) still marks them as processed, so re-runs skip them. **No keep/drop filtering** — the enricher does NOT drop signals; `filter_signals.py` (step 7) is the sole quality gate. The "done" marker is `enriched_at` (set on every processed signal).
+8. **enrich** — AI summaries via OpenAI (only runs on filtered signals to control cost). Also extracts `target_companies` for deal/exit signals (used by step 9). The model is `OPENAI_MODEL` in `paths.py` (never GPT-4o). Contains a safety-net translation pass for any Italian that survived step 3 (e.g., LLM-generated Italian summaries). **enriched_summary coverage is intentionally <100%** — signals where the LLM summary is title-redundant (85%+ word overlap) get `enriched_summary=""` and the frontend falls back to displaying the title. This is correct behavior, not data loss. Progress tracking (`signal_enrichment_progress.json`) still marks them as processed, so re-runs skip them. **No keep/drop filtering** — the enricher does NOT drop signals; `filter_signals.py` (step 7) is the sole quality gate. The "done" marker is `enriched_at` (set on every processed signal).
    - The web feed prefers `detected_signals_enriched.json`. After any filter/classification/text-cleaning change, rerun step 8 as well so enriched output picks up the corrected `signal_type`, title, and summary fallback fields.
 9. **signal_to_portfolio** (`signal_to_portfolio.py`) — Convert deal/exit signals into portfolio entries. **Purely local, zero API calls** — reads `target_companies` pre-extracted by step 8 (OpenAI enrichment). Trust hierarchy: fund press (0.90) > verified news (0.80) > news (0.75) > other (0.70) > rumor (0.60). Progress tracked to avoid re-processing. Also updates exit status for existing entries when exit signals match.
    - Reconciliation behavior: previously processed signals are automatically reprocessed when portfolio sync is still unresolved (investment target still missing or exit target not exited). This prevents progress-state drift.
@@ -38,7 +40,7 @@ monitor → rss → translate → normalize_sectors → normalize_portfolio → 
    - Target company names are cleaned/validated with `portfolio_validation` before insert to block navigation/noise terms.
    - **Organizer fund routing** (`_find_organizer_slugs()`): for each deal signal, scans text for "organized/led/arranged by [Fund]" and "[Fund] organizes/leads [deal]" patterns. Matched funds are routed the signal with an `organizer_signal_ids` override: `is_direct_investment=True`, `action="investment"`. This fixes the structural gap where a fund organizing a club deal (= lead investor in Italian PE) was invisible to the pipeline because `fund_slug` pointed to a co-investor. Zero API calls — purely regex against fund names from db.json.
    - **Cross-portfolio KB normalization** (runs on EVERY execution, zero API calls): `build_company_knowledge_base()` builds a lookup of canonical sector/HQ/description/website from all portfolio entries. Used two ways: (a) gap-fill — fills any empty field from KB; (b) sector taxonomy upgrade — if an entry's existing sector is non-standard (not in 30-sector list) but KB canonical IS standard → overwrites. KB prefers taxonomy-standard sectors when building canonical. Description canonical = longest Gemini bio (non-signal-derived entries only). `check_portfolio_consistency()` runs after normalization and reports companies where existing values DISAGREE with KB canonical (capped at 10 in output, shows field, fund, actual value, canonical value). These conflicts require manual review — they are not auto-fixed to avoid overwriting intentional Gemini data.
-   - **KB canonical selection quality**: sector ✅ (taxonomy-preferred = effectively Gemini-aware); description ✅ (longest = Gemini bios win); HQ ⚠️ (most-common, not Gemini-source-aware — could pick stale scraped HQ if more funds have it than the Gemini-corrected one). Improvement path: prefer entries with `headquarters_source_url` set in the HQ canonical vote.
+   - **KB canonical selection quality**: sector is taxonomy-preferred, so Gemini values win. Description is the longest, so Gemini bios win. HQ is the most common value and ignores the source, so a stale scraped HQ can win when more funds carry it. A possible fix: prefer entries with `headquarters_source_url` in the HQ vote.
    - **`italy_relevant=False` guard**: signals with `italy_relevant=False` are skipped entirely for portfolio entry creation.
    - **Add-on acquisitions are NOT portfolio entries**: when `is_direct_investment=False`, the LLM determined a *portfolio company* (not the fund) made the acquisition. These signals must be classified as `portfolio_update`, NOT `deal_announced`. Do NOT try to add them to the portfolio — the fund did not make a new investment. If a signal is misclassified as `deal_announced` for an add-on, fix the classification in `signal_corrections.py` → `correct_deal()` using `_RE_PORTFOLIO_CO_AS_ACQUIRER`.
 
@@ -121,9 +123,9 @@ When working in this file, be aware of:
 - Exception handling inconsistency: some places log + continue, others swallow silently
 - Heavy import section with optional try/except guards
 
-## Site Configurations — DELETED
+## URL Configuration
 
-The YAML files that were in `data/site_configs/` have been archived to `archive/deprecated/site_configs/`. They are no longer used by any code. All URL configuration now lives in each extractor's `URLS` dict. The monitor writes portfolio source URLs directly to `portfolio_items.json`.
+All URL configuration is in each extractor's `URLS` dict. There are no per-site YAML configs. The monitor writes portfolio source URLs directly to `portfolio_items.json`.
 
 ## Extraction Strategies
 
@@ -133,7 +135,7 @@ The YAML files that were in `data/site_configs/` have been archived to `archive/
 2. **If site-specific extractor returned results, generic strategies are SKIPPED** (prevents contamination)
 3. Only if no site-specific extractor exists or it returned nothing: default strategy chain runs: NEXT_DATA → JSON_LD → HTML_CARDS → LOGO_GRID
 
-Generic strategies are skipped when a custom extractor succeeds because they often add garbage entries (navigation text, non-relevant companies from global portfolios, etc.). This was the primary source of portfolio data quality issues.
+Generic strategies are skipped when a custom extractor succeeds, because they often add garbage entries (navigation text, non-relevant companies from global portfolios, etc.).
 
 Confidence scoring filters low-quality results (minimum 0.3).
 
@@ -163,9 +165,9 @@ Many extractors were auto-generated with template paths like `/investments`, `/m
 4. **Single-page sites**: use `"/"` only if the homepage contains a real structured portfolio/team list
 5. **No public portfolio index**: set `URLS["portfolio"] = None` and keep data manual/PEM-derived. Do **not** use homepage `"/"` as a placeholder; generic extraction will create sentence/news-title garbage companies.
 6. **Check `url_status.json`** for known working paths for a domain (search by domain name)
-7. **NEVER set URLS to None because the site is temporarily down.** A 500/503 today does not mean the URL is wrong — it means the site is having issues. Keep good URLs intact. Only set to `None` if the page genuinely does not exist or has been permanently removed. Known temporarily-down sites: `www.apax.com` (subpages `/partnerships/`, `/people/our-team/`, `/news-views/` return 500), `www.aimpact.org` (`/portafoglio`, `/en/news` return 503). URLs are correct — wait for recovery.
+7. **NEVER set URLS to None because the site is temporarily down.** A 500/503 does not mean the URL is wrong. Keep good URLs. Set `None` only when the page does not exist or is permanently removed.
 
-The `# auto-generated from fund_urls.json` comment in URLS blocks indicates paths that may not have been verified. Replace with `# verified against live site` after checking.
+A `# auto-generated from fund_urls.json` comment in a URLS block marks paths that may be unverified. After you check them, replace it with `# verified against live site`.
 
 ### When an Extractor Breaks or Doesn't Exist — Fallback Tools
 
@@ -179,7 +181,7 @@ Two libraries to reach for when a hand-written BeautifulSoup extractor breaks af
 1. Fetch the page, strip HTML to plain text (BeautifulSoup `.get_text()` or `sanitize_text()`)
 2. Run LangExtract with a prompt + 1-2 examples of what a portfolio company entry looks like
 3. Get structured `{name, sector, description}` dicts back
-Works with `GEMINI_MODEL` from `paths.py` — no extra API key needed. Most useful for: no-extractor funds, heavily JS-rendered sites after Playwright fetch, and pages where the structure is inconsistent.
+It can use `GEMINI_MODEL` from `paths.py` and the existing `GEMINI_API_KEY`. Neither library is a project dependency; add it to `pyproject.toml` if you use it. Most useful for: no-extractor funds, heavily JS-rendered sites after Playwright fetch, and pages where the structure is inconsistent.
 
 ### Portfolio Status Detection — CRITICAL
 
@@ -247,15 +249,13 @@ Normalizes company names for deduplication across sources:
 | `quality_monitor.py` | Extraction quality metrics |
 | `health_report.py` | Overall system health reporting |
 
-This checkout lives at `~/Code/Fundradar` (the non-iCloud local mirror). The `data/derived/` iCloud-artifact handling below is defensive: it still applies if the repo is ever placed back under iCloud Drive. Hidden placeholders like `.detected_signals.json.icloud` plus numbered copies like `detected_signals 2.json` mean iCloud conflict/offload behavior, not a new output path. `io_utils.py` is responsible for this: `safe_json_write()` removes stale `.icloud` placeholders before atomic writes, and both `backup_before_write()` and pipeline output validation recover numbered copies back to the canonical filename. Do not change pipeline output paths to match numbered copies.
+`io_utils.py` protects `data/derived/` against file-sync tools such as iCloud Drive that leave placeholders or numbered conflict copies such as `detected_signals 2.json`. `safe_json_write()` removes stale `.icloud` placeholders before atomic writes. `backup_before_write()` and the pipeline output validation move numbered copies back to the canonical filename. Do not change pipeline output paths to match numbered copies.
 
-**Gitignored data is NOT recoverable from a fresh clone.** `data/models/` (retrain via `train_signal_classifier.py`), `data/derived/linkedin/raw/` (irreplaceable scraped data — re-scrape costs Apify $), and `data/pem/*.pdf` are gitignored, so moving/recloning the repo (as the iCloud→`~/Code` move did) leaves them behind. Their *derived* outputs (`linkedin/fund_people_stats.json`, `team_items.json`, `pem_deals.json`) ARE committed, so the website is unaffected — but never assume the raw dirs survive a relocation.
+**Gitignored data is NOT in a fresh clone.** `data/models/` (retrain with `train_signal_classifier.py`), `data/derived/linkedin/raw/` (paid Apify re-scrape) and `data/pem/*.pdf` are gitignored. Their derived outputs (`linkedin/fund_people_stats.json`, `pem_deals.json`) are committed, so the website does not depend on them.
 
-`pnpm pipeline` now runs a preflight before any step executes. It blocks when the volume is critically low on free space or when canonical pipeline files are missing behind iCloud placeholders/conflict copies. This is intentional: fail before API spend rather than attempt a run in a state that can silently corrupt `data/derived/`.
+`pnpm pipeline` runs a preflight before any step. It stops when free disk space is critically low or when canonical pipeline files are missing or replaced by sync placeholders or conflict copies. It fails before any API spend instead of running in a state that can corrupt `data/derived/`.
 
-`apps/worker/.venv` lives at `~/Code/Fundradar/apps/worker/.venv` (non-iCloud), which avoids the iCloud-offload failure mode where compiled wheels and dist-info dirs get duplicated (`*.icloud`, `name 2.dist-info`) and imports fail with misleading "package not installed" errors. The venv is also gitignored, so a fresh clone/relocation has NO venv — rebuild with `pip install -e ".[dev,ml]"` then `python -m playwright install chromium` (the Playwright browser build must match the installed `playwright` version, or fetches fail with "Executable doesn't exist"). If SDK imports suddenly fail without code changes, inspect the venv for iCloud artifacts and rebuild before debugging pipeline code.
-
-Cleaner apps can recreate the same class of runtime breakage even when the repo itself is fine. Do not let CCleaner, `mac-cleaner-cli`, or similar tools remove development caches, browser caches, temp files, or Python/Node environments for Fundradar. Those tools can delete Playwright browser binaries and package caches, which surfaces later as missing-browser popups or broken imports.
+The worker `.venv` is gitignored. Build it with `pip install -e ".[dev,ml]"`, then `python -m playwright install chromium`. The Playwright browser build must match the installed `playwright` version, or fetches fail with "Executable doesn't exist". If imports fail without a code change, rebuild the venv before you debug pipeline code. Disk-cleaner tools can delete the Playwright browser cache; reinstall the browser if that happens.
 
 `data/db.json` is curated core data, not disposable worker state. If a pipeline/recovery session leaves `db.json` with a broad unrelated diff (for example mass `sector_tags` rewrites), treat that as a separate review item rather than bundling it into a worker recovery commit. Restore from git unless you can justify the content change.
 
@@ -299,10 +299,11 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 
 `detect_unknown_fund_mentions(signals, known_slugs)` in `scripts/fund_gap_detector.py` scans filtered signal text for Italian-style fund names (matching `[Proper Names] SGR/Venture Partners/etc.`) that are not in `known_slugs`. Called by `filter_signals.py` after writing `detected_signals_filtered.json`.
 
-- Deduplicates against `data/derived/unknown_fund_gaps.json` (30-day window) — no duplicate Telegram alerts for already-known gaps
-- Results sent via `send_unknown_fund_alerts()` in `fundradar_worker/alerting.py`
+- Deduplicates against `data/derived/unknown_fund_gaps.json` (30-day window), so a known gap does not alert twice
+- `send_unknown_fund_alerts()` in `fundradar_worker/alerting.py` sends the results to Telegram when `FUNDRADAR_TELEGRAM_BOT_TOKEN` and `FUNDRADAR_TELEGRAM_CHAT_ID` are set. Otherwise the pipeline log is the only output
 - The whole block is wrapped in try/except — gap detection failures never block the filter output
 - `unknown_fund_gaps.json` is worker state only, not consumed by web; safe to delete to reset the 30-day dedup window
+
 **When adding a new signal type**: update `signal_patterns.py` (CORE_GEO_TYPES/CORE_QUALITY_TYPES), `signal_corrections.py`, `filter_signals.py`, `enrich_signals_openai.py`, `signalProcessing.ts`, `types.ts`, `SignalsFeed.tsx`. Then retrain the ML classifier (`python scripts/train_signal_classifier.py`) so the new type gets a passthrough mapping in `map_type_to_signal_type()`.
 
 ### signal_text_utils.py — Architecture Notes
@@ -359,11 +360,11 @@ The signal classification pipeline uses 4 shared modules to prevent pattern drif
 2. Remove their IDs from `processed_ids` in `signal_enrichment_progress.json`
 3. On next full pipeline run, the enricher will add proper LLM summaries to them
 
-**Do NOT** re-run the enricher to fix this — costs ~$0.30/run. Direct JSON edits are free.
+**Do NOT** re-run the enricher to fix this. It makes paid API calls; direct JSON edits are free.
 
-### Enricher Token Budget — gpt-5.4-mini Reasoning Models
+### Enricher Token Budget — Reasoning Models
 
-**`gpt-5.4-mini` is a reasoning model** — it uses internal chain-of-thought tokens before generating visible output. With `max_completion_tokens=1024`, complex signals exhaust the token budget on reasoning before producing any JSON, returning `finish_reason=length` with empty `message.content`. **Fix**: detect `finish_reason == "length"` on empty response and double `max_completion_tokens` on retry (1024 → 2048). This adds <$0.001 per affected signal.
+The configured OpenAI model is a reasoning model: it spends hidden reasoning tokens before visible output. With `max_completion_tokens=1024`, a complex signal can spend the whole budget on reasoning and return `finish_reason=length` with empty `message.content`. The enricher detects `finish_reason == "length"` on an empty response and retries with double the budget (1024 → 2048).
 
 ### Enricher Done/Progress Tracking
 
@@ -397,10 +398,12 @@ The filter uses an optional sklearn ML classifier (`signal_classifier.py`) for c
 | `signal_keep_model.joblib` | Binary LogisticRegression for keep/discard |
 | `signal_feature_meta.json` | Metadata: labels, thresholds, train counts |
 
-**Current model**:
+`data/models/` is gitignored, so a fresh clone has no model files. Without them the filter uses rule-based classification only. Train the models with the command below (needs the `ml` extra).
+
+**Model design**:
 - Algorithm: `LogisticRegression(class_weight='balanced', solver='lbfgs')` for TYPE; `liblinear` for KEEP
-- TYPE: 11 classes, trained on 337 filtered signals (ground truth). Test macro-F1: ~0.43 (expected — small classes like `partnership`/`job_posting` won't produce confident predictions; rule-based corrections handle them)
-- KEEP: trained on 337 pos + 1,668 neg signals (raw minus filtered). Test keep-F1: ~0.75, accuracy 0.90
+- TYPE: 11 classes, trained on the filtered signals (ground truth). Macro-F1 is low by design: small classes like `partnership`/`job_posting` rarely get confident predictions, and rule-based corrections handle them. `signal_feature_meta.json` records the training counts
+- KEEP: trained on filtered signals (positive) against raw-minus-filtered signals (negative)
 - Thresholds: keep ≥ 0.70, type ≥ 0.60 (stored in `signal_feature_meta.json`, override via `SIGNAL_ML_KEEP_THRESHOLD` / `SIGNAL_ML_TYPE_THRESHOLD` env vars)
 - Features: TF-IDF (20k ngrams) + 18 engineered features (amount/date/keyword flags, page_category, italy_relevant, relevance_score)
 
@@ -488,67 +491,11 @@ Some filter behavior is controlled by fund-level metadata in db.json (not hardco
 To add a new ecosystem newsroom: set `"is_ecosystem_newsroom": true` in the fund's db.json entry — no code changes needed.
 
 ### LinkedIn Modules (`linkedin/`)
-`apify_client.py`, `batch_scraper.py`, `people_scraper.py`, `people_stats.py`, `post_classifier.py`, `posts_scraper.py`, `priority_ranker.py`, `profile_classifier.py`
+`apify_client.py`, `batch_scraper.py`, `people_scraper.py`, `people_stats.py`, `post_classifier.py`, `posts_scraper.py`, `priority_ranker.py`, `process_manual_profiles.py`, `profile_classifier.py`
 
-### LinkedIn Source-of-Truth Clarification
+### LinkedIn Scraping Cadence
 
-- `batch_scraper.py` `MEGA_FUNDS_TO_SKIP` only controls which global funds are skipped for automated LinkedIn employee scraping.
-- `data/derived/linkedin/manual_profiles.json` is the source of truth for funds covered via manually curated LinkedIn profile links.
-- Do not infer manual profile coverage from mega-fund skip sets.
-
-### LinkedIn Scraping Cadence — YEARLY ONLY, NEVER ROUTINE
-
-**LinkedIn scraping runs at most ONCE PER YEAR per fund, and only on explicit manual request.** Professionals change jobs infrequently, so people data does not need frequent refreshing — once a year per fund is sufficient. It is **never** part of `pnpm pipeline` and must **never** be run to "refresh" data, fix one fund, or fill a gap noticed during a normal run. Every scrape costs Apify credits (paid) and the HarvestAPI `--rich` actor is capped at 10 runs/month, so casual runs waste budget and the run allowance.
-
-The committed derived outputs (`linkedin/fund_people_stats.json`, `team_items.json`) are the live website source and persist between scrapes — a missing `linkedin/raw/` dir does NOT justify a re-scrape. To regenerate stats from already-scraped `raw/` files (free, no Apify), use `process_manual_profiles.py` instead. Target Italian domestic/mid-size funds first — their small teams mean 25 profiles ≈ full coverage with 100% Italy relevance. Mega-funds in `MEGA_FUNDS_TO_SKIP` and `FOREIGN_FUNDS_TO_SKIP` are handled via `manual_profiles.json` (free, title-based classification) and do not use Apify budget.
-
-### ⚠️ HarvestAPI Actor Limits
-
-The `harvestapi/linkedin-company-employees` actor (updated Feb 14 2026) has **two separate limit systems**:
-
-1. **Apify platform**: $5/month free credit. At $0.008/full profile, $5 = 625 profiles (~25 funds at 25 profiles each).
-2. **Actor-level**: HarvestAPI limits **free Apify plan users to 10 runs/month**. Runs beyond 10 return 0 profiles with log message "Free users are limited to 10 runs."
-
-**This means: max 10 funds per month, not 25.** The actual Apify cost for 10 funds at 25 profiles = $2.00 (well within $5 budget — the run limit is the real constraint, not money).
-
-**Monthly run command (do not test — every run counts):**
-```bash
-cd apps/worker
-APIFY_API_TOKEN=... python3 -m fundradar_worker.linkedin.batch_scraper \
-  --max-employees 25 \
-  --max-cost 2.50 \
-  --delay 180
-```
-
-This runs ~10 funds (at $0.20 each), with 3-minute delays between funds to avoid LinkedIn rate limiting. The `--delay 180` is critical — rapid-fire runs also get blocked by LinkedIn's hourly rate limiter even within the 10-run allowance.
-
-**If 0 profiles are returned:** Either the 10-run monthly limit is hit, or LinkedIn rate limiting (hourly reset). Check the Apify run logs — if you see "free user run limit exceeded" wait until the 1st of next month. If no such message, wait 1-2 hours and retry.
-
-**Reset on the 1st of each month.** Do not test — every HarvestAPI run consumes Apify compute credits (actor startup cost) even if it returns 0 profiles. Wait for the monthly reset and run production directly.
-
-### ⚠️ CRITICAL: LinkedIn Raw Data Protection
-
-The scraped LinkedIn data in `data/derived/linkedin/raw/` is **irreplaceable** without spending Apify credits. **NEVER** run any script that could delete or overwrite these files:
-
-| File Pattern | Count | Contents | Protection |
-|-------------|-------|----------|------------|
-| `raw/*_employees.json` | ~90+ | **Full profiles** from HarvestAPI: education, experience, skills | **NEVER overwrite** |
-| `raw/*_enriched_profiles.json` | ~10 | Full career history (Apify supreme_coder profile scraper) | **NEVER overwrite** |
-| `manual_profiles.json` | 1 | Manually curated mega-fund profiles | **NEVER overwrite** |
-
-**IMPORTANT — HarvestAPI employee files are RICH data.** They contain full education (schoolName, degree, fieldOfStudy), full experience (position, companyName, startDate, endDate), skills, languages, etc. They are NOT headline-only. Always parse them with `harvestapi_to_profile()` from `people_stats.py` — NEVER create synthetic single-experience profiles from them.
-
-**Enriched profile funds** (Apify supreme_coder format, slightly different structure): apollo, ares-management, blackstone, carlyle, eqt, kkr, macquarie-mam, permira-associati, towerbrook.
-
-**Safe operations:**
-- `process_manual_profiles.py --basic` — re-classifies from local files, merges into `fund_people_stats.json` (safe)
-- Any script that only READS from `raw/` and WRITES to `fund_people_stats.json` (safe)
-- Regenerating `fund_people_stats.json` from raw data (safe — derived, not source)
-
-**NEVER run:**
-- `batch_scraper.py` without explicit user approval (costs money, limited runs)
-- `process_manual_profiles.py --enrich` without explicit user approval (calls Apify)
-- Any script that writes to `raw/` directory or `manual_profiles.json`
+LinkedIn scraping is never part of `pnpm pipeline`. Run it only on explicit request, at most once per year per fund, because every run spends paid Apify credits. Commands, actor limits, raw-data protection and the source-of-truth rules are in [`docs/linkedin-scraping.md`](../../docs/linkedin-scraping.md).
 
 ## Adding a New Fund
 
@@ -571,8 +518,10 @@ The scraped LinkedIn data in `data/derived/linkedin/raw/` is **irreplaceable** w
    }
    ```
 2. Verify the fund exists in `db.json` with a matching `website` field (check against `data/AIFI/all.csv`)
-3. Run `pnpm worker:monitor --limit 1` to test
+3. Run `pnpm worker:monitor --slugs <fund-slug>` to test
 4. Restart web dev server (`pnpm dev`) to see results
+
+The full workflow, including data-quality gates, is in [`docs/ADDING_A_FUND.md`](../../docs/ADDING_A_FUND.md).
 
 If the portfolio page is complex or the structure keeps changing: consider **Scrapling** (auto-match CSS selectors) or **LangExtract** (text → structured extraction via Gemini) instead of hand-writing BeautifulSoup selectors. See "When an Extractor Breaks or Doesn't Exist" above.
 
@@ -622,44 +571,36 @@ The filter (`filter_signals.py`) uses **English-language keyword patterns** to c
 **Translation MUST happen at step 3 (before filter step 7).** The `translate_signals.py` pipeline step translates `detected_signals.json` in-place before filter ever runs.
 
 ### NEVER do any of these:
-- **Remove or disable the `translate` pipeline step** — filter quality immediately degrades for ~60% of signals (Italian-sourced ones)
+- **Remove or disable the `translate` pipeline step** — filter quality drops for every Italian-sourced signal
 - **Move translation after filter** — same effect as removing it
-- **Replace DeepL with OpenAI for bulk translation** — DeepL is ~50× cheaper and 10× faster. OpenAI translation costs ~$0.10/run. DeepL costs ~$0.001/run.
-- **Remove the DeepL SDK (`deepl` package)** — the fallback to OpenAI works but burns money
+- **Remove the DeepL SDK (`deepl` package)** — translation then depends on Azure alone
 
 ### Translation chain (never change this order)
-1. `DEEPL_API_KEY` — primary key (500K chars/month free)
-2. `DEEPL_API_KEY_2` — secondary key (auto-failover when primary exhausted)
-3. `AZURE_TRANSLATOR_KEY` — fallback key 1 (2M chars/month free, region: `italynorth`)
+1. `DEEPL_API_KEY` — primary key
+2. `DEEPL_API_KEY_2` — secondary key (used when the primary is exhausted)
+3. `AZURE_TRANSLATOR_KEY` — fallback key 1 (set `AZURE_TRANSLATOR_REGION` to the key's region)
 4. `AZURE_TRANSLATOR_KEY_2` — fallback key 2
 
-DeepL exhausted keys are auto-skipped via `data/derived/deepl_quota_state.json`. Both DeepL keys exhausted → Telegram alert fires + Azure takes over. Azure auth/quota errors disable the specific key for the current run and fall through to the next Azure key. Monthly quotas reset on the 1st. OpenAI fallback has been removed to eliminate translation costs.
+`data/derived/deepl_quota_state.json` records exhausted DeepL keys, and the translator skips them. When both DeepL keys are exhausted, Azure takes over, and an alert goes to Telegram if it is configured. An Azure auth or quota error disables that key for the current run, and the next Azure key takes over. OpenAI translation (`translate_text_with_openai()`) is a no-op.
 
 ### Idempotency — how re-translation is prevented
 - `translate_signals.py` checks `title_original` / `what_changed_original`: if set and current text looks English → skip
 - The enricher's merge loop restores `*_original` fields from the previous enriched file, so the safety-net pass in `enrich_signals_openai.py` also skips already-translated signals
 - **DO NOT delete `detected_signals_enriched.json`** — it carries the `*_original` fields that prevent re-translation. Deleting it forces full re-translation of all Italian signals on the next enricher run.
 
-**Why DeepL is non-negotiable**: Removing it forces all translation through OpenAI (~$0.30/run instead of ~$0.05/run). Any bug causing re-translation on every enricher run compounds this to $10–15/session. DeepL also runs at step 3 (before the filter), which is critical — see translation order rules above.
+A bug that re-translates on every enricher run spends the translation quota fast. Check idempotency after any change to translation code.
 
 ## ⚠️ OpenAI Cost Control — Read Before Running Enrichment
 
-Signal enrichment (`pnpm pipeline:signals` or step 8 of `pnpm pipeline`) makes OpenAI API calls. Misuse can cost $10–$20 in a single debugging session.
+Signal enrichment (`pnpm pipeline:signals` or step 8 of `pnpm pipeline`) makes paid OpenAI API calls. Repeated runs during debugging add up fast.
 
 ### Rules
-1. **NEVER delete `data/derived/signal_enrichment_progress.json`** — it tracks which signals have been LLM-enriched. Deleting it forces full re-enrichment of all filtered signals (~$2–5).
-2. **NEVER delete `data/derived/detected_signals_enriched.json`** — it carries `*_original` translation fields. Deleting it forces re-translation of all Italian signals on the next run.
-3. **Before any `pnpm pipeline:signals` run**, check how many signals would be affected: `python3 -c "import json; d=json.load(open('data/derived/signal_enrichment_progress.json')); print(len(d.get('processed_ids',[])),'already processed')"`.
-4. **For debugging/testing fixes**: edit `detected_signals_enriched.json` directly (free) instead of re-running the enricher.
-5. **For testing new classification patterns**: run `pnpm pipeline:signals --slugs specific-fund` (processes one fund's signals only).
-6. **Re-enrichment costs ~$0.05–0.20 per full run** (~10–30 new signals needing LLM, translation via DeepL). Fine for weekly runs. Expensive when run 50× during debugging.
-7. **enriched_summary < 100% is EXPECTED** — the enricher intentionally clears `enriched_summary` when it's title-redundant (two checks: 70% overlap pre-merge, 85% overlap at finalization). These signals show the title in the UI, which is correct. They are still marked as processed in progress — re-running the enricher does NOT re-process them. Typical coverage: 40–60% of signals have a distinct enriched_summary; the rest use the title.
-
-### Cost breakdown (with DeepL in place)
-- Translation: ~45K chars/run via DeepL ≈ **free** (within 500K/month quota)
-- LLM enrichment: 10–30 new signals × ~500 tokens ≈ $0.05–0.15/run
-- Safety-net translation pass in enricher: ~0 fields (already translated by step 3)
-- Total: **~$0.05–0.20/run** (vs ~$0.30–0.50 before DeepL re-integration)
+1. **NEVER delete `data/derived/signal_enrichment_progress.json`** — it tracks which signals have been enriched. Without it, every filtered signal is enriched again.
+2. **NEVER delete `data/derived/detected_signals_enriched.json`** — it carries the `*_original` translation fields. Without it, every Italian signal is translated again on the next run.
+3. **Before any `pnpm pipeline:signals` run**, check how many signals are already processed: `python3 -c "import json; d=json.load(open('data/derived/signal_enrichment_progress.json')); print(len(d.get('processed_ids',[])),'already processed')"`.
+4. **For debugging and testing fixes**: edit `detected_signals_enriched.json` directly (free) instead of re-running the enricher. Then put the real fix in code.
+5. **For testing new classification patterns**: run `pnpm pipeline:signals --slugs specific-fund` (one fund's signals only).
+6. **enriched_summary < 100% is EXPECTED** — the enricher clears `enriched_summary` when it repeats the title (70% overlap before merge, 85% at finalization). The UI then shows the title. Progress still marks these signals as processed, so a re-run does not process them again.
 
 ## Testing
 
@@ -686,6 +627,6 @@ The signal classification logic has a dedicated three-file test suite:
 - Debt financing vs deal: bonds, credit facilities, restructuring agreements
 - Universal demotions: press reviews, events, editorials, opinion
 - Other → type rescue: over-demoted signals with clear type indicators
-- **Section 8 (`TestFeb2026AuditRegressions`)**: regression tests for signal fixes — exact signal IDs with expected classification outcomes
+- **`TestFeb2026AuditRegressions`**: regression tests with exact signal IDs and expected classification outcomes
 
 **When changing classification logic**: at least one test in this suite must break or a new test must be added. If nothing breaks, the change may be silently wrong.

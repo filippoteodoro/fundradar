@@ -1,19 +1,17 @@
 # Apps
 
-This monorepo contains two applications:
+This monorepo contains two applications.
 
-## `/web/` - Next.js Frontend
-The public-facing website built with Next.js App Router.
-- See [web/README.md](./web/README.md) for setup and structure
+## `web/` — Next.js frontend
+The public website, built with the Next.js App Router. See [web/README.md](./web/README.md).
 
-## `/worker/` - Python Worker
-Background processing for data ingestion, scraping, and monitoring.
-- See [worker/README.md](./worker/README.md) for setup and modules
+## `worker/` — Python worker
+Data ingestion, scraping, signal processing and enrichment. See [worker/README.md](./worker/README.md).
 
 ## Quick Start
 
 ```bash
-# From project root
+# From the repo root
 pnpm dev          # Start web app (localhost:3000)
-pnpm worker:ingest   # Run PDF ingestion worker
+pnpm pipeline     # Run the full worker pipeline
 ```

@@ -2,7 +2,7 @@
 
 ## Philosophy: Systemic Fixes Only
 
-**Never fix a signal by editing JSON files directly** unless you're unblocking yourself during debugging. JSON edits only fix past signals — new signals will have the same problem.
+**Do not fix a signal only by editing JSON files.** A direct edit of the derived JSON is free and is acceptable as a temporary patch (for example, to avoid a paid enricher re-run while you debug). But it fixes only past signals; new signals have the same problem.
 
 Every fix must go into the pipeline code so it applies automatically to every new signal that flows through. The right place depends on the issue type:
 
@@ -15,7 +15,7 @@ Every fix must go into the pipeline code so it applies automatically to every ne
 | Fund-specific HTML parsing | `strategies/extractors/{fund}.py` | Yes — re-run with `--force-extract` after change |
 | Enricher output quality | `enrich_signals_openai.py` system prompt | Yes — next pipeline run |
 
-**Testing after a Python fix**: `cd apps/worker && pytest` must pass. No new test → the fix may be silently wrong.
+**Testing after a Python fix**: `cd apps/worker && pytest` must pass. Add a test for each classification fix; without one, the fix may be silently wrong.
 
 **Rebuild rule after a signal-quality code fix**: rerun `python scripts/filter_signals.py`, then rerun `python scripts/enrich_signals_openai.py` (or `pnpm pipeline:signals`). The filter cache auto-invalidates on code/config/`db.json` changes, but `/signals` prefers `detected_signals_enriched.json`, so a fresh filtered file alone does not update the public feed. Use `--force-full` only when you explicitly want to bypass cache reuse.
 
@@ -23,7 +23,7 @@ Every fix must go into the pipeline code so it applies automatically to every ne
 
 ## Standard Signal Quality Audit
 
-Run this after every pipeline run (or when asked to review signal quality). Each check surfaces a known recurring failure mode.
+Run this after a pipeline run, or when you review signal quality. Each check surfaces a known recurring failure mode. Run the commands from the repo root.
 
 ```bash
 # 1. SUMMARY: type distribution and count
@@ -115,7 +115,7 @@ for s in d['signals']:
                     break
 "
 
-# 5. 'report' signals — confirm each is about the fund manager, not a portfolio company
+# 5. 'report' signals — check that each is about the fund manager, not a portfolio company
 # Pipeline cannot distinguish these automatically — requires reading the source URL
 python3 -c "
 import json
@@ -255,7 +255,7 @@ Also TypeScript: `apps/web/src/lib/signalProcessing.ts`
   ```
 
 Also TypeScript: `apps/web/src/lib/signalProcessing.ts`
-- `fixSignalSpacing()` — the `KNOWN_NAME_CORRECTIONS` dict handles CDP VC artifacts like "WSense", "3DNextech", "IDeA Capital". Add brand names here for TS-side fixes.
+- `fixSignalSpacing()` — inline replacements fix CDP VC artifacts like "WSense", "3DNextech", "IDeA Capital". Add brand names there for TS-side fixes.
 
 **Rule of thumb**: Python fix in `fix_spacing()` is preferred (persists in data). TS fix in `fixSignalSpacing()` is a belt-and-suspenders for cases that slip through.
 
@@ -314,11 +314,11 @@ Also check `deal_amount` field backfill in `filter_signals.py` (`_RE_EXTRACT_AMO
 **Where to fix**:
 1. **Primary**: `translate_signals.py` (pipeline step 3) — translation must run BEFORE filter. NEVER move translation after filter.
 2. **Quality gate**: `filter_signals.py` `calculate_quality_score()` — Italian title penalty: if `title_original` is absent AND title has 2+ Italian content words in ≤15-word title → `-30` quality penalty (pushes below 80-point threshold).
-3. **Italian content words list**: `_ITALIAN_CONTENT_WORDS` set in `filter_signals.py` — add new Italian words that should never appear in English titles.
+3. **Italian content words**: the same penalty block holds an inline regex of Italian words that should never appear in English titles.
 4. **Enricher safety net**: `enrich_signals_openai.py` — secondary translation pass for Italian surviving filter.
-5. **Garbage summary detection**: `_is_garbage_summary()` in `signal_text_utils.py` — expanded Italian stop-word list catches Italian LLM summaries.
+5. **Garbage summary detection**: `is_garbage_summary()` in `signal_text_utils.py` — its Italian stop-word list catches Italian LLM summaries.
 
-**For individual Italian terms slipping through** (e.g. "raccoglie" in an otherwise English title): add to `_ITALIAN_CONTENT_WORDS` in `filter_signals.py`.
+**For individual Italian terms slipping through** (e.g. "raccoglie" in an otherwise English title): add the word to the inline regex of the Italian title penalty in `calculate_quality_score()` (`filter_signals.py`).
 
 ---
 
@@ -329,7 +329,7 @@ Also check `deal_amount` field backfill in `filter_signals.py` (`_RE_EXTRACT_AMO
 - Exit shown as "Deal" → `correct_exit()` flipped it for buyer-cue/acquisition language
 - People change shown as "Other" → `correct_people_move()` or `other` rescue didn't fire
 - Deal shown as "Partnership" → `correct_deal()` agreement check fired incorrectly
-- Market review/report shown as "Deal" → ML sees "M&A"/"acquisition" vocabulary in sector review articles and fires `deal_announced` at high confidence. Fixed by post-ML guard in `filter_signals.py`: if `signal_type == "deal_announced"` AND `_RE_REPORT.search()`, override to `report`. The `_RE_REPORT` pattern includes `global review of M&A`, `M&A report`, `annual M&A review`.
+- Market review/report shown as "Deal" → ML sees "M&A"/"acquisition" vocabulary in sector review articles and fires `deal_announced` at high confidence. A post-ML guard in `filter_signals.py` handles this: if `signal_type == "deal_announced"` AND `_RE_REPORT.search()`, override to `report`. The `_RE_REPORT` pattern includes `global review of M&A`, `M&A report`, `annual M&A review`.
 - Fund website news about a **portfolio company's** financial results shown as "Report" → type should be `portfolio_update`. A financial results article on a fund's domain is `report` only when it describes the fund/manager's own performance. Portfolio company H1 results → `portfolio_update`. Check the article subject — if a specific portfolio entity is named, reclassify. **This cannot be caught automatically by the pipeline** — it requires reading the source URL. Use the diagnostic below to find candidates.
 
 **Diagnosis**:
@@ -430,7 +430,7 @@ for s in d.get('signals',[]):
 | Cause | Where it happens | Fix |
 |-------|-----------------|-----|
 | Quality score < 80 | `calculate_quality_score()` in `filter_signals.py` | Add a quality bonus for the pattern, or lower penalty for false positive case |
-| Failed Italy relevance check | `_is_italy_relevant()` in `filter_signals.py` | Check `italy_relevant` and `relevance_reasons` fields; fix geo detection |
+| Failed Italy relevance check | geo gate in `_passes_strict_quality_gates()` (`_fund_geo_scope()`, `_mentions_italy()`) in `filter_signals.py` | Check `italy_relevant` and `relevance_reasons` fields; fix geo detection |
 | Misattributed signal check | `_is_misattributed_signal()` | Signal mentions another fund's name — tighten the misattribution check |
 | Caught by `GARBAGE_PATTERNS` | `is_garbage()` | Pattern too broad — narrow it or add a negation |
 | Strict noise gate blocked it | `_passes_strict_quality_gates()` | High-score signals (≥90) bypass strict gates — check if signal's score is at 85-89 |
@@ -642,12 +642,12 @@ After any Python fix:
 cd apps/worker
 pytest tests/test_signal_classification.py -v   # For classification changes
 pytest tests/test_signal_patterns.py -v          # For pattern changes
-pytest tests/ -q                                  # Full suite (686 tests, ~8s)
+pytest tests/ -q                                  # Full suite
 ```
 
 After any TypeScript fix:
 ```bash
-cd /path/to/repo
+# from the repo root
 pnpm typecheck
 pnpm test  # Vitest suite
 ```
@@ -661,7 +661,7 @@ pnpm pipeline:signals --slugs wise-equity-sgr   # or another affected fund
 
 ## Known Recurring Patterns
 
-These are issues that have come up before and are likely to recur. Use this as a quick lookup before debugging from scratch — each entry points to the relevant section above.
+These issues are known to recur. Use this as a quick lookup before you debug from scratch. Each entry points to the relevant section.
 
 | Symptom | Likely cause | See |
 |---------|-------------|-----|
@@ -704,7 +704,7 @@ for s in signals:
 ```
 If `published_at` differs from `enriched_date` but the website shows `enriched_date`, the priority is inverted.
 
-**Where to fix**: `apps/web/src/lib/signals_unified.ts` — `normalizeToUnifiedSignal()` — ensure `displayDate = formatDate(sig.published_at || sig.enriched_date)`.
+**Where to fix**: `apps/web/src/lib/signals_unified.ts` — `normalizeWebsiteMonitorSignal()` — keep `displayDate = formatDate(sig.published_at || sig.enriched_date)`.
 
 **Root cause B — CMS URL reorganisation re-detecting historical signals**:
 Some CMS platforms (e.g., Odoo) periodically regenerate press release URLs. The monitor sees a new URL → treats the page as new content → creates a signal with `observed_at = today` even though `published_at` is 2023. The signals are real but stale. The stale penalty in `filter_signals.py` is the defence.
@@ -779,7 +779,7 @@ for fname in ['data/derived/detected_signals_filtered.json', 'data/derived/detec
 **Two root causes**:
 
 **A — Abbreviated name doesn't match db.json slug** (e.g., signal says "Deep Ocean SGR" but fund is `deep-ocean-capital-sgr`):
-The gap detector strips legal suffixes (SGR, Ltd.) and slugifies the remainder. "Deep Ocean SGR" → `deep-ocean`, which doesn't exactly match `deep-ocean-capital-sgr`. Fixed by the **prefix-component check** in `fund_gap_detector.py`: if any known slug starts with `<generated-slug>-`, the mention is suppressed.
+The gap detector strips legal suffixes (SGR, Ltd.) and slugifies the remainder. "Deep Ocean SGR" → `deep-ocean`, which doesn't exactly match `deep-ocean-capital-sgr`. The **prefix-component check** in `fund_gap_detector.py` handles this: if any known slug starts with `<generated-slug>-`, the mention is suppressed.
 
 This is automatic — no action needed for existing funds. If a new fund triggers a false alert, verify it's in `db.json` with the full name slug (e.g., `deep-ocean-capital-sgr`). The prefix match will suppress future mentions.
 
@@ -949,6 +949,6 @@ else:
 
 **Root cause**: `_format_amount()` in `signal_text_utils.py` has a heuristic: `X.YYY` (period followed by exactly 3 digits) → strip the period → treat as Italian thousands separator. This is correct for millions (`X.YYY milioni` = X,YYY million) but wrong for billions: `X.YYY miliardi` means X.YYY billion (period is a decimal), not X,YYY billion. Stripping the period yields thousands of billions — never realistic.
 
-**The fix** (in `_format_amount()`): the period-stripping heuristic is skipped when `multiplier == "B"`. For billions, `X.YYY` is always treated as a decimal.
+**The rule** (in `_format_amount()`): the period-stripping heuristic is skipped when `multiplier == "B"`. For billions, `X.YYY` is always treated as a decimal.
 
 **Where to look if it recurs**: if the bad output comes from a path that bypasses `_format_amount` (e.g. the inline regex subs at the top of `clean_display_text()`), add the same guard there.

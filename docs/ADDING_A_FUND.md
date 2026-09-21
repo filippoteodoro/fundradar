@@ -1,8 +1,10 @@
 # Adding a New Fund to Fundradar — Complete Guide
 
-This is the definitive, step-by-step guide to correctly adding a new fund to Fundradar, from initial research through to production deployment.
+This guide covers the full workflow to add a fund: research, `db.json` entry, extractor, pipeline, enrichment, quality gates and commit.
 
-> **Canonical references**: For pipeline internals see `apps/worker/CLAUDE.md`. For web app caching and data loading see `apps/web/CLAUDE.md`. For project-wide rules see root `CLAUDE.md`. This guide focuses on the **workflow** of adding a fund and references those docs for deep dives.
+> **Canonical references**: pipeline internals are in [`apps/worker/CLAUDE.md`](../apps/worker/CLAUDE.md). Web caching and data loading are in [`apps/web/CLAUDE.md`](../apps/web/CLAUDE.md). Project-wide rules are in the root [`AGENTS.md`](../AGENTS.md). This guide covers the **workflow** and links to those docs for detail.
+>
+> Most enrichment and audit steps call paid or quota-limited APIs (OpenAI, Gemini, DeepL). You need your own keys; the list is in the root `README.md`.
 
 ---
 
@@ -26,9 +28,9 @@ This is the definitive, step-by-step guide to correctly adding a new fund to Fun
 14. [Verify Frontend Display](#14-verify-frontend-display)
 15. [Sitemap & llms.txt (Automatic)](#15-sitemap--llmstxt-automatic)
 16. [Assets & OG Images (Automatic)](#16-assets--og-images-automatic)
-17. [Commit & Deploy](#17-commit--deploy)
+17. [Commit & Open a Pull Request](#17-commit--open-a-pull-request)
 18. [Verify Data Quality (MANDATORY)](#18-verify-data-quality-mandatory) — Automated checks + Gemini enrichment + asset audit + verification loop
-19. [Post-Deployment Checklist](#19-post-deployment-checklist)
+19. [Final Checklist](#19-final-checklist)
 20. [Reference: db.json Field Catalog](#reference-dbjson-field-catalog)
 21. [Reference: Extractor Template & Patterns](#reference-extractor-template--patterns)
 22. [Reference: Common Pitfalls](#reference-common-pitfalls)
@@ -52,7 +54,7 @@ Only **Private Equity, Venture Capital, and Growth Equity** funds with Italian o
 
 **Quick test**: Check the entity's website. If it says "asset management", "wealth management", "banking", or "credit" — it's not PE/VC. If it says "private equity", "venture capital", "growth equity", "buyout", or "infrastructure investments" — it belongs.
 
-Excluded entities are blocked via `invalid_slugs` in `data/derived/fund_aliases.json` and `EXCLUDED_SLUGS` in `scripts/merge-aifi-metrics.ts`.
+Block excluded entities in `db.json["excluded_entities"]` and in `EXCLUDED_SLUGS` in `scripts/merge-aifi-metrics.ts`. The rule is in the root `AGENTS.md` ("Entity Scope").
 
 ### Before you start
 
@@ -70,7 +72,7 @@ Excluded entities are blocked via `invalid_slugs` in `data/derived/fund_aliases.
    ```
    - If a variant slug maps to an existing fund, use the canonical slug — don't create a new entry.
    - If the fund was previously added under a different legal name (common after AIFI scrapes), add an alias mapping to `fund_aliases.json` instead of creating a duplicate.
-3. **Check `invalid_slugs`** in `data/derived/fund_aliases.json` — the fund might be explicitly blocked.
+3. **Check `db.json["excluded_entities"]`** — the fund might be explicitly excluded. `invalid_slugs` in `fund_aliases.json` holds only garbage slug artifacts.
 
 ---
 
@@ -118,15 +120,15 @@ Some fund websites block headless browsers entirely or require JavaScript render
 - **Blank page** that only renders with JavaScript (React/Vue/Angular/Next.js SPAs)
 - **Cloudflare/Akamai challenge pages**
 
-The system handles this via `data/derived/domain_policies.json`, which tracks per-domain settings:
-- `requires_headless: true` — site needs Playwright (auto-detected for JS-heavy sites)
+Per-domain settings go in `data/derived/domain_policies.json` (gitignored; format in [`runbook.md`](runbook.md#domain-specific-configuration)):
+- `requires_headless: true` — site needs Playwright
 - Custom timeouts, rate limits, SSL settings
 
-Known problem domains (as of last update):
-- **Bridgepoint** — requires headless browser (AEM/Adobe Experience Manager site, JavaScript-rendered). The extractor works but needs `requires_headless: true` in domain policies.
-- **EnTrust Global** — blocks ALL automated access (ShieldPRO anti-bot). Manual portfolio entries are the only option. The extractor exists but has all URLS set to `None`.
+Examples of problem domains:
+- **Bridgepoint** — needs a headless browser (JavaScript-rendered AEM site). The extractor works with `requires_headless: true`.
+- **EnTrust Global** — blocks all automated access (ShieldPRO anti-bot). The extractor has all URLS set to `None`, so manual portfolio entries are the only option.
 
-Check `apps/worker/CLAUDE.md` and `data/derived/domain_policies.json` for the current list of domains requiring special handling.
+The runbook lists more extractor-routed blocked funds.
 
 ---
 
@@ -218,13 +220,13 @@ Keep `aliases` and `reverse_lookup` in sync manually — the file has no auto-ge
 - Pre-rebrand name: `"old-legal-name-sgr"` → current canonical slug
 - Legal entity variant: `"fund-name-spa"` → `"fund-name"`
 
-**When NOT to add aliases — use `invalid_slugs` instead:**
-- Non-PE/VC entities (asset managers, banks, regional agencies)
-- Generic words that appear in many signal bodies (`investimento`, `partners`, `capital`)
+**When NOT to add aliases:**
+- Non-PE/VC entities (asset managers, banks, regional agencies) — add them to `db.json["excluded_entities"]`
+- Generic words that appear in many signal bodies (`investimento`, `partners`, `capital`) — add them to `invalid_slugs` in `fund_aliases.json`
 
 ### 3.6 — Clear gap detector state after adding a fund
 
-`data/derived/unknown_fund_gaps.json` is a dedup state file that prevents the Telegram gap-alert from firing twice for the same unrecognised fund name within a 30-day window. When a fund name appeared in signals **before** you added it to `db.json`, old alerts are suppressed by that state — new pipeline runs won't re-fire them even though the gaps are now resolved.
+`data/derived/unknown_fund_gaps.json` is a dedup state file that prevents the unknown-fund alert (pipeline log, plus Telegram if configured) from firing twice for the same unrecognised fund name within a 30-day window. When a fund name appeared in signals **before** you added it to `db.json`, old alerts are suppressed by that state — new pipeline runs won't re-fire them even though the gaps are now resolved.
 
 After adding the fund and its aliases, check the state:
 
@@ -244,7 +246,7 @@ If any entries correspond to the fund you just added (or its aliases), **clear t
 echo '{"gaps": []}' > data/derived/unknown_fund_gaps.json
 ```
 
-This is safe — the file is recreated on the next pipeline run. Only clear it when all listed gaps are genuinely resolved (i.e. the fund is now in `db.json` or `invalid_slugs`).
+This is safe — the file is recreated on the next pipeline run. Only clear it when all listed gaps are resolved (the fund is now in `db.json` or in `excluded_entities`).
 
 ---
 
@@ -300,7 +302,7 @@ URLS = {
   Your `extract_news()` function should try `json.loads(html)` first, with HTML parsing as fallback. See `abenex.py` for a production example.
 - **Set to `None`** for page types that don't exist on this fund's website.
 
-> **Legacy note**: `data/monitor-urls.md` is a legacy file with base domain URLs only. Do NOT add entries there — URLs are auto-discovered from extractor `URLS` dicts.
+> **Note**: `data/monitor-urls.md` holds base domain URLs only. Do NOT add subpage entries there. The monitor reads subpage URLs from extractor `URLS` dicts.
 
 #### 3. `EXTRACTORS` — The extraction functions
 
@@ -646,15 +648,16 @@ This runs all pipeline steps. The canonical step list and ordering is defined in
 |---|---|---|---|
 | 1. monitor | `monitor.py` | Fetch website, extract portfolio/team/news, detect signals | Yes (content hash) |
 | 2. rss | `rss_monitor.py` | Fetch Italian PE/VC RSS feeds, match articles to fund | Yes (state tracking) |
-| 3. translate | `translate_signals.py` | Translate Italian/French → English (DeepL → Azure → OpenAI) | Yes (checks `*_original` fields) |
+| 3. translate | `translate_signals.py` | Translate Italian/French → English (DeepL → Azure) | Yes (checks `*_original` fields) |
 | 4. normalize_sectors | `normalize_sectors.py` | Normalize sectors to canonical taxonomy | Yes |
 | 5. normalize_portfolio | `normalize_portfolio_cross_fund.py` | Deduplicate companies across funds | Yes |
 | 6. enrich_portfolio | `enrich_portfolio_gemini_full.py` | Fill missing sector/HQ/description (Gemini, optional) | Yes |
 | 7. filter | `filter_signals.py` | Quality scoring, geo gate, noise removal, dedup | Yes |
 | 8. enrich | `enrich_signals_openai.py` | AI summaries, target_company extraction (OpenAI) | Yes (progress file) |
 | 9. signal_to_portfolio | `signal_to_portfolio.py` | Convert deal/exit signals → portfolio entries | Yes (progress file) |
+| 10. enrich_portfolio_final | `enrich_portfolio_gemini_full.py` | Second Gemini pass for entries that step 9 added (optional) | Yes (progress file) |
 
-> **RSS signals start automatically**: When you add a fund, RSS signals matching the fund name start appearing automatically at step 2. Italian financial press (BeBeez, Il Sole 24 Ore, Milano Finanza, etc.) articles are matched to funds via text matching and LLM classification. No extractor is needed for RSS — it's entirely automatic.
+> **RSS signals need no extractor**: step 2 matches articles from Italian financial press feeds (`data/rss_feeds.json`) to funds by text. A new fund gets RSS signals once its name appears in the feeds.
 
 ### 6.2 — If you only updated extractor code
 
@@ -714,7 +717,7 @@ Configuration values are defined as constants at the top of `apps/worker/scripts
 
 | Setting | Where defined |
 |---|---|
-| Model | `MODEL` constant in `enrich_portfolio_gemini_full.py` (currently `gemini-3-flash-preview` — NEVER use any `gemini-2.x`) |
+| Model | `GEMINI_MODEL` in `fundradar_worker/paths.py`, imported as `MODEL` (NEVER use any `gemini-2.x`) |
 | API Key | `GEMINI_API_KEY` env var |
 | Package | `google-genai>=1.0.0` (`from google import genai`) |
 | Batch size | `BATCH_SIZE` constant in the script |
@@ -762,11 +765,11 @@ This:
 
 ## 9. Audit Portfolio Assets with Gemini
 
-After the pipeline has populated portfolio data and the fund description is generated, run the **Gemini asset audit** to verify and improve data quality. This is the same audit that was run on the original 163 funds.
+After the pipeline has populated portfolio data and the fund description exists, run the **Gemini asset audit** to verify and improve data quality. The existing funds went through the same audit.
 
 ### What it does
 
-`scripts/audit-fund-assets-gemini.py` uses Gemini 3 Flash to:
+`scripts/audit-fund-assets-gemini.py` uses Gemini to:
 - **Verify existing portfolio entries** — detect wrong entries, wrong fields (status, sector, HQ, description)
 - **Find missing Italian assets** — identify portfolio companies the fund holds in Italy that weren't extracted
 - **Suggest fund metadata corrections** — HQ city, description, website fixes
@@ -849,7 +852,7 @@ python3 scripts/verify-portfolio-gemini.py --slugs {fund-slug}
 | `data/derived/gemini_fund_asset_audit.json` | Audit results per fund |
 | `data/derived/gemini_fund_asset_audit_progress.json` | Progress tracking (resume support) |
 
-> **Cost**: ~1-3 Gemini API calls per fund (free tier handles this). The script paces calls at 3s intervals with retry/backoff.
+> **Cost**: about 1–3 Gemini API calls per fund. The script paces calls (3s by default) with retry and backoff.
 
 ---
 
@@ -857,13 +860,13 @@ python3 scripts/verify-portfolio-gemini.py --slugs {fund-slug}
 
 ### What it does
 
-Uses **Gemini 3 Flash** with Google Search grounding to fill missing metadata fields in `db.json`:
+Uses **Gemini** with Google Search grounding to fill missing metadata fields in `db.json`:
 
 - **`aum_eur`** — Assets Under Management in EUR
 - **`investment_min_eur`** — Minimum ticket size in EUR
 - **`investment_max_eur`** — Maximum ticket size in EUR
 
-The script only updates fields that are currently `null` — it never overwrites existing values.
+The script only updates fields that are currently `null`. It overwrites existing values only with `--force`.
 
 ### Running the script
 
@@ -871,13 +874,10 @@ The script only updates fields that are currently `null` — it never overwrites
 # Enrich a specific fund (after adding it):
 python3 scripts/enrich-fund-metadata-gemini.py --slugs cherry-bay-capital
 
-# Enrich all funds missing AUM:
-python3 scripts/enrich-fund-metadata-gemini.py --missing-aum
+# Enrich all funds with missing fields (--limit N caps the count):
+python3 scripts/enrich-fund-metadata-gemini.py
 
-# Enrich all funds missing investment ranges:
-python3 scripts/enrich-fund-metadata-gemini.py --missing-ranges
-
-# Dry run (show what would be updated):
+# Dry run (show prompts, no API calls):
 python3 scripts/enrich-fund-metadata-gemini.py --slugs cherry-bay-capital --dry-run
 ```
 
@@ -904,7 +904,7 @@ After running, spot-check a few values against the source URLs logged in the out
 python3 -c "import json; funds=json.load(open('data/db.json'))['funds']; print(f'Missing AUM: {len([f for f in funds if not f.get(\"aum_eur\")])}/{len(funds)}')"
 ```
 
-> **Cost**: 1 Gemini API call per fund (free tier). The script paces calls at 3s intervals with retry/backoff. Temperature is set to 0.2 for factual accuracy.
+> **Cost**: 1 Gemini API call per fund. The script paces calls with retry and backoff, at a low temperature for factual accuracy.
 
 ---
 
@@ -923,17 +923,17 @@ Configuration values are defined as constants in `apps/worker/scripts/enrich_sig
 
 | Setting | Where defined |
 |---|---|
-| Model | `MODEL` constant (currently `gpt-5.4-mini` — NEVER use ChatGPT 4o, it hallucinates) |
+| Model | `OPENAI_MODEL` in `fundradar_worker/paths.py`, imported as `MODEL` (NEVER use GPT-4o, it hallucinates) |
 | Concurrent requests | `MAX_CONCURRENT_LLM` constant |
 | Rate limit | `REQUESTS_PER_MINUTE` constant |
 | Progress file | `signal_enrichment_progress.json` |
 
 ### Cost control (CRITICAL)
 
-- **NEVER delete `signal_enrichment_progress.json`** — forces full re-enrichment (several dollars in API costs)
+- **NEVER delete `signal_enrichment_progress.json`** — forces a paid re-enrichment of every signal
 - **NEVER delete `detected_signals_enriched.json`** — forces re-translation of all Italian signals
-- For debugging: edit `detected_signals_enriched.json` directly (free) instead of re-running the enricher
-- See `apps/worker/CLAUDE.md` "OpenAI Cost Control" section for full rules and current cost estimates
+- For debugging: edit `detected_signals_enriched.json` directly (free) instead of re-running the enricher, then fix the cause in code
+- See `apps/worker/CLAUDE.md` "OpenAI Cost Control" for the full rules
 
 ### enriched_summary coverage
 
@@ -941,7 +941,7 @@ Configuration values are defined as constants in `apps/worker/scripts/enrich_sig
 
 ### Signal quality issues
 
-If signals are showing the wrong type, bad text, wrong fund attribution, missing from the website, or not generating portfolio entries — see **[`/docs/check_signals.md`](/docs/check_signals.md)** for the full diagnostic guide. It covers all 15 issue categories with the exact function and file to fix for each.
+If signals are showing the wrong type, bad text, wrong fund attribution, missing from the website, or not generating portfolio entries — see **[`check_signals.md`](check_signals.md)** for the full diagnostic guide. It lists each issue category with the function and file to fix.
 
 ---
 
@@ -991,9 +991,8 @@ This populates `hq_lat`, `hq_lng`, and `hq_address` in `db.json`. The map page r
 
 - If a fund has an office in Italy, never leave a generic city-only address like `Milan`, `Rome`, or `Italy`.
 - `hq_address` / `offices[].address` must be specific (street + number, and city at minimum) whenever that office is in Italy.
-- This resolution step is owned by the automation/agent workflow, not by manual user follow-up.
-- Resolve the address with a quick web lookup first (official site/contact/legal pages). If unclear, use a Gemini API lookup to extract/verify the address and write it directly to `db.json`.
-- If still unresolved after both attempts, do **not** invent an address: explicitly report the blocker (fund slug, attempted sources, why unresolved) and request input only as last resort.
+- Find the address on the fund's official site first (contact or legal pages). If it is unclear, use a Gemini lookup to extract and verify it, then write it to `db.json`.
+- If both attempts fail, do **not** invent an address. Leave the field as is and note the fund slug, the sources you tried and why they failed (for example in the pull request).
 
 Quick audit before commit (find Italian offices still using generic addresses):
 
@@ -1089,9 +1088,9 @@ The sitemap is **generated automatically** at build time. It reads all fund slug
 
 **Files**: `apps/web/src/app/llms.txt/route.ts` and `apps/web/src/app/llms-full.txt/route.ts`
 
-These are dynamic route handlers that generate the `/llms.txt` and `/llms-full.txt` endpoints at request time. They read live stats (fund count, signal count, portfolio company count) from `data.ts` and `signals_unified.ts`.
+These route handlers are static (`dynamic = 'force-static'`), so the build generates `/llms.txt` and `/llms-full.txt`. They read stats (fund count, signal count, portfolio company count) from `data.ts` and `signals_unified.ts`.
 
-**No manual action needed** — the stats automatically update to include your new fund and its signals/portfolio companies. The llms.txt files inform AI models about the site's content and when to recommend Fundradar.
+**No manual action needed** — the next build includes the new fund. The files describe the site's content for AI models.
 
 ---
 
@@ -1109,25 +1108,26 @@ There is no centralized logo storage. Fund logos are referenced from the fund's 
 
 ---
 
-## 17. Commit & Deploy
+## 17. Commit & Open a Pull Request
+
+Complete the checks in [Section 18](#18-verify-data-quality-mandatory) before you commit.
 
 ### 17.1 — What to commit
 
 ```bash
-# Stage the new/modified files
 git add data/db.json
 git add apps/worker/fundradar_worker/strategies/extractors/{fund_slug}.py
 git add data/derived/portfolio_items.json
 git add data/derived/detected_signals_filtered.json
 git add data/derived/detected_signals_enriched.json
+git add data/derived/signal_enrichment_progress.json
+
+# The CI new-fund gate needs these two gitignored files in the diff (see 18.1):
+git add -f data/derived/new_fund_completion_report.json
+git add -f data/derived/gemini_fund_asset_audit.json
 ```
 
-**Do NOT commit:**
-- `signal_enrichment_progress.json` (progress tracker, not data)
-- `signal_to_portfolio_progress.json` (progress tracker, not data)
-- `url_status.json` (transient state)
-- `deepl_quota_state.json` (transient state)
-- `rss_state.json` (transient state)
+Add any other file under `data/derived/` that git already tracks and that changed. `.gitignore` excludes worker-internal state (progress files other than `signal_enrichment_progress.json`, `rss_state.json`, snapshots, blobs). Do not force-add those.
 
 ### 17.2 — Commit message
 
@@ -1142,12 +1142,13 @@ Add {Fund Name} fund and extractor
 
 ### 17.3 — Deploy
 
-Fundradar auto-deploys from `main` on Vercel:
+The site is built on Vercel from the repository (settings: root `README.md` → "Deployment"). On a deploy:
 
-1. Push to `main`
-2. Vercel builds the Next.js app from `apps/web/`
-3. `generateStaticParams()` pre-renders the new fund page
-4. Live at `fundradar.vercel.app/funds/{slug}` within ~2 minutes
+1. Vercel builds the Next.js app from `apps/web/`.
+2. `generateStaticParams()` pre-renders the new fund page.
+3. The page is live at `/funds/{slug}` on the deployment's domain.
+
+On a fork, push to the branch that your Vercel project deploys.
 
 ---
 
@@ -1175,7 +1176,7 @@ Batch remediation for all newly-added/outlier funds:
 pnpm pipeline:new-fund-quality --auto-detect-new --apply-missing-assets
 ```
 
-### 18.0.1 — Network Preflight (avoid sandbox DNS failures)
+### 18.0.1 — Network Preflight (avoid DNS failures)
 
 This workflow is network-heavy (fund websites + Gemini API). If DNS/network is restricted, quality checks will fail for the wrong reason.
 
@@ -1193,12 +1194,12 @@ for host in ['generativelanguage.googleapis.com', 'www.blackstone.com', 'bebeez.
 PY
 ```
 
-If any host fails, run outside DNS-restricted sandbox mode.  
-`pipeline:new-fund-quality` now performs this preflight automatically and fails fast with a clear error.
+If any host fails, run from an environment with open DNS and outbound HTTPS (some sandboxed agent environments block it).
+`pipeline:new-fund-quality` runs this preflight itself and stops with a clear error.
 
 ### 18.0.2 — Manual Gemini Prompts (copy/paste fallback)
 
-If automation is blocked (DNS/sandbox/API outage) or you want a second opinion on a specific fund page, use these prompts directly in Gemini and paste the result back into your review notes.
+If automation is blocked (DNS, sandbox or API outage) or you want a second opinion on a specific fund page, paste these prompts into Gemini and keep the result in your review notes.
 
 Rules:
 - Always ask for **English-only output**.
@@ -1286,7 +1287,7 @@ Hard constraints:
 
 Example (ICG quick check): use Prompt B with `Fund: ICG (Intermediate Capital Group)` and paste the current ICG fund page content.
 
-What this does:
+What `pnpm pipeline:new-fund-quality` does:
 - runs pipeline (+ force extract by default)
 - runs Gemini portfolio enrichment
 - runs Gemini metadata enrichment
@@ -1416,7 +1417,7 @@ else:
 Hard-gate verifier (recommended, replaces the ad-hoc inline check above):
 
 ```bash
-# Auto-detect newly added funds (created_at outliers vs baseline)
+# Auto-detect newly added funds (default when --slugs is not given)
 pnpm verify:new-fund-completion
 
 # Or verify specific slugs
@@ -1431,15 +1432,17 @@ This command fails (`exit 1`) if any fund is incomplete on mandatory gates:
 - top-AUM fund below minimum signal completeness threshold
 - top-AUM fund with `italian_portfolio_count=0` without verified-zero whitelist
 
-CI hard gate (deterministic, no network) now enforces this on PRs:
+The CI job "New Fund Completion Gate" (`.github/workflows/ci.yml`) runs a deterministic version (no network) on pushes and pull requests:
 
 ```bash
 pnpm verify:new-fund-gate --base-ref <base_sha> --head-ref <head_sha>
 ```
 
-The gate requires updated tracked artifacts in the same diff:
+For new funds (slugs not in `db.json` before the change), the gate requires these files in the same diff:
 - `data/derived/new_fund_completion_report.json`
 - `data/derived/gemini_fund_asset_audit.json`
+
+Both files are gitignored. Add them with `git add -f`. Changes to funds that already exist get relaxed checks and do not need the files.
 
 Run the deterministic internal QA agent right after the check above:
 
@@ -1578,8 +1581,8 @@ if f:
 
 If all three are `True / 0 / 0`, the fund has **no Italian assets** and should be hidden from the website:
 
-1. Add the slug to `data/derived/gemini_fund_asset_zero_italy_verified.json` → `verified_slugs[]`
-2. The web filter in `getAllFunds()` (implementation pending — see `apps/web/CLAUDE.md`) will exclude it from all pages automatically
+1. Add the slug to `data/derived/gemini_fund_asset_zero_italy_verified.json` → `verified_slugs[]`.
+2. The web app does not filter this list yet, so the fund stays visible. The implementation spec is in `apps/web/CLAUDE.md` ("Fund Visibility").
 
 Do NOT hide funds without a complete audit (`completion_ready=False`). The whitelist is the authoritative gate — a fund with 0 portfolio entries that hasn't been audited stays visible.
 
@@ -1624,12 +1627,9 @@ For top-AUM funds, page completeness is mandatory even if recent live signals ar
 
 - Target set: top 25 funds by `aum_eur`
 - Minimum: at least 2 visible signals per fund
-- If below minimum, add vetted historical Italy-relevant signals through:
+- If below minimum, add vetted historical Italy-relevant signals with the backfill script below.
 
-Recency policy:
-- **Do not drop a signal only because it is old.**
-- Valuable historical Italy-relevant signals are valid and should remain visible.
-- Filtering/enrichment must use quality + relevance, not age cutoffs.
+Age rule: the filter subtracts 25 quality points from auto-detected signals older than 24 months (see [`check_signals.md`](check_signals.md) §16), because re-detected old articles are usually CMS noise. Vetted historical signals bypass the filter: the backfill script writes them directly to the filtered and enriched files. It does not add them to `detected_signals.json`, so check that they are still present after the next full filter run.
 
 ```bash
 # Dry run
@@ -1651,14 +1651,16 @@ If a bad signal/tag/classification appears, do not apply one-off data-only fixes
 - Always patch the underlying logic in worker/web code (`filter_signals.py`, `signal_text_utils.py`, `signalFundTags.ts`, `signalProcessing.ts`) so the same bug cannot reappear on the next run.
 - Use derived JSON edits only as temporary cleanup/backfill after the code fix.
 - Re-run focused pipeline steps (`monitor`/`filter`/`enrich`) for affected slugs and verify the issue stays fixed on a clean rerun.
-- Document the rule change in this file (or `docs/runbook.md`) when it introduces a new recurring guardrail.
+- Document a new recurring guardrail in the doc that owns the topic (this file, `check_signals.md` or `runbook.md`).
 
 ---
 
-## 19. Post-Deployment Checklist
+## 19. Final Checklist
 
-- [ ] Fund appears on `fundradar.vercel.app`
-- [ ] Fund detail page loads at `fundradar.vercel.app/funds/{slug}`
+Check these on the dev server (`pnpm dev`) or on the deployment:
+
+- [ ] Fund appears in the home table
+- [ ] Fund detail page loads at `/funds/{slug}`
 - [ ] Portfolio tab shows companies
 - [ ] Signals tab shows signals (if any)
 - [ ] Fund appears on `/map` (if geocoded — see [Section 13](#13-geocoding--map-optional))
@@ -1838,7 +1840,7 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 | Extracting nav text as company names | Use specific selectors; frontend's `isValidPortfolioEntry()` silently rejects these |
 | Hardcoding fund-specific logic in pipeline code | Put fund metadata flags in `db.json` (e.g., `is_ecosystem_newsroom`) |
 | API-based site doesn't refresh | Set `ALWAYS_EXTRACT = True` to bypass content hash check |
-| Website blocks automated access (403/blank page) | Check `domain_policies.json`; if site needs JS rendering set `requires_headless`; if site blocks all bots (ShieldPRO, etc.) use manual portfolio entries |
+| Website blocks automated access (403/blank page) | If the site needs JS rendering, set `requires_headless` in `data/derived/domain_policies.json`; if the site blocks all bots (ShieldPRO, etc.), use manual portfolio entries |
 
 ### During pipeline execution
 
@@ -1865,7 +1867,7 @@ def extract_portfolio(html: str, base_url: str) -> list[dict]:
 | “X invests in Y to accelerate growth” gets tagged as accelerator/fund launch | Keep accelerator detection noun-based (`accelerator/incubator/program/hub`) and avoid matching the verb `accelerate`; then re-run post-ML shared corrections (`apply_type_corrections`) so `invests in` remains `deal_announced` |
 | “Join forces” partnership appears as People | Treat `join forces` as partnership in both primary classifier and `detect_all_signal_types()` (secondary badges), unless there is explicit appointment/hire language |
 | Fix works once but breaks on next pipeline run | The fix is data-only. Patch worker/web rules first, then rerun pipeline and backfill outputs; one-off JSON cleanup alone is not persistent |
-| **Claude Code blocks on long scripts** | **ALWAYS run Gemini/pipeline scripts with `run_in_background: true` and check progress with non-blocking `tail` commands. NEVER use blocking waits (`block=true`) on tasks that call Gemini APIs — a single fund can take 5+ minutes, batches can take hours. Use `ps aux \| grep scriptname` and `tail -N outputfile` to monitor progress instead.** |
+| Long Gemini/pipeline scripts | One fund can take 5+ minutes and a batch can take hours. Run them in the background and watch the log and progress files. Never run two instances of the same script: they share progress files. |
 
 ### Signal misattribution (frontend text matching)
 
@@ -1890,27 +1892,25 @@ The web app's `signalFundTags.ts` matches signal text against fund names to show
 
 **Files**: `apps/web/src/lib/signalFundTags.ts` — `buildFundMentionEntries()` and `GENERIC_SHORT_BRANDS`
 
-### During deployment
+### During data and site updates
 
 | Pitfall | Solution |
 |---|---|
 | `pnpm seed` overwrites curated db.json | Use `--force` flag only intentionally — seed has a safety guard |
 | AIFI scraper sets wrong HQ for global funds | Cross-check `offices[]` after any AIFI merge |
 | Fund doesn't appear on map | Run `pnpm worker:geocode && pnpm merge-aifi` to populate coordinates |
-| Italian office has generic address like `Milan` | Agent must resolve to street-level via web lookup + Gemini API (no manual user research by default); if unresolved, explicitly report blocker and sources attempted |
+| Italian office has generic address like `Milan` | Resolve it to street level (official site, then Gemini lookup); if unresolved, report the sources you tried (§13) |
 | AI mentioned in UI | Never disclose AI in user-facing text — reference sources, not tools |
 | AIFI creates duplicate fund under legal name | Add alias in `fund_aliases.json` mapping legal-name slug to canonical slug |
 
 ### Cost traps
 
-> **Note**: Cost estimates are approximate. See `apps/worker/CLAUDE.md` for current API pricing and cost analysis.
-
 | Action | Impact | Prevention |
 |---|---|---|
-| Deleting `signal_enrichment_progress.json` | Full re-enrichment (several dollars) | Never delete it |
+| Deleting `signal_enrichment_progress.json` | Paid re-enrichment of every signal | Never delete it |
 | Running enricher repeatedly during debugging | Adds up fast | Edit `detected_signals_enriched.json` directly instead |
 | Removing DeepL translation layer | Increases per-run cost | Keep DeepL as primary translator |
-| Running LinkedIn scraper for testing | Wastes limited monthly runs | Never test — runs are capped. See `apps/worker/CLAUDE.md` for limits. |
+| Running the LinkedIn scraper for testing | Spends paid Apify credits and capped monthly runs | Never test it. Rules: [`linkedin-scraping.md`](linkedin-scraping.md) |
 
 ---
 

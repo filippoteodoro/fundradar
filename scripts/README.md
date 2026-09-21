@@ -2,43 +2,55 @@
 
 Utilities for data seeding, parsing, and audits.
 
-Keep this folder for active or reusable scripts. One-off completed audits, cleanup passes, and historical migration scripts belong in `/archive/scripts/`.
+Keep this folder for active or reusable scripts. One-off completed audits, cleanup passes and historical migration scripts belong in `archive/scripts/`.
 
 ## Files
 
+TypeScript scripts run through `pnpm` (see `scripts/package.json`). Python scripts run from the repo root with `python3 scripts/<name>.py`. Most Gemini scripts need `GEMINI_API_KEY` in the root `.env` or `apps/worker/.env`.
+
 | Script | Purpose |
 |--------|---------|
-| `seed.ts` | Seed database with initial fund data |
+| `seed.ts` | Build `db.json` from parsed PEM data (`pnpm seed`; refuses to overwrite a curated `db.json` without `--force`) |
 | `parse-aifi.ts` | Parse AIFI fund directory data |
-| `audit-fund-pages.py` | Fund page credibility audit |
-| `audit-pem-status.py` | PEM status verification queue |
-| `aifi-refresh-queue.py` | AIFI missing-fields queue |
-| `audit-asset-status.py` | Build asset status audit + verification queue |
-| `collect-asset-evidence.py` | Collect evidence for asset status decisions |
-| `apply-asset-status.py` | Apply high-confidence status updates |
-| `audit-fund-assets-gemini.py` | Gemini 3 Flash audit of fund assets (AUM desc, wrong/missing/corrections) |
+| `merge-aifi-metrics.ts` | Merge AIFI data and geocoded coordinates into `db.json` (`pnpm merge-aifi`) |
+| `audit-fund-quality.ts` | Fund data quality audit (`pnpm audit:quality`) |
+| `audit-fund-assets-gemini.py` | Gemini audit of fund assets (wrong, missing and corrected entries) |
+| `run-audit-fund-assets-gemini-parallel.py` | Parallel shard runner + merge for the Gemini fund-asset audit |
+| `reconcile-gemini-fund-asset-audit.py` | Merge master + shard audit outputs after an interrupted parallel run |
 | `recover-gemini-fund-asset-audit-from-logs.py` | Rebuild canonical Gemini audit output from exported AI Studio JSONL logs |
-| `generate-gemini-manual-fund-prompts.py` | Generate per-fund paste-ready manual Gemini prompts for uncovered/incomplete funds |
+| `rebuild-gemini-audit-from-canonical.py` | Rebuild canonical audit/progress from canonical JSONL (`pnpm gemini:rebuild`) |
+| `validate-gemini-audit-state.py` | Validate canonical Gemini JSONL + derived audit/progress drift (`pnpm gemini:validate`) |
+| `gemini_audit_completion.py` | Shared completion rules for Gemini audit outputs (imported by other scripts) |
+| `generate-gemini-manual-fund-prompts.py` | Generate per-fund paste-ready Gemini prompts for uncovered or incomplete funds |
 | `import-manual-gemini-fund-responses.py` | Import manual per-fund Gemini JSON replies into deduplicated JSONL |
 | `triage-gemini-fund-asset-audit.py` | Confidence/override triage for Gemini missing-asset suggestions |
-| `run-audit-fund-assets-gemini-parallel.py` | Parallel shard runner + merge for Gemini fund-asset audit |
-| `apply-gemini-missing-assets.py` | Apply Gemini missing-asset suggestions into portfolio with curation lock |
-| `validate-gemini-audit-state.py` | Validate canonical Gemini JSONL + derived audit/progress drift |
-| `rebuild-gemini-audit-from-canonical.py` | Rebuild canonical audit/progress from canonical JSONL |
-| `validate-slug-consistency.py` | Validate active artifacts against `data/db.json` slugs |
-| `cleanup-derived-slug-artifacts.py` | Prune non-DB slugs from active derived artifacts and backfill missing portfolio keys |
+| `apply-gemini-missing-assets.py` | Apply Gemini missing-asset suggestions to the portfolio with a curation lock (`pnpm gemini:apply`) |
+| `enrich-fund-metadata-gemini.py` | Fill missing AUM and investment ranges in `db.json` |
+| `generate-fund-descriptions-gemini.py` | Generate fund descriptions in `db.json` |
+| `enrich-top-fund-portfolios-gemini.py` | Enrich portfolios of top-AUM funds whose websites block scraping |
+| `verify-portfolio-gemini.py` | Verify Gemini-generated portfolio entries with Google Search grounding |
+| `check-fund-hq-gemini.py` | Verify fund headquarters |
+| `run_new_fund_quality_pipeline.py` | End-to-end quality workflow for new funds (`pnpm pipeline:new-fund-quality`) |
+| `verify_new_fund_completion.py` | Hard-gate completeness check for new funds (`pnpm verify:new-fund-completion`) |
+| `check_new_fund_gate.py` | Deterministic CI gate for new or changed funds (`pnpm verify:new-fund-gate`) |
+| `backfill_top_aum_signals.py` | Add vetted historical signals for top-AUM funds (`pnpm signals:backfill-top-aum`) |
+| `internal_quality_agent.py` | Rule-based QA over signals and portfolio data → `data/derived/internal_agent_audit.json` |
+| `validate-slug-consistency.py` | Validate active artifacts against `data/db.json` slugs (`pnpm slug:validate`) |
+| `cleanup-derived-slug-artifacts.py` | Prune non-DB slugs from derived artifacts and backfill missing portfolio keys |
+| `audit-short-summaries.py`, `audit-truncated-summaries.py` | Find suspicious `enriched_summary` values |
+| `audit_italian_currency.py`, `audit_italian_currency_json.py` | Find Italian money expressions left in enriched summaries |
+| `fix_lcatterton_names.py` | One-time fix of L Catterton portfolio names |
 
 ## Usage
 
 ```bash
-cd scripts
-npx tsx seed.ts
-npx tsx parse-aifi.ts
+pnpm seed                       # seed.ts
+pnpm -F scripts parse-aifi      # parse-aifi.ts
+pnpm merge-aifi                 # merge-aifi-metrics.ts
+python3 scripts/validate-slug-consistency.py
 ```
 
-## Dependencies
-
-These scripts use `@fundradar/shared` for type definitions.
+The TypeScript scripts use `@fundradar/shared` for type definitions.
 
 ## AIFI Parser Exclusions
 
@@ -74,6 +86,8 @@ What cleanup does:
 
 ## Gemini Fund Asset Audit
 
+All audit outputs, logs and the canonical JSONL below are gitignored, so a fresh clone has none of them. Only `data/derived/gemini_fund_asset_zero_italy_verified.json` is committed.
+
 Run:
 
 ```bash
@@ -87,7 +101,7 @@ Outputs:
 - `data/derived/gemini_fund_asset_audit.json`
 - `data/derived/gemini_fund_asset_audit_progress.json`
 
-Gemini anti-blocking defaults (aligned with pipeline best practices):
+Gemini anti-blocking defaults:
 - Sequential fund processing, ordered by AUM descending.
 - `3s` delay between calls (`--sleep-seconds`).
 - Retry with exponential backoff + jitter (`--retries`, `--min-backoff-sec`, `--max-backoff-sec`).
@@ -118,7 +132,7 @@ python3 scripts/run-audit-fund-assets-gemini-parallel.py --workers 5 --reset-sha
 
 Warning:
 - `--reset-shards` is destructive for shard progress/output files.
-- After any reset-based rerun, rebuild canonical outputs from canonical JSONL before apply.
+- The parallel runner merges shard outputs into the master audit file when it finishes. Use `reconcile-gemini-fund-asset-audit.py` if a run stops before the merge.
 
 ## Partial Refill Workflow (Safe, Non-Overwriting)
 
@@ -145,7 +159,7 @@ python3 -u scripts/audit-fund-assets-gemini.py \
 Notes:
 - This does not touch canonical files unless you explicitly set canonical `--output-path` / `--progress-path`.
 - `--reset` is destructive for the selected output/progress target paths.
-- Funds with `italian_entries=0` and no suggested missing assets are NOT auto-completed anymore.
+- Funds with `italian_entries=0` and no suggested missing assets are NOT auto-completed.
 - To explicitly mark true no-Italy cases as complete, whitelist slugs in `data/derived/gemini_fund_asset_zero_italy_verified.json`:
 
 ```json
@@ -156,7 +170,7 @@ Notes:
 
 ## Recover From AI Studio JSONL Logs
 
-If shard/master files are incomplete but you exported AI Studio logs, rebuild canonical state from logs:
+Google AI Studio can export the logs of Gemini calls as JSONL. If shard/master files are incomplete and you have such exports, rebuild canonical state from them:
 
 ```bash
 python3 -u scripts/recover-gemini-fund-asset-audit-from-logs.py \
@@ -195,6 +209,7 @@ Derived/regenerated files:
 Rules:
 - Do not edit derived audit/progress files manually.
 - Rebuild derived files from canonical JSONL after any reset/recovery work.
+- API runs of `audit-fund-assets-gemini.py` write to the audit JSON directly and do NOT write to the canonical JSONL. A rebuild therefore deletes API run results. Rebuild only when the audit JSON is lost or corrupt (see pitfall 21 in the root `AGENTS.md`).
 
 Validate canonical state:
 
