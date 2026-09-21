@@ -2,12 +2,12 @@
 
 Goal: finish the Fundradar wrap-up. The site is free, with no payments and no accounts (commit e8dc761).
 History is rewritten: the dead Gemini key is redacted and the author emails are noreply.
+Closed bot PRs #1/#2 keep the dead Gemini key in read-only `refs/pull/*`; harmless.
 Pre-rewrite backup: `~/Code/Archive/fundradar-pre-rewrite-2026-09-21.bundle` (not on GitHub). Backlog: `to_do.md`.
 
 ## Operator actions (the agent was blocked)
 - **Stripe:** find the account that Fundradar used. Delete the webhook to `fundradar.co/api/stripe/webhook`.
   Archive the product and price. Cancel any subscriptions. Roll or delete the secret key.
-- **GitHub:** close bot PRs #1 and #2. Their read-only `refs/pull/*` keep the dead Gemini key. It is harmless.
 - **GTM `GTM-P6LBQD4B`:** delete the "GA4 - Purchase Event" tag and the LinkedIn Insight Tag.
 
 ## Before the repo goes public (operator decision)
