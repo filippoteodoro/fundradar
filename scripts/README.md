@@ -208,7 +208,6 @@ Derived/regenerated files:
 
 Rules:
 - Do not edit derived audit/progress files manually.
-- Rebuild derived files from canonical JSONL after any reset/recovery work.
 - API runs of `audit-fund-assets-gemini.py` write to the audit JSON directly and do NOT write to the canonical JSONL. A rebuild therefore deletes API run results. Rebuild only when the audit JSON is lost or corrupt (see pitfall 21 in the root `AGENTS.md`).
 
 Validate canonical state:
@@ -219,7 +218,7 @@ python3 scripts/validate-gemini-audit-state.py
 pnpm gemini:validate
 ```
 
-Rebuild canonical derived files:
+Rebuild canonical derived files (only when the audit JSON is lost or corrupt; a rebuild deletes API run results):
 
 ```bash
 python3 scripts/rebuild-gemini-audit-from-canonical.py

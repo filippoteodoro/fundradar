@@ -1546,8 +1546,8 @@ Typical causes:
 Required mitigation order:
 1. Re-run with the stable command above (`--no-grounding`, smaller chunk sizes, smaller name caps).
 2. If still failing, use per-fund manual prompts and import flow:
-   `generate-gemini-manual-fund-prompts.py` → save `manual_responses/<slug>.json` → `import-manual-gemini-fund-responses.py` → `rebuild-gemini-audit-from-canonical.py`.
-3. Never run manual import and rebuild concurrently; run them sequentially to avoid race/overwrite on canonical JSONL.
+   `generate-gemini-manual-fund-prompts.py` → save `manual_responses/<slug>.json` → `import-manual-gemini-fund-responses.py` → re-run `audit-fund-assets-gemini.py --slugs <slug>` to merge.
+3. Do not use `rebuild-gemini-audit-from-canonical.py` as the merge step (see the warning below).
 
 > **CRITICAL — `rebuild-gemini-audit-from-canonical.py` WIPES API RUN DATA**
 >

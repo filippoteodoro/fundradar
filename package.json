@@ -4,7 +4,7 @@
   "license": "MIT",
   "packageManager": "pnpm@9.15.9",
   "scripts": {
-    "dev": "pnpm -F web dev",
+    "dev": "pnpm -F @fundradar/shared build && pnpm -F web dev",
     "build": "pnpm -F @fundradar/shared build && pnpm -F web build",
     "lint": "pnpm -F @fundradar/shared lint && pnpm -F web lint",
     "typecheck": "pnpm -F @fundradar/shared build && pnpm -F web typecheck",

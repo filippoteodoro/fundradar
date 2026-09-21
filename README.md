@@ -12,7 +12,7 @@ The data in `data/` is a snapshot. It goes stale unless someone runs the pipelin
 
 ## What is in the repo
 
-- **Web app** (`apps/web`): a statically generated Next.js site that reads committed JSON.
+- **Web app** (`apps/web`): a read-only Next.js site that reads committed JSON. It needs a Node server runtime (Vercel or similar), not static hosting.
 - **Worker** (`apps/worker`): a Python pipeline. It scrapes fund websites and news feeds, then filters, classifies, translates and enriches signals.
 - **Data** (`data/`): the fund directory (`db.json`) and the pipeline output (`data/derived/`).
 
@@ -24,7 +24,7 @@ The MIT License covers the code. Third-party content keeps the rights of its own
 
 ## API keys (pipeline only)
 
-The web app needs no keys. The worker reads keys from `apps/worker/.env` or the root `.env` (templates: `apps/worker/.env.example`, `.env.example`):
+The web app needs no keys. Put the keys in `apps/worker/.env` (template: `apps/worker/.env.example`). Some steps also read a root `.env`, but only the worker file reaches every step:
 
 | Key | Used for |
 |-----|----------|
@@ -50,7 +50,7 @@ pnpm pipeline
 
 Root-level worker commands such as `pnpm pipeline`, `pnpm worker:monitor`, and `pnpm pipeline:signals` activate `apps/worker/.venv` internally. Manual `source apps/worker/.venv/bin/activate` is optional.
 
-The pipeline runs a preflight before any step. It stops on low free disk space and on missing or corrupt output files, before any API spend.
+The pipeline runs a preflight before any step. It stops on low free disk space, and on missing output files when file-sync conflict copies are present.
 
 ## Tech Stack
 
@@ -106,7 +106,7 @@ The live site runs on Vercel. To host a fork, import it into a Vercel project an
 - **Build**: `cd ../.. && pnpm -F @fundradar/shared build && pnpm -F web build`
 - **Install**: `cd ../.. && pnpm install --frozen-lockfile`
 
-All fund pages are statically generated at build time via `generateStaticParams()`. Data refreshes on each deploy.
+Fund pages are listed at build time with `generateStaticParams()`, but the root layout reads cookies, so pages render on the server. Data refreshes on each deploy.
 
 ### Data refresh workflow
 

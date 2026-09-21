@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 type ConsentState = 'accepted' | 'rejected' | null;
 
-// Unset in a fork means no analytics at all, never another project's container.
+// Unset in a fork means no Google tracking, never another project's container.
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 const CONSENT_KEY = 'fundradar_cookie_consent_v1';
 const CONSENT_MAX_AGE_MS = 180 * 24 * 60 * 60 * 1000; // 6 months
