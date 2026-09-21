@@ -1,30 +1,29 @@
 # to_do
 
-Non-priority backlog. Open for contributors now that Fundradar is a free open-source project.
+Open backlog for contributors. Each item is independent. Open an issue before large changes.
 
-## Evaluate 2 possibly-genuine new PE/VC funds
-The gap detector flagged these; they were NOT excluded and will keep alerting until decided:
-- **Kryalos SGR** — real-estate PE/RE asset manager. Borderline (RE focus). Decide in (add fund + extractor) or out (`excluded_entities`).
-- **Soprarno SGR** (now L&B Capital, ex-Banca Ifigest) — small PE. Verify it's PE/VC, then add or exclude.
+## Decide on 2 fund candidates
+The gap detector flags these. Add each one (fund entry + extractor) or exclude it (`db.json["excluded_entities"]`):
+- **Kryalos SGR**: real-estate focus. Borderline for the PE/VC scope.
+- **Soprarno SGR** (now L&B Capital, ex-Banca Ifigest): small PE firm. Verify it is PE/VC first.
 
-## 11 persistent URL failures — verify live before editing extractor URLs
-Worker-doc rule: do NOT null URLs that are merely blocked/down.
-- 403 bot-block (likely transient, leave): `apax.com` (3 paths), `oakleycapital.com` (3 paths).
-- 404 persistent (investigate): `aimpact.org/portafoglio`+`/en/news` (13×, was a *temporary* 503 — likely restructured),
-  `triton-partners.com/media/news/`, `cherrybaycapital.com/cherries/`+`/about/team/`.
+## Persistent URL failures
+Verify each URL live before you edit an extractor. Do not remove a URL that is only blocked or down.
+- 403 bot-block, probably transient: `apax.com` (3 paths), `oakleycapital.com` (3 paths).
+- 404, investigate: `aimpact.org/portafoglio` and `/en/news`, `triton-partners.com/media/news/`,
+  `cherrybaycapital.com/cherries/` and `/about/team/`.
 
-## Translation: single-DeepL-key gap (no fallback)
-Only `DEEPL_API_KEY` is configured; ~6 fields/run go untranslated and leak Italian into the filter (false-friend
-mis-typing, e.g. "sale"=rises). Add `DEEPL_API_KEY_2` or an Azure Translator key to restore the documented fallback chain.
+## Translation fallback
+With only one translation key, fields that fail translation stay in Italian and can cause wrong signal types
+(for example "sale" means "rises" in Italian). Set a second key (`DEEPL_API_KEY_2` or `AZURE_TRANSLATOR_KEY`)
+to use the fallback chain in `apps/worker/fundradar_worker/translator.py`.
 
-## `data/pem/*.pdf` source PDFs lost in the move
-`pem_deals.json` (derived) is committed & intact, so nothing is user-facing. Only needed to RE-ingest PEM.
-Locate the original PDFs (off-machine backup?) or accept that PEM can't be re-ingested.
+## PEM re-ingest
+The PEM source PDFs are not in the repo. `data/derived/pem_deals.json` is committed and complete.
+To re-ingest, put the PEM PDFs in `data/pem/` and run `pnpm worker:ingest`.
 
-## Optional / watch
-- `enrich_portfolio` + `enrich_portfolio_final` hit the pipeline step timeout (the cause of the now-cleared 53-entry
-  backlog). Bump the step timeout for those two Gemini steps in `pipeline.py` if the backlog recurs.
-- rss-230/193 stock-commentary demotions are patched but trip `_matches_exit` guards at filter time, so similar
-  *future* market-commentary that also names a transaction may slip — watch the audit.
-- Fundradar-root `AGENTS.md` (untracked, your in-flight CLAUDE.md→AGENTS.md migration) still cites the old iCloud
-  Tier-1 path; update when that migration lands. (Worker `CLAUDE.md` + `runbook.md` already corrected.)
+## Watch
+- `enrich_portfolio` and `enrich_portfolio_final` can hit the pipeline step timeout. If a backlog builds up,
+  increase the step timeout for these two steps in `apps/worker/fundradar_worker/pipeline.py`.
+- Market-commentary articles that also name a transaction can pass the `_matches_exit` guard in `apps/worker/scripts/signal_corrections.py`.
+  Check the filter audit output for this pattern.

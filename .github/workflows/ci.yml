@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main]
 
+# Read-only token: PRs from forks must not be able to write to the repo.
+permissions:
+  contents: read
+
 jobs:
   new-fund-quality-gate:
     name: New Fund Completion Gate
