@@ -2,11 +2,6 @@
 
 Operations and troubleshooting for the Fundradar scraping worker.
 
-For legal/compliance operations, use:
-- `docs/compliance-dsar-runbook.md`
-- `docs/compliance-incident-response.md`
-- `docs/compliance-processor-register.md`
-
 ## Prerequisites
 
 - Python 3.11+

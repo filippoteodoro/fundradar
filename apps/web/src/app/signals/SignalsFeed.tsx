@@ -14,7 +14,6 @@ import { FilterBar } from '@/components/filters/FilterBar';
 import { FilterChips, type ChipItem } from '@/components/filters/FilterChips';
 import { FilterDropdown } from '@/components/filters/FilterDropdown';
 import { FilterPanel } from '@/components/filters/FilterPanel';
-import { SubscribeBanner } from '@/components/SubscribeBanner';
 
 export interface FundMeta {
   category: FundCategory;
@@ -528,11 +527,8 @@ export function SignalsFeed({ signals, fundPriorityScores, fundMetaMap = {} }: S
         </p>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          {paginatedSignals.map((signal, i) => (
-            <div key={signal.id}>
-              <SignalCard signal={signal} showFundLink />
-              {i === 4 && page === 0 && <SubscribeBanner />}
-            </div>
+          {paginatedSignals.map((signal) => (
+            <SignalCard key={signal.id} signal={signal} showFundLink />
           ))}
         </div>
       )}

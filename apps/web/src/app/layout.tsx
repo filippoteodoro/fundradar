@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
 import { cookies } from 'next/headers';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
@@ -9,8 +8,6 @@ import { BetaBanner } from '@/components/BetaBanner';
 import { HeaderNav } from '@/components/HeaderNav';
 import { ConsentManager } from '@/components/ConsentManager';
 import { getBaseUrl } from '@/lib/baseUrl';
-
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? 'G-ZK8Z0S6B49';
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseUrl()),
@@ -75,11 +72,9 @@ export default async function RootLayout({
             .header-inner { gap: 8px !important; }
             .beta-badge { font-size: 11px !important; padding: 2px 8px 2px 5px !important; gap: 4px !important; }
             .beta-badge > span:first-child { width: 13px !important; height: 13px !important; font-size: 9px !important; }
-            .header-cta { font-size: 13px !important; padding: 5px 10px !important; }
             @media (max-width: 380px) {
               .beta-badge { font-size: 10px !important; padding: 2px 7px 2px 4px !important; gap: 3px !important; }
               .beta-badge > span:first-child { width: 12px !important; height: 12px !important; font-size: 8px !important; }
-              .header-cta { font-size: 11px !important; padding: 3px 6px !important; }
             }
           }
         `}} />
@@ -124,9 +119,6 @@ export default async function RootLayout({
             flexWrap: 'wrap',
           }}>
             <span>All data verified through public sources and updated daily.</span>
-            <Link href="/subscribe" style={{ color: '#444', textDecoration: 'underline', fontWeight: 500 }}>
-              Get weekly signals →
-            </Link>
             <Link href="/terms-and-conditions" style={{ color: '#666', textDecoration: 'underline' }}>
               Terms
             </Link>
@@ -144,13 +136,6 @@ export default async function RootLayout({
         <ConsentManager />
         <SpeedInsights />
         <Analytics />
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
-        <Script id="ga-init" strategy="afterInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA_ID}');
-        `}</Script>
       </body>
     </html>
   );

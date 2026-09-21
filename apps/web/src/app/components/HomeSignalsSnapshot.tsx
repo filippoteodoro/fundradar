@@ -4,7 +4,6 @@ import { useMemo } from 'react';
 import Link from 'next/link';
 import type { UnifiedSignal } from '@/lib/signals_unified';
 import { SignalCard } from '@/components/SignalCard';
-import { SubscribeBanner } from '@/components/SubscribeBanner';
 
 interface Props {
   signals: UnifiedSignal[];
@@ -36,7 +35,6 @@ export function HomeSignalsSnapshot({ signals, filteredSlugSet }: Props) {
           <SignalCard key={signal.id} signal={signal} showFundLink />
         ))}
       </div>
-      <SubscribeBanner />
     </div>
   );
 }

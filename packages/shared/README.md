@@ -8,8 +8,6 @@ Defined in `src/types.ts`:
 
 - `Fund` - Fund entity with profile data
 - `Signal` - Observed change/event for a fund
-- `Watchlist` - User watchlist
-- `User` - User account
 
 ## Usage
 

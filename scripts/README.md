@@ -10,8 +10,6 @@ Keep this folder for active or reusable scripts. One-off completed audits, clean
 |--------|---------|
 | `seed.ts` | Seed database with initial fund data |
 | `parse-aifi.ts` | Parse AIFI fund directory data |
-| `build-weekly-digest.ts` | Build plain-text weekly digest + recipients CSV + sent-log dedupe (pulls subscribers from Stripe) |
-| `manage-digest-suppression.ts` | Manage digest-only opt-out list in `data/digest_unsubscribed_emails.json` |
 | `audit-fund-pages.py` | Fund page credibility audit |
 | `audit-pem-status.py` | PEM status verification queue |
 | `aifi-refresh-queue.py` | AIFI missing-fields queue |
@@ -36,7 +34,6 @@ Keep this folder for active or reusable scripts. One-off completed audits, clean
 cd scripts
 npx tsx seed.ts
 npx tsx parse-aifi.ts
-npx tsx manage-digest-suppression.ts list
 ```
 
 ## Dependencies

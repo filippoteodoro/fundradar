@@ -1,13 +1,13 @@
 # Fundradar — Italy-first (Signals Engine)
 
-> **Note**: This spec was written during initial planning. The actual implementation uses **file-based JSON** instead of a database — there is no Supabase, no SQL schema, no Tailwind CSS. Sprint task references to database migrations and Supabase setup were superseded by the file-based approach. See root `CLAUDE.md` for the current tech stack.
+> **Note**: This spec was written during initial planning. The actual implementation uses **file-based JSON** instead of a database — there is no Supabase, no SQL schema, no Tailwind CSS. Sprint task references to database migrations and Supabase setup were superseded by the file-based approach. See root `AGENTS.md` for the current tech stack. Fundradar is a free, open-source project with no accounts and no payments.
 
 ## 1) Summary
 Fundradar is a table-first website for discovering PE/VC funds (Italy-first) and tracking **publicly observable signals** with strong provenance.
 It is not an “enterprise database” replacement. It is a **source-cited signal engine**.
 
 ## 2) Target user (ICP for v1)
-Primary paying ICP (pick ONE for v1, design UX for them):
+Primary user (pick ONE for v1, design UX for them):
 - Boutique service providers (recruiters, advisors, lawyers, fund admins, BD vendors) who want “who’s active now” signals.
 
 Secondary (free distribution, not main UX):
@@ -63,23 +63,18 @@ Sections (no tabs unless needed):
    - minimal list (target + date + stage + investor role)
 
 4) Corrections:
-   - “Suggest correction” form (auth optional initially)
+   - “Suggest correction” form
 
 ### 5.3 Signals feed `/signals`
 Global feed of latest signals (Italy-only), filterable by type and sector.
 
-### 5.4 Watchlists (auth) `/watchlists`
-- Save funds and filters
-- Email digest weekly (v1) + optional instant alerts (v1.1)
-
-### 5.5 Pricing `/pricing` + About `/about`
+### 5.4 About `/about`
 - Be transparent about reliability contract and sources.
 - Attribution for PEM dataset usage.
 
 ## 6) Feature set (MECE, v1)
 A) Discovery
 - Global search + filter chips
-- Saved filter views (auth)
 
 B) Profiles (safe fields only)
 - Manager/SGR entity + Vehicles underneath (when known)
@@ -95,25 +90,12 @@ Signal types (v1):
   Support/admin/office roles and internships are excluded.
 - Website changes (non-hiring) remain low-priority and should not be shown unless reclassified.
 
-D) Monitoring
-- Watchlist
-- Weekly digest email (“what changed”)
-- (v1.1) Instant alerts by rule
-
-E) Trust (embedded everywhere)
+D) Trust (embedded everywhere)
 - Source links + dates + snapshots
 - Recency indicators
 - Corrections workflow (light admin + user suggestions)
 - AI is never disclosed in UI. AI is only used to accelerate data collection and source discovery; the UI should show sources, not “AI-generated” labels.
  - No “as of” labels in the UI; keep data updated instead.
-
-F) Pro (keep simple in v1)
-Avoid “API/CRM/CSV” language in UI.
-Call it:
-- “Saved lists”
-- “Team access” (later)
-- “More alerts”
-Start with: Monitoring paywall (digest + watchlists) and/or full signal history.
 
 ## 7) Data model (high level)
 
@@ -125,7 +107,6 @@ Start with: Monitoring paywall (digest + watchlists) and/or full signal history.
 - signal_event (core)
 - source (site/news/linkedin/pem)
 - snapshot (raw HTML/text/PDF extraction)
-- user, watchlist, watchlist_rule, notification_log
 
 ### 7.2 Key design decisions
 - Keep both:
@@ -187,7 +168,6 @@ Suggested baseline:
 - Vercel Pro for Next.js web: $20/month (plus usage). 
 - Supabase Pro: from $25/month (includes $10 compute credits). 
 - One small VPS (EU) for worker: start ~€4–€10/month (Hetzner class) or $4–$6/month (DigitalOcean class). 
-- AWS SES for emails: $0.10 per 1,000 emails (plus data costs). 
 
 Est. fixed cost for MVP: roughly $50–$80/month + domain + small LLM usage (optional).
 (All prices should be re-checked before purchase.)
@@ -244,28 +224,6 @@ T3.2 Diff engine for “meaningful changes”
 
 T3.3 Create signal_event from diff
 - DoD: signal appears in `/signals` feed and on fund page timeline
-
-### Sprint 4 — Monitoring (demo: watchlist + weekly digest) ✅
-T4.1 Auth (Supabase auth) + watchlist CRUD ✅
-- DoD: user can save a watchlist of funds
-- Implemented: JSON-based auth and watchlist CRUD (apps/web/src/lib/auth.ts, watchlist.ts)
-
-T4.2 Digest generator (weekly) — REMOVED
-- Original files (digest.py, email_sender.py) removed during architecture cleanup
-- Feature was scaffolded but never wired into the pipeline
-
-T4.3 Email sending (SES or equivalent) — REMOVED
-- See T4.2 note above
-
-### Sprint 5 — Paywall (minimal) + Admin tools (demo: paid-only monitoring)
-T5.1 Stripe checkout + webhook to store subscription status
-- DoD: subscription status toggles in DB after webhook
-
-T5.2 Gate “watchlists + digest” behind paid plan
-- DoD: free users see upgrade CTA; paid users get digest
-
-T5.3 Admin “merge funds / fix aliases” page (protected)
-- DoD: you can merge duplicates safely and preserve provenance
 
 ### Phase 6 — Asset-Centric Features
 

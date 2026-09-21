@@ -4,7 +4,7 @@ Free, public directory of PE/VC funds active in Italy with source-cited signals,
 
 **Live**: [fundradar.vercel.app](https://fundradar.vercel.app)
 
-All data is freely accessible — no account required. Subscribe to receive weekly email digests of new signals.
+Fundradar is a free, open-source project (MIT License). All data is freely accessible. There are no accounts and no payments.
 
 ## Quick Start
 
@@ -46,7 +46,6 @@ fundradar/
 ├── scripts/           # TS seed/utility scripts
 ├── data/
 │   ├── db.json        # Fund directory (source of truth)
-│   ├── compliance/    # DSAR/incident/processor compliance trackers
 │   ├── pem/           # PEM PDF source files
 │   ├── derived/       # Worker output (JSON consumed by web)
 │   └── AIFI/          # AIFI scraped data
@@ -70,8 +69,6 @@ fundradar/
 | `pnpm worker:aifi` | Scrape AIFI member data |
 | `pnpm worker:geocode` | Geocode fund addresses |
 | `pnpm audit:quality` | Run fund data quality audit |
-| `pnpm digest:build` | Build weekly digest outputs |
-| `pnpm digest:suppress` | Manage digest-only unsubscribe/suppression list |
 
 ## Deployment
 
@@ -92,10 +89,8 @@ All fund pages are statically generated at build time via `generateStaticParams(
 
 ### Vercel environment
 
-- Filesystem writes (auth, watchlists) are disabled via `IS_READONLY` guard
-- Auth API routes return 503
-- Login/signup/watchlists redirect to `/subscribe`
-- No environment variables required for basic deployment (Stripe keys only needed for payments)
+- The site is read-only: it serves the committed JSON in `data/` and writes nothing at runtime.
+- The site runs without environment variables. The contact form needs `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`, `RECAPTCHA_SECRET_KEY`, `RESEND_API_KEY`, and `CONTACT_EMAIL`.
 
 ## Setup
 
@@ -115,11 +110,9 @@ playwright install chromium
 
 ## Key Documentation
 
-- `CLAUDE.md` — project-wide architecture and rules
+- `AGENTS.md` — project-wide architecture and rules
 - `apps/web/CLAUDE.md` — web app specifics (caching, data loading)
 - `apps/worker/CLAUDE.md` — worker specifics (extraction, pipeline)
 - `docs/data-flow.md` — data pipeline and source hierarchy
 - `docs/runbook.md` — operations and troubleshooting
-- `docs/compliance-dsar-runbook.md` — GDPR request handling workflow
-- `docs/compliance-incident-response.md` — privacy/security incident workflow
-- `docs/compliance-processor-register.md` — processor register governance
+- `docs/tracking.md` — consent-gated analytics setup

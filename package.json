@@ -32,10 +32,7 @@
     "slug:validate": "python3 scripts/validate-slug-consistency.py",
     "slug:cleanup:dry": "python3 scripts/cleanup-derived-slug-artifacts.py",
     "slug:cleanup:derived": "python3 scripts/cleanup-derived-slug-artifacts.py --apply",
-    "audit:quality": "pnpm -F scripts audit-quality",
-    "digest:build": "pnpm -F scripts digest:build",
-    "digest:send": "pnpm -F scripts digest:send",
-    "digest:suppress": "pnpm -F scripts digest:suppress"
+    "audit:quality": "pnpm -F scripts audit-quality"
   },
   "devDependencies": {
     "typescript": "^5.9.3"

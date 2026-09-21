@@ -21,8 +21,7 @@ export default function AboutPage() {
           of information is source-cited with links to original sources.
         </p>
         <p style={{ lineHeight: 1.6, color: '#444' }}>
-          All fund data, portfolios, and signals are freely accessible — no account required.{' '}
-          <a href="/subscribe" style={{ color: '#1976d2', textDecoration: 'none' }}>Subscribe</a> to receive weekly email digests of new signals directly in your inbox.
+          All fund data, portfolios, and signals are freely accessible — no account required.
         </p>
       </section>
 

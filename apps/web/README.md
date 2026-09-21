@@ -14,13 +14,10 @@ Next.js 14 App Router application for the Fundradar directory.
 ```
 src/
 ├── app/                 # App Router pages
-│   ├── api/            # API routes (auth, watchlists, contact)
+│   ├── api/            # API routes (contact form)
 │   ├── funds/          # Fund detail pages
 │   ├── signals/        # Signals feed
 │   ├── map/            # Fund map view
-│   ├── watchlists/     # User watchlists
-│   ├── login/          # Auth pages
-│   ├── signup/
 │   ├── about/
 │   └── components/     # Page-specific components
 ├── components/         # Shared components (charts, tables, shared filters)
@@ -50,4 +47,4 @@ All data comes from JSON files in `data/` and `data/derived/`. See `src/lib/data
 ## See Also
 
 - `CLAUDE.md` in this directory for detailed web architecture docs
-- Root `CLAUDE.md` for project-wide instructions
+- Root `AGENTS.md` for project-wide instructions

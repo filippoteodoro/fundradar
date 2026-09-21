@@ -13,6 +13,7 @@ type ConsentWindow = Window & {
   dataLayer?: unknown[];
 };
 
+// Google Tag Manager (which carries the GA4 tag) loads only after the visitor accepts optional cookies.
 function loadGtmIfNeeded() {
   if (document.querySelector(`script[data-fundradar-gtm="${GTM_ID}"]`)) return;
 
@@ -75,7 +76,7 @@ export function ConsentManager() {
   useEffect(() => {
     const stored = readStoredConsent();
     setConsent(stored);
-    loadGtmIfNeeded();
+    if (stored === 'accepted') loadGtmIfNeeded();
     setReady(true);
   }, []);
 
@@ -86,6 +87,7 @@ export function ConsentManager() {
   function handleChoice(next: Exclude<ConsentState, null>) {
     setConsent(next);
     persistConsent(next);
+    if (next === 'accepted') loadGtmIfNeeded();
   }
 
   return (
@@ -111,7 +113,7 @@ export function ConsentManager() {
             {bannerTitle}
           </p>
           <p style={{ margin: '0 0 10px 0', fontSize: '12px', color: '#555', lineHeight: 1.45, overflowWrap: 'anywhere' }}>
-            We use essential cookies plus optional analytics and conversion tracking. See our{' '}
+            We use essential cookies plus optional Google Analytics cookies. See our{' '}
             <Link href="/cookie-policy" style={{ color: '#0066cc', textDecoration: 'underline' }}>
               Cookie Policy
             </Link>.

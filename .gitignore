@@ -23,7 +23,16 @@ apps/worker/.venv
 .env.local
 .env.*.local
 *.secret
+
+# Personal data and secrets from the retired account, payment, and digest features.
+# No code writes these files. Keep them ignored so a stale local copy is never committed.
 stripe_backup_code.txt
+/data/users.json
+/data/auth.json
+/data/watchlists.json
+/data/subscribers.json
+/data/derived/digest/
+/data/derived/digest_log.json
 
 # IDE
 .idea/
@@ -48,10 +57,6 @@ Thumbs.db
 /data/pem/*.pdf
 /data/models/
 /data/backups/
-/data/users.json
-/data/auth.json
-/data/watchlists.json
-/data/subscribers.json
 /data/snapshots.json
 /data/url_status.json
 /data/audits/
@@ -70,7 +75,6 @@ Thumbs.db
 /data/derived/chatgpt_batches/
 /data/derived/gemini_apply_runs/
 /data/derived/gemini_fund_asset_logs/
-/data/derived/digest/
 /data/derived/linkedin/raw/
 /data/derived/*_progress*.json
 # Exception: signal_enrichment_progress.json is committed — losing it costs ~$2-5 in API re-enrichment
@@ -86,7 +90,6 @@ Thumbs.db
 /data/derived/*_report*.json
 /data/derived/*_audit*.json
 /data/derived/signal_ml_*.json*
-/data/derived/digest_log.json
 /data/derived/manual_funds_status.json
 /data/derived/pem_manifest.json
 /data/derived/pem_investors.json

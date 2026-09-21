@@ -5,17 +5,6 @@ import Link from 'next/link';
 
 const linkStyle = { color: '#ccc', textDecoration: 'none', fontSize: '14px' } as const;
 
-const ctaStyle = {
-  background: '#2563eb',
-  color: 'white',
-  fontSize: '14px',
-  fontWeight: 600,
-  padding: '6px 14px',
-  borderRadius: '8px',
-  textDecoration: 'none',
-  whiteSpace: 'nowrap',
-} as const;
-
 export function HeaderNav() {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -34,9 +23,6 @@ export function HeaderNav() {
 
   return (
     <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '12px' }}>
-      {/* Get Signals — always visible */}
-      <Link href="/subscribe" style={ctaStyle} className="header-cta">Get Signals</Link>
-
       {/* Desktop nav links */}
       <nav className="header-nav-desktop" style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
         <Link href="/" style={linkStyle}>Funds</Link>

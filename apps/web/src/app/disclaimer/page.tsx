@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { CARD_PADDING, CARD_STYLE } from '@/lib/ui';
-import { LEGAL_BUNDLE_VERSION } from '@/lib/legal';
 
 export const metadata: Metadata = {
   title: 'Disclaimer',
@@ -15,8 +14,7 @@ export default function DisclaimerPage() {
     <div style={{ maxWidth: '780px', margin: '48px auto' }}>
       <div style={{ ...CARD_STYLE, padding: CARD_PADDING }}>
         <h1 style={{ margin: '0 0 8px 0', fontSize: '28px' }}>Disclaimer</h1>
-        <p style={{ margin: '0 0 8px 0', color: '#666' }}>Last updated: {LAST_UPDATED}</p>
-        <p style={{ margin: '0 0 24px 0', color: '#666' }}>Legal bundle version: {LEGAL_BUNDLE_VERSION}</p>
+        <p style={{ margin: '0 0 24px 0', color: '#666' }}>Last updated: {LAST_UPDATED}</p>
 
         <section style={{ marginBottom: '20px' }}>
           <h2 style={{ fontSize: '18px', margin: '0 0 8px 0' }}>1. No investment recommendation</h2>

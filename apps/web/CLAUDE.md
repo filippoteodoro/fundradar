@@ -121,8 +121,6 @@ Company pages (`/companies/[slug]`) display a single `Company` object aggregated
 | `/companies/[slug]` | `getCompanyBySlug()` | aggregated from all `getPortfolioForFund()` |
 | `/companies/[slug]` | `getSignalsForCompany()` | `detected_signals_enriched.json` (company-matched) |
 | `/signals` | `loadUnifiedSignals()` | enriched → filtered → raw (via `signals_unified.ts`) |
-| `/subscribe` | Stripe checkout | — |
-| `/login`, `/signup`, `/watchlists` | Redirect to `/subscribe` | — |
 
 ## Signal Dual-Loading — Important
 
@@ -284,16 +282,12 @@ When a fund has no working website extractor (common for large international PE 
 - `fundFilters.ts` — single source for fund filter catalogs and HQ-country filter logic shared by `FundsTable.tsx` and `MapView.tsx`
 - `fundRangeFilters.ts` — shared AUM/investment range-stop utilities used by table/map slider filters
 
-## Auth & Subscriptions
+## No Accounts, No Payments
 
-**No user accounts.** All data is freely accessible. The only user-facing feature requiring payment is email signal digests via `/subscribe` (Stripe).
+All data is freely accessible. There are no user accounts, subscriptions, or payments.
 
-- `/login`, `/signup`, `/watchlists` — redirect to `/subscribe` (no accounts)
-- Auth API routes (`api/auth/*`) return 503 on Vercel via `process.env.VERCEL` guard
-- Watchlist API routes (`api/watchlists/*`) return 503 on write operations
-- `auth.ts`, `watchlist.ts`, `subscribers.ts` — have `IS_READONLY` guard to skip filesystem writes on Vercel
-- `src/app/api/contact/route.ts` — contact form (works on Vercel)
-- `src/app/api/stripe/*` — Stripe checkout and webhook (requires `STRIPE_SECRET_KEY` env var)
+- `src/app/api/contact/route.ts` — contact form, the only API route (needs reCAPTCHA + Resend env vars)
+- `src/components/ConsentManager.tsx` — loads Google Tag Manager only after the visitor accepts optional cookies. Keep `/cookie-policy` and `/privacy-policy` in sync with what loads (see `docs/tracking.md`).
 
 ## Map & Address Data
 

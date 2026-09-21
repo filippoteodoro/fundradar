@@ -51,7 +51,7 @@ export function BetaBanner({ initialDismissed }: { initialDismissed: boolean }) 
         flexShrink: 0,
       }}>!</span>
       <span style={{ fontSize: '13px', fontWeight: 600, color: '#1a1a2e', lineHeight: 1.4 }}>
-        Curated data is available only for Italy. We will expand based on subscribers&apos; requests
+        Curated data is available only for Italy.
       </span>
       <button
         onClick={handleDismiss}

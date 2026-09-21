@@ -1666,7 +1666,6 @@ If a bad signal/tag/classification appears, do not apply one-off data-only fixes
 - [ ] Page renders correctly when shared on social media (site-level OG image is automatic)
 - [ ] Run `pnpm audit:quality` to check the fund's data quality grade
 - [ ] Clear gap detector dedup state if the fund's name appeared in earlier signals (see §3.6)
-- [ ] Weekly digest will automatically include signals from this fund (no action needed)
 - [ ] RSS feeds will automatically match articles mentioning this fund (no action needed)
 
 ---

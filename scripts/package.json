@@ -7,17 +7,11 @@
     "seed": "tsx seed.ts",
     "parse-aifi": "tsx parse-aifi.ts",
     "merge-aifi": "tsx merge-aifi-metrics.ts",
-    "audit-quality": "tsx audit-fund-quality.ts",
-    "digest:build": "tsx build-weekly-digest.ts",
-    "digest:send": "tsx send-weekly-digest.ts",
-    "digest:suppress": "tsx manage-digest-suppression.ts"
+    "audit-quality": "tsx audit-fund-quality.ts"
   },
   "dependencies": {
     "@fundradar/shared": "workspace:*",
-    "csv-parse": "^5.5.0",
-    "dotenv": "^17.3.1",
-    "resend": "^6.9.2",
-    "stripe": "^20.3.1"
+    "csv-parse": "^5.5.0"
   },
   "devDependencies": {
     "tsx": "^4.7.0",
