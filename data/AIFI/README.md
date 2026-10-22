@@ -15,25 +15,25 @@ Each directory contains CSV files with fund names grouped by that category:
 | Directory | Contents |
 |-----------|----------|
 | `Sector/` | Funds by industry focus (Healthcare, Tech, etc.) |
-| `Geography/` | Funds by geographic focus (Italy, Europe, Global) |
+| [`Geography/`](<Geography/README.md>) | Funds by geographic focus (Italy, Europe, Global) |
 | `Asset class/` | Fund types (Buyout, Growth, Venture, etc.) |
 | `Investment focus/` | Investment stage preferences |
-| `Average investment/` | Typical deal sizes |
+| [`Average investment/`](Average%20investment/README.md) | Typical deal sizes |
 
 ### Key Files
 
 | File | Purpose |
 |------|---------|
 | `all.csv` | Complete member list with all categories |
-| `SOURCE.md` | Data source documentation |
+| [`SOURCE.md`](SOURCE.md) | Data source documentation |
 
 ### LinkedIn URL Files
 
 | File | Purpose |
 |------|---------|
-| `monitor-urls-linkedin-aifi.md` | LinkedIn company URLs for AIFI members |
+| [`monitor-urls-linkedin-aifi.md`](monitor-urls-linkedin-aifi.md) | LinkedIn company URLs for AIFI members |
 | `monitor-urls-linkedin-aifi.md.report.csv` | URL discovery results |
-| `linkedin-search-fallbacks.md` | Manual fallback URLs |
+| [`linkedin-search-fallbacks.md`](linkedin-search-fallbacks.md) | Manual fallback URLs |
 
 ### Debug/Reference Files
 

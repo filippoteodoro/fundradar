@@ -69,6 +69,8 @@ cd apps/worker
 pytest
 ```
 
+See [`tests/README.md`](tests/README.md) for the test layout.
+
 ## See Also
 
 - [`CLAUDE.md`](./CLAUDE.md) in this directory for detailed worker notes

@@ -15,6 +15,8 @@ data/
 └── AIFI/               # AIFI data organized by category
 ```
 
+See [AIFI/README.md](AIFI/README.md) for the AIFI data and [monitor-urls.md](monitor-urls.md) for the base domain URLs of the monitored funds.
+
 ## Rules
 
 1. **Never read PDFs directly** - Use `pnpm worker:ingest` to process them

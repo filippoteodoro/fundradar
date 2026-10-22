@@ -146,6 +146,12 @@ playwright install chromium
 - [`docs/data-flow.md`](docs/data-flow.md) — data pipeline and source hierarchy
 - [`docs/runbook.md`](docs/runbook.md) — operations and troubleshooting
 - [`docs/tracking.md`](docs/tracking.md) — consent-gated analytics setup
+- [`SECURITY.md`](SECURITY.md) — security policy
+- [`to_do.md`](to_do.md) — backlog
+- [`archive/README.md`](archive/README.md) — historical audits, sprint plans and references
+- [`scripts/README.md`](scripts/README.md) — Gemini audit and data maintenance scripts
+- [`packages/shared/README.md`](packages/shared/README.md) — shared TypeScript types
+- [`data/README.md`](data/README.md) — data folder layout and rules
 
 ## Contributing
 
